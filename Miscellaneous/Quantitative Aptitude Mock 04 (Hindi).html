@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Mock 04 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>What digit exists at units place in 387<sup>86</sup>?</p></span><span class=\"hqt\" style=\"display:none\"><p>387<sup>86 </sup>&#2350;&#2375;&#2306; &#2311;&#2325;&#2366;&#2312;-&#2360;&#2381;&#2341;&#2366;&#2344; &#2346;&#2352; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2309;&#2306;&#2325; &#2360;&#2381;&#2341;&#2367;&#2340; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">9</span><span class=\"hqt\" style=\"display:none\">9</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>"
+    ],
+    "solution": "<p>Unit digit of (387)<sup>86</sup></p><p>Cyclist of 7 : 7, 9, 3, 1 (After every 4 values, the pattern is repeating)</p><p>Therefore, 86/4 i.e. Remainder = 2</p><p>Thus, the unit digit is 9</p><p>Hence, the correct answer is option B.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A reduction of 20% in the price of apples enables Mohan to purchase 3 more apples for Rs 240. What is the original price of the apple?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2375;&#2348; &#2325;&#2368; &#2325;&#2368;&#2350;&#2340; &#2350;&#2375;&#2306; 20% &#2325;&#2350;&#2368; &#2325;&#2375; &#2325;&#2366;&#2352;&#2339; &#2350;&#2379;&#2361;&#2344; 240 &#2352;&#2370;&#2346;&#2319; &#2350;&#2375;&#2306; 3 &#2360;&#2375;&#2348; &#2324;&#2352; &#2326;&#2352;&#2368;&#2342; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376;| &#2360;&#2375;&#2348; &#2325;&#2366; &#2357;&#2366;&#2360;&#2381;&#2340;&#2357;&#2367;&#2325; &#2350;&#2370;&#2354;&#2381;&#2351; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs 12</span><span class=\"hqt\" style=\"display:none\">12 &#2352;&#2370;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs 20</span><span class=\"hqt\" style=\"display:none\">20 &#2352;&#2370;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs 16</span><span class=\"hqt\" style=\"display:none\">16 &#2352;&#2370;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs 24</span><span class=\"hqt\" style=\"display:none\">24 &#2352;&#2370;&#2346;&#2319;</span>"
+    ],
+    "solution": "<p>Let the original price of the apple = 10p</p><p>And let's assume originally Mohan was able to purchase 'n' apples.</p><p>Therefore; 10p  X  n = 240 ..(1)</p><p>According to the 2<sup>nd</sup> condition; 8p  X  (n + 3) = 240 ..(2)</p><p>From (1) &amp; (2) =&gt; 10pn = 8p(n + 3)</p><p>=&gt;10n = 8 (n + 3)</p><p>=&gt; 10n = 8n + 24</p><p>=&gt; 2n = 24</p><p>=&gt; n = 12</p><p>Now from (1) we will get; 10p = Rs 20</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The centre of the largest circle inside the triangle that can touch all 3 sides of the triangle is called-</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; &#2325;&#2375; &#2309;&#2344;&#2381;&#2342;&#2352; &#2340;&#2368;&#2344;&#2379;&#2306; &#2349;&#2369;&#2332;&#2366;&#2323;&#2306; &#2325;&#2379; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2325;&#2352;&#2344;&#2375; &#2357;&#2366;&#2354;&#2375; &#2360;&#2348;&#2360;&#2375; &#2348;&#2396;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; &#2325;&#2379; &#2325;&#2361;&#2340;&#2375; &#2361;&#2376;&#2306; _</p></span>",
+    "options": [
+      "<span class=\"eqt\">Orthocentre</span><span class=\"hqt\" style=\"display:none\">&#2354;&#2350;&#2381;&#2348;&#2325;&#2375;&#2306;&#2342;&#2381;&#2352;</span>",
+      "<span class=\"eqt\">Circumcentre</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2352;&#2367;&#2325;&#2375;&#2306;&#2342;&#2381;&#2352;</span>",
+      "<span class=\"eqt\">Incentre</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2344;&#2381;&#2340;&#2307; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352;</span>",
+      "<span class=\"eqt\">Centroid</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2344;&#2381;&#2342;&#2381;&#2352;&#2325;</span>"
+    ],
+    "solution": "<p>The centre of the largest circle inside the triangle that can touch all the 3 sides of the circle is called incentre. In case of the equilateral triangle incentre, orthocentre, circumcentre and centroid are same point.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x<sup>3</sup> - 6x<sup>2</sup> + 12x - 8 is divided by x-a, then remainder is 27. What is the value of a?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x<sup>3</sup> - 6x<sup>2</sup> + 12x - 8 &#2325;&#2379; x-a &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2358;&#2375;&#2359;&#2347;&#2354; 27 &#2348;&#2330;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; a &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">Cannot be determined.</span><span class=\"hqt\" style=\"display:none\">&#2344;&#2367;&#2352;&#2381;&#2343;&#2366;&#2352;&#2367;&#2340; &#2344;&#2361;&#2368;&#2306; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366; &#2360;&#2325;&#2340;&#2366;</span>"
+    ],
+    "solution": "<p>If we put x=a in x<sup>3</sup> -6x<sup>2</sup> +12x -8, we get 27</p><p>(a)<sup>3</sup> -6(a)<sup>2</sup> +12a -8 = 27</p><p>(a-2)<sup>3 </sup>= (3)<sup>3</sup></p><p>a-2 =3</p><p>a =5</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If &radic;(54+20&radic;2) = (a&radic;2)  -  b (where a and b are rational numbers), then what is the value of a+b?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &radic;(54+20&radic;2) = (a&radic;2) - b &#2361;&#2376;, (&#2332;&#2361;&#2366;&#2306; a &#2324;&#2352; b are rational numbers), &#2340;&#2379; a+b &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">7</span><span class=\"hqt\" style=\"display:none\">7</span>",
+      "<span class=\"eqt\">-4</span><span class=\"hqt\" style=\"display:none\">-4</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>"
+    ],
+    "solution": "<p>&radic;(54+20&radic;2) = a&radic;2  -  b </p> <p>&radic;[(5&radic;2)<sup>2 </sup>+ (2)<sup>2 </sup>+ 2*2*5&radic;2] = a&radic;2  -  b </p> <p>&radic;(5&radic;2+2)<sup>2 </sup>= a&radic;2  -  b </p> <p>5&radic;2 + 2 = a&radic;2  -  b </p> <p>On comparing both sides we get, a = 5, b = -2 </p> <p>Hence a + b = 5  -  2 = 3</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Mohit starts driving from Delhi to Ambala at 5 am and Rohit starts driving from Ambala to Delhi at 6 am. Rohit is 50% faster than Mohit. When will they meet if Mohit and Rohit are 300 km apart and Mohit's speed is 60 kmph?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2350;&#2379;&#2361;&#2367;&#2340; 5 &#2346;&#2370;&#2352;&#2381;&#2357;&#2366;&#2361;&#2381;&#2344; &#2346;&#2352; &#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2360;&#2375; &#2309;&#2350;&#2381;&#2348;&#2366;&#2354;&#2366; &#2325;&#2375; &#2354;&#2367;&#2319; &#2327;&#2366;&#2396;&#2368; &#2330;&#2354;&#2366;&#2344;&#2366; &#2358;&#2369;&#2352;&#2370; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; &#2352;&#2379;&#2361;&#2367;&#2340; 6 &#2346;&#2370;&#2352;&#2381;&#2357;&#2366;&#2361;&#2381;&#2344; &#2346;&#2352; &#2309;&#2350;&#2381;&#2348;&#2366;&#2354;&#2366; &#2360;&#2375; &#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2325;&#2375; &#2354;&#2367;&#2319; &#2327;&#2366;&#2396;&#2368; &#2330;&#2354;&#2366;&#2344;&#2366; &#2358;&#2369;&#2352;&#2370; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;| &#2352;&#2379;&#2361;&#2367;&#2340;, &#2350;&#2379;&#2361;&#2367;&#2340; &#2360;&#2375; 50% &#2340;&#2375;&#2332;&#2368; &#2360;&#2375; &#2327;&#2366;&#2396;&#2368; &#2330;&#2354;&#2366;&#2340;&#2366; &#2361;&#2376;| &#2351;&#2342;&#2367; &#2350;&#2379;&#2361;&#2367;&#2340; &#2324;&#2352; &#2352;&#2379;&#2361;&#2367;&#2340; &#2319;&#2325;-&#2342;&#2370;&#2360;&#2352;&#2375; &#2360;&#2375; 300 &#2325;&#2367;&#2354;&#2379;&#2350;&#2368;&#2335;&#2352; &#2342;&#2370;&#2352; &#2361;&#2376; &#2324;&#2352; &#2350;&#2379;&#2361;&#2367;&#2340; &#2325;&#2368; &#2327;&#2340;&#2367; 60 &#2325;&#2367;&#2350;&#2368;/&#2346;&#2381;&#2352;&#2340;&#2367; &#2328;&#2306;&#2335;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2357;&#2375; &#2342;&#2379;&#2344;&#2379;&#2306; &#2319;&#2325;-&#2342;&#2370;&#2360;&#2352;&#2375; &#2360;&#2375; &#2325;&#2348; &#2350;&#2367;&#2354;&#2375;&#2306;&#2327;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">7:30 am</span><span class=\"hqt\" style=\"display:none\">7:30 &#2346;&#2370;&#2352;&#2381;&#2357;&#2366;&#2361;&#2381;&#2344;</span>",
+      "<span class=\"eqt\">7:45 am</span><span class=\"hqt\" style=\"display:none\">7:45 &#2346;&#2370;&#2352;&#2381;&#2357;&#2366;&#2361;&#2381;&#2344;</span>",
+      "<span class=\"eqt\">7:48 am</span><span class=\"hqt\" style=\"display:none\">7:48 &#2346;&#2370;&#2352;&#2381;&#2357;&#2366;&#2361;&#2381;&#2344;</span>",
+      "<span class=\"eqt\">7:36 am</span><span class=\"hqt\" style=\"display:none\">7:36 &#2346;&#2370;&#2352;&#2381;&#2357;&#2366;&#2361;&#2381;&#2344;</span>"
+    ],
+    "solution": "<p>Distance covered by Mohit in 1 hour = 60 km.</p> <p>Distance between them when Rohit starts his journey = 300-60 = 240 km</p> <p>Rohit's speed = 60 x 1.5 = 90 km/h</p> <p>Their relative speed = 90+60 = 150 km/h</p> <p>Time after which they meet = 240/150 = 1.6 hours = 1 hour 36 minutes</p> <p>Hence they'll meet at 7:36 am</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the profit percentage of a dishonest cloth merchant who use a scale which measures less by 16.67% and also sells at a price 10% higher than the cost price?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2348;&#2375;&#2312;&#2350;&#2366;&#2344; &#2325;&#2346;&#2396;&#2366; &#2357;&#2381;&#2351;&#2366;&#2346;&#2366;&#2352;&#2368; &#2325;&#2366; &#2354;&#2366;&#2349; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;, &#2332;&#2379; &#2320;&#2360;&#2375; &#2347;&#2368;&#2340;&#2375; &#2325;&#2366; &#2311;&#2360;&#2381;&#2340;&#2375;&#2350;&#2366;&#2354; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376; &#2332;&#2379; 16.67% &#2325;&#2350; &#2350;&#2366;&#2346;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; &#2357;&#2361; &#2325;&#2346;&#2396;&#2375; &#2325;&#2379; &#2325;&#2381;&#2352;&#2351; &#2350;&#2370;&#2354;&#2381;&#2351; &#2360;&#2375; 10% &#2309;&#2343;&#2367;&#2325; &#2346;&#2352; &#2348;&#2375;&#2330;&#2340;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">32</span><span class=\"hqt\" style=\"display:none\">32</span>",
+      "<span class=\"eqt\">30</span><span class=\"hqt\" style=\"display:none\">30</span>",
+      "<span class=\"eqt\">26</span><span class=\"hqt\" style=\"display:none\">26</span>",
+      "<span class=\"eqt\">20</span><span class=\"hqt\" style=\"display:none\">20</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Let the cost be Rs 100/m and length of the cloth sold be 1m.</p> <p>16.67% = (50/3)% = 1/6</p> <p>Hence actual cloth sold = 1  -  1/6 = 5/6 m</p> <p>Therefore, actual CP = 500/6 = Rs 250/3</p> <p>SP = 110</p> <p>Profit% = 100 x (110 - 250/3) / (250/3) = 80 x 100/250 = 32%</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If sec &#952; + tan &#952; = 3, what is the value of tan &#952;?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; sec &#952; + tan &#952; = 3 &#2361;&#2376;, &#2340;&#2379; tan &#952; &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">4/3</span><span class=\"hqt\" style=\"display:none\">4/3</span>",
+      "<span class=\"eqt\">3/2</span><span class=\"hqt\" style=\"display:none\">3/2</span>",
+      "<span class=\"eqt\">5/2</span><span class=\"hqt\" style=\"display:none\">5/2</span>",
+      "<span class=\"eqt\">5/4</span><span class=\"hqt\" style=\"display:none\">5/4</span>"
+    ],
+    "solution": "<p>We know that sec&#178; &#952; - tan&#178; &#952; = 1.</p> <p>Applying the formula (a&#178; - b&#178;) = (a + b)(a - b), we get</p> <p>(sec &#952; + tan &#952;)(sec &#952; - tan &#952;) = 1</p> <p>Given, sec &#952; + tan &#952; = 3...(i)</p> <p>=&gt; 3 * (sec &#952; - tan &#952;) = 1</p> <p>=&gt; (sec &#952; - tan &#952;) = 1/3...(ii)</p> <p>Solving equations (i) and (ii)</p> <p>=&gt; 2tan &#952; = 3 - 1/3</p> <p>=&gt; 2tan &#952; = 8/3</p> <p>=&gt; tan&#952; = 4/3</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A hall 10 m long, 2.5 m high and 4 m wide has one door of 1.5 m by 1 m and two windows of 1 m by 0.50 m. The cost of coloring the walls and the ceiling at Rs.12 per sq. m is </p></span><span class=\"hqt\" style=\"display:none\"><p>10 &#2350;&#2368;&#2335;&#2352; &#2354;&#2350;&#2381;&#2348;&#2375;, 2.5 &#2350;&#2368;&#2335;&#2352; &#2314;&#2305;&#2330;&#2375; &#2324;&#2352; 4 &#2350;&#2368;&#2335;&#2352; &#2330;&#2380;&#2396;&#2375; &#2319;&#2325; &#2361;&#2377;&#2354; &#2350;&#2375;&#2306; 1.5 &#2350;&#2368;&#2335;&#2352; * 1 &#2350;&#2368;&#2335;&#2352; &#2357;&#2366;&#2354;&#2366; &#2319;&#2325; &#2342;&#2352;&#2357;&#2366;&#2332;&#2366; &#2361;&#2376; &#2324;&#2352; 1 &#2350;&#2368;&#2335;&#2352; * 0.50 &#2350;&#2368;&#2335;&#2352; &#2357;&#2366;&#2354;&#2368; &#2342;&#2379; &#2326;&#2367;&#2396;&#2325;&#2367;&#2351;&#2366;&#2305; &#2361;&#2376;&#2306;| 12 &#2352;&#2370;&#2346;&#2351;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367; &#2357;&#2352;&#2381;&#2327; &#2350;&#2368;&#2335;&#2352; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; &#2325;&#2350;&#2352;&#2375; &#2325;&#2368; &#2342;&#2368;&#2357;&#2366;&#2352;&#2379;&#2306; &#2324;&#2352; &#2331;&#2340; &#2325;&#2379; &#2352;&#2306;&#2327;&#2344;&#2375; &#2325;&#2368; &#2354;&#2366;&#2327;&#2340; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs.1190</span><span class=\"hqt\" style=\"display:none\">1190 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.1230</span><span class=\"hqt\" style=\"display:none\">1230 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.1290</span><span class=\"hqt\" style=\"display:none\">1290 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.1330</span><span class=\"hqt\" style=\"display:none\">1330 &#2352;&#2370;&#2346;&#2351;&#2375;</span>"
+    ],
+    "solution": "<p>Area of walls and ceiling = 2(10*2.5 + 2.5*4) + 10*4 = 110 m&#178;</p> <p>Area to be colored = 110  -  (1.5*1)  -  2(1*0.5) = 107.5 m&#178;</p> <p>Required cost = 107.5*12 = Rs.1290</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><div>&nbsp;If &theta; is a positive acute angle and tan 2&theta; tan 3&theta; = 1, then find the value of: 2 cos<sup>2</sup>&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">5&theta;</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">2</span></div>&nbsp; - 1&nbsp;</div></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#952; &#2319;&#2325; &#2343;&#2344;&#2366;&#2340;&#2381;&#2350;&#2325; &#2344;&#2381;&#2351;&#2370;&#2344; &#2325;&#2379;&#2339; &#2361;&#2376; &#2324;&#2352; tan 2&#952; tan 3&#952; = 1, &#2340;&#2379; 2 cos<sup>2</sup>5&#952;/2 - 1 &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">-1/2</span><span class=\"hqt\" style=\"display:none\">-1/2</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">1/2</span><span class=\"hqt\" style=\"display:none\">1/2</span>"
+    ],
+    "solution": " <p>tan 2&theta; tan 3&theta; = 1</p> <p>tan 3&theta; = 1/tan 2&theta; = cot 2&theta;</p><p>tan 3&theta; = tan (&pi;/2 - 2&theta;)</p><p>3&theta; = &pi;/2 - 2&theta; or &theta; = &pi;/10</p><p>Hence, 2 cos<sup>2</sup> (5&theta;/2) - 1 = cos 5&theta; = cos (&pi;/2) = 0</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x + 1/16x = 1, then 64x<sup>3</sup> + 1/64x<sup>3</sup> will be </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x + 1/16x = 1 &#2361;&#2376;, &#2340;&#2379; 64x<sup>3</sup> + 1/64x<sup>3</sup> &#2361;&#2379;&#2327;&#2366;-</p></span>",
+    "options": [
+      "<span class=\"eqt\">40</span><span class=\"hqt\" style=\"display:none\">40</span>",
+      "<span class=\"eqt\">52</span><span class=\"hqt\" style=\"display:none\">52</span>",
+      "<span class=\"eqt\">74</span><span class=\"hqt\" style=\"display:none\">74</span>",
+      "<span class=\"eqt\">76</span><span class=\"hqt\" style=\"display:none\">76</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>x + 1/16x = 1</p> <p>Multiplying by 4 on both sides</p> <p>4x + 1/4x = 4</p> <p>Cube both sides</p> <p>(4x + 1/4x)<sup>3</sup> = (4x)<sup>3</sup> + (1/4x)<sup>3</sup> + 3*4x*1/4x* (4x + 1/4x)</p> <p>64 = 64x<sup>3</sup> + 1/64x<sup>3</sup> + 3*4</p> <p>64x<sup>3</sup> + 1/64x<sup>3</sup> = 64  -  12 = 52</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If the cost price of 60 guavas is same as the selling price of 25 guavas, what is the gain or loss percentage?</p></span><span class=\"hqt\" style=\"display:none\"><p>60 &#2309;&#2350;&#2352;&#2370;&#2342;&#2379;&#2306; &#2325;&#2366; &#2325;&#2381;&#2352;&#2351; &#2350;&#2370;&#2354;&#2381;&#2351; 25 &#2309;&#2350;&#2352;&#2370;&#2342;&#2379;&#2306; &#2325;&#2375; &#2357;&#2367;&#2325;&#2381;&#2352;&#2351; &#2350;&#2370;&#2354;&#2381;&#2351; &#2325;&#2375; &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2376;, &#2340;&#2379; &#2354;&#2366;&#2349; &#2351;&#2366; &#2361;&#2366;&#2344;&#2367; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">50%</span><span class=\"hqt\" style=\"display:none\">50%</span>",
+      "<span class=\"eqt\">140%</span><span class=\"hqt\" style=\"display:none\">140%</span>",
+      "<span class=\"eqt\">90%</span><span class=\"hqt\" style=\"display:none\">90%</span>",
+      "<span class=\"eqt\">75%</span><span class=\"hqt\" style=\"display:none\">75%</span>"
+    ],
+    "solution": "<p>CP of 60 guavas = SP of 25 guavas</p><p>25 x SP = 60 x CP which gives SP/CP = 12/5</p><p>As SP is greater than CP, there will be profit.</p><p>Profit % = (SP-CP)/CP x 100 = (SP/CP  -  1)x100 = (12/5  -  1) x 100 = 140%.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Triangle ABC is right angled at B. BN is perpendicular to AC. If AB = 3 cm, BC = 4 cm, find AN : NC </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; ABC &#2350;&#2375;&#2306; &#2325;&#2379;&#2339; B &#2360;&#2350;&#2325;&#2379;&#2339; &#2361;&#2376;| BN, AC &#2346;&#2352; &#2354;&#2350;&#2381;&#2348;&#2357;&#2340; &#2361;&#2376;| &#2351;&#2342;&#2367; AB = 3 &#2360;&#2375;&#2350;&#2368;., BC = 4 &#2360;&#2375;&#2350;&#2368;. &#2361;&#2376;, &#2340;&#2379; AN : NC &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">7:9</span><span class=\"hqt\" style=\"display:none\">7:9</span>",
+      "<span class=\"eqt\">9:16</span><span class=\"hqt\" style=\"display:none\">9:16</span>",
+      "<span class=\"eqt\">7:12</span><span class=\"hqt\" style=\"display:none\">7:12</span>",
+      "<span class=\"eqt\">7:16</span><span class=\"hqt\" style=\"display:none\">7:16</span>"
+    ],
+    "solution": "<p><img width=108 height=87 id=\"Picture 12\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/81355/image005.jpg\"></p> <p>By Pythagoras theorem, AC = &radic;9+16 = 5 cm</p> <p>In triangles, ANB and ABC,</p> <p>&#8736;ANB = &#8736;ABC = 90<sup>o</sup></p> <p>&#8736;A = &#8736;A (common)</p> <p>Hence they are similar.</p> <p>AN/AB = AB/AC</p> <p>AN = 3 x 3/5 = 1.8 cm</p> <p>Hence, NC = 5  -  1.8 = 3.2 cm</p> <p>AN : NC = 1.8: 3.2 = 9:16 </p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a parallelogram MNOP, the measure of angle N is of (4b-40)&deg; and the measure of angle P is of (2b-8)&deg;. Find the angle at O? </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2350;&#2366;&#2344;&#2381;&#2340;&#2352; &#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; MNOP &#2350;&#2375;&#2306; &#2325;&#2379;&#2339; N &#2325;&#2366; &#2350;&#2366;&#2344; (4b-40)&deg; &#2361;&#2376; &#2324;&#2352; &#2325;&#2379;&#2339; P &#2325;&#2366; &#2350;&#2366;&#2344; (2b-8)&deg; &#2361;&#2376;| &#2325;&#2379;&#2339; O &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306; ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">103&deg;</span><span class=\"hqt\" style=\"display:none\">103&deg;</span>",
+      "<span class=\"eqt\">198&deg;</span><span class=\"hqt\" style=\"display:none\">198&deg;</span>",
+      "<span class=\"eqt\">232&deg;</span><span class=\"hqt\" style=\"display:none\">232&deg;</span>",
+      "<span class=\"eqt\">156&deg;</span><span class=\"hqt\" style=\"display:none\">156&deg;</span>"
+    ],
+    "solution": "<p>In a parallelogram, angles N and P are the opposite angles and hence they are congruent to each other.</p><p>4b-40=2b-8 &#8594;2b=32</p><p>Therefore b=16</p><p>Hence the angle N has a measure of 4b-40=4 X 16-40=24&deg;</p><p>Angle M is the consecutive angle, so it is 180&deg;-24=156&deg;</p><p>Hence the angle O is equal to M which is also 156&deg;.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>[(3  -  4 sin<sup>2</sup>x)/cos<sup>2</sup>x]+ tan<sup>2</sup>x = ?</p></span><span class=\"hqt\" style=\"display:none\"><p>[(3 - 4 sin<sup>2</sup>x)/cos<sup>2</sup>x]+ tan<sup>2</sup>x = ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>"
+    ],
+    "solution": "<p>[(3 - 4 sin<sup>2</sup>x)/cos<sup>2</sup>x]+ tan<sup>2</sup>x = 3(sec x)<sup>2</sup> - 4(tan x)<sup>2</sup> + (tan x)<sup>2</sup></p><p>= 3(sec x)<sup>2</sup>  -  3(tan x)<sup>2</sup></p><p>= 3((sec x)<sup>2</sup> - (tan x)<sup>2</sup>)</p><p>= 3</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If a+b=1, find the value of a<sup>3</sup> + b<sup>3</sup> +3ab.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; a+b=1 &#2361;&#2376;, &#2340;&#2379; a<sup>3</sup> + b<sup>3</sup> +3ab &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">None of these</span><span class=\"hqt\" style=\"display:none\">&#2311;&#2344;&#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2379;&#2312; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "solution": "<p>a<sup>3</sup>+b<sup>3</sup>+3ab </p> <p>=(a+b)<sup>3</sup> -3ab(a+b)+3ab </p> <p>=1-3ab +3ab </p> <p>=1</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The length of a string between a kite and a point on the ground is 111. If the string makes an angle &#952; with the level ground such that tan&#952; = 35/12, then how high is the kite?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2346;&#2340;&#2306;&#2327; &#2324;&#2352; &#2343;&#2352;&#2366;&#2340;&#2354; &#2346;&#2352; &#2360;&#2381;&#2341;&#2367;&#2340; &#2319;&#2325; &#2348;&#2367;&#2306;&#2342;&#2369; &#2325;&#2375; &#2348;&#2368;&#2330; &#2337;&#2379;&#2352; &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; 111 &#2350;&#2368;&#2335;&#2352; &#2361;&#2376;| &#2351;&#2342;&#2367; &#2337;&#2379;&#2352; &#2343;&#2352;&#2366;&#2340;&#2354; &#2325;&#2375; &#2360;&#2366;&#2341; &#2319;&#2325; &#2325;&#2379;&#2339; &#952; &#2311;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2348;&#2344;&#2366;&#2340;&#2368; &#2361;&#2376; &#2325;&#2367; tan&#952; = 35/12 &#2361;&#2376;, &#2340;&#2379; &#2346;&#2340;&#2306;&#2327; &#2325;&#2368; &#2313;&#2306;&#2330;&#2366;&#2312; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">101 m</span><span class=\"hqt\" style=\"display:none\">101 &#2350;&#2368;.</span>",
+      "<span class=\"eqt\">105 m</span><span class=\"hqt\" style=\"display:none\">105 &#2350;&#2368;.</span>",
+      "<span class=\"eqt\">95 m</span><span class=\"hqt\" style=\"display:none\">95 &#2350;&#2368;.</span>",
+      "<span class=\"eqt\">108 m</span><span class=\"hqt\" style=\"display:none\">108 &#2350;&#2368;.</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=295 height=201 id=\"Picture 4\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/575027/image004.jpg\"></p> <p>Let AB = 35x and BC = 12x</p> <p>(AC)<sup>2</sup> = (AB)<sup>2</sup> + (BC)<sup>2</sup></p> <p>111<sup>2</sup> = 1225x<sup>2</sup> + 144x<sup>2</sup></p> <p>x<sup>2</sup> = 9</p> <p>x = 3</p> <p>Therefore, height of the kite = 35 x 3 = 105 m</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Pipe A fills the tank at the rate of 60 cubic m/hr. Pipe B fills it in 4 hrs. If both are opened simultaneously, the tank is filled in 2 hrs. What is the volume of the tank?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2346;&#2366;&#2311;&#2346; A &#2335;&#2376;&#2306;&#2325; &#2325;&#2379; 60 &#2325;&#2381;&#2351;&#2370;&#2348;&#2367;&#2325; &#2350;&#2368;&#2335;&#2352;/&#2328;&#2306;&#2335;&#2366; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; &#2349;&#2352;&#2340;&#2366; &#2361;&#2376;| &#2346;&#2366;&#2311;&#2346; B &#2313;&#2360;&#2368; &#2335;&#2376;&#2306;&#2325; &#2325;&#2379; 4 &#2328;&#2306;&#2335;&#2375; &#2350;&#2375;&#2306; &#2349;&#2352;&#2340;&#2366; &#2361;&#2376;| &#2351;&#2342;&#2367; &#2342;&#2379;&#2344;&#2379;&#2306; &#2346;&#2366;&#2311;&#2346;&#2379;&#2306; &#2325;&#2379; &#2319;&#2325; &#2360;&#2366;&#2341; &#2326;&#2379;&#2354; &#2342;&#2367;&#2351;&#2366; &#2332;&#2366;&#2319;, &#2340;&#2379; &#2335;&#2376;&#2306;&#2325; 2 &#2328;&#2306;&#2335;&#2375; &#2350;&#2375;&#2306; &#2349;&#2352; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;| &#2335;&#2376;&#2306;&#2325; &#2325;&#2366; &#2310;&#2351;&#2340;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">100 cu m</span><span class=\"hqt\" style=\"display:none\">100 &#2325;&#2381;&#2351;&#2370;&#2348;&#2367;&#2325; &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">200 cu m</span><span class=\"hqt\" style=\"display:none\">200 &#2325;&#2381;&#2351;&#2370;&#2348;&#2367;&#2325; &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">240 cu m</span><span class=\"hqt\" style=\"display:none\">240 &#2325;&#2381;&#2351;&#2370;&#2348;&#2367;&#2325; &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">80 cu m</span><span class=\"hqt\" style=\"display:none\">80 &#2325;&#2381;&#2351;&#2370;&#2348;&#2367;&#2325; &#2350;&#2368;&#2335;&#2352;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>In 1 hr pipe A fills 60 cubic metre and pipe B fills 1/4 of the tank. </p> <p>Let the capacity of the tank be v cubic metre.</p> <p>Tank filled in 1 hour = 60+v/4=v/2</p> <p>=&gt; v/4 = 60</p> <p>=&gt; v = 240</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The average weight of all the 200 employees in an office is 68.2 kg, where 2/5 employees are ladies and the ratio of average weight of men and women is 7:5. The average weight of female employees is:</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2325;&#2366;&#2352;&#2381;&#2351;&#2366;&#2354;&#2351; &#2350;&#2375;&#2306; &#2360;&#2349;&#2368; 200 &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2366; &#2324;&#2360;&#2340; &#2357;&#2332;&#2344; 68.2 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2361;&#2376;, &#2332;&#2361;&#2366;&#2306; 2/5 &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2368; &#2350;&#2361;&#2367;&#2354;&#2366;&#2319;&#2306; &#2361;&#2376;&#2306; &#2340;&#2341;&#2366; &#2346;&#2369;&#2352;&#2369;&#2359;&#2379;&#2306; &#2324;&#2352; &#2350;&#2361;&#2367;&#2354;&#2366;&#2323;&#2306; &#2325;&#2375; &#2324;&#2360;&#2340; &#2357;&#2332;&#2344; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 7: 5 &#2361;&#2376;, &#2340;&#2379; &#2350;&#2361;&#2367;&#2354;&#2366; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2366; &#2324;&#2360;&#2340; &#2357;&#2332;&#2344; &#2361;&#2376;:</p></span>",
+    "options": [
+      "<span class=\"eqt\">59 kg</span><span class=\"hqt\" style=\"display:none\">59 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">55 kg</span><span class=\"hqt\" style=\"display:none\">55 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">54 kg</span><span class=\"hqt\" style=\"display:none\">54 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">60 kg</span><span class=\"hqt\" style=\"display:none\">60 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>200 x 2/5 = 80 employees are ladies</p> <p>Let the average weight of men be 7n and that of women be 5n.</p> <p>80 x 5n + 120 x 7n = 68.2 x 200</p> <p>=&gt; 1240n = 13640</p> <p>=&gt; n = 11</p> <p>The required average weight = 5 x 11 =55 kg.</p>",
+    "question_index": 18
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Answer the following questions referring to the pie chart given below:</p><p>Number of seats in various engineering branch of Delhi engineering college</p><p>Seats in Delhi engineering college = 400</p><p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/ssm2234.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; {4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; } :</b> &#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2313;&#2340;&#2381;&#2340;&#2352; &#2346;&#2366;&#2312; &#2330;&#2366;&#2352;&#2381;&#2335; &#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2346;&#2352; &#2342;&#2375;&#2306; :</p><p>&#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2311;&#2306;&#2332;&#2368;&#2344;&#2367;&#2351;&#2352;&#2367;&#2306;&#2327; &#2350;&#2361;&#2366;&#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2354;&#2351; &#2325;&#2375; &#2357;&#2367;&#2349;&#2367;&#2344;&#2381;&#2344; &#2358;&#2366;&#2326;&#2366;&#2323;&#2306; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;</p><p>&#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2311;&#2306;&#2332;&#2368;&#2344;&#2367;&#2351;&#2352;&#2367;&#2306;&#2327; &#2350;&#2361;&#2366;&#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2354;&#2351; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2375;&#2306; = 400</p><p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/ssm2234.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>How much degree represent the mechanical and electrical branches together in the pie chart?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2367;&#2319; &#2327;&#2319; &#2357;&#2371;&#2340;&#2381;&#2340; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; &#2350;&#2375;&#2325;&#2375;&#2344;&#2367;&#2325;&#2354; &#2324;&#2352; &#2311;&#2354;&#2375;&#2325;&#2381;&#2335;&#2381;&#2352;&#2367;&#2325;&#2354; &#2358;&#2366;&#2326;&#2366;&#2323;&#2306; &#2325;&#2366; &#2360;&#2306;&#2351;&#2369;&#2325;&#2381;&#2340; &#2352;&#2370;&#2346; &#2360;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2344;&#2367;&#2343;&#2367;&#2340;&#2357; &#2325;&#2352;&#2344;&#2375; &#2357;&#2366;&#2354;&#2368; &#2337;&#2367;&#2327;&#2381;&#2352;&#2368;/&#2309;&#2306;&#2358; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2368;/&#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">144&deg;</span><span class=\"hqt\" style=\"display:none\">144&deg;</span>",
+      "<span class=\"eqt\">154&deg;</span><span class=\"hqt\" style=\"display:none\">154&deg;</span>",
+      "<span class=\"eqt\">194&deg;</span><span class=\"hqt\" style=\"display:none\">194&deg;</span>",
+      "<span class=\"eqt\">204&deg;</span><span class=\"hqt\" style=\"display:none\">204&deg;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Mechanical + electrical = (30 + 10) = 40</p><p>100% seats are shown by 360&deg;</p><p>40% seats are shown by 360/100 X 40 = 144&deg;</p>",
+    "question_index": 19
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Answer the following questions referring to the pie chart given below:</p><p>Number of seats in various engineering branch of Delhi engineering college</p><p>Seats in Delhi engineering college = 400</p><p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/ssm2234.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; {4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; } :</b> &#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2313;&#2340;&#2381;&#2340;&#2352; &#2346;&#2366;&#2312; &#2330;&#2366;&#2352;&#2381;&#2335; &#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2346;&#2352; &#2342;&#2375;&#2306; :</p><p>&#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2311;&#2306;&#2332;&#2368;&#2344;&#2367;&#2351;&#2352;&#2367;&#2306;&#2327; &#2350;&#2361;&#2366;&#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2354;&#2351; &#2325;&#2375; &#2357;&#2367;&#2349;&#2367;&#2344;&#2381;&#2344; &#2358;&#2366;&#2326;&#2366;&#2323;&#2306; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;</p><p>&#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2311;&#2306;&#2332;&#2368;&#2344;&#2367;&#2351;&#2352;&#2367;&#2306;&#2327; &#2350;&#2361;&#2366;&#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2354;&#2351; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2375;&#2306; = 400</p><p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/ssm2234.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>Number of seats in auto mobile branch is what percentage of number of seats in electronics?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2321;&#2335;&#2379; &#2350;&#2379;&#2348;&#2366;&#2311;&#2354; &#2348;&#2381;&#2352;&#2366;&#2306;&#2330; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2311;&#2354;&#2375;&#2325;&#2381;&#2335;&#2381;&#2352;&#2379;&#2344;&#2367;&#2325;&#2381;&#2360; &#2348;&#2381;&#2352;&#2366;&#2306;&#2330; &#2325;&#2375; &#2360;&#2368;&#2335;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2366; &#2325;&#2367;&#2340;&#2344;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">30</span><span class=\"hqt\" style=\"display:none\">30</span>",
+      "<span class=\"eqt\">25</span><span class=\"hqt\" style=\"display:none\">25</span>",
+      "<span class=\"eqt\">33</span><span class=\"hqt\" style=\"display:none\">33</span>",
+      "<span class=\"eqt\">38</span><span class=\"hqt\" style=\"display:none\">38</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Number of seats in automobiles = 5/100 X 400=20</p><p>Number of seats in electronics = 15/100 X 400=60</p><p>Let number of seats in auto mobile is x% of no. of seats in electronics</p><p>=&gt; 20 = x/100 X 60= 100/3 = 33.33% </p>",
+    "question_index": 20
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Answer the following questions referring to the pie chart given below:</p><p>Number of seats in various engineering branch of Delhi engineering college</p><p>Seats in Delhi engineering college = 400</p><p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/ssm2234.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; {4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; } :</b> &#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2313;&#2340;&#2381;&#2340;&#2352; &#2346;&#2366;&#2312; &#2330;&#2366;&#2352;&#2381;&#2335; &#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2346;&#2352; &#2342;&#2375;&#2306; :</p><p>&#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2311;&#2306;&#2332;&#2368;&#2344;&#2367;&#2351;&#2352;&#2367;&#2306;&#2327; &#2350;&#2361;&#2366;&#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2354;&#2351; &#2325;&#2375; &#2357;&#2367;&#2349;&#2367;&#2344;&#2381;&#2344; &#2358;&#2366;&#2326;&#2366;&#2323;&#2306; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;</p><p>&#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2311;&#2306;&#2332;&#2368;&#2344;&#2367;&#2351;&#2352;&#2367;&#2306;&#2327; &#2350;&#2361;&#2366;&#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2354;&#2351; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2375;&#2306; = 400</p><p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/ssm2234.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>Number of students in mechanical branch is what percentage of sum of total seats in computer science, Auto mobile, electrical and electronics approximately?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2350;&#2375;&#2325;&#2375;&#2344;&#2367;&#2325;&#2354; &#2358;&#2366;&#2326;&#2366; &#2350;&#2375;&#2306; &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2325;&#2306;&#2346;&#2381;&#2351;&#2370;&#2335;&#2352; &#2360;&#2366;&#2311;&#2306;&#2360;, &#2321;&#2335;&#2379; &#2350;&#2379;&#2348;&#2366;&#2311;&#2354;, &#2311;&#2354;&#2375;&#2325;&#2381;&#2335;&#2381;&#2352;&#2367;&#2325;&#2354; &#2324;&#2352; &#2311;&#2354;&#2375;&#2325;&#2381;&#2335;&#2381;&#2352;&#2379;&#2344;&#2367;&#2325;&#2381;&#2360; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2379;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2375; &#2351;&#2379;&#2327; &#2325;&#2366; &#2354;&#2327;&#2349;&#2327; &#2325;&#2367;&#2340;&#2344;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">87.32%</span><span class=\"hqt\" style=\"display:none\">87.32%</span>",
+      "<span class=\"eqt\">66.66%</span><span class=\"hqt\" style=\"display:none\">66.66%</span>",
+      "<span class=\"eqt\">75.76%</span><span class=\"hqt\" style=\"display:none\">75.76%</span>",
+      "<span class=\"eqt\">78.26%</span><span class=\"hqt\" style=\"display:none\">78.26%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Percentage seats in (computer science + automobiles + electrical + electronics) = (15 + 5 + 10 + 15) = 45%</p><p>Number of seats in above branches = (400 X 45)/100=180</p><p>Number of students in mechanical branch = (400 X 30)/100=120</p><p>Now let the mechanical students are x% of (computer + electrical + electronic + automobiles)</p><p>I.e., (180 X x)/100=120</p><p>=&gt; x = (120 X 100)/180=66.66%</p>",
+    "question_index": 21
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Answer the following questions referring to the pie chart given below:</p><p>Number of seats in various engineering branch of Delhi engineering college</p><p>Seats in Delhi engineering college = 400</p><p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/ssm2234.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; {4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; } :</b> &#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2313;&#2340;&#2381;&#2340;&#2352; &#2346;&#2366;&#2312; &#2330;&#2366;&#2352;&#2381;&#2335; &#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2346;&#2352; &#2342;&#2375;&#2306; :</p><p>&#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2311;&#2306;&#2332;&#2368;&#2344;&#2367;&#2351;&#2352;&#2367;&#2306;&#2327; &#2350;&#2361;&#2366;&#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2354;&#2351; &#2325;&#2375; &#2357;&#2367;&#2349;&#2367;&#2344;&#2381;&#2344; &#2358;&#2366;&#2326;&#2366;&#2323;&#2306; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;</p><p>&#2342;&#2367;&#2354;&#2381;&#2354;&#2368; &#2311;&#2306;&#2332;&#2368;&#2344;&#2367;&#2351;&#2352;&#2367;&#2306;&#2327; &#2350;&#2361;&#2366;&#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2354;&#2351; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2375;&#2306; = 400</p><p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/ssm2234.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>Number of seats in auto mobile branch represents how much degree in piechart?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2367;&#2319; &#2327;&#2319; &#2357;&#2371;&#2340;&#2381;&#2340; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; &#2321;&#2335;&#2379; &#2350;&#2379;&#2348;&#2366;&#2311;&#2354; &#2358;&#2366;&#2326;&#2366; &#2350;&#2375;&#2306; &#2360;&#2368;&#2335;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2368; &#2337;&#2367;&#2327;&#2381;&#2352;&#2368;/&#2309;&#2306;&#2358; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">38&deg;</span><span class=\"hqt\" style=\"display:none\">38&deg;</span>",
+      "<span class=\"eqt\">78&deg;</span><span class=\"hqt\" style=\"display:none\">78&deg;</span>",
+      "<span class=\"eqt\">18&deg;</span><span class=\"hqt\" style=\"display:none\">18&deg;</span>",
+      "<span class=\"eqt\">28&deg;</span><span class=\"hqt\" style=\"display:none\">28&deg;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>100% seats = 360&deg;</p><p>5% seats = (360 X 5)/100=18&deg;</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A man invests Rs 10,000 in some shares in the ratio 2:3:5 which pay dividends of 10%, 25% and 20% on his investment for that year respectively. Find his dividend income.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; 10,000 &#2352;&#2370;&#2346;&#2319; &#2325;&#2368; &#2319;&#2325; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; &#2325;&#2379; 2:3:5 &#2325;&#2375; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2350;&#2375;&#2306; &#2325;&#2369;&#2331; &#2358;&#2375;&#2351;&#2352;&#2379;&#2306; &#2350;&#2375;&#2306; &#2344;&#2367;&#2357;&#2375;&#2358; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376; &#2332;&#2379; &#2313;&#2360; &#2357;&#2352;&#2381;&#2359;, &#2313;&#2360;&#2325;&#2375; &#2344;&#2367;&#2357;&#2375;&#2358; &#2325;&#2375; &#2354;&#2367;&#2319; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 10%, 25% &#2324;&#2352; 20% &#2325;&#2366; &#2354;&#2366;&#2349;&#2366;&#2306;&#2358; &#2342;&#2375;&#2340;&#2375; &#2361;&#2376;&#2306;| &#2313;&#2360;&#2325;&#2368; &#2354;&#2366;&#2349;&#2366;&#2306;&#2358; &#2310;&#2351; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs 1900</span><span class=\"hqt\" style=\"display:none\">1900 &#2352;&#2369;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs 2000</span><span class=\"hqt\" style=\"display:none\">2000 &#2352;&#2369;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs 2050</span><span class=\"hqt\" style=\"display:none\">2050 &#2352;&#2369;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs 1950</span><span class=\"hqt\" style=\"display:none\">1950 &#2352;&#2369;&#2346;&#2319;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": " <p>Let man's investment in shares are Rs 2x, 3x and Rs 5x</p> <p>2x + 3x + 5x = 10000</p> <p>=&gt; x = 1000</p> <p>Income from dividend</p> <div><div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">2000x10</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">100</span></div>&nbsp; + &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">3000x25</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">100</span></div>&nbsp; + &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">5000x20</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">100</span></div></div><p>= 200 + 750 + 1000 = 1950</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Rekha lent Rs.600 to Rakhi for 2 yrs and Rs.150 to Badr for 4 yrs at the same rate of interest. She received a total of Rs.162 as simple interest. The rate of interest is:</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2352;&#2375;&#2326;&#2366; &#2344;&#2375; &#2352;&#2366;&#2326;&#2368; &#2325;&#2379; 600 &#2352;&#2370;&#2346;&#2319; 2 &#2357;&#2352;&#2381;&#2359; &#2325;&#2375; &#2354;&#2367;&#2319; &#2324;&#2352; &#2348;&#2342;&#2381;&#2352; &#2325;&#2379; 150 &#2352;&#2370;&#2346;&#2319; 4 &#2357;&#2352;&#2381;&#2359; &#2325;&#2375; &#2354;&#2367;&#2319; &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2368; &#2360;&#2350;&#2366;&#2344; &#2342;&#2352; &#2346;&#2352; &#2313;&#2343;&#2366;&#2352; &#2342;&#2367;&#2319;| &#2313;&#2360;&#2344;&#2375; &#2360;&#2366;&#2343;&#2366;&#2352;&#2339; &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2325;&#2369;&#2354; 162 &#2352;&#2370;&#2346;&#2319; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2325;&#2367;&#2351;&#2375;| &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2368; &#2342;&#2352; &#2361;&#2376;:</p></span>",
+    "options": [
+      "<span class=\"eqt\">4%</span><span class=\"hqt\" style=\"display:none\">4%</span>",
+      "<span class=\"eqt\">9%</span><span class=\"hqt\" style=\"display:none\">9%</span>",
+      "<span class=\"eqt\">10%</span><span class=\"hqt\" style=\"display:none\">10%</span>",
+      "<span class=\"eqt\">12%</span><span class=\"hqt\" style=\"display:none\">12%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Let, rate= r% per annum. By condition, (600  X r  X 2)/100 + (150  X r  X 4)/100 = 162</p> <p>Or, 12r + 6r =162</p> <p>Or, 18r = 162</p> <p>Therefore, r= 9%. </p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

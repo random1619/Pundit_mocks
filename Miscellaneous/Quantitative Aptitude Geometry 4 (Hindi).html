@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Geometry 4 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>&#8710;ABC is inscribed inside a circle and there is a point D on the arc BC opposite to A such that BD = CD. If &#8736;BAC = 70&deg; and &#8736;ABD = 85&deg;, then find the measure of &#8736;BCA.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#8710;ABC &#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2309;&#2306;&#2340;&#2352;&#2381;&#2327;&#2340; &#2309;&#2306;&#2325;&#2367;&#2340; &#2361;&#2376; &#2324;&#2352; &#2319;&#2325; &#2348;&#2367;&#2306;&#2342;&#2369; D &#2330;&#2366;&#2346; BC &#2346;&#2352; A &#2325;&#2375; &#2357;&#2367;&#2346;&#2352;&#2368;&#2340; &#2311;&#2360; &#2340;&#2352;&#2361; &#2360;&#2375; &#2361;&#2376; &#2325;&#2367; BD = CD &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#8736;BAC = 70&deg; &#2324;&#2352; &#8736;ABD = 85&deg; &#2361;&#2376;, &#2340;&#2379; &#8736;BCA &#2325;&#2366; &#2350;&#2366;&#2346; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">45&deg;</span><span class=\"hqt\" style=\"display:none\">45&deg;</span>",
+      "<span class=\"eqt\">55&deg;</span><span class=\"hqt\" style=\"display:none\">55&deg;</span>",
+      "<span class=\"eqt\">35&deg;</span><span class=\"hqt\" style=\"display:none\">35&deg;</span>",
+      "<span class=\"eqt\">60&deg;</span><span class=\"hqt\" style=\"display:none\">60&deg;</span>"
+    ],
+    "solution": "<p><img width=173 height=168 id=\"Picture 15\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11823/image004.png\"></p><p><b>We know that:</b> The opposite angles in a cyclic quadrilateral are supplementary.</p><p>&#8736;BAC + &#8736;BDC = 180&deg;</p><p>&#8736;ABD + &#8736;ACD = 180&deg;</p><p>&#8736;BDC = 110&deg;</p><p>&#8736;ACD = 95&deg;</p><p>In &#8710;BCD:</p><p>&#8736;BCD = &#8736;CBD [BD = CD]</p><p>&#8736;BCD + &#8736;CBD + &#8736;BDC = 180&deg;</p><p>&#8736;BCD = 35&deg;</p><p>&#8736;ACD = 95&deg;</p><p>&#8736;BCA + &#8736;BCD = 95&deg;</p><p>&#8736;BCA = 60&deg;</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a &#8710;PQR, internal angle bisectors of &#8736;Q and &#8736;R meet at I while external angle bisectors of &#8736;Q and &#8736;R meet at X. If &#8736;P = 54&deg;, then find the measures of &#8736;QIR and &#8736;QXR, respectively.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#8710;PQR &#2350;&#2375;&#2306;, &#8736;Q &#2324;&#2352; &#8736;R &#2325;&#2375; &#2310;&#2306;&#2340;&#2352;&#2367;&#2325; &#2325;&#2379;&#2339; &#2342;&#2381;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; I &#2346;&#2352; &#2350;&#2367;&#2354;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2332;&#2348;&#2325;&#2367; &#8736;Q &#2324;&#2352; &#8736;R &#2325;&#2375; &#2348;&#2366;&#2361;&#2352;&#2368; &#2325;&#2379;&#2339; &#2342;&#2381;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; X &#2346;&#2352; &#2350;&#2367;&#2354;&#2340;&#2375; &#2361;&#2376;&#2306;| &#2351;&#2342;&#2367; &#8736;P = 54&deg; &#2361;&#2376;, &#2340;&#2379; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; &#8736;QIR &#2324;&#2352; &#8736;QXR &#2325;&#2366; &#2350;&#2366;&#2346; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">117&deg; and 54&deg;</span><span class=\"hqt\" style=\"display:none\">117&deg; &#2324;&#2352; 54&deg;</span>",
+      "<span class=\"eqt\">72&deg; and 54&deg;</span><span class=\"hqt\" style=\"display:none\">72&deg; &#2324;&#2352; 54&deg;</span>",
+      "<span class=\"eqt\">117&deg; and 63&deg;</span><span class=\"hqt\" style=\"display:none\">117&deg; &#2324;&#2352; 63&deg;</span>",
+      "<span class=\"eqt\">72&deg; and 63&deg;</span><span class=\"hqt\" style=\"display:none\">72&deg; &#2324;&#2352; 63&deg;</span>"
+    ],
+    "solution": "<p><img width=138 height=177 id=\"Picture 47\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11823/image010.png\"></p><p>&#8736;P = 54&deg;</p><p>We know that:</p><p>&#8736;QIR = 90&deg; + &#8736;P/2</p><p>= 90&deg; + 27&deg;</p><p>= 117&deg;</p><p>&#8736;QXR = 90&deg;  -  &#8736;P/2</p><p>= 90&deg;  -  27&deg;</p><p>= 63&deg;</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The radii of three concentric circles are in the ratio 2: 3: 4. What is the ratio of sum of areas of two inner circles to the area of the region between outermost circle and innermost circle?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2340;&#2368;&#2344; &#2360;&#2306;&#2325;&#2375;&#2306;&#2342;&#2381;&#2352;&#2367;&#2340; &#2357;&#2371;&#2340;&#2381;&#2340;&#2379;&#2306; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; 2: 3: 4 &#2325;&#2375; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2350;&#2375;&#2306; &#2361;&#2376;&#2404; &#2342;&#2379; &#2310;&#2306;&#2340;&#2352;&#2367;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340;&#2379;&#2306; &#2325;&#2375; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2347;&#2354;&#2379;&#2306; &#2325;&#2366; &#2351;&#2379;&#2327; &#2340;&#2341;&#2366; &#2360;&#2348;&#2360;&#2375; &#2348;&#2366;&#2361;&#2352;&#2368; &#2357;&#2371;&#2340;&#2381;&#2340; &#2324;&#2352; &#2309;&#2306;&#2340;&#2352;&#2340;&#2350; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2375; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352; &#2325;&#2366; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2347;&#2354; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">12: 11</span><span class=\"hqt\" style=\"display:none\">12: 11</span>",
+      "<span class=\"eqt\">13: 12</span><span class=\"hqt\" style=\"display:none\">13: 12</span>",
+      "<span class=\"eqt\">15: 11</span><span class=\"hqt\" style=\"display:none\">15: 11</span>",
+      "<span class=\"eqt\">10: 7</span><span class=\"hqt\" style=\"display:none\">10: 7</span>"
+    ],
+    "solution": "<p><img width=170 height=181 id=\"Picture 43\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11857/image007.png\"></p><p><b>We know that: </b>(Radius of circle)<sup>2</sup> &#8733; Area of circle</p><p>Let OA = 2x, OB = 3x and OC = 4x</p><p>Required ratio = (Sum of area of two inner circles): (Area of region between outermost circle and innermost circle)</p><p>= [(2x)<sup>2</sup> + (3x)<sup>2</sup>]: [(4x)<sup>2</sup>  -  (2x)<sup>2</sup>]</p><p>= (4 + 9): (16  -  4)</p><p>= 13: 12</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two circles with radii 37 cm and 12.5 cm respectively touch each other internally. Chord PQ of bigger circle is tangent to smaller circle, then find the length of PQ.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; 37 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; 12.5 &#2360;&#2375;&#2350;&#2368; &#2357;&#2366;&#2354;&#2375; &#2342;&#2379; &#2357;&#2371;&#2340;&#2381;&#2340; &#2319;&#2325; &#2342;&#2370;&#2360;&#2352;&#2375; &#2325;&#2379; &#2310;&#2306;&#2340;&#2352;&#2367;&#2325; &#2352;&#2370;&#2346; &#2360;&#2375; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404; &#2348;&#2337;&#2364;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2332;&#2368;&#2357;&#2366; PQ &#2331;&#2379;&#2335;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2354;&#2367;&#2319; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358;&#2352;&#2375;&#2326;&#2366; &#2361;&#2376;, &#2340;&#2379; PQ &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">65 cm</span><span class=\"hqt\" style=\"display:none\">65&#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">70 cm</span><span class=\"hqt\" style=\"display:none\">70 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">35 cm</span><span class=\"hqt\" style=\"display:none\">35 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">75 cm</span><span class=\"hqt\" style=\"display:none\">75 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=219 height=241 id=\"Picture 64\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11857/image009.png\"></p><p>OP = 37 cm</p><p>O`A = 12.5 cm</p><p>OA = OP  -  2O`A = 37  -  25 = 12 cm</p><p>Now,</p><p>OP<sup>2</sup> = OA<sup>2</sup> + PA<sup>2</sup></p><p>37<sup>2</sup> = 12<sup>2</sup> + PA<sup>2</sup></p><p>PA = 35 cm</p><p>PQ = 2PA</p><p>= 70 cm</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>&#8710;ABC are &#8710;QPR are similar and AB = 12 cm, AC = 9 cm, PQ = 8 cm, and QR = 6 cm. Length of median BD is 10 cm, then find the length of corresponding median in &#8710;PQR.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#8710;ABC &#8710;QPR &#2360;&#2350;&#2366;&#2344; &#2361;&#2376;&#2306; &#2324;&#2352; AB = 12 &#2360;&#2375;&#2350;&#2368;, AC = 9 &#2360;&#2375;&#2350;&#2368;, PQ = 8 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; QR = 6 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;&#2404; &#2350;&#2366;&#2343;&#2381;&#2351;&#2367;&#2325;&#2366; &#2348;&#2352;&#2381;&#2342; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; 10 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; &#8710;PQR &#2350;&#2375;&#2306; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2350;&#2366;&#2343;&#2381;&#2351;&#2367;&#2325;&#2366; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">10/3 cm</span><span class=\"hqt\" style=\"display:none\">10/3 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">20/3 cm</span><span class=\"hqt\" style=\"display:none\">20/3 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">55/6 cm</span><span class=\"hqt\" style=\"display:none\">55/6 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">7.5 cm</span><span class=\"hqt\" style=\"display:none\">7.5 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "solution": "<p><img width=288 height=154 id=\"Picture 76\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11857/image012.png\"></p><p>Since &#8710;ABC ~ &#8710;QPR:</p><p>AB: PQ = AC: QR = BD: PS</p><p>12: 8 = 10: PS</p><p>PS = 20/3 cm</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a &#8710;PQR, &#8736;P = 75&deg; and &#8736;R = 55&deg;, then arrange the sides of triangle from largest to smallest.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#8710;PQR &#2350;&#2375;&#2306;, &#8736;P = 75&deg; &#2324;&#2352; &#8736;R = 55&deg; &#2361;&#2376;, &#2340;&#2379; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; &#2325;&#2368; &#2349;&#2369;&#2332;&#2366;&#2323;&#2306; &#2325;&#2379; &#2360;&#2348;&#2360;&#2375; &#2348;&#2337;&#2364;&#2375; &#2360;&#2375; &#2354;&#2375;&#2325;&#2352; &#2360;&#2348;&#2360;&#2375; &#2331;&#2379;&#2335;&#2375; &#2340;&#2325; &#2357;&#2381;&#2351;&#2357;&#2360;&#2381;&#2341;&#2367;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">QR, PR, PQ</span><span class=\"hqt\" style=\"display:none\">QR, PR, PQ</span>",
+      "<span class=\"eqt\">PQ, QR, PR</span><span class=\"hqt\" style=\"display:none\">PQ, QR, PR</span>",
+      "<span class=\"eqt\">QR, PQ, PR</span><span class=\"hqt\" style=\"display:none\">QR, PQ, PR</span>",
+      "<span class=\"eqt\">PQ, PR, QR</span><span class=\"hqt\" style=\"display:none\">PQ, PR, QR</span>"
+    ],
+    "solution": "<p><img width=197 height=162 id=\"Picture 84\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11857/image015.png\"></p><p>&#8736;P + &#8736;Q + &#8736;R = 180&deg;</p><p>&#8736;Q = 50&deg;</p><p><b>We know that:</b> In any triangle, the side opposite to the larger angle is longer and vice versa.</p><p>&#8736;P &gt; &#8736;R &gt; &#8736;Q</p><p>QR &gt; PQ &gt; PR</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a &#8710;ABC, AC = 6 cm, AB = 8 cm, and BC = 2&radic;14 cm. If P is any point on side BC such that BP = CP, then find the length of AP.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#8710;ABC &#2350;&#2375;&#2306;, AC = 6 &#2360;&#2375;&#2350;&#2368;, AB = 8 &#2360;&#2375;&#2350;&#2368;, &#2324;&#2352; BC = 2&radic;14 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376; | &#2351;&#2342;&#2367; P, BC &#2349;&#2369;&#2332;&#2366; &#2325;&#2368; &#2323;&#2352; &#2325;&#2379;&#2312; &#2348;&#2367;&#2306;&#2342;&#2369; &#2311;&#2360; &#2340;&#2352;&#2361; &#2360;&#2375; &#2361;&#2376; &#2325;&#2367; BP = CP &#2361;&#2376;, &#2340;&#2379; AP &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">6 cm</span><span class=\"hqt\" style=\"display:none\">6 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">7 cm</span><span class=\"hqt\" style=\"display:none\">7 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">7.5 cm</span><span class=\"hqt\" style=\"display:none\">7.5 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">9 cm</span><span class=\"hqt\" style=\"display:none\">9 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><img width=247 height=185 id=\"Picture 15\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11888/image001.png\"></p><p>P is the mid-point of BC which means AP is the median.</p><p>Length of median = AP = <img width=156 height=36 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11888/image002.png\"></p><p><img width=173 height=132 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11888/image003.png\"></p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a circle with centre O, AB is a chord such that PA and PB are two tangents. If &#8736;APB = 72&deg; and D is any point on the arc AB (major arc), then find the measure of &#8736;ADB.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2325;&#2375;&#2306;&#2342;&#2381;&#2352; O &#2325;&#2375; &#2360;&#2366;&#2341; &#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340; &#2350;&#2375;&#2306;, AB &#2319;&#2325; &#2332;&#2368;&#2357;&#2366; &#2311;&#2360; &#2340;&#2352;&#2361; &#2360;&#2375; &#2361;&#2376; &#2325;&#2367; PA &#2324;&#2352; PB &#2342;&#2379; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358;&#2352;&#2375;&#2326;&#2366; &#2361;&#2376;&#2306;&#2404; &#2351;&#2342;&#2367; &#8736;APB = 72&deg; &#2324;&#2352; D &#2330;&#2366;&#2346; AB (&#2346;&#2381;&#2352;&#2350;&#2369;&#2326; &#2330;&#2366;&#2346;) &#2346;&#2352; &#2325;&#2379;&#2312; &#2348;&#2367;&#2306;&#2342;&#2369; &#2361;&#2376;, &#2340;&#2379; &#8736;ADB &#2325;&#2366; &#2350;&#2366;&#2346; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">72&deg;</span><span class=\"hqt\" style=\"display:none\">72&deg;</span>",
+      "<span class=\"eqt\">63&deg;</span><span class=\"hqt\" style=\"display:none\">63&deg;</span>",
+      "<span class=\"eqt\">54&deg;</span><span class=\"hqt\" style=\"display:none\">54&deg;</span>",
+      "<span class=\"eqt\">45&deg;</span><span class=\"hqt\" style=\"display:none\">45&deg;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><img width=238 height=156 id=\"Picture 51\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11888/image011.png\"></p><p>In the above figure, O is the centre of circle and OA and OB are radii.</p><p><b>We know that: </b>Tangent and radius is perpendicular to each other at the point of contact.</p><p>&#8736;OAP = &#8736;OBP = 90&deg;</p><p>In quadrilateral OAPB:</p><p>&#8736;OAP + &#8736;APB + &#8736;OBP + &#8736;AOB = 360&deg;</p><p>90&deg; + 72&deg; + 90&deg; + &#8736;AOB = 360&deg;</p><p>&#8736;AOB = 108&deg;</p><p><b>We know that: </b>Angle subtended by an arc at the centre is double the angle subtended by it at any point on the remaining part of the circle.</p><p>&#8736;AOB = 2 * &#8736;ADB</p><p>&#8736;ADB = &#8736;AOB/2</p><p>&#8736;ADB = 54&deg;</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>AB and CD are two parallel chords (on different sides of centre) of a circle and distance between AB and CD is 17.6 cm. If AB = 38.4 cm and CD = 32 cm, then what is the length of radius of circle?</p></span><span class=\"hqt\" style=\"display:none\"><p>AB &#2324;&#2352; CD &#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2342;&#2379; &#2360;&#2350;&#2366;&#2344;&#2366;&#2306;&#2340;&#2352; &#2332;&#2368;&#2357;&#2366;&#2351;&#2375;&#2306; (&#2325;&#2375;&#2306;&#2342;&#2381;&#2352; &#2325;&#2375; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2349;&#2369;&#2332;&#2366;&#2323;&#2306; &#2346;&#2352;) &#2361;&#2376;&#2306; &#2340;&#2341;&#2366; AB &#2324;&#2352; CD &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2368; &#2342;&#2370;&#2352;&#2368; 17.6 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; AB = 38.4 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; CD = 32 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">18 cm</span><span class=\"hqt\" style=\"display:none\">18 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">16 cm</span><span class=\"hqt\" style=\"display:none\">16 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">24 cm</span><span class=\"hqt\" style=\"display:none\">24 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">20 cm</span><span class=\"hqt\" style=\"display:none\">20 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><img width=198 height=172 id=\"Picture 61\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11888/image012.png\"></p><p>AB = 38.4 cm =&gt; BP = 38.4/2 = 19.2 cm</p><p>CD = 32 cm =&gt; QD = 32/2 = 16 cm</p><p>PQ = 17.6 cm</p><p>Let OP = x, OQ = 17.6  -  x and OB = OD = y</p><p>Now,</p><p>OB<sup>2</sup> = OP<sup>2</sup> + BP<sup>2</sup></p><p>y<sup>2</sup> = x<sup>2</sup> + 19.2<sup>2</sup> ........ (1)</p><p>OD<sup>2</sup> = OQ<sup>2</sup> + QD<sup>2</sup></p><p>y<sup>2</sup> = (17.6  -  x)<sup>2</sup> + 16<sup>2</sup> ........ (2)</p><p>From (1) and (2):</p><p>x<sup>2</sup> + 19.2<sup>2</sup> = (17.6  -  x)<sup>2</sup> + 16<sup>2</sup></p><p>x<sup>2</sup> + 368.64 = 309.76 + x<sup>2</sup>  -  35.2x + 256</p><p>35.2x = 197.12</p><p>x = 5.6</p><p>From equation (1):</p><p>y<sup>2</sup> = 5.6<sup>2</sup> + 19.2<sup>2</sup></p><p>y = 20</p><p>Radius of circle = 20 cm</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two lines PQ and RS are parallel; A and B are two points on the line PQ and O is any point on the line RS. If &#8736;PAO = 74&deg; and &#8736;QBO = 134&deg;, then find the measure of &#8736;AOB.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2352;&#2375;&#2326;&#2366;&#2319;&#2306; PQ &#2324;&#2352; RS &#2360;&#2350;&#2366;&#2344;&#2366;&#2306;&#2340;&#2352; &#2361;&#2376;&#2306;; &#2342;&#2379; &#2348;&#2367;&#2306;&#2342;&#2369; A &#2324;&#2352; B &#2352;&#2375;&#2326;&#2366; PQ &#2346;&#2352; &#2361;&#2376; &#2324;&#2352; O &#2352;&#2375;&#2326;&#2366; RS &#2346;&#2352; &#2325;&#2379;&#2312; &#2348;&#2367;&#2306;&#2342;&#2369; &#2361;&#2376; | &#2351;&#2342;&#2367; &#8736;PAO = 74&deg; &#2324;&#2352; &#8736;QBO = 134&deg; &#2361;&#2376;, &#2340;&#2379; &#8736;AOB &#2325;&#2366; &#2350;&#2366;&#2346; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">42&deg;</span><span class=\"hqt\" style=\"display:none\">42&deg;</span>",
+      "<span class=\"eqt\">28&deg;</span><span class=\"hqt\" style=\"display:none\">28&deg;</span>",
+      "<span class=\"eqt\">46&deg;</span><span class=\"hqt\" style=\"display:none\">46&deg;</span>",
+      "<span class=\"eqt\">38&deg;</span><span class=\"hqt\" style=\"display:none\">38&deg;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=254 height=164 id=\"Picture 106\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11888/image020.png\"></p><p>&#8736;PAO = 74&deg;</p><p>&#8736;QBO = 134&deg;</p><p>&#8736;AOS = &#8736;PAO = 74&deg;</p><p>&#8736;BOR = &#8736;QBO = 134&deg;</p><p>&#8736;BOS = 180&deg;  -  &#8736;BOR = 180&deg;  -  134&deg; = 46&deg;</p><p>&#8736;AOS = &#8736;AOB + &#8736;BOS</p><p>74&deg; = &#8736;AOB + 46&deg;</p><p>&#8736;AOB = 28&deg;</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure given below, if &#8736;RBC = 76&deg;, AD || BC, and &#8736;DCQ = 102&deg;, then find the measure of &#8736;ADC.</p><p><img width=243 height=175 id=\"Picture 5\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11888/image022.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, &#2351;&#2342;&#2367; &#8736;RBC = 76&deg;, AD || BC, &#2324;&#2352; &#8736;DCQ = 102&deg; &#2361;&#2376;, &#2340;&#2379; &#8736;ADC &#2325;&#2366; &#2350;&#2366;&#2346; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p><p><img width=\"243\" height=\"175\" id=\"Picture 5\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p11888/image022.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">98&deg;</span><span class=\"hqt\" style=\"display:none\">98&deg;</span>",
+      "<span class=\"eqt\">110&deg;</span><span class=\"hqt\" style=\"display:none\">110&deg;</span>",
+      "<span class=\"eqt\">102&deg;</span><span class=\"hqt\" style=\"display:none\">102&deg;</span>",
+      "<span class=\"eqt\">78&deg;</span><span class=\"hqt\" style=\"display:none\">78&deg;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Since AD || BC which means, &#8736;ADC + &#8736;BCD = 180&deg; (Co-interior angles)</p><p>Also, &#8736;BCD + &#8736;DCQ = 180&deg;</p><p>&#8736;ADC = &#8736;DCQ = 102&deg;</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In following diagram length of chords PQ and RS are 8cm and 6 cm respectively and total length of MN is 7cm which passes through centre C of the given circle. What is the radius of the circle?</p><p><img width=138 height=139 id=\"Picture 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p2949/image002.png\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2310;&#2352;&#2375;&#2326;&#2379;&#2306; &#2350;&#2375;&#2306; PQ &#2324;&#2352; RS &#2332;&#2368;&#2357;&#2366;&#2323;&#2306; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 8 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; 6 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376; &#2324;&#2352; MN &#2325;&#2368; &#2325;&#2369;&#2354; &#2354;&#2306;&#2348;&#2366;&#2312; 7 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376; &#2332;&#2379; &#2342;&#2367;&#2319; &#2327;&#2319; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; C &#2360;&#2375; &#2327;&#2369;&#2332;&#2352;&#2340;&#2368; &#2361;&#2376;&#2404; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p><p><img width=\"138\" height=\"139\" id=\"Picture 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p2949/image002.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">4 cm</span><span class=\"hqt\" style=\"display:none\">4 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">3 cm</span><span class=\"hqt\" style=\"display:none\">3 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">5 cm</span><span class=\"hqt\" style=\"display:none\">5 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">6 cm</span><span class=\"hqt\" style=\"display:none\">6 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Let r be the radius of circle and length of CN = d cm.</p><p>Length of CM = (7-d) cm.</p><p>Perpendicular to any chord from the centre of circle bisect it.</p><p><img width=138 height=139 id=\"Picture 4\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p2949/image003.png\" ></p><p>(r)<sup>2</sup><sub> </sub>= (d)<sup>2</sup> + (3)<sup>2</sup></p><p>(r)<sup>2</sup><sub> </sub>= (d)<sup>2</sup> + 9.................................(1)</p><p>Similarly</p><p>(r)<sup>2</sup><sub> </sub>= (7-d)<sup>2</sup> + (4)<sup>2</sup></p><p>(r)<sup>2</sup><sub> </sub>= (7-d)<sup>2</sup> + 16.................................(2)</p><p>From equations (1) and (2) we get</p><p>(d)<sup>2</sup> + 9 = (7-d)<sup>2</sup> + 16</p><p>(d)<sup>2</sup> = 49 -14d +d<sup>2</sup> + 7</p><p>14 d = 56</p><p>d = 4</p><p>Substituting in equation (1) we get</p><p>r= 5 cm.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If each interior angle of a regular polygon is 140&#730;, then which of the following statement is true?</p><p>I. It has 9 sides.</p><p>II. It has 24 diagonals.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2319;&#2325; &#2360;&#2350;&#2348;&#2361;&#2369;&#2349;&#2369;&#2332; &#2325;&#2366; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2310;&#2306;&#2340;&#2352;&#2367;&#2325; &#2325;&#2379;&#2339; 140&#730; &#2361;&#2376;, &#2340;&#2379; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2325;&#2341;&#2344; &#2360;&#2340;&#2381;&#2351; &#2361;&#2376;?</p><p>I. &#2311;&#2360;&#2325;&#2368; 9 &#2349;&#2369;&#2332;&#2366;&#2319;&#2306; &#2361;&#2376;&#2306;|</p><p>II. &#2311;&#2360;&#2325;&#2375; 24 &#2357;&#2367;&#2325;&#2352;&#2381;&#2339; &#2361;&#2376;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">Both I and II</span><span class=\"hqt\" style=\"display:none\">I &#2324;&#2352; II &#2342;&#2379;&#2344;&#2379;&#2306;</span>",
+      "<span class=\"eqt\">Only II</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; II</span>",
+      "<span class=\"eqt\">Neither I nor II</span><span class=\"hqt\" style=\"display:none\">&#2344; &#2340;&#2379; I &#2324;&#2352; &#2344; &#2361;&#2368; II</span>",
+      "<span class=\"eqt\">Only I</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; I</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Interior angle = 140&#730;</p><p>Let number of sides = n</p><p>Then, 140 = ((2n  -  4)/n) * 90</p><p>n = 9</p><p>So, statement I is true.</p><p>Now, number of diagonals = n(n  -  3)/2</p><p>= 9(9  -  3)/2</p><p>= 27</p><p>So, statement II is false.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a &#916;ABC, angle bisector of B and C meet at point P such that &#8736;BPC = 127&#730;. What is the measure of &#8736;A?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#916;ABC &#2350;&#2375;&#2306;, B &#2324;&#2352; C &#2325;&#2375; &#2325;&#2379;&#2339; &#2342;&#2381;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; &#2348;&#2367;&#2306;&#2342;&#2369; P &#2346;&#2352; &#2350;&#2367;&#2354;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2332;&#2361;&#2366;&#2305; &#8736;BPC = 127&#730; &#2361;&#2376;&#2404; &#8736;A &#2325;&#2366; &#2350;&#2366;&#2346; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">72&#730;</span><span class=\"hqt\" style=\"display:none\">72&#730;</span>",
+      "<span class=\"eqt\">78&#730;</span><span class=\"hqt\" style=\"display:none\">78&#730;</span>",
+      "<span class=\"eqt\">76&#730;</span><span class=\"hqt\" style=\"display:none\">76&#730;</span>",
+      "<span class=\"eqt\">74&#730;</span><span class=\"hqt\" style=\"display:none\">74&#730;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>According to the question:</p><p><img width=208 height=164 id=\"Picture 15\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image003.png\" ></p><p>Then, &#8736;A = 180  -  (&#8736;B + &#8736;C)</p><p>= 180  -  2 * (180  -  127)</p><p>= <b>74</b><b>&#730;</b></p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In an equilateral &#916;ABC, O is the circumcenter and D is the mid-point of BC. If perimeter of triangle is 72 cm, then find the length of OD.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2350;&#2348;&#2366;&#2361;&#2369; &#916;ABC &#2350;&#2375;&#2306;, O &#2346;&#2352;&#2367;&#2325;&#2375;&#2344;&#2381;&#2342;&#2381;&#2352; &#2361;&#2376; &#2324;&#2352; D, BC &#2325;&#2366; &#2350;&#2343;&#2381;&#2351;-&#2348;&#2367;&#2306;&#2342;&#2369; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; &#2325;&#2366; &#2346;&#2352;&#2367;&#2350;&#2366;&#2346; 72 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; OD &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">6&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">6&radic;3 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">4&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">4&radic;3 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">6/&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">6/&radic;3 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">4/&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">4/&radic;3 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>For equilateral triangle ABC:</p><p><img width=256 height=194 id=\"Picture 14\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image004.png\" ></p><p>AB = BC = AC</p><p>Perimeter of triangle = 72 = 3 * AB</p><p>AB = 24 cm = BC = AC</p><p>BD = BC/2 = 24/2 = 12 cm</p><p>AB<sup>2</sup> = AD<sup>2</sup> + BD<sup>2</sup></p><p>24<sup>2</sup> = 12<sup>2</sup> + AD<sup>2</sup></p><p>AD = 12&radic;3 cm</p><p>Then, OD = AD/3 = 12&radic;3/3 = <b>4</b><b>&radic;</b><b>3 cm</b></p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure given below, AD = AC = BC and &#8736;CAD = 82&#730;, then find the measure of &#8736;A.</p><p><img width=192 height=162 id=\"Picture 2\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image005.jpg\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, AD = AC = BC &#2324;&#2352; &#8736;CAD = 82&#730; &#2361;&#2376;, &#2340;&#2379; &#8736;A &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p><p><img width=\"192\" height=\"162\" id=\"Picture 2\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image005.jpg\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">112.5&#730;</span><span class=\"hqt\" style=\"display:none\">112.5&#730;</span>",
+      "<span class=\"eqt\">106.5&#730;</span><span class=\"hqt\" style=\"display:none\">106.5&#730;</span>",
+      "<span class=\"eqt\">103.5&#730;</span><span class=\"hqt\" style=\"display:none\">103.5&#730;</span>",
+      "<span class=\"eqt\">24.5&#730;</span><span class=\"hqt\" style=\"display:none\">24.5&#730;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>According to the question:</p><p>&#8736;CAD = 82&#730;</p><p>AD = AC = BC</p><p>Then, &#8736;ACD = &#8736;ADC = (180  -  82)/2 = 49&#730;</p><p>And, &#8736;ABC = &#8736;CAB = (180  -  (180  -  49))/2 = 24.5&#730;</p><p>Therefore, &#8736;A = &#8736;CAB + &#8736;CAD = 24.5 + 82 = <b>106.5</b><b>&#730;</b></p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a triangle PQR, the bisector of &#8736;P meets QR at S. If PQ = 32 cm, QS =14 cm and PR = 48 cm, then find the length of QR.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; PQR &#2350;&#2375;&#2306;, &#8736;P &#2325;&#2366; &#2342;&#2381;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; QR &#2346;&#2352; &#2348;&#2367;&#2306;&#2342;&#2369; S &#2346;&#2352; &#2350;&#2367;&#2354;&#2340;&#2366; &#2361;&#2376;| &#2351;&#2342;&#2367; PQ = 32 &#2360;&#2375;&#2350;&#2368;, QS =14 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; PR = 48 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; QR &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">35 cm</span><span class=\"hqt\" style=\"display:none\">35 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">25 cm</span><span class=\"hqt\" style=\"display:none\">25 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">30 cm</span><span class=\"hqt\" style=\"display:none\">30 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">28 cm</span><span class=\"hqt\" style=\"display:none\">28 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>According to the question:</p><p>By Angle bisector therom</p><p>PQ/PR = QS/SR</p><p>32/48 = 14/SR</p><p>SR = 21 cm</p><p>Then, QR = QS + SR = 14 + 21 = <b>35 cm</b></p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a triangle ABC, AE is the angle bisector of &#8736;A and AF &#8869; BC. If &#8736;A = 64&#730; and &#8736;B = 88&#730;, then find the measure of &#8736;FAE.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; ABC &#2350;&#2375;&#2306;, AE, &#8736;A &#2325;&#2366; &#2325;&#2379;&#2339; &#2342;&#2381;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; &#2324;&#2352; AF &#8869; BC &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#8736;A = 64&#730; &#2324;&#2352; &#8736;B = 88&#730; &#2361;&#2376;, &#2340;&#2379; &#8736;FAE &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">36&#730;</span><span class=\"hqt\" style=\"display:none\">36&#730;</span>",
+      "<span class=\"eqt\">30&#730;</span><span class=\"hqt\" style=\"display:none\">30&#730;</span>",
+      "<span class=\"eqt\">28&#730;</span><span class=\"hqt\" style=\"display:none\">28&#730;</span>",
+      "<span class=\"eqt\">32&#730;</span><span class=\"hqt\" style=\"display:none\">32&#730;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>According to the question:</p><p><img width=228 height=188 id=\"Picture 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image006.png\" ></p><p>Here, we know that &#8736;FAE = (1/2) * (&#8736;B - &#8736;C)</p><p>Now, &#8736;C = 180  -  64  -  88 = 28&#730;</p><p>Then, &#8736;FAE = (1/2) * (88  -  28) = <b>30</b><b>&#730;</b></p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure given below, B is a right angle. If DB = 6 cm, DC = 12 cm and AB = 14 cm, then find the length of AC.</p><p><img width=238 height=220 id=\"Picture 12\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image007.png\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, B &#2319;&#2325; &#2360;&#2350;&#2325;&#2379;&#2339; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; DB = 6 &#2360;&#2375;&#2350;&#2368;, DC = 12 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; AB = 14 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; AC &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p><p><img width=\"238\" height=\"220\" id=\"Picture 12\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image007.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">6&radic;19 cm</span><span class=\"hqt\" style=\"display:none\">6&radic;19 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">7&radic;19 cm</span><span class=\"hqt\" style=\"display:none\">7&radic;19 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">4&radic;19 cm</span><span class=\"hqt\" style=\"display:none\">4&radic;19 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">9&radic;19 cm</span><span class=\"hqt\" style=\"display:none\">9&radic;19 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Here, According to Pythagoras theorem:</p><p>DB<sup>2</sup> + BC<sup>2</sup> = DC<sup>2</sup></p><p>36 + BC<sup>2</sup> = 144</p><p>BC<sup>2</sup> = 108</p><p>And</p><p>AB<sup>2</sup> + BC<sup>2</sup> = AC<sup>2</sup></p><p>196 + 108 = AC<sup>2</sup></p><p>AC = 4&radic;19 cm</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a right angled triangle ABC, D is the circumcenter which lies on AC. If BD = 6 cm and BC = 10 cm, then find the length of AB.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2350;&#2325;&#2379;&#2339; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; ABC &#2350;&#2375;&#2306;, D &#2346;&#2352;&#2367;&#2325;&#2375;&#2344;&#2381;&#2342;&#2381;&#2352; &#2361;&#2376; &#2332;&#2379; AC &#2346;&#2352; &#2350;&#2367;&#2354;&#2340;&#2366; &#2361;&#2376;| &#2351;&#2342;&#2367; BD = 6 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; BC = 10 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; AB &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">3&radic;5 cm</span><span class=\"hqt\" style=\"display:none\">3&radic;5 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">4&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">4&radic;3 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">6&radic;2 cm</span><span class=\"hqt\" style=\"display:none\">6&radic;2 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">2&radic;11 cm</span><span class=\"hqt\" style=\"display:none\">2&radic;11 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>According to the question:</p><p><img width=237 height=208 id=\"Picture 13\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image008.png\" ></p><p>As we know here, BD = AD = DC</p><p>Then, AC = AD + DC = 2 * 6 = 12 cm</p><p>Now, using Pythagoras theorem, we get</p><p>AC<sup>2</sup> = AB<sup>2</sup> + BC<sup>2</sup></p><p>12<sup>2</sup> = AB<sup>2</sup> + 10<sup>2</sup></p><p><b>BC = 2</b><b>&radic;</b><b>11 cm</b></p>",
+    "question_index": 19
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a cyclic quadrilateral ABCD, &#8736;A + &#8736;B = 138&#730;. If the bisectors of &#8736;C and &#8736;D meet at point O, then calculate &#8736;COD.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2330;&#2325;&#2381;&#2352;&#2368;&#2351; &#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; ABCD &#2350;&#2375;&#2306;, &#8736;A + &#8736;B = 138&#730; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#8736;C &#2324;&#2352; &#8736;D &#2325;&#2375; &#2342;&#2381;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; &#2348;&#2367;&#2306;&#2342;&#2369; O &#2346;&#2352; &#2350;&#2367;&#2354;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2340;&#2379; &#8736;COD &#2325;&#2368; &#2327;&#2339;&#2344;&#2366; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">71&#730;</span><span class=\"hqt\" style=\"display:none\">71&#730;</span>",
+      "<span class=\"eqt\">67&#730;</span><span class=\"hqt\" style=\"display:none\">67&#730;</span>",
+      "<span class=\"eqt\">63&#730;</span><span class=\"hqt\" style=\"display:none\">63&#730;</span>",
+      "<span class=\"eqt\">69&#730;</span><span class=\"hqt\" style=\"display:none\">69&#730;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>According to the question:</p><p>&#8736;C + &#8736;D = 360  -  138 = 222&#730;</p><p>Then, &#8736;COD = 180  -  (&#8736;C + &#8736;D)/2</p><p>= 180  -  222/2</p><p>= <b>69</b><b>&#730;</b></p>",
+    "question_index": 20
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the difference between each interior and exterior angle of a regular polygon which has total 18 sides?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2350;&#2348;&#2361;&#2369;&#2349;&#2369;&#2332; &#2332;&#2367;&#2360;&#2325;&#2368; &#2325;&#2369;&#2354; 18 &#2349;&#2369;&#2332;&#2366; &#2361;&#2376;, &#2313;&#2360;&#2325;&#2375; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2310;&#2306;&#2340;&#2352;&#2367;&#2325; &#2324;&#2352; &#2348;&#2366;&#2361;&#2352;&#2368; &#2325;&#2379;&#2339; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2366; &#2309;&#2306;&#2340;&#2352; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">120&#730;</span><span class=\"hqt\" style=\"display:none\">120&#730;</span>",
+      "<span class=\"eqt\">160&#730;</span><span class=\"hqt\" style=\"display:none\">160&#730;</span>",
+      "<span class=\"eqt\">100&#730;</span><span class=\"hqt\" style=\"display:none\">100&#730;</span>",
+      "<span class=\"eqt\">140&#730;</span><span class=\"hqt\" style=\"display:none\">140&#730;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Number of sides = 18</p><p>Then, interior angle = ((2 * no. of sides  -  4)/no. of sides) * 90&#730;</p><p>= ((2 * 18  -  4)/18) * 90</p><p>= 160&#730;</p><p>Then, exterior angle = 180  -  160 = 20&#730;</p><p>Therefore, difference between interior and exterior angle = 160  -  20 = <b>140</b><b>&#730;</b></p>",
+    "question_index": 21
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two regular polygons have 6n and 5n sides and the difference between each interior angle is 4&#730;. What is the value of 'n'?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2360;&#2350;&#2348;&#2361;&#2369;&#2349;&#2369;&#2332;&#2379;&#2306; &#2350;&#2375;&#2306; 6n &#2324;&#2352; 5n &#2349;&#2369;&#2332;&#2366;&#2319;&#2306; &#2361;&#2376;&#2306; &#2324;&#2352; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2310;&#2306;&#2340;&#2352;&#2367;&#2325; &#2325;&#2379;&#2339; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2366; &#2309;&#2306;&#2340;&#2352; 4&#730; &#2361;&#2376;&#2404; 'n' &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>As we know, interior angle of a regular polygon = ((2 * no. of sides  -  4)/no. of sides) * 90&#730;</p><p>Then, ((2 * 6n  -  4)/(6n)) * 90  -  ((2 * 5n  -  4)/(5n))* 90 = 4</p><p><b>n = 3</b></p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Three angles of a triangle are in the ratio 3: 2: 5 respectively. What is the complement of smaller angle?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; &#2325;&#2375; &#2340;&#2368;&#2344; &#2325;&#2379;&#2339; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 3: 2: 5 &#2325;&#2375; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2350;&#2375;&#2306; &#2361;&#2376;&#2306;&#2404; &#2331;&#2379;&#2335;&#2375; &#2325;&#2379;&#2339; &#2325;&#2366; &#2346;&#2370;&#2352;&#2325; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">34&#730;</span><span class=\"hqt\" style=\"display:none\">34&#730;</span>",
+      "<span class=\"eqt\">36&#730;</span><span class=\"hqt\" style=\"display:none\">36&#730;</span>",
+      "<span class=\"eqt\">54&#730;</span><span class=\"hqt\" style=\"display:none\">54&#730;</span>",
+      "<span class=\"eqt\">42&#730;</span><span class=\"hqt\" style=\"display:none\">42&#730;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Let the angles are 3a, 2a and 5a respectively. Then,</p><p>3a + 2a + 5a = 180</p><p>a = 18</p><p>Then, smaller angle = 2 * 18 = 36&#730;</p><p>Therefore, complement of smaller angle = 90  -  36 = <b>54</b><b>&#730;</b></p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Angles of a quadrilateral are (3x + 4), 2x, (2x  -  4) and 3x respectively. Find the value of supplement of larger angle.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; &#2325;&#2375; &#2325;&#2379;&#2339; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; (3x + 4), 2x, (2x - 4) &#2324;&#2352; 3x &#2361;&#2376;&#2306;&#2404; &#2348;&#2337;&#2364;&#2375; &#2325;&#2379;&#2339; &#2325;&#2375; &#2360;&#2306;&#2346;&#2370;&#2352;&#2325; &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">58&#730;</span><span class=\"hqt\" style=\"display:none\">58&#730;</span>",
+      "<span class=\"eqt\">64&#730;</span><span class=\"hqt\" style=\"display:none\">64&#730;</span>",
+      "<span class=\"eqt\">54&#730;</span><span class=\"hqt\" style=\"display:none\">54&#730;</span>",
+      "<span class=\"eqt\">68&#730;</span><span class=\"hqt\" style=\"display:none\">68&#730;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Angles of given quadrilateral are: (3x + 4), 2x, (2x  -  4) and 3x</p><p>Then, (3x + 4) + 2x + (2x  -  4) + 3x = 360</p><p>x = 36</p><p>large angle = 3x + 4 = 3 * 36 + 4 = 112&#730;</p><p>Therefore, supplement of large angle = 180  -  112 = <b>68</b><b>&#730;</b></p>",
+    "question_index": 24
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure given below, AB II EF and CD II EF. What is the measure of (&#8736;y  -  &#8736;a)?</p><p><img width=289 height=196 id=\"Picture 7\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image011.png\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, AB II EF &#2324;&#2352; CD II EF &#2361;&#2376;| (&#8736;y - &#8736;a) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p><p><img width=\"289\" height=\"196\" id=\"Picture 7\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image011.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">16&#730;</span><span class=\"hqt\" style=\"display:none\">16&#730;</span>",
+      "<span class=\"eqt\">17&#730;</span><span class=\"hqt\" style=\"display:none\">17&#730;</span>",
+      "<span class=\"eqt\">18&#730;</span><span class=\"hqt\" style=\"display:none\">18&#730;</span>",
+      "<span class=\"eqt\">19&#730;</span><span class=\"hqt\" style=\"display:none\">19&#730;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>According to the question:</p><p>&#8736;b = 52&#730;</p><p>And, &#8736;y + &#8736;b = 125&#730;</p><p>&#8736;y = 125  -  52 = 73&#730;</p><p>And, &#8736;a = 180  -  125 = 55&#730;</p><p>Therefore, (&#8736;y  -  &#8736;a) = 73  -  55 = <b>18</b><b>&#730;</b></p>",
+    "question_index": 25
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure given below, EF II CD and CD II AB. Find the measure of &#8736;DAC.</p><p><img width=261 height=243 id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image012.png\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, EF II CD &#2324;&#2352; CD II AB &#2361;&#2376;&#2404; &#8736;DAC &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p><p><img width=\"261\" height=\"243\" id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image012.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">65&#730;</span><span class=\"hqt\" style=\"display:none\">65&#730;</span>",
+      "<span class=\"eqt\">73&#730;</span><span class=\"hqt\" style=\"display:none\">73&#730;</span>",
+      "<span class=\"eqt\">69&#730;</span><span class=\"hqt\" style=\"display:none\">69&#730;</span>",
+      "<span class=\"eqt\">77&#730;</span><span class=\"hqt\" style=\"display:none\">77&#730;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Here, EF II CD and CD II AB. Then,</p><p>&#8736;b = 180  -  82  -  21 = 77&#730;</p><p>&#8736;ABD = 82&#730;</p><p>&#8736;ROF = &#8736;RAB = &#8736;b = 77&#730;</p><p>Now, &#8736;DAB = 12&#730; = &#8736;ADC</p><p>Therefore, &#8736;DAC = &#8736;RAB - &#8736;DAB = 77  -  12 = <b>65</b><b>&#730;</b></p>",
+    "question_index": 26
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure given below, AB II CD and CD II EF. If &#8736;AJI = 129&#730;, &#8736;EFD = 37&#730; and DF II CH, then find the measure of &#8736;GCI.</p><p><img width=271 height=222 id=\"Picture 16\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image013.png\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, AB II CD &#2324;&#2352; CD II EF &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#8736;AJI = 129&#730;, &#8736;EFD = 37&#730; &#2324;&#2352; DF II CH &#2361;&#2376;,&#2340;&#2379; &#8736;GCI &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p><p><img width=\"271\" height=\"222\" id=\"Picture 16\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image013.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">84&#730;</span><span class=\"hqt\" style=\"display:none\">84&#730;</span>",
+      "<span class=\"eqt\">88&#730;</span><span class=\"hqt\" style=\"display:none\">88&#730;</span>",
+      "<span class=\"eqt\">86&#730;</span><span class=\"hqt\" style=\"display:none\">86&#730;</span>",
+      "<span class=\"eqt\">82&#730;</span><span class=\"hqt\" style=\"display:none\">82&#730;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Here, &#8736;GCI = &#8736;GCD + &#8736;DCI</p><p>Now, &#8736;DCI = &#8736;BJI = 180  -  129 = 51&#730;</p><p>And, &#8736;GCD = &#8736;EFD = 37&#730;</p><p>Therefore, &#8736;GCI = 51 + 37 = <b>88</b><b>&#730;</b></p>",
+    "question_index": 27
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure given below, if O is the center of the circle and &#8736;DCB = 115&#730;, then find the measure of angle DAC.</p><p><img width=263 height=218 id=\"Picture 10\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image014.png\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, &#2351;&#2342;&#2367; O &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2366; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; &#2361;&#2376; &#2324;&#2352; &#8736;DCB = 115&#730; &#2361;&#2376;, &#2340;&#2379; &#2325;&#2379;&#2339; DAC &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p><p><img width=\"263\" height=\"218\" id=\"Picture 10\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image014.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">35&#730;</span><span class=\"hqt\" style=\"display:none\">35&#730;</span>",
+      "<span class=\"eqt\">41&#730;</span><span class=\"hqt\" style=\"display:none\">41&#730;</span>",
+      "<span class=\"eqt\">39&#730;</span><span class=\"hqt\" style=\"display:none\">39&#730;</span>",
+      "<span class=\"eqt\">47&#730;</span><span class=\"hqt\" style=\"display:none\">47&#730;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>As we know, angle made by an arc at center = 2 * angle made at circumference</p><p>Then, &#8736;ACB = 114/2 = 57&#730;</p><p>Now, &#8736;DCA = 115  -  57 = 58&#730;</p><p>And, &#8736;CAD = 180  -  83  -  58 = <b>39</b><b>&#730;</b></p>",
+    "question_index": 28
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a circle with center O, AP and AQ are two tangents from a point A such that OP= (2/5)PA and radius of circle is 12 cm. What is the length of OA?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340; &#2350;&#2375;&#2306; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; O &#2361;&#2376;, &#2348;&#2367;&#2306;&#2342;&#2369; A &#2360;&#2375; AP &#2324;&#2352; AQ &#2342;&#2379; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2352;&#2375;&#2326;&#2366; &#2311;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2375; &#2361;&#2376;&#2306; &#2325;&#2367; OP= (2/5)PA &#2361;&#2376; &#2324;&#2352; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; 12 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;| OA &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">6&radic;29 cm</span><span class=\"hqt\" style=\"display:none\">6&radic;29 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">5&radic;29 cm</span><span class=\"hqt\" style=\"display:none\">5&radic;29 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">7&radic;29 cm</span><span class=\"hqt\" style=\"display:none\">7&radic;29 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">4&radic;29 cm</span><span class=\"hqt\" style=\"display:none\">4&radic;29 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>According to the question:</p><p><img width=281 height=146 id=\"Picture 17\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image015.png\"></p><p>As we know, AP = AQ</p><p>Then, OP = (2/5)PA</p><p>PA = (5/2) * 12 = 30 cm</p><p>By using Pythagoras theorem, we get</p><p>OA<sup>2</sup> = OP<sup>2 </sup>+ PA<sup>2</sup></p><p>OA<sup>2</sup> = (12)<sup>2 </sup>+ (30)<sup>2</sup></p><p><b>OA = 6</b><b>&radic;</b><b>29 cm</b></p>",
+    "question_index": 29
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The length of a tangent from an external point to a circle is 8 units and the distance between the point and the center of the circle is 12 units. Find the radius of the circle.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2348;&#2366;&#2361;&#2352;&#2368; &#2348;&#2367;&#2306;&#2342;&#2369; &#2360;&#2375; &#2319;&#2325; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358;&#2352;&#2375;&#2326;&#2366; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; 8 &#2311;&#2325;&#2366;&#2312; &#2361;&#2376; &#2324;&#2352; &#2348;&#2367;&#2306;&#2342;&#2369; &#2324;&#2352; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2368; &#2342;&#2370;&#2352;&#2368; 12 &#2311;&#2325;&#2366;&#2312; &#2361;&#2376;&#2404; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">5&radic;5 units</span><span class=\"hqt\" style=\"display:none\">5&radic;5 &#2311;&#2325;&#2366;&#2312;</span>",
+      "<span class=\"eqt\">5&radic;3 units</span><span class=\"hqt\" style=\"display:none\">5&radic;3 &#2311;&#2325;&#2366;&#2312;</span>",
+      "<span class=\"eqt\">4&radic;3 units</span><span class=\"hqt\" style=\"display:none\">4&radic;3 &#2311;&#2325;&#2366;&#2312;</span>",
+      "<span class=\"eqt\">4&radic;5 units</span><span class=\"hqt\" style=\"display:none\">4&radic;5 &#2311;&#2325;&#2366;&#2312;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>According to the question:</p><p><img width=208 height=167 id=\"Picture 20\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image016.jpg\"></p><p>Radius of circle = AC</p><p>BC = 12 units and AB = 8 units</p><p>Now, using Pythagoras theorem, we get</p><p>BC<sup>2</sup> = AB<sup>2</sup> + AC<sup>2</sup></p><p>12<sup>2</sup> = 8<sup>2</sup> + AC<sup>2</sup></p><p><b>AC = 4</b><b>&radic;</b><b>5 units</b></p>",
+    "question_index": 30
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a circle, AB is a chord which produced to P such that PT is the tangent to the circle form point P. If PT = 6 cm and PB = 4 cm, then find the value of AB.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340; &#2350;&#2375;&#2306;, AB &#2319;&#2325; &#2332;&#2368;&#2357;&#2366; &#2361;&#2376; &#2332;&#2367;&#2360;&#2375; P &#2340;&#2325; &#2311;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2375; &#2326;&#2368;&#2306;&#2330;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376; &#2325;&#2367; &#2348;&#2367;&#2306;&#2342;&#2369; P &#2360;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2346;&#2352; PT &#2319;&#2325; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2352;&#2375;&#2326;&#2366; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; PT= 6 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; PB = 4 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; AB &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">3 cm</span><span class=\"hqt\" style=\"display:none\">3 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">4 cm</span><span class=\"hqt\" style=\"display:none\">4 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">5 cm</span><span class=\"hqt\" style=\"display:none\">5 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">6 cm</span><span class=\"hqt\" style=\"display:none\">6 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Figure will be:</p><p><img width=280 height=149 id=\"Picture 21\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image017.jpg\" ></p><p>Here, PA * PB = PT<sup>2</sup></p><p>PA * 4 = 6 * 6</p><p>Then, PB = 9 cm</p><p>Therefore, PA  -  PB = AB = 9  -  4 = <b>5 cm</b></p>",
+    "question_index": 31
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two circles A and B have same center and the radius of circle A is 2 cm more than radius of circle B. A chord of the larger circle is a tangent of the smaller circle. If length of chord is 18cm, then find the radius of the larger circle.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2357;&#2371;&#2340;&#2381;&#2340; A &#2324;&#2352; B &#2325;&#2375; &#2360;&#2350;&#2366;&#2344; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; &#2361;&#2376; &#2324;&#2352; &#2357;&#2371;&#2340;&#2381;&#2340; A &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2357;&#2371;&#2340;&#2381;&#2340; B &#2325;&#2375; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2360;&#2375; 2 &#2360;&#2375;&#2350;&#2368; &#2309;&#2343;&#2367;&#2325; &#2361;&#2376;&#2404; &#2348;&#2337;&#2364;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2332;&#2368;&#2357;&#2366; &#2331;&#2379;&#2335;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2352;&#2375;&#2326;&#2366; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#2332;&#2368;&#2357;&#2366; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; 18 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;&#2306;, &#2340;&#2379; &#2348;&#2337;&#2364;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">21.25 cm</span><span class=\"hqt\" style=\"display:none\">21.25 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">24.5 cm</span><span class=\"hqt\" style=\"display:none\">24.5 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">22.75 cm</span><span class=\"hqt\" style=\"display:none\">22.75 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">23 cm</span><span class=\"hqt\" style=\"display:none\">23 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>According to the question:</p><p><img width=230 height=207 id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image018.png\"></p><p>Here, let radius of circle A = a cm</p><p>Radius of circle B = (a  -  2) cm</p><p>Length of chord = 18 cm</p><p>Then, using Pythagoras theorem, we get</p><p>(18/2)<sup>2</sup> + (a  -  2)<sup>2</sup> = a<sup>2</sup></p><p><b>a = 21.25 cm</b></p>",
+    "question_index": 32
+  },
+  {
+    "question": "<span class=\"eqt\"><p>AP and AQ are two tangents to a circle with center O. If &#8736;PAQ = 64&#730;, then find the measure of &#8736;OQP.</p></span><span class=\"hqt\" style=\"display:none\"><p>AP &#2324;&#2352; AQ &#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2342;&#2379; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358;&#2352;&#2375;&#2326;&#2366; &#2361;&#2376;&#2306;, &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2366; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; O &#2361;&#2376;| &#2351;&#2342;&#2367; &#8736;PAQ = 64&#730; &#2361;&#2376;, &#2340;&#2379; &#8736;OQP &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">32&#730;</span><span class=\"hqt\" style=\"display:none\">32&#730;</span>",
+      "<span class=\"eqt\">12&#730;</span><span class=\"hqt\" style=\"display:none\">12&#730;</span>",
+      "<span class=\"eqt\">16&#730;</span><span class=\"hqt\" style=\"display:none\">16&#730;</span>",
+      "<span class=\"eqt\">10&#730;</span><span class=\"hqt\" style=\"display:none\">10&#730;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>According to the question:</p><p><img width=287 height=147 id=\"Picture 25\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8274/image019.png\"></p><p>&#8736;PAQ = 64&#730;</p><p>&#8736;OPA = &#8736;OQA = 90&#730;</p><p>Then, &#8736;AOQ = 180  -  90  -  64/2 = 58&#730;</p><p>&#8736;APQ = &#8736;AQP = (180  -  64)/2 = 58&#730;</p><p>Therefore, &#8736;OQP = &#8736;OPQ</p><p>= &#8736;OPA - &#8736;APQ</p><p>= 90  -  58</p><p>= <b>32</b><b>&#730;</b></p>",
+    "question_index": 33
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Radii of two circles are 18 cm and 24 cm respectively and distance between their centers is 8 cm. What is the length of the common tangent between them?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2357;&#2371;&#2340;&#2379; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366;&#2319;&#2305; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 18 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; 24 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;&#2306; &#2340;&#2341;&#2366; &#2313;&#2344;&#2325;&#2375; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2368; &#2342;&#2370;&#2352;&#2368; 8 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;&#2306;| &#2313;&#2344;&#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2375; &#2313;&#2349;&#2351;&#2344;&#2367;&#2359;&#2381;&#2336; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358;&#2352;&#2375;&#2326;&#2366; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3&radic;7 cm</span><span class=\"hqt\" style=\"display:none\">3&radic;7 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">2&radic;7 cm</span><span class=\"hqt\" style=\"display:none\">2&radic;7 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">3&radic;5 cm</span><span class=\"hqt\" style=\"display:none\">3&radic;5 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">2&radic;5 cm</span><span class=\"hqt\" style=\"display:none\">2&radic;5 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Length of the tangent = &radic;((distance between centers)<sup>2</sup>  -  (r<sub>1</sub>  -  r<sub>2</sub>)<sup>2</sup>)</p><p>= &radic;((8)<sup>2</sup>  -  (24  -  18)<sup>2</sup>)</p><p>= <b>2</b><b>&radic;</b><b>7 cm</b></p>",
+    "question_index": 34
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

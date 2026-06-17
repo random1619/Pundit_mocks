@@ -1,0 +1,34 @@
+:root {
+    --primary: #1e40af;
+    --success: #059669;
+    --danger: #dc2626;
+    --warning: #b45309;
+    --bg: #f3f4f6;
+    --card: #ffffff;
+    --text: #1f2937;
+    --text-light: #6b7280;
+    --border: #d1d5db;
+    --radius: 6px; // Classic fallback matching layout
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.welcome-instructions {
+    background: #fef3c7;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+
+    h3 {
+        color: var(--warning);
+        margin-bottom: 12px;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+}

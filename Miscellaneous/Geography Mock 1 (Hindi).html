@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geography Mock 1 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>In which country can the river Huang be located?</p>",
+    "options": [
+      "China",
+      "Japan",
+      "Iran",
+      "North Korea"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The <b>Yellow River</b> or <b>Huang He</b> is the third-longest river in Asia, following the Yangtze River and Yenisei River, and the sixth-longest in the world at the estimated length of 5,464 km (3,395 mi). Originating in the Bayan Har Mountains in Qinghai province of western China, it flows through nine provinces, and it empties into the Bohai Sea near the city of Dongying in Shandong province. The Yellow River is called <b>\"the cradle of Chinese civilization\"</b>, because its basin was the birthplace of ancient Chinese civilization, and it was the most prosperous region in early Chinese history. However, because of frequent devastating floods and course changes produced by the continual elevation of the river bed (due in part to manmade erosion upstream), sometimes above the level of its surrounding farm fields, it also has the names <b>China's Sorrow</b> and <b>Scourge of the Sons of Han</b>.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>In which continent can a Prairie be found?</p>",
+    "options": [
+      "Asia",
+      "North America",
+      "Europe",
+      "Australia"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Prairies are Temperate Grasslands. They are known by different names in different places-</p> <p>Argentina - Pampas</p> <p>North America  -  Prairies</p> <p>South Africa- Veld</p> <p>Central Asia- Steppe</p> <p>Australia- Down</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>The Torrid Zone lies between-</p>",
+    "options": [
+      "23.5 degrees North and 66.5 degrees South",
+      "Equator and Tropic of Cancer",
+      "23.5 degrees North and 23.5 degree South",
+      "66.5 degrees North and 23.5 degrees South"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The <b>torrid zone</b> refers to the area of the earth between the <b>Tropic of Cancer</b> and the <b>Tropic of Capricorn</b>. Geographically, the torrid zone is defined by <b>23.5 degrees north</b> latitude and <b>23.5 degrees south</b> latitude. The tropic zone is another name for the torrid zone. This climate zone is one of the original five zones used to define the climate and growing zones of the earth. The delineation of this zone has since been modified to allow for the multitude of different biomes located within this traditionally tropical region.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Taiga is a kind of  - </p>",
+    "options": [
+      "Forest",
+      "Mountain",
+      "Riverine Island",
+      "Plateau"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Taiga</b><b>,</b><b> </b>also known as <b>boreal forest</b> or <b>snow forest</b>, is a biome characterized by coniferous forests consisting mostly of pines, spruces and larches. The taiga is the world's largest terrestrial biome. In North America it covers most of inland Canada and Alaska as well as parts of the extreme northern continental United States (northern Minnesota through the Upper Peninsula of Michigan to Upstate New York and northern New England), where it is known as the Northwoods. In Eurasia, it covers most of Sweden, Finland, much of Norway, some lowland/coastal areas of Iceland, much of Russia from Karelia in the west to the Pacific Ocean (including much of Siberia), and areas of northern Kazakhstan, northern Mongolia, and northern Japan (on the island of Hokkaid&#333;). However, the main tree species, the length of the growing season and summer temperatures vary. For example, the taiga of North America mostly consists of spruces; Scandinavian and Finnish taiga consists of a mix of spruce, pines and birch; Russian taiga has spruces, pines and larches depending on the region, while the Eastern Siberian taiga is a vast larch forest.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>The India Standard time is determined according to -</p>",
+    "options": [
+      "The Prime Meridian",
+      "66.5 degrees North",
+      "68 degrees East",
+      "82.5 degrees East"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Indian Standard Time is determined according to the <b>82.5 degrees East</b> Meridian. The local time at this meridian is taken as the India Standard Time. </p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>El Nino is a  - </p>",
+    "options": [
+      "Warm Current",
+      "Cold Current",
+      "Temperate Current",
+      "A warm current on the coast of California and a cool current on the coast of Indonesia"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>El Ni&#241;o</b> is the warm phase of the <b>El Ni&#241;o Southern Oscillation (commonly called ENSO)</b> and is associated with a band of warm ocean water that develops in the central and east-central equatorial Pacific (between approximately the International Date Line and 120&deg;W), including off the Pacific coast of South America. El Ni&#241;o Southern Oscillation refers to the cycle of warm and cold temperatures, as measured by sea surface temperature, SST, of the tropical central and eastern Pacific Ocean.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>When does the Northern Hemisphere experience the Winter Solstice?</p>",
+    "options": [
+      "21<sup>st</sup> June",
+      "22<sup>nd</sup> December",
+      "23<sup>rd</sup> September",
+      "21<sup>st</sup> March"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Solstices occur because Earth's axis of rotation is tilted about 23.4 degrees relative to Earth's orbit around the sun. During the Northern Hemisphere's summer solstice-which always falls around June 21- the Southern Hemisphere gets its winter solstice. Likewise, during the Northern Hemisphere's winter solstice- which falls around December 22- the Southern Hemisphere gets its summer solstice.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>What is the average salinity of the oceans?</p>",
+    "options": [
+      "100 g/L",
+      "35 g/L",
+      "340 g/L",
+      "220 g/L"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Seawater, or salt water, is water from a sea or ocean. On average, seawater in the world's oceans has a salinity of about 3.5% (35 g/L, or 599 mM).Please note that the salinity of the Dead Sea is 340 g/L, approximately 10 times the average salinity. </p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>The research station <b>Dakshin Gangotri</b> is in  - </p>",
+    "options": [
+      "Antarctica",
+      "Arctic Ocean",
+      "South America",
+      "South China Sea"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Dakshin Gangotri</b> was the first scientific base station of India situated in Antarctica, part of the Indian Antarctic Program. It is located at a distance of 2,500 kilometers (1,600 miles ) from the South Pole. It was established during the third Indian expedition to Antarctica in 1983-84. This was the first time an Indian team spent a winter in Antarctica to carry out scientific works. The station was built in eight weeks by an 81- member team. Construction was completed late into January 1984 with help from the Indian army and Indian Republic Day was celebrated at the station along with the Soviets and East Germans.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Orographic precipitation occurs due to-</p>",
+    "options": [
+      "Seashores",
+      "Mountains",
+      "Deserts",
+      "Cyclones"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Orographic rainfall</b> is rain that is produced from the lifting of moist air over a mountain. The moist air rises and cools, producing orographic clouds, which are the source of the rain. Most orographic rain falls upwind of the mountain range, with some also falling a short distance downwind. This process can produce any type of precipitation, including snow, sleet, hail or freezing drizzle.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>The Earth rotates from-</p>",
+    "options": [
+      "East to West",
+      "South to North",
+      "North to South",
+      "West to East"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Earth's rotation is the rotation of the planet Earth around its own axis. The Earth rotates from the <b>west towards east</b>. As viewed from North Star or polestar Polaris, the Earth turns counter-clockwise.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Which of the following is an example of seasonal winds?</p>",
+    "options": [
+      "Southeastern Trade wind",
+      "Westerly's",
+      "Monsoon",
+      "Loo"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Seasonal winds are those winds which change their directions in different seasons. Monsoons in India is an example of seasonal winds.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which country does NOT touch the Sahara Desert?</p>",
+    "options": [
+      "Egypt",
+      "Sudan",
+      "Morocco",
+      "South Africa"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Sahara covers large parts of <b>Algeria, Chad, Egypt, Libya, Mali, Mauritania, Morocco, Niger, Western Sahara, Sudan and Tunisia</b>, extends over 9 million square kilometers (3,500,000 sq mi) and it covers about 1&#8260;4 of the African continent. If all areas with a mean annual precipitation of less than 250 mm were included, the Sahara would be over 11 million square kilometers (4,200,000 sq mi) in area. It is one of three distinct physiographic provinces of the African massive physiographic division.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Which layer of the atmosphere helps in the propagation of radio waves?</p>",
+    "options": [
+      "Ionosphere",
+      "Mesosphere",
+      "Stratosphere",
+      "Exosphere"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Ionosphere</b>: A region of the Earth's atmosphere in which atoms are often ionized (electrically charged) by radiation from the sun. The ionosphere lies mostly in the lower thermosphere, from about 43 to 250 miles (69 to 402.5 kilometers) above the Earth. Radio waves, which normally travel in a straight line, can be transmitted long distances over the curved surface of the Earth because they bounce off certain layers of the ionosphere and return to Earth instead of continuing into space.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The only floating wildlife park in the world, is a part of which state of India?</p>",
+    "options": [
+      "Jammu &amp; Kashmir",
+      "Manipur",
+      "Mizoram",
+      "Assam"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The <b>Keibul Lamjao National Park</b> is a national park in the Bishnupur district of the state of <b>Manipur</b> in India. It is 40 km2 (15.4 sq mi) in area, the only floating park in the world, located in North East India, and an integral part of <b>Loktak Lake</b>. The national park is characterized by many floating decomposed plant materials locally called <b>phumdis</b>. To preserve the natural refuge of the endangered Manipur Eld's deer or brow-antlered deer (Cervus eldi eldi), or sangai also called the dancing deer, listed as an endangered species by IUCN, the park which was initially declared to be a sanctuary in 1966, was subsequently declared to be a national park in 1977 through a gazette notification. The act has generated local support and public awareness</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Which of the following is the most abundant gas in the atmosphere? </p>",
+    "options": [
+      "Nitrogen",
+      "Oxygen",
+      "Carbon Dioxide",
+      "Argon"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The atmosphere contains-</p> <p>Nitrogen - 78%</p> <p>Oxygen - 21%</p> <p>Argon - 0.93%</p> <p>Carbon Dioxide- 0.03%</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which of the following is NOT an antecedent river?</p>",
+    "options": [
+      "Brahmaputra",
+      "Satluj",
+      "Indus",
+      "Tapi"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>Antecedant river</b>: This type of river flows against the slope because the river channel is older than the relief. Such rivers exist before the surface relief was impressed upon the area. E.g. Brahmaputra, Indus, Satluj.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Where are you most likely to find mushroom rocks?</p>",
+    "options": [
+      "Gangotri Glacier",
+      "Deccan Peninsula",
+      "Thar Desert",
+      "Western Ghat"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Mushroom rocks are found in deserts. They are formed when wind erodes the lower section of the rock more than the upper part.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Khadar and Bangar are two types of-</p>",
+    "options": [
+      "Black Soil",
+      "Alluvial Soil",
+      "Laterite Soil",
+      "Mountain Soil"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Kh&#257;dir </b>or <b>Khadar</b> and <b>B&#257;ngar</b> are terms used in Hindustani, Punjabi and Sindhi in the Indo-Gangetic plains of North India and Pakistan to differentiate between two types of river plains and alluvial soils. Khadir or Khadar plains are those that are low-lying next to a river. Khadir areas are prone to flooding and sometimes include portions of former river-beds that became available for agriculture when a river changed course.[1] Khadir soil consists of new alluvial deposits and is often very fertile. Bangar plains are more upland, and consist of older alluvial soil. Bangar areas are less prone to flooding but are usually more sandy and less fertile as well</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>A lake cut off from the river by a meander loop is known as a-</p>",
+    "options": [
+      "Inland Lake",
+      "Riverine Peninsula",
+      "Levees",
+      "Ox- Bow lake"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>An oxbow lake is a U-shaped body of water that forms when a wide meander from the main stem of a river is cut off, creating a free-standing body of water. This landform is so named for its distinctive curved shape, resembling the bow pin of an oxbow.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Which of the following is NOT a tributary of Ganga?</p>",
+    "options": [
+      "Son",
+      "Kosi",
+      "Hooghly",
+      "Gandak"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Son, Gandak are tributaries of the Ganga but Hooghly is its distributary. At Bhagalpur, the river begins to flow south-southeast and at Pakur, it begins its attrition with the branching away of its first distributary, the Bhagirathi-Hooghly, which goes on to become the Hooghly River.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Which of the following is NOT an endogenic force?</p>",
+    "options": [
+      "Earthquake",
+      "Volcano",
+      "Wind",
+      "Landslides"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Forces that act in the interior of the earth are called Endogenic forces and the forces that work on the surface of the earth are called exogenic.</p> <p>Endogenic Forces- Earthquakes, volcanoes, Landslides, shifting of tectonic plates</p> <p>Exogenic Forces- River, Wind, Sea waves, Glaciers</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Which pair constitutes the Grand Trunk Road?</p>",
+    "options": [
+      "NH-1, NH-2",
+      "NH-2, NH-8",
+      "NH-10, NH-12",
+      "NH-1 only"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>National Highway 1</b> or <b>NH 1</b> is a National Highway in Northern India that links the national capital New Delhi to the town of Attari in Punjab near the India - Pakistan border. This was a part of the historical Grand Trunk Road, which ran from Bengal to Kabul, built on earlier roads that existed from time immemorial. The National Highways Authority of India (NHAI) divided it into two parts - called as NH 1 west of Delhi, and as NH 2 east of it. The highway is maintained by National Highways Authority of India.[1] This is one of the longest and oldest highways of India.</p> <p><b>National Highway 2</b> or <b>NH 2</b>, commonly referred as Delhi - Kolkata Road, is a busy National Highway in India that runs through the states of Delhi, Haryana, Uttar Pradesh, Bihar, Jharkhand, and West Bengal. It constitutes a major portion of the historical Grand Trunk Road along with NH 91 and NH 1 in India. The highway connects national capital Delhi with Kolkata as well as important cities Faridabad, Mathura, Agra, Kanpur, Allahabad, Varanasi and Durgapur. The road is the part of National Highway network of India, and it is officially listed as running over 1,465 km from Delhi to Kolkata.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>The P waves of an earthquake are ________ in nature.</p>",
+    "options": [
+      "Longitudinal",
+      "Transverse",
+      "Surface",
+      "Gravity waves"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>There are three types of Earthquake waves-</p> <p>1. P waves or longitudinal waves</p> <p>2. S waves or Transverse wakes</p> <p>3. L waves or surface waves.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Where do Western Disturbances occurring in India, Pakistan and Nepal originate?</p>",
+    "options": [
+      "Black Sea",
+      "Arabian Sea",
+      "Mediterranean Sea",
+      "Caspian Sea"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>During winter, there is an inflow of low pressure depressions called western disturbances in north-west India. These westerly depressions originate in the <b>Mediterranean</b> and enter India after crossing Pakistan, Iran, Iraq and Afghanistan. They intensify over the North West India and move eastwards causing rain in Punjab and Haryana and snowfall in Himalayan belt. During summer, the whole of east coast of India comes under tropical depressions (low pressure systems originating at the head of the Bay of Bengal).Tropical cyclones occur during the monsoon as well as in October-November, and are a part of easterly flow. They cause heavy loss to life and property. The strongest of western disturbance rains usually occurs in North Pakistan where flooding is reported at number of times during the winter season. in other words its life line for Punjab and other north west parts of India.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Which of the following rocks are also called primary rocks?</p>",
+    "options": [
+      "Igneous Rocks",
+      "Metamorphic Rocks",
+      "Sedimentary Rocks",
+      "All of the above."
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Igneous rocks</b> are formed from magma, the molten material from the center of the Earth. Igneous rocks begin the rock cycle, and are therefore called <b>primary rocks</b>. Two major divisions include volcanic or <b>extrusive rocks</b> that form when magma is ejected from the Earth's crust, and <b>intrusive rocks</b>, which are created below the surface. </p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>The Black Sea does not touch which of the following countries?</p>",
+    "options": [
+      "Serbia",
+      "Turkey",
+      "Russia",
+      "Bulgaria"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The <b>Black Sea</b> is surrounded by Bulgaria, Russia, Ukraine, Georgia, Turkey and Romania. </p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which option represents the two main mineral constituents of the continental crust?</p>",
+    "options": [
+      "Silicon and Aluminium",
+      "Silica and Aluminium",
+      "Silica and Alumina",
+      "Silicon and Alumina"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The main mineral constituents of the continental crust are silica and alumina. The crust is also called SiAl.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Where is the Kandla Port located?</p>",
+    "options": [
+      "Trivendram",
+      "Mumbai",
+      "Gulf of Kuchchh",
+      "Gulf of Mannar."
+    ],
+    "correct_option_id": 2,
+    "solution": "=3w\u0003H\u0012(\u00030\u0001}<=3w\u0003H\u0012(\u00030\u0001}<",
+    "question_index": 28
+  },
+  {
+    "question": "<p>What is the approximate depth of the crust on the ocean floors?</p>",
+    "options": [
+      "20 Km",
+      "35 Km",
+      "15 Km",
+      "5 Km"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The topmost layer of the earth crust is about 35 Km deep on the continental masses and 5Km deep on the ocean floor.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

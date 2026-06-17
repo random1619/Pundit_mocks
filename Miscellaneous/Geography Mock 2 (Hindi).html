@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geography Mock 2 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Chir and Deodar are spices of which type of forests?</p>",
+    "options": [
+      "Moist Deciduous",
+      "Dry Deciduous",
+      "Tropical evergreens",
+      "Montane"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b><i>Chir</i></b><b>, Oak, Chesnuts, Olives, <i>Deodar</i>, Walnuts and <i>Chinar</i> grow in the <i>Montane forests</i>.</b></p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>In continent does the trade wind <i>Harmattan </i>blow?</p>",
+    "options": [
+      "Asia",
+      "Africa",
+      "Australia",
+      "North America"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The <b><i>Harmattan</i></b> is a dry and dusty northeasterly trade wind which blows from the <b>Sahara Desert</b> over the <b>West African</b> subcontinent into the <b>Gulf of Guinea</b> between the end of November and the middle of March (winter). It is cold in some places and hot in others, according to the circumstances. The Harmattan blows during the dry season, which occurs during the lowest-sun months, when the subtropical ridge of high pressure stays over the central Sahara Desert and when the low-pressure <b>Intertropical Convergence Zone (ITCZ) </b>stays over the Gulf of Guinea. On its passage over the Sahara, it picks up fine dust and sand particles (between 0.5 and 10 microns).</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Muscovite, Pholgopite and Biotite are types of which mineral?</p>",
+    "options": [
+      "Manganese",
+      "Aluminum",
+      "Mica",
+      "Gypsum"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The major types of mica found in India are Muscovite, Pholgopite and Biotite. Most mica in India is produced in Bihar, Andhra Pradesh and Rajasthan. Maharashtra, Kerala, Karnataka and Tamil Nadu are minor producers.</p> <p><b>Common micas:</b></p> <p>1. Biotite</p> <p>2. Lepidolite</p> <p>3. Muscovite</p> <p>4. Phlogopite</p> <p>5. Zinnwaldite</p> <p><b>Brittle micas:</b></p> <p>1. Clintonite</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Which country is the largest producer of wheat?</p>",
+    "options": [
+      "China",
+      "India",
+      "Australia",
+      "United States"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>China </b>is the largest producer of wheat, followed by <b>India and the United States</b>. <b>Australia</b>, although not a top producer, is one of the highest exporters of wheat.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following question.</p> <p>1. Tea plants require stagnant water for proper growth.</p> <p>2. Acidic soils with low calcium and high iron content are conducive to the growth of tea.</p> <p>3. India is the largest producer of tea in the world.</p><p>Which of the following options list the correct statements?</p>",
+    "options": [
+      "1 and 2",
+      "1 and 3",
+      "Only 2",
+      "2 and 3"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Tea plants require <b>evenly distributed rainfall all-round the year</b>. The water <b>should NOT stagnate</b> near the roots of the plants. Therefore, tea gardens are located on the hill slopes. Tea plants require <b>warm and humid climate</b> to flourish. They grow well in fertile soils with <b>high humus content</b>. The soil <b>should NOT be alkaline</b> in nature. Acidic soils with low calcium and high iron content are conducive to the growth of tea. The total productive lifespan of a tea plant is 40-50 years. <b>China,</b> followed by India is the largest producer of tea.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Where is the <b>Birbal Sahni Institute of Palaeobotany </b>located?</p>",
+    "options": [
+      "Agra",
+      "Lucknow",
+      "Pilani",
+      "Nainital"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The <b>Birbal Sahni Institute of Palaeobotany (acronym BSIP)</b> is an autonomous institute constituted under the Department of Science and Technology, Government of India. The Institute is located at <b>Lucknow</b>, Uttar Pradesh, India and is a seat of higher learning in the field of plant fossil research.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>What is the approximate percentage of Carbon Dioxide in the atmosphere?</p>",
+    "options": [
+      "20%",
+      "&gt;1%",
+      "1%&lt;",
+      "3%"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The atmosphere contains-</p> <p>Nitrogen - 78%</p> <p>Oxygen - 21%</p> <p>Argon - 0.93%</p> <p><b>Carbon Dioxide- 0.03%</b></p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Which of the following is a long beach in Asia?</p>",
+    "options": [
+      "Tavony",
+      "Cox's Bazaar",
+      "Shan",
+      "Jamuna"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Cox's Bazaar is a town, a fishing port and district headquarters in Bangladesh. <b>The beach in Cox's Bazaar is an unbroken 125 km sandy sea beach with a gentle slope, one of the world's longest.</b> </p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>To which region does the <i>Gaur Maria </i>belong?</p>",
+    "options": [
+      "Assam",
+      "Madhya Pradesh",
+      "Chhattisgarh",
+      "Jharkhand"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Gaur Maria dance is performed in plateau of <b>Bastar, in Madhya Pradesh</b>. It is performed on the occasions of marriage. </p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Siang, Dihang and Tsang Po are popular names of which river?</p>",
+    "options": [
+      "Ganga",
+      "Xiang",
+      "Brahmaputra",
+      "Meghna"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Brahmaputra also called <b>Tsangpo</b>-Brahmaputra, is a trans-boundary river and one of the major rivers of Asia. With its origin in the <b>Chemayungdung glacier</b>, located on the northern side of the Himalayas in Burang County of Tibet as the Yarlung Tsangpo River, it flows across southern Tibet to break through the Himalayas in great gorges (including the Yarlung Tsangpo Grand Canyon) and into <b>Arunachal Pradesh (India), where it is known as Dihang or Siang</b>. It flows southwest through the Assam Valley as Brahmaputra and south through <b>Bangladesh as the Jamuna</b> (not to be mistaken with Yamuna of India). In the vast Ganges Delta, it merges with <b>the Padma</b>, the popular name of the river Ganges in Bangladesh, and finally <b>the Meghna</b> and from here it is known as Meghna before emptying into the Bay of Bengal.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>In which state is the Bandipur National Park located?</p>",
+    "options": [
+      "Tamil Nadu",
+      "Kerala",
+      "Karnataka",
+      "Telangana"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Bandipur National Park, established in 1974 as a tiger reserve under Project Tiger, is a national park located in the south Indian state of <b>Karnataka. </b>It was once a private hunting reserve for the Maharaja of the Kingdom of Mysore but has now been upgraded to Bandipur Tiger Reserve. Bandipur is known for its wildlife and has many types of biomes, but dry deciduous forest is dominant.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>In which state is the Hirakud Dam located?</p>",
+    "options": [
+      "Odisha",
+      "Telangana",
+      "West Bengal",
+      "Tamil Nadu"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Hirakud Dam is built across the Mahanadi River, about 15 km from Sambalpur in the state of Odisha i</b>n India. Behind the dam extends a lake, Hirakud Reservoir, 55 km long. It is <b>one of the first major multipurpose river valley projects started after India's independence. </b>The dam was completed in 1953 and was formally inaugurated by Prime Minister Jawaharlal Nehru on 13 January 1957. Power generation along with agricultural irrigation started in 1956, achieving full potential in 1966.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>The Great Barrier Reef is located to the __________ of Australia.</p>",
+    "options": [
+      "South West",
+      "North East",
+      "South",
+      "West"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Great Barrier Reef is the world's largest coral reef system composed of over 2,900 individual reefs and 900 islands stretching for over 2,300 kilometers (1,400 mi) over an area of approximately 344,400 square kilometers (133,000 sq mi). The reef is located in the <b>Coral Sea</b>, off the <b>Northeast coast of Queensland, Australia.</b></p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Which of the following is measured by the Anemometer?</p>",
+    "options": [
+      "Pressure Gradient",
+      "Speed of wind",
+      "Absolute Humidity",
+      "Direction of wind"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>An anemometer is a device used for <b>measuring wind speed</b>, and is a common weather station instrument. The term is derived from the Greek word anemos, which means wind, and is used to describe any wind speed measurement instrument used in meteorology.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Which of the following is NOT a Scandinavian country?</p>",
+    "options": [
+      "Denmark",
+      "Norway",
+      "Poland",
+      "Sweden"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Scandinavia is a historical and cultural-linguistic region in Northern Europe characterized by a common ethno-cultural North Germanic heritage and mutually intelligible North Germanic languages. In English, Scandinavia usually refers the three kingdoms of <b>Denmark, Norway, and Sweden, while Finland and Iceland are sometimes included. </b>Modern Norway and Sweden proper are situated on the Scandinavian Peninsula, whereas modern Denmark consists of Jutland and the Danish islands.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>In which state is the Narora Nuclear Power Plant located?</p>",
+    "options": [
+      "Madhya Pradesh",
+      "Uttar Pradesh",
+      "Kerala",
+      "Maharashtra"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Narora Atomic Power Station</b> is located in Narora<b>, Bulandshahar District in Uttar Pradesh,</b> India. Commercial operation of unit 1 began on 1 January 1991. Unit 2 began commercial operation on 26 April 2015. Each unit has a capacity of 220 MW. Narora is situated in the state of Uttar Pradesh and in the district of Bulandshahar. </p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Ocean's contain approximately what percentage of the total water available on the Earth's surface?</p>",
+    "options": [
+      "70%",
+      "90%",
+      "97%",
+      "75%"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The hydrosphere in physical geography describes the combined mass of water found on, under, and over the surface of a planet. <b>Saltwater accounts for 97.5% of this.</b> Fresh water accounts for only 2.5%. Of this fresh water 68.7% is in the \"form of ice and permanent snow cover in the Arctic, the Antarctic, and in the mountainous regions. Next, 29.9% exists as fresh groundwater. Only 0.26% of the total amount of fresh waters on planet Earth is easily accessible. It is found in lakes, reservoirs and river systems, the principal elements of water ecosystems.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following question.</p> <p>1. The capital of Russia-Moscow, is located in Europe.</p> <p>2. Istanbul is the capital of turkey.</p> <p>3. Kiev is the capital of Ukraine.</p><p>Which of the following options list the correct statements?</p>",
+    "options": [
+      "1 and 2",
+      "1 and 3",
+      "Only 2",
+      "2 and 3"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Turkey is a democratic, secular, unitary, constitutional republic with a diverse cultural heritage.</b> Its capital is <b>Ankara</b> and <b>Istanbul </b>is its largest city. The country's official language is Turkish, a Turkic language spoken natively by approximately 85 percent of the population. Turkey is a member of the UN, NATO, OECD, OSCE, OIC and the G-20. </p> <p><b>Russia</b>, also officially known as the Russian Federation, is a sovereign state in northern Eurasia. It is a federal semi-presidential republic. Russia is the largest country in the world, covering more than one-eighth of the Earth's inhabited land area. Russia is the world's ninth most populous country. <b>Moscow, its capital is located in Europe. Most industrialized and developed parts of Russia are located in Europe. </b></p> <p><b>Ukraine is a country in Eastern Europe</b>, bordered by <b>Russia to the east and northeast, Belarus to the northwest, Poland and Slovakia to the west, Hungary, Romania, and Moldova to the southwest, and the Black Sea and Sea of Azov to the south and southeast, respectively.</b> It is currently in dispute with Russia over the Crimean peninsula which Russia annexed in 2014 but Ukraine and most of the international community still recognize it as Ukrainian. Ukraine has long been a <b>global breadbasket because of its extensive, fertile farmlands, and it remains one of the world's largest grain exporters.</b> The diversified economy of Ukraine includes <b>a large heavy industry sector, particularly in aerospace and industrial equipment.</b> Ukraine is a <b>unitary republic under a semi-presidential system with separate powers: legislative, executive, and judicial branches.</b> <b>Its capital and largest city is Kiev.</b> </p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Where do the two headstreams of Ganga  -  Alaknanda and Bhagirathi meet?</p>",
+    "options": [
+      "Allahabad",
+      "Devprayag",
+      "Varanasi",
+      "Gangotri"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Devprayag is a town in <b>Tehri Garhwal district</b> in the state of <b>Uttarakhand, India</b>, and is the place where <b>Alaknanda and Bhagirathi rivers meet and take the name Ganga</b>.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>The Ozone layer is present in which layer of the atmosphere?</p>",
+    "options": [
+      "Troposphere",
+      "Mesospause",
+      "Stratosphere",
+      "Ionosphere"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Ozone layer is a part of the <b>Stratosphere.</b> </p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Which of the following refers to a horizontal sheet of igneous rock, formed beneath the surface of the Earth?</p>",
+    "options": [
+      "Sill",
+      "Dyke",
+      "Syncline",
+      "Laccolith"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In geology, a <b>sill is a tabular sheet intrusion that has intruded between older layers of sedimentary rock, beds of volcanic lava or tuff, or even along the direction of foliation in metamorphic rock.</b> The term sill is synonymous with <b>concordant intrusive sheet</b>. <b>This means that the sill does not cut across preexisting rocks, in contrast to dikes, discordant intrusive sheets which do cut across older rocks.</b></p> <p><img width=260 height=155 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/02/image001.jpg\" ></p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>On being subjected to heat and pressure clay metamorphoses into _________.</p>",
+    "options": [
+      "Gneiss",
+      "Quartzite",
+      "Graphite",
+      "Slate"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>Slate is composed mainly of clay minerals or micas depending upon the degree of metamorphism to which it has been subjected. </b>The original clay minerals in shale alter to micas with increasing levels of heat and pressure. Slate can also contain abundant quartz and small amounts of feldspar, calcite, pyrite, hematite and other minerals.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>What is the capital of Meghalaya?</p>",
+    "options": [
+      "Gangtok",
+      "Agartala",
+      "Imphal",
+      "Shillong"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>Shillong is the capital of Meghalaya,</b> also known as \"The Abode of Clouds\" which is also one of the smallest states in India. It is said that the rolling hills around the town reminded the European settlers of Scotland. Hence, they would also refer to it as the <b>\"Scotland of the East\".</b> </p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Which of the following is also called sima?</p>",
+    "options": [
+      "Earth's continental crust",
+      "Lower layer of Earth’s Crust",
+      "Earth's core",
+      "Earth's mantle"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In geology, <b>sima</b> <b>is</b> <b>the name for the lower layer of the Earth's crust.</b> This layer is made of rocks rich in silica and magnesium. Typically when the sima comes to the surface it is basalt, so sometimes this layer is called the 'basalt layer' of the crust. The sima layer is also called the <b>'basal crust' or 'basal layer' because it is the lowest layer of the crust.</b> <b>Because the ocean floors are mainly sima, it is also sometimes called the 'oceanic crust'. </b>The name 'sima' was taken from the first two letters of <b>silica and of magnesium</b>. </p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Which is the largest bay in the world?</p>",
+    "options": [
+      "Bay of Bengal",
+      "Hudson Bay",
+      "James Bay",
+      "Baracoa"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>A bay is a body of water connected to an ocean or lake, formed by an indentation of the shoreline. <b>A large bay may be called a gulf, a sea, a sound, or a bight. A cove is a smaller circular or oval coastal inlet with a narrow entrance; some coves may be referred to as bays.</b> The <b>Bay of Bengal, the largest bay in the world, forms the northeastern part of the Indian Ocean. </b>Roughly triangular in shape, it is bordered by India and Sri Lanka to the west, Bangladesh to the north, and Myanmar (Burma) and the Andaman and Nicobar Islands to the east.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Which is the most dominant landform in Africa?</p>",
+    "options": [
+      "Mountains",
+      "Depositional Plains",
+      "Plateaus",
+      "Erosional Plains"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Africa is called a \"<b>plateau continent</b>\" because much of the land is raised well above sea level, dropping off sharply near the coastline. Additionally, Africa's continental shelf drops off precipitously, providing deep harbors but limiting offshore resource exploitation. Africa's plateau structure is largely due to its existence on a single tectonic plate. Most of the continent is flat and, despite faults in some areas, free of mountains generated by tectonic collision. The Olduvai Gorge may be the single place where Africa is partially on another tectonic plate, but even this is disputed by geologists. <b>The unique geography of Africa has historically prevented the use of most waterways as transportation routes for large vessels, limiting the development of trade for millennia. However, the waterways provide inexpensive hydroelectric power.</b></p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Which of the following is used to describe the movement of water saturated soil?</p>",
+    "options": [
+      "Silt",
+      "Solifluction",
+      "Slumping",
+      "Run-off"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In geomorphology, <b>solifluction is a gradual mass wasting slope process related to freeze-thaw activity</b>, occurring in periglacial environments. In 1906 Johan Gunnar Andersson interpreted solifluction as a mass wasting process that occurs most commonly in colder climates where periods of freezing and thawing are regular occurrences. A type of creep process, <b>solifluction describes the slow downslope movement of water-saturated sediment due to recurrent freezing and thawing of the ground, affected by gravity.'</b></p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Moraines comprise of-</p>",
+    "options": [
+      "Water",
+      "Pieces of rocks",
+      "Sheets of ice",
+      "Reservoirs of petroleum"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Moraines are accumulations of dirt and rocks that have fallen onto the glacier surface or have been pushed along by the glacier as it moves. </b>The dirt and rocks composing moraines can range in size from powdery silt to large rocks and boulders.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Which of the following is necessarily formed by glacial activity?</p>",
+    "options": [
+      "Mistral",
+      "Fjord",
+      "Gulf",
+      "Estuary"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Geologically, a <b>fjord or fiord is a long, narrow inlet with steep sides or cliffs, created by glacial erosion</b>. There are many fjords on the coasts of Alaska, British Columbia, Chile, Greenland, Iceland, the Kerguelen Islands, New Zealand, Norway, Labrador, Nunavut, Newfoundland, and Washington state.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>The point in the orbit of a planet nearest to its point of orbit, is called the ________.</p>",
+    "options": [
+      "Apogee",
+      "Perigee",
+      "Perihelion",
+      "Aphelion"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The <b>perihelion is the point in the orbit of a planet, minor planet, or comet, where it is nearest to its point of orbit, generally a star</b>. It is the opposite of aphelion, which is the point in the orbit where the celestial body is farthest from its point of orbit. The similar words \"perigee\" and \"apogee\" refer to the nearest and furthest points in some object's orbit around a planet.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

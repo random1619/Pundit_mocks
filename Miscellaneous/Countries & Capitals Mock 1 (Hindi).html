@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries & Capitals Mock 1 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Which among the following administers the monetary policy of Eurozone countries?</p>",
+    "options": [
+      "European Bank for Reconstruction and Development",
+      "European Investment Bank",
+      "European Central Bank",
+      "Council of Europe Development Bank",
+      "International Bank for Reconstruction and Development"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The European Central Bank is the central bank for the euro and administers monetary policy of the eurozone, which consists of 19 EU member states and is one of the largest currency areas in the world. It is one of the world's most important central banks and is one of the seven institutions of the European Union (EU) listed in the Treaty on European Union (TEU).</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Which of the following is not the member of Nordic Development Fund?</p>",
+    "options": [
+      "Denmark",
+      "Iceland",
+      "Sweden",
+      "Finland",
+      "Poland"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Nordic Development Fund is the joint multilateral development finance institution of Denmark, Finland, Iceland, Norway and Sweden. It was established in 1989 and adheres to the development assistance policies of the Nordic countries and has financed 190 development assistance credits valued at EUR 1 billion. The NDF provides grants to climate change related investments under its new mandate, established in 2009. NDF offices are located in Helsinki, Finland.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>World Tourism Organisation is head-quartered in</p>",
+    "options": [
+      "Paris",
+      "Brussels",
+      "Madrid",
+      "Barcelona",
+      "The Hague"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The United Nations World Tourism Organization (UNWTO) is the United Nations agency responsible for the promotion of responsible, sustainable and universally accessible tourism. It is head-quartered in Madrid, Spain.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>First BRICS summit was hosted by which of the following countries?</p>",
+    "options": [
+      "Brazil",
+      "Russia",
+      "India",
+      "China",
+      "South Africa"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The BRIC grouping's first formal summit, also held in Yekaterinburg, Russia, commenced on 16 June 2009, with Luiz Inacio Lula da Silva, Dmitry Medvedev, Manmohan Singh, and Hu Jintao, the respective leaders of Brazil, Russia, India and China, all attending. The summit's focus was on means of improving the global economic situation and reforming financial institutions, and discussed how the four countries could better co-operate in the future.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>The 'Global Corruption Barometer' is published by</p>",
+    "options": [
+      "Transparency International",
+      "World Tourism Organisation",
+      "International Parliamentary Union",
+      "International Standard Organisation",
+      "Peace and Security Council"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Global Corruption Barometer published by Transparency International is the largest survey in the world tracking public opinion on corruption. It surveys 114,000 people in 107 countries on their view of corruption.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Which among the following country is not a member of Organisation of Islamic Cooperation, even though it has third highest Islam population globally?</p>",
+    "options": [
+      "India",
+      "Pakistan",
+      "Indonesia",
+      "Iran",
+      "Iraq"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Organisation of Islamic Cooperation is an international organization founded in 1969, consisting of 57 member states. India is the home for 3<sup>rd</sup> highest Islam population globally among the countries, but it is not the member of Organisation of Islamic Cooperation.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Administrative Centre of Organisation of Islamic Cooperation is located in</p>",
+    "options": [
+      "Doha",
+      "Riyadh",
+      "Dubai",
+      "Jeddah",
+      "Kuwait City"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Permanent Secretariat is the executive organ of the Organisation of Islamic Cooperation, entrusted with the implementation of the decisions of the two preceding bodies, and is located in Jeddah, Saudi Arabia.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>European Space Agency (ESA) is head-quartered in</p>",
+    "options": [
+      "London",
+      "Geneva",
+      "Brussels",
+      "Paris",
+      "Rome"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The European Space Agency (ESA) is an intergovernmental organisation of 22 member states, dedicated to the exploration of space. Established in 1975 and headquartered in Paris, France.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which among the following is not the founding member of SAARC?</p>",
+    "options": [
+      "Nepal",
+      "Afghanistan",
+      "Bhutan",
+      "Myanmar",
+      "Sri Lanka"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The South Asian Association for Regional Cooperation (SAARC) is the regional intergovernmental organization and geopolitical union of nations in South Asia. SAARC was founded by seven states in 1985. In 2005, Afghanistan began negotiating their accession to SAARC and formally applied for membership on the same year. Despite initial reluctance and internal debates, Afghanistan joined SAARC as its eighth member state in April 2007.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Who among the following is the organiser of World Toilet Summit?</p>",
+    "options": [
+      "World Health Organisation",
+      "Food and Agriculture Organisation",
+      "United Nations Environment Program",
+      "World Toilet Organisation",
+      "World Food Programme"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The World Toilet Organization (WTO) is a global non-profit organization committed to improving toilet and sanitation conditions worldwide. It was founded in 2001 with 15 members and has now grown to 151 member organizations in 53 countries. All these members work towards eliminating the toilet taboo and delivering sustainable sanitation solutions worldwide. Furthermore, the WTO is also the organizer of the World Toilet Summit, the Urgent Run and initiated the United Nations World Toilet Day.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>How many countries are the original signatories of Trans Pacific Partnership (TPP)?</p>",
+    "options": [
+      "9",
+      "5",
+      "12",
+      "10",
+      "16"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Trans-Pacific Partnership (TPP), or the Trans Pacific Partnership Agreement (TPPA), is a trade agreement between 12 countries (Australia, Brunei, Canada, Chile, Japan, Malaysia, Mexico, New Zealand, Peru, Singapore, the United States and Vietnam).</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>The Islamic Development Bank is head-quartered in</p>",
+    "options": [
+      "Riyad",
+      "Jeddah",
+      "Dubai",
+      "Abu Dhabi",
+      "Doha"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Islamic Development Bank is an international Islamic financial institution, established in accordance with Articles of Agreement done at the City of Jeddah, Kingdom of Saudi Arabia in 1974, signed and ratified by all member countries. The Bank's principal office is in Jeddah in the Kingdom of Saudi Arabia. Four regional offices were opened in Rabat, Morocco (1994), Kuala Lumpur, Malaysia (1994). Almaty, Kazakhstan (1997), and Dakar, Senegal (2008).</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which of the following is the legislative capital of South Africa?</p>",
+    "options": [
+      "Bloemfontein",
+      "Johannesburg",
+      "Pretoria",
+      "Durban",
+      "Cape Town"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Capital cities of South Africa:</p><p>&bull; Judicial capital - Bloemfontein</p><p>&bull; Administrative capital - Pretoria</p><p>Cape Town is a coastal city in South Africa. It is the second-most populous urban area in South Africa after Johannesburg. It is also the capital and primate city of the Western Cape province. As the seat of the Parliament of South Africa, it is also the legislative capital of the country.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>What is the capital of Swaziland?</p>",
+    "options": [
+      "Mbabane",
+      "Maputo",
+      "Maseru",
+      "Windhoek",
+      "Luanda"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Mbabane is the capital and largest city in Swaziland. It is located on the Mbabane River and its tributary the Polinjane River in the Mdzimba Mountains. Swaziland, officially the Kingdom of Eswatini, is a sovereign state in Southern Africa. It is neighboured by Mozambique to its northeast and by South Africa to its north, west and south; it is a landlocked country.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Which of the following is the capital of Venezuela?</p>",
+    "options": [
+      "Quito",
+      "Caracas",
+      "Bogota",
+      "Lima",
+      "La Paz"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Caracas, officially Santiago de Le&#243;n de Caracas, is the capital, the centre of the Greater Caracas Area, and the largest city of Venezuela. Caracas is located along the Guaire River in the northern part of the country, following the contours of the narrow Caracas Valley on the Venezuelan coastal mountain range (Cordillera de la Costa). The valley is close to the Caribbean Sea, separated from the coast by a steep 2,200-metre-high mountain range, Cerro El &#193;vila; to the south there are more hills and mountains.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Which among the following is the capital of Egypt?</p>",
+    "options": [
+      "Tripoli",
+      "Rabat",
+      "Cairo",
+      "Khartoum",
+      "Asmara"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Cairo is the capital and largest city of Egypt. The city's metropolitan area is the largest in the Middle East and the Arab world, and 15<sup>th</sup> largest in the world, and is associated with ancient Egypt, as the famous Giza pyramid complex and the ancient city of Memphis are located in its geographical area. Located near the Nile Delta, modern Cairo was founded in 969 CE by Jawhar of the Fatimid dynasty, but the land composing the present-day city was the site of ancient national capitals whose remnants remain visible in parts of Old Cairo. Cairo has long been a centre of the region's political and cultural life, and is titled \"the city of a thousand minarets\" for its preponderance of Islamic architecture.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Asmara is the capital of</p>",
+    "options": [
+      "Egypt",
+      "Eritrea",
+      "Djibouti",
+      "Sudan",
+      "Ethiopia"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Asmara, is the capital city and largest settlement in Eritrea. The city is located at the tip of an escarpment that is both the north-western edge of the Eritrean highlands and the Great Rift Valley in neighbouring Ethiopia. In 2017, the city was declared as a UNESCO World Heritage Site. Asmara is situated in Eritrea's central Maekel Region. It is known for its well-preserved colonial Italian modernist architecture.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>The capital of Ethiopia is</p>",
+    "options": [
+      "Bangui",
+      "Kampala",
+      "Nairobi",
+      "Addis Ababa",
+      "Kinshasa"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Addis Ababa, is the capital and largest city of Ethiopia. As a chartered city, Addis Ababa has the status of both a city and a state. It is where the African Union is and its predecessor the OAU were based. It also hosts the headquarters of the United Nations Economic Commission for Africa (ECA) and numerous other continental and international organizations. Addis Ababa is therefore often referred to as \"the political capital of Africa\" for its historical, diplomatic and political significance for the continent. The city is populated by people from different regions of Ethiopia. It is home to Addis Ababa University.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Name the capital of Azerbaijan</p>",
+    "options": [
+      "Ashgabat",
+      "Dushanbe",
+      "Astana",
+      "Baku",
+      "Tashkent"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Baku is the capital and largest city of Azerbaijan, as well as the largest city on the Caspian Sea and of the Caucasus region. Baku is located 28 metres below sea level, which makes it the lowest lying national capital in the world and also the largest city in the world located below sea level. It is located on the southern shore of the Absheron Peninsula, alongside the Bay of Baku. At the beginning of 2009, Baku's urban population was estimated at just over two million people. Officially, about 25 percent of all inhabitants of the country live in Baku's metropolitan area.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>What is the capital of Bahrain?</p>",
+    "options": [
+      "Doha",
+      "Tehran",
+      "Amman",
+      "Muscat",
+      "Manama"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Manama is the capital and largest city of Bahrain, with an approximate population of 157,000 people. Long an important trading centre in the Persian Gulf, Manama is home to a very diverse population. After periods of Portuguese and Persian control and invasions from the ruling dynasties of Saudi Arabia and Oman, Bahrain established itself as an independent nation during the 19<sup>th</sup> century period of British hegemony.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Which of the following is the capital city of Botswana?</p>",
+    "options": [
+      "Harare",
+      "Windhoek",
+      "Maputo",
+      "Gaborone",
+      "Luanda"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Gaborone is the capital and largest city of Botswana. Gaborone is situated between Kgale and Oodi Hills, near the confluence Notwane River and Segoditshane River in the south-eastern corner of Botswana, and 15 kilometres from the South African border. The city is served by the Sir Seretse Khama International Airport. It is an administrative district in its own right, but is the capital of the surrounding South-East District. Locals often refer to the city as Gabs.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>What is the currency of Israel?</p>",
+    "options": [
+      "Rand",
+      "Euro",
+      "Dirham",
+      "Shekel",
+      "Dinar"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Israeli new shekel, also known as simply the Israeli shekel and formerly known as the New Israeli Sheqel (NIS), is the currency of Israel and is also used as a legal tender in the Palestinian territories of the West Bank and the Gaza Strip. The new shekel is divided into 100 agora. The new shekel has been in use since 1 January 1986, when it replaced the hyperinflated old shekel at a ratio of 1000:1.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Currency of Jamaica is</p>",
+    "options": [
+      "Euro",
+      "Dollar",
+      "Franc",
+      "Krone",
+      "Peso"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The dollar has been the currency of Jamaica since 1969. It is often abbreviated \"J$\", the J serving to distinguish it from other dollar-denominated currencies. It is divided into 100 cents.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Tenge is the currency of which country?</p>",
+    "options": [
+      "Italy",
+      "Afghanistan",
+      "Mongolia",
+      "Kazakhstan",
+      "Azerbaijan"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The tenge is the currency of Kazakhstan. It is divided into 100 t&#239;&#305;n (&#1090;&#1080;&#1099;&#1085;, also transliterated as tiyin or tijin). The ISO-4217 code is KZT.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>What is the currency of Sierra Leone?</p>",
+    "options": [
+      "Sierra",
+      "Leone",
+      "Euro",
+      "Dollar",
+      "Peso"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The leone is the currency of Sierra Leone. It is subdivided into 100 cents. The ISO 4217 code is SLL and the leone is abbreviated as Le placed before the amount. The leone was introduced on 4 August 1964. It replaced the British West African pound at a rate of 1 pound = 2 leones.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Currency of Somalia is</p>",
+    "options": [
+      "Dollar",
+      "Peso",
+      "Koruna",
+      "Shilling",
+      "Lev"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Somali shilling is the official currency of Somalia. It is subdivided into 100 senti, cents or centesimi.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Which among the following is the South African currency?</p>",
+    "options": [
+      "Dollar",
+      "Euro",
+      "Rand",
+      "Shilling",
+      "Peso"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The South African rand (sign: R; code: ZAR) is the currency of South Africa. The rand is subdivided into 100 cents. The ISO 4217 code is ZAR, from Dutch Zuid-Afrikaanse Rand (South African rand). The rand is legal tender in the Common Monetary Area between South Africa, Swaziland, Lesotho, and Namibia, although the latter three countries do have their own currencies.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>What is the smaller unit of the Bhutan currency  -  Ngultrum?</p>",
+    "options": [
+      "Paisa",
+      "Poisha",
+      "Cent",
+      "Chhertum",
+      "Fills"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The ngultrum (symbol: Nu., code: BTN) is the currency of the Kingdom of Bhutan. It is subdivided into 100 chhertum (spelled as chetrums on coins until 1979). The Royal Monetary Authority of Bhutan is the minting authority of the Ngultrum banknotes and coins.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Currency of Botswana is</p>",
+    "options": [
+      "Real",
+      "Pula",
+      "Mark",
+      "Franc",
+      "Lev"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The pula is the currency of Botswana. It has the ISO 4217 code BWP and is subdivided into 100 thebe. Pula literally means \"rain\" in Setswana, because rain is very scarce in Botswana  -  home to much of the Kalahari Desert  -  and therefore valuable and a blessing. The sub-unit, thebe, means \"shield\", representing defence. The names were picked with the help of the public.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>What is the currency of Brazil?</p>",
+    "options": [
+      "Franc",
+      "Brasilia",
+      "Real",
+      "Peso",
+      "Shilling"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Brazilian real is the official currency of Brazil. It is subdivided into 100 centavos. The Central Bank of Brazil is the central bank and the issuing authority. The dollar-like sign (cifr&#227;o) is the currency's symbol (both historic and modern), and in all the other past Brazilian currencies, is officially written with two vertical strokes rather than one. However Unicode considers the difference to be only a matter of font design, and does not have a separate code for the two-stroked version.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

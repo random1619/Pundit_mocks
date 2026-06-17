@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Mock 9 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Yogachar was a part of which among the following?</p>",
+    "options": [
+      "Hinduism",
+      "Shaivism",
+      "Vaishnavism",
+      "Buddhism",
+      "Jainism"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Buddhism was mainly divided into Hinayana and Mahayana sects. The Mahayana sect was further divided into two kinds and they were Madhyamika or Sunyavada whose founder was Nagarjuna whereas the other was Yogachar or Vijnananavada started by Maitreyanath</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>In Buddhist culture, prayer halls were known as  - </p>",
+    "options": [
+      "Stupas",
+      "Vihara",
+      "Chaitya",
+      "Patrons",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Buddhist architecture was mainly divided into three forms and they are:</p><p>&#8226; Stupas: Relics of Buddha or some prominent Buddhist monks are preserved</p><p>&#8226; Chaitya: Prayer hall</p><p>&#8226; Vihara: Residence</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>The 23<sup>rd</sup> Tirthankar of Jainsim Parshwanath was a prince of  - </p>",
+    "options": [
+      "Bombay",
+      "Benaras",
+      "Agra",
+      "Delhi",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The 23<sup>rd</sup> Tirthankar of Jainism was Parshwanath or Parasnath who was a prince of Benaras. He left the throne and lived a life of a hermit. He died at Parasnath Hill in Jharkhand</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>The mother of Mahavira belonged to the dynasty of which among the following places?</p>",
+    "options": [
+      "Vaishali",
+      "Magadha",
+      "Vajji",
+      "Ujjain",
+      "Patliputra"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Mahavira was born in 540 BC in a village Kundgrama near Vaishali in Bihar. His father Siddhartha was the leader of the Jnathrika Kshatriya clan whereas her mother Trishala was the sister of the King of Vaishali, Chetaka. Apart from that, Mahavira was also related to Bimbisara, the ruler of Magadha, who married Chellana, the daughter of Chetaka</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Which among the following Jain Tirthankar is NOT correctly matched with its symbol?</p>",
+    "options": [
+      "Ajitnath: Elephant",
+      "Mahavira: Lion",
+      "Sambhavanatha: Monkey",
+      "Adinatha: Bull",
+      "Dharmanatha: Vajra"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Jain Tirthankars and their chosen symbols:</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Tirthankar</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Symbol</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Rishabhanatha (Adinatha)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Bull</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Ajitanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Elephant</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Sambhavanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Horse</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Abhinandananatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Monkey</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Sumatinatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Goose</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Padmaprabha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Padma</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Suparshvanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Swastika</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Chandraprabha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Crescent Moon</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Pushpadanta(Suvidhinatha)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Crocodile or Makara</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Shitalanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Shrivatsa</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Shreyanasanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Rhinoceros</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Vasupujya</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Buffalo</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Vimalanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Boar</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Anantanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Porcupine/Falcon</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Dharmanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Vajra</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Shantinatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Antelope or deer</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Kunthunatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Goat</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Aranatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Nandyavarta or fish</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M&#257;ll&#299;n&#257;tha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Kalasha</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Munisuvrata</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Tortoise</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Naminatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Blue lotus</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Neminatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Shankha</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Parshvanatha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Snake</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Mahavira</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Lion</td></tr></table>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The famous battle of Alexander and Porus is known in history as  - </p>",
+    "options": [
+      "Battle of Jhelum",
+      "Battle of Indus",
+      "Battle of Saraswati",
+      "Battle of Indrabati",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Alexander invaded India in order to extend his kingdom in Asia in the year 326 BC. He defeated Porus who did not surrender before him and the battle is known as the Battle of Jhelum or in Greek, it is known as the Battle of Hydaspes in 326 BC. After this, Alexander left India and died in Babylon in 323 BC at the age of 33 years</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>The invasion of Darius I took place in the year  - </p>",
+    "options": [
+      "520 BC",
+      "514 BC",
+      "518 BC",
+      "526 BC",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Archemian ruler Darius I invaded India from the North Western part of the country in 518 BC and annexed Punjab, West of Indus and also the Sindh province. This area constituted the 20<sup>th</sup> Province of the Iranian empire. From this property, Iran received the most of the revenue among all the lands as this was the most fertile area in the dynasty</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Which among the following was NOT a republican state among the 16 Mahajanapadas?</p>",
+    "options": [
+      "Malla",
+      "Vajji",
+      "Panchal",
+      "Vatsa",
+      "Shakya"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>During the reign of the various monarchies in the 16 mahajanapadas as well as the republican governments, the states were mainly divided according to the authority of administration in these provinces and they were monarchical and non-monarchical ones. Among the monarchical ones, Anga, Magadha, Vatsa, Kosal, Chedi, Sursena, Matsa etc were the prominent ones whereas among the non-monarchical ones, the famous ones were Vajji, Malla, Kuru, Panchal, Kamboja, Shakya, Koliya, Moriya etc</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Gautama Buddha is regarded as the ___ avatar of Vishnu.</p>",
+    "options": [
+      "5<sup>th</sup>",
+      "11<sup>th</sup>",
+      "6<sup>th</sup>",
+      "8<sup>th</sup>",
+      "9<sup>th</sup>"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The ten best known avatars of Vishnu are collectively known as the Dashavatara. Vishnu's avatars descend to empower the good and fight evil, thereby restoring Dharma. The avatars in order are Matsya, Kurma, Varaha, Narasimha, Vamana, Parashurama, Rama, Krishna, Buddha and Kalki.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>The reign of Ajatasatru was during the period of  - </p>",
+    "options": [
+      "492-460 BC",
+      "495-456 BC",
+      "498-475 BC",
+      "499-452 BC",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Bimbisara was succeeded by his son Ajatasatru who killed his father and conquered the throne. He gained complete control of Kashi and broke the amicable relation with his maternal uncle Prasenjit, the king of Kashi. He also conquered Vajji and built a fort at Rajagriha on the banks of the river Ganges</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Which among the following is NOT correctly matched regarding the Indus valley civilization?</p>",
+    "options": [
+      "Harappa: Sahiwal",
+      "Mohenjodaro: Larkana",
+      "Chanhudro: Nawabshah",
+      "Dholavira: Kutchh",
+      "Banawali: Ahmedabad"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Some of the provinces of Indus valley civilization and their present locations:</p><p>&#8226; Harappa: Sahiwal, Punjab in Pakistan</p><p>&#8226; Mohenjodoro: Larkana, Sindh province in Pakistan</p><p>&#8226; Chanhudro: Nawabshah, Sindh</p><p>&#8226; Lothal: Ahmedabad, Gujarat</p><p>&#8226; Banawali: Fatehabad, Haryana</p><p>&#8226; Kalibanga: Hanumangarh, Rajasthan</p><p>&#8226; Dholavira: Kutchh, Gujarat</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>The largest building of Indus Valley civilization was found in  - </p>",
+    "options": [
+      "Harappa",
+      "Mohenjodaro",
+      "Lothal",
+      "Banwali",
+      "Dholavira"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The largest building of the Indus Valley civilization was the Great Bath of Mohenjodaro which is now situated in Larkana district of Sindh Province in Pakistan.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which among the following was invented by the Indus valley civilization people for the first time in the world?</p>",
+    "options": [
+      "Rice",
+      "Wheat",
+      "Maize",
+      "Bajra",
+      "Cotton"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The main crops of Indus Valley civilization were wheat and barley whereas the instances of rice cultivation were mainly found in Lothal and Rangpur. Other important crops were dates, mustard, sesamum, cotton etc. Indus people were the first to invent cotton in the whole world</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Vrihadarantyaka was an example of  - </p>",
+    "options": [
+      "Vedangas",
+      "Vedas",
+      "Upanishads",
+      "Puranas",
+      "Aranyakas"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Upanishadas were philosophical texts and they are generally known as the Vedantas since they used to appear at the end of the Vedas. The oldest among all the Upanishads was Vrihadaranyaka and the total number of Upanishads was 108</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The number of unique hymns in Sama Veda was  - </p>",
+    "options": [
+      "78",
+      "75",
+      "56",
+      "55",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Sama Veda is mainly known as the book of chants. The number of total hymns was 1549 but all excluding 75 was taken from the Rig Veda itself. The Veda is important for Indian music. On the other hand, these hymns were recited by Udagiri</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Jaiminaya was a Bramhana associated with  - </p>",
+    "options": [
+      "Rig Veda",
+      "Sama Veda",
+      "Yajur Veda",
+      "Atharva Veda",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Bramhanas explain the hymns of the Vedas and they are mainly written in prose form. Every veda has some or the other hymn associated with it and they are:</p><p>&#8226; Rig Veda: Aitareya,Kaushitiki</p><p>&#8226; Sama Veda: Panchvisha, Shadvinsh, Chhandogya, Jaiminaya</p><p>&#8226; Yajur Veda: Shatapatha, Taittariya</p><p>&#8226; Atharva Veda: Gopatha</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>The earliest explanation of 4 Ashramas was found in  - </p>",
+    "options": [
+      "Vrihadaranyaka",
+      "Shataptha Bramhana",
+      "Jabala Upanishad",
+      "Matsya Purana",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The reference to 4 ashramas began in the later Vedic Period and the first such mention can be traced in Jabala Upanishad. These are Bramhacharya, Grihastha, Vanprastha and Sanyasa. This was introduced to attain 4 Purusharthas</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Which among the following explains Paisacha Vivaha?</p>",
+    "options": [
+      "Marrying the daughter of a defeated king",
+      "Marrying a girl after seducing her",
+      "Marrying a purchased girl",
+      "Love marriage",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>There are various kinds of Hindu marriage as was mentioned during the Later Vedic Age and they are as follows:</p><p>&#8226; Bramha Vivaha: Giving the girl to a man with dowry</p><p>&#8226; Daiva Vivaha: Giving the girl to the priest in lieu of his fees</p><p>&#8226; Arsha Vivaha: Giving the girl to a man after accepting a bride price</p><p>&#8226; Prajapatya Vivaha: Giving the girl to a man without asking any bride price</p><p>&#8226; Gandharva Vivaha: Love marriage</p><p>&#8226; Asura Vivaha: Marriage with a purchased girl</p><p>&#8226; Rakshasa Vivaha: Marrying the daughter of a defeated king</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Krishna Deva Raya belonged to  - </p>",
+    "options": [
+      "Saluva dynasty",
+      "Tuluva dynasty",
+      "Sangama dynasty",
+      "Surona dynasty",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Tuluva dynasty was founded by Vir Narsimha Rao in 1505 AD in Vijayanagar kingdom. After him, Krishna Deva Raya was made the king and he maintained friendly relations with the Portugese and also built Vijaya Mahal apart from Vithal Swami Temple, Hazara Ram Temple etc. He was known as Andhra Bhoja, Andhra Pitamaha etc</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>The philosophy of Pushti Marg was propounded by  - </p>",
+    "options": [
+      "Meerabai",
+      "Shankaracharya",
+      "Kabir",
+      "Ramanand",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Bhakti Movement became popular in India during the 15<sup>th</sup> century and Vallabhacharya was a famous exponent of this movement. He was a member of the Krishna Bhakti cult of Vaishavism. He propounded the philosophy of Pushti Marg. His time period was from 1479 AD to 1531 AD</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Who was the author of the book Bhavartha Ramayana?</p>",
+    "options": [
+      "Namadeva",
+      "Eknath",
+      "Vithoba",
+      "Tukaram",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Eknath was a Bhakti Saint from Maharashtra and he wrote a contemporary on the Ramayana which was known as the Bhavartha Ramayana. He also another commentary on the eleventh book of Bhagavtha Purana</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Who among the following is known as the earliest exponent of Vishitadvaita philosophy?</p>",
+    "options": [
+      "Meerabai",
+      "Jnanesvara",
+      "Eknath",
+      "Ramanuja",
+      "Kabir"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Ramanuja (1017-1137 AD) was the Vaishnava saint from South India. He was the earliest exponent of Bhakti movement and also the Vishitadvaita philosophy. His famous disciple was Kabir who is known as a famous Bhakti saint himself</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Shaikh Bhauddin Zakariya is a Sufu saint known as associated with  - </p>",
+    "options": [
+      "Data Ganj",
+      "Surha Wardi",
+      "Chisti",
+      "Kashf",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Shaikh Bahauddin Zakariya (1182-1262 AD) was the founder of Surha Wardi order who founded the first leading Khanqah in India in Multan</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Who was the first to use gun powder in India in warfare?</p>",
+    "options": [
+      "Jahangir",
+      "Aurangazeb",
+      "Sher Shah",
+      "Babar",
+      "Akbar"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Babar was the founder of the Mughal dynasty in India in 1526 AD and he defeated Ibrahim Lodhi to establish this kingdom in India. He passed away in 1530 AD at Agra and he was the first to use gun powder and artillery in India in case of warfare. He wrote his autobiography Tuzuk-i-Babri</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Humayunnama is the autobiography of Humayun written by Gulbadan Begum. She is related to Humayun as  - </p>",
+    "options": [
+      "Wife",
+      "Mother",
+      "Cousin",
+      "Sister",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Humayun was the son of Babur and he ascended the throne in 1530 AD but he was defeated by Sher Shah in 1539 AD. After that, he left to Iran and lived in exile for 12 years. His sister Gulbadan Begum wrote his autobiography, Humayunnama. He built Din Panah at Delhi as his second capital</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>GT Road was built by Sher Shah between  - </p>",
+    "options": [
+      "Calcutta and Peshwar",
+      "Calcutta and Multan",
+      "Calcutta and Sindh",
+      "Bombay and Multan",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Sher Shah defeated Humayun and ascended on the throne in Delhi after the Battle of Chausa. He issued the coin called Rupia and fixed standard weights and measures over the empire. He also improved communication by building several highways. He built the road between Calcutta and Peshwar named as Grand Trunk Road</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Akbar relinquished Jaziya tax from his empire in the year  - </p>",
+    "options": [
+      "1562",
+      "1589",
+      "1564",
+      "1565",
+      "1566"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Jaziya tax was introduced during the reign of Sultannate years in Delhi against the Hindus. However, Akbar abolished the Jaziya tax during his reign in the year 1564 AD</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which among the following was founded by Bhagat Singh?</p>",
+    "options": [
+      "Bharat Naujawan Sabha",
+      "Anushilan Samiti",
+      "Vyayam Mandala",
+      "Mitra Mela",
+      "Bharat Mata Society"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Some revolutionary organizations in India:</p><p>&#8226; Vyayam Mandala: Chapekar brothers</p><p>&#8226; Mitra Mela: Savarkar Brothers</p><p>&#8226; Anushilan Samiti: Pramath Nath Mitra</p><p>&#8226; Abhinava Bharata: Vikram Damodar Savarkar</p><p>&#8226; Swadesh Bandhav Samiti: Ashwini Kumar Dutta</p><p>&#8226; Bharat Mata Society: Ajit Singh and Sufi Amba Prasad</p><p>&#8226; Hindustan Republican Association: SN Sanyal</p><p>&#8226; Hindustan Socialist Republican Association: Chandrasekhar Azad</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>The Home Rule Movement was inspired by  - </p>",
+    "options": [
+      "British rebellion",
+      "French Rebellion",
+      "Irish Rebellion",
+      "Dutch Rebellion",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>BG Tilak founded the Indian version of the Indian Home Rule League in April 1916 whereas Annie Besant started this movement in India in September 1916. Soon after, this became very popular in India and the branches of this league started all over India.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>The Lucknow Pact was signed in the year  - </p>",
+    "options": [
+      "1916",
+      "1920",
+      "1925",
+      "1926",
+      "1930"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Lucknow Pact was signed in the year 1916 and it was an important step towards achieving the unity between the Hindus and the Muslims. This pact forced the British government to announce its future policy of giving more space to Indians in the government and at the same time, starting local self governance bodies in various provinces in the country.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

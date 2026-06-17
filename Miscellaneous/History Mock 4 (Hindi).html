@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Mock 4 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Ayurveda is associated with which among the following Vedas?</p>",
+    "options": [
+      "Rig Veda",
+      "Atharva Veda",
+      "Yajur Veda",
+      "Sama Veda",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Upavedas and their associated Vedas:</p><p>&#8226; Ayurveda: Rig Veda</p><p>&#8226; Gandharvaveda: Sama Veda</p><p>&#8226; Dhanurveda: Yajur Veda</p><p>&#8226; Shilpaveda: Atharva Veda</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Which among the following was famous as a port city during the Indus Valley Civilization?</p>",
+    "options": [
+      "Kalibangan",
+      "Lothal",
+      "Dholavira",
+      "Chanhudro",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Lothal is located on the banks of the river Bhogava in Gujarat and it was discovered by SR Rao in the year 1954. In Lothal, we get to see dockyard, rice husk, metal workers', shell ornament makers' and bead-makers's shops</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Who among the following was a contemporary of Gautama Buddha?</p>",
+    "options": [
+      "Chandragupta Maurya",
+      "Ajatasatru",
+      "Udayin",
+      "Bimbisara",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Ajatashatru was a king of the Haryanka dynasty of Magadha in North India. He was the son of King Bimbisara and was a contemporary of both Mahavira and Gautama Buddha.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>The Battle of Hydaspes was fought in the year-</p>",
+    "options": [
+      "425 BC",
+      "399 BC",
+      "389 BC",
+      "326 BC",
+      "256 BC"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>When Alexander came to India and the kings of Taxila and Abhisara surrendered before him, he crossed the river Jhelum by a trick. Porus refused to give in but he was defeated in the battle that followed. However, Alexander treated him very generously for his bravery. This is known as the Battle of Vitasta or the Battle of Hydaspes that took place in 326 BC</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Gautama Buddha attained enlightenment at the age of  - </p>",
+    "options": [
+      "30 years",
+      "35 years",
+      "40 years",
+      "32 yearsa",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>At the age of 35, under a papal tree at Uruvella on the bank of the river Niranjana, Gautama Buddha attained enlightenment after 49 days of continuous meditation and he was converted into a fully enlightened i.e. Buddha or Tathagat</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The 3<sup>rd</sup> Buddhist Council was held in the year-</p>",
+    "options": [
+      "320 BC",
+      "256 BC",
+      "258 BC",
+      "250 BC",
+      "350 BC"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The 3<sup>rd</sup> Buddhist Council was held in the year 250 BC under the patronage of Ashoka. It was held in Pataliputra and the chairman was Mogaliputta Tissa. During this convention, compilation of Abhidhamma Pitaka happened along with the decision that missionaries will be sent all over the world was taken</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>During the Mauryan rule, the number of committees for municipal administration was-</p>",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>According to Kautilya's Arthasashtra, for municipal administration, there were 6 committees of 5 members each and the their functions were: 1<sup>st</sup>- Industrial Arts, 2<sup>nd</sup>- Entertainment of foreigners, 3<sup>rd</sup>- Registration of births and deaths, 4<sup>th</sup>- Trade and Commerce, 5<sup>th</sup>- Public sale of manufactured goods and 6<sup>th</sup>- collection of taxes on the articles sold</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Agnimitra was an ancient Indian king belonging to which among the following dynasties?</p>",
+    "options": [
+      "Maurya Dynasty",
+      "Sunga Dynasty",
+      "Gupta Dynasty",
+      "Meher Dynasty",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Sunga Dynasty was established by Pushyamitra Sunga, a Brahmin commander under the last Mauryan ruler, Brihadratha. He was succeeded by his son Agnimitra, who was the hero of Kalidasa's drama Malvikagnimitra</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>The founder of the Satvahana Dynasty was-</p>",
+    "options": [
+      "Gautamiputra Satkarni",
+      "Satkarni I",
+      "Hala",
+      "Simuka",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The most important rulers in the Deccan and Central India after the Mauryas were the Satvahanas. They are considered to be identical with the Andhras mentioned in the Puranas. The early Satvahana kings appeared not in Andhra but in Maharashtra where most of their early inscriptions have been found. Simuka (60-37 BC) was the founder of the Satvahana Dynasty</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Who among the following was the only Gupta ruler to have issued Copper coins?</p>",
+    "options": [
+      "Kumargupta I",
+      "Samudragupta",
+      "Skandagupta",
+      "Ramgupta",
+      "Chandragupta II"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>According to Devi Chandragupta, Samudragupta was succeeded by Ramagupta. It seems that Ramagupta ruled for a very short span of time before Chandragupta II came into the picture. Ramagupta was the only Gupta ruler to issue copper coins</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Mihirkula, The great ruler of the Huns, was a follower of-</p>",
+    "options": [
+      "Buddhism",
+      "Hinduism",
+      "Jainism",
+      "Islam",
+      "Christianity"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Huns were primitive pastoralists owning herds of cattle and horses but knowing nothing of agriculture. There were powerful rulers of the Huns and they were Toramana and Mihirkula. They ruled during 500-530 AD. Mihirkula was a shaivite and was a persecutor of Buddhism. In 530 AD, the Huns were uprooted by Yashodarmana of Mandasaur</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>The Second Battle of Panipat was held in the year-</p>",
+    "options": [
+      "1526 AD",
+      "1556 AD",
+      "1560 AD",
+      "1566 AD",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Second Battle of Panipat was fought between Hemu (the Hindu General of Mohammad Adil Shah) and Bairam Khan (the regent of Akbar). Hemu was defeated, captured and slained by Bairam Khan. It marked the supremacy of the Mughals all the more, over India</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Who among the following was known as Kavi Priya during the Mughal Period?</p>",
+    "options": [
+      "Abdus Samad",
+      "Harvijay Suri",
+      "Kalim",
+      "Birbal",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Titles given by the Mughal rulers:</p><p>&#8226; Jagat Guru: Harvijay Suri</p><p>&#8226; Zari Kalam: Mohammad Hussain</p><p>&#8226; Sirin Kalam: Abdus Samad</p><p>&#8226; Guna Samudra: Lal Khan</p><p>&#8226; Mahakaviray: Sundardas</p><p>&#8226; Raj Kavi: Kalim</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Chauth was a land revenue that was prevalent during the reign of-</p>",
+    "options": [
+      "The Mughals",
+      "The Marathas",
+      "The Delhi Sultanate",
+      "The Mauryas",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Chauth was &#188; th i.e. the 25% of the land revenue that was paid to the Marathas so far for not being subjected to the Maratha rule. Sardeshmukhi was an additional revenue of 10% on those lands of Maharashtra over which the Marathas claimed hereditary rights but which formed part of the Mughal empire</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Tipu Sultan died during the rule of which among the following governor generals of India?</p>",
+    "options": [
+      "Lord Reading",
+      "Lord Wellesley",
+      "Lord Canning",
+      "Lord William Bentinck",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>During the Fourth Anglo Mysore War, Lord Wellesley attacked and Tipu Sultan died during that war. After this, Mysore came under the British rule by the policy of subsidiary alliance</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>The Permanent Settlement was the brainchild of whom among the following?</p>",
+    "options": [
+      "Henry Clinton",
+      "William Bentinck",
+      "Lord Cornwallis",
+      "Lord Chelmsford",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Permanent Settlement was introduced during the rule of Lord Cornwallis in Bengal, Bihar, Odisha and districts of Benaras and northern districts of Madras. According to the policy, zamindars were made the owners of the land and they could keep 1/11<sup>th</sup> of the total revenue collected by them but the rest was to be given to the British</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>All India Kisan Sabha was established in 1936 in which among the following places?</p>",
+    "options": [
+      "Delhi",
+      "Bombay",
+      "Madras",
+      "Calcutta",
+      "Lucknow"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Some of the peasant movements in India:</p><p>&#8226; Indigo Revolt: Bengal (1859)</p><p>&#8226; Pabna Revolt: Bengal (1870)</p><p>&#8226; Deccan Riots: Maharashtra (1875)</p><p>&#8226; Ramosi Movement: Maharashtra (1879)</p><p>&#8226; Bijolia: Rajasthan (1913)</p><p>&#8226; Champaran: Bihar (1917)</p><p>&#8226; Kheda: Ahmadabad (1918)</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Indian Reform Association was established by-</p>",
+    "options": [
+      "Raja Rammohan Roy",
+      "Keshab Chandra Sen",
+      "Atmaram Pandurang",
+      "Swami Dayanand Saraswati",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Keshab Chandra Sen was the leader of the Bramho Samaj during the absence of Debendranath Tagore. He started Bramhobodhini Patrika, a journal for women. He was very radical in carrying out reforms due to which he came out of Bramho Samaj and formed Bramho Samaj of India</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>The only Hindu who followed Din-i-Ilahi was-</p>",
+    "options": [
+      "Todormal",
+      "Tulsidas",
+      "Manaschand",
+      "Ramchand",
+      "Birbal"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>As a revolt against the orthodoxy of conventional religions, Akbar proclaimed a new religion named as Din-i-Ilahi. It was based on the synthesis of the values taken from various religions but it did not become popular at all. Birbal was the only Hindu who followed it. It was proclaimed in 1581 AD</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Who among the following was NOT a part of the nine jewels in Akbar's court?</p>",
+    "options": [
+      "Abul Fazl",
+      "Faizi",
+      "Man Singh",
+      "Tulsidas",
+      "Birbal"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Navarantna or the nine jewels of Akbar's court were Abul Fazl (scholar and statesman), Faizi (scholar and statesman, brother of Abul Fazl), Todormal (finance minister), Bhagwandas (Mansabdar), Man Singh (Mansabdar), Tansen (Musician), Abdur Rahim Khanekhana (Statesman and Hindi poet), Mullo Do Pyaja</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>The last Mughal ruler Bhahadur Shah II died in the year-</p>",
+    "options": [
+      "1860",
+      "1858",
+      "1859",
+      "1862",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Last Mughal Emperor who was made premier during the 1857 revolt was Bhahadur Shah II. He was deported to Rangoon in 1858 where he passed away in 1862</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>The Treaty of Pondicherry is related to which among the following?</p>",
+    "options": [
+      "First Anglo Sikh War",
+      "Second Anglo Maratha War",
+      "Second Anglo Sikh War",
+      "Second Anglo French War",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>In the Second Anglo French War, Dupleix aligned with Muzaffar Jung and Chanda Shahib in Hyderabad and Carnatic respectively. After initial reverses, Robert Clive emerged victorious. The Treaty of Pondicherry or The Treaty by Godehu in 1754 AD ended this war</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Who among the following transferred the capital of Bengal from Decca to Murshidabad?</p>",
+    "options": [
+      "Shujauddin",
+      "Murshid Quli Khan",
+      "Sioraj-ud-Daulla",
+      "Alivardi Khan",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In 1717, Murshid Quli Khan was appointed as Bengal's subedar by Mughal Emperor Farukh Siyar. Grant of the governorship was also made to him by Farukh Siyar. He transferred the capital of Bengal from Decca to Murshidabad</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>\"Economic History of India\" is a book written by whom among the following?</p>",
+    "options": [
+      "Dadabhai Naoroji",
+      "RC Dutta",
+      "Kalikinkar Dutta",
+      "SC Bhatt",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Drain of Wealth theory was explained by Dadabhai Naoroji in his book 'Poverty and Un-British Rule in India' and RC Dutta in his book 'Economic History of India'. Both of them blamed British policies for Indian economic ills during the British era</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Satyartha Prakash was written by whom among the following?</p>",
+    "options": [
+      "Keshav Chandra Sen",
+      "Atmaram Pandurang",
+      "Swami Vivekananda",
+      "Dayanand Saraswati",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Swami Dayanand Saraswati, originally known as Mula Shankar, founded the Arya Samaj in 1875 AD in Bombay. He wrote Satyartha Prakash in Hindi and Veda Bhasya Bhumika partly in Hindi and partly in Sanskrit</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Ramakrishna Mission was registered as a trust in the year-</p>",
+    "options": [
+      "1887 AD",
+      "1898 AD",
+      "1897 AD",
+      "1899 AD",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Swami Vivekananda, originally known as Narendranatha Dutta, founded Ramakrishna Mission in the year 1887 AD but it was registered as a trust in the year 1897 AD after starting as a social service league</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Who was the founder of Satya Shodhok Samaj?</p>",
+    "options": [
+      "Shri Narayan Guru",
+      "Jyotiba Fule",
+      "MC Rohidas",
+      "Kumaran Asan",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Some of the lower caste movements or organizations:</p><p>&#8226; Aravippuram Movement: Shri Narayan Guru</p><p>&#8226; The Depressed Class Mission Society: VR Shinde</p><p>&#8226; Bahujan Samaj: Mukundrao Patil</p><p>&#8226; Justice Party Movement: CN Mudaliar, TM Nair and P Tyagraja Chetti</p><p>&#8226; Depressed Class Welfare Institute: BR Ambedkar</p><p>&#8226; Self Respect Movement: EV Ramaswamy</p><p>&#8226; Harijan Sevak Sangh: Mahatma Gandhi</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>The Sepoy Mutiny started in which among the following places in 1857?</p>",
+    "options": [
+      "Meerut",
+      "Barrackpore",
+      "Jhansi",
+      "Lucknow",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>On March 29, 1857, an Indian sepoy of the 34 native infantry, Mangal Pandey, killed two British officers- Hugeson and Baugh- on parade at Barrackpore near Calcutta. The Indian soldiers refused to obey orders to arrest Mangal Pandey. However, he was later arrested and hanged to death</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>'The Indian War of Independence' is a book written by whom among the following?</p>",
+    "options": [
+      "VD Savarkar",
+      "RC Mazumdar",
+      "RC Dutt",
+      "SB Chowdhury",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Some of the books written by various authors on the Sepoy Mutiny of 1857:</p><p>&#8226; The First Indian War of Independence: 1857-1859: Karl Marx</p><p>&#8226; Causes of Indian Revolt: Syyed Ahmed Khan</p><p>&#8226; The Sepoy Mutiny and the Rebellion of 1857: RC Mazumdar</p><p>&#8226; Civil Rebellion in Indian Mutinies: SB Chowdhury</p><p>&#8226; Rebellion 1857: A Symposium: PC Joshi</p><p>&#8226; 1857: SN Sen</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Who among the following is associated with Alipur Bomb Conspiracy Case?</p>",
+    "options": [
+      "Madan Lal Dhingra",
+      "Anant Karkare",
+      "Prafulla Sen",
+      "Aurobindo Ghosh",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Some of the revolutionary cases during Indian Freedom struggle:</p><p>&#8226; Murder of Rand and Amherst: Chapekar Brothers, Damodar and Balakrishna</p><p>&#8226; Attempt to murder Kingsford: Khudiram Bose and Prafulla Chaki</p><p>&#8226; Maniktala Bomb Conspiracy Case: Aurobindo Ghosh</p><p>&#8226; Murder of Jackson: Anant Karkare</p><p>&#8226; Kakori Train dacoity case: Ram Prasad Bismil and Ashafaqulla</p><p>&#8226; Murder of Curzon Wyllie: Madan Lal Dhingra.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

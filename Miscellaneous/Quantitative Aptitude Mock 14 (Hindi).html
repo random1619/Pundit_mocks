@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Mock 14 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>The compound interest accrued on a certain sum at the rate of 20% per annum compounded annually for 2 years is Rs. 5566. Then find the sum?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2344;&#2367;&#2358;&#2381;&#2330;&#2367;&#2340; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; &#2346;&#2352; 20% &#2357;&#2366;&#2352;&#2381;&#2359;&#2367;&#2325; &#2330;&#2325;&#2381;&#2352;&#2357;&#2371;&#2342;&#2381;&#2343;&#2367; &#2348;&#2381;&#2351;&#2366;&#2332; &#2342;&#2352; &#2360;&#2375; 2 &#2357;&#2352;&#2381;&#2359;&#2379;&#2306; &#2350;&#2375;&#2306; 5566 &#2352;&#2369; &#2330;&#2325;&#2381;&#2352;&#2357;&#2371;&#2342;&#2381;&#2343;&#2367; &#2348;&#2381;&#2351;&#2366;&#2332; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340;</p><p>&#2325;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376; &#2340;&#2379; &#2357;&#2361; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs. 12,610</span><span class=\"hqt\" style=\"display:none\">12,610 &#2352;&#2369;</span>",
+      "<span class=\"eqt\">Rs. 11,690</span><span class=\"hqt\" style=\"display:none\">11,690 &#2352;&#2369;</span>",
+      "<span class=\"eqt\">Rs. 12,630</span><span class=\"hqt\" style=\"display:none\">12,630 &#2352;&#2369;</span>",
+      "<span class=\"eqt\">Rs. 12,650</span><span class=\"hqt\" style=\"display:none\">12,650 &#2352;&#2369;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Let us assume that sum be Rs. P.</p><p>In such case, we can use the formula C.I. = P[(1+R/100)<sup>T</sup>-1]</p><p>=&gt; 5566 = P[(1+20/100)<sup>2</sup>-1]</p><p>=&gt; 5566 = P[(1+1/5)<sup>2</sup>-1]</p><p>=&gt; 5566 = P[(6/5)<sup>2</sup>-1]</p><p>=&gt; 5566 = P(36/25-1)</p><p>=&gt; 5566 = P(36-25/25)</p><p>=&gt; 5566 = P * 11/25</p><p>=&gt; P = 5566*25/11</p><p>Therefore, P = Rs. 12,650</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the given figure below circle is inscribed in &#9651;MNO. Radius of circle is 3 cm, then find the length of side NO of the triangle.</p><p><img width=202 height=141 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3206/image003.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2330;&#2367;&#2340;&#2381;&#2352; &#2350;&#2375;&#2306; &#9651;MNO &#2325;&#2375; &#2309;&#2306;&#2342;&#2352; &#2357;&#2371;&#2340;&#2381;&#2340; &#2309;&#2306;&#2325;&#2367;&#2340; &#2361;&#2376;&#2404; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; 3&#2360;&#2375;&#2350;&#2368; &#2361;&#2376; &#2340;&#2379; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; &#2325;&#2368; &#2349;&#2369;&#2332;&#2366; NO &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p><p><img width=202 height=141 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3206/image003.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">9</span><span class=\"hqt\" style=\"display:none\">9</span>",
+      "<span class=\"eqt\">15</span><span class=\"hqt\" style=\"display:none\">15</span>",
+      "<span class=\"eqt\">18</span><span class=\"hqt\" style=\"display:none\">18</span>",
+      "<span class=\"eqt\">12</span><span class=\"hqt\" style=\"display:none\">12</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Mx = My = 6 cm and Nx = Nz = 3 cm (&#8756; Tangents from an external point on a circle are equal in length)</p><p>Let Oy = Oz = 'a'.</p><p>In &#9651;MNO, MN = 9 cm, MO = (6 + a) cm and NO = (3 + a) cm.</p><p>Inradius of circle = (Area of triangle)/(Semi  -  perimeter of triangle)</p><p>Semi - perimeter of triangle = s = (9 + 6 + a + 3 + a)/2 = (9 + a)</p><p>Area of triangle = &radic;[s(s  -  a)(s  -  b)(s  -  c)] = &radic;[(9 + a)(9 + a  -  9)(9 + a  -  6  -  a)(9 + a  -  3  -  a)]</p><p>=&gt; &radic;[(9 + a) * a * 18]</p><p>Inradius = &radic;[(9 + a) * a * 18]/(9 + a)</p><p>=&gt; 3 = &radic;[18a]/ &radic;(9 + a)</p><p>=&gt; 3<sup>2</sup> = 18a/(9 + a)</p><p>=&gt; 9(9 + a) = 18a</p><p>=&gt; 81 = 9a</p><p>=&gt; a = 9</p><p>Length of side of NO = 3 + a = 3 + 9 = 12 cm</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the following figure, AB || CD and Chord CD is at distance of 8 cm from the centre of the circle of radius 17 cm. Find the area of quadrilateral ABCD if perpendicular distance between chord AB and CD is 7 cm.</p><p><img width=234 height=210 id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3215/image006.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306;, AB || CD &#2361;&#2376; &#2324;&#2352; &#2332;&#2368;&#2357;&#2366; CD, 17 &#2360;&#2375;&#2350;&#2368;. &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2357;&#2366;&#2354;&#2368; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; &#2360;&#2375; 8 &#2360;&#2375;&#2350;&#2368; &#2325;&#2368; &#2342;&#2370;&#2352;&#2368; &#2346;&#2352; &#2361;&#2376;| &#2351;&#2342;&#2367; &#2332;&#2368;&#2357;&#2366; AB &#2324;&#2352; &#2332;&#2368;&#2357;&#2366; CD &#2325;&#2375; &#2348;&#2368;&#2330; &#2354;&#2350;&#2381;&#2348;&#2357;&#2340; &#2342;&#2370;&#2352;&#2368; 7 &#2360;&#2375;&#2350;&#2368;. &#2361;&#2376;, &#2340;&#2379; &#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; ABCD &#2325;&#2366; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2347;&#2354; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p><p><img width=\"234\" height=\"210\" id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3215/image006.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">345 cm<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">345 &#2360;&#2375;&#2350;&#2368;<sup>2</sup></span>",
+      "<span class=\"eqt\">161 cm<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">161 &#2360;&#2375;&#2350;&#2368;<sup>2</sup></span>",
+      "<span class=\"eqt\">545 cm<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">545 &#2360;&#2375;&#2350;&#2368;<sup>2</sup></span>",
+      "<span class=\"eqt\">330 cm<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">330 &#2360;&#2375;&#2350;&#2368;<sup>2</sup></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=232 height=210 id=\"Picture 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3215/image007.png\"></p><p>In &#9651;POC, OC<sup>2</sup> = OP<sup>2</sup> + PC<sup>2</sup></p><p>PC = &radic;(17<sup>2</sup>  -  8<sup>2</sup>) = 15 cm</p><p>Length of chord CD = 2 * PC = 2 * 15 = 30 cm</p><p>In &#9651;QOB, OB<sup>2</sup> = OQ<sup>2</sup> + QB<sup>2</sup></p><p>QB = &radic;(17<sup>2</sup>  -  15<sup>2</sup>) = 8 cm</p><p>Length of chord AB = 2 * QB = 2 * 8 = 16 cm</p><p>Since ABCD is a trapezium.</p><p>Area of trapezium ABCD = 1/2 * (AB + CD) * PQ = 1/2 * (16 + 30) * 7 = 161 cm<sup>2</sup></p>",
+    "question_index": 2
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 question]:</b> Following graph shows the number of times FIFA world cup won, 2<sup>nd</sup> place and 3<sup>rd</sup> place by 5 teams.</p><p><img width=576 height=326 id=\"Chart 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3372/image003.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; ]:</b> &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2327;&#2381;&#2352;&#2366;&#2347; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376; &#2325;&#2367; &#2325;&#2367;&#2340;&#2344;&#2368; &#2348;&#2366;&#2352; FIFA &#2357;&#2352;&#2381;&#2354;&#2381;&#2337; &#2325;&#2346; &#2350;&#2375;&#2306; 5 &#2335;&#2368;&#2350;&#2379;&#2306; &#2344;&#2375;, &#2342;&#2370;&#2360;&#2352;&#2366; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2366; &#2346;&#2342;&#2325; &#2332;&#2368;&#2340;&#2366;&#2404;</p><p><img width=576 height=326 id=\"Chart 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3372/image003.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>What is the average number of FIFA world cups won by all 5 given teams together?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2346;&#2366;&#2305;&#2330;&#2379;&#2306; &#2335;&#2368;&#2350;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; FIFA &#2357;&#2352;&#2381;&#2354;&#2381;&#2337; &#2325;&#2346; &#2350;&#2375;&#2306; &#2332;&#2368;&#2340;&#2375; &#2327;&#2319; &#2325;&#2346; &#2325;&#2366; &#2324;&#2360;&#2340; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3.5</span><span class=\"hqt\" style=\"display:none\">3.5</span>",
+      "<span class=\"eqt\">3.4</span><span class=\"hqt\" style=\"display:none\">3.4</span>",
+      "<span class=\"eqt\">4.5</span><span class=\"hqt\" style=\"display:none\">4.5</span>",
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Required average = (5 +4 +4 +2 +2)/5 =17/5 = 3.4</p>",
+    "question_index": 3
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 question]:</b> Following graph shows the number of times FIFA world cup won, 2<sup>nd</sup> place and 3<sup>rd</sup> place by 5 teams.</p><p><img width=576 height=326 id=\"Chart 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3372/image003.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; ]:</b> &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2327;&#2381;&#2352;&#2366;&#2347; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376; &#2325;&#2367; &#2325;&#2367;&#2340;&#2344;&#2368; &#2348;&#2366;&#2352; FIFA &#2357;&#2352;&#2381;&#2354;&#2381;&#2337; &#2325;&#2346; &#2350;&#2375;&#2306; 5 &#2335;&#2368;&#2350;&#2379;&#2306; &#2344;&#2375;, &#2342;&#2370;&#2360;&#2352;&#2366; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2366; &#2346;&#2342;&#2325; &#2332;&#2368;&#2340;&#2366;&#2404;</p><p><img width=576 height=326 id=\"Chart 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3372/image003.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>Number of times 2<sup>nd</sup> place and 3<sup>rd</sup> place secured by Germany, Italy and Argentina together is what percent of the number of times world cup won by these 3 countries?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2332;&#2367;&#2340;&#2344;&#2368; &#2348;&#2366;&#2352; &#2332;&#2352;&#2381;&#2350;&#2344;&#2368;, &#2311;&#2335;&#2354;&#2368; &#2324;&#2352; &#2309;&#2352;&#2381;&#2332;&#2375;&#2306;&#2335;&#2368;&#2344;&#2366; &#2344;&#2375; &#2350;&#2367;&#2354;&#2325;&#2352; &#2342;&#2370;&#2360;&#2352;&#2366; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2366; &#2360;&#2381;&#2341;&#2366;&#2344; &#2360;&#2369;&#2352;&#2325;&#2381;&#2359;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2361;&#2376; &#2357;&#2361; &#2340;&#2368;&#2344;&#2379;&#2306; &#2335;&#2368;&#2350;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2332;&#2368;&#2340;&#2375; &#2327;&#2319; &#2357;&#2352;&#2381;&#2354;&#2381;&#2337; &#2325;&#2346; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2366; &#2325;&#2367;&#2340;&#2344;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">120%</span><span class=\"hqt\" style=\"display:none\">120%</span>",
+      "<span class=\"eqt\">140%</span><span class=\"hqt\" style=\"display:none\">140%</span>",
+      "<span class=\"eqt\">160%</span><span class=\"hqt\" style=\"display:none\">160%</span>",
+      "<span class=\"eqt\">150%</span><span class=\"hqt\" style=\"display:none\">150%</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Number of times 2<sup>nd</sup> place and 3<sup>rd</sup> place secured by Germany, Italy and Argentina together = (4 +4 +2 +2 +3+0) = 15.</p><p>Number of times world cup won by these 3 countries = (4 +4 +2) = 10</p><p>Required percentage = (15/10) x 100% = 150%.</p>",
+    "question_index": 4
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 question]:</b> Following graph shows the number of times FIFA world cup won, 2<sup>nd</sup> place and 3<sup>rd</sup> place by 5 teams.</p><p><img width=576 height=326 id=\"Chart 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3372/image003.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; ]:</b> &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2327;&#2381;&#2352;&#2366;&#2347; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376; &#2325;&#2367; &#2325;&#2367;&#2340;&#2344;&#2368; &#2348;&#2366;&#2352; FIFA &#2357;&#2352;&#2381;&#2354;&#2381;&#2337; &#2325;&#2346; &#2350;&#2375;&#2306; 5 &#2335;&#2368;&#2350;&#2379;&#2306; &#2344;&#2375;, &#2342;&#2370;&#2360;&#2352;&#2366; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2366; &#2346;&#2342;&#2325; &#2332;&#2368;&#2340;&#2366;&#2404;</p><p><img width=576 height=326 id=\"Chart 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3372/image003.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>What is the difference between total number of times 2<sup>nd</sup> places secured by given 5 teams and total number of times 3<sup>rd</sup> places secured by these 5 teams?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2368; &#2327;&#2312; &#2346;&#2366;&#2305;&#2330;&#2379;&#2306; &#2335;&#2368;&#2350;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2325;&#2369;&#2354; &#2342;&#2370;&#2360;&#2352;&#2366; &#2346;&#2342;&#2325; &#2332;&#2368;&#2340;&#2344;&#2375; &#2324;&#2352; &#2346;&#2366;&#2305;&#2330;&#2379;&#2306; &#2335;&#2368;&#2350;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2325;&#2369;&#2354; &#2340;&#2368;&#2360;&#2352;&#2366; &#2346;&#2342;&#2325; &#2332;&#2368;&#2340;&#2344;&#2375; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2323;&#2306; &#2325;&#2375; &#2348;&#2368;&#2330; &#2309;&#2306;&#2340;&#2352; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Total number of times 2<sup>nd</sup> place secured by these 5 teams = (2 +4 +2 +3+1) = 12</p><p>Total number of times 3<sup>rd</sup> place secured by these 5 teams= (3 +4 +2 +0 +1) = 10</p><p>Required difference = 12-10 = 2</p>",
+    "question_index": 5
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 question]:</b> Following graph shows the number of times FIFA world cup won, 2<sup>nd</sup> place and 3<sup>rd</sup> place by 5 teams.</p><p><img width=576 height=326 id=\"Chart 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3372/image003.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; ]:</b> &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2327;&#2381;&#2352;&#2366;&#2347; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376; &#2325;&#2367; &#2325;&#2367;&#2340;&#2344;&#2368; &#2348;&#2366;&#2352; FIFA &#2357;&#2352;&#2381;&#2354;&#2381;&#2337; &#2325;&#2346; &#2350;&#2375;&#2306; 5 &#2335;&#2368;&#2350;&#2379;&#2306; &#2344;&#2375;, &#2342;&#2370;&#2360;&#2352;&#2366; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2366; &#2346;&#2342;&#2325; &#2332;&#2368;&#2340;&#2366;&#2404;</p><p><img width=576 height=326 id=\"Chart 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3372/image003.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>Total number of times FIFA world cup won, secured 2<sup>nd</sup> place and 3<sup>rd</sup> place by Brazil is what percent more/less than the total number of times FIFA world cup won, secured 2<sup>nd</sup> place and 3<sup>rd</sup> place by Italy?</p></span><span class=\"hqt\" style=\"display:none\"><p>FIFA &#2357;&#2352;&#2381;&#2354;&#2381;&#2337; &#2325;&#2346; &#2350;&#2375;&#2306; &#2348;&#2381;&#2352;&#2366;&#2395;&#2368;&#2354; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2325;&#2369;&#2354; &#2332;&#2368;&#2340;&#2375; &#2327;&#2319; ,&#2342;&#2370;&#2360;&#2352;&#2375; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2375; &#2346;&#2342;&#2325; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; , &#2311;&#2335;&#2354;&#2368; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; FIFA &#2357;&#2352;&#2381;&#2354;&#2381;&#2337; &#2325;&#2346; &#2350;&#2375;&#2306; &#2325;&#2369;&#2354; &#2332;&#2368;&#2340;&#2375; &#2327;&#2319;, &#2342;&#2370;&#2360;&#2352;&#2375; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2375; &#2346;&#2342;&#2325; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; &#2325;&#2367;&#2340;&#2344;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2325;&#2381;&#2359;&#2340; &#2325;&#2350;/&#2309;&#2343;&#2367;&#2325; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">25% less</span><span class=\"hqt\" style=\"display:none\">25% &#2325;&#2350;</span>",
+      "<span class=\"eqt\">25% more</span><span class=\"hqt\" style=\"display:none\">25% &#2309;&#2343;&#2367;&#2325;</span>",
+      "<span class=\"eqt\">20% less</span><span class=\"hqt\" style=\"display:none\">20% &#2325;&#2350;</span>",
+      "<span class=\"eqt\">20% more</span><span class=\"hqt\" style=\"display:none\">20% &#2309;&#2343;&#2367;&#2325;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Total number of times FIFA world cup won, secured 2<sup>nd</sup> place and 3<sup>rd</sup> place by Brazil</p><p>= (5 +2 +3) = 10</p><p>Total number of times FIFA world cup won, secured 2<sup>nd</sup> place and 3<sup>rd</sup> place by Italy</p><p>= (4 +2 +2) = 8</p><p>Required percentage= ((10-8)/8) x100% = 25% more.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Find the value of &#8736;ADB if AE = AF and AC is angle bisector of &#8736;BAD.</p><p><img width=293 height=196 id=\"Picture 26\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3671/image002.jpg\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; AE = AF &#2361;&#2376; &#2324;&#2352; &#8736;BAD &#2325;&#2366; &#2325;&#2379;&#2339; &#2360;&#2350;&#2342;&#2381;&#2357;&#2367;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; AC &#2361;&#2376;, &#2340;&#2379; &#8736;ADB &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p><p><img width=\"293\" height=\"196\" id=\"Picture 26\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3671/image002.jpg\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">54<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">54<sup>0</sup></span>",
+      "<span class=\"eqt\">48<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">48<sup>0</sup></span>",
+      "<span class=\"eqt\">72<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">72<sup>0</sup></span>",
+      "<span class=\"eqt\">36<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">36<sup>0</sup></span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>&#8736;AEF = &#8736;AFE = &#8736;ABC = 72<sup>0 </sup>[AE = AF and exterior angle of cyclic quadrilateral is equal to opposite interior angle]</p><p>&#8736;FAE = &#8736;EAD = 180<sup>0</sup>  -  (72<sup>0</sup> + 72<sup>0</sup>) = 36<sup>0</sup></p><p>&#8736;BAD = &#8736;FAE + &#8736;EAD = 36<sup>0 </sup>+ 36<sup>0</sup> = 72<sup>0</sup></p><p>In &#9651;ABD-</p><p>&#8736;ADB = 180<sup>0</sup>  -  (&#8736;BAD + &#8736;ABD)</p><p>&#8736;ADB = 180<sup>0</sup>  -  (72<sup>0</sup> + 72<sup>0</sup>) = 36<sup>0</sup></p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Solve the following trigonometric expression: (sec&#952;  -  tan&#952;)<sup>2</sup>.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344; &#2340;&#2381;&#2352;&#2367;&#2325;&#2379;&#2339;&#2350;&#2367;&#2340;&#2368;&#2351; &#2309;&#2349;&#2367;&#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2379; &#2361;&#2354; &#2325;&#2352;&#2375;&#2306; : (sec&#952; - tan&#952;)<sup>2</sup>.</p></span>",
+    "options": [
+      "<span class=\"eqt\">(1 + cos&#952;)/(1  -  cos&#952;)</span><span class=\"hqt\" style=\"display:none\">(1 + cos&#952;)/(1 - cos&#952;)</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">(1  -  sin&#952;)/(1 + sin&#952;)</span><span class=\"hqt\" style=\"display:none\">(1 - sin&#952;)/(1 + sin&#952;)</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>= (sec&#952;  -  tan&#952;)<sup>2</sup></p><p>= [(1/cos&#952;)  -  (sin&#952;/cos&#952;)]<sup>2</sup></p><p>= [(1  -  sin&#952;)/cos&#952;]<sup>2</sup></p><p>= (1  -  sin&#952;)<sup>2</sup>/cos<sup>2</sup>&#952;</p><p>= (1  -  sin&#952;)<sup>2</sup>/(1  -  sin<sup>2</sup>&#952;)</p><p>= (1  -  sin&#952;)<sup>2</sup>/[(1  -  sin&#952;)(1 + sin&#952;)]</p><p>= (1  -  sin&#952;)/(1 + sin&#952;)</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (cosA = n * tanB), (cotA = m * secB), m<sup>2</sup>: n<sup>2</sup> = 3: 1, then find the relation between A and B. where A and B are two acute angles of a right-angle triangle.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (cosA = n * tanB), (cotA = m * secB), m<sup>2</sup>: n<sup>2</sup> = 3: 1 &#2361;&#2376;&#2306;, &#2332;&#2361;&#2366;&#2306; A &#2324;&#2352; B &#2319;&#2325; &#2360;&#2350;&#2325;&#2379;&#2339; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; &#2325;&#2375; &#2342;&#2379; &#2344;&#2381;&#2351;&#2370;&#2344; &#2325;&#2379;&#2339; &#2361;&#2376;&#2306;, &#2340;&#2379; A &#2324;&#2352; B &#2325;&#2375; &#2348;&#2368;&#2330; &#2360;&#2350;&#2381;&#2348;&#2344;&#2381;&#2343; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">A: B = 1: 2</span><span class=\"hqt\" style=\"display:none\">A: B = 1: 2</span>",
+      "<span class=\"eqt\">A: B = 1: 1</span><span class=\"hqt\" style=\"display:none\">A: B = 1: 1</span>",
+      "<span class=\"eqt\">A: B = 3: 2</span><span class=\"hqt\" style=\"display:none\">A: B = 3: 2</span>",
+      "<span class=\"eqt\">A: B = 2: 3</span><span class=\"hqt\" style=\"display:none\">A: B = 2: 3</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>m<sup>2</sup>: n<sup>2</sup> = 3: 1</p><p>m: n = &radic;3: 1</p><p>(cosA = n * tanB) .... (1)</p><p>(cotA = m * secB) ... (2)</p><p>Divide (2) by (1)-</p><p>(cotA/cosA) = (m/n) * (secB/tanB)</p><p>[(cosA/sinA)/(cosA)] = (m/n) * [(1/cosB)/(sinB/cosB)]</p><p>(1/sinA) = (&radic;3/1) * (1/sinB)</p><p>(sinB/sinA) = &radic;3/1</p><p>Since, A and B are two acute angles of a right-angle triangle.</p><p>(A + B) = 90<sup>0</sup></p><p>B = (90<sup>0</sup>  -  A)</p><p>[sin(90<sup>0</sup>  -  A)/sinA] = &radic;3/1</p><p>[cosA/sinA] = &radic;3/1</p><p>cotA = &radic;3/1</p><p>cotA = cot30<sup>0</sup></p><p>A = 30<sup>0</sup> and B = 60<sup>0</sup></p><p>A: B = 30: 60 = 1: 2</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If A + B = 90, what is the simplified value of (sin A  -  sec B)cos B/sin<sup>2</sup>B?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; A + B = 90 &#2361;&#2376;, &#2340;&#2379; (sin A - sec B)cos B/sin<sup>2</sup>B &#2325;&#2366; &#2360;&#2352;&#2354;&#2368;&#2325;&#2371;&#2340; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">&#8722;1</span><span class=\"hqt\" style=\"display:none\">&#8722;1</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>A + B = 90</p><p>&#8756; sin A = cos B and sin B = cos A </p><p>&#8756; (sin A  -  sec B)cos B/sin<sup>2</sup>B</p><p>= (sin A cos B  -  sec B cos B)/sin<sup>2</sup>B</p><p>= (sin<sup>2</sup>A  -  1)/cos<sup>2</sup>A</p><p>= &#8722;cos<sup>2</sup>A/cos<sup>2</sup>A</p><p>= &#8722;1</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If 2x  -  y<sup>2</sup>  -  y&radic;x = 0, what is the value of y<sup>2</sup> + 4x + 4y&radic;x? [y &#8800; &radic;x]</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 2x - y<sup>2</sup> - y&radic;x = 0 &#2361;&#2376;, &#2340;&#2379; y<sup>2</sup> + 4x + 4y&radic;x? [y &#8800; &radic;x] &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">&#8722;1</span><span class=\"hqt\" style=\"display:none\">&#8722;1</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>2x  -  y<sup>2</sup>  -  y&radic;x = 0</p><p>=&gt; y&radic;x + 2x  -  y<sup>2</sup>  -  2y&radic;x = 0</p><p>=&gt; &radic;x(y + 2&radic;x)  -  y(y + 2&radic;x) = 0</p><p>=&gt; (&radic;x  -  y)(y + 2&radic;x) = 0</p><p>=&gt; y + 2&radic;x = 0 [y &#8800; &radic;x]</p><p>=&gt; (y + 2&radic;x)<sup>2</sup> = 0</p><p>&#8756; y<sup>2</sup> + 4x + 4y&radic;x = 0</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (x<sup>2</sup> + 1/x<sup>2</sup>) = 7, then what is the value of (x<sup>5</sup> + 1/x<sup>5</sup>)? Where value of 'x' is positive.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (x<sup>2</sup> + 1/x<sup>2</sup>) = 7 &#2361;&#2376;, &#2340;&#2379; (x<sup>5</sup> + 1/x<sup>5</sup>) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;? &#2332;&#2361;&#2366;&#2306; 'x' &#2343;&#2344;&#2366;&#2340;&#2381;&#2350;&#2325; &#2361;&#2376;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">126</span><span class=\"hqt\" style=\"display:none\">126</span>",
+      "<span class=\"eqt\">141</span><span class=\"hqt\" style=\"display:none\">141</span>",
+      "<span class=\"eqt\">123</span><span class=\"hqt\" style=\"display:none\">123</span>",
+      "<span class=\"eqt\">132</span><span class=\"hqt\" style=\"display:none\">132</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>(x<sup>2</sup> + 1/x<sup>2</sup>) = 7</p><p>Let (x + 1/x) = a</p><p>(x + 1/x)<sup>2</sup> = a<sup>2</sup></p><p>(x<sup>2</sup> + 1/x<sup>2</sup> + 2 * x<sup>2</sup> * 1/x<sup>2</sup>) = a<sup>2</sup></p><p>(x<sup>2</sup> + 1/x<sup>2</sup>) = (a<sup>2</sup>  -  2)</p><p>7 = (a<sup>2</sup>  -  2)</p><p>a<sup>2</sup> = 9</p><p>a = 3 [Since, 'x' is positive]</p><p>(x<sup>2</sup> + 1/x<sup>2</sup>)(x + 1/x) = 7 * 3 = 21</p><p>(x<sup>3</sup> + x + 1/x + 1/x<sup>3</sup>) = 21</p><p>(x<sup>3</sup> + 1/x<sup>3</sup>) = 21  -  3 = 18</p><p>(x<sup>3</sup> + 1/x<sup>3</sup>)(x<sup>2</sup> + 1/x<sup>2</sup>) = 18 * 7 = 126</p><p>(x<sup>5</sup> + x + 1/x + 1/x<sup>5</sup>) = 126</p><p>(x<sup>5</sup> + 1/x<sup>5</sup>) = 126  -  3</p><p>= 123</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>How many numbers between 1033 and 2390 which are divisible by either 9 and 11 together or 8 and 11 together?</p></span><span class=\"hqt\" style=\"display:none\"><p>1033 &#2324;&#2352; 2390 &#2325;&#2375; &#2348;&#2368;&#2330; &#2320;&#2360;&#2368; &#2325;&#2367;&#2340;&#2344;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2319;&#2305; &#2361;&#2376;&#2306; &#2332;&#2379; &#2351;&#2366; &#2340;&#2379; 9 &#2324;&#2352; 11 &#2360;&#2375; &#2360;&#2306;&#2351;&#2369;&#2325;&#2381;&#2340; &#2352;&#2370;&#2346; &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2361;&#2379;&#2340;&#2368; &#2361;&#2376;&#2306; &#2351;&#2366; 8 &#2324;&#2352; 11 &#2360;&#2375; &#2360;&#2306;&#2351;&#2369;&#2325;&#2381;&#2340; &#2352;&#2370;&#2346; &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2361;&#2379;&#2340;&#2368; &#2361;&#2376;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">27</span><span class=\"hqt\" style=\"display:none\">27</span>",
+      "<span class=\"eqt\">28</span><span class=\"hqt\" style=\"display:none\">28</span>",
+      "<span class=\"eqt\">29</span><span class=\"hqt\" style=\"display:none\">29</span>",
+      "<span class=\"eqt\">30</span><span class=\"hqt\" style=\"display:none\">30</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Numbers which are divisible by either 9 and 11 together or 8 and 11 together = Numbers which are divisible by 9 and 11 + Numbers which are divisible by 8 and 11 -  Numbers which are divisible by 8, 9 and 11</p><p>Numbers which are divisible by 9 and 11 = Numbers which are divisible by LCM of 9 and 11 = 1089, 1188, 1287, ......, 2376</p><p>Total numbers = [(2376  -  1089)/99] + 1 = 13 + 1 = 14</p><p>Numbers which are divisible by 8 and 11 = Numbers which are divisible by LCM of 8 and 11 = 1056, 1144, 1232, ......, 2376</p><p>Total numbers = [(2376  -  1056)/88] + 1 = 15 + 1 = 16</p><p>Numbers which are divisible by 8, 9 and 11 = Numbers which are divisible by LCM of 8, 9 and 11 = 1584, 2376</p><p>Total numbers which are divisible by either 9 and 11 together or 8 and 11 together = 14 + 16  -  2 = 28</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Price of rice is increased by 40%. By how much percent consumption of rice must be reduced, so that the expenditure does not change?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2330;&#2366;&#2357;&#2354; &#2325;&#2375; &#2350;&#2370;&#2354;&#2381;&#2351; &#2350;&#2375;&#2306; 40% &#2325;&#2368; &#2357;&#2371;&#2342;&#2381;&#2343;&#2367; &#2361;&#2379; &#2327;&#2312;| &#2330;&#2366;&#2357;&#2354; &#2325;&#2368; &#2326;&#2346;&#2340; &#2350;&#2375;&#2306; &#2325;&#2367;&#2340;&#2344;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2368; &#2325;&#2350;&#2368; &#2325;&#2368; &#2332;&#2366;&#2344;&#2368; &#2330;&#2366;&#2361;&#2367;&#2319; &#2332;&#2367;&#2360;&#2360;&#2375; &#2325;&#2367; &#2326;&#2352;&#2381;&#2330; &#2346;&#2352; &#2325;&#2379;&#2312; &#2346;&#2381;&#2352;&#2349;&#2366;&#2357; &#2344; &#2346;&#2396;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">24.24%</span><span class=\"hqt\" style=\"display:none\">24.24%</span>",
+      "<span class=\"eqt\">28.57%</span><span class=\"hqt\" style=\"display:none\">28.57%</span>",
+      "<span class=\"eqt\">22.55%</span><span class=\"hqt\" style=\"display:none\">22.55%</span>",
+      "<span class=\"eqt\">26.65%</span><span class=\"hqt\" style=\"display:none\">26.65%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Let the price of rice per kg = Rs.100</p><p>And consumption = 100 Kg</p><p>Total expenditure = 100 x 100 = Rs.10000</p><p>After increment, price of rice per kg = 100 x (100 + 40)/100 = Rs.140</p><p>Let consumption should be reduced by = x%</p><p>10000 = 140 x 100 x (100  -  x)/100</p><p>=&gt; 10000 = 140 x (100  -  x)</p><p>=&gt; 10000/140 = (100  -  x)</p><p>=&gt; 500/7 = 100  -  x</p><p>=&gt; x = 100  -  500/7</p><p>=&gt; x = (700  -  500)/7</p><p>=&gt; x = 200/7</p><p>=&gt; x = 28.57%</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If<img width=45 height=32 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3809/image001.png\"> = 27<sup>x</sup>, what is the value of 3x  -  [3x<sup>3</sup>/(3x  -  1)] ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; <img width=\"45\" height=\"32\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3809/image001.png\"> = 27<sup>x </sup>&#2361;&#2376;, &#2340;&#2379; 3x - [3x<sup>3</sup>/(3x - 1)] &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">&#8722;1</span><span class=\"hqt\" style=\"display:none\">&#8722;1</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><img width=45 height=32 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3809/image001.png\"> = 27<sup>x</sup></p><p>=&gt; <img width=45 height=32 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3809/image001.png\"> = 3<sup>3x</sup></p><p>=&gt; x<sup>2</sup> + 1/3x = 3x</p><p>=&gt; 3x<sup>3</sup> + 1 = 9x<sup>2</sup></p><p>=&gt; 9x<sup>2</sup>  -  1 = 3x<sup>3</sup></p><p>=&gt; (3x)<sup>2</sup>  -  1<sup>2</sup> = 3x<sup>3</sup></p><p>=&gt; (3x + 1)(3x &#8722; 1) = 3x<sup>3</sup></p><p>=&gt; 3x + 1 = 3x<sup>3</sup>/(3x  -  1)</p><p>&#8756; 3x  -  [3x<sup>3</sup>/(3x  -  1)] = &#8722; 1</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a rectangle ABCD, ratio of length (AB) of rectangle to width (BC) of rectangle is 3: 2 and a point P is at the middle of CD, then what is the value of sin(&#8736;BPC)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2310;&#2351;&#2340; ABCD &#2350;&#2375;&#2306;, &#2310;&#2351;&#2340; &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; (AB) &#2324;&#2352; &#2310;&#2351;&#2340; &#2325;&#2368; &#2330;&#2380;&#2396;&#2366;&#2312; (BC) &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 3:2 &#2361;&#2376; &#2324;&#2352; CD &#2325;&#2375; &#2350;&#2343;&#2381;&#2351; &#2350;&#2375;&#2306; &#2319;&#2325; &#2348;&#2367;&#2306;&#2342;&#2369; P &#2361;&#2376;, &#2340;&#2379; sin(&#8736;BPC) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">2/3</span><span class=\"hqt\" style=\"display:none\">2/3</span>",
+      "<span class=\"eqt\">3/4</span><span class=\"hqt\" style=\"display:none\">3/4</span>",
+      "<span class=\"eqt\">4/5</span><span class=\"hqt\" style=\"display:none\">4/5</span>",
+      "<span class=\"eqt\">5/6</span><span class=\"hqt\" style=\"display:none\">5/6</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><img width=155 height=118 id=\"Picture 19\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3840/image004.jpg\"></p><p>Let length of AB and BC is 3x and 2x respectively.</p><p>P is mid-point of CD-</p><p>PC = CD/2 = AB/2 = 3x/2 = 1.5x</p><p>In &#9651;BCP, PB<sup>2</sup> = BC<sup>2</sup> + PC<sup>2</sup></p><p>PB = &radic;[(2x)<sup>2</sup> + (1.5x)<sup>2</sup>] = 2.5x</p><p>sin(&#8736;BPC) = BC/PB</p><p>sin(&#8736;BPC) = 2x/2.5x</p><p>sin(&#8736;BPC) = 4/5</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If 2x<sup>4</sup> + 5x<sup>3</sup>  -  2x<sup>2</sup> + 6x + 4k is divisible by (x + 2), then what is the value of K?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 2x<sup>4</sup> + 5x<sup>3</sup> - 2x<sup>2</sup> + 6x + 4k &#2325;&#2379; (x + 2) &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; K &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">7</span><span class=\"hqt\" style=\"display:none\">7</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">9</span><span class=\"hqt\" style=\"display:none\">9</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Since, 2x<sup>4</sup> + 5x<sup>3</sup>  -  2x<sup>2</sup> + 6x + 4k is divisible by (x + 2)</p><p>=&gt; x = -2 must satisfy the given equation</p><p>=&gt; 2(-2)<sup>4</sup> + 5(-2)<sup>3</sup>  -  2(-2)<sup>2</sup> + 6(-2) + 4k = 0</p><p>=&gt; 32  -  40  -  8  -  12 + 4k = 0</p><p>=&gt; 4k = 28</p><p>=&gt; k = 7</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a class, there are 25 boys whose average age is decreased by 2 months, when one boy aged 20 years is replaced by a new boy. The age of the new boy is</p></span><span class=\"hqt\" style=\"display:none\"><p>25 &#2354;&#2396;&#2325;&#2379;&#2306; &#2325;&#2368; &#2319;&#2325; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2332;&#2348; &#2319;&#2325; 20 &#2357;&#2352;&#2381;&#2359;&#2368;&#2351; &#2354;&#2396;&#2325;&#2375; &#2325;&#2379; &#2319;&#2325; &#2344;&#2319; &#2354;&#2396;&#2325;&#2375; &#2360;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2360;&#2381;&#2341;&#2366;&#2346;&#2367;&#2340; &#2325;&#2352; &#2342;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2313;&#2344;&#2325;&#2368; &#2324;&#2360;&#2340; &#2310;&#2351;&#2369; &#2350;&#2375;&#2306; 2 &#2350;&#2361;&#2368;&#2344;&#2379;&#2306; &#2325;&#2368; &#2325;&#2350;&#2368; &#2310; &#2332;&#2366;&#2340;&#2368; &#2361;&#2376;| &#2344;&#2319; &#2354;&#2396;&#2325;&#2375; &#2325;&#2368; &#2310;&#2351;&#2369; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">15 years 2 months</span><span class=\"hqt\" style=\"display:none\">15 &#2357;&#2352;&#2381;&#2359; 2 &#2350;&#2361;&#2368;&#2344;&#2375;</span>",
+      "<span class=\"eqt\">14 years 10 months</span><span class=\"hqt\" style=\"display:none\">14 &#2357;&#2352;&#2381;&#2359; 10 &#2350;&#2361;&#2368;&#2344;&#2375;</span>",
+      "<span class=\"eqt\">15 years 10 months</span><span class=\"hqt\" style=\"display:none\">15 &#2357;&#2352;&#2381;&#2359; 10 &#2350;&#2361;&#2368;&#2344;&#2375;</span>",
+      "<span class=\"eqt\">16 years 2 months</span><span class=\"hqt\" style=\"display:none\">16 &#2357;&#2352;&#2381;&#2359; 2 &#2350;&#2361;&#2368;&#2344;&#2375;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The decrease in total age is of 25x2 = 50 months </p> <p>It means that the incoming boy has age 20 years  -  50 months = 15 years 10 months</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A &amp; B can construct a wall alone at 20 &amp; 30 days respectively which C alone can destroy completely in 40 days. If A &amp; B start construction together &amp; C starts destruction on the third day from starting day. After that all three work together daily. Then in how many days will the wall be constructed?</p></span><span class=\"hqt\" style=\"display:none\"><p>A &#2324;&#2352; B &#2309;&#2325;&#2375;&#2354;&#2375; &#2319;&#2325; &#2342;&#2368;&#2357;&#2366;&#2352; &#2325;&#2366; &#2344;&#2367;&#2352;&#2381;&#2350;&#2366;&#2339; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 20 &#2324;&#2352; 30 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2325;&#2352; &#2360;&#2325;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2332;&#2367;&#2360;&#2375; C &#2346;&#2370;&#2352;&#2368; &#2340;&#2352;&#2361; &#2360;&#2375; &#2309;&#2325;&#2375;&#2354;&#2375; 40 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2344;&#2359;&#2381;&#2335; &#2325;&#2352; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; A &#2324;&#2352; B &#2319;&#2325; &#2360;&#2366;&#2341; &#2344;&#2367;&#2352;&#2381;&#2350;&#2366;&#2339; &#2358;&#2369;&#2352;&#2370; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306; &#2324;&#2352; C &#2311;&#2360;&#2375; &#2358;&#2369;&#2352;&#2370; &#2325;&#2352;&#2344;&#2375; &#2325;&#2375; &#2342;&#2367;&#2344; &#2360;&#2375; &#2340;&#2368;&#2360;&#2352;&#2375; &#2342;&#2367;&#2344; &#2311;&#2360;&#2375; &#2344;&#2359;&#2381;&#2335; &#2325;&#2352;&#2344;&#2366; &#2358;&#2369;&#2352;&#2370; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376; &#2340;&#2341;&#2366; &#2313;&#2360;&#2325;&#2375; &#2348;&#2366;&#2342; &#2351;&#2375; &#2360;&#2349;&#2368; &#2346;&#2381;&#2352;&#2340;&#2367;&#2342;&#2367;&#2344; &#2319;&#2325; &#2360;&#2366;&#2341; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2340;&#2379; &#2342;&#2368;&#2357;&#2366;&#2352; &#2325;&#2366; &#2344;&#2367;&#2352;&#2381;&#2350;&#2366;&#2339; &#2325;&#2367;&#2340;&#2344;&#2375; &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2319;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">14 2&#8260;7 days</span><span class=\"hqt\" style=\"display:none\">14 2&#8260;7 &#2342;&#2367;&#2344;</span>",
+      "<span class=\"eqt\">15 2&#8260;7 days</span><span class=\"hqt\" style=\"display:none\">15 2&#8260;7 &#2342;&#2367;&#2344;</span>",
+      "<span class=\"eqt\">16 2&#8260;7 days</span><span class=\"hqt\" style=\"display:none\">16 2&#8260;7 &#2342;&#2367;&#2344;</span>",
+      "<span class=\"eqt\">17 2&#8260;7 days</span><span class=\"hqt\" style=\"display:none\">17 2&#8260;7 &#2342;&#2367;&#2344;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>A &amp; B worked together for 2 days, so work completed by them in 2 days = 2 x (1/20+1/30) = 1/6.</p> <p>Remaining work which is to be completed by A, B &amp; C working together = 1 - 1/6 = 5/6</p> <p>1 day of work of A, B &amp; C = 1/20 + 1/30 - 1/40 = 7/120. </p> <p>Suppose they work together for n days. </p> <p>Then total work done by all three in n days = 7n/120. </p> <p>So, 7n/120 = 5/6 </p> <p>=&gt; n = 100/7 = 14 2&#8260;7</p> <p>Therefore total days in which wall will be constructed = 2 + 14 2&#8260;7 = 16 2&#8260;7 days</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A shopkeeper decides to sell his goods @ 25% above the cost price. He sells 40% of his goods at this price, 20%of the stock @ 20% discount on the marked price and rest @ 10% discount. Find the gain percentage in total?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2325;&#2381;&#2352;&#2351; &#2350;&#2370;&#2354;&#2381;&#2351; &#2360;&#2375; 25% &#2309;&#2343;&#2367;&#2325; &#2350;&#2375;&#2306; &#2309;&#2346;&#2344;&#2366; &#2360;&#2366;&#2350;&#2366;&#2344; &#2348;&#2375;&#2330;&#2344;&#2375; &#2325;&#2366; &#2344;&#2367;&#2352;&#2381;&#2339;&#2351; &#2354;&#2375;&#2340;&#2366; &#2361;&#2376;&#2404; &#2357;&#2361; &#2309;&#2346;&#2344;&#2366; 40% &#2360;&#2366;&#2350;&#2366;&#2344; &#2311;&#2360; &#2350;&#2370;&#2354;&#2381;&#2351; &#2346;&#2352; &#2348;&#2375;&#2330;&#2340;&#2366; &#2361;&#2376;, 20% &#2360;&#2366;&#2350;&#2366;&#2344; &#2309;&#2306;&#2325;&#2367;&#2340; &#2350;&#2370;&#2354;&#2381;&#2351; &#2346;&#2352; 20% &#2331;&#2370;&#2335; &#2346;&#2352; &#2324;&#2352; &#2348;&#2366;&#2325;&#2368; 10% &#2325;&#2368; &#2331;&#2370;&#2335; &#2346;&#2352; &#2348;&#2375;&#2330;&#2340;&#2366; &#2361;&#2376;, &#2325;&#2369;&#2354; &#2354;&#2366;&#2349; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">10%</span><span class=\"hqt\" style=\"display:none\">10%</span>",
+      "<span class=\"eqt\">20%</span><span class=\"hqt\" style=\"display:none\">20%</span>",
+      "<span class=\"eqt\">25%</span><span class=\"hqt\" style=\"display:none\">25%</span>",
+      "<span class=\"eqt\">15%</span><span class=\"hqt\" style=\"display:none\">15%</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Let the cost price be Rs 100. Therefore, MP = Rs 125.</p> <p>Now 40% goods were sold @ marked price i.e 40/100 *125 =Rs 50.</p> <p>20% goods @20% discount i.e 20/100 * 100 = Rs 20</p> <p>Remaining good i.e. 40% @ 10% discount = 40/100 * 112.5 = Rs 45</p> <p>So, Selling price = Rs ( 50 + 20 + 45) = Rs 115. Therefore, gain percentage = (115-100)/100 *100 =15%</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a race two runners run at the speed of 15km/hr and 16km/hr respectively. If the faster runner completes the race 16 minutes prior to the later then what should be the distance covered by them? </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2342;&#2380;&#2337;&#2364; &#2350;&#2375;&#2306; &#2342;&#2379; &#2343;&#2366;&#2357;&#2325; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 15 &#2325;&#2367;&#2350;&#2368; / &#2328;&#2306;&#2335;&#2366; &#2324;&#2352; 16 &#2325;&#2367;&#2350;&#2368; / &#2328;&#2306;&#2335;&#2366; &#2325;&#2368; &#2327;&#2340;&#2367; &#2360;&#2375; &#2342;&#2380;&#2337;&#2364;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404; &#2351;&#2342;&#2367; &#2340;&#2375;&#2332; &#2343;&#2366;&#2357;&#2325; &#2342;&#2370;&#2360;&#2352;&#2375; &#2343;&#2366;&#2357;&#2325; &#2360;&#2375; 16 &#2350;&#2367;&#2344;&#2335; &#2346;&#2361;&#2354;&#2375; &#2342;&#2380;&#2337;&#2364; &#2346;&#2370;&#2352;&#2368; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2313;&#2344;&#2325;&#2375; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2340;&#2351; &#2325;&#2368; &#2342;&#2370;&#2352;&#2368; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2379;&#2344;&#2368; &#2330;&#2366;&#2361;&#2367;&#2319;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">72 km</span><span class=\"hqt\" style=\"display:none\">72 &#2325;&#2367;.&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">53 km</span><span class=\"hqt\" style=\"display:none\">53 &#2325;&#2367;.&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">64 km</span><span class=\"hqt\" style=\"display:none\">64 &#2325;&#2367;.&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">38 km</span><span class=\"hqt\" style=\"display:none\">38 &#2325;&#2367;.&#2350;&#2368;.</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Let the distance covered be x km.</p><p>Time taken by the first runner is = x/15 hrs.</p><p>Time taken by the second runner is = x/16 hrs.</p><p>Now x/15- x/16= 16/60</p><p>Or x/(15  X 16)= 16/60 &#8594;x=16/60 X 15  X 16=64 km</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A sum of Rs 86226 is divided between two sisters Nikita and Charul in the ratio of 8:13. Calculate the difference between twice the share of Charul and thrice the share of Nikita?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2348;&#2361;&#2344;&#2379;&#2306; &#2344;&#2367;&#2325;&#2367;&#2340;&#2366; &#2324;&#2352; &#2330;&#2366;&#2352;&#2369;&#2354; &#2325;&#2375; &#2348;&#2368;&#2330; 86226 &#2352;&#2369;&#2346;&#2351;&#2375; &#2325;&#2368; &#2352;&#2366;&#2358;&#2367; &#2325;&#2379; 8:13 &#2325;&#2375; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2350;&#2375;&#2306; &#2348;&#2366;&#2306;&#2335;&#2366; &#2327;&#2351;&#2366;&#2404;&#2330;&#2366;&#2352;&#2369;&#2354; &#2325;&#2375; &#2361;&#2367;&#2360;&#2381;&#2360;&#2375; &#2325;&#2375; &#2342;&#2379;&#2327;&#2369;&#2344;&#2366; &#2324;&#2352; &#2344;&#2367;&#2325;&#2367;&#2340;&#2366; &#2325;&#2375; &#2361;&#2367;&#2360;&#2381;&#2360;&#2375; &#2325;&#2375; &#2340;&#2367;&#2327;&#2369;&#2344;&#2366; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2366; &#2309;&#2306;&#2340;&#2352; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs 7676</span><span class=\"hqt\" style=\"display:none\">7676 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs 8212</span><span class=\"hqt\" style=\"display:none\">8212 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs 7982</span><span class=\"hqt\" style=\"display:none\">7982 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs 8348</span><span class=\"hqt\" style=\"display:none\">8348 &#2352;&#2369;&#2346;&#2351;&#2375;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Share of Nikita = 8/21 * 86226 = Rs 32848</p><p>Share of Charul = 13/21 * 86226 = Rs 53378</p><p>Twice of Charul's share = 53378*2 = Rs 106756</p><p>Thrice of Nikita's share = 32848 * 3 = Rs 98544</p><p>Therefore difference = Rs 106756  -  Rs 98544 = Rs 8212</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The length, width and height of a room is in the ratio of 5:3:2. If cost of painting its walls at Rs. 4.50 per square meter is Rs. 840, find the cost of carpeting its floor at Rs. 5.20 per square meter?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2325;&#2350;&#2352;&#2375; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312;, &#2330;&#2380;&#2337;&#2364;&#2366;&#2312; &#2324;&#2352; &#2314;&#2306;&#2330;&#2366;&#2312; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 5: 3: 2 &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#2311;&#2360;&#2325;&#2368; &#2342;&#2368;&#2357;&#2366;&#2352;&#2379;&#2306; &#2325;&#2379; 4.50 &#2352;&#2369;&#2346;&#2351;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367; &#2357;&#2352;&#2381;&#2327; &#2350;&#2368;&#2335;&#2352; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; &#2346;&#2375;&#2306;&#2335; &#2325;&#2352;&#2344;&#2375; &#2325;&#2368; &#2354;&#2366;&#2327;&#2340; 840 &#2352;&#2369;&#2346;&#2351;&#2375; &#2361;&#2376;, &#2340;&#2379; &#2311;&#2360;&#2325;&#2375; &#2347;&#2352;&#2381;&#2358; &#2346;&#2352; 5.20 &#2352;&#2369;&#2346;&#2351;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367; &#2357;&#2352;&#2381;&#2327; &#2350;&#2368;&#2335;&#2352; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; &#2325;&#2366;&#2354;&#2368;&#2344; &#2354;&#2327;&#2366;&#2344;&#2375; &#2325;&#2368; &#2354;&#2366;&#2327;&#2340; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs. 435</span><span class=\"hqt\" style=\"display:none\">435 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs. 442</span><span class=\"hqt\" style=\"display:none\">442 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs. 455</span><span class=\"hqt\" style=\"display:none\">455 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs. 462</span><span class=\"hqt\" style=\"display:none\">462 &#2352;&#2369;&#2346;&#2351;&#2375;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Let length, width and height of the room be 5n, 3n and 2n respectively.</p> <p>Area of the walls in the room = 2(5n x 2n + 3n x 2n) = 32n&#178;</p><p>As per question; 32n&#178; x 4.50 = 840 =&gt; n&#178; = 35/6</p> <p>Area of floor = 5n x 3n = 15n&#178;</p> <p>Cost of carpeting = 15 x (35/6) x 5.20 = Rs. 455</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A shopkeeper marked an item as Rs.4500 which is 25% higher than cost price and sold that item at 10% discount. What is the profit percent made by the shopkeeper?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2344;&#2375; &#2319;&#2325; &#2357;&#2360;&#2381;&#2340;&#2369; &#2346;&#2352; 4500 &#2352;&#2369;&#2346;&#2351;&#2375; &#2350;&#2370;&#2354;&#2381;&#2351; &#2309;&#2306;&#2325;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366;, &#2332;&#2379; &#2325;&#2381;&#2352;&#2351; &#2350;&#2370;&#2354;&#2381;&#2351; &#2360;&#2375; 25% &#2309;&#2343;&#2367;&#2325; &#2361;&#2376; &#2324;&#2352; &#2313;&#2360; &#2357;&#2360;&#2381;&#2340;&#2369; &#2325;&#2379; 10% &#2331;&#2370;&#2335; &#2346;&#2352; &#2348;&#2375;&#2330; &#2342;&#2367;&#2351;&#2366;, &#2340;&#2379; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2354;&#2366;&#2349; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">6.25%</span><span class=\"hqt\" style=\"display:none\">6.25%</span>",
+      "<span class=\"eqt\">12.50%</span><span class=\"hqt\" style=\"display:none\">12.50%</span>",
+      "<span class=\"eqt\">8.50%</span><span class=\"hqt\" style=\"display:none\">8.50%</span>",
+      "<span class=\"eqt\">10.25%</span><span class=\"hqt\" style=\"display:none\">10.25%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>MP = 4500</p> <p>CP = (4500)*100 / 125 = 3600</p> <p>If sold at 10% discount </p> <p>SP = 4500 * (90/100) = 4050</p> <p>Profit on CP = 4050  -  3600 = 450</p> <p>Profit % = (450/3600)*100 = 12.5%</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Intelligence Mock 04 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>In the following question, select the odd letters from the given alternatives.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2357;&#2367;&#2359;&#2350; &#2309;&#2325;&#2381;&#2359;&#2352;&#2379;&#2306; &#2325;&#2379; &#2330;&#2369;&#2344;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">BGDI</span><span class=\"hqt\" style=\"display:none\">BGDI</span>",
+      "<span class=\"eqt\">OTQV</span><span class=\"hqt\" style=\"display:none\">OTQV</span>",
+      "<span class=\"eqt\">INKP</span><span class=\"hqt\" style=\"display:none\">INKP</span>",
+      "<span class=\"eqt\">TXVZ</span><span class=\"hqt\" style=\"display:none\">TXVZ</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Except option (d) all follow the same logic as follows:</p><p><b>BGDI</b></p><p>B+5= G</p><p>B+2= D</p><p>D+5= I</p><p><b>OTQV</b></p><p>O+5= T</p><p>O+2= Q</p><p>Q+5= V</p><p><b>INKP</b></p><p>I+5= N</p><p>I+2= K</p><p>K+5= P</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two positions of the cube are shown below. What will come opposite to the face containing \"1\"?</p><p><img width=388 height=160 id=\"Picture 256\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3376/image019.jpg\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2328;&#2344; &#2325;&#2368; &#2340;&#2368;&#2344; &#2360;&#2381;&#2341;&#2367;&#2340;&#2367;&#2351;&#2379;&#2306; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376; | &#2357;&#2361; &#2347;&#2354;&#2325; &#2332;&#2367;&#2360; &#2346;&#2352; \"1\" &#2309;&#2306;&#2325;&#2367;&#2340; &#2361;&#2376;, &#2313;&#2360;&#2325;&#2375; &#2357;&#2367;&#2346;&#2352;&#2368;&#2340; &#2347;&#2354;&#2325; &#2346;&#2352; &#2325;&#2380;&#2344;-&#2360;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2310;&#2319;&#2327;&#2368;?</p><p><img width=\"388\" height=\"160\" id=\"Picture 256\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3376/image019.jpg\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">cannot be determined</span><span class=\"hqt\" style=\"display:none\">&#2344;&#2367;&#2352;&#2381;&#2343;&#2366;&#2352;&#2367;&#2340; &#2344;&#2361;&#2368;&#2306; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366; &#2360;&#2325;&#2340;&#2366;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>After combining both positions of the cube, we will get: -</p><p><img width=194 height=188 id=\"Picture 257\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3376/image020.png\"></p><p>So, 2 will come opposite to the face containing 1.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the following question, select the odd-one out from the given alternatives.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2357;&#2367;&#2359;&#2350; &#2325;&#2379; &#2330;&#2369;&#2344;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">(27, 8, 1)</span><span class=\"hqt\" style=\"display:none\">(27, 8, 1)</span>",
+      "<span class=\"eqt\">(729, 512, 343)</span><span class=\"hqt\" style=\"display:none\">(729, 512, 343)</span>",
+      "<span class=\"eqt\">(1331, 1000, 800)</span><span class=\"hqt\" style=\"display:none\">(1331, 1000, 800)</span>",
+      "<span class=\"eqt\">(2197, 1728, 1331)</span><span class=\"hqt\" style=\"display:none\">(2197, 1728, 1331)</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Except option (c), all follow the same logic as follows:</p><p>Option (a): 3<sup>3</sup>, (3-1)<sup>3</sup>, (3-2)<sup>3</sup></p><p>Option (b): 9<sup>3</sup>, (9-1)<sup>3</sup>, (9-2)<sup>3</sup></p><p>Option (d): 13<sup>3</sup>, (13-1)<sup>3</sup>, (13-2)<sup>3</sup></p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the following question, correct the equation by interchanging two signs.</p><p><b>125  -  12  X  2 &div; 24 + 4 = -15</b></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2350;&#2375;&#2306; &#2342;&#2379; &#2330;&#2367;&#2344;&#2381;&#2361;&#2379;&#2306; &#2325;&#2379; &#2346;&#2352;&#2360;&#2381;&#2346;&#2352; &#2348;&#2342;&#2354;&#2325;&#2352; &#2360;&#2350;&#2368;&#2325;&#2352;&#2339; &#2325;&#2379; &#2360;&#2361;&#2368; &#2325;&#2352;&#2375;&#2306;|</p><p><b>125 - 12 X 2 &div; 24 + 4 = -15</b></p></span>",
+    "options": [
+      "<span class=\"eqt\">-  and &div;</span><span class=\"hqt\" style=\"display:none\">- &#2324;&#2352; &div;</span>",
+      "<span class=\"eqt\">&div; and +</span><span class=\"hqt\" style=\"display:none\">&div; &#2324;&#2352; +</span>",
+      "<span class=\"eqt\">X  and &div;</span><span class=\"hqt\" style=\"display:none\">X &#2324;&#2352; &div;</span>",
+      "<span class=\"eqt\">+ and  -</span><span class=\"hqt\" style=\"display:none\">+ &#2324;&#2352; -</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>On interchanging  X  and &div; signs we get,</p><p>LHS = 125  -  12 &div; 2  X  24 + 4</p><p>= 125  -  6 X  24 + 4</p><p>= 125  -  144 + 4</p><p>= -15</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>There are six friends in a group. K is heavier than at least four persons. L is the lightest one. Q is heavier than S, who is not lighter than M. P is not heavier than S. M is heavier than P. Who is the third heaviest person?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2350;&#2370;&#2361; &#2350;&#2375;&#2306; &#2331;&#2361; &#2342;&#2379;&#2360;&#2381;&#2340; &#2361;&#2376;&#2306;&#2404; K &#2325;&#2350; &#2360;&#2375; &#2325;&#2350; &#2330;&#2366;&#2352; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367;&#2351;&#2379;&#2306; &#2360;&#2375; &#2357;&#2332;&#2344; &#2350;&#2375;&#2306; &#2349;&#2366;&#2352;&#2368; &#2361;&#2376;&#2404; L &#2357;&#2332;&#2344; &#2350;&#2375;&#2306; &#2360;&#2348;&#2360;&#2375; &#2361;&#2354;&#2381;&#2325;&#2366; &#2361;&#2376;&#2404; Q, S &#2360;&#2375; &#2357;&#2332;&#2344; &#2350;&#2375;&#2306; &#2349;&#2366;&#2352;&#2368; &#2361;&#2376;, &#2332;&#2379; M &#2360;&#2375; &#2357;&#2332;&#2344; &#2350;&#2375;&#2306; &#2361;&#2354;&#2381;&#2325;&#2366; &#2344;&#2361;&#2368;&#2306; &#2361;&#2376;| P, S &#2360;&#2375; &#2357;&#2332;&#2344; &#2350;&#2375;&#2306; &#2349;&#2366;&#2352;&#2368; &#2344;&#2361;&#2368;&#2306; &#2361;&#2376;| M, P &#2360;&#2375; &#2357;&#2332;&#2344; &#2350;&#2375;&#2306; &#2349;&#2366;&#2352;&#2368; &#2361;&#2376;, &#2340;&#2379; &#2340;&#2368;&#2360;&#2352;&#2366; &#2357;&#2332;&#2344; &#2350;&#2375;&#2306; &#2360;&#2348;&#2360;&#2375; &#2349;&#2366;&#2352;&#2368; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2380;&#2344; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">K</span><span class=\"hqt\" style=\"display:none\">K</span>",
+      "<span class=\"eqt\">M</span><span class=\"hqt\" style=\"display:none\">M</span>",
+      "<span class=\"eqt\">S</span><span class=\"hqt\" style=\"display:none\">S</span>",
+      "<span class=\"eqt\">P</span><span class=\"hqt\" style=\"display:none\">P</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>&#8594; M is heavier than P.</p><p>&#8594; P is not heavier than S.</p><p>We get,</p><p>M &gt; S &gt; P</p><p>Or</p><p>S &gt; M &gt; P</p><p>Now, Q is heavier than S</p><p>And S is not lighter than M.</p><p>So, we get,</p><p>S &gt; M &gt; P is only valid.</p><p>We have,</p><p>Q &gt; S &gt; M &gt; P</p><p>&#8594; L is the lightest one.</p><p>So,</p><p>Q &gt; S &gt; M &gt; P &gt; L</p><p>And,</p><p>K is heavier than at least four persons.</p><p>So,</p><p>Cases possible are:</p><p><b>K &gt; Q &gt; S &gt; M &gt; P &gt; L</b></p><p>Or</p><p><b>Q &gt; K &gt; S &gt; M &gt; P &gt; L</b></p><p>But, the third heaviest remains the same in both cases.</p><p>Thus,</p><p>S is the third heaviest person.</p><p></p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the questions below there are four statements and four conclusions in the options. You have to take the given statements to be true even if they seem to be at variance from commonly known facts and then decide which of the following given conclusions logically follow(s) from the four statements disregarding commonly known facts:</p><p>Statements:</p><p>Some Birds are Girls</p><p>Some Boys are Humans</p><p>All Birds are Creatures</p><p>Many Birds are Boys</p><p>Conclusions:</p><p>I: Some Boys are Girls</p><p>II: Some Creatures are Boys</p><p>III: Some Humans are Birds</p><p>IV: No Boys are Girls</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2350;&#2375;&#2306; &#2330;&#2366;&#2352; &#2325;&#2341;&#2344; &#2324;&#2352; &#2330;&#2366;&#2352; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; &#2342;&#2367;&#2319; &#2327;&#2319; &#2361;&#2376;&#2306;| &#2310;&#2346;&#2325;&#2379; &#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2325;&#2341;&#2344; &#2325;&#2379; &#2360;&#2340;&#2381;&#2351; &#2350;&#2366;&#2344;&#2344;&#2366; &#2361;&#2376; &#2349;&#2354;&#2375; &#2361;&#2368; &#2357;&#2375; &#2360;&#2352;&#2381;&#2357;&#2332;&#2381;&#2334;&#2366;&#2340; &#2340;&#2341;&#2381;&#2351;&#2379;&#2306; &#2360;&#2375; &#2349;&#2367;&#2344;&#2381;&#2344; &#2346;&#2381;&#2352;&#2340;&#2368;&#2340; &#2361;&#2379;&#2306; &#2340;&#2341;&#2366; &#2344;&#2367;&#2352;&#2381;&#2343;&#2366;&#2352;&#2367;&#2340; &#2325;&#2352;&#2375;&#2306; &#2325;&#2367; &#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; &#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2330;&#2366;&#2352; &#2325;&#2341;&#2344;&#2379;&#2306; &#2325;&#2366; &#2340;&#2352;&#2381;&#2325;&#2360;&#2306;&#2327;&#2340; &#2352;&#2370;&#2346; &#2360;&#2375; &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;, &#2330;&#2366;&#2361;&#2375; &#2360;&#2352;&#2381;&#2357;&#2332;&#2381;&#2334;&#2366;&#2340; &#2340;&#2341;&#2381;&#2351; &#2325;&#2369;&#2331; &#2349;&#2368; &#2361;&#2379; |</p><p>&#2325;&#2341;&#2344;:</p><p>&#2325;&#2369;&#2331; Birds, Girls &#2361;&#2376;&#2306;</p><p>&#2325;&#2369;&#2331; Boys, Humans &#2361;&#2376;&#2306;</p><p>&#2360;&#2349;&#2368; Birds, Creatures &#2361;&#2376;&#2306;</p><p>&#2325;&#2312; Birds, Boys &#2361;&#2376;&#2306;</p><p>&#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359;:</p><p>I: &#2325;&#2369;&#2331; Boys, Girls &#2361;&#2376;&#2306;</p><p>II: &#2325;&#2369;&#2331; Creatures, Boys &#2361;&#2376;&#2306;</p><p>III: &#2325;&#2369;&#2331; Humans, Birds &#2361;&#2376;&#2306;</p><p>IV: &#2325;&#2379;&#2312; Boys, Girls &#2344;&#2361;&#2368;&#2306; &#2361;&#2376;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Only I</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; I</span>",
+      "<span class=\"eqt\">II and Either I or IV</span><span class=\"hqt\" style=\"display:none\">II &#2324;&#2352; &#2351;&#2366; &#2340;&#2379; I &#2351;&#2366; IV</span>",
+      "<span class=\"eqt\">II and I</span><span class=\"hqt\" style=\"display:none\">II &#2324;&#2352; I</span>",
+      "<span class=\"eqt\">Either II or IV</span><span class=\"hqt\" style=\"display:none\">&#2351;&#2366; &#2340;&#2379; II &#2351;&#2366; IV</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=461 height=195 id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/35960/image007.png\"></p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p><b>Statement:</b></p><p>People mostly prefer high speed net connections.</p><p><b>Conclusions:</b></p><p>I) High speed net connections are very cheap.</p><p>II) They don't want to wait for long time waiting for their pages to load.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2325;&#2341;&#2344;:</b></p><p>&#2332;&#2381;&#2351;&#2366;&#2342;&#2366;&#2340;&#2352; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2361;&#2366;&#2312; &#2360;&#2381;&#2346;&#2368;&#2337; &#2344;&#2375;&#2335; &#2325;&#2344;&#2375;&#2325;&#2381;&#2358;&#2344; &#2346;&#2360;&#2306;&#2342; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404;</p><p><b>&#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359;:</b></p><p>I) &#2361;&#2366;&#2312; &#2360;&#2381;&#2346;&#2368;&#2337; &#2344;&#2375;&#2335; &#2325;&#2344;&#2375;&#2325;&#2381;&#2358;&#2344; &#2348;&#2361;&#2369;&#2340; &#2360;&#2360;&#2381;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404;</p><p>II) &#2357;&#2375; &#2354;&#2306;&#2348;&#2375; &#2360;&#2350;&#2351; &#2340;&#2325; &#2346;&#2371;&#2359;&#2381;&#2336;&#2379;&#2306; &#2325;&#2379; &#2354;&#2379;&#2337; &#2325;&#2352;&#2344;&#2375; &#2325;&#2368; &#2346;&#2381;&#2352;&#2340;&#2368;&#2325;&#2381;&#2359;&#2366; &#2344;&#2361;&#2368;&#2306; &#2325;&#2352;&#2344;&#2366; &#2330;&#2366;&#2361;&#2340;&#2375;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Conclusion I only follows.</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; I &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;|</span>",
+      "<span class=\"eqt\">Conclusion II only follows.</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; II &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;|</span>",
+      "<span class=\"eqt\">Both conclusion I &amp; II follows.</span><span class=\"hqt\" style=\"display:none\">I &#2324;&#2352; II &#2342;&#2379;&#2344;&#2379;&#2306; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;|</span>",
+      "<span class=\"eqt\">Neither Conclusion I nor II follows.</span><span class=\"hqt\" style=\"display:none\">&#2344; &#2340;&#2379; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; I &#2344; II &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Conclusion I doesn't logically follow the statement. But people who prefer high net speed prefer so because they don't like to wait and waste their time.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Pointing to a photograph, Kunal said \"That person's brother is the brother-in-law of my father's only daughter.\" How is the person in the photograph related to Kunal?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2347;&#2379;&#2335;&#2379;&#2327;&#2381;&#2352;&#2366;&#2347; &#2325;&#2368; &#2323;&#2352; &#2311;&#2358;&#2366;&#2352;&#2366; &#2325;&#2352;&#2340;&#2375; &#2361;&#2369;&#2319; &#2325;&#2369;&#2344;&#2366;&#2354; &#2325;&#2375; &#2325;&#2361;&#2366;, \"&#2311;&#2360; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2366; &#2349;&#2366;&#2312; &#2350;&#2375;&#2352;&#2375; &#2346;&#2367;&#2340;&#2366; &#2325;&#2368; &#2311;&#2325;&#2354;&#2380;&#2340;&#2368; &#2346;&#2369;&#2340;&#2381;&#2352;&#2368; &#2325;&#2366; &#2342;&#2375;&#2357;&#2352;/&#2332;&#2375;&#2336;/&#2344;&#2344;&#2342;&#2379;&#2312;/&#2332;&#2368;&#2332;&#2366; &#2361;&#2376;|\" &#2347;&#2379;&#2335;&#2379;&#2327;&#2381;&#2352;&#2366;&#2347; &#2350;&#2375;&#2306; &#2313;&#2346;&#2360;&#2381;&#2341;&#2367;&#2340; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2369;&#2344;&#2366;&#2354; &#2360;&#2375; &#2325;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Cousin</span><span class=\"hqt\" style=\"display:none\">&#2330;&#2330;&#2375;&#2352;&#2366;/&#2350;&#2350;&#2375;&#2352;&#2366;/&#2350;&#2380;&#2360;&#2375;&#2352;&#2366;/&#2347;&#2369;&#2347;&#2375;&#2352;&#2366; &#2349;&#2366;&#2312; - &#2348;&#2361;&#2344;</span>",
+      "<span class=\"eqt\">Brother</span><span class=\"hqt\" style=\"display:none\">&#2349;&#2366;&#2312;</span>",
+      "<span class=\"eqt\">Brother-in-law</span><span class=\"hqt\" style=\"display:none\">&#2342;&#2375;&#2357;&#2352;/&#2332;&#2375;&#2336;/&#2344;&#2344;&#2342;&#2379;&#2312;/&#2332;&#2368;&#2332;&#2366;/&#2360;&#2366;&#2354;&#2366;/&#2348;&#2361;&#2344;&#2379;&#2312;</span>",
+      "<span class=\"eqt\">Sister-in-law</span><span class=\"hqt\" style=\"display:none\">&#2344;&#2344;&#2342;/&#2349;&#2366;&#2349;&#2368;/&#2360;&#2366;&#2354;&#2368;/&#2342;&#2375;&#2357;&#2352;&#2366;&#2344;&#2368;/&#2332;&#2375;&#2336;&#2366;&#2344;&#2368;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The person in the photograph is the husband of Kunal's only sister. So, that person must be the brother-in-law of Kunal.</p> <p><img width=357 height=141 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/51444/image001.jpg\" alt=1.jpg></p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>From the given alternative words, select the word which cannot be formed using the letters of the given word 'passionate'?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2357;&#2376;&#2325;&#2354;&#2381;&#2346;&#2367;&#2325; &#2358;&#2348;&#2381;&#2342;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2313;&#2360; &#2358;&#2348;&#2381;&#2342; &#2325;&#2379; &#2330;&#2369;&#2344;&#2375;&#2306;, &#2332;&#2367;&#2360;&#2325;&#2366; &#2344;&#2367;&#2352;&#2381;&#2350;&#2366;&#2339; 'passionate' &#2358;&#2348;&#2381;&#2342; &#2325;&#2375; &#2357;&#2352;&#2381;&#2339;&#2379;&#2306; &#2325;&#2366; &#2346;&#2381;&#2352;&#2351;&#2379;&#2327; &#2325;&#2352;&#2325;&#2375; &#2344;&#2361;&#2368;&#2306; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">SEASON</span><span class=\"hqt\" style=\"display:none\">SEASON</span>",
+      "<span class=\"eqt\">ASIAN</span><span class=\"hqt\" style=\"display:none\">ASIAN</span>",
+      "<span class=\"eqt\">SENATE</span><span class=\"hqt\" style=\"display:none\">SENATE</span>",
+      "<span class=\"eqt\">POINT</span><span class=\"hqt\" style=\"display:none\">POINT</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The word SENATE cannot be formed as there are two E's present in it while the given word has only one.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Choose a figure which would most closely resemble the unfolded form of figures after folding and cutting.</p><p><b>Problem figure</b> </p> <p><img width=243 height=65 id=\"Picture 15\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/6700/image014.png\"></p> <p><b>Answer figures</b></p> <p><img width=243 height=83 id=\"Picture 16\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/6700/image015.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2379; &#2350;&#2379;&#2396;&#2375; &#2332;&#2366;&#2344;&#2375; &#2324;&#2352; &#2325;&#2366;&#2335;&#2375; &#2332;&#2366;&#2344;&#2375; &#2325;&#2375; &#2348;&#2366;&#2342; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2310;&#2325;&#2371;&#2340;&#2367; &#2360;&#2375; &#2350;&#2375;&#2354; &#2326;&#2366;&#2340;&#2368; &#2361;&#2376;|</p><p><b>&#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2310;&#2325;&#2371;&#2340;&#2367; </b></p><p><img width=\"243\" height=\"65\" id=\"Picture 15\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/6700/image014.png\"></p><p><b>&#2313;&#2340;&#2381;&#2340;&#2352; &#2310;&#2325;&#2371;&#2340;&#2367; </b></p><p><img width=\"243\" height=\"83\" id=\"Picture 16\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/6700/image015.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">A</span><span class=\"hqt\" style=\"display:none\">A</span>",
+      "<span class=\"eqt\">B</span><span class=\"hqt\" style=\"display:none\">B</span>",
+      "<span class=\"eqt\">C</span><span class=\"hqt\" style=\"display:none\">C</span>",
+      "<span class=\"eqt\">D</span><span class=\"hqt\" style=\"display:none\">D</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>After first unfold, the right half will have two circles and a triangle. After final unfold, there will be four circles in the centre and two triangles near the two vertices.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Arrange the following words as per the order in dictionary.</p><p>1. Sacrilege </p><p>2. Sacred </p><p>3. Sacramento </p><p>4. Sacrificial</p><p>5. Sacrifice</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2368; &#2358;&#2348;&#2381;&#2342;&#2325;&#2379;&#2358; &#2325;&#2375; &#2325;&#2381;&#2352;&#2350;&#2366;&#2344;&#2369;&#2360;&#2366;&#2352; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2358;&#2348;&#2381;&#2342;&#2379;&#2306; &#2325;&#2379; &#2357;&#2381;&#2351;&#2357;&#2360;&#2381;&#2341;&#2367;&#2340; &#2325;&#2352;&#2375;&#2306;|</p><p>1. Sacrilege</p><p>2. Sacred</p><p>3. Sacramento</p><p>4. Sacrificial</p><p>5. Sacrifice</p></span>",
+    "options": [
+      "<span class=\"eqt\">3 4 2 1 5</span><span class=\"hqt\" style=\"display:none\">3 4 2 1 5</span>",
+      "<span class=\"eqt\">3 2 5 4 1</span><span class=\"hqt\" style=\"display:none\">3 2 5 4 1</span>",
+      "<span class=\"eqt\">2 3 4 1 5</span><span class=\"hqt\" style=\"display:none\">2 3 4 1 5</span>",
+      "<span class=\"eqt\">2 3 4 5 1</span><span class=\"hqt\" style=\"display:none\">2 3 4 5 1</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Sacramento Sacred Sacrifice Sacrificial Sacrilege</p><p>This is the correct form as per the order in dictionary.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which set of letters when sequentially placed at the gaps in the given letter series shall complete It?</p><p>j j _ _ j _ k _ j _ k i </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2350;&#2375;&#2306;, &#2342;&#2368; &#2327;&#2312; &#2357;&#2352;&#2381;&#2339; &#2358;&#2371;&#2306;&#2326;&#2354;&#2366; &#2350;&#2375;&#2306; &#2357;&#2352;&#2381;&#2339;&#2379;&#2306; &#2325;&#2366; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2360;&#2350;&#2370;&#2361; &#2352;&#2367;&#2325;&#2381;&#2340; &#2360;&#2381;&#2341;&#2366;&#2344; &#2346;&#2352; &#2325;&#2381;&#2352;&#2350;&#2367;&#2325; &#2340;&#2380;&#2352; &#2346;&#2352; &#2352;&#2326;&#2375; &#2332;&#2366;&#2344;&#2375; &#2360;&#2375; &#2358;&#2371;&#2306;&#2326;&#2354;&#2366; &#2325;&#2379; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352;&#2375;&#2327;&#2366;?</p><p>j j _ _ j _ k _ j _ k i</p></span>",
+    "options": [
+      "<span class=\"eqt\">ijkij</span><span class=\"hqt\" style=\"display:none\">ijkij</span>",
+      "<span class=\"eqt\">kijij</span><span class=\"hqt\" style=\"display:none\">kijij</span>",
+      "<span class=\"eqt\">kkiji</span><span class=\"hqt\" style=\"display:none\">kkiji</span>",
+      "<span class=\"eqt\">ikjik</span><span class=\"hqt\" style=\"display:none\">ikjik</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The correct sequence is jjkijjkijjki</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>EKRP : HHUM : : IRDP : ?</p></span><span class=\"hqt\" style=\"display:none\"><p>EKRP : HHUM : : IRDP : ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">LGMN</span><span class=\"hqt\" style=\"display:none\">LGMN</span>",
+      "<span class=\"eqt\">KSEQ</span><span class=\"hqt\" style=\"display:none\">KSEQ</span>",
+      "<span class=\"eqt\">LOGM</span><span class=\"hqt\" style=\"display:none\">LOGM</span>",
+      "<span class=\"eqt\">KESQ</span><span class=\"hqt\" style=\"display:none\">KESQ</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><img src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/s17-11059.png\"/></p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Human mind: Psychology:: Insects : ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2350;&#2366;&#2344;&#2357; &#2350;&#2360;&#2381;&#2340;&#2367;&#2359;&#2381;&#2325;: &#2350;&#2344;&#2379;&#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344; :: &#2325;&#2368;&#2335;:?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Ornithology</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2325;&#2381;&#2359;&#2368;-&#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344;</span>",
+      "<span class=\"eqt\">Mythology</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2369;&#2352;&#2366;&#2339;-&#2358;&#2366;&#2360;&#2381;&#2340;&#2381;&#2352;</span>",
+      "<span class=\"eqt\">Entomology</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2368;&#2335;-&#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344;</span>",
+      "<span class=\"eqt\">Pathology</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2379;&#2327;-&#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Study of human mind is called Psychology</p><p>Study of Insects is called Entomology.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If in a certain way, 346 = 259 and 459 = 818, then find 496 = ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2319;&#2325; &#2344;&#2367;&#2358;&#2381;&#2330;&#2367;&#2340; &#2340;&#2352;&#2368;&#2325;&#2375; &#2360;&#2375; 346 = 259 &#2324;&#2352; 459 = 818 &#2361;&#2376;, &#2340;&#2379; 496 = ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">254</span><span class=\"hqt\" style=\"display:none\">254</span>",
+      "<span class=\"eqt\">457</span><span class=\"hqt\" style=\"display:none\">457</span>",
+      "<span class=\"eqt\">561</span><span class=\"hqt\" style=\"display:none\">561</span>",
+      "<span class=\"eqt\">361</span><span class=\"hqt\" style=\"display:none\">361</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>For 346 =&gt; (3)<sup>3</sup>+(4)<sup>2</sup>+(6)<sup>3</sup> = 259</p><p>For 459 =&gt; (4)<sup>3</sup>+(5)<sup>2</sup>+(9)<sup>3</sup> = 818</p><p>Similarly, For 496 =&gt; (4)<sup>3</sup>+(9)<sup>2</sup>+(6)<sup>3</sup> = 361</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>How many Hexagonals are there in the given figure?</p><p><img width=241 height=160 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1757/image001.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306; &#2325;&#2367;&#2340;&#2344;&#2375; &#2359;&#2337;&#2381;&#2349;&#2369;&#2332; &#2361;&#2376;&#2306;?</p><p><img width=\"241\" height=\"160\" id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1757/image001.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><img width=270 height=195 id=\"Picture 2\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1757/image002.png\"></p><p>ADRWTF, JRTNFD, JRUOGD, IQTNFC, IQUOGC</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A word is represented by only one set of number is given in any one of the alternatives. The sets of number given in the alternatives are represented by two classes of alphabets as in two matrices given below. The column and rows of matrix I are numbered from 0 to 4 and that of matrix II are numbered from 5 to 9.A letter from these matrices can be represented first by its row and next by its column, e.g; S can be represented by 41,14,etc and O can be represented by 31,23,etc,similarly,you have to identify the set for the word <b>SORT.</b></p><p><b>MATRIX-I</b></p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">0</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">0</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td></tr></table><p><b>MATRIX-Ii</b></p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2358;&#2348;&#2381;&#2342;, &#2325;&#2367;&#2360;&#2368; &#2349;&#2368; &#2319;&#2325; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2319; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2323;&#2306; &#2325;&#2375; &#2325;&#2375;&#2357;&#2354; &#2319;&#2325; &#2360;&#2350;&#2370;&#2361; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;| &#2357;&#2367;&#2325;&#2354;&#2381;&#2346;&#2379;&#2306; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2319; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2323;&#2306; &#2325;&#2375; &#2360;&#2350;&#2370;&#2361; &#2357;&#2352;&#2381;&#2339;&#2350;&#2366;&#2354;&#2366; &#2325;&#2375; &#2342;&#2379; &#2357;&#2352;&#2381;&#2327;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2332;&#2376;&#2360;&#2366; &#2325;&#2367; &#2342;&#2379; &#2310;&#2357;&#2381;&#2351;&#2370;&#2361; &#2350;&#2375;&#2306; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376; | &#2310;&#2357;&#2381;&#2351;&#2370;&#2361; I &#2325;&#2375; &#2360;&#2381;&#2340;&#2306;&#2349; &#2324;&#2352; &#2346;&#2306;&#2325;&#2381;&#2340;&#2367;&#2351;&#2379;&#2306; &#2325;&#2379; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; 0 &#2360;&#2375; 4 &#2340;&#2325; &#2324;&#2352; &#2310;&#2357;&#2381;&#2351;&#2370;&#2361; II &#2325;&#2379; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; 5 &#2360;&#2375; 9 &#2340;&#2325; &#2309;&#2306;&#2325;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376; | &#2311;&#2344; &#2310;&#2357;&#2381;&#2351;&#2370;&#2361; &#2325;&#2375; &#2309;&#2325;&#2381;&#2359;&#2352;&#2379;&#2306; &#2325;&#2379; &#2346;&#2361;&#2354;&#2375; &#2311;&#2360;&#2325;&#2375; &#2346;&#2306;&#2325;&#2381;&#2340;&#2367; &#2324;&#2352; &#2342;&#2370;&#2360;&#2352;&#2366; &#2311;&#2360;&#2325;&#2375; &#2360;&#2381;&#2340;&#2306;&#2349; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376; | &#2313;&#2342;&#2366;&#2361;&#2352;&#2339;: S &#2325;&#2379; 41,14, &#2310;&#2342;&#2367; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2332;&#2366; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; O &#2325;&#2379; 31,23 &#2310;&#2342;&#2367; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2332;&#2366; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376; | &#2311;&#2360;&#2368; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2310;&#2346;&#2325;&#2379; <b>SORT</b> &#2358;&#2348;&#2381;&#2342; &#2325;&#2375; &#2354;&#2367;&#2319; &#2360;&#2350;&#2370;&#2361; &#2325;&#2368; &#2346;&#2361;&#2330;&#2366;&#2344; &#2325;&#2352;&#2344;&#2368; &#2361;&#2376; |</p><p><b>&#2310;&#2357;&#2381;&#2351;&#2370;&#2361;-I</b></p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">0</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">0</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">L</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">S</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">O</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">M</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">N</td></tr></table><p><b>&#2310;&#2357;&#2381;&#2351;&#2370;&#2361;-II</b></p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">V</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">T</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">U</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Q</td></tr></table></span>",
+    "options": [
+      "<span class=\"eqt\">41 42 97 77</span><span class=\"hqt\" style=\"display:none\">41 42 97 77</span>",
+      "<span class=\"eqt\">33 12 66 89</span><span class=\"hqt\" style=\"display:none\">33 12 66 89</span>",
+      "<span class=\"eqt\">00 23 58 75</span><span class=\"hqt\" style=\"display:none\">00 23 58 75</span>",
+      "<span class=\"eqt\">14 31 95 56</span><span class=\"hqt\" style=\"display:none\">14 31 95 56</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>By verifying using 1<sup>ST</sup> option 41 42 97 77</p><p>S O T R</p><p>By 2<sup>nd</sup> option 33 12 66 89</p><p>S O R T.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>From the given answer figures, select the one in which question figure is hidden/embedded.</p><p><img width=106 height=104 id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image016.png\"></p><p>A. <img width=102 height=99 id=\"Picture 23\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image017.png\"></p><p>B. <img width=98 height=92 id=\"Picture 24\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image018.png\"></p><p>C. <img width=98 height=87 id=\"Picture 25\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image019.png\"></p><p>D. <img width=94 height=92 id=\"Picture 26\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image020.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2368; &#2327;&#2312; &#2313;&#2340;&#2381;&#2340;&#2352; &#2310;&#2325;&#2371;&#2340;&#2367;&#2351;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2313;&#2360;&#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306;, &#2332;&#2367;&#2360;&#2350;&#2375;&#2306; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2310;&#2325;&#2371;&#2340;&#2367; &#2331;&#2367;&#2346;&#2368;/&#2360;&#2344;&#2381;&#2344;&#2367;&#2361;&#2367;&#2340; &#2361;&#2376;|</p><p><img width=\"106\" height=\"104\" id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image016.png\"></p><p>A. <img width=\"102\" height=\"99\" id=\"Picture 23\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image017.png\"></p><p>B. <img width=\"98\" height=\"92\" id=\"Picture 24\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image018.png\"></p><p>C. <img width=\"98\" height=\"87\" id=\"Picture 25\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image019.png\"></p><p>D. <img width=\"94\" height=\"92\" id=\"Picture 26\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1773/image020.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">A</span><span class=\"hqt\" style=\"display:none\">A</span>",
+      "<span class=\"eqt\">B</span><span class=\"hqt\" style=\"display:none\">B</span>",
+      "<span class=\"eqt\">C</span><span class=\"hqt\" style=\"display:none\">C</span>",
+      "<span class=\"eqt\">D</span><span class=\"hqt\" style=\"display:none\">D</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Option 1 and 3 are easily visible to be entirely different.</p><p>In Option 4, orientation is different.</p><p>Option 2 is the correct answer.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Ram is facing north. Which sequence of the following turns will lead him to face west?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2352;&#2366;&#2350; &#2325;&#2366; &#2350;&#2369;&#2326; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2367;&#2358;&#2366; &#2325;&#2368; &#2323;&#2352; &#2361;&#2376;| &#2344;&#2367;&#2350;&#2381;&#2344; &#2350;&#2375;&#2306; &#2360;&#2375; &#2350;&#2369;&#2396;&#2344;&#2375; &#2325;&#2366; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2309;&#2344;&#2369;&#2325;&#2381;&#2352;&#2350; &#2313;&#2360;&#2375; &#2346;&#2358;&#2381;&#2330;&#2367;&#2350; &#2342;&#2367;&#2358;&#2366; &#2325;&#2375; &#2360;&#2350;&#2381;&#2350;&#2369;&#2326; &#2354;&#2375; &#2332;&#2366;&#2351;&#2375;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Left, Left, Left</span><span class=\"hqt\" style=\"display:none\">&#2348;&#2366;&#2351;&#2375;&#2306;, &#2348;&#2366;&#2351;&#2375;&#2306;, &#2348;&#2366;&#2351;&#2375;&#2306;</span>",
+      "<span class=\"eqt\">Right, Left, Right</span><span class=\"hqt\" style=\"display:none\">&#2342;&#2366;&#2351;&#2375;&#2306;, &#2348;&#2366;&#2351;&#2375;&#2306;, &#2342;&#2366;&#2351;&#2375;&#2306;</span>",
+      "<span class=\"eqt\">Right, Right, Left</span><span class=\"hqt\" style=\"display:none\">&#2342;&#2366;&#2351;&#2375;&#2306;, &#2342;&#2366;&#2351;&#2375;&#2306;, &#2348;&#2366;&#2351;&#2375;&#2306;</span>",
+      "<span class=\"eqt\">Left, Right, Left</span><span class=\"hqt\" style=\"display:none\">&#2348;&#2366;&#2351;&#2375;&#2306;, &#2342;&#2366;&#2351;&#2375;&#2306;, &#2348;&#2366;&#2351;&#2375;&#2306;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>North + Left, Left, Left = East</p> <p>North + Right, Left, Right = East</p> <p>North + Right, Right, Left = East</p> <p>North + Left, Right, Left = West</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If each circle represents a class of objects/ideas written below then find out the answer figure which illustrates better the relationship among them:</p><p>\"Landways, Waterways, Airways\"</p><p>A. <img width=110 height=110 id=\"Picture 52\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image028.png\"></p><p>B. <img width=110 height=110 id=\"Picture 53\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image029.png\"></p><p>C. <img width=115 height=115 id=\"Picture 51\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image030.png\"></p><p>D. <img width=209 height=45 id=\"Picture 54\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image031.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340; &#2344;&#2368;&#2330;&#2375; &#2354;&#2367;&#2326;&#2375; &#2327;&#2351;&#2375; &#2357;&#2360;&#2381;&#2340;&#2369;/&#2357;&#2367;&#2330;&#2366;&#2352; &#2325;&#2375; &#2319;&#2325; &#2357;&#2352;&#2381;&#2327; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2313;&#2360; &#2313;&#2340;&#2381;&#2340;&#2352; &#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2344;&#2367;&#2350;&#2381;&#2344; &#2350;&#2375;&#2306; &#2348;&#2375;&#2361;&#2340;&#2352; &#2360;&#2306;&#2348;&#2306;&#2343; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;:</p><p>\"&#2360;&#2396;&#2325;&#2350;&#2366;&#2352;&#2381;&#2327;, &#2332;&#2354;&#2350;&#2366;&#2352;&#2381;&#2327;, &#2357;&#2366;&#2351;&#2369;&#2350;&#2366;&#2352;&#2381;&#2327;\"</p><p>A. <img width=\"110\" height=\"110\" id=\"Picture 52\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image028.png\"></p><p>B. <img width=\"110\" height=\"110\" id=\"Picture 53\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image029.png\"></p><p>C. <img width=\"115\" height=\"115\" id=\"Picture 51\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image030.png\"></p><p>D. <img width=\"209\" height=\"45\" id=\"Picture 54\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image031.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">A</span><span class=\"hqt\" style=\"display:none\">A</span>",
+      "<span class=\"eqt\">B</span><span class=\"hqt\" style=\"display:none\">B</span>",
+      "<span class=\"eqt\">C</span><span class=\"hqt\" style=\"display:none\">C</span>",
+      "<span class=\"eqt\">D</span><span class=\"hqt\" style=\"display:none\">D</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><img width=209 height=105 id=\"Picture 59\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p917/image032.png\"></p>",
+    "question_index": 19
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which answer figure completes the pattern in the question figure?</p><p><img width=180 height=172 id=\"Picture 36\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image038.png\"></p><p>A. <img width=93 height=94 id=\"Picture 37\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image039.png\"></p><p>B. <img width=90 height=91 id=\"Picture 38\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image040.png\"></p><p>C. <img width=98 height=97 id=\"Picture 39\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image041.png\"></p><p>D. <img width=104 height=95 id=\"Picture 40\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image042.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2325;&#2380;&#2344;-&#2360;&#2368; &#2313;&#2340;&#2381;&#2340;&#2352;-&#2310;&#2325;&#2371;&#2340;&#2367; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;-&#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2375; &#2346;&#2376;&#2335;&#2352;&#2381;&#2344; &#2325;&#2379; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352;&#2340;&#2368; &#2361;&#2376;?</p><p><img width=\"180\" height=\"172\" id=\"Picture 36\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image038.png\"></p><p>A. <img width=\"93\" height=\"94\" id=\"Picture 37\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image039.png\"></p><p>B. <img width=\"90\" height=\"91\" id=\"Picture 38\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image040.png\"></p><p>C. <img width=\"98\" height=\"97\" id=\"Picture 39\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image041.png\"></p><p>D. <img width=\"104\" height=\"95\" id=\"Picture 40\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image042.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">A</span><span class=\"hqt\" style=\"display:none\">A</span>",
+      "<span class=\"eqt\">B</span><span class=\"hqt\" style=\"display:none\">B</span>",
+      "<span class=\"eqt\">C</span><span class=\"hqt\" style=\"display:none\">C</span>",
+      "<span class=\"eqt\">D</span><span class=\"hqt\" style=\"display:none\">D</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>In option 1 and 3, an extra triangle is made to the left side of the figure. In option 2, two triangles which are drawn on the left side are wrong. Option 4 completes the question figure symmetrically and hence is the correct choice.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a certain code 'SALTED' is coded as 'MBTWVG' then how will 'WANDER' be coded as?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2344;&#2367;&#2358;&#2381;&#2330;&#2367;&#2340; &#2325;&#2379;&#2337; &#2350;&#2375;&#2306; 'SALTED' &#2325;&#2379; 'MBTWVG' &#2325;&#2379;&#2337;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; 'WANDER' &#2325;&#2379; &#2325;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2375; &#2325;&#2379;&#2337;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2351;&#2375;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">OBXWVI</span><span class=\"hqt\" style=\"display:none\">OBXWVI</span>",
+      "<span class=\"eqt\">OXBWVI</span><span class=\"hqt\" style=\"display:none\">OXBWVI</span>",
+      "<span class=\"eqt\">OBWXVI</span><span class=\"hqt\" style=\"display:none\">OBWXVI</span>",
+      "<span class=\"eqt\">OBXIVW</span><span class=\"hqt\" style=\"display:none\">OBXIVW</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The word is divided into two parts. In the first part, the code is obtained by adding 1 to the respective alphabets and in the second part the opposite position value alphabets are replaced by forward position value alphabets.</p><p><img width=601 height=106 id=\"Picture 12\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1777/image012.jpg\"></p>",
+    "question_index": 21
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If a mirror is placed on the given line, then which of the answer figure is right image of the given figure?</p><p><img width=167 height=132 id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image023.png\"></p><p>A. <img width=133 height=133 id=\"Picture 23\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image024.png\"></p><p>B. <img width=136 height=135 id=\"Picture 24\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image025.png\"></p><p>C. <img width=136 height=132 id=\"Picture 25\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image026.png\"></p><p>D. <img width=132 height=128 id=\"Picture 26\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image027.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2319;&#2325; &#2342;&#2352;&#2381;&#2346;&#2339; &#2325;&#2379; &#2342;&#2368; &#2327;&#2312; &#2352;&#2375;&#2326;&#2366; &#2346;&#2352; &#2352;&#2326;&#2366; &#2332;&#2366;&#2351;&#2375; &#2340;&#2379; &#2344;&#2367;&#2350;&#2381;&#2344; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2368; &#2313;&#2340;&#2381;&#2340;&#2352; &#2310;&#2325;&#2371;&#2340;&#2367; &#2342;&#2368; &#2327;&#2351;&#2368; &#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2366; &#2360;&#2361;&#2368; &#2342;&#2352;&#2381;&#2346;&#2339; &#2346;&#2381;&#2352;&#2340;&#2367;&#2348;&#2367;&#2350;&#2381;&#2348; &#2361;&#2379;&#2327;&#2368;?</p><p><img width=\"167\" height=\"132\" id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image023.png\"></p><p>A. <img width=\"133\" height=\"133\" id=\"Picture 23\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image024.png\"></p><p>B. <img width=\"136\" height=\"135\" id=\"Picture 24\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image025.png\"></p><p>C. <img width=\"136\" height=\"132\" id=\"Picture 25\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image026.png\"></p><p>D. <img width=\"132\" height=\"128\" id=\"Picture 26\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1791/image027.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">A</span><span class=\"hqt\" style=\"display:none\">A</span>",
+      "<span class=\"eqt\">B</span><span class=\"hqt\" style=\"display:none\">B</span>",
+      "<span class=\"eqt\">C</span><span class=\"hqt\" style=\"display:none\">C</span>",
+      "<span class=\"eqt\">D</span><span class=\"hqt\" style=\"display:none\">D</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>In options 1 and 2, position of circle is wrong. In option 3, position of circle and inclination of all the lines inside the square are wrong. Option 4 is the exact mirror image of the question figure and hence the correct choice.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the missing number from the given responses</p><p>6, 8, ?, 56, 226</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2368; &#2327;&#2351;&#2368; &#2309;&#2344;&#2369;&#2325;&#2381;&#2352;&#2367;&#2351;&#2366; &#2360;&#2375; &#2354;&#2369;&#2346;&#2381;&#2340; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2379; &#2330;&#2369;&#2344;&#2375;&#2306;|</p><p>6, 8, ?, 56, 226</p></span>",
+    "options": [
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>",
+      "<span class=\"eqt\">14</span><span class=\"hqt\" style=\"display:none\">14</span>",
+      "<span class=\"eqt\">18</span><span class=\"hqt\" style=\"display:none\">18</span>",
+      "<span class=\"eqt\">24</span><span class=\"hqt\" style=\"display:none\">24</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>6x1+2=8</p><p>8x2+2=18</p><p>18x3+2=56</p><p>56x4+2=226.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the related word/letters/number from the given alternatives. </p><p>1400:4400:: 1372:?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2358;&#2348;&#2381;&#2342;/&#2309;&#2325;&#2381;&#2359;&#2352;&#2379;&#2306;/&#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2379; &#2330;&#2369;&#2344;&#2375;&#2306;|</p><p>1400:4400:: 1372:?</p></span>",
+    "options": [
+      "<span class=\"eqt\">4312</span><span class=\"hqt\" style=\"display:none\">4312</span>",
+      "<span class=\"eqt\">4134</span><span class=\"hqt\" style=\"display:none\">4134</span>",
+      "<span class=\"eqt\">4232</span><span class=\"hqt\" style=\"display:none\">4232</span>",
+      "<span class=\"eqt\">4234</span><span class=\"hqt\" style=\"display:none\">4234</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In the above code,</p> <p>1400 * 22/7 = 4400</p> <p>So, 1372 * 22/7 = 4312</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

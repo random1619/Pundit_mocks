@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dates & Committees Mock 3 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>31st October is celebrated as _________?</p>",
+    "options": [
+      "World Cities Day",
+      "Small Industry Day",
+      "International Day of Peace",
+      "World Food Security Day",
+      "World Calamity Control Day"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The United Nations General Assembly has designated the 31st of October as World Cities Day, by its resolution. The Day is expected to greatly promote the international community's interest in global urbanization, push forward cooperation among countries in meeting opportunities and addressing challenges of urbanization, and contributing to sustainable urban development around the world.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Legal Service Day is observed on 9th of which month?</p>",
+    "options": [
+      "January",
+      "August",
+      "July",
+      "June",
+      "November"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Legal Services Day is celebrated every year on 9th of November in all the states Authorities. At this day variety of legal literacy camps and functions are organized at many places in the capital city of the country. People from government as well as non government organizations take part in the functions and camps related to the Legal Services Day.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>On which date of December National Energy Conservation Day is celebrated?</p>",
+    "options": [
+      "3rd",
+      "10th",
+      "14th",
+      "22nd",
+      "30th"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>National Energy Conservation Day is observed on December 14th. It is celebrated to aware people about the importance of energy as well as saving or conserving the more energy by using less energy. The exact means of energy conservation is using less energy by avoiding the unnecessary uses of energy.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>World Fisheries Day is observed on the same day as ________?</p>",
+    "options": [
+      "World Television Day",
+      "World White cane day",
+      "World Food Security Day",
+      "World Sight day",
+      "World Tourism Day"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>World Fisheries day is celebrated every year on November 21 same as World Television Day. World Fisheries Day was established to draw attention to overfishing, habitat destruction and other serious threats to the sustainability of our marine and freshwater resources.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>International Girl Child Day is observed in the month of ________?</p>",
+    "options": [
+      "November",
+      "October",
+      "June",
+      "February",
+      "May"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>International Day of the Girl Child is an international observance day declared by the United Nations; it is also called the Day of the Girl and the International Day of the Girl. October 11, 2012, was the first Day of the Girl.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>National Solidarity Day is observed in connection to which among the following wars/battles?</p>",
+    "options": [
+      "Kargil War",
+      "Indo-Pak war of 1947",
+      "Indo-Pak war of 1965",
+      "Indo-china War of 1962",
+      "Indo-Pak war of 1971"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The observance of National Solidarity Day is an annual reminder of this fundamental unity. It is observed every year on October 20 in India. It is the date on which China attacked India in 1962.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>National Handloom Day is observed on ______?</p>",
+    "options": [
+      "7th January",
+      "17th April",
+      "7th August",
+      "17th March",
+      "27th November"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>National Handloom Day is being observed today to encourage people to use hand-made loom in the country. It is observed on 7th August every year.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>July 1st is celebrated in India in honour of which professionals?</p>",
+    "options": [
+      "Public Servants",
+      "Doctors",
+      "Sportspersons",
+      "Social Servants",
+      "Scientists"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In India the National Doctors' Day is celebrated on July 1 all across India to honour the legendary physician and the second Chief Minister of West Bengal, Dr Bidhan Chandra Roy.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>International Day of Yoga is celebrated on ________?</p>",
+    "options": [
+      "21st June",
+      "21st April",
+      "27th March",
+      "27th April",
+      "19th March"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Recognizing universal appeal of Yoga, on 11 December 2014, the United Nations proclaimed 21 June as the International Day of Yoga by resolution. The International Day of Yoga aims to raise awareness worldwide of the many benefits of practicing yoga.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>International Day for Mine Awareness is observed on 4th of which month?</p>",
+    "options": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>On 8 December 2005, the General Assembly declared that 4 April of each year shall be observed as the International Day for Mine Awareness and Assistance in Mine Action. It called for continued efforts by States, with the assistance of the United Nations and relevant organizations, to foster the establishment and development of national mine-action capacities in countries where mines and explosive remnants of war constitute a serious threat to the safety, health and lives of the civilian population, or an impediment to social and economic development at the national and local levels.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>In India, Water Day is observed on the birth anniversary of __________?</p>",
+    "options": [
+      "Jawaharlal Nehru",
+      "Sardar Vallabhai Patel",
+      "B.R. Ambedkar",
+      "Jagjivan Ram",
+      "Maulana Abul Kalam Azad"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Birth anniversary of the father of Indian Constitution B R Ambedkar (April 14), is observed as \"Water Day\" in the country. The idea is to sensitise people about managing precious water resources on birth anniversary of Ambedkar, who, besides being instrumental in framing the country's Constitution, was also responsible for a definite all-India policy on managing water resources in India.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>22nd May is observed as __________?</p>",
+    "options": [
+      "National Technology Day",
+      "International Bio Diversity Day",
+      "Commonwealth Day",
+      "Worlds Thyroid Day",
+      "World No Tobacco Day"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The United Nations has proclaimed May 22 The International Day for Biological Diversity (IDB) to increase understanding and awareness of biodiversity issues.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>United Nations Public Service Day is observed on 23rd of which month?</p>",
+    "options": [
+      "March",
+      "September",
+      "October",
+      "June",
+      "February"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The UN General Assembly designated 23 June as Public Service Day. The UN Public Service Day celebrates the value and virtue of public service to the community; highlights the contribution of public service in the development process; recognizes the work of public servants, and encourages young people to pursue careers in the public sector.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Nelson Mandela International Day was first declared in the year _______?</p>",
+    "options": [
+      "1998",
+      "2009",
+      "2005",
+      "2002",
+      "2000"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In November 2009, the UN General Assembly declared 18 July \"Nelson Mandela International Day\" in recognition of the former South African President's contribution to the culture of peace and freedom.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>World Oceans Day is observed on ____ of June?</p>",
+    "options": [
+      "8th",
+      "3rd",
+      "2nd",
+      "5th",
+      "7th"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Each year on 8 June since 2009, World Oceans Day is celebrated. It is an opportunity to raise global awareness of the challenges faced by the international community in connection with the oceans.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Which among the following days is NOT celebrated on the first of any month?</p>",
+    "options": [
+      "Zero Discrimination Day",
+      "World AIDS day",
+      "World Diabetes Day",
+      "Global Day of Parents",
+      "International Day of Older Persons"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>In 2007 General Assembly adopted resolution A/RES/61/225 designating 14 November as World Diabetes Day. The document recognized \"the urgent need to pursue multilateral efforts to promote and improve human health, and provide access to treatment and health-care education.\" The resolution also encouraged Member States to develop national policies for the prevention, treatment and care of diabetes in line with the sustainable development of their health-care systems.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which among the following days is celebrated every third Thursday of November?</p>",
+    "options": [
+      "World UFO Day",
+      "World Refugee Day",
+      "International youth Day",
+      "World Alzheimer's day",
+      "World Philosophy Day"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>World Philosophy Day was introduced in 2002 by UNESCO to honour philosophical reflection in the entire world by opening up free and accessible spaces. In 2005 the UNESCO General Conference proclaimed that World Philosophy Day would be celebrated every third Thursday of November.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>World Soil Day is observed on 5th of which month?</p>",
+    "options": [
+      "December",
+      "January",
+      "February",
+      "March",
+      "April"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>World Soil Day is celebrated on the 5th of December. The campaign aims to connect people with soils and raise awareness on their critical importance in our lives.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Which among the following dates is NOT celebrated as a day of any language?</p>",
+    "options": [
+      "6th June",
+      "18th December",
+      "1st June",
+      "21st February",
+      "20th March"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Global Day of Parents is observed on the 1st of June every year. The Day was proclaimed by the UN General Assembly in 2012, honours parents throughout the world. The Global Day provides an opportunity to appreciate all parents in all parts of the world for their selfless commitment to children and their lifelong sacrifice towards nurturing this relationship.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>World Youth Skills Day is observed on __________?</p>",
+    "options": [
+      "19th April",
+      "29th September",
+      "3rd March",
+      "15th July",
+      "5th May"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>In 2014, the UN General Assembly designated 15 July as World Youth Skills Day. World Youth Skills Day serves as an opportunity to highlight the importance of youth skills development.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Social Justice Day is observed on _____ of February.</p>",
+    "options": [
+      "20th",
+      "11th",
+      "22nd",
+      "19th",
+      "7th"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The General Assembly proclaimed 20 February as World Day of Social Justice in 2007, inviting Member States to devote the day to promoting national activities in accordance with the objectives and goals of the World Summit for Social Development.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>National Broadcasting Day is celebrated on 23rd of ________?</p>",
+    "options": [
+      "November",
+      "July",
+      "August",
+      "April",
+      "March"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>23rd July is observed as National Broadcasting Day. On this day in 1927, Indian Broadcasting Company (IBC) began organized radio from Bombay station.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>National Technology Day is observed in the month of ______?</p>",
+    "options": [
+      "September",
+      "January",
+      "May",
+      "August",
+      "October"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>On 11th May, 1998 India achieved a major technological breakthrough by successfully carrying out nuclear tests at Pokhran. Also first, indigenous aircraft \"Hansa-3\" was test flown at Bangalore on this day and India also performed successful test firing of the Trishul missile on the same day. Considering above technological achievements on a particular date i.e. 11th May, the day of 11th May was chosen to be commemorated as National Technology Day.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>February 2nd is celebrated as _________?</p>",
+    "options": [
+      "National Defence Day",
+      "World Wetlands Day",
+      "World Day of Water",
+      "National Safe Motherhood Day",
+      "National Civil Service Day"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>World Wetlands Day occurs annually on February 2nd, marking the date of the adoption of the Convention on Wetlands on February 2, 1971.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>World Laughter Day was first observed in which country?</p>",
+    "options": [
+      "France",
+      "Canada",
+      "China",
+      "India",
+      "South Africa"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>World Laughter Day is observed on the first Sunday of May. The World Laughter Day came into existence in 1998. The day was introduced by Dr Madan Kataria, the founder of the worldwide Laughter Yoga Movement. The World Laughter Day was first celebrated on 11 January, 1998 in Mumbai, India.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Indian voter Day coincides with which among the following day?</p>",
+    "options": [
+      "Pravasi Bharatiya Divas",
+      "World Leprosy Eradication Day",
+      "World Consumer Day",
+      "World Haemophilia Day",
+      "India Tourism Day"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>January 25 is National Tourism Day in India. It was established by the Indian government to raise awareness of the importance of tourism for the country's economy. It is also celebrated as International Customs Duty Day.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>International Day of Friendship was first proclaimed by UN in the year ________?</p>",
+    "options": [
+      "1992",
+      "1998",
+      "2000",
+      "2007",
+      "2011"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The International Day of Friendship was proclaimed in 2011 by the UN General Assembly with the idea that friendship between peoples, countries, cultures and individuals can inspire peace efforts and build bridges between communities. It is observed on 30th of July.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which among the following day is NOT observed in the month of February?</p>",
+    "options": [
+      "International Mother Language Day",
+      "World Poetry Day",
+      "World Radio Day",
+      "International Day of Women and Girls in Science",
+      "World Cancer Day"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>On world Poetry Day, March 21, UNESCO recognizes the unique ability of poetry to capture the creative spirit of the human mind.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Which among the following day is NOT observed on 21st of March?</p>",
+    "options": [
+      "International Day for the Elimination of Racial Discrimination",
+      "International Day of Forests",
+      "World Tuberculosis Day",
+      "International Day of Nowruz",
+      "World Down Syndrome Day"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>World TB Day is celebrated on 24 March each year to raise awareness about the burden of tuberculosis (TB) worldwide and the status of TB prevention and care efforts. It is also an opportunity to mobilize political and social commitment for further progress in efforts to end TB.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>20th April is celebrated as the day of which language?</p>",
+    "options": [
+      "French",
+      "Chinese",
+      "Arabic",
+      "Spanish",
+      "English"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>UN Chinese Language Day is observed annually on April 20. The event was established by the UNESCO in 2010 to seeking \"to celebrate multilingualism and cultural diversity as well as to promote equal use of all six of its official working languages throughout the organization\".</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

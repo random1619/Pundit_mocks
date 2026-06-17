@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economy Mock 1 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "Public Enterprises in India have developed only in -",
+    "options": [
+      "Key and Basic industries",
+      "All types of industries",
+      "Consumer goods industries",
+      "Service industries"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 0
+  },
+  {
+    "question": "Centers located in Gujarat , Bengal, Deccan and Tamil Country during the Gupta period were associated with which of the following:",
+    "options": [
+      "Textile Manufacture",
+      "Opium cultivation",
+      "Handicrafts",
+      "Gems and precious stones"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 1
+  },
+  {
+    "question": "The doctrine of unbalanced growth has not been advocated by -",
+    "options": [
+      "Paul Streeten",
+      "A.O.Hirschman",
+      "H.W.Singer",
+      "Ragnar Nurkse"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Unbalanced growth is a natural path of economic development. Situations that countries are in at any one point in time reflect their previous investment decisions and development. Accordingly, at any point in time desirable investment programs that are not balanced investment packages may still advance welfare.</p><p>Supporters of the unbalanced growth doctrine include Albert O. Hirschman, Hans Singer, Paul Streeten, Marcus Fleming, Prof. Rostov and J. Sheehan.</p><p>The balanced growth theory is an economic theory pioneered by the economist Ragnar Nurkse (1907–1959).</p>",
+    "question_index": 2
+  },
+  {
+    "question": "Which of the following apex body and regulators has asked banks to swap customer related information so that the frauds and defaults may be prevented in future?",
+    "options": [
+      "Securities & Exchange Board of India (SEBI)",
+      "Reserve Bank of India (RBI)",
+      "Bombay Stock Exchange (BSE)",
+      "Indian Banks Association (IBA)"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 3
+  },
+  {
+    "question": "Shift in LM curve takes place to--",
+    "options": [
+      "Increase in autonomous investment",
+      "Increase in consumption",
+      "Increase in saving rate",
+      "Increase in money supply"
+    ],
+    "correct_option_id": 3,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 4
+  },
+  {
+    "question": "The proportion of labour in GNP (Gross National Product) becomes low due to the following reasons -",
+    "options": [
+      "Profit lags behind prices",
+      "Prices lag behind profit",
+      "Wages lag behind price",
+      "Price lag behind wages"
+    ],
+    "correct_option_id": 2,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 5
+  },
+  {
+    "question": "Which company uses the ad line, 'Knowing is everything'?",
+    "options": [
+      "BBC World",
+      "Sony",
+      "Star",
+      "Zee"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 6
+  },
+  {
+    "question": "Which petroleum company has introduced an improved quality petrol called 'Speed'?",
+    "options": [
+      "Indian Oil",
+      "Hindustan Petroleum",
+      "Bharat Petroleum",
+      "None of these"
+    ],
+    "correct_option_id": 2,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 7
+  },
+  {
+    "question": "Which of the following committees is associated with reforms in small industries?",
+    "options": [
+      "R.Chelliah Committee",
+      "Abid Hussain Committee",
+      "K.L.Rekhi Committee",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 8
+  },
+  {
+    "question": "BPO is an abbreviation for",
+    "options": [
+      "Business Process Outsourcing",
+      "Business Products Outsourcing",
+      "Bharat Petroleum Organisation",
+      "Bharat Pesticides Outlet"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 9
+  },
+  {
+    "question": "What type of Products does CACP recommend minimum support price for?",
+    "options": [
+      "Pharmaceutical Products",
+      "Industrial Products",
+      "Agricultural Products",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 10
+  },
+  {
+    "question": "Which Iron and Steel Plant is called 'Ruhr of India?",
+    "options": [
+      "Rourkela",
+      "Bhilai",
+      "Jamshedpur",
+      "Durgapur"
+    ],
+    "correct_option_id": 3,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 11
+  },
+  {
+    "question": "Recession in the market implies",
+    "options": [
+      "No change in trade and industry due to stability in demand",
+      "Increase in trade industry due to rise in demand",
+      "Slump in trade & industry due to fall in demand",
+      "None of these"
+    ],
+    "correct_option_id": 2,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 12
+  },
+  {
+    "question": "The most advanced type of economic integration is -",
+    "options": [
+      "Economic union",
+      "Common market",
+      "Free Trade Area",
+      "Customs union"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 13
+  },
+  {
+    "question": "The insurance companies collect a fixed amount from its customers at a fixed interval of time. What is it called?",
+    "options": [
+      "Instalment",
+      "EMI",
+      "Premium",
+      "Service Charge"
+    ],
+    "correct_option_id": 2,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 14
+  },
+  {
+    "question": "The Deficit Budget in which the deficits are covered through taxes is called -",
+    "options": [
+      "Surplus Budget",
+      "Balanced Budget",
+      "Zero-base Budget",
+      "Unbalanced Budget"
+    ],
+    "correct_option_id": 3,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 15
+  },
+  {
+    "question": "Which of the following allows free movement of labour and capital among member nations?",
+    "options": [
+      "Customs union",
+      "Common market",
+      "Preferential trade arrangement",
+      "Economic union"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 16
+  },
+  {
+    "question": "Varishtha Pension Bima Yojana was a pension scheme. It was implemented by ___",
+    "options": [
+      "United India Insurance Co.",
+      "Oriental Insurance Co.",
+      "National Insurance Co.",
+      "LIC of India"
+    ],
+    "correct_option_id": 3,
+    "solution": "Varishtha Pension Bima Yojana was implemented by LIC.",
+    "question_index": 17
+  },
+  {
+    "question": "In the classical theory, an increase in money supply leads to -",
+    "options": [
+      "Decrease in price level",
+      "Increase in price level",
+      "Decrease in investment",
+      "Increase in savings"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 18
+  },
+  {
+    "question": "Which group represents the interests of the developing countries?",
+    "options": [
+      "G-10",
+      "G-80",
+      "G-7",
+      "G-77"
+    ],
+    "correct_option_id": 3,
+    "solution": "The Group of 77 (G-77) was established on 15 June 1964 by seventy-seven developing countries signatories of the “Joint Declaration of the Seventy-Seven Developing Countries” issued at the end of the first session of the United Nations Conference on Trade and Development (UNCTAD) in Geneva.",
+    "question_index": 19
+  },
+  {
+    "question": "Suvidha Fixed Deposit scheme was launched by which bank?",
+    "options": [
+      "Citibank",
+      "IDBI",
+      "SBI",
+      "ICICI"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 20
+  },
+  {
+    "question": "Tirupur is famous as a huge exporter to many parts of the world for its",
+    "options": [
+      "Leather goods",
+      "Knitted garments",
+      "Gems and Jewelry",
+      "Handicrafts"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 21
+  },
+  {
+    "question": "The statistical technique used to determine the degree of relationship between two variables is called--",
+    "options": [
+      "Correlation",
+      "Dispersion",
+      "Association",
+      "Index Numbers"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 22
+  },
+  {
+    "question": "Private equity investors invest in a company based mainly on",
+    "options": [
+      "the activity undertaken by the company",
+      "the creditability and the valuation of the company",
+      "the location of the company",
+      "the age of the company"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 23
+  },
+  {
+    "question": "Which of the following is not a banking related term?",
+    "options": [
+      "Solstice",
+      "Sanctioning Authority",
+      "SME Finance",
+      "Overdraft"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 24
+  },
+  {
+    "question": "IMF is the result of",
+    "options": [
+      "Brettonwood Conference",
+      "Geneva Conference",
+      "Hawana Conference",
+      "Rome Conference"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 25
+  },
+  {
+    "question": "The difference between the export and import of services is known as",
+    "options": [
+      "Balance Of Capital account",
+      "Balance of Invisible",
+      "Balance of Trade",
+      "Balance of Current account"
+    ],
+    "correct_option_id": 1,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 26
+  },
+  {
+    "question": "Yuan is the currency of which one of the following countries?",
+    "options": [
+      "China",
+      "South Korea",
+      "North Korea",
+      "Japan"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 27
+  },
+  {
+    "question": "Which one of the following is not manufacturing mobile telephone handsets?",
+    "options": [
+      "Xerox",
+      "Videocon",
+      "Samsung",
+      "Sony"
+    ],
+    "correct_option_id": 0,
+    "solution": "@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3@Dۃ|\u0019`U7b\u0014\u0012\tЁx\u001c\bE3",
+    "question_index": 28
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

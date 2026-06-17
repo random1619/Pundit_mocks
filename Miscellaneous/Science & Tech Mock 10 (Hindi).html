@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science & Tech Mock 10 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Bold Kurukshetra exercise is a joint exercise between India and ________</p>",
+    "options": [
+      "Russia",
+      "USA",
+      "China",
+      "Singapore",
+      "Iran"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Bold Kurukshetra exercise is an armoured exercise between India and Singapore. Exercise Agni Warrior is also another joint exercise between the countries.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Rashtriya Indian Military College is situated in _________</p>",
+    "options": [
+      "Patna",
+      "Pune",
+      "Jaipur",
+      "Dehradun",
+      "Kanpur"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Rashtriya Indian Military College (RIMC), Dehradun was founded on 13 March 1922 with the object of providing necessary preliminary training for Indians wishing to become officers in Indian Armed Forces.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Who was the Chief of the Army Staff of the Indian Army during the Indo-Pakistani War of 1971?</p>",
+    "options": [
+      "Field Marshal Sam Manekshaw",
+      "Field Marshal K. M. Cariappa",
+      "General A.A.K Naizi",
+      "General K S Thimayya",
+      "General J N Chaudhuri"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Sam Manekshaw was the Chief of the Army Staff of the Indian Army during the Indo-Pakistani War of 1971, and was subsequently the first Indian Army officer to be promoted to the rank of field marshal.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Which among the following is an aircraft carrier?</p>",
+    "options": [
+      "INS Sindhughosh",
+      "INS Shalki",
+      "INS Viraat",
+      "INS Kolkata",
+      "INS Rajput"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>INS Viraat was a Centaur-class aircraft carrier of the Indian Navy. INS Viraat was the flagship of the Indian Navy before INS Vikramaditya was commissioned in 2013.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Following operation Bluestar which among the following paramilitary forces was developed?</p>",
+    "options": [
+      "Border Security Force (BSF)",
+      "Central Industrial Security Force (CISF)",
+      "Central Reserve Police Force (CRPF)",
+      "Indo Tibetan Border Police (ITBP)",
+      "National Security Guard (NSG)"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The National Security Guard is an Indian special forces unit under the Ministry of Home Affairs. It was raised in 1984, following Operation Blue Star and the assassination of Indira Gandhi.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Shaurya  -  Dridhata  -  Karm Nishtha is the motto of _________</p>",
+    "options": [
+      "Assam Rifles (AR)",
+      "Border Security Force (BSF)",
+      "Central Industrial Security Force (CISF)",
+      "Central Reserve Police Force (CRPF)",
+      "Indo Tibetan Border Police (ITBP)"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>It is the motto of ITBP. The Indo-Tibetan Border Police is one of the five Central Armed Police Forces of India, raised on 24 October 1962, under the CRPF Act, in the wake of the Sino-Indian War of 1962.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>What is the name of the operation which led to annexation of Hyderabad?</p>",
+    "options": [
+      "Operation Polo",
+      "Operation Woodrose",
+      "Operation Steepchase",
+      "Operation Trident",
+      "Operation Vijay"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In operation Polo, the Indian armed forces ended the rule of the Nizam of Hyderabad and led to the incorporation of the princely state of Hyderabad in Southern India, into the Indian Union.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Parakram Padak is also referred to as ___________</p>",
+    "options": [
+      "Siachen Glacier Medal",
+      "Wounded Medal",
+      "Paschimi Star",
+      "Sainya Seva Medal",
+      "Meritorious Service Medal"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Wound Medal or Parakram Padak is an Indian Military award given to those who sustain \"wounds as a result of direct enemy action in any type of operations or counter-insurgency actions.\" The medal was established in 1973, by the President of India for wounds back dated to 15 August 1947.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Who acts as the chief executive of the National Security Council?</p>",
+    "options": [
+      "Prime Minister of India",
+      "Minister of Defence",
+      "Minister of Home Affairs",
+      "National Security Advisor",
+      "President of India"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The National Security Advisor (NSA) is the chief executive of the National Security Council (NSC), and the primary advisor to the Prime Minister of India on national and international security.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Wagah Border between India and Pakistan is guarded by _______</p>",
+    "options": [
+      "BSF",
+      "Indian Army",
+      "CRPF",
+      "ITBP",
+      "CISF"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>wagah border is guarded by Border Security Forces of India. It is one among the seven paramilitary forces of India.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Mars Orbiter Mission was launched from which site?</p>",
+    "options": [
+      "Vikram Sarabhai Space Centre",
+      "Abdul Kalam Island",
+      "Satish Dhawan Space Centre",
+      "Space Applications Centre",
+      "ISRO Satellite Centre"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Mars Orbiter Mission (MOM), the maiden interplanetary mission of ISRO, launched by PSLV-C25 from Satish Dhawan Space Centre.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Magnetic resonance imaging uses which rays/waves?</p>",
+    "options": [
+      "X rays",
+      "Gamma Rays",
+      "UV rays",
+      "Radio waves",
+      "Light waves"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>MRI scanners use strong magnetic fields, radio waves, and field gradients to generate images of the organs in the body.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Starch in food is digested by which part of digestive system?</p>",
+    "options": [
+      "Mouth",
+      "Stomach",
+      "Small intestine",
+      "Large intestine",
+      "Duodenum"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Carbohydrates are digested in the mouth, stomach and small intestine. Carbohydrase enzymes break down starch into sugars. The saliva in our mouth contains amylase, which is another starch digesting enzyme.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>In farming/ agricultural market, Calcium carbide is used for which among the following purposes?</p>",
+    "options": [
+      "To increase productivity",
+      "To enhance nutrients absorbing capacity of plants",
+      "Ripening of fruits",
+      "Increase the shelf life of vegetables",
+      "To make crops withstand harsh weather"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Calcium carbide is also used in some countries for artificially ripening fruit. When calcium carbide comes in contact with moisture, it produces acetylene gas, which is quite similar in its effects to the natural ripening agent, ethylene.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Which is NOT an endocrine gland?</p>",
+    "options": [
+      "Pineal gland",
+      "Pituitary gland",
+      "Pancreas",
+      "Thyroid gland",
+      "Salivary glands"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The salivary glands in mammals are exocrine glands, glands with ducts, that produce saliva, which is composed of several components including amylase.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Low count of which among the following will lead to anemic condition?</p>",
+    "options": [
+      "WBC",
+      "Platelets",
+      "RBC",
+      "Centriole",
+      "Ribosomes"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Anemia is a medical condition in which the red blood cell count or hemoglobin is less than normal.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Heavy water in nuclear reactors is used as _______</p>",
+    "options": [
+      "Fission material",
+      "Fussion material",
+      "Moderator",
+      "Control Rod",
+      "Coolant"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Heavy water is used in certain types of nuclear reactors, where it acts as a neutron moderator to slow down neutrons.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Which planet is referred to as \"morning star\"?</p>",
+    "options": [
+      "Mars",
+      "Jupiter",
+      "Saturn",
+      "Venus",
+      "Uranus"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Morning star refers to the planet Venus when it appears in the east before sunrise. Venus is also the Evening Star.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Which is the outermost layer of the sun?</p>",
+    "options": [
+      "Photosphere",
+      "Radiative zone",
+      "Connective zone",
+      "Prominence",
+      "Corona"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Corona is the outermost layer of sun. It is most easily seen during a total solar eclipse.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>As per new studies, Touch screen of smart phones can be made of ________</p>",
+    "options": [
+      "Aluminum oxide",
+      "Graphene",
+      "Polyethylene",
+      "Silicon",
+      "Titanium"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Graphene is an allotrope of carbon consisting of a single layer of carbon atoms arranged in a hexagonal lattice. Its conductivity properties have made it suitable for construction of touch screens.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Which agreement/protocol calls for phasing out of green-house gases?</p>",
+    "options": [
+      "Montreal Protocol",
+      "Kigali agreement",
+      "Kyoto protocol",
+      "Copenhagen agreement",
+      "Doha agreement"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Kyoto Protocol is an international treaty which extends the 1992 United Nations Framework Convention on Climate Change (UNFCCC) that commits State Parties to reduce greenhouse gas emissions.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>What is the purpose of filling a bulb with an inert gas?</p>",
+    "options": [
+      "Increase the life time of filament",
+      "Reduce the resistivity",
+      "Prevent bulb from breaking due to high temperature",
+      "To maintain atmospheric pressure inside the bulb",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Filling a bulb with an inert gas such as argon or nitrogen retards the evaporation of the tungsten filament compared to operating it in a vacuum.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>What is the total number of human bones in an adult?</p>",
+    "options": [
+      "241",
+      "117",
+      "108",
+      "157",
+      "206"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Human body is composed of 270 bones at birth which decreases to 206 bones by adulthood after some bones have fused together.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Which part of brain's function is to coordinate muscle movements, maintain posture, and balance?</p>",
+    "options": [
+      "Cerebellum",
+      "Cerebrum",
+      "Midbrain",
+      "Pons",
+      "Medulla"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The cerebellum is located under the cerebrum. Its function is to coordinate muscle movements, maintain posture, and balance.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Which hormone in plants promotes stem elongation?</p>",
+    "options": [
+      "Gibberellins",
+      "Cytokinins",
+      "Abscisic Acid",
+      "Auxins",
+      "Ethylene"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Auxins promote stem elongation, inhibit growth of lateral buds (maintains apical dominance). They are produced in the stem, buds, and root tips.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Hand-foot-and-mouth disease is caused by _______</p>",
+    "options": [
+      "Bacteria",
+      "Virus",
+      "Pathogens",
+      "Helminths",
+      "Fungi"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Hand-foot-and-mouth disease, or HFMD, is caused by a virus. The viruses that usually cause hand-foot-and-mouth are named coxsackievirus a16 and enterovirus 71.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>LIGO experiment is associated with _________</p>",
+    "options": [
+      "Kepler's law on planetary waves",
+      "Dalton's atomic theory",
+      "Theory of relativity",
+      "Quantum theory of mechanics",
+      "Theory of superposition"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Laser Interferometer Gravitational-Wave Observatory (LIGO) is a large-scale physics experiment and observatory to detect cosmic gravitational waves and to develop gravitational-wave observations as an astronomical tool. It was built to test a component of theory of relativity.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>In telecommunications, LTE stands for ________</p>",
+    "options": [
+      "Large Telecommunication Entities",
+      "Long Telecom Enterprise",
+      "Long Time Evolution",
+      "Large Teleconnection Evolution",
+      "Long Term Evolution"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>LTE stands for Long Term Evolution. Long-Term Evolution (LTE) is a standard for high-speed wireless communication for mobile devices and data terminals, based on the GSM/EDGE and UMTS/HSPA technologies.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Hand in Hand is a military exercise between India and _______</p>",
+    "options": [
+      "Japan",
+      "China",
+      "USA",
+      "Canada",
+      "Russia"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>It is a joint military exercise between India and China. The aim of the joint exercise is to acquaint both the Armies with each other's operating procedures in the backdrop of counter terrorism environment.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>DRDO's NETRA relates to _______</p>",
+    "options": [
+      "Ballistic missile program",
+      "Nuclear war-head missiles",
+      "Submarine monitor and attacker",
+      "Airborne early warning",
+      "Visually guided missiles"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>It is also referred to as Airborne Early Warning and Control System (AEWACS). It is a project of India's Defence Research and Development Organisation to develop an airborne early warning and control system for the Indian Air Force.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

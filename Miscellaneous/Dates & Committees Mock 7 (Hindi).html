@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dates & Committees Mock 7 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Shah Nawaz Committee is related to ___________</p>",
+    "options": [
+      "Study effects of 1991 reforms on economy",
+      "Defence Reforms",
+      "Disappearance of Subash Chandra Bose",
+      "Introduction of Self Help Groups",
+      "Lending to micro enterprises"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The three-member committee was formed by the Nehru-government to address the public demand to investigate the disappearance of Subhas Chandra Bose. The committee was led by Shah Nawaz Khan, and included Suresh Chandra Bose, brother of Subhas, and S. N. Maitra.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Committee under whose chairmanship was mandated to examine social, economic and educational condition of the Muslim community of India?</p>",
+    "options": [
+      "Narasimhan",
+      "SriKrishna",
+      "Naresh Chandra",
+      "Rajinder Sachar",
+      "Ashok Mehta"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Rajinder Sachar Committee was commissioned in 2005 by Indian Prime Minister Manmohan Singh to prepare a report on the latest social, economic, and educational conditions of the Muslim community of India. The committee was headed by former Chief Justice of the Delhi High Court Rajinder Sachar, as well as six other members.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Committee on Gram Dak Sevas was headed by ___________?</p>",
+    "options": [
+      "Kamlesh Chandra",
+      "Shyam Benegal",
+      "Arvind Panagariya",
+      "Anil R Dave",
+      "Tapan Roy"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Government constituted Kamlesh Chandra Committee to study wage structure of Gramin Dak Sevaks.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Whose committee suggested reforms in the structuring and governance of BCCI?</p>",
+    "options": [
+      "Justice AK Mathur",
+      "Justice Lodha",
+      "Bimal Jalan",
+      "Madhav Chitale",
+      "T V S N Prasad"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Lodha Committee has suggested sweeping reforms in the structuring and governance of BCCI. It also recommended separate governing bodies for the IPL and BCCI.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Shyam Benegal Committee is related to ____________ industry?</p>",
+    "options": [
+      "Banking",
+      "Insurance",
+      "Film",
+      "Argo-processing",
+      "Manufacturing"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Shyam Benegal committee was set up on January 1, 2016 to lay down rules and regulations for film certification taking note of best practices in various parts of the world and giving sufficient and adequate space for artistic and creative expression.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Committee to study implementation of fast track bullet trains was chaired by ________?</p>",
+    "options": [
+      "Arvind Panagariya",
+      "Rajesh Mishra",
+      "Mahesh Kumar Singale",
+      "Dr. Amit Mitra",
+      "S Ayyapan"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Prime Minister's Office constituted a committee under Arvind Panagariya, vice-chairman of the NITI Aayog (2016), to hasten the Mumbai-Ahmedabad High-Speed Rail Corridor, meant for bullet trains between the two cities.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Committee under whose chairmanship recommended changes in companies act 2013?</p>",
+    "options": [
+      "R V Easwar",
+      "Tapan Roy",
+      "Deepak Naik",
+      "Akhilesh Rajan",
+      "Rajnath Singh"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Tapan Roy committee recommended changes in companies act 2013 to make convenience of doing business easy in India.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Which among the following committee is related to New Education policy?</p>",
+    "options": [
+      "B B Tandon Committee",
+      "Ashok Lahri Committee",
+      "Smiriti Irani Committee",
+      "Sanjay Mitra Committee",
+      "T R S Subramanian Committee"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The T.S.R. Subramanian committee was entrusted with preparing a new education policy for India.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Akilesh Rajan Committee is related to ____________?</p>",
+    "options": [
+      "Regulate Medical Profession",
+      "Framework for taxi aggregators",
+      "To reframe Fiscal responsibility act",
+      "Relook defence expenditure",
+      "Taxation of E-commerce"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Committee on taxation of E-Commerce was chaired by Shri Akhilesh Ranjan. It was constituted on directions of CBDT, Ministry of Finance.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Committee on government advertisements was constituted under __________?</p>",
+    "options": [
+      "N K Singh",
+      "S Ayyapan",
+      "P K Sinha",
+      "B B Tandon",
+      "Arvind Subramanian"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>B B Tandon Committee was constituted to monitor government advertisements in accordance with Supreme Court directions.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Ashok Lahiri committee is related to ___________ industry?</p>",
+    "options": [
+      "Jewellery",
+      "Mining",
+      "Petroleum",
+      "Textile",
+      "Fertilizers"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Central Government had set-up a Sub Committee under Dr. Ashok Lahiri, to interact with the trade and industry on the imposition of Central Excise Duty on jewellery.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>R M Lodha Panel is associated with __________?</p>",
+    "options": [
+      "Regulate medical education",
+      "National commission for OBCs",
+      "Marine Fishery",
+      "Norms for arriving at repo rate",
+      "Stock exchange regulations"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The committee, headed by former chief justice R.M. Lodha, was appointed in 2016 to bring in transparency and accountability within the Medical Council of India (MCI) and oversee its statutory functioning.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Committee to create a framework for taxi aggregators was chaired by __________?</p>",
+    "options": [
+      "Shekatkar",
+      "Sanjay Mitra",
+      "A K Mathur",
+      "P K Sinha",
+      "Mahesh Kumar Singale"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Union Government constituted Sanjay Mitra committee to prepare a policy framework for app-based taxi aggregators and other transport operators.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>To monitor implementation of central schemes, the government has set up district-level committees called __________.</p>",
+    "options": [
+      "RuDRA",
+      "DISHA",
+      "CMSC",
+      "MRDC",
+      "MODI"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>To monitor implementation of central schemes, the government has set up district-level committees called DISHA which will be headed by sitting MPs of Lok Sabha. District Infrastructure Scheme Advisory (DISHA) Committee will be headed by sitting MPs of Lok Sabha with District Collector, Block Development Officers, Panchayat Representatives on its board.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Which among the following committees was constituted to recommend on reducing fiscal deficit?</p>",
+    "options": [
+      "Dr.Y.V.Reddy",
+      "Dr. Urjit Patel",
+      "Dr. D. Subbarao",
+      "Dr. Raghuram G. Rajan",
+      "Bimal Jalan"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The government had set up the Commission under former RBI Governor Bimal Jalan in August 2013 to suggest steps to reduce subsidies on food, fertiliser and oil and narrow the fiscal deficit.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Committee under whose chairmanship was related to River Ganga?</p>",
+    "options": [
+      "Sudhar Sen",
+      "Pradeep Kumar",
+      "Madhav Chitale",
+      "Gopal Mukerjee",
+      "Ashok Kumar"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Madhav Chitale committee was constituted in July 2016 by the Ministry of Water Resources River Development and Ganga Rejuvenation to prepare guidelines for desiltation of river Ganga.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Committee under whose chairmanship recommended strengthen border protection?</p>",
+    "options": [
+      "E.T. Mohammed Basheer",
+      "J.J.T. Natterjee",
+      "Lt Gen D B Shekatkar",
+      "Madhukar Gupta",
+      "Satyendra Sinha"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Committee constituted under the Chairmanship of Shri Madhukar Gupta, recommended the Government to strengthen border protection and address vulnerabilities in fencing along the Indo-Pakistan border.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Ayyapan Committee was constituted in relation to _________?</p>",
+    "options": [
+      "Marine Fishery",
+      "Floods in North Eastern states",
+      "Salary hike to central government employees",
+      "Minimum support prices",
+      "Usage of pellet guns in Kashmir"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Committee constituted in 2015 under the chairmanship of Dr. S. Ayyappan, former Director General, Indian Council of Agricultural Research (ICAR) to ascertain the status of exploitation of marine fishery resources.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Which committee was given the mandate to explore alternatives to pellet guns in Kashmir?</p>",
+    "options": [
+      "Sudharshan Sen",
+      "TVSN Prasad",
+      "Pradeep Kumar",
+      "P K Sinha",
+      "Gopal Mukerjee"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>TVSN Prasad committee was constituted to look into the alternatives to pellet guns.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Committee on trade facilitation on pan-India basis was chaired by _______?</p>",
+    "options": [
+      "Gopal Mukerjee",
+      "Veerappa Moily",
+      "P Chidambram",
+      "Pradeep Kumar Sinha",
+      "Vinod Zutshi"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Committee on Trade Facilitation (NCTF) to develop the pan-India road map for trade facilitation ws chaired by Pradeep Kumar Sinha.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Reserve Bank of India (RBI) constituted a committee to study the regulatory issues relating to financial technology and digital banking under the chairmanship of ________?</p>",
+    "options": [
+      "Dr. Urjit Patel",
+      "Deepak naik",
+      "Dr Amit Mitra",
+      "J C Divakar Reddy",
+      "Sudarshan Sen"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Reserve Bank of India constituted Sudarshan Sen committee to study the regulatory issues relating to financial technology and digital banking.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Deepak Naik chaired the committee to study rejuvenation of which river?</p>",
+    "options": [
+      "Godavari",
+      "Kaveri",
+      "Yamuna",
+      "Narmada",
+      "Chambal"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Maharashtra government formed Deepak Naik committee to work towards reviving the river Godavari.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Committee under whose chairmanship related to Cauvery river?</p>",
+    "options": [
+      "Madhusudan Sahoo",
+      "Narasimha Reddy",
+      "G S Jha",
+      "Mata Prasad",
+      "Hem pande"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The nine-member committee is headed by G.S. Jha was mandated to assess the cauvery basin and sharing the resources between Karnataka and Tamil Nadu.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Judicial Committee on One Rank One Pension was led by ________?</p>",
+    "options": [
+      "Justice L Narasimha Reddy",
+      "Justice J S Khedar",
+      "Justice T S Thakur",
+      "Justice R M Lodha",
+      "Justice Deepak Mishra"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Central Government had appointed the committee under the Chairmanship of Justice L Narasimha Reddy, retired Chief Justice of Patna High Court to look into the anomalies, if any, arising out of implementation of OROP.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>S S Mundra Committee is related to __________?</p>",
+    "options": [
+      "Fire safety in government hospitals",
+      "Recalibration of ATMs",
+      "Insolvency Resolution",
+      "Digital payments in India",
+      "Taxation norms"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>RBI appointed Deputy Governor SS Mundra to oversee the recalibration of ATM machines after the government introduced new Rs 500 and Rs 2,000 notes.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>The 7th Central Pay commission was headed by __________?</p>",
+    "options": [
+      "Meena Agarwal",
+      "Dr. Rathin Roy",
+      "Justice A K Mathur",
+      "Vivek Rae",
+      "Gopal Mukerjee"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The 7th Pay Commission was headed by Justice AK Mathur. It recommended 14.27 per cent hike in basic pay.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Digital Payment Committee was headed by ________?</p>",
+    "options": [
+      "Mohandas Pai",
+      "Ratan P Watal",
+      "Renuka Choudhary",
+      "Ashok Lasava",
+      "Uday Kotak"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The committee on digital payments was led by former Finance Secretary Ratan P Watal. It reported that the drawbacks in the existing Payment and Settlement Systems Act of 2007 compel most of India to rely on cash transactions by restricting the reach of digital payments.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>The Central Sanctioning and Monitoring Committee for Swadesh Darshan scheme was chaired by ____________?</p>",
+    "options": [
+      "Hem Pande",
+      "Mata Prasad",
+      "Veerappa Moily",
+      "Vinod Zutshi",
+      "Chetan Ghate"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Central Sanctioning and Monitoring Committee (CSMC) chaired by Union Tourism Secretary Vinod Zutshi for the 'Swadesh Darshan Scheme'.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>N K Singh committee is related to _________?</p>",
+    "options": [
+      "Review Fiscal responsibility act",
+      "Insurance Products",
+      "Promote education policy",
+      "Interlinking of rivers",
+      "Framework for UGC"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The FRBM Review Committee headed by former Revenue Secretary, NK Singh was appointed by the government to review the implementation of Fiscal Responsibility and Budgetary Management Act.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Corporate Governance committee was headed by _________?</p>",
+    "options": [
+      "CK Khanna",
+      "Uday Kotak",
+      "Ushanath Banerjee",
+      "B C Kandhuri",
+      "Tarun Ramodorai"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>SEBI had set up a committee under the Chairmanship of Uday Kotak, to help improve the standards of corporate governance of listed companies in India.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

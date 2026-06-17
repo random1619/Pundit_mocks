@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Mock 02 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>If mx<sup>3</sup> + 4x<sup>2</sup> + 6x +2 is divisible by x+2, then what is the value of m?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; mx<sup>3</sup> + 4x<sup>2</sup> + 6x +2 &#2325;&#2379; x+2 &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; m &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">(2/3)</span><span class=\"hqt\" style=\"display:none\">(2/3)</span>",
+      "<span class=\"eqt\">(3/5)</span><span class=\"hqt\" style=\"display:none\">(3/5)</span>",
+      "<span class=\"eqt\">(3/4)</span><span class=\"hqt\" style=\"display:none\">(3/4)</span>",
+      "<span class=\"eqt\">None of the above</span><span class=\"hqt\" style=\"display:none\">&#2313;&#2346;&#2352;&#2379;&#2325;&#2381;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2379;&#2312; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "solution": "<p>So, mx<sup>3</sup> + 4x<sup>2</sup> + 6x +2 is zero for x =-2</p><p>m (-2)<sup>3</sup> + 4 * (-2)<sup>2</sup> + 6 * (-2) +2 =0</p><p>-8m + 16 -12 +2 =0</p><p>-8m = -6</p><p>m = (3/4).</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x + 4/5x = 2, what is the value of 40x/(10x<sup>2</sup> + 8)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x + 4/5x = 2 &#2361;&#2376;, &#2340;&#2379; 40x/(10x<sup>2</sup> + 8) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>"
+    ],
+    "solution": "<p>x + 4/5x = 2</p><p>=&gt; 5x<sup>2</sup> + 4 = 10x</p><p>=&gt; 40x/(10x<sup>2</sup> + 8) = 40x/2(5x<sup>2</sup> + 4) = 40x/20x = 2</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (tan &theta; + cot &theta;) = 4, then (tan<sup>2</sup> &theta; + cot<sup>2</sup> &theta;) is </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (tan &#952; + cot &#952;) = 4 &#2361;&#2376;, &#2340;&#2379; (tan<sup>2</sup> &#952; + cot<sup>2</sup> &#952;) &#2325;&#2366; &#2350;&#2366;&#2344; &#2361;&#2376;-</p></span>",
+    "options": [
+      "<span class=\"eqt\">16</span><span class=\"hqt\" style=\"display:none\">16</span>",
+      "<span class=\"eqt\">18</span><span class=\"hqt\" style=\"display:none\">18</span>",
+      "<span class=\"eqt\">22</span><span class=\"hqt\" style=\"display:none\">22</span>",
+      "<span class=\"eqt\">14</span><span class=\"hqt\" style=\"display:none\">14</span>"
+    ],
+    "solution": "<p>(tan &theta; + cot &theta;)&#178; = 16</p> <p>tan&#178; &theta; + cot <sup>2</sup>&theta; + 2 tan &theta; cot &theta; = 16</p> <p>tan<sup>2</sup> &theta; + cot<sup>2</sup> &theta; = 14</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Find the cost of building a 7 m wide lane around a circular field with diameter equal to 280 metres if the cost per sq. metre for building the lane is Rs.2?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2346;&#2381;&#2352;&#2340;&#2367; &#2357;&#2352;&#2381;&#2327; &#2350;&#2368;&#2335;&#2352; &#2354;&#2375;&#2344; &#2348;&#2344;&#2366;&#2344;&#2375; &#2325;&#2368; &#2354;&#2366;&#2327;&#2340; 2 &#2352;&#2370;&#2346;&#2319; &#2361;&#2376;, &#2340;&#2379; 280 &#2350;&#2368;&#2335;&#2352; &#2357;&#2381;&#2351;&#2366;&#2360; &#2357;&#2366;&#2354;&#2375; &#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340;&#2366;&#2325;&#2366;&#2352; &#2350;&#2376;&#2342;&#2366;&#2344; &#2325;&#2375; &#2330;&#2366;&#2352;&#2379; &#2323;&#2352; 7 &#2350;&#2368;&#2335;&#2352; &#2330;&#2380;&#2396;&#2368; &#2354;&#2375;&#2344; &#2348;&#2344;&#2366;&#2344;&#2375; &#2325;&#2368; &#2354;&#2366;&#2327;&#2340; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">12628</span><span class=\"hqt\" style=\"display:none\">12628</span>",
+      "<span class=\"eqt\">14567</span><span class=\"hqt\" style=\"display:none\">14567</span>",
+      "<span class=\"eqt\">16893</span><span class=\"hqt\" style=\"display:none\">16893</span>",
+      "<span class=\"eqt\">13902</span><span class=\"hqt\" style=\"display:none\">13902</span>"
+    ],
+    "solution": "<p>diameter = 280 m. So, radius = 280/2 = 140 m</p> <p>The area of the lane=</p><p>&#960;(140+7)<sup>2</sup>&#8722;&#960;(140)<sup>2</sup></p> <p>= &#960;(147<sup>2</sup>&#8722;140<sup>2</sup>) =&#960;(21609&#8722;19600)= 22/7  X 2009=6314</p> <p>Thus, required amount=6314 X 2 =12628</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Naushad takes a sum of Rs. 7150 as a loan. He has to repay this in two equal annual instalments. If the rate of interest be 20% compounded annually., the value of each instalment is-</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2380;&#2358;&#2366;&#2342; &#2344;&#2375; 7150 &#2352;&#2370;&#2346;&#2319; &#2325;&#2368; &#2319;&#2325; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; &#2315;&#2339; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2313;&#2343;&#2366;&#2352; &#2354;&#2368;| &#2313;&#2360;&#2375; &#2311;&#2360;&#2375; &#2342;&#2379; &#2348;&#2352;&#2366;&#2348;&#2352; &#2357;&#2366;&#2352;&#2381;&#2359;&#2367;&#2325; &#2325;&#2367;&#2360;&#2381;&#2340;&#2379;&#2306; &#2350;&#2375;&#2306; &#2330;&#2369;&#2325;&#2366;&#2344;&#2366; &#2361;&#2376;| &#2351;&#2342;&#2367; &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2368; &#2342;&#2352; &#2357;&#2366;&#2352;&#2381;&#2359;&#2367;&#2325; &#2330;&#2325;&#2381;&#2352;&#2357;&#2371;&#2342;&#2381;&#2343;&#2367; &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; 20% &#2361;&#2376;, &#2340;&#2379; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2392;&#2367;&#2360;&#2381;&#2340; &#2325;&#2366; &#2350;&#2370;&#2354;&#2381;&#2351; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs. 5670</span><span class=\"hqt\" style=\"display:none\">5670 &#2352;&#2370;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs.6790</span><span class=\"hqt\" style=\"display:none\">6790 &#2352;&#2370;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs.2347</span><span class=\"hqt\" style=\"display:none\">2347 &#2352;&#2370;&#2346;&#2319;</span>",
+      "<span class=\"eqt\">Rs.4680</span><span class=\"hqt\" style=\"display:none\">4680 &#2352;&#2370;&#2346;&#2319;</span>"
+    ],
+    "solution": "<p>Let, the value of each instalment be Rs.x.</p> <p>Then, x/(1 + 20/100) + x/(1 + 20/100)<sup>2</sup> = 7150</p><p>Or, 5x/6 + 25x/36 = 7150</p> <p>Or, (30x+25x)/36 = 7150</p> <p>Or, 55x =7150  X  36</p> <p>Or, x = 4680</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>if 5n= secQ and 5/n= tanQ find the value of 5(n<sup>2</sup> -1/n<sup>2</sup>)</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 5n= secQ &#2324;&#2352; 5/n= tanQ &#2361;&#2376;, &#2340;&#2379; 5(n<sup>2</sup> -1/n<sup>2</sup>) &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">1/10</span><span class=\"hqt\" style=\"display:none\">1/10</span>",
+      "<span class=\"eqt\">1/5</span><span class=\"hqt\" style=\"display:none\">1/5</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>secQ = 5n</p> <p>=&gt; n = secQ/5</p> <p>tanQ = 5/n</p> <p>=&gt; 1/n = tanQ/5</p><p>5(n<sup>2</sup> - 1/n<sup>2</sup>) = 5 [sec<sup>2</sup> Q/25 - tan<sup>2</sup> Q/25] = 5 x 1/25 = 1/5</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x/2 = y/7 = z/9 then (x+y+z)<sup>2</sup>/ xz is equal to:</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x/2 = y/7 = z/9 &#2361;&#2376;, &#2340;&#2379; (x+y+z)<sup>2</sup>/ xz &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2376;:</p></span>",
+    "options": [
+      "<span class=\"eqt\">15</span><span class=\"hqt\" style=\"display:none\">15</span>",
+      "<span class=\"eqt\">14</span><span class=\"hqt\" style=\"display:none\">14</span>",
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>",
+      "<span class=\"eqt\">18</span><span class=\"hqt\" style=\"display:none\">18</span>"
+    ],
+    "solution": "<p>x/2 = y/7 = z/9 = k (let)</p> <p>Then, x = 2k, = 7k,z = 9k</p> <p>then, (x+y+z)<sup>2</sup>/ xz</p> <p>= (2k+7k+9k)<sup>2</sup>/18k<sup>2</sup></p> <p>= 324k<sup>2</sup>/ 18k<sup>2</sup> = 18</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If x - &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x</span></div>&nbsp; = 4, then x + &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x</span></div>&nbsp; is:&nbsp;</div></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; x - &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x</span></div>&nbsp; = 4, &#2361;&#2376;, &#2340;&#2379; x + &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x</span></div>&nbsp; &#2325;&#2366; &#2350;&#2366;&#2344; &#2361;&#2376;:</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">5&radic;2</span><span class=\"hqt\" style=\"display:none\">5&radic;2</span>",
+      "<span class=\"eqt\">2&radic;5</span><span class=\"hqt\" style=\"display:none\">2&radic;5</span>",
+      "<span class=\"eqt\">4&radic;2</span><span class=\"hqt\" style=\"display:none\">4&radic;2</span>",
+      "<span class=\"eqt\">4&radic;5</span><span class=\"hqt\" style=\"display:none\">4&radic;5</span>"
+    ],
+    "solution": "<p></p> <p>(x + 1/x)<sup>2</sup> = x<sup>2</sup> + 1/x<sup>2</sup> + 2 = x<sup>2</sup> + 1/x<sup>2</sup> - 2 + 4 = (x - 1/x)<sup>2</sup> + 4 = 20</p><p>So, x + 1/x = &radic;20 = 2&radic;5</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure, ABCD is a cyclic quadrilateral with O as center of the circle. If &ang;BOC = 136&deg;, find &ang;BDC.</p><p><img width=103 height=122 id=\"Picture 5\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/2110/image076.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, ABCD &#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340;&#2368;&#2351; &#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; &#2361;&#2376; &#2332;&#2367;&#2360;&#2350;&#2375; O &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2366; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; &#2361;&#2376;| &#2351;&#2342;&#2367; &#8736;BOC = 136&deg; &#2361;&#2376;, &#2340;&#2379; &#8736;BDC &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p><p><img width=\"103\" height=\"122\" id=\"Picture 5\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/2110/image076.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">108&deg;</span><span class=\"hqt\" style=\"display:none\">108&deg;</span>",
+      "<span class=\"eqt\">112 &deg;</span><span class=\"hqt\" style=\"display:none\">112 &deg;</span>",
+      "<span class=\"eqt\">126&deg;</span><span class=\"hqt\" style=\"display:none\">126&deg;</span>",
+      "<span class=\"eqt\">None of these</span><span class=\"hqt\" style=\"display:none\">&#2311;&#2344;&#2350;&#2375; &#2360;&#2375; &#2325;&#2379;&#2312; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "solution": "<p>&#8757; &ang;BOC = 136&deg;</p><p>=&gt; &ang;BAC = &frac12; &ang;BOC =68&deg;</p><p>In cyclic quadrilateral ABCD,</p><p>&ang;BAC + &ang;BDC = 180&deg;</p><p>=&gt; &ang; BDC = 180&deg; - 68&deg; = 112&deg;</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The value of sin<sup>2</sup> 10&deg; + sin<sup>2</sup> 20&deg; + sin<sup>2</sup> 30&deg; + .. + sin<sup>2</sup> 90&deg; is </p></span><span class=\"hqt\" style=\"display:none\"><p>sin<sup>2</sup> 10&deg; + sin<sup>2</sup> 20&deg; + sin<sup>2</sup> 30&deg; + .. + sin<sup>2</sup> 90&deg; &#2325;&#2366; &#2350;&#2366;&#2344; &#2361;&#2376;-</p></span>",
+    "options": [
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">9/2</span><span class=\"hqt\" style=\"display:none\">9/2</span>",
+      "<span class=\"eqt\">9</span><span class=\"hqt\" style=\"display:none\">9</span>",
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>"
+    ],
+    "solution": "<p>We know sin(90&deg;  -  A) = cos A</p> <p>Therefore, sin<sup>2</sup> 10&deg; + sin<sup>2</sup> 20&deg; + sin<sup>2</sup> 30&deg; + .. + sin<sup>2</sup> 90&deg;</p> <p>= sin<sup>2</sup> 10&deg; + sin<sup>2</sup> 20&deg; + sin<sup>2</sup> 30&deg; + sin<sup>2</sup> 40&deg; + cos<sup>2</sup> 40&deg; + cos<sup>2</sup> 30&deg; + cos<sup>2</sup> 20&deg; + cos<sup>2</sup> 10&deg; + sin<sup>2</sup> 90&deg;</p> <p>= (sin<sup>2</sup> 10&deg; + cos<sup>2</sup> 10&deg;) + (sin<sup>2</sup> 20&deg; + cos<sup>2</sup> 20&deg;) + (sin<sup>2</sup> 30&deg; + cos<sup>2</sup> 30&deg;) + (sin<sup>2</sup> 40&deg; + cos<sup>2</sup> 40&deg;) + sin<sup>2</sup> 90&deg;</p> <p>= 1+1+1+1+1 = 5</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two athletes are practicing on a circular track that is 2352 meters in circumference. They start at the same point and run in opposite directions at 10.6 km/h and 9 km/h. After how many minutes will they meet for the first time?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2319;&#2341;&#2354;&#2368;&#2335; 2352 &#2350;&#2368;&#2335;&#2352; &#2325;&#2368; &#2346;&#2352;&#2367;&#2343;&#2367; &#2357;&#2366;&#2354;&#2375; &#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340;&#2366;&#2325;&#2366;&#2352; &#2335;&#2381;&#2352;&#2376;&#2325; &#2325;&#2375; &#2330;&#2366;&#2352;&#2379; &#2323;&#2352; &#2309;&#2349;&#2381;&#2351;&#2366;&#2360; &#2325;&#2352; &#2352;&#2361;&#2375; &#2361;&#2376;&#2306;| &#2357;&#2375; &#2360;&#2350;&#2366;&#2344; &#2348;&#2367;&#2306;&#2342;&#2369; &#2360;&#2375; &#2357;&#2367;&#2346;&#2352;&#2368;&#2340; &#2342;&#2367;&#2358;&#2366; &#2350;&#2375;&#2306; 10.6 &#2325;&#2367;&#2350;&#2368;./&#2328;&#2306;&#2335;&#2366; &#2324;&#2352; 9 &#2325;&#2367;&#2350;&#2368;./&#2328;&#2306;&#2335;&#2375; &#2325;&#2368; &#2327;&#2340;&#2367; &#2360;&#2375; &#2342;&#2380;&#2396;&#2344;&#2366; &#2346;&#2381;&#2352;&#2366;&#2352;&#2306;&#2349; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;| &#2325;&#2367;&#2340;&#2344;&#2375; &#2350;&#2367;&#2344;&#2335; &#2348;&#2366;&#2342; &#2357;&#2375; &#2319;&#2325; &#2342;&#2370;&#2360;&#2352;&#2375; &#2360;&#2375; &#2346;&#2381;&#2352;&#2341;&#2350; &#2348;&#2366;&#2352; &#2350;&#2367;&#2354;&#2375;&#2306;&#2327;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">5.8 min</span><span class=\"hqt\" style=\"display:none\">5.8 &#2350;&#2367;&#2344;&#2335;</span>",
+      "<span class=\"eqt\">6 min</span><span class=\"hqt\" style=\"display:none\">6 &#2350;&#2367;&#2344;&#2335;</span>",
+      "<span class=\"eqt\">6.5 min</span><span class=\"hqt\" style=\"display:none\">6.5 &#2350;&#2367;&#2344;&#2335;</span>",
+      "<span class=\"eqt\">7.2 min</span><span class=\"hqt\" style=\"display:none\">7.2 &#2350;&#2367;&#2344;&#2335;</span>"
+    ],
+    "solution": "<p>Clearly, the two will meet when they cover a distance of 2352 m together.</p><p>Theire relative speed = (10.6 + 9) = 19.6 km/h</p><p>=&gt; To cover 19.6 km, they take 1 hour.</p><p>=&gt; To cover 2352 m, they take = (2352 * 60)/(19.6 * 1000) = 7.2 minutes.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Amish marked the price of a toy up by 20%. He gave a discount of 10% and sold it for Rs 1879.20. Had he sold it for Rs 1513.80, what would have been his loss %?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2309;&#2350;&#2368;&#2358; &#2344;&#2375; &#2319;&#2325; &#2326;&#2367;&#2354;&#2380;&#2344;&#2375; &#2325;&#2366; &#2350;&#2370;&#2354;&#2381;&#2351; 20% &#2314;&#2346;&#2352; &#2309;&#2306;&#2325;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366;| &#2313;&#2360;&#2344;&#2375; 10% &#2325;&#2368; &#2331;&#2370;&#2335; &#2342;&#2368; &#2324;&#2352; &#2313;&#2360;&#2375; 1879.20 &#2352;&#2370;&#2346;&#2319; &#2350;&#2375;&#2306; &#2348;&#2375;&#2330; &#2342;&#2367;&#2351;&#2366;| &#2351;&#2342;&#2367; &#2313;&#2360;&#2344;&#2375; &#2313;&#2360;&#2375; 1513.80 &#2352;&#2370;&#2346;&#2319; &#2350;&#2375;&#2306; &#2348;&#2375;&#2330;&#2366; &#2361;&#2379;&#2340;&#2366;, &#2340;&#2379; &#2313;&#2360;&#2325;&#2366; &#2354;&#2366;&#2349; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2340;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">11%</span><span class=\"hqt\" style=\"display:none\">11%</span>",
+      "<span class=\"eqt\">11.5%</span><span class=\"hqt\" style=\"display:none\">11.5%</span>",
+      "<span class=\"eqt\">13%</span><span class=\"hqt\" style=\"display:none\">13%</span>",
+      "<span class=\"eqt\">12.5%</span><span class=\"hqt\" style=\"display:none\">12.5%</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Let CP be C.</p> <p>MP = 1.2C</p> <p>SP = 1.2 x 0.9 C = 1.08C = 1879.2</p> <p>=&gt; C = Rs 1740</p> <p>Now new SP = 1513.8</p> <p>Loss % = (1740-1513.8)/1740 x 100 = 13%</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The price of sugar is reduced by 20%. Now a person can buy 500 gm more sugar for Rs. 36. The original price of the sugar per kilogram was</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2330;&#2368;&#2344;&#2368; &#2325;&#2368; &#2325;&#2368;&#2350;&#2340; 20% &#2325;&#2350; &#2361;&#2379; &#2327;&#2312; &#2361;&#2376;&#2404; &#2309;&#2348; &#2319;&#2325; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; 36 &#2352;&#2369;&#2346;&#2351;&#2375; &#2350;&#2375;&#2306; 500 &#2327;&#2381;&#2352;&#2366;&#2350; &#2309;&#2343;&#2367;&#2325; &#2330;&#2368;&#2344;&#2368; &#2326;&#2352;&#2368;&#2342; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2346;&#2381;&#2352;&#2340;&#2367; &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2330;&#2368;&#2344;&#2368; &#2325;&#2368; &#2350;&#2370;&#2354; &#2325;&#2368;&#2350;&#2340; &#2325;&#2367;&#2340;&#2344;&#2368; &#2341;&#2368;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs. 14.40</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2369;. 14.40</span>",
+      "<span class=\"eqt\">Rs. 18</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2369;. 18</span>",
+      "<span class=\"eqt\">Rs. 15.60</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2369;. 15.60</span>",
+      "<span class=\"eqt\">Rs. 16.50</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2369;. 16.50</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Let the original price of sugar =Rs. x per kg</p><p>Reduced price of sugar = 80% of x = Rs. 4x/5 per kg</p><p>36/(4x/5) - 36/x = 1/2</p><p>=&gt; 45/x - 36/x= 1/2</p><p>=&gt; 9/x = 1/2</p><p>=&gt; x=Rs.18 per kg</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>12 males complete a piece of work in 18 days. 12 females complete the piece of work in 24 days. Then in how many days work will be completed by 10 males and 8 females?</p></span><span class=\"hqt\" style=\"display:none\"><p>12 &#2346;&#2369;&#2352;&#2369;&#2359; &#2319;&#2325; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; 18 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404; 12 &#2350;&#2361;&#2367;&#2354;&#2366;&#2319;&#2306; &#2319;&#2325; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; 24 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352;&#2340;&#2368; &#2361;&#2376;&#2306;, &#2340;&#2379; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; 10 &#2346;&#2369;&#2352;&#2369;&#2359;&#2379;&#2306; &#2324;&#2352; 8 &#2350;&#2361;&#2367;&#2354;&#2366;&#2323;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2325;&#2367;&#2340;&#2344;&#2375; &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2319;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">12</span><span class=\"hqt\" style=\"display:none\">12</span>",
+      "<span class=\"eqt\">12 &frac12;</span><span class=\"hqt\" style=\"display:none\">12 &frac12;</span>",
+      "<span class=\"eqt\">13</span><span class=\"hqt\" style=\"display:none\">13</span>",
+      "<span class=\"eqt\">13 &frac12;</span><span class=\"hqt\" style=\"display:none\">13 &frac12;</span>"
+    ],
+    "solution": "<p>Work done by 12 males in 18 days = work done by 12 females in 24 days</p><p>=&gt; 12 M x 18 = 12 F x 24</p><p>=&gt; 3 M = 4 F</p><p>Therefore 10 males + 8 females = 10 M + 8 F</p><p>= 10 M + 6M ('.' 3M = 4 F)</p><p>= 16M</p><p>We need to find work done by 16 M  -</p><p>Now 12 males do work in 18 days then 16 males do the same work in 'd' days</p><p>Use formula, M<sub>1</sub>D<sub>1</sub> = M<sub>2</sub>D<sub>2</sub></p><p>=&gt; 12 x 18 = 16 x D</p><p>=&gt; D = 27/2</p><p>=&gt; D= 13 1/2</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the given figure AD || BC, find the value of x.</p> <p><img width=218 height=121 id=\"Picture 20\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/8411/image082.jpg\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; AD || BC &#2361;&#2376;, &#2340;&#2379; x &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p><p><img width=\"218\" height=\"121\" id=\"Picture 20\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/8411/image082.jpg\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">x=8,9</span><span class=\"hqt\" style=\"display:none\">x=8,9</span>",
+      "<span class=\"eqt\">x=7,8</span><span class=\"hqt\" style=\"display:none\">x=7,8</span>",
+      "<span class=\"eqt\">x =8,10</span><span class=\"hqt\" style=\"display:none\">x =8,10</span>",
+      "<span class=\"eqt\">None of these</span><span class=\"hqt\" style=\"display:none\">&#2311;&#2344;&#2350;&#2375; &#2360;&#2375; &#2325;&#2379;&#2312; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>We know that</p> <p>AO/OD = OC/OB </p><p>3/(x-5) = (x-3)/(3x - 19)</p><p>=&gt; 9x - 57 = x<sup>2</sup>  -  8x + 15</p> <p>=&gt; x<sup>2</sup> - 17x + 72 = 0 </p> <p>=&gt; (x - 8) (x - 9) = 0</p> <p>=&gt; x = 8 or 9</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A shopkeeper bought locks at the rate of 8 locks for Rs 34 and sold them at the rate of 12 locks for Rs 57. Calculate his gain percent.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2344;&#2375; 34 &#2352;&#2370;&#2346;&#2319; &#2350;&#2375;&#2306; 8 &#2340;&#2366;&#2354;&#2375; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; &#2340;&#2366;&#2354;&#2375; &#2326;&#2352;&#2368;&#2342;&#2375; &#2324;&#2352; 57 &#2352;&#2370;&#2346;&#2319; &#2350;&#2375;&#2306; 12 &#2340;&#2366;&#2354;&#2375; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; &#2348;&#2375;&#2330; &#2342;&#2367;&#2319;| &#2313;&#2360;&#2325;&#2366; &#2354;&#2366;&#2349; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">9.33%</span><span class=\"hqt\" style=\"display:none\">9.33%</span>",
+      "<span class=\"eqt\">12.5%</span><span class=\"hqt\" style=\"display:none\">12.5%</span>",
+      "<span class=\"eqt\">11.76%</span><span class=\"hqt\" style=\"display:none\">11.76%</span>",
+      "<span class=\"eqt\">None of these</span><span class=\"hqt\" style=\"display:none\">&#2311;&#2344;&#2350;&#2375; &#2360;&#2375; &#2325;&#2379;&#2312; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": " <p>CP of 1 lock = Rs. 34/8</p><p>SP of 1 lock = Rs. 57/12</p><p>Gain = 57/12 - 34/8 = (114 - 102)/24 = 1/2</p><p>Gain percent = 100 x (1/2)/ (34/8) = 400/34 = 11.76%</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The area of rhombus is 120m<sup>2</sup> and one of its diagonal is 24 m. Find the length of the sides</p><p><img width=257 height=235 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p814/image003.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2350;&#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; &#2325;&#2366; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2347;&#2354; 120&#2350;&#2368;.<sup>2</sup> &#2361;&#2376; &#2324;&#2352; &#2311;&#2360;&#2325;&#2366; &#2319;&#2325; &#2357;&#2367;&#2325;&#2352;&#2381;&#2339; 24 &#2350;&#2368;&#2335;&#2352; &#2361;&#2376;| &#2349;&#2369;&#2332;&#2366;&#2323;&#2306; &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p><p><img width=\"257\" height=\"235\" id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p814/image003.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">25</span><span class=\"hqt\" style=\"display:none\">25</span>",
+      "<span class=\"eqt\">26</span><span class=\"hqt\" style=\"display:none\">26</span>",
+      "<span class=\"eqt\">36</span><span class=\"hqt\" style=\"display:none\">36</span>",
+      "<span class=\"eqt\">13</span><span class=\"hqt\" style=\"display:none\">13</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Area of rhombus = 0.5*d<sub>1</sub>*d<sub>2</sub> (d1, d2 are the length of the diagonals)</p><p>=&gt; 120=0.5*d<sub>1</sub>*d<sub>2</sub></p><p>=&gt; d<sub>2</sub>=10 (as d1= 24)</p><p>=&gt; Now AC = 24, Therefore AO=12</p><p>=&gt; BD=10, Therefore BO=5</p><p>=&gt; In right angled triangle AOB</p><p>=&gt; AO<sup>2</sup>+BO<sup>2</sup>=AB<sup>2</sup></p><p>=&gt; 12<sup>2</sup>+5<sup>2</sup>=AB<sup>2</sup></p><p>=&gt; AB=13</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a &Delta;ABC, AB<sup>2</sup> + AC<sup>2</sup> = BC<sup>2</sup> and BC = &radic;2AB, then &ang;ABC is</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#916;ABC &#2350;&#2375;&#2306;, AB<sup>2</sup> + AC<sup>2</sup> = BC<sup>2</sup> &#2324;&#2352; BC = &radic;2AB, &#2340;&#2379; &#8736;ABC &#2361;&#2376;_</p></span>",
+    "options": [
+      "<span class=\"eqt\">30&deg;</span><span class=\"hqt\" style=\"display:none\">30&deg;</span>",
+      "<span class=\"eqt\">45&deg;</span><span class=\"hqt\" style=\"display:none\">45&deg;</span>",
+      "<span class=\"eqt\">60&deg;</span><span class=\"hqt\" style=\"display:none\">60&deg;</span>",
+      "<span class=\"eqt\">90&deg;</span><span class=\"hqt\" style=\"display:none\">90&deg;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": " <p> In a &Delta;ABC,</p> <p>AB<sup>2</sup> + AC<sup>2</sup> = BC<sup>2</sup> ..(i)</p> <p>&Delta; ABC is a right angled triangle and</p> <p>&ang;BAC = 90&deg;</p> <p>And BC = &radic;2 AB ..(ii)</p> <p>From eqs. (i) and (ii),</p> <p>AB<sup>2</sup> + AC<sup>2</sup> = 2AB<sup>2</sup></p> <p>=&gt; AC<sup>2</sup> = AB<sup>2</sup> =&gt; AC = AB</p> <p>=&gt; &Delta;ABC is an isosceles triangle.</p> <p>Hence, &ang;ABC = &ang;ACB = 45&deg;</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The average temperature for the first three days of the week is 22&deg;C and that of the next three days is 24&deg;C. The average temperature for the whole week is 23.5&deg;C,then the temperature on the last day of the week would be?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2346;&#2381;&#2340;&#2366;&#2361; &#2325;&#2375; &#2346;&#2361;&#2354;&#2375; &#2340;&#2368;&#2344; &#2342;&#2367;&#2344;&#2379;&#2306; &#2325;&#2366; &#2324;&#2360;&#2340; &#2340;&#2366;&#2346;&#2350;&#2366;&#2344; 22&deg;C &#2361;&#2376; &#2324;&#2352; &#2313;&#2360;&#2368; &#2360;&#2346;&#2381;&#2340;&#2366;&#2361; &#2325;&#2375; &#2309;&#2327;&#2354;&#2375; &#2340;&#2368;&#2344; &#2342;&#2367;&#2344;&#2379;&#2306; &#2325;&#2366; &#2324;&#2360;&#2340; &#2340;&#2366;&#2346;&#2350;&#2366;&#2344; 24&deg;C &#2361;&#2376;&#2306;| &#2346;&#2370;&#2352;&#2375; &#2360;&#2346;&#2381;&#2340;&#2366;&#2361; &#2325;&#2366; &#2324;&#2360;&#2340; &#2340;&#2366;&#2346;&#2350;&#2366;&#2344; 23.5&deg;C &#2361;&#2376;, &#2340;&#2379; &#2360;&#2346;&#2381;&#2340;&#2366;&#2361; &#2325;&#2375; &#2309;&#2306;&#2340;&#2367;&#2350; &#2342;&#2367;&#2344; &#2325;&#2366; &#2340;&#2366;&#2346;&#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">28.2&deg;C</span><span class=\"hqt\" style=\"display:none\">28.2&deg;C</span>",
+      "<span class=\"eqt\">24.6&deg;C</span><span class=\"hqt\" style=\"display:none\">24.6&deg;C</span>",
+      "<span class=\"eqt\">22.2&deg;C</span><span class=\"hqt\" style=\"display:none\">22.2&deg;C</span>",
+      "<span class=\"eqt\">26.5&deg;C</span><span class=\"hqt\" style=\"display:none\">26.5&deg;C</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Sum of the temperature for the first three days = 22 * 3 = 66&deg;C</p><p>Sum of the temperature for the next three days = 24 * 3 = 72&deg;C</p><p>Total temperature for the whole week = 23.5 * 7 = 164.5&deg;C</p><p>Last day temperature = (164.5  -  66  -  72) &deg; = 26.5&deg;C</p>",
+    "question_index": 18
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Study the table and answer the question given below</p> <table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" rowspan=\"2\">Year</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"5\">Departments(Number of Employees)</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Production</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Marketing</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Corporate</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Accounts</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R&amp;D</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1999</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">150</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">25</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">225</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">62</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2001</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">450</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2002</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">470</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2003</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">500</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">35</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">132</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">74</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2004</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">505</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">130</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2342;&#2367;&#2358;&#2366;-&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]: </b>&#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2324;&#2352; &#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2325;&#2366; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2375;&#2306;</p><table style=\"border-collapse:collapse;\"><tr><td rowspan=\"2\" align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2352;&#2381;&#2359;</td><td colspan=\"5\" align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2367;&#2349;&#2366;&#2327; (&#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;)</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2313;&#2340;&#2381;&#2346;&#2366;&#2342;&#2344;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2350;&#2366;&#2352;&#2381;&#2325;&#2375;&#2335;&#2367;&#2306;&#2327;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2325;&#2377;&#2352;&#2381;&#2346;&#2379;&#2352;&#2375;&#2335;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2309;&#2325;&#2366;&#2313;&#2306;&#2335;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2310;&#2352; &#2319;&#2306;&#2337; &#2337;&#2368;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1999</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">150</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">25</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">225</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">62</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2001</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">450</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2002</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">470</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2003</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">500</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">35</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">132</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">74</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2004</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">505</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">130</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr></table></span>",
+    "question": "<span class=\"eqt\"><p>In which year did the total number of employees reach twice the total number of employees that the factory had in the year 1999?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2357;&#2352;&#2381;&#2359; 1999 &#2350;&#2375;&#2306; &#2347;&#2376;&#2325;&#2381;&#2335;&#2381;&#2352;&#2368; &#2325;&#2375; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2368; &#2340;&#2369;&#2354;&#2344;&#2366; &#2350;&#2375;&#2306; &#2325;&#2367;&#2360; &#2357;&#2352;&#2381;&#2359; &#2350;&#2375;&#2306; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2342;&#2379;&#2327;&#2369;&#2344;&#2368; &#2361;&#2379; &#2327;&#2312; &#2341;&#2368;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">2004</span><span class=\"hqt\" style=\"display:none\">2004</span>",
+      "<span class=\"eqt\">2000</span><span class=\"hqt\" style=\"display:none\">2000</span>",
+      "<span class=\"eqt\">2001</span><span class=\"hqt\" style=\"display:none\">2001</span>",
+      "<span class=\"eqt\">2002</span><span class=\"hqt\" style=\"display:none\">2002</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Total number of employees in the year is 1999 = 345,</p> <p>2000 = 442</p> <p>2001 = 708</p> <p>2002 = 750</p> <p>2003 = 821</p> <p>2004 = 825</p> <p>Clearly figure of 2001 is more than the double figure of the year 1999</p>",
+    "question_index": 19
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Study the table and answer the question given below</p> <table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" rowspan=\"2\">Year</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"5\">Departments(Number of Employees)</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Production</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Marketing</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Corporate</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Accounts</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R&amp;D</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1999</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">150</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">25</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">225</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">62</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2001</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">450</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2002</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">470</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2003</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">500</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">35</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">132</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">74</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2004</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">505</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">130</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2342;&#2367;&#2358;&#2366;-&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]: </b>&#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2324;&#2352; &#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2325;&#2366; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2375;&#2306;</p><table style=\"border-collapse:collapse;\"><tr><td rowspan=\"2\" align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2352;&#2381;&#2359;</td><td colspan=\"5\" align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2367;&#2349;&#2366;&#2327; (&#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;)</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2313;&#2340;&#2381;&#2346;&#2366;&#2342;&#2344;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2350;&#2366;&#2352;&#2381;&#2325;&#2375;&#2335;&#2367;&#2306;&#2327;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2325;&#2377;&#2352;&#2381;&#2346;&#2379;&#2352;&#2375;&#2335;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2309;&#2325;&#2366;&#2313;&#2306;&#2335;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2310;&#2352; &#2319;&#2306;&#2337; &#2337;&#2368;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1999</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">150</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">25</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">225</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">62</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2001</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">450</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2002</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">470</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2003</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">500</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">35</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">132</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">74</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2004</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">505</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">130</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr></table></span>",
+    "question": "<span class=\"eqt\"><p>In how many years was the number of employees working in the production department more than 60% of the total employees?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2325;&#2367;&#2340;&#2344;&#2375; &#2357;&#2352;&#2381;&#2359;&#2379;&#2306; &#2350;&#2375;&#2306; &#2313;&#2340;&#2381;&#2346;&#2366;&#2342;&#2344; &#2357;&#2367;&#2349;&#2366;&#2327; &#2350;&#2375;&#2306; &#2325;&#2366;&#2350; &#2325;&#2352; &#2352;&#2361;&#2375; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2325;&#2369;&#2354; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2375; 60% &#2360;&#2375; &#2309;&#2343;&#2367;&#2325; &#2361;&#2379; &#2327;&#2312; &#2341;&#2368;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The required percentage: </p> <p>1999 = 150/345 x 100 = 43.48%</p> <p>2000 = 225/442 x 100 = 50.90%</p> <p>2001 = 450/708 x 100 = 63.56%</p> <p>2002 = 470/750 x 100 = 62.67%</p> <p>2003 = 500/821 x 100 = 60.90%</p> <p>2004 = 505/825 x 100 = 61.21%</p> <p>Clearly the number of employees working in the production department exceeds 60% of the total strength in the year 2001, 2002, 2003 and 2004</p>",
+    "question_index": 20
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Study the table and answer the question given below</p> <table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" rowspan=\"2\">Year</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"5\">Departments(Number of Employees)</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Production</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Marketing</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Corporate</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Accounts</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R&amp;D</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1999</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">150</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">25</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">225</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">62</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2001</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">450</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2002</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">470</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2003</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">500</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">35</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">132</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">74</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2004</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">505</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">130</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2342;&#2367;&#2358;&#2366;-&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]: </b>&#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2324;&#2352; &#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2325;&#2366; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2375;&#2306;</p><table style=\"border-collapse:collapse;\"><tr><td rowspan=\"2\" align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2352;&#2381;&#2359;</td><td colspan=\"5\" align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2367;&#2349;&#2366;&#2327; (&#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;)</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2313;&#2340;&#2381;&#2346;&#2366;&#2342;&#2344;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2350;&#2366;&#2352;&#2381;&#2325;&#2375;&#2335;&#2367;&#2306;&#2327;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2325;&#2377;&#2352;&#2381;&#2346;&#2379;&#2352;&#2375;&#2335;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2309;&#2325;&#2366;&#2313;&#2306;&#2335;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2310;&#2352; &#2319;&#2306;&#2337; &#2337;&#2368;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1999</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">150</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">25</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">225</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">62</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2001</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">450</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2002</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">470</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2003</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">500</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">35</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">132</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">74</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2004</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">505</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">130</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr></table></span>",
+    "question": "<span class=\"eqt\"><p>The total number of employees in corporate department is what percent of the total number of employees in marketing department over the given period?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2325;&#2377;&#2352;&#2381;&#2346;&#2379;&#2352;&#2375;&#2335; &#2357;&#2367;&#2349;&#2366;&#2327; &#2350;&#2375;&#2306; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2342;&#2367;&#2319; &#2327;&#2319; &#2309;&#2357;&#2343;&#2367; &#2325;&#2375; &#2342;&#2380;&#2352;&#2366;&#2344; &#2350;&#2366;&#2352;&#2381;&#2325;&#2375;&#2335;&#2367;&#2306;&#2327; &#2357;&#2367;&#2349;&#2366;&#2327; &#2350;&#2375;&#2306; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2366; &#2325;&#2367;&#2340;&#2344;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">68.4%</span><span class=\"hqt\" style=\"display:none\">68.4%</span>",
+      "<span class=\"eqt\">64.8%</span><span class=\"hqt\" style=\"display:none\">64.8%</span>",
+      "<span class=\"eqt\">65.6%</span><span class=\"hqt\" style=\"display:none\">65.6%</span>",
+      "<span class=\"eqt\">66.5%</span><span class=\"hqt\" style=\"display:none\">66.5%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Total number of employees in corporate department = 50+45+30+32+35+40 = 232</p> <p>Total number of employees in marketing department = 25+40+65+73+80+75 = 358</p> <p>Required % = 232/358 x 100 = 64.80%</p>",
+    "question_index": 21
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Study the table and answer the question given below</p> <table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" rowspan=\"2\">Year</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"5\">Departments(Number of Employees)</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Production</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Marketing</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Corporate</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Accounts</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">R&amp;D</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1999</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">150</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">25</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">225</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">62</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2001</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">450</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2002</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">470</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2003</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">500</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">35</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">132</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">74</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2004</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">505</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">130</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2342;&#2367;&#2358;&#2366;-&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]: </b>&#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2324;&#2352; &#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2325;&#2366; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2375;&#2306;</p><table style=\"border-collapse:collapse;\"><tr><td rowspan=\"2\" align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2352;&#2381;&#2359;</td><td colspan=\"5\" align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2367;&#2349;&#2366;&#2327; (&#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;)</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2313;&#2340;&#2381;&#2346;&#2366;&#2342;&#2344;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2350;&#2366;&#2352;&#2381;&#2325;&#2375;&#2335;&#2367;&#2306;&#2327;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2325;&#2377;&#2352;&#2381;&#2346;&#2379;&#2352;&#2375;&#2335;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2309;&#2325;&#2366;&#2313;&#2306;&#2335;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2310;&#2352; &#2319;&#2306;&#2337; &#2337;&#2368;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1999</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">150</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">25</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">225</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">62</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2001</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">450</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2002</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">470</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">70</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2003</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">500</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">35</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">132</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">74</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2004</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">505</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">130</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75</td></tr></table></span>",
+    "question": "<span class=\"eqt\"><p>Which department had less than 10% of the employees through all the years shown in the table?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2350;&#2375;&#2306; &#2342;&#2352;&#2381;&#2358;&#2366;&#2319; &#2327;&#2319; &#2360;&#2349;&#2368; &#2357;&#2352;&#2381;&#2359;&#2379;&#2306; &#2325;&#2375; &#2342;&#2380;&#2352;&#2366;&#2344; &#2325;&#2367;&#2360; &#2357;&#2367;&#2349;&#2366;&#2327; &#2350;&#2375;&#2306; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2368; 10% &#2360;&#2375; &#2325;&#2350; &#2341;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Marketing and Accounts</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2366;&#2352;&#2381;&#2325;&#2375;&#2335;&#2367;&#2306;&#2327; &#2324;&#2352; &#2309;&#2325;&#2366;&#2313;&#2306;&#2335;</span>",
+      "<span class=\"eqt\">Marketing and R &amp; D</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2366;&#2352;&#2381;&#2325;&#2375;&#2335;&#2367;&#2306;&#2327; &#2324;&#2352; &#2310;&#2352; &#2319;&#2306;&#2337; &#2337;&#2368;</span>",
+      "<span class=\"eqt\">R &amp; D only</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; &#2310;&#2352; &#2319;&#2306;&#2337; &#2337;&#2368;</span>",
+      "<span class=\"eqt\">Marketing only</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; &#2350;&#2366;&#2352;&#2381;&#2325;&#2375;&#2335;&#2367;&#2306;&#2327;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>As can be seen, only marketing department had less than 10% of the employees through all the years.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If tan A = &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1 - cos B</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">sin B</span></div>&nbsp;, then tan 2A is equal to:&nbsp;</div></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; tan A = &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1 - cos B</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">sin B</span></div>&nbsp;, &#2361;&#2376;, &#2340;&#2379; tan 2A &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2376;:</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">cot (B/2)</span><span class=\"hqt\" style=\"display:none\">cot (B/2)</span>",
+      "<span class=\"eqt\">tan B</span><span class=\"hqt\" style=\"display:none\">tan B</span>",
+      "<span class=\"eqt\">tab (B/2)</span><span class=\"hqt\" style=\"display:none\">tab (B/2)</span>",
+      "<span class=\"eqt\">cot B</span><span class=\"hqt\" style=\"display:none\">cot B</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<div>&nbsp;tan A = &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1 - cos B</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">sin B</span></div>&nbsp; = &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">2 sin<sup>2</sup> (B/2)</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">2 sin (B/2) cos (B/2)</span></div>&nbsp; = &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">sin (B/2)</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">cos (B/2)</span></div></div><p>= tan (B/2)</p><p>So, A = B/2 and 2A = B</p><p>so tan (2A) = tan B</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>7 years ago, the ages of P and Q were in the ratio 4 : 5 and 7 years, hence it is in the ratio 5 : 6. The present age of Q is?</p></span><span class=\"hqt\" style=\"display:none\"><p>7 &#2357;&#2352;&#2381;&#2359; &#2346;&#2361;&#2354;&#2375;, P &#2324;&#2352; Q &#2325;&#2368; &#2310;&#2351;&#2369; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 4: 5 &#2341;&#2366; &#2324;&#2352; 7 &#2357;&#2352;&#2381;&#2359; &#2348;&#2366;&#2342; &#2313;&#2344;&#2325;&#2368; &#2310;&#2351;&#2369; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 5:6 &#2361;&#2376;, &#2340;&#2379; Q &#2325;&#2368; &#2357;&#2352;&#2381;&#2340;&#2350;&#2366;&#2344; &#2310;&#2351;&#2369; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">77yr</span><span class=\"hqt\" style=\"display:none\">77 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">88yr</span><span class=\"hqt\" style=\"display:none\">88 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">99yr</span><span class=\"hqt\" style=\"display:none\">99 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">None of these</span><span class=\"hqt\" style=\"display:none\">&#2311;&#2344;&#2350;&#2375; &#2360;&#2375; &#2325;&#2379;&#2312; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Let 7 years ago, ages of P and Q are 4x and 5x,</p><p>(4x+7+7)/(5x+7+7) = 5/6</p><p>24x + 84 = 25x + 70</p><p>x = 14</p><p>Hence, Q's present age = 5 * 14 + 7 = 77yr</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

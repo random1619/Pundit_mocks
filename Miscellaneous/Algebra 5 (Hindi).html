@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra 5 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">pundits</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If 2z = x + y, then the value of </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881769885554.83434749.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"> is:</span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">2z = x + y, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817699cf665.61683704.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">:</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"> 0</span></span></span></p></span><span class=\"hqt\"><p>0</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;1</span></span></span></p></span><span class=\"hqt\"><p>1</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>2</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;5</span></span></span></p></span><span class=\"hqt\"><p>5</p></span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881769ae4f44.67234936.png\" name=\"Picture 1\" align=\"bottom\" width=\"352\" height=\"117\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881769bc5922.96241934.png\" width=\"352\" height=\"117\" name=\"Image1\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If {ab + bc + ca} = 0, then what is the value of </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881769db2f73.26225770.gif\" align=\"absmiddle\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">{ab + bc + ca} = 0, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881769e217d0.54135753.gif\" align=\"absmiddle\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">क्या</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;2</span></span></span></p></span><span class=\"hqt\"><p>2</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;0</span></span></span></p></span><span class=\"hqt\"><p>0</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>1</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;a+b+c</span></span></span></p></span><span class=\"hqt\"><p>a+b+c</p></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881769e8bee2.65007990.png\" alt=\"\" width=\"393\" height=\"190\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881769ee58b8.24260889.png\" alt=\"\" width=\"393\" height=\"190\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a000106.14271955.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, then what is the value of </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a106e66.76372539.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a2653a5.03270393.gif\" align=\"bottom\" /> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a3a72e0.26734912.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">क्या</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;1</span></span></span></p></span><span class=\"hqt\"><p>1</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;0</span></span></span></p></span><span class=\"hqt\"><p>0</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>3</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;6</span></span></span></p></span><span class=\"hqt\"><p>6</p></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a4e1537.57539908.png\" name=\"Picture 3\" align=\"bottom\" width=\"230\" height=\"129\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a5ea625.58391436.png\" width=\"230\" height=\"129\" name=\"Image3\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If p + q + r = 0, then simplify the following:</span></span></span><br /><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a6e63d5.48901402.gif\" align=\"absmiddle\" /> </p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">p + q + r = 0, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">निम्नलिखित</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">को</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">सरल</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">कीजिए</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">:</span></span></span><br /><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a7d8e80.71368252.gif\" align=\"absmiddle\" /></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;1</span></span></span></p></span><span class=\"hqt\"><p>1</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;2</span></span></span></p></span><span class=\"hqt\"><p>2</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>0</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"> -1</span></span></span></p></span><span class=\"hqt\"><p>-1</p></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176a9cfc49.29216623.png\" name=\"Picture 4\" align=\"bottom\" width=\"348\" height=\"144\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176ab5d451.41865914.png\" width=\"348\" height=\"144\" name=\"Image4\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">Find the remainder, when we divide&nbsp;</span></span></span><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">2x<sup>3</sup> - 3x<sup>2 </sup>+ 6x - 4 by 2x &ndash; 3.</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">जब</span></span></span> <span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">हम&nbsp;</span></span></span><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">2x<sup>3</sup> - 3x<sup>2 </sup>+ 6x - 4</span></span>&nbsp;<span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">को</span></span></span> <span style=\"color:#000000\"><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">2x &ndash; 3 </span></span></span><span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">से</span></span></span> <span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">विभाजित</span></span></span> <span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">करते</span></span></span> <span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">हैं</span></span></span><span style=\"color:#000000\"><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">, </span></span></span><span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">तो</span></span></span> <span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">शेषफल</span></span></span> <span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">ज्ञात</span></span></span> <span style=\"color:#000000\"><span style=\"font-family:'Nirmala UI'\"><span style=\"font-size:19px\">कीजिए।</span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">&nbsp;&nbsp;&nbsp;&nbsp;5</span></span></span></p>\r\n</span><span class=\"hqt\"><p>5</p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">&nbsp;&nbsp;&nbsp;&nbsp;6</span></span></span></p>\r\n</span><span class=\"hqt\"><p>6</p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">&nbsp;&nbsp;&nbsp;&nbsp;-5&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p>\r\n</span><span class=\"hqt\"><p>-5</p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:'Cambria Math',serif\"><span style=\"font-size:19px\">&nbsp;&nbsp;&nbsp;&nbsp;-6</span></span></span></p>\r\n</span><span class=\"hqt\"><p>-6</p>\r\n</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176adfad27.94375043.png\" style=\"height:165px; width:274px\" /></p>\r\n</span><span class=\"hqt\"><div style=\"position:relative\">\r\n<p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176b019a66.56706527.png\" style=\"height:165px; width:274px\" /></p>\r\n</div>\r\n</span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176b16f341.13819579.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, then </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176b397f11.68457853.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">in terms of b and c is equal to:</span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176b524456.30640697.gif\" align=\"bottom\" /> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">b </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">और</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">c </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">के</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">संदर्भ</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">में</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176b694c40.88835082.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">बराबर</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">:</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176b9db681.93173085.gif\" align=\"absmiddle\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176bb4f381.00416519.gif\" align=\"absmiddle\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176bddce91.51326393.gif\" align=\"absmiddle\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176c019163.55365618.gif\" align=\"absmiddle\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176c341636.02602677.gif\" align=\"absmiddle\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176c464549.34314949.gif\" align=\"absmiddle\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176c528ca2.89224151.gif\" align=\"absmiddle\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176c6a3bc1.25298583.gif\" align=\"absmiddle\" /></p></span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176b76beb1.24389541.png\" name=\"Picture 6\" align=\"bottom\" width=\"343\" height=\"215\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176b8871b0.67097976.png\" width=\"343\" height=\"215\" name=\"Image6\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If x: y: z = 1:2:3, then, what is the value of </span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176c8c6658.11947562.gif\" align=\"absmiddle\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">x: y: z = 1:2:3, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176c9de788.76876885.gif\" align=\"absmiddle\" /> <span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">क्या</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;15/31</span></span></span></p></span><span class=\"hqt\"><p>15/31</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;16/31</span></span></span></p></span><span class=\"hqt\"><p>16/31</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;18/31&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>18/31</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;19/31</span></span></span></p></span><span class=\"hqt\"><p>19/31</p></span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176cbd6634.74960445.png\" name=\"Picture 7\" align=\"bottom\" width=\"258\" height=\"192\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176cca6b92.34652841.png\" width=\"258\" height=\"192\" name=\"Image7\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If a + b = </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176cec1808.09516462.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"> and ab = </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d07a8d6.67829874.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, then the value of </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d16c596.01080263.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">is</span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"><span lang=\"en-US\">:</span></span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">a + b =</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d224dd3.31215489.gif\" align=\"bottom\" /> <span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तथा</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">ab = </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d378e99.57624433.gif\" align=\"bottom\" /> <span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d4d84f0.92032874.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">:</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d7bdba3.02404338.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d8fb571.42518116.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176da1d8e9.66312324.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176db23cd7.37025124.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176dc21048.55545369.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176ddc9829.81668221.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176e0dcd55.51515150.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176e2b2856.20062828.gif\" align=\"bottom\" /></p></span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d5c6ff0.56714407.png\" name=\"Picture 8\" align=\"bottom\" width=\"246\" height=\"458\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176d68e7c4.23273383.png\" width=\"246\" height=\"458\" name=\"Image8\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If a + b + c =1, ab + bc + ca = - 8 and </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176e4f3bb9.09155754.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, then what is the value of </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176e650d17.86750305.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">a + b + c =1, ab + bc + ca = - 8 </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">और</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176e839fe9.41643784.gif\" align=\"bottom\" /> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176e95afc0.84388044.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">क्या</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176ec841d9.00466762.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176ee325b8.38199514.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f016a68.00453020.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f1db719.27841261.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f3a3643.75287760.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f4a0232.53064798.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f57a5a5.07379636.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f6b2216.23830883.gif\" align=\"bottom\" /></p></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176ea48a21.18463516.png\" alt=\"\" width=\"553\" height=\"394\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176ec1dc82.21974751.png\" alt=\"\" width=\"553\" height=\"394\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If x </span></span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&ndash; y+z = 0, then, what is the value of </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f7922c8.73808150.gif\" align=\"absmiddle\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">x &ndash; y+z = 0 </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f884f53.07967450.gif\" align=\"absmiddle\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">क्या</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176fb735e9.83695105.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176fd21cb6.47984014.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">1 </span></span></p></span><span class=\"hqt\"><p><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">1</span></span></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176fe159b9.14408757.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881770055306.16042897.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817701ed4f9.41474885.gif\" align=\"absmiddle\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881770300dc6.72608089.gif\" align=\"absmiddle\" /></p></span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176f99b161.71476107.png\" alt=\"\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988176fb19ce6.42491774.png\" alt=\"\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817703caad4.76393674.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, x>0, the what is the value of </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817704a2b24.68408554.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"><strong>?</strong></span></span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817705a7433.64249697.gif\" align=\"bottom\" /> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">x>0, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881770677e12.14584835.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">क्या</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">?</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881770a9f882.47530849.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881770cba004.92757092.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881770de3720.77351508.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881770ee3f88.74583030.gif\" align=\"bottom\" /></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>2</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817710f0190.48500146.gif\" align=\"bottom\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817711ca916.56569571.gif\" align=\"bottom\" /></p></span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988177078e754.91701495.png\" name=\"Picture 11\" align=\"bottom\" width=\"311\" height=\"311\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817708bca79.02807547.png\" width=\"311\" height=\"311\" name=\"Image11\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817712fa0a1.18613367.gif\" align=\"bottom\" hspace=\"8\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, where a and b are integers, then the value of ab</span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"><strong> = _________________.</strong></span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">,</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771360363.07018020.gif\" align=\"bottom\" hspace=\"8\" /> <span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">जहाँ</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">a </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">और</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">b </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">पूर्णांक</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">हैं</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">ab </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">= _________________.</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">-3</span></span></p></span><span class=\"hqt\"><p><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">-3</span></span></p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">-6</span></span></p></span><span class=\"hqt\"><p>-6</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">3</span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>3</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">6</span></span></p></span><span class=\"hqt\"><p>6</p></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817713bcb55.25791672.png\" name=\"Picture 12\" align=\"bottom\" width=\"305\" height=\"374\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988177141ff77.26516115.png\" width=\"305\" height=\"374\" name=\"Image12\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988177147d455.62333888.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, then find the value of k.</span></span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771583270.69831605.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">k </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">ज्ञात</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">कीजिए।</span></span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;15</span></span></span></p></span><span class=\"hqt\"><p>15</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;18</span></span></span></p></span><span class=\"hqt\"><p>18</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">10</span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>10</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;12</span></span></span></p></span><span class=\"hqt\"><p>12</p></span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817716901b9.94437868.png\" name=\"Picture 13\" align=\"bottom\" width=\"231\" height=\"139\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771772897.88857717.png\" width=\"231\" height=\"139\" name=\"Image13\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If x = </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817719cea11.55873401.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, then the value of </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771a3d8d3.74316998.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">will be closest to:</span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">x =</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771a9fbb7.01621843.gif\" align=\"bottom\" /> <span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771af88e3.12322396.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">मान</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">निकटतम</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">होगा</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">:</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;1.4</span></span></span></p></span><span class=\"hqt\"><p>1.4</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;0.12</span></span></span></p></span><span class=\"hqt\"><p>0.12</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;0.17&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>0.17</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;1.2</span></span></span></p></span><span class=\"hqt\"><p>1.2</p></span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771b59d50.42240098.png\" alt=\"\" /></p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771bb9ec3.68250439.png\" alt=\"\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771c1c797.44998724.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">and,</span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771d6a9f9.90756136.gif\" align=\"bottom\" /> <sub><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">,</span></span></sub><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"> then:</span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881771ea5c15.39160069.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">और</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">,</span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817720ef740.15249713.gif\" align=\"bottom\" /> <span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"> , </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">:</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;x = 1, y = 3</span></span></span></p></span><span class=\"hqt\"><p>x = 1, y = 3</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;x = 3, y = 3</span></span></span></p></span><span class=\"hqt\"><p>x = 3, y = 3</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;x = 3, y = 2&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>x = 3, y = 2</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;x = 1, y = 2</span></span></span></p></span><span class=\"hqt\"><p>x = 1, y = 2</p></span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881772221022.18252936.png\" width=\"441\" height=\"95\" name=\"Picture 15\" align=\"bottom\" border=\"0\" /> </p></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881772308374.47576177.png\" width=\"441\" height=\"95\" name=\"Image15\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">If x + y + z = 13, </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817724471a4.64069559.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"> and, </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_698817725569a7.67387518.gif\" align=\"bottom\" /> <span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\"> then the difference between z and x is:</span></span></p></span><span class=\"hqt\"><p><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">यदि</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">x + y + z = 13, </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988177262b127.64023129.gif\" align=\"bottom\" /> <span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">और</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">, </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881772756a54.64844415.gif\" align=\"bottom\" /> <span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">तो</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">z </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">और</span></span></span> </span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">x </span></span></span><span lang=\"ar-SA\"><span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">के</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">बीच</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">का</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">अंतर</span></span></span> <span style=\"color: #000000;\"><span style=\"font-family: 'Nirmala UI';\"><span style=\"font-size: 19px;\">है</span></span></span></span><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">:</span></span></span></p></span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp; 3</span></span></span></p></span><span class=\"hqt\"><p>3</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;8</span></span></span></p></span><span class=\"hqt\"><p>8</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></p></span><span class=\"hqt\"><p>5</p></span>",
+      "<span class=\"eqt\"><p><span style=\"color: #000000;\"><span style=\"font-family: 'Cambria Math',serif;\"><span style=\"font-size: 19px;\">&nbsp;&nbsp;&nbsp;&nbsp;9</span></span></span></p></span><span class=\"hqt\"><p>9</p></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\">\n<span style=\"color: #000000\"><span style=\"font-family: 'Cambria Math',serif\"><span style=\"font-size: 19px\">\n</span></span></span>\n<img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6988177284b0a1.73282094.png\" name=\"Picture 16\" align=\"bottom\" width=\"396\" height=\"192\" border=\"0\">\n</img><br/></span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_69881772a0c271.68801348.png\" width=\"396\" height=\"192\" name=\"Image16\" align=\"bottom\" border=\"0\" /></p></span>",
+    "marks": 2,
+    "section": "Algebra Quiz",
+    "series_name": "ProMocks Algebra - Quiz 5"
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 20;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

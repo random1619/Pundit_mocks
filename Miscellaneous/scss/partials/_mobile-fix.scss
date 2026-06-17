@@ -1,0 +1,432 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PUNDITS CBT — UNIVERSAL MOBILE & DESIGN FIX PATCH v2
+   Fixes: 19 issues across all HTML mock files
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Fix 14: Hide Telegram / channel links ────────────────────── */
+.channel-link,
+a[href*="t.me"],
+a[href*="telegram"],
+a[href*="youtube.com/@"],
+.telegram-link, .yt-link {
+  display: none !important;
+}
+
+/* ── Fix 19: Exam title overflow in header ───────────────────── */
+.exam-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55%;
+  min-width: 0;
+}
+
+/* ── Fix 11: Timer box — prevent shrink ─────────────────────── */
+.exam-timer {
+  flex-shrink: 0;
+}
+.timer-box {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ── Fix 15: Mark-for-Review button in dark mode ────────────── */
+.btn-review {
+  background: rgba(245, 158, 11, 0.12) !important;
+  color: #f59e0b !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+}
+.btn-review.marked {
+  background: rgba(245, 158, 11, 0.25) !important;
+  color: #fcd34d !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
+
+/* ── Fix 13: Touch-action optimization ──────────────────────── */
+.option,
+.nav-btn,
+.nav-question,
+.section-tab,
+.start-btn,
+.lang-btn {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Fix 17: Focus-visible accessibility ────────────────────── */
+.option:focus-visible,
+.nav-btn:focus-visible,
+.nav-question:focus-visible,
+.section-tab:focus-visible,
+.start-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ── Fix 18: Image invert filter — less aggressive ──────────── */
+.question-card img,
+.option img,
+.comprehension img,
+.solution-box img {
+  filter: brightness(0.88) invert(0.88) !important;
+}
+
+/* ── Fix 10: Section table horizontal scroll ────────────────── */
+.section-info {
+  overflow-x: auto;
+}
+.section-table {
+  min-width: 400px;
+}
+
+/* ── Fix 9: Result modal scrollable ─────────────────────────── */
+.result-container {
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+/* ── Fix 4: Dark mode mobile navigator complete ─────────────── */
+.mobile-navigator {
+  background: var(--card) !important;
+}
+.mobile-navigator *:not(.nav-question):not(.nav-question *) {
+  color: var(--text) !important;
+}
+
+/* ── Fix 16: Legend items — larger touch targets ────────────── */
+.legend-box {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 4px !important;
+  flex-shrink: 0;
+}
+.navigator-legend {
+  font-size: 13px !important;
+  gap: 10px !important;
+}
+.legend-item {
+  gap: 10px !important;
+  padding: 2px 0;
+}
+
+/* ── Fix 12: Solution stats wrap ────────────────────────────── */
+.solution-stats {
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+/* ── Fix 6: Candidate bar — prevent overflow ────────────────── */
+.candidate-bar {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.candidate-info {
+  min-width: 0;
+  flex: 1;
+}
+.candidate-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS & FLUID LAYOUTS
+   ══════════════════════════════════════════════════════ */
+
+/* Force strict vertical containment to prevent tab clipping on dynamic mobile viewports */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.exam-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.exam-main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.question-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.question-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 20px 110px 20px; /* Preserve bottom clearance for fixed action bars */
+}
+
+/* Ensure images, SVG formulas, and equations scale safely */
+.question-card img,
+.option img,
+.comprehension img,
+.solution-box img,
+svg, math, .math-eq {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* ── Tablet Breakpoint (max-width: 768px) ── */
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: 24px !important;
+    margin: 16px auto !important;
+    max-width: 90% !important;
+  }
+  .test-details {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .exam-main {
+    flex-direction: column;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: inline-flex !important;
+  }
+}
+
+/* ── Mobile Breakpoint (max-width: 480px) ── */
+@media (max-width: 480px) {
+  /* Welcome Screen */
+  .welcome-container {
+    padding: 16px !important;
+    margin: 8px !important;
+    border-radius: 12px !important;
+  }
+  .welcome-header h1 {
+    font-size: 20px !important;
+  }
+  .test-details {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .detail-item {
+    padding: 8px 10px !important;
+  }
+  .detail-value {
+    font-size: 14px !important;
+  }
+  .start-btn {
+    padding: 14px 28px !important;
+    font-size: 15px !important;
+    width: 100% !important;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center !important;
+  }
+
+  /* Header adjustments */
+  .exam-header {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  .exam-title {
+    font-size: 14px !important;
+    max-width: 45% !important;
+  }
+  .timer-box {
+    font-size: 13px !important;
+    padding: 6px 12px !important;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Candidate Bar */
+  .candidate-bar {
+    padding: 6px 12px !important;
+    gap: 6px !important;
+  }
+  .candidate-name {
+    font-size: 13px !important;
+    max-width: 140px !important;
+  }
+  .candidate-details {
+    font-size: 11px !important;
+  }
+
+  /* Section Tabs bar */
+  .section-tabs {
+    padding: 4px 8px !important;
+    gap: 4px !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .section-tab {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    white-space: nowrap;
+    min-height: 40px;
+    flex-shrink: 0 !important;
+  }
+
+  .question-scroll {
+    padding: 12px 12px 145px 12px !important;
+  }
+
+  /* Question Header & Options */
+  .question-card {
+    padding: 16px 12px !important;
+  }
+  .question-header {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .question-number {
+    font-size: 15px !important;
+  }
+  .lang-toggle {
+    margin-left: auto;
+  }
+  .lang-btn {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    min-height: 36px;
+  }
+  .question-text {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Touch optimized options */
+  .option {
+    padding: 12px 14px !important;
+    gap: 12px !important;
+    min-height: 48px; /* Comfortable finger tap target height */
+    border-radius: 8px !important;
+    margin-bottom: 8px !important;
+  }
+  .option-indicator {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+  }
+
+  /* Mobile Navigation bar overrides to prevent crowding */
+  .navigation-bar {
+    padding: 8px 10px !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: space-between !important;
+  }
+  .nav-btn {
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+    min-height: 44px; /* Touch target safety */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+  }
+  .btn-prev, .btn-next {
+    flex: 0 1 auto !important;
+  }
+  .btn-review {
+    flex: 1 1 100% !important;
+    order: -1 !important;
+  }
+  .progress-info {
+    display: none !important;
+  }
+
+  /* Mobile Grid drawer */
+  .mobile-navigator {
+    width: 85vw !important;
+    max-width: 320px !important;
+  }
+  .navigator-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 8px !important;
+    padding: 12px !important;
+  }
+  .nav-question {
+    font-size: 12px !important;
+    min-height: 36px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Result overlay */
+  .result-container {
+    padding: 20px 16px !important;
+    width: 92% !important;
+  }
+  .result-score {
+    font-size: 28px !important;
+  }
+  .result-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+/* ── Ultra Narrow Screens (max-width: 360px) ── */
+@media (max-width: 360px) {
+  .exam-title {
+    max-width: 38% !important;
+    font-size: 12px !important;
+  }
+  .timer-box {
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+  }
+  .candidate-name {
+    max-width: 100px !important;
+  }
+  .question-card {
+    padding: 12px 8px !important;
+  }
+  .nav-btn {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ── Micro Screens (max-width: 320px) ── */
+@media (max-width: 320px) {
+  .welcome-header h1 {
+    font-size: 17px !important;
+  }
+  .test-details {
+    grid-template-columns: 1fr !important;
+  }
+  .exam-header {
+    padding: 6px 8px !important;
+  }
+  .exam-title {
+    display: none !important; /* Hide title to make space for timer/buttons */
+  }
+  .candidate-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .option {
+    padding: 10px 10px !important;
+    font-size: 13px !important;
+  }
+  .navigator-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}

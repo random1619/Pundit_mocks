@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science & Tech Mock 1 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Laws of reflection of light is applicable in which among the following types of surfaces?</p>",
+    "options": [
+      "Concave",
+      "Plane",
+      "Convex",
+      "Both 1 &amp; 3",
+      "All the above"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>(i) The angle of incidence is equal to the angle of reflection.</p><p>(ii) The incident ray, the normal to the mirror at the point of incidence and the reflected ray, all lie in the same plane.</p><p>These laws of reflection are applicable to all types of reflecting surfaces including plane and spherical surfaces- concave and convex.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>SI Unit of Power of lens is ______?</p>",
+    "options": [
+      "Meter",
+      "Magnitude",
+      "Diopter",
+      "Degree",
+      "Polar"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The SI unit of power of a lens is 'dioptre'. It is denoted by the letter D. If f is expressed in metres, then, power is expressed in dioptres. Thus, 1 dioptre is the power of a lens whose focal length is 1 metre.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Direction of electric current is taken as opposite to the direction of the flow of ______?</p>",
+    "options": [
+      "Proton",
+      "Electron",
+      "Neutron",
+      "Quarks",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Conventionally, in an electric circuit the direction of electric current is taken as opposite to the direction of the flow of electrons, which are negative charges.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>The SI unit of electric charge is ________?</p>",
+    "options": [
+      "Ampere",
+      "Coulomb",
+      "Joules",
+      "Power",
+      "Newton"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The SI unit of electric charge is coulomb (C), which is equivalent to the charge contained in nearly 6  X  1018 electrons.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Which among the following property(ies) change with change in gravity?</p>",
+    "options": [
+      "Inertia",
+      "Mass",
+      "Weight",
+      "Both 1 &amp; 2",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The mass of an object remains the same everywhere, that is, on the earth and on any planet whereas its weight depends on its location. Because weight = mass * gravity. Inertia also doesn't change as it is depend on mass.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Which among the following force is governed by Coulombs law?</p>",
+    "options": [
+      "Gravitational force",
+      "Electromagnetic force",
+      "Strong Nuclear Force",
+      "Weak Nuclear Force",
+      "Magnetic Force"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Electromagnetic force is the force between charged particles. In the simpler case, when charges are at rest, the force is governed by Coulomb's law: attractive for unlike charges and repulsive for like charges. Charges in motion produce magnetic effects and a magnetic field gives rise to a force on a moving charge.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>The motion of the moon around the earth is governed by ________?</p>",
+    "options": [
+      "Centripetal Force",
+      "Tensional Force",
+      "Frictional Force",
+      "Centrifugal Force",
+      "Electromagnetic Force"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The motion of the moon around the earth is due to the centripetal force. The centripetal force is provided by the force of attraction of the earth.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Twinkling of star is an effect of which among the following phenomenon?</p>",
+    "options": [
+      "Reflection",
+      "Dispersion",
+      "Diffraction",
+      "Refraction",
+      "Interference"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The twinkling of a star is due to atmospheric refraction of starlight. The starlight, on entering the earth's atmosphere, undergoes refraction continuously before it reaches the earth.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which among the following lens is used for correction myopic condition?</p>",
+    "options": [
+      "Convex",
+      "Concave",
+      "Bifocal",
+      "Trifocal",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Myopia is also known as near-sightedness. A person with myopia can see nearby objects clearly but cannot see distant objects distinctly. This defect can be corrected by using a concave lens of suitable power.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Which type of action takes place to produce nuclear energy?</p>",
+    "options": [
+      "Transmutation",
+      "Fission",
+      "Decay",
+      "Binding",
+      "Both 2 &amp; 4"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In a process called nuclear fission, the nucleus of a heavy atom (such as uranium, plutonium or thorium), when bombarded with low-energy neutrons, can be split apart into lighter nuclei, thereby producing nuclear energy.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Rain will be classified as acid rain if the pH of the rain water is less than ________?</p>",
+    "options": [
+      "7.0",
+      "6.9",
+      "5.0",
+      "5.6",
+      "6.5"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>When pH of rain water is less than 5.6, it is called acid rain.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Bleaching power has chlorine and which among the following chemical element?</p>",
+    "options": [
+      "Calcium",
+      "Magnesium",
+      "Sodium",
+      "Potassium",
+      "Phosphate"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Bleaching powder is produced by the action of chlorine on dry slaked lime, which is a compound of calcium. Bleaching powder is represented as CaOCl<sub>2</sub>.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which among the following is the most reactive of all other mentioned metals?</p>",
+    "options": [
+      "Silver",
+      "Sodium",
+      "Iron",
+      "Magnesium",
+      "Zinc"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=469 height=270 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p2399/image001.png\"></p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Bonds which are formed by the sharing of an electron pair between two atoms is referred to as ______?</p>",
+    "options": [
+      "Covalent bonds",
+      "Saturated bonds",
+      "Ionic bonds",
+      "Polar covalent bonds",
+      "Hydrogen bonds"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Bonds which are formed by the sharing of an electron pair between two atoms are known as covalent bonds. Covalently bonded molecules are seen to have strong bonds within the molecule, but intermolecular forces are small.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The arrangement of elements in Modern Periodic table is based on _________?</p>",
+    "options": [
+      "Atomic size",
+      "Valence electrons",
+      "Atomic number",
+      "Protons count",
+      "Atomic mass"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Modern periodic table is based on atomic number of the elements. In 1913, Henry Moseley showed that the atomic number of an element is a more fundamental property than its atomic mass as described below. Accordingly, Mendeleev's Periodic Law was modified and atomic number was adopted as the basis of Modern Periodic Table.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>What is the chemical name of Mohr's Salt?</p>",
+    "options": [
+      "Manganese Sulfate",
+      "Ammonium Ferrous Sulfate",
+      "Potassium Dichromate",
+      "Copper Sulfate Pentahydrate",
+      "Cobalt Chloride Hexahydrate"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Mohr's salt or ammonium ferrous sulfate is the inorganic compound. It is used in the Fricke's dosemeter to measure high doses of gamma rays.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Partially hydrated form of which among the following compound is referred to as \"Plaster of Paris\"?</p>",
+    "options": [
+      "Magnesium carbonate",
+      "Calcium sulphate",
+      "Sodium bicarbonate",
+      "Calcium carbonate",
+      "Magnesium sulphate"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>On heating gypsum at 373 K, it loses water molecules and becomes calcium sulphate hemihydrate. This is called Plaster of paris, the substance which doctors use as plaster for supporting fractured bones in the right position. Plaster of Paris is a white powder and on mixing with water, it changes to gypsum once again giving a hard-solid mass.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Which among the following metal is used in galvanization of steel?</p>",
+    "options": [
+      "Iron",
+      "Lead",
+      "Hydrogen",
+      "Sodium",
+      "Zinc"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Galvanisation is a method of protecting steel and iron from rusting by coating them with a thin layer of zinc.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Atomic theory was propounded by __________?</p>",
+    "options": [
+      "John Dalton",
+      "Ernest Rutherford",
+      "Dmitri Mendeleev",
+      "Amedeo Avogadro",
+      "Niels Bohr"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>John Dalton developed an atomic theory in the 1803. His theory was based on the laws of chemical combination. Dalton's atomic theory provided an explanation for the law of conservation of mass and the law of definite proportions.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Atomicity refers to ________?</p>",
+    "options": [
+      "Types of atoms in a molecule",
+      "Density of atoms in a molecule",
+      "Elemental atoms in a molecule",
+      "Metallic atoms in a molecule",
+      "Number of atoms in a molecule"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The number of atoms constituting a molecule is known as its atomicity.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Which among the following is Unicellular organisms?</p>",
+    "options": [
+      "Chlamydomonas",
+      "Fucus",
+      "Sargassum",
+      "Chondrus",
+      "Gelidium"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Amoeba, Chlamydomonas, Paramoecium are unicellular organisms. The main groups of unicellular organisms are bacteria, archaea, protozoa, unicellular algae, and unicellular fungi.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Plasmolysis in a plant cell refers to __________?</p>",
+    "options": [
+      "Swelling of cells",
+      "Shrinking of cells",
+      "Transmutation of cells",
+      "Development of cells wall around the cell",
+      "Change of shape of cells"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>When a living plant cell loses water through osmosis there is shrinkage or contraction of the contents of the cell away from the cell wall. This phenomenon is known as plasmolysis.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Valves in veins serve which among the following purposes?</p>",
+    "options": [
+      "Pump blood with pressure",
+      "Absorb nutrients from blood flowing through veins",
+      "Circulate blood to varies parts",
+      "Preventing blood from flowing backwards",
+      "Easy the flow of blood into heart chamber"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Veins collect the blood from different organs and bring it back to the heart. They do not need thick walls because the blood is no longer under pressure, instead they have valves that ensure that the blood flows only in one direction.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Which among the following carries digested fat from intestine?</p>",
+    "options": [
+      "Plasma",
+      "Lymph",
+      "Platelets",
+      "Reb Blood Cells",
+      "White Blood Cells"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Lymph carries digested and absorbed fat from intestine and drains excess fluid from extra cellular space back into the blood. It is similar to the plasma of blood but colourless and contains less protein.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Leprosy is caused by __________?</p>",
+    "options": [
+      "Virus",
+      "Protozoa",
+      "Bacteria",
+      "Fungi",
+      "Vitamin deficiency"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Leprosy, also known as Hansen's disease (HD), is a long-term infection by the bacterium Mycobacterium leprae.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Method of staining individual nerve and cell structures is referred to as ________?</p>",
+    "options": [
+      "White Reaction",
+      "Straining reaction",
+      "Colouring reaction",
+      "Black reaction",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Method of staining individual nerve and cell structures is referred to as the 'black reaction'. It was invented by Camillo Golgi. Golgi apparatus was first described by Camillo Golgi.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Reproduction through regenerative cells is referred to as _________?</p>",
+    "options": [
+      "Fragmentation",
+      "Regeneration",
+      "Budding",
+      "Vegetative propagation",
+      "Spore formation"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Regenerative cells are used for reproduction in the process of budding. In Hydra, a bud develops as an outgrowth due to repeated cell division at one specific site.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which part of a plant show positive geotropism?</p>",
+    "options": [
+      "Leaves",
+      "Branches",
+      "Trunk",
+      "Roots",
+      "Flowers"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The upward and downward growth of shoots and roots, respectively, in response to the pull of earth or gravity is referred to as geotropism. While shoot respond negatively, roots respond positively.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>which among the following is synthesized with the help of DNA in the cell nucleus?</p>",
+    "options": [
+      "Lipids",
+      "Endoplasmic Reticulum",
+      "Protein",
+      "Carbides",
+      "Mitochondria"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The DNA in the cell nucleus is the information source for making proteins. If the information is changed, different proteins will be made. Different proteins will eventually lead to altered body designs.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Muscle cramps are caused due to which among the following actions?</p>",
+    "options": [
+      "Aerobic respiration leading to production of alcohol",
+      "Aerobic respiration leading to production of acid",
+      "Anaerobic respiration leading to production of alcohol",
+      "Anaerobic respiration leading to production of acid",
+      "Breakdown of pyruvate in aerobic reaction"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>When there is a lack of oxygen in our muscle cells, anaerobic pathway for the break-down of pyruvate is taken. Here the pyruvate is converted into lactic acid which is also a three-carbon molecule. This build-up of lactic acid in our muscles during sudden activity causes cramps.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

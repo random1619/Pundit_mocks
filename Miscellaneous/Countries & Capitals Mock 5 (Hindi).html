@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries & Capitals Mock 5 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Where is the head-quarters of Organisation for the Prohibition of Chemical Weapons (OPCW)?</p>",
+    "options": [
+      "Paris",
+      "Nairobi",
+      "Berlin",
+      "Geneva",
+      "The Hague"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Organisation for the Prohibition of Chemical Weapons (OPCW) is an intergovernmental organisation, located in The Hague, Netherlands. The organisation promotes and verifies the adherence to the Chemical Weapons Convention which prohibits the use of chemical weapons and requires their destruction. The verification consists both of evaluation of declarations by member states and on-site inspections. The organisation was awarded the 2013 Nobel Peace Prize because it had, with the Chemical Weapons Convention, \"defined the use of chemical weapons as a taboo under international law\" according to Thorbjorn Jagland, Chairman of the Norwegian Nobel Committee.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Where is the head-quarters of UNICEF located?</p>",
+    "options": [
+      "Washington DC",
+      "New York",
+      "Geneva",
+      "The Hague",
+      "Paris"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The United Nations Children's Fund is a United Nations (UN) programme headquartered in New York City that provides humanitarian and developmental assistance to children and mothers in developing countries. It is a member of the United Nations Development Group.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Head-quarters of International Civil Aviation Organisation is located in</p>",
+    "options": [
+      "Rome",
+      "California",
+      "Washington DC",
+      "Montreal",
+      "Brussels"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The International Civil Aviation Organization (ICAO), is a specialized agency of the United Nations. It codifies the principles and techniques of international air navigation and fosters the planning and development of international air transport to ensure safe and orderly growth. Its headquarter is located in the Quartier International of Montreal, Quebec, Canada.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>International Atomic Energy Agency is head-quartered in</p>",
+    "options": [
+      "Vienna",
+      "Montreal",
+      "London",
+      "Washington DC",
+      "Frankfurt"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The International Atomic Energy Agency (IAEA) is an international organization that seeks to promote the peaceful use of nuclear energy, and to inhibit its use for any military purpose, including nuclear weapons. The IAEA was established as an autonomous organisation on 29 July 1957. Though established independently of the United Nations through its own international treaty, the IAEA Statute, the IAEA reports to both the United Nations General Assembly and Security Council.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>The first round of Ministerial Conference of WTO was held in which of the following places in the year 1996?</p>",
+    "options": [
+      "Doha",
+      "Geneva",
+      "Singapore",
+      "Cancun",
+      "Hong Kong"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The World Trade Organisation's Ministerial Conference of 1996 was held in Singapore on December 9 - December 13, 1996. The inaugural meeting for the organisation since its formation. The event was hosted by the government of Singapore at the Singapore International Convention and Exhibition Centre in Suntec City.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The United Nations Interregional Crime and Justice Research Institute is head-quartered in</p>",
+    "options": [
+      "Florence",
+      "Rome",
+      "Paris",
+      "Turin",
+      "Brussels"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The United Nations Interregional Crime and Justice Research Institute (UNICRI) is one of the five United Nations Research and Training Institutes. The Institute was founded in 1968 to assist the international community in formulating and implementing improved policies in the field of crime prevention and criminal justice. The United Nations Interregional Crime and Justice Research Institute has its Headquarters on the United Nations Campus in Turin, Italy. It also has a Liaison Office in Rome and offices around the world.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>North Atlantic Treaty Organisation (NATO) is a/an</p>",
+    "options": [
+      "Political alliance",
+      "Economical alliance",
+      "Military alliance",
+      "Social alliance",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The North Atlantic Treaty Organization, also called the North Atlantic Alliance, is an intergovernmental military alliance between several North American and European states based on the North Atlantic Treaty that was signed on 4 April 1949.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>The Peace and Security council is the organ of</p>",
+    "options": [
+      "European Union",
+      "African Union",
+      "Nordic Council",
+      "United Nations",
+      "Gulf Cooperation Council"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Peace and Security Council is the organ of the African Union in charge of enforcing union decisions. It is patterned somewhat after the United Nations Security Council. Members are elected by the Assembly of the African Union so as to reflect regional balance within Africa, as well as a variety of other criteria, including capacity to contribute militarily and financially to the union, political will to do so, and effective diplomatic presence at Addis Ababa.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Where is the head-quarters of Bank for International Settlements (BIS) located?</p>",
+    "options": [
+      "Geneva",
+      "Copenhagen",
+      "Paris",
+      "Basel",
+      "Frankfurt"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Bank for International Settlements (BIS) is an international financial institution owned by central banks which \"fosters international monetary and financial cooperation and serves as a bank for central banks\". The BIS carries out its work through its meetings, programmes and through the Basel Process  -  hosting international groups pursuing global financial stability and facilitating their interaction. It also provides banking services, but only to central banks and other international organizations. It is based in Basel, Switzerland, with representative offices in Hong Kong and Mexico City.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>The New Development Bank (NDB) is head-quartered in</p>",
+    "options": [
+      "Beijing",
+      "New Delhi",
+      "Shanghai",
+      "Moscow",
+      "Johannesburg"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The New Development Bank is headquartered in Shanghai, China. The first regional office of the NDB will be opened in Johannesburg, South Africa.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Which among the following is not a member country of ASEAN?</p>",
+    "options": [
+      "Thailand",
+      "Indonesia",
+      "Malaysia",
+      "Philippines",
+      "India"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Association of Southeast Asian Nations (ASEAN) is a regional intergovernmental organisation comprising ten Southeast Asian states which promotes pan-asianism, intergovernmental cooperation and facilitates economic, political, military, educational and cultural integration amongst its members and Asian states. Since its formation on 8 August 1967 by Indonesia, Malaysia, the Philippines, Singapore, and Thailand, the organisation's membership has expanded to include Brunei, Cambodia, Laos, Myanmar, and Vietnam.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>The International Union for Conservation of Nature (IUCN) is head-quartered in</p>",
+    "options": [
+      "Bern",
+      "Gland",
+      "Paris",
+      "Geneva",
+      "Nairobi"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The International Union for Conservation of Nature (IUCN), officially International Union for Conservation of Nature and Natural Resources is an international organization working in the field of nature conservation and sustainable use of natural resources. Its headquarters are in Gland, Switzerland.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which of the following is the capital of Australia?</p>",
+    "options": [
+      "Sidney",
+      "Brisbane",
+      "Perth",
+      "Canberra",
+      "Melbourne"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Canberra is the capital city of Australia. With a population of 381,488, it is Australia's largest inland city and the eighth-largest city overall. A resident of Canberra is known as a \"Canberran\". Although Canberra is the capital and seat of government, many federal government ministries have secondary seats in Sydney, as does the Governor-General and the Prime Minister.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>What is the capital of Portugal?</p>",
+    "options": [
+      "Madrid",
+      "Lisbon",
+      "Milan",
+      "Bern",
+      "Munich"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Lisbon is the capital and the largest city of Portugal. Portugal, officially the Portuguese Republic, is a sovereign state located on the Iberian Peninsula in southwestern Europe. It is the westernmost country of mainland Europe, being bordered to the west and south by the Atlantic Ocean and to the north and east by Spain. The Portugal - Spain border is 1,214 kms long, making it the longest uninterrupted border within the European Union. The republic also includes the Atlantic archipelagos of the Azores and Madeira, both autonomous regions with their own regional governments.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Vienna is the capital of</p>",
+    "options": [
+      "Austria",
+      "Hungary",
+      "Serbia",
+      "Belgium",
+      "Croatia"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Vienna is the capital and largest city of Austria and one of the nine states of Austria. Vienna is Austria's primary city, with a population of about 1.8 million, and its cultural, economic, and political centre. It is the 7th-largest city by population within city limits in the European Union. Until the beginning of the 20<sup>th</sup> century, it was the largest German-speaking city in the world, and before the splitting of the Austro-Hungarian Empire in World War I, the city had 2 million inhabitants. Today, it has the second largest number of German speakers after Berlin. Vienna is host to many major international organizations, including the United Nations and OPEC. The city is located in the eastern part of Austria and is close to the borders of the Czech Republic, Slovakia, and Hungary.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Capital of Armenia is</p>",
+    "options": [
+      "Tbilisi",
+      "Baku",
+      "Yerevan",
+      "Ankara",
+      "Tehran"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Yerevan is the capital and largest city of Armenia as well as one of the world's oldest continuously inhabited cities. Situated along the Hrazdan River, Yerevan is the administrative, cultural, and industrial centre of the country. It has been the capital since 1918, the thirteenth in the history of Armenia, and the seventh located in or around the Ararat plain.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Nicosia is the capital of</p>",
+    "options": [
+      "Cyprus",
+      "Turkey",
+      "Jordan",
+      "Lebanon",
+      "Syria"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Nicosia is the largest city on the island of Cyprus. It is located near the centre of the Mesaoria plain, on the banks of the River Pedieos. Nicosia is the capital and seat of government of the Republic of Cyprus, and as such is the farthest southeast of all EU member states' capitals. It has been continuously inhabited for over 4,500 years and has been the capital of Cyprus since the 10<sup>th</sup> century. The Greek Cypriot and Turkish Cypriot communities of Nicosia segregated into the south and north of the city respectively in 1963, following the intercommunal violence that broke out in the city. This division became a militarized border between the Republic of Cyprus and Northern Cyprus after Turkey invaded the island of Cyprus in 1974, occupying the north of the island, including northern Nicosia. Today, the northern part of the city is the capital of Northern Cyprus, a state recognized only by Turkey that is considered to be occupied Cypriot territory by the international community.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>What is the capital of Denmark?</p>",
+    "options": [
+      "Brussels",
+      "Oslo",
+      "Stockholm",
+      "Copenhagen",
+      "Helsinki"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Copenhagen is the capital and most populous city of Denmark. Copenhagen is situated on the eastern coast of the island of Zealand; another small portion of the city is located on Amager, and is separated from Malmo, Sweden, by the strait of Oresund. The Oresund Bridge connects the two cities by rail and road.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Roseau is the capital of</p>",
+    "options": [
+      "St Lucia",
+      "Dominica",
+      "Barbados",
+      "Grenada",
+      "Trinidad and Tobago"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Roseau is the capital and largest city of Dominica, with a population of 16,582. It is a small and compact urban settlement, in the Saint George parish and surrounded by the Caribbean Sea, the Roseau River and Morne Bruce. Built on the site of the ancient Kalinago Indian village of Sairi, it is the oldest and most important urban settlement on the island of Dominica. It is on the west (leeward) coast of Dominica and has a combination of modern and colonial French architecture. Roseau is Dominica's most important port for foreign trade. Some exports include bananas, bay oil, vegetables, grapefruit, oranges, and cocoa. The service sector is also a large part of the local economy.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>What is the capital of Iraq?</p>",
+    "options": [
+      "Baghdad",
+      "Damascus",
+      "Tehran",
+      "Beirut",
+      "Amman"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Baghdad is the capital of Iraq. Located along the Tigris River, the city was founded in the 8<sup>th</sup> century and became the capital of the Abbasid Caliphate. Within a short time of its inception, Baghdad evolved into a significant cultural, commercial, and intellectual centre for the Islamic world. This, in addition to housing several key academic institutions (e.g., House of Wisdom), garnered the city a worldwide reputation as the \"Centre of Learning\".</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>The capital of Libya is</p>",
+    "options": [
+      "Tunis",
+      "Rabat",
+      "Marrakesh",
+      "Amman",
+      "Tripoli"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Tripoli is the capital city and the largest city of Libya. Tripoli, with its metropolitan area, has a population of about 1.1 million people. The city is located in the north-western part of Libya on the edge of the desert, on a point of rocky land projecting into the Mediterranean and forming a bay. Tripoli includes the Port of Tripoli and the country's largest commercial and manufacturing centre. It is also the site of the University of Tripoli. The vast Bab al-Azizia barracks, which includes the former family estate of Muammar Gaddafi, is also located in the city. Colonel Gaddafi largely ruled the country from his residence in this barracks.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Currency of Austria is</p>",
+    "options": [
+      "Dinar",
+      "Euro",
+      "Riyal",
+      "Dirham",
+      "Peso"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The euro (sign: &#8364;; code: EUR) is the official currency of the eurozone, which consists of 19 of the 28 member states of the European Union: Austria, Belgium, Cyprus, Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, the Netherlands, Portugal, Slovakia, Slovenia, and Spain.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Currency of Azerbaijan is</p>",
+    "options": [
+      "Taka",
+      "Peso",
+      "Manat",
+      "Riyal",
+      "Rand"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The manat (code: AZN) is the currency of Azerbaijan. It is subdivided into 100 q&#601;pik. The word manat is borrowed from the Russian word &#1052;&#1086;&#1085;&#1077;&#1090;&#1072; \"moneta\" (coin) which is pronounced as \"manta\" and is a loanword from Latin. Manat was also the designation of the Soviet ruble in both the Azerbaijani and Turkmen languages. The Azerbaijani manat symbol, &#8380;, was assigned to Unicode U+20BC in 2013. A lowercase m. or man. can be used as a substitute for the manat symbol.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Currency of Hungary is</p>",
+    "options": [
+      "Lira",
+      "Franc",
+      "Forint",
+      "Krone",
+      "Euro"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The forint (sign: Ft; code: HUF) is the currency of Hungary. It was formerly divided into 100 fill&#233;r, but fill&#233;r coins are no longer in circulation. The introduction of the forint on 1 August 1946 was a crucial step in the post-World War II stabilization of the Hungarian economy, and the currency remained relatively stable until the 1980s. Transition to a market economy in the early 1990s adversely affected the value of the forint; inflation peaked at 35% in 1991. Since 2001, inflation is in single digits, and the forint has been declared fully convertible.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>What is the currency of Indonesia?</p>",
+    "options": [
+      "Ringgit",
+      "Rupiah",
+      "Taka",
+      "Krone",
+      "Peso"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The rupiah (Rp) is the official currency of Indonesia. Issued and controlled by the Bank of Indonesia, the ISO 4217 currency code for the Indonesian rupiah is IDR. The name \"rupiah\" is derived from the Hindustani word rupiy, ultimately from Sanskrit rupya. Informally, Indonesians also use the word \"perak\" ('silver' in Indonesian) in referring to rupiah. The rupiah is subdivided into 100 sen, although inflation has rendered all coins and banknotes denominated in sen obsolete.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Currency of Niger is</p>",
+    "options": [
+      "Peso",
+      "Dollar",
+      "Franc",
+      "Kyat",
+      "Shilling"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The West African CFA franc (ISO 4217 code: XOF) is the currency of eight independent states in West Africa: Benin, Burkina Faso, Guinea-Bissau, Ivory Coast, Mali, Niger, Senegal and Togo.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Currency of Saudi Arabia is</p>",
+    "options": [
+      "Rial",
+      "Dirham",
+      "Dinar",
+      "Riyal",
+      "Som"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Saudi riyal is the currency of Saudi Arabia. It is abbreviated as SR (Saudi riyal). It is subdivided into 100 halalas. The riyal has been the currency of Saudi Arabia since the country came into being and was the currency of Hejaz before Saudi Arabia was created, one of the primary currencies in the Mediterranean region during the Ottoman era.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>What is the currency of Sweden?</p>",
+    "options": [
+      "Krona",
+      "Euro",
+      "Peso",
+      "Rubel",
+      "Franc"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The krona has been the currency of Sweden since 1873. In English, the currency is sometimes referred to as the Swedish crown, as krona literally means crown in Swedish. One krona is subdivided into 100 ore. However, all ore coins have been discontinued as of 30 September 2010. Goods can still be priced in ore, but all sums are rounded to the nearest krona when paying with cash.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Currency of Sri Lanka is</p>",
+    "options": [
+      "Celone",
+      "Rupee",
+      "Pound",
+      "Rupiah",
+      "Taka"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The rupee the currency of Sri Lanka, divided into 100 cents. It is issued by the Central Bank of Sri Lanka. The abbreviation is generally Rs., but SLRs. is occasionally used to distinguish it from other currencies also called rupee.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>What is the currency of Zambia?</p>",
+    "options": [
+      "Rand",
+      "Rial",
+      "Kwacha",
+      "Dinar",
+      "Dirham"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Kwacha (ISO 4217 code: ZMW) is the currency of Zambia. It is subdivided into 100 Ngwee. The name 'Kwacha' derives from the Nyanja word for \"dawn\", alluding to the Zambian nationalist slogan of a \"new dawn of freedom\". The name ngwee translates as \"bright\" in the Nyanja language.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

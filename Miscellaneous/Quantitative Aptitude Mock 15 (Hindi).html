@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Mock 15 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>Find the sum of all the numbers between 150 and 450 which are divisible by 17.</p></span><span class=\"hqt\" style=\"display:none\"><p>150 &#2360;&#2375; 450 &#2325;&#2375; &#2348;&#2368;&#2330;, 17 &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2361;&#2379;&#2344;&#2375; &#2357;&#2366;&#2354;&#2368; &#2360;&#2349;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2323;&#2306; &#2325;&#2366; &#2351;&#2379;&#2327; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">5355</span><span class=\"hqt\" style=\"display:none\">5355</span>",
+      "<span class=\"eqt\">6521</span><span class=\"hqt\" style=\"display:none\">6521</span>",
+      "<span class=\"eqt\">4998</span><span class=\"hqt\" style=\"display:none\">4998</span>",
+      "<span class=\"eqt\">5975</span><span class=\"hqt\" style=\"display:none\">5975</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The least such number = 17*9 = 153</p><p>The highest such number = 17*26 = 442</p><p>Therefore the required sum = (17*9) + (17*10) +....+ (17*26) = 17*(9+10+...+26)</p><p>Let x = (9 + 10 + ... + 26)</p><p>Therefore the required number is 17x.</p><p>Now, x = 9 + 10 + ... + 26</p><p>Here number of terms are 18.</p><p>9 + 10 + ... + 26 = 18(1<sup>st</sup> term+ last term)/2 = 9(9+26) = 315</p><p>Hence the required number is 17x = 17*315 = 5355</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the compound interest accrued on an amount of Rs. 18,000 at the rate of 9% per annum at the end of 3 years?</p></span><span class=\"hqt\" style=\"display:none\"><p>18,000 &#2352;&#2369;&#2346;&#2351;&#2375; &#2325;&#2368; &#2352;&#2366;&#2358;&#2367; &#2346;&#2352; 9% &#2357;&#2366;&#2352;&#2381;&#2359;&#2367;&#2325; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; 3 &#2357;&#2352;&#2381;&#2359; &#2325;&#2375; &#2309;&#2306;&#2340; &#2350;&#2375;&#2306; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2330;&#2325;&#2381;&#2352;&#2357;&#2371;&#2342;&#2381;&#2343;&#2367; &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs. 5310.52</span><span class=\"hqt\" style=\"display:none\">5310.52 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs. 5758.86</span><span class=\"hqt\" style=\"display:none\">5758.86 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs. 4935.64</span><span class=\"hqt\" style=\"display:none\">4935.64 &#2352;&#2369;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs. 3965.89</span><span class=\"hqt\" style=\"display:none\">3965.89 &#2352;&#2369;&#2346;&#2351;&#2375;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Given, P = Rs. 18,000 ; R = 9 % ; T = 3 years</p><p>C.I. = P [(1+R/100)<sup>T </sup> -  1]</p><p>= 18000 [(1+9/100)<sup>3</sup>  -  1]</p><p>= 18000 [(109/100)<sup>3</sup>  -  1]</p><p>= 18000 [1.295  -  1]</p><p>= 18000 [0.295]</p><p>= Rs. 5310.52</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x = <img width=89 height=53 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3758/image003.png\">, what is the value of (&radic;3 + x)/(&radic;3  -  x)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x = <img width=\"89\" height=\"53\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3758/image003.png\"> &#2361;&#2376;, &#2340;&#2379; (&radic;3 + x)/(&radic;3 - x) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">5 &#8722; 2&radic;6</span><span class=\"hqt\" style=\"display:none\">5 &#8722; 2&radic;6</span>",
+      "<span class=\"eqt\">5 + 2&radic;6</span><span class=\"hqt\" style=\"display:none\">5 + 2&radic;6</span>",
+      "<span class=\"eqt\">5 + &radic;6</span><span class=\"hqt\" style=\"display:none\">5 + &radic;6</span>",
+      "<span class=\"eqt\">5 &#8722; &radic;6</span><span class=\"hqt\" style=\"display:none\">5 &#8722; &radic;6</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>x = <img width=89 height=53 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3758/image003.png\"></p><p>=&gt; x = <img width=133 height=72 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3758/image004.png\"></p><p>=&gt; x = 1 + 1/(1 + x)</p><p>=&gt; x(1 + x) = 1 + x + 1</p><p>=&gt; x + x<sup>2</sup> = 2 + x</p><p>=&gt; x<sup>2</sup> = 2</p><p>=&gt; x = &radic;2</p><p>x &#8800; &#8722;&radic;2 as none of the terms in the continued fraction is negative.</p><p>&#8756; (&radic;3 + x)/(&radic;3  -  x)</p><p>= (&radic;3 + &radic;2)/(&radic;3 &#8722; &radic;2)</p><p>= (&radic;3 + &radic;2)(&radic;3 + &radic;2)/(&radic;3 &#8722; &radic;2)(&radic;3 + &radic;2)</p><p>= (&radic;3 + &radic;2)<sup>2</sup></p><p>= 5 + 2&radic;6</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If 8<sup>x</sup> &div; 4<sup>2x  -  3</sup> = 4, then what is the value of (3<sup>x</sup>  -  x<sup>3</sup>)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 8<sup>x</sup> &div; 4<sup>2x - 3</sup> = 4 &#2361;&#2376;, &#2340;&#2379; (3<sup>x</sup> - x<sup>3</sup>) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">18</span><span class=\"hqt\" style=\"display:none\">18</span>",
+      "<span class=\"eqt\">11</span><span class=\"hqt\" style=\"display:none\">11</span>",
+      "<span class=\"eqt\">14</span><span class=\"hqt\" style=\"display:none\">14</span>",
+      "<span class=\"eqt\">17</span><span class=\"hqt\" style=\"display:none\">17</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>8<sup>x</sup> &div; 4<sup>2x  -  3</sup> = 4</p><p>(2<sup>3</sup>)<sup>x</sup> &div; (2<sup>2</sup>)<sup>2x  -  3</sup> = 2<sup>2</sup></p><p>2<sup>3x</sup> &div; 2<sup>4x  -  6</sup> = 2<sup>2</sup></p><p>(2<sup>3x</sup>/2<sup>4x  -  6</sup>) = 2<sup>2</sup></p><p>(2<sup>3x  -  4x + 6</sup>) = 2<sup>2</sup></p><p>2<sup>6  -  x</sup> = 2<sup>2</sup></p><p>(6  -  x) = 2</p><p>x = 4</p><p>= (3<sup>x</sup>  -  x<sup>3</sup>)</p><p>= (3<sup>4</sup>  -  4<sup>3</sup>)</p><p>= (81  -  64)</p><p>= 17</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (sin60<sup>0</sup> + sec30<sup>0</sup>)<sup>2</sup> + (cos45<sup>0</sup> + cosec45<sup>0</sup>)<sup>2</sup> = p + sin30<sup>0</sup> + (1/12), then what is the value of 'p'?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (sin60<sup>0</sup> + sec30<sup>0</sup>)<sup>2</sup> + (cos45<sup>0</sup> + cosec45<sup>0</sup>)<sup>2</sup> = p + sin30<sup>0</sup> + (1/12) &#2361;&#2376;, &#2340;&#2379; 'p' &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>",
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>",
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>",
+      "<span class=\"eqt\">12</span><span class=\"hqt\" style=\"display:none\">12</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>(sin60<sup>0</sup> + sec30<sup>0</sup>)<sup>2</sup> + (cos45<sup>0</sup> + cosec45<sup>0</sup>)<sup>2</sup> = p + sin30<sup>0</sup> + (1/12)</p><p>[(&radic;3/2) + (2/&radic;3)]<sup>2</sup> + [(1/&radic;2) + (&radic;2)]<sup>2</sup> = p + (1/2) + (1/12)</p><p>[(3 + 4)/2&radic;3]<sup>2</sup> + [(1 + 2)/&radic;2]<sup>2</sup> = p + [(6 + 1)/12]</p><p>(49/12) + (9/2)  -  (7/12) = p</p><p>p = (49 + 54  -  7)/12</p><p>p = 96/12</p><p>p = 8</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A &#9651;ABC is inscribed in a circle whose centre is O. &#8736;OAC = 25<sup>0</sup>, then what is the measure of &#8736;ABC?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2375; &#2309;&#2306;&#2340;&#2352;&#2381;&#2327;&#2340; &#2319;&#2325; &#9651;ABC &#2309;&#2306;&#2325;&#2367;&#2340; &#2361;&#2376;, &#2332;&#2367;&#2360;&#2325;&#2366; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; O &#2361;&#2376;| &#8736;OAC = 25<sup>0 </sup>&#2361;&#2376;, &#2340;&#2379; &#8736;ABC &#2325;&#2366; &#2350;&#2366;&#2346; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">55<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">55<sup>0</sup></span>",
+      "<span class=\"eqt\">65<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">65<sup>0</sup></span>",
+      "<span class=\"eqt\">75<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">75<sup>0</sup></span>",
+      "<span class=\"eqt\">80<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">80<sup>0</sup></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=168 height=152 id=\"Picture 56\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3792/image013.jpg\"></p><p>In &#9651;AOC, &#8736;OAC = &#8736;OCA= 25<sup>0</sup> [OA = OC = Radius]</p><p>&#8736;AOC = 180<sup>0</sup>  -  (&#8736;OCA + &#8736;OAC)</p><p>= 180<sup>0</sup>  -  (25<sup>0</sup> + 25<sup>0</sup>)</p><p>= 130<sup>0</sup></p><p>&#8736;ABC = &#8736;AOC/2 [The angle subtended by an arc at the centre is double the angle subtended by it at any point on the remaining part of the circle.]</p><p>= 130<sup>0</sup>/2</p><p>= 65<sup>0</sup></p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a triangle MNO, &#8736;NMO = 50<sup>0</sup>, then find the measure of &#8736;NPO if NP and OP are angle bisector of &#8736;MNO and &#8736;MON respectively.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; MNO &#2350;&#2375;&#2306;, &#8736;NMO = 50<sup>0 </sup>&#2361;&#2376;| &#2351;&#2342;&#2367; NP &#2324;&#2352; OP &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; &#8736;MNO &#2324;&#2352; &#8736;MON &#2325;&#2375; &#2325;&#2379;&#2339; &#2325;&#2366; &#2360;&#2350;&#2342;&#2381;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; &#2361;&#2376;, &#2340;&#2379; &#8736;NPO &#2325;&#2366; &#2325;&#2379;&#2339; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">115<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">115<sup>0</sup></span>",
+      "<span class=\"eqt\">120<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">120<sup>0</sup></span>",
+      "<span class=\"eqt\">125<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">125<sup>0</sup></span>",
+      "<span class=\"eqt\">140<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">140<sup>0</sup></span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><img width=214 height=176 id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3792/image019.png\"></p><p>Since, NP and OP are angle bisector of &#8736;MNO and &#8736;MON respectively.</p><p>&#8736;PNO = &#8736;MNO/2 =&gt; &#8736;MNO = 2 * &#8736;PNO</p><p>&#8736;PON = &#8736;MON/2 =&gt; &#8736;MON = 2 * &#8736;PON</p><p>In &#9651;MNO,</p><p>&#8736;NMO + &#8736;MNO + &#8736;MON = 180<sup>0</sup></p><p>50<sup>0</sup> + &#8736;MNO + &#8736;MON = 180<sup>0</sup></p><p>&#8736;MNO + &#8736;MON = 180<sup>0</sup>  -  50<sup>0</sup> = 130<sup>0</sup></p><p>2 * &#8736;PNO + 2 * &#8736;PON = 130<sup>0</sup></p><p>&#8736;PNO + &#8736;PON = 130<sup>0</sup>/2 = 65<sup>0</sup> ...... (1)</p><p>In &#9651;PNO,</p><p>&#8736;NPO + &#8736;PNO + &#8736;PON = 180<sup>0</sup></p><p>From equation (1)-</p><p>&#8736;NPO + 65<sup>0</sup> = 180<sup>0</sup></p><p>&#8736;NPO = 180<sup>0</sup>  -  65<sup>0</sup> = 115<sup>0</sup></p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A bag contains 750 mangoes, out of which 14% are red in colour, 24% are yellow in colour and rest are green in colour. Find the number of green coloured mangoes.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2341;&#2376;&#2354;&#2375; &#2350;&#2375;&#2306; 750 &#2310;&#2350; &#2361;&#2376;&#2306;, &#2332;&#2367;&#2344;&#2350;&#2375;&#2306; &#2360;&#2375; 14% &#2310;&#2350; &#2354;&#2366;&#2354; &#2352;&#2306;&#2327; &#2325;&#2375; &#2361;&#2376;&#2306;, 24% &#2310;&#2350; &#2346;&#2368;&#2354;&#2375; &#2352;&#2306;&#2327; &#2325;&#2375; &#2361;&#2376;&#2306; &#2324;&#2352; &#2358;&#2375;&#2359; &#2310;&#2350; &#2361;&#2352;&#2375; &#2352;&#2306;&#2327; &#2325;&#2375; &#2361;&#2376;&#2306;| &#2361;&#2352;&#2375; &#2352;&#2306;&#2327; &#2325;&#2375; &#2310;&#2350;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">470</span><span class=\"hqt\" style=\"display:none\">470</span>",
+      "<span class=\"eqt\">465</span><span class=\"hqt\" style=\"display:none\">465</span>",
+      "<span class=\"eqt\">455</span><span class=\"hqt\" style=\"display:none\">455</span>",
+      "<span class=\"eqt\">450</span><span class=\"hqt\" style=\"display:none\">450</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Percentage of green coloured mangoes = (100  -  14  -  24) = 62%</p><p>Number of green coloured mangoes = 62/100 x 750 = 465</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x + (1/x) = 4, what is the value of x<sup>5</sup> + (1/x<sup>5</sup>)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x + (1/x) = 4 &#2361;&#2376;, &#2340;&#2379; x<sup>5</sup> + (1/x<sup>5</sup>) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">202</span><span class=\"hqt\" style=\"display:none\">202</span>",
+      "<span class=\"eqt\">404</span><span class=\"hqt\" style=\"display:none\">404</span>",
+      "<span class=\"eqt\">724</span><span class=\"hqt\" style=\"display:none\">724</span>",
+      "<span class=\"eqt\">1616</span><span class=\"hqt\" style=\"display:none\">1616</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>x + 1/x = 4</p><p>=&gt; (x + 1/x)<sup>2</sup> = 4<sup>2</sup></p><p>=&gt; x<sup>2</sup> + 1/x<sup>2</sup> + 2*x(1/x) = 16</p><p>=&gt; x<sup>2</sup> + 1/x<sup>2</sup> = 14</p><p>x + 1/x = 4</p><p>=&gt; (x + 1/x)<sup>3</sup> = 4<sup>3</sup></p><p>=&gt; x<sup>3</sup> + 1/x<sup>3</sup> + 3*x*(1/x)(x + 1/x) = 64</p><p>=&gt; x<sup>3</sup> + 1/x<sup>3</sup> + 3*4 = 64</p><p>=&gt; x<sup>3</sup> + (1/x)<sup>3</sup> = 52</p><p>&#8756; (x<sup>2</sup> + 1/x<sup>2</sup>)(x<sup>3</sup> + 1/x<sup>3</sup>) = 14*52</p><p>x<sup>5</sup> + 1/x + x + 1/x<sup>5</sup> = 728</p><p>x<sup>5</sup> + 1/x<sup>5</sup> + 4 = 728</p><p>x<sup>5</sup> + (1/x<sup>5</sup>) = 724</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If cos<sup>2</sup>x = 4sinx, what is the value of cosec x?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; cos<sup>2</sup>x = 4sinx &#2361;&#2376;, &#2340;&#2379; cosec x &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">&radic;5 + 2</span><span class=\"hqt\" style=\"display:none\">&radic;5 + 2</span>",
+      "<span class=\"eqt\">&radic;5 &#8722; 2</span><span class=\"hqt\" style=\"display:none\">&radic;5 &#8722; 2</span>",
+      "<span class=\"eqt\">2 &#8722; &radic;5</span><span class=\"hqt\" style=\"display:none\">2 &#8722; &radic;5</span>",
+      "<span class=\"eqt\">2 + &radic;5</span><span class=\"hqt\" style=\"display:none\">2 + &radic;5</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>cos<sup>2</sup>x = 4sinx</p><p>=&gt; 1  -  sin<sup>2</sup>x = 4sinx</p><p>=&gt; sin<sup>2</sup>x + 4sin x  -  1 = 0</p><p>=&gt; sin<sup>2</sup>x + 2*sin x*2 + 2<sup>2</sup>  -  2<sup>2</sup>  -  1 = 0</p><p>=&gt; (sin x + 2)<sup>2</sup> = 5</p><p>=&gt; sin x + 2 = &#177;&radic;5</p><p>If sin x + 2 = &#8722;&radic;5</p><p>sin x = &#8722; 2 &#8722; &radic;5 [Not possible as &#8722;1&le;sin x&le;1]</p><p>&#8756; sin x = &radic;5  -  2</p><p>&#8756; cosec x = 1/(&radic;5  -  2)</p><p>= (&radic;5 + 2)/(&radic;5  -  2)(&radic;5 + 2)</p><p>= &radic;5 + 2</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If A + B = 90&deg;, what is the simplified value of </p><p>(cos<sup>3</sup>A + cos B)/(1 + tan A + cot<sup>3</sup>B)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; A + B = 90&deg; &#2361;&#2376;, &#2340;&#2379; (cos<sup>3</sup>A + cos B)/(1 + tan A + cot<sup>3</sup>B) &#2325;&#2366; &#2360;&#2352;&#2354;&#2368;&#2325;&#2371;&#2340; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">cos<sup>3</sup>A</span><span class=\"hqt\" style=\"display:none\">cos<sup>3</sup>A</span>",
+      "<span class=\"eqt\">sin<sup>3</sup>A</span><span class=\"hqt\" style=\"display:none\">sin<sup>3</sup>A</span>",
+      "<span class=\"eqt\">cot<sup>3</sup>A</span><span class=\"hqt\" style=\"display:none\">cot<sup>3</sup>A</span>",
+      "<span class=\"eqt\">tan<sup>3</sup>A</span><span class=\"hqt\" style=\"display:none\">tan<sup>3</sup>A</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>A + B = 90&deg;</p><p>&#8756; cos B = sin A and tan A = cot B</p><p>cos<sup>3</sup>A + cos B</p><p>= cos<sup>3</sup>A + sin A</p><p>= cos<sup>3</sup>A(1 + sin A/cos<sup>3</sup> A)</p><p>= cos<sup>3</sup>A(1 + (1/cos<sup>2</sup>A)(sin A/cos A))</p><p>= cos<sup>3</sup>A(1 + sec<sup>2</sup>A tan A)</p><p>= cos<sup>3</sup>A(1 + (1 + tan<sup>2</sup>A)tan A)</p><p>= cos<sup>3</sup>A(1 + tan A + tan<sup>3</sup>A)</p><p>= cos<sup>3</sup>A(1 + tan A + cot<sup>3</sup>B)</p><p>&#8756; (cos<sup>3</sup>A + cos B)/(1 + tan A + cot<sup>3</sup>B)</p><p>= cos<sup>3</sup>A</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a parallelogram ABCD, perpendicular distance between sides AB and CD is 10 cm while that of between sides AD and BC is 15 cm and area of ABCD is 240 cm<sup>2</sup>, then what is the difference between length of sides AB and AD?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2366;&#2350;&#2366;&#2344;&#2366;&#2306;&#2340;&#2352; &#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; ABCD &#2350;&#2375;&#2306;, &#2349;&#2369;&#2332;&#2366; AB &#2324;&#2352; &#2349;&#2369;&#2332;&#2366; CD &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2368; &#2354;&#2306;&#2348;&#2357;&#2340; &#2342;&#2370;&#2352;&#2368; 10 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376; &#2324;&#2352; &#2349;&#2369;&#2332;&#2366; AD &#2324;&#2352; BC &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2368; &#2354;&#2306;&#2348;&#2357;&#2340; &#2342;&#2370;&#2352;&#2368; 15 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;&#2404; ABCD &#2325;&#2366; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2347;&#2354; 240 &#2357;&#2352;&#2381;&#2327; &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; &#2349;&#2369;&#2332;&#2366; <sup></sup>AB &#2324;&#2352; AD &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; &#2325;&#2366; &#2309;&#2306;&#2340;&#2352; &#2325;&#2381;&#2351;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">10 cm</span><span class=\"hqt\" style=\"display:none\">10 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">8 cm</span><span class=\"hqt\" style=\"display:none\">8 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">9 cm</span><span class=\"hqt\" style=\"display:none\">9 &#2360;&#2375;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">4 cm</span><span class=\"hqt\" style=\"display:none\">4 &#2360;&#2375;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=183 height=119 id=\"Picture 13\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3879/image006.jpg\"></p><p>AP = 10 cm and AQ = 15 cm</p><p>Area of ABCD = AB * AP = AD * AQ</p><p>240 = AB * 10 = AD * 15</p><p>AB = 24 cm AD = 16 cm</p><p>Required difference = 24  -  16 = 8 cm</p>",
+    "question_index": 11
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Table given below shows the total monthly salary (in rupees) and basic salary of four different employees of a company.</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Persons</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total Monthly Salary</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Basic Salary</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Pankaj</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Sushil</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18000</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Santosh</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">60%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Pawan</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24000</td></tr></table><p>Note: Total Monthly salary = Basic Salary + Allowance</p><p>Basic salary is given as a percentage of total monthly salary.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]:</b> &#2344;&#2368;&#2330;&#2375; &#2342;&#2368; &#2327;&#2312; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2350;&#2375;&#2306; &#2319;&#2325; &#2325;&#2306;&#2346;&#2344;&#2368; &#2325;&#2375; &#2330;&#2366;&#2352; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; (&#2352;&#2369;&#2346;&#2351;&#2375; &#2350;&#2375;&#2306;) &#2324;&#2352; &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;|</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2346;&#2306;&#2325;&#2332;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2360;&#2369;&#2358;&#2368;&#2354;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18000</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2360;&#2306;&#2340;&#2379;&#2359;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">60%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2346;&#2357;&#2344;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24000</td></tr></table><p>&#2344;&#2379;&#2335;: &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; = &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; + &#2349;&#2340;&#2381;&#2340;&#2366;</p><p>&#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;, &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; &#2325;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;|</p></span>",
+    "question": "<span class=\"eqt\"><p>Total monthly allowance of Pawan is what percent of his total monthly basic salary?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2346;&#2357;&#2344; &#2325;&#2366; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2349;&#2340;&#2381;&#2340;&#2366;, &#2313;&#2360;&#2325;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; &#2325;&#2366; &#2325;&#2367;&#2340;&#2344;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">50%</span><span class=\"hqt\" style=\"display:none\">50%</span>",
+      "<span class=\"eqt\">40%</span><span class=\"hqt\" style=\"display:none\">40%</span>",
+      "<span class=\"eqt\">60%</span><span class=\"hqt\" style=\"display:none\">60%</span>",
+      "<span class=\"eqt\">75%</span><span class=\"hqt\" style=\"display:none\">75%</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Total monthly basic salary of Pawan = Rs.24000</p><p>Total monthly allowance of Pawan = 36000  -  24000 = Rs.12000</p><p>Required percentage = (12000/24000) * 100 = 50%</p>",
+    "question_index": 12
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Table given below shows the total monthly salary (in rupees) and basic salary of four different employees of a company.</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Persons</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total Monthly Salary</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Basic Salary</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Pankaj</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Sushil</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18000</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Santosh</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">60%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Pawan</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24000</td></tr></table><p>Note: Total Monthly salary = Basic Salary + Allowance</p><p>Basic salary is given as a percentage of total monthly salary.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]:</b> &#2344;&#2368;&#2330;&#2375; &#2342;&#2368; &#2327;&#2312; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2350;&#2375;&#2306; &#2319;&#2325; &#2325;&#2306;&#2346;&#2344;&#2368; &#2325;&#2375; &#2330;&#2366;&#2352; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; (&#2352;&#2369;&#2346;&#2351;&#2375; &#2350;&#2375;&#2306;) &#2324;&#2352; &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;|</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2346;&#2306;&#2325;&#2332;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2360;&#2369;&#2358;&#2368;&#2354;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18000</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2360;&#2306;&#2340;&#2379;&#2359;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">60%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2346;&#2357;&#2344;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24000</td></tr></table><p>&#2344;&#2379;&#2335;: &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; = &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; + &#2349;&#2340;&#2381;&#2340;&#2366;</p><p>&#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;, &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; &#2325;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;|</p></span>",
+    "question": "<span class=\"eqt\"><p>Total monthly basic salary of Santosh is how much more than the total monthly allowance of Sushil?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2306;&#2340;&#2379;&#2359; &#2325;&#2366; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;, &#2360;&#2369;&#2358;&#2368;&#2354; &#2325;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2349;&#2340;&#2381;&#2340;&#2375; &#2360;&#2375; &#2325;&#2367;&#2340;&#2344;&#2366; &#2309;&#2343;&#2367;&#2325; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs.18000</span><span class=\"hqt\" style=\"display:none\">18000 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.15000</span><span class=\"hqt\" style=\"display:none\">15000 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.16000</span><span class=\"hqt\" style=\"display:none\">16000 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.20000</span><span class=\"hqt\" style=\"display:none\">20000 &#2352;&#2370;&#2346;&#2351;&#2375;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Total monthly basic salary of Santosh = 60% of 45000 = Rs.27000</p><p>Total monthly allowance of Sushil = 30000  -  18000 = Rs.12000</p><p>Required amount = 27000  -  12000 = Rs.15000</p>",
+    "question_index": 13
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Table given below shows the total monthly salary (in rupees) and basic salary of four different employees of a company.</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Persons</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total Monthly Salary</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Basic Salary</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Pankaj</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Sushil</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18000</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Santosh</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">60%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Pawan</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24000</td></tr></table><p>Note: Total Monthly salary = Basic Salary + Allowance</p><p>Basic salary is given as a percentage of total monthly salary.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]:</b> &#2344;&#2368;&#2330;&#2375; &#2342;&#2368; &#2327;&#2312; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2350;&#2375;&#2306; &#2319;&#2325; &#2325;&#2306;&#2346;&#2344;&#2368; &#2325;&#2375; &#2330;&#2366;&#2352; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; (&#2352;&#2369;&#2346;&#2351;&#2375; &#2350;&#2375;&#2306;) &#2324;&#2352; &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;|</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2346;&#2306;&#2325;&#2332;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2360;&#2369;&#2358;&#2368;&#2354;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18000</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2360;&#2306;&#2340;&#2379;&#2359;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">60%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2346;&#2357;&#2344;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24000</td></tr></table><p>&#2344;&#2379;&#2335;: &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; = &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; + &#2349;&#2340;&#2381;&#2340;&#2366;</p><p>&#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;, &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; &#2325;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;|</p></span>",
+    "question": "<span class=\"eqt\"><p>What is the ratio of total Monthly allowance of Pankaj to the total monthly basic salary of Sushil?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2346;&#2306;&#2325;&#2332; &#2325;&#2366; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2349;&#2340;&#2381;&#2340;&#2366; &#2324;&#2352; &#2360;&#2369;&#2358;&#2368;&#2354; &#2325;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">64: 127</span><span class=\"hqt\" style=\"display:none\">64: 127</span>",
+      "<span class=\"eqt\">4: 9</span><span class=\"hqt\" style=\"display:none\">4: 9</span>",
+      "<span class=\"eqt\">16: 81</span><span class=\"hqt\" style=\"display:none\">16: 81</span>",
+      "<span class=\"eqt\">2: 3</span><span class=\"hqt\" style=\"display:none\">2: 3</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Total Monthly allowance of Pankaj = 25% of 32000 = Rs.8000</p><p>Total monthly basic salary of Sushil = Rs.18000</p><p>Required ratio = 8000: 18000 = 4: 9</p>",
+    "question_index": 14
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Table given below shows the total monthly salary (in rupees) and basic salary of four different employees of a company.</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Persons</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total Monthly Salary</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Basic Salary</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Pankaj</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Sushil</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18000</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Santosh</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">60%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Pawan</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24000</td></tr></table><p>Note: Total Monthly salary = Basic Salary + Allowance</p><p>Basic salary is given as a percentage of total monthly salary.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]:</b> &#2344;&#2368;&#2330;&#2375; &#2342;&#2368; &#2327;&#2312; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2350;&#2375;&#2306; &#2319;&#2325; &#2325;&#2306;&#2346;&#2344;&#2368; &#2325;&#2375; &#2330;&#2366;&#2352; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; (&#2352;&#2369;&#2346;&#2351;&#2375; &#2350;&#2375;&#2306;) &#2324;&#2352; &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;|</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2346;&#2306;&#2325;&#2332;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">75%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2360;&#2369;&#2358;&#2368;&#2354;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18000</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2360;&#2306;&#2340;&#2379;&#2359;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">60%</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2346;&#2357;&#2344;</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36000</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24000</td></tr></table><p>&#2344;&#2379;&#2335;: &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; = &#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344; + &#2349;&#2340;&#2381;&#2340;&#2366;</p><p>&#2350;&#2370;&#2354; &#2357;&#2375;&#2340;&#2344;, &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; &#2325;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;|</p></span>",
+    "question": "<span class=\"eqt\"><p>Total monthly allowance of all the four employees together is what part of total monthly salary of Sushil and Santosh together?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2349;&#2368; &#2330;&#2366;&#2352; &#2325;&#2352;&#2381;&#2350;&#2330;&#2366;&#2352;&#2367;&#2351;&#2379;&#2306; &#2325;&#2366; &#2360;&#2306;&#2351;&#2369;&#2325;&#2381;&#2340; &#2352;&#2370;&#2346; &#2360;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2349;&#2340;&#2381;&#2340;&#2366;, &#2360;&#2369;&#2358;&#2368;&#2354; &#2324;&#2352; &#2360;&#2306;&#2340;&#2379;&#2359; &#2325;&#2375; &#2360;&#2306;&#2351;&#2369;&#2325;&#2381;&#2340; &#2352;&#2370;&#2346; &#2360;&#2375; &#2325;&#2369;&#2354; &#2350;&#2366;&#2360;&#2367;&#2325; &#2357;&#2375;&#2340;&#2344; &#2325;&#2366; &#2325;&#2367;&#2340;&#2344;&#2366; &#2349;&#2366;&#2327; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Two-third</span><span class=\"hqt\" style=\"display:none\">&#2342;&#2379;-&#2340;&#2367;&#2361;&#2366;&#2312;</span>",
+      "<span class=\"eqt\">One-third</span><span class=\"hqt\" style=\"display:none\">&#2319;&#2325;-&#2340;&#2367;&#2361;&#2366;&#2312;</span>",
+      "<span class=\"eqt\">Three-fourth</span><span class=\"hqt\" style=\"display:none\">&#2340;&#2368;&#2344;-&#2330;&#2380;&#2341;&#2366;&#2312;</span>",
+      "<span class=\"eqt\">Half</span><span class=\"hqt\" style=\"display:none\">&#2310;&#2343;&#2366;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Total monthly allowance of all the four employees together = (25% of 32000) + (30000  -  18000) + (40% of 45000) + (36000  -  24000) = 8000 + 12000 + 18000 + 12000 = Rs.50000</p><p>Total monthly salary of Sushil and Santosh together = 30000 + 45000 = Rs.75000</p><p>Required answer = 50000/75000 = 2/3</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If 4x<sup>3</sup>  -  5x<sup>2 </sup>+ 6x  -  81 is divisible by (x  -  k), then what is the value of K?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 4x<sup>3</sup> - 5x<sup>2 </sup>+ 6x - 81 &#2325;&#2379; (x - k) &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; K &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Since, 4x<sup>3</sup>  -  5x<sup>2 </sup>+ 6x  -  81 is divisible by (x  -  k)</p><p>=&gt; x = k must satisfy the given equation</p><p>=&gt; 4k<sup>3</sup>  -  5k<sup>2</sup> + 6k  -  81 = 0</p><p>=&gt; 4k<sup>3</sup>  -  12k<sup>2 </sup>+ 7k<sup>2 </sup> -  21k + 27k  -  81 = 0</p><p>=&gt; 4k<sup>2</sup>(k  -  3) + 7k(k  -  3) + 27(k  -  3) = 0</p><p>=&gt; (k  -  3)(4k<sup>2</sup> + 7k + 27) = 0</p><p>=&gt; k = 3 , k = (-7) &#177; &radic;(49  -  432)/8</p><p>=&gt; k = 3 and remaining values are imaginary</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the equation of line which makes 30<sup>0</sup> from y-axis and passes through point (0, &radic;3)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2352;&#2375;&#2326;&#2366; &#2332;&#2379; y-&#2309;&#2325;&#2381;&#2359; &#2360;&#2375; 30<sup>0</sup> &#2325;&#2366; &#2325;&#2379;&#2339; &#2348;&#2344;&#2366;&#2340;&#2368; &#2361;&#2376; &#2324;&#2352; &#2348;&#2367;&#2306;&#2342;&#2369; (0, &radic;3) &#2360;&#2375; &#2361;&#2379;&#2325;&#2352; &#2327;&#2369;&#2332;&#2352;&#2340;&#2368; &#2361;&#2376;, &#2313;&#2360; &#2352;&#2375;&#2326;&#2366; &#2325;&#2366; &#2360;&#2350;&#2368;&#2325;&#2352;&#2339; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">x  -  &radic;3y = 3</span><span class=\"hqt\" style=\"display:none\">x - &radic;3y = 3</span>",
+      "<span class=\"eqt\">x + &radic;3y + 3 = 0</span><span class=\"hqt\" style=\"display:none\">x + &radic;3y + 3 = 0</span>",
+      "<span class=\"eqt\">&radic;3x  -  &radic;3y = 1</span><span class=\"hqt\" style=\"display:none\">&radic;3x - &radic;3y = 1</span>",
+      "<span class=\"eqt\">x  -  &radic;3y + 3 = 0</span><span class=\"hqt\" style=\"display:none\">x - &radic;3y + 3 = 0</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Equation of line-</p><p>y = mx + c</p><p>Where, m = slope or tangent of angle from y-axis and c = y intercept</p><p>m = tan30<sup>0</sup> = 1/&radic;3</p><p>Required equation of line-</p><p>y = (x/&radic;3) + c</p><p>Since, this line passes through (0, &radic;3). So, this point must satisfy the equation of line.</p><p>(&radic;3) = (0/&radic;3) + c</p><p>c = &radic;3</p><p>Now, the equation of line-</p><p>y = (x/&radic;3) + &radic;3</p><p>&radic;3y = (x + 3)</p><p>x  -  &radic;3y + 3 = 0</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Train-A covered a distance of 2320 km in 16 hours. Speed of Train-B is four-fifth of the speed of the Train-A. How much distance will Train-C cover in 8 hours if the speed of the train-C is three-fourth of the speed of the Train-B?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2352;&#2375;&#2354; A, 2320 &#2325;&#2367;&#2350;&#2368; &#2325;&#2368; &#2319;&#2325; &#2342;&#2370;&#2352;&#2368; 16 &#2328;&#2306;&#2335;&#2375; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2368; &#2325;&#2352;&#2340;&#2368; &#2361;&#2376;&#2404; &#2352;&#2375;&#2354; B &#2325;&#2368; &#2327;&#2340;&#2367; &#2352;&#2375;&#2354; A &#2325;&#2368; &#2327;&#2340;&#2367; &#2325;&#2368; 4/5 &#2361;&#2376;&#2404; &#2352;&#2375;&#2354; C, 8 &#2328;&#2306;&#2335;&#2379;&#2306; &#2350;&#2375;&#2306; &#2325;&#2367;&#2340;&#2344;&#2368; &#2342;&#2370;&#2352;&#2368; &#2340;&#2351; &#2325;&#2352;&#2375;&#2327;&#2368; &#2351;&#2342;&#2367; &#2352;&#2375;&#2354; C &#2325;&#2368; &#2327;&#2340;&#2367; &#2352;&#2375;&#2354; B &#2325;&#2368; &#2327;&#2340;&#2367; &#2325;&#2368; 3/4 &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">704km</span><span class=\"hqt\" style=\"display:none\">704 &#2325;&#2367;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">696km</span><span class=\"hqt\" style=\"display:none\">696 &#2325;&#2367;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">684km</span><span class=\"hqt\" style=\"display:none\">684 &#2325;&#2367;&#2350;&#2368;</span>",
+      "<span class=\"eqt\">714km</span><span class=\"hqt\" style=\"display:none\">714 &#2325;&#2367;&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Speed of train A = 2320/16 = 145 km/hour</p> \n<p>Speed of train B = 145(4/5) = 116 km/hour</p> \n<p>Speed of train C = 116(3/4) = 87 km/hour</p> \n<p>Distance covered in 8 hours by train C = 87 X 8 = 696 km</p> \n<p>Option 2</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A and B can complete a task in 28 days. B and C can complete it in 56 days and A and C can complete it in 84 days. In how many days will A complete it working separately? (approximately)</p></span><span class=\"hqt\" style=\"display:none\"><p>A &#2324;&#2352; B &#2319;&#2325; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; 28 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404; B &#2324;&#2352; C &#2311;&#2360;&#2375; 56 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2375; &#2361;&#2376;&#2306; &#2340;&#2341;&#2366; A &#2324;&#2352; C &#2311;&#2360;&#2375; 84 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2340;&#2379; A &#2309;&#2325;&#2375;&#2354;&#2375; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2352;&#2340;&#2375; &#2361;&#2369;&#2319; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; &#2325;&#2367;&#2340;&#2344;&#2375; &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352;&#2375;&#2327;&#2366;? (&#2354;&#2327;&#2349;&#2327;)</p></span>",
+    "options": [
+      "<span class=\"eqt\">60</span><span class=\"hqt\" style=\"display:none\">60</span>",
+      "<span class=\"eqt\">81</span><span class=\"hqt\" style=\"display:none\">81</span>",
+      "<span class=\"eqt\">52</span><span class=\"hqt\" style=\"display:none\">52</span>",
+      "<span class=\"eqt\">67</span><span class=\"hqt\" style=\"display:none\">67</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>One day's work of A and B = 1/28</p> <p>One day's work of B and C = 1/56</p> <p>One day's work of A and C = 1/84</p> <p>2(One day's work of A, B and C) = 1/28 + 1/56 + 1/84 = 11/168</p> <p>One day's work of A, B and C = 11/336</p> <p>One day's work of A = (One day's work of A, B and C)  -  (One day's work of B and C) = 11/336  -  1/56 = 5/336</p> <p>Hence A will complete the task in 336/5 = 67.2 &#187; 67 days </p>",
+    "question_index": 19
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The average age of 10 candidates in an exam hall is decreased by 4 months when two of them aged 15 years and 17 years are replaced by two new candidates. The average age of new candidates is:</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2332;&#2348; 10 &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; 15 &#2357;&#2352;&#2381;&#2359; &#2324;&#2352; 17 &#2357;&#2352;&#2381;&#2359; &#2325;&#2368; &#2310;&#2351;&#2369; &#2357;&#2366;&#2354;&#2375; &#2342;&#2379; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367;&#2351;&#2379;&#2306; &#2325;&#2379; &#2342;&#2379; &#2344;&#2319; &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352;&#2379;&#2306; &#2360;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2360;&#2381;&#2341;&#2366;&#2346;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2366; &#2361;&#2377;&#2354; &#2350;&#2375;&#2306; 10 &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352;&#2379;&#2306; &#2325;&#2368; &#2324;&#2360;&#2340; &#2310;&#2351;&#2369; 4 &#2350;&#2361;&#2368;&#2344;&#2375; &#2325;&#2350; &#2361;&#2379; &#2332;&#2366;&#2340;&#2368; &#2361;&#2376;, &#2340;&#2379; &#2344;&#2319; &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352;&#2379;&#2306; &#2325;&#2368; &#2324;&#2360;&#2340; &#2310;&#2351;&#2369; &#2361;&#2376;:</p></span>",
+    "options": [
+      "<span class=\"eqt\">17 years 1 months</span><span class=\"hqt\" style=\"display:none\">17 &#2357;&#2352;&#2381;&#2359; 1 &#2350;&#2361;&#2368;&#2344;&#2375;</span>",
+      "<span class=\"eqt\">14 years 4 months</span><span class=\"hqt\" style=\"display:none\">14 &#2357;&#2352;&#2381;&#2359; 4 &#2350;&#2361;&#2368;&#2344;&#2375;</span>",
+      "<span class=\"eqt\">15 years 2 months</span><span class=\"hqt\" style=\"display:none\">15 &#2357;&#2352;&#2381;&#2359; 2 &#2350;&#2361;&#2368;&#2344;&#2375;</span>",
+      "<span class=\"eqt\">17 years 8 months</span><span class=\"hqt\" style=\"display:none\">17 &#2357;&#2352;&#2381;&#2359; 8 &#2350;&#2361;&#2368;&#2344;&#2375;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Decrease = ( 10  X  4 ) months = 40 months = 3 yr. 4 months</p> <p>&#8756; Total age of new students = (15 + 17) yrs.  -  (3 yr. 4 months) = 28 years 8months.</p> <p>Average age of new students = 14 years 4 months. </p> <p>Hence, option 2.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A shopkeeper bought a shirt for Rs 560 and marked it 70% higher than its price. He offered 25% discount on the marked price. A regular customer asked for a further reduction of Rs 60 and purchased the shirt. Find the percent profit the shopkeeper made by selling the shirt.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2319;&#2325; &#2358;&#2352;&#2381;&#2335; 560 &#2352;&#2369; &#2350;&#2375;&#2306; &#2326;&#2352;&#2368;&#2342;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; &#2313;&#2360;&#2325;&#2368; &#2325;&#2368;&#2350;&#2340; &#2360;&#2375; 70% &#2309;&#2343;&#2367;&#2325; &#2309;&#2306;&#2325;&#2367;&#2340; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;&#2404; &#2357;&#2361; &#2309;&#2306;&#2325;&#2367;&#2340; &#2350;&#2370;&#2354;&#2381;&#2351; &#2346;&#2352; 25% &#2331;&#2370;&#2335; &#2342;&#2375;&#2340;&#2366; &#2361;&#2376;&#2404; &#2313;&#2360;&#2325;&#2366; &#2319;&#2325; &#2344;&#2367;&#2351;&#2350;&#2367;&#2340; &#2327;&#2381;&#2352;&#2366;&#2361;&#2325; 60 &#2352;&#2369; &#2324;&#2352; &#2325;&#2350; &#2325;&#2352;&#2357;&#2366; &#2325;&#2352; &#2358;&#2352;&#2381;&#2335; &#2326;&#2352;&#2368;&#2342; &#2354;&#2375;&#2340;&#2366; &#2361;&#2376;&#2404; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2344;&#2375; &#2358;&#2352;&#2381;&#2335; &#2348;&#2375;&#2330;&#2325;&#2352; &#2325;&#2367;&#2340;&#2344;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2354;&#2366;&#2349; &#2325;&#2350;&#2366;&#2351;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">16.78%</span><span class=\"hqt\" style=\"display:none\">16.78%</span>",
+      "<span class=\"eqt\">15.23%</span><span class=\"hqt\" style=\"display:none\">15.23%</span>",
+      "<span class=\"eqt\">20.08%</span><span class=\"hqt\" style=\"display:none\">20.08%</span>",
+      "<span class=\"eqt\">17.45%</span><span class=\"hqt\" style=\"display:none\">17.45%</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>MP = 1.7 x 560 = Rs 952</p> <p>Price after 25% discount = 952 x 0.75 = Rs 714</p> <p>Selling price = 714  -  60 = Rs 654</p> <p>Profit % = (654-560)/560 x 100 = 94/560 x 100 = 16.78%</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Amish marked the price of a toy up by 20%. He gave a discount of 10% and sold it for Rs 1879.20. Had he sold it for Rs 1513.80, what would have been his loss %?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2309;&#2350;&#2368;&#2358; &#2344;&#2375; &#2319;&#2325; &#2326;&#2367;&#2354;&#2380;&#2344;&#2375; &#2325;&#2368; &#2325;&#2368;&#2350;&#2340; 20% &#2309;&#2343;&#2367;&#2325; &#2309;&#2306;&#2325;&#2367;&#2340; &#2325;&#2368; &#2361;&#2376;&#2404; &#2357;&#2361; 10% &#2325;&#2368; &#2331;&#2370;&#2335; &#2342;&#2375;&#2325;&#2352; &#2311;&#2360;&#2375; 1879.20 &#2352;&#2369;&#2346;&#2319; &#2350;&#2375;&#2306; &#2348;&#2375;&#2330;&#2340;&#2366; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#2313;&#2360;&#2344;&#2375; &#2311;&#2360;&#2375; 1513.80 &#2352;&#2369;&#2346;&#2319; &#2350;&#2375;&#2306; &#2348;&#2375;&#2330;&#2366; &#2361;&#2379;&#2340;&#2366;, &#2340;&#2379; &#2313;&#2360;&#2375; &#2325;&#2367;&#2340;&#2344;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2361;&#2366;&#2344;&#2367; &#2361;&#2379;&#2340;&#2368;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">11%</span><span class=\"hqt\" style=\"display:none\">11%</span>",
+      "<span class=\"eqt\">11.5%</span><span class=\"hqt\" style=\"display:none\">11.5%</span>",
+      "<span class=\"eqt\">13%</span><span class=\"hqt\" style=\"display:none\">13%</span>",
+      "<span class=\"eqt\">12.5%</span><span class=\"hqt\" style=\"display:none\">12.5%</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Let CP be C.</p> <p>MP = 1.2C</p> <p>SP = 1.2 x 0.9 C = 1.08C = 1879.2</p> <p>=&gt; C = Rs 1740</p> <p>Now new SP = 1513.8</p> <p>Loss % = (1740-1513.8)/1740 x 100 = 13%</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two boxes have the same height equal to 35 cm. One box has a square base of side 10 cm. The other box is cylindrical and the diameter of its base is 12 cm. What is the difference in their volumes?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2348;&#2325;&#2381;&#2360;&#2375; &#2325;&#2368; &#2360;&#2350;&#2366;&#2344; &#2314;&#2305;&#2330;&#2366;&#2312; &#2361;&#2376;, &#2332;&#2379; 35 &#2360;&#2375;&#2350;&#2368;. &#2325;&#2375; &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2376;| &#2319;&#2325; &#2348;&#2325;&#2381;&#2360;&#2375; &#2325;&#2366; &#2357;&#2352;&#2381;&#2327;&#2368;&#2351; &#2310;&#2343;&#2366;&#2352; &#2361;&#2376;, &#2332;&#2367;&#2360;&#2325;&#2368; &#2349;&#2369;&#2332;&#2366; 10 &#2360;&#2375;&#2350;&#2368;. &#2361;&#2376;| &#2342;&#2370;&#2360;&#2352;&#2366; &#2348;&#2325;&#2381;&#2360;&#2366; &#2348;&#2375;&#2354;&#2344;&#2366;&#2325;&#2366;&#2352; &#2361;&#2376; &#2324;&#2352; &#2311;&#2360;&#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2325;&#2366; &#2357;&#2381;&#2351;&#2366;&#2360; 12 &#2360;&#2375;&#2350;&#2368;. &#2361;&#2376;| &#2311;&#2344;&#2325;&#2375; &#2310;&#2351;&#2340;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2309;&#2306;&#2340;&#2352; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">455 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">455 &#2360;&#2375;&#2350;&#2368;<sup>3</sup></span>",
+      "<span class=\"eqt\">460 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">460 &#2360;&#2375;&#2350;&#2368;<sup>3</sup></span>",
+      "<span class=\"eqt\">450 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">450 &#2360;&#2375;&#2350;&#2368;<sup>3</sup></span>",
+      "<span class=\"eqt\">425 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">425 &#2360;&#2375;&#2350;&#2368;<sup>3</sup></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Required Difference = Volume of cylinder  -  volume of cuboid</p> <p>= &pi;r<sup>2</sup>h  -  lbh </p> <p>= 22/7 x 6 x 6 x 35 - 35 x 10 x 10 </p> <p>= 3960  -  3500 = 460 cm<sup>3</sup></p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The ratio of the present age of Smitu and her son is 7:3. 't' years back the sum of their ages added up to be 48 while the ratio of their ages then was 3:1. What shall be the ratio of their ages after another '2t' years?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2381;&#2350;&#2367;&#2340;&#2369; &#2324;&#2352; &#2313;&#2360;&#2325;&#2375; &#2348;&#2375;&#2335;&#2375; &#2325;&#2368; &#2357;&#2352;&#2381;&#2340;&#2350;&#2366;&#2344; &#2310;&#2351;&#2369; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 7:3 &#2361;&#2376;| 't' &#2357;&#2352;&#2381;&#2359; &#2346;&#2361;&#2354;&#2375; &#2313;&#2344;&#2325;&#2368; &#2310;&#2351;&#2369; &#2325;&#2366; &#2351;&#2379;&#2327; &#2325;&#2366; &#2351;&#2379;&#2327;&#2347;&#2354; 48 &#2341;&#2366; &#2332;&#2348;&#2325;&#2367; &#2313;&#2360; &#2360;&#2350;&#2351; &#2313;&#2344;&#2325;&#2368; &#2310;&#2351;&#2369; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2340;&#2348; 3:1 &#2341;&#2366;| &#2309;&#2344;&#2381;&#2351; '2t' &#2357;&#2352;&#2381;&#2359;&#2379;&#2306; &#2325;&#2375; &#2348;&#2366;&#2342; &#2313;&#2344;&#2325;&#2368; &#2310;&#2351;&#2369; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">7:5</span><span class=\"hqt\" style=\"display:none\">7:5</span>",
+      "<span class=\"eqt\">2:1</span><span class=\"hqt\" style=\"display:none\">2:1</span>",
+      "<span class=\"eqt\">9:5</span><span class=\"hqt\" style=\"display:none\">9:5</span>",
+      "<span class=\"eqt\">5:3</span><span class=\"hqt\" style=\"display:none\">5:3</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Ratio of the ages of Smitu and her son = 7:3.</p><p>Let their age be 7x and 3x respectively.</p><p>'t' years ago,</p><p>(7x  -  t)/(3x  -  t) = 3</p><p>or 7x  -  t = 9x  -  3t</p><p>or 2t = 2x or t = x.</p><p>Sum of their ages, 't' years ago is 10x  -  2t = 48</p><p>Substituting the value of t = x, we get 8x = 48 or x = 6.</p><p>Thus t = 6.</p><p>Present age of Smitu and her son is 42 and 18 respectively.</p><p>Their ages after '2t' years, or 12 years, shall be 54 and 30 respectively.</p><p>Thus ratio of their ages shall be 9:5.</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

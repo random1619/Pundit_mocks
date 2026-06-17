@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation 07 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">pundits</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p><a name=\"_gjdgxs\"> <span style=\"color:#000000\"><span style=\"font-size:19px\">Find LCM of 20,12,35,13</span></span></a></p>\r\n\r\n<p><a name=\"_gjdgxs\"> </a></p>\r\n</span><span class=\"hqt\"><p><a name=\"_gjdgxs\"> <span style=\"color:#000000\"><span style=\"font-size:19px\">Find LCM of 20,12,35,13</span></span></a></p>\r\n\r\n<p><a name=\"_gjdgxs\"> </a></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">5260</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">5260</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">5360</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">5360</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">5460</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">5460</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">5350</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">5350</span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">(7225) &shy;</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">1/2</span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\"> </span></span><span style=\"color:#000000\"><sub><span style=\"font-size:19px\">&shy;</span></sub></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+ (1369)</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">1/2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">= x. Find </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff818f010.35717900.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">(7225) &shy;</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">1/2</span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\"> </span></span><span style=\"color:#000000\"><sub><span style=\"font-size:19px\">&shy;</span></sub></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+ (1369)</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">1/2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">= x. Find </span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff818f010.35717900.gif\" /></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">92</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">92</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">112</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">112</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">122</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">122</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">61</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">61</span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Find the sum of cube of first 7 prime numbers </span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Find the sum of cube of first 7 prime numbers </span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8844</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8844</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8944</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8944</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8934</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8934</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">7944</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">7944</span></span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Find remainder when 573486/36</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Find remainder when 573486/36</span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">6</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">6</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">9</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">9</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">5</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">5</span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Simplify </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff828c1f2.95690580.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Simplify </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff828c1f2.95690580.gif\" /></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">-4</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">-4</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff8385307.90479508.gif\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">8</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff8385307.90479508.gif\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n</span>",
+      "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff859e611.63855206.gif\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n</span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff859e611.63855206.gif\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n</span>",
+      "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff87c7993.92178938.gif\" /></p>\r\n</span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff87c7993.92178938.gif\" /></p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><a name=\"_1fob9te\"></a> <span style=\"color:#000000\"><span style=\"font-size:19px\">Multiply 728 x</span></span>&nbsp;<span style=\"color:#000000\"><span style=\"font-size:19px\">8734</span></span></p>\r\n</span><span class=\"hqt\"><p><a name=\"_1fob9te\"></a> <span style=\"color:#000000\"><span style=\"font-size:19px\">Multiply 728 x</span></span>&nbsp;<span style=\"color:#000000\"><span style=\"font-size:19px\">8734</span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">6358352</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">6358352</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">6358652</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">6358652</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">6378352</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">6378352</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">6358552</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">6358552</span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">73529 + 81543 + 35462 + 45673 + 23765</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">73529 + 81543 + 35462 + 45673 + 23765</span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">259892</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">259892</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">259972</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">259972</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">259872</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">259872</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">259992</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">259992</span></span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Find mean of the given data 13, 23, 17, 46, 34, 23, 61, 32</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Find mean of the given data 13, 23, 17, 46, 34, 23, 61, 32</span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">30.125</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">30.125</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">31.225</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">31.225</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">31.125</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">31.125</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">31.315</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">31.315</span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">23</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">3 </span></sup></span><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+ 16</span></span></span><span style=\"color:#000000\"><sup><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3</span></span></sup></span><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\"> =</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">23</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">3 </span></sup></span><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+ 16</span></span></span><span style=\"color:#000000\"><sup><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3</span></span></sup></span><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\"> =</span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16623</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16623</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16263</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16263</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16563</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16563</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16363</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16363</span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff8a98600.44950676.gif\" /> <span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">= x. Find 2x</span></span></p>\r\n</span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff8a98600.44950676.gif\" /> <span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">= x. Find 2x</span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#212529\"><span style=\"font-size:19px\">73</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#212529\"><span style=\"font-size:19px\">73</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">72</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">72</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">63</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">63</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">62</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">62</span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">Successive Increase/Decrease of 8%, -12%, 16% (approx.)</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">Successive Increase/Decrease of 8%, -12%, 16% (approx.)</span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">10.35% increase</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">10.35% increase</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">11.15% decrease</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">11.15% decrease</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">10.15% decrease</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">10.15% decrease</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">10.25 %increase</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">10.25 %increase</span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Convert 81 km/h into m/s </span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Convert 81 km/h into m/s </span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">20</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff9121df4.59008845.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">20</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff9121df4.59008845.gif\" /></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">23</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff945ad42.63301164.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">23</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff945ad42.63301164.gif\" /></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">21 </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff9554bc5.74104665.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">21 </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff9554bc5.74104665.gif\" /></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">22</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff99a0f16.77110768.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">22</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff99a0f16.77110768.gif\" /></p>\r\n</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">If a= 9</span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff9ae0042.64177670.gif\" /> <span style=\"color:#000000\"><span style=\"font-size:19px\">. Find volume of cube </span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">If a= 9</span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff9ae0042.64177670.gif\" /> <span style=\"color:#000000\"><span style=\"font-size:19px\">. Find volume of cube </span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">1963</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff9d8bdd4.26914710.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">1963</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cff9d8bdd4.26914710.gif\" /></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">1943</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa0711f1.95479092.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">1943</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa0711f1.95479092.gif\" /></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">1953</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa1c1ce1.66459600.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">1953</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa1c1ce1.66459600.gif\" /></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">1943</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa3541c3.94102260.gif\" /></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">1943</span></span></span><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa3541c3.94102260.gif\" /></p>\r\n</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">59</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+ 107</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+17</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+ 13</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+ 33</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">= </span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">59</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+ 107</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+17</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+ 13</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-size:19px\">+ 33</span></span><span style=\"color:#000000\"><sup><span style=\"font-size:19px\">2 </span></sup></span><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">= </span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16467</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16467</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">15477</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">15477</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16477</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">16477</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">16487</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">16487</span></span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">743</span></span></span></p>\r\n\r\n<p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+749</span></span></span></p>\r\n\r\n<p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+998</span></span></span></p>\r\n\r\n<p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+321</span></span></span></p>\r\n\r\n<p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+824</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">743</span></span></span></p>\r\n\r\n<p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+749</span></span></span></p>\r\n\r\n<p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+998</span></span></span></p>\r\n\r\n<p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+321</span></span></span></p>\r\n\r\n<p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">+824</span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3635</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3635</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3365</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3365</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3535</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3535</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3645</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">3645</span></span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa4b7788.65956737.gif\" /> <span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">. Find </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa5ad780.84474768.gif\" /> <span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">x </span></span></span></p>\r\n</span><span class=\"hqt\"><p><img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa4b7788.65956737.gif\" /> <span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">. Find </span></span></span> <img src=\"https://www.thepunditsofficial.in/admin/uploads/questions/q_6996cffa5ad780.84474768.gif\" /> <span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">x </span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">30</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">30</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">15</span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-size:19px\">15</span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">20</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">20</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">25</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">25</span></span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  },
+  {
+    "question": "<span class=\"eqt\"><p><a name=\"_30j0zll\"></a> <span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Find the sum of factors of 60</span></span></span></p>\r\n</span><span class=\"hqt\"><p><a name=\"_30j0zll\"></a> <span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">Find the sum of factors of 60</span></span></span></p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">148</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">148</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">10</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">10</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">168</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">168</span></span></span></p>\r\n</span>",
+      "<span class=\"eqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">28</span></span></span></p>\r\n</span><span class=\"hqt\"><p><span style=\"color:#000000\"><span style=\"font-family:Cambria,serif\"><span style=\"font-size:19px\">28</span></span></span></p>\r\n</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"></span><span class=\"hqt\"></span>",
+    "marks": 2,
+    "section": "Calculation Quiz",
+    "series_name": "ProMocks Calculation Quiz 07"
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 15;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

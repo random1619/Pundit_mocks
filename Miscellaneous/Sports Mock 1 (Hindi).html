@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Mock 1 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>What is the national game of Bangladesh?</p>",
+    "options": [
+      "Cricket",
+      "Hockey",
+      "Football",
+      "Kabaddi",
+      "Baseball"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Kabaddi is the national sport of Bangladesh. However, cricket and football are considered as the most popular sports in Bangladesh.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>The Lakshmibai National College of Physical Education is located in which of the following states?</p>",
+    "options": [
+      "Kerala",
+      "Karnataka",
+      "Maharashtra",
+      "Madhya Pradesh",
+      "Uttar Pradesh"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Lakshmibai National College of Physical Education (LNCPE), Kariavattom, P. O Thiruvananthapuram is a part of the academic wing of the Sports Authority of India (SAI). The college is affiliated to University of Kerala and it aims to serve as a model institute for teacher's training by offering undergraduate and post-graduate/ research courses. Besides the academic programs, the college runs sports_ training schemes of SAI in a few disciplines. It provides excellent facilities for the upliftment of Physical Education and Sports in the country. The picturesque 50 acres of land facilitate for play fields, training halls, Swimming pool, Cycle velodrome, hostels, staff quarters, and administrative building which accommodates Class rooms, Laboratories, assembly hall and library.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Netaji Subhas National Institute of Sports is situated in which among the following places?</p>",
+    "options": [
+      "Lucknow",
+      "Kanpur",
+      "Kolkata",
+      "Patiala",
+      "Pune"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Netaji Subhas National Institute of Sports, Patiala India which is also Asia's largest Sports Institutes housed in the palatial monumental building and sprawling lawns built by the erstwhile Maharaja of Patiala whose descendants dedicated this complex for the promotion of sports to the people of India. This Institute is popularly known as the \"Mecca\" of Indian Sports and has produced Coaches of high calibre.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>What does 'D' stands for in 'NADA'?</p>",
+    "options": [
+      "Darts",
+      "Decathlon",
+      "Discuss",
+      "Diving",
+      "Doping"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>National Anti-Doping Agency also referred to as NADA is the national organisation responsible for promoting, coordinating, and monitoring the doping control program in sports in all its forms in India. As listed on its official web portal, NADA deals with adopting and implementing anti-doping rules and policies which conform with the World Anti-Doping agency, cooperates with other anti-doping organisations and promotes anti-doping research and education.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>The DY Patil Sports Stadium is located in which state?</p>",
+    "options": [
+      "Madhya Pradesh",
+      "Karnataka",
+      "Goa",
+      "Maharashtra",
+      "Gujarat"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The DY Patil Sports Stadium (full official name) is a football and a cricket stadium at D. Y. Patil campus, Nerul, Mumbai, Maharashtra, India. The stadium has all the facilities of an international football and a cricket stadium and has been designed by Hafeez Contractor, one of India's premier architects.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The Shaheed Veer Narayan Singh International Cricket Stadium is located in</p>",
+    "options": [
+      "Jharkhand",
+      "Chhattisgarh",
+      "Uttar Pradesh",
+      "Haryana",
+      "Punjab"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Shaheed Veer Narayan Singh International Cricket Stadium or Naya Raipur International Cricket Stadium is a cricket field in the city of Naya Raipur, Chhattisgarh, India. it is fourth-largest cricket stadium in the world The stadium has a seating capacity of 50,000. Inaugurated in 2008, this ground hosted its first ever match in 2010, when the Canada national cricket team arrived in India and played a practice match against the Chhattisgarh state team.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Who among the following was the first-ever recipient of Major Dhyan Chand award?</p>",
+    "options": [
+      "Ram Kumar",
+      "Shahuraj Birajdar",
+      "Dharam Singh",
+      "Rajinder Singh",
+      "Gundeep Kumar"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Dhyan Chand Award, officially known as Dhyan Chand Award for Lifetime Achievement in Sports and Games, is the lifetime achievement sporting honour of the Republic of India. The award is named after Dhyan Chand (1905 - 79), an Indian field hockey player who scored more than 1000 goals during a career which spanned over 20 years from 1926 to 1948. It is awarded annually by the Ministry of Youth Affairs and Sports. Recipients are selected by a committee constituted by the Ministry and are honoured for their contributions to sport both during their active sporting career and after retirement. The first recipients of the award were Shahuraj Birajdar (Boxing), Ashok Diwan (Hockey), and Aparna Ghosh (Basketball), who were honoured in 2002.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>The Arjuna Awards are instituted in</p>",
+    "options": [
+      "2001",
+      "1996",
+      "1958",
+      "2010",
+      "1961"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Arjuna Awards are given by the Ministry of Youth Affairs and Sports, government of India to recognize outstanding achievement in National sports. Instituted in 1961, the award carries a cash prize of &#8377; 5,00,000, a bronze statue of Arjuna and a scroll.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>The Sultan of Johor cup is being held in which of the following countries?</p>",
+    "options": [
+      "Singapore",
+      "Laos",
+      "Malaysia",
+      "Vietnam",
+      "India"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Sultan of Johor Cup is an annual, international Under - 21 Men's field hockey tournament held in Malaysia. Since the first edition held in 2011, five teams have emerged victorious. India are the most successful team having won the tournament twice, followed by Australia, Germany, Great Britain and Malaysia who have all won the tournament once.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Indian motor racing circuit Buddha International Circuit was officially inaugurated in</p>",
+    "options": [
+      "2000",
+      "2005",
+      "2007",
+      "2011",
+      "2014"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Buddha International Circuit is an Indian motor racing circuit in Greater Noida, Uttar Pradesh, India, 40 km from Delhi. The 120,000-capacity circuit was best known as the venue for the annual Formula One Indian Grand Prix, which was first hosted on 30 October 2011 but has been suspended since 27 October 2013 due to a tax dispute with the Uttar Pradesh government. The track was officially inaugurated on 18 October 2011. The 5.13 km long circuit was designed by German architect and racetrack designer Hermann Tilke.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Where is Jaypee Sports City located?</p>",
+    "options": [
+      "Noida",
+      "Lucknow",
+      "Kanpur",
+      "Indore",
+      "Pune"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Jaypee Sports City, located on the Yamuna Expressway in Greater Noida, NCR, is India's first planned city developed and aimed for sports. It's 2,500 acres of area comprises various sports venues like international standard cricket stadium, a hockey stadium and an international circuit for F1 races.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Salt lake stadium is located in</p>",
+    "options": [
+      "Jaipur",
+      "Cuttack",
+      "Chennai",
+      "Kolkata",
+      "Gandhinagar"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Salt Lake Stadium, officially known as Vivekananda Yuba Bharati Krirangan (VYBK), is a multipurpose stadium in Bidhannagar, Kolkata, West Bengal, with a capacity of 66,687. It is the largest stadium in India by capacity.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Rungrado 1<sup>st</sup> of May Stadium is located in which among the following countries?</p>",
+    "options": [
+      "Japan",
+      "North Korea",
+      "Russia",
+      "Australia",
+      "Germany"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Rungrado 1<sup>st</sup> of May Stadium, also known as the May Day Stadium, is a multi-purpose stadium in Pyongyang, North Korea, completed on 1 May 1989. It is the largest stadium in the world, with a total capacity of 114,000. The site occupies an area of 20.7 hectares (51 acres).</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>The Davis Cup is associated with which of the following sports?</p>",
+    "options": [
+      "Cricket",
+      "Field Hockey",
+      "Ice Hockey",
+      "Tennis",
+      "Football"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Davis Cup is the premier international team event in men's tennis. It is run by the International Tennis Federation (ITF) and is contested annually between teams from competing countries in a knock-out format. It is described by the organisers as the \"World Cup of Tennis\", and the winners are referred to as the World Champion team. The competition began in 1900 as a challenge between Great Britain and the United States. By 2016, 135 nations entered teams into the competition.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The second highest tier of men's tennis tournament ATP Finals is played in which of the following locations?</p>",
+    "options": [
+      "Melbourne",
+      "New York",
+      "London",
+      "Madrid",
+      "Montreal"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The ATP Finals is the second highest tier of men's tennis tournament after the four Grand Slam tournaments. A week-long event, the tournament is held annually each November at the O2 Arena in London, United Kingdom. The ATP Finals are the season-ending championships of the Association of Tennis Professionals (ATP) World Tour and feature the top eight singles players and doubles teams of the ATP Rankings. The tournament was first held in 1970, although it had a different name at the time.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>The Jawaharlal Nehru Stadium is located in</p>",
+    "options": [
+      "Chennai",
+      "Indore",
+      "Kochi",
+      "Kanpur",
+      "Gandhinagar"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Jawaharlal Nehru International Stadium locally known as Kaloor Stadium is a multi-purpose international stadium situated in Kochi, Kerala. The stadium is used mostly for association football and cricket matches. With a maximum capacity of 75,000, it is one of the largest stadiums in India and the third largest cricket stadium in the world.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>The Eden Gardens is the cricket stadium located in</p>",
+    "options": [
+      "Siliguri",
+      "Shimla",
+      "Gangtok",
+      "Kolkata",
+      "Guwahati"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Eden Gardens is a cricket ground in Kolkata, India established in 1864. It is the home venue of the Bengal cricket team and the IPL franchise cricket team Kolkata Knight Riders, and is also a venue for Test, ODI and T20I matches of the India national cricket team. With a seating capacity of 66,349, it is the largest cricket stadium in India, and the second-largest cricket stadium in the world.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>R.K. Khanna Tennis complex is situated in which among the following locations?</p>",
+    "options": [
+      "Chennai",
+      "Kanpur",
+      "New Delhi",
+      "Hyderabad",
+      "Ahmedabad"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>R. K. Khanna Tennis Complex is a tennis stadium in New Delhi, India. It has a centre court, six match courts and six warm-up courts. It has a capacity of 5,015. The stadium was opened in 1982, and was renovated in 2009.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Where is the Barsapara Stadium located?</p>",
+    "options": [
+      "Guwahati",
+      "Kolkata",
+      "Cuttack",
+      "Bhubaneshwar",
+      "Chandigarh"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Assam Cricket Association Stadium, nicknamed ACA Stadium and Barsapara Cricket Stadium, is a cricket stadium in Guwahati, Assam. It was inaugurated by Assam CM Sarbananda Sonowal on 10 October 2017. It is a new stadium which hosts domestic and international cricket matches.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Bajrang Punia is belongs to which among the following sports categories?</p>",
+    "options": [
+      "Shooting",
+      "Wrestling",
+      "Weight lifting",
+      "Archery",
+      "Badminton"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Bajrang Punia is a freestyle wrestler from India and has won gold medal in Men's 64kg category of recently concluded 2017 Asian Wrestling Championship. The Indian wrestlers overall bagged 10 medals comprising gold, five silver and four bronze in the championship which was held in New Delhi.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Who among the following was the first Olympic medal winner for Independent India?</p>",
+    "options": [
+      "Laender Paes",
+      "Khashaba Dadasaheb Jadhav",
+      "Karnam Malleswari",
+      "Rajyavardhan Singh Rathore",
+      "Abhinav Bindra"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Khashaba Dadasaheb Jadhav was an Indian athlete. He is best known as a wrestler who won a bronze medal at the 1952 Summer Olympics in Helsinki. He was one of the first athletes from India to win a medal in the Olympics. After Norman Pritchard who won two silver medals in athletics in 1900, Khashaba was the first individual athlete from India to win a medal at the Olympics.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>'Playing it my way' is the autobiography of</p>",
+    "options": [
+      "Chris Gayle",
+      "Michael Clarke",
+      "Sachin Tendulkar",
+      "AB deVilliers",
+      "Rahul Dravid"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Playing It My Way is the autobiography of former Indian cricketer Sachin Tendulkar. It was launched on 5 November 2014 in Mumbai. The book summarises Tendulkar's early days, his 24 years of international career and aspects of his life that have not been shared publicly. It entered the Limca Book of Records for being the bestselling adult hardback across both fiction and non-fiction categories. In India, it broke the record set by Walter Isaacson's biography of Steve Jobs for being the most pre-ordered biographical book.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Which of the following is the body responsible for selecting athletes to represent India at the Olympic Games?</p>",
+    "options": [
+      "National Olympic commission",
+      "Indian Olympic association",
+      "Indian Olympic committee",
+      "Sports Ministry",
+      "Sports Association of India"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Indian Olympic Association is the body responsible for selecting athletes to represent India at the Olympic Games, Asian Games and other international athletic meets and for managing the Indian teams at the events. It also acts as the Indian Commonwealth Games Association, responsible for selecting athletes to represent India at the Commonwealth Games.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Once in how many years the Asian Games being held?</p>",
+    "options": [
+      "2 years",
+      "3 years",
+      "4 years",
+      "5 years",
+      "6 years"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Asian Games, also known as Asiad, is a Pancontinental multi-sport event held every four years among athletes from all over Asia. The Games were regulated by the Asian Games Federation (AGF) from the first Games in New Delhi, India, until the 1978 Games.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>The Olympic Council of Asia is head-quartered in</p>",
+    "options": [
+      "Kuwait",
+      "Doha",
+      "Tehran",
+      "Beijing",
+      "Delhi"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Olympic Council of Asia (OCA) is a governing body of sports in Asia, currently with 45 member National Olympic Committee. The current president is Sheikh Fahad Al-Sabah. The oldest NOCs are from Japan and the Philippines, recognized by the International Olympic Committee (IOC) in 1911; whereas East Timor is the newest, joining in 2003. The headquarters of OCA are located at Kuwait City.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>First edition of Asian Games was held in</p>",
+    "options": [
+      "New Delhi",
+      "Jakarta",
+      "Manila",
+      "Tokyo",
+      "Beijing"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The 1951 Asian Games, officially known as the First Asian Games, was a multi-sport event celebrated in New Delhi, India from 4 to 11 March 1951. The Games received names like First Asiad and 1951 Asiad. A total of 489 athletes representing 11 Asian National Olympic Committees (NOCs) participated in 57 events from eight sports and discipline.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Kim Il-sung Stadium is the stadium of</p>",
+    "options": [
+      "South Korea",
+      "North Korea",
+      "Philippines",
+      "Japan",
+      "Thailand"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Kim Il-sung Stadium is the name of a large multi-purpose stadium located in Pyongyang, the capital city of the Democratic People's Republic of Korea.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>The National Game of Canada is</p>",
+    "options": [
+      "Lacrosse",
+      "Tennis",
+      "Hockey",
+      "Shooting",
+      "Taekwondo"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Lacrosse was first declared the National Game of Canada in 1859. In 1994 Parliament passed the Canada's National Sport Act which declared lacrosse to be \"Canada's National Summer Sport\", with hockey as the national winter sport.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Which among the following countries officially left the South Asian Football Federation (SAFF) in 2015?</p>",
+    "options": [
+      "Maldives",
+      "Pakistan",
+      "Bhutan",
+      "Afghanistan",
+      "Bangladesh"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>South Asian Football Federation (SAFF), founded in 1997, is an association of the football playing nations in South Asia and is part of the larger Asian Football Confederation. Its founding members are Bangladesh, India, Maldives, Nepal, Pakistan and Sri Lanka. Bhutan joined the federation in 2000 and Afghanistan in 2005. In February 2015, captain Haroon Amiri announced that Afghanistan had officially left the SAFF for the new Central Asian Football Association.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>National game of Bhutan is</p>",
+    "options": [
+      "Hockey",
+      "Kabaddi",
+      "Archery",
+      "Football",
+      "Badminton"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Archery in Bhutan is the national sport of the Kingdom. Archery was declared the national sport in 1971, when Bhutan became a member of the United Nations.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

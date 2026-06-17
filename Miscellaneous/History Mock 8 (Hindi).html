@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Mock 8 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Who among the following founded the Kanva Dyansty?</p>",
+    "options": [
+      "Simuka",
+      "Vasudeva",
+      "Ashoka",
+      "Dantidurg",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In 73 BC, Devabhuti, the last ruler of the Sunga Dynasty, was murdered by his minister Vasudeva, who usurped the throne and founded the Kanva dynasty. The period of Kanva rule came to an end in 28 BC</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>The founder of the Satvahanas was - </p>",
+    "options": [
+      "Goutamiputra",
+      "Satakarni",
+      "Simuka",
+      "Kanha",
+      "Lambodara"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The most native successors of the Maurya dynasty were the Satvahanas who ruled in Deccan and Central India. They are considered to be identical with the Andhra's mentioned in the Puranas. Simuka was the founder of this dynasty and the greatest ruler of this kingdom was Goutamiputra Satkarni</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Which among the following was known as the official language of the Satvahanas?</p>",
+    "options": [
+      "Pali",
+      "Prakrit",
+      "Hindi",
+      "Urdu",
+      "Persian"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Satvahanas ruled mainly over the Deccan and the central part of India. They ruled till 225 AD and were the most native successors of the Mauryan dynasty. The official language of this kingdom was Prakrit and the last ruler was Pulamavi III</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Which among the following is the art form introduced by the Indo Greek rulers in India?</p>",
+    "options": [
+      "Mathura school",
+      "Amravati school",
+      "Gandhara school",
+      "Paithan school",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Indo Greek rulers mainly ruled over North Western India in the post Maurya period. They were the first to issue gold coins in the country. The introduced the Hellenic i.e. Greek features in art giving rise to Gandhara School in the North Western India</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Gondaphernes belongs to which among the following dynasties in India?</p>",
+    "options": [
+      "Scythian kings",
+      "Sakas",
+      "Pratihars",
+      "Huns",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Gondaphernes was the ruler of Parthians who came from Iran and ruled in a smaller area in North Western India as compared to the Sakas. St Thomas came to India during the rule of Gondaphernes for propagation of Christianity in the country</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The number of Slokas in original Ramayana was  - </p>",
+    "options": [
+      "6000",
+      "24000",
+      "12000",
+      "8000",
+      "9000"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Ramayana is known as the Adi Kavya or the oldest epic in the world. It has 24000 slokas in the present but originally it had only 6000 slokas. 1<sup>st</sup> and 7<sup>th</sup> Kandas were the latest additions to the Ramayana</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Dhanurveda is associated with  - </p>",
+    "options": [
+      "Rigveda",
+      "Sama Veda",
+      "Yajur Veda",
+      "Atharva Veda",
+      "Both 1 and 3"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Upavedas or the auxiliary Vedas are traditional parts of the Vedas. The various upavedas associated with various Vedas are:</p><p>&#8226; Ayurveda: Rig Veda</p><p>&#8226; Gandharva Veda: Sama Veda</p><p>&#8226; Dhanur Veda: Yajur Veda</p><p>&#8226; Artha Veda / Shilpa Veda: Atharva Veda</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>The oldest Puranic text known is  - </p>",
+    "options": [
+      "Vayu Purana",
+      "Matsya Purana",
+      "Vishnu Purana",
+      "Bramhanda Purana",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Purana means the old. There are 18 famous Puranas. The Matsya Purana is the oldest Puranic text. The other important texts are Bhagavata, The Vishnu, The Vayu Purana and the Bramhanda Purana</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Who among the following was the first Englishman to arrive in India in the year 1599?</p>",
+    "options": [
+      "Captain Hawkins",
+      "John Hopkins",
+      "John Mildenhall",
+      "Ashley Jiles",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>John Mildenhall was a merchant who came to India as the first British person to set foot in India. He arrived in India in 1599 over land route with the objective to do trade with Indian merchants</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>The Convention of Wadgaon put an end to which among the following?</p>",
+    "options": [
+      "First Anglo Maratha War",
+      "Second Anglo Maratha War",
+      "First Anglo Sikh War",
+      "First Anglo Afghan War",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The First Anglo Maratha War took place in 1775 and ended in 1782. The British were defeated by the Marathas and after that, they had to accept the humiliating Treaty of Wadgaon that was signed in 1779 AD. The root cause was the battle for Peshwaship in Maratha kingdom</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Balaji Vishwanath was the first ever Peshwa of Maratha kingdom. He became Peshwa in the year  - </p>",
+    "options": [
+      "1748 AD",
+      "1713 AD",
+      "1725 AD",
+      "1738 AD",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Balaji Vishwanath started his career as a small revenue official and was given the title of Sena Karte by Shahu in 1708. He became the Peshwa of the Maratha kingdom in 1713 AD and made the post the most powerful and most influential in the whole kingdom.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Shivaji was coronated in Raigarh in the year  - </p>",
+    "options": [
+      "1674 AD",
+      "1678 AD",
+      "1679 AD",
+      "1680 AD",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Shivaji was born in 1627 at Shivneri Fort to Shahji Bhonsle and Jija Bai. He was coronated at Raigarh Fort in the year 1674 AD and assumed the title of Haindava Dharmodharak or the Protector of Hinduism. He continued his struggle with the Mughals and conquested Karnataka during 1677-1680</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>During the rule of Shiavji, who among the following was responsible for Royal correspondence?</p>",
+    "options": [
+      "Surnavis",
+      "Peshwa",
+      "Majumdar",
+      "Dabir",
+      "Pandit Rao"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Shivaji was helped in his administration by Astrapradhan which was unlike the council of ministers since there was no collective responsibility for them. The Astrapradhan were:</p><p>&#8226; Peshwa: Finance and general administration</p><p>&#8226; Majumdar: Revenue and finance minister</p><p>&#8226; Waqenavis: Home minister</p><p>&#8226; Dabir: Foreign minister</p><p>&#8226; Surnavis: Head of Royal Correspondence</p><p>&#8226; Pandit Rao: Head of Religious affairs</p><p>&#8226; Nyayadhish: justice</p><p>&#8226; Sur-i-Naubat: Military commander</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>The amount of Sardeshmukhi during the rule of Shivaji was  - </p>",
+    "options": [
+      "10 percent",
+      "20 percent",
+      "25 percent",
+      "35 percent",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Sardeshmukhi was a tax of 10% on those lands in Maharashtra over which the Marathas claimed hereditary rights but the lands did not form part of the Mughal Empire. It was an additional levy on that part of land</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The starting of Saka era was from  - </p>",
+    "options": [
+      "79 AD",
+      "78 AD",
+      "77 AD",
+      "58 AD",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The most famous Kushan ruler was Kanishka who ruled from 78 AD to 101 AD. He was also known as Second Ashoka. He started an era in 78 AD which is now known as the Saka era and it is now used by the Government of India in all official purposes</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Who among the following issued gold coins in India for the first time?</p>",
+    "options": [
+      "Indo Greeks",
+      "Parthians",
+      "Pratihars",
+      "Palas",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Indo Greek rulers started their rule in the North Western part of India and also Punjab area and were the most important rulers after the Mauryas in India. They were the first to issue gold coins in India and the most important ruler in the dynasty was Menander</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which among the following is NOT one of the vows practiced in Jainism?</p>",
+    "options": [
+      "Non injury",
+      "Non lying",
+      "Chastity",
+      "Both 1 and 2",
+      "All are vows in Jainism"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>There are five vows in Jainism and they are:</p><p>&#8226; Ahimsa</p><p>&#8226; Satya</p><p>&#8226; Asteya</p><p>&#8226; Aparigraha</p><p>&#8226; Bramhacharya</p><p>The first four vows were laid down by Parshvanath whereas the last was added by Mahavira</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Who was the king during the Second Buddhist Council at Vaishali?</p>",
+    "options": [
+      "Emperor Ashoka",
+      "Kalashoka",
+      "Shishunag",
+      "Ajatasatru",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Kalashoka or Kakavarna was the most important ruler in the Shishinaga dynasty. His reign is important since he convened the Second Buddhist Council in 383 BC</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>The Danish merchants came to India for the first time in India  - </p>",
+    "options": [
+      "1658",
+      "1660",
+      "1665",
+      "1670",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Danish merchants came to India in the year 1616 and formed East India Company in the country. Their first settlement was in Tamil Nadu whereas the headquarter was in Serampore in West Bengal. They were forced to leave India and sell their colonies to the British in 1845</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Chaudhury Rehmat Ali Khan invented the term Pakistan and he did it in the year  - </p>",
+    "options": [
+      "1933",
+      "1940",
+      "1948",
+      "1947",
+      "1942"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Chaudhury Rehmat Ali was responsible for inventing the term Pakistan as he was instrumental in carving out a separate country for the Muslims in India. He inspired a group of Muslim students while in Cambridge and developed this term.</p><p>Pakistan Declaration (titled Now or Never; Are We to Live or Perish Forever?) was a pamphlet written and published by Choudhary Rahmat Ali, on 28 January 1933, in which the word Pakstan (without the letter \"i\") was used for the first time and was presented in the Round Table conferences in 1933.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>The Congress Ministries in various provinces resigned in 1939 because  - </p>",
+    "options": [
+      "The British government was not allowing the ministers to exercise their powers",
+      "The British government disbanded all the ministers",
+      "The British government refused to give full freedom to India",
+      "The British government wanted the Muslim league to join the government and that is why it requested the Congress Ministers to resign and hold a fresh election",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>During World War II, the British government wanted to associate India with the war. But Congress demanded that India be granted freedom first and only after that, it can think of joining the war. The British government rejected this idea and that is why all the Congress Ministers resigned on 22<sup>nd</sup> Dec, 1939</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>The last Mughal ruler Bahadur Shah II passed away in the year  - </p>",
+    "options": [
+      "1858",
+      "1857",
+      "1862",
+      "1865",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The last Mughal ruler Bahadur Shah II was made the premier of the sepoys during the Sepoy Mutiny that started in 1857. After the rebellion was controlled, he was sent on exile in Rangoon and he died there in 1862</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Who introduced the Mansabdari system during the Mughal rule?</p>",
+    "options": [
+      "Babar",
+      "Humayun",
+      "Akbar",
+      "Jahangir",
+      "Aurangazeb"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Manasabdari system was introduced in Mughal era by Emperor Akbar. The term Mansab indicates the rank of the soldier. It was both civil and military. Almost the whole civil, military and bureaucracy used to hold Mansab rank</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>The Mughal ruler during the plunder of Nadir Shah was  - </p>",
+    "options": [
+      "Mubarak Shah",
+      "Muhammad Shah",
+      "Alam Shah",
+      "Jahangir Shah",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Muhammad Shah reigned during the Mughal period in the years from 1719 to 1748. In 1738-39, Nadir Shah plundered India and took away the Peacock throne from India as well as the famous Kohinoor diamond</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Agnimitra was a king in the dynasty of  - </p>",
+    "options": [
+      "Sunga dynasty",
+      "Kanva Dyansty",
+      "Pulva dynasty",
+      "Satvahana Dynasty",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Agnimitra was the son of Pushyamitra Sunga who was the founder of the Sunga Dynasty in the year 185 BC after the Maurya empire ended. Agnimitra was the hero of Kalidas's Malavikagnimitram</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Which among the following was the major religion during the rule of the Sunga kings?</p>",
+    "options": [
+      "Bhagavata",
+      "Hinduism",
+      "Vaishnavism",
+      "Shaivism",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>During the rule of the Sunga rulers, there was a spurt in the influence of Bramhins. There was the prevalence of Bramhinical culture. The Bhagavata became the most prominent religion during the Sunga dynasty</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>According to Megasthenese, the Indian society was divided into  - </p>",
+    "options": [
+      "6 classes",
+      "7 classes",
+      "10 classes",
+      "4 classes",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Meghasthenese came to India during the rule of the Maurya rulers and he wrote Indica based on his experience regarding this visit. He divided the Indian society into seven classes and they were philosophers, farmers, soldiers, herdsmen, artisans, magistrates and councilors. These are mainly economic classes rather than social ones</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which among the following was the capital of Northern Province during the Maurya rule in India?</p>",
+    "options": [
+      "Ujjain",
+      "Taxila",
+      "Pataliputra",
+      "Toshali",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The provincial administration during the Mauryan rule was divided into five provinces. The provincial administration was divided into northern province, western province, eastern and central province, eastern province and southern province. The capitals of these provinces are Taxila, Ujjain, Patliputra, Toshali and Suvarnagiri respectively</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>During the Maurya rule, the chief treasury officer was known as  - </p>",
+    "options": [
+      "Samaharta",
+      "Sannidhata",
+      "Pradeshta",
+      "Dharmastha",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>During the Maurya rule, the important officials are:</p><p>&#8226; Samaharta: The collector general of revenue</p><p>&#8226; Vyavharika: Chief justice of civil court</p><p>&#8226; Pradeshta: Chief justice of criminal courts</p><p>&#8226; Dhamma Mahamatra: The official tasked with propagation of Dhamma during the reign of Emperor Ashoka</p><p>&#8226; Pradesika: They were the modern day district magistrates</p><p>&#8226; Rajukas: They were later day Patwaris and were responsible for identifying and assessing land</p><p>&#8226; Yukta: A subordinate revenue officer at the district level</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Who among the following was responsible for establishment of Somapuri University in Bengal?</p>",
+    "options": [
+      "Gopala",
+      "Dharmapala",
+      "Rampala",
+      "Devpala",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Some of the Buddhist universities in India along with their founders and places:</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Buddhist Universities</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Founders</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Places</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Nalanda</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Kumargupta I</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Badagaon, Bihar</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Odantapuri</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Gopala</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Biharsharif, Bihar</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Vikramshila</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Dharmapala</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Bhagalpur, Bihar</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Somapuri</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Dharmapala</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">North Bengal</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Jagadal</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Rampala</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Bengal</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Vallabhi</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Bhattaraka</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Gujarat</td></tr></table><p></p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

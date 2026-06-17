@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Mock 10 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Who among the following is considered as the earliest Chola King in history?</p>",
+    "options": [
+      "Nellaraviju",
+      "Mudukudumi",
+      "Elara",
+      "Settipattu",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Chola Kingdom was based between the Pennar and the Vellar rivers to the north east of the Pandya kingdom. Its inland capital was Uraiyar wheras another alternative capital was Kaveripattnam which was the main port of the kingdom. The earliest known Chola king was Elara who conquered Sri Lanka while ruling over 50 years in the kingdom.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>The Pandya Kings used to maintain major trade relations with whom among the following?</p>",
+    "options": [
+      "Greeks",
+      "Romans",
+      "Parsis",
+      "Zoroastrians",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The mention of Pandya Kings can be found in the details of Meghasthenes, the Greek traveler. They used to rule in Tamil Nadu whereas they used to do business with the Romans. The Pandya Kings benefitted a lot from the business with Roman emperors Trojan and Augustus</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Which among the following was known as a port in the Chera dynasty?</p>",
+    "options": [
+      "Vajji",
+      "Vanjii",
+      "Muzris",
+      "Pattini",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Chera rulers occupied some portion of both Kerala and Tamil Nadu. The capital was situated at Vanjji whereas Muzris and Tondi were the major ports. The Romans set up two regiments at Muzris along with a temple</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>In Sangam Administration, the court of monarchs was known as  - </p>",
+    "options": [
+      "Ko",
+      "Mannam",
+      "Avai",
+      "Vendam",
+      "Iraivan"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>In case of Sangam administration, the King was the centre of everything. He was also known as Ko, Mannam, Vendam, Korravan or Iraivan. The court of these monarchs was known as Avai. The important officials were Amaichchar (ministers), Purohitar (priests), dutar (envoy), senapatiyar (commander) etc</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Kanishka, the great Kushan ruler, was a patron of  - </p>",
+    "options": [
+      "Mahayana Buddhism",
+      "Hinayana Buddhism",
+      "Yogya Buddhism",
+      "Paisachik Buddhism",
+      "Jnani Buddhism"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Kanishka was a great exponent of Mahayana Buddhism. During his reign, the 4<sup>th</sup> Buddhist Council took place in Kundalavana in Kashmir. In this convention, the doctrines from Mahayana Buddhism were finalized by the scholars</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Vikrama Samvat is reckoned from  - </p>",
+    "options": [
+      "57 BC",
+      "58 BC",
+      "45 BC",
+      "75 BC",
+      "78 AD"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Sakas or Scythians were the replacements of the Indo Greek rulers in the North West India and Punjab region. The most famous ruler among this tribe was Rudradamana who ruled from 130 AD to 150 AD. In about 58 BC, a king of Ujjain named as Vikramaditya fought effectively against the Sakas and that is why, Vikrama Samvat si reckoned from this year</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Who converted Menander to Buddhism after he came to India?</p>",
+    "options": [
+      "Nagsena",
+      "Nagarjuna",
+      "Gautam Buddha",
+      "Ashwak",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Menander or Milinda was the famous ruler of Indo-Greek community who came to rule India after the fall of the Maurya empire. Menander was converted to Buddhism by Nagarjuna on his coming to this country. They were the first to issue gold coins in India as well</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>The King Hala was associated with  - </p>",
+    "options": [
+      "Sunga Dyansty",
+      "Satvahana Dynasty",
+      "Prakrit Dyansty",
+      "Kanva Dyansty",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The 17<sup>th</sup> ruler of the Satvahana dynasty was Hala. He was the author of Gathasapasti or Sattasai in Prakrit language. Gunadhya, the writer of Vrihat Katha in Prakrit was his contemporary in India</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>The Viceroy of India during the transfer of capital from Calcutta to Delhi was  - </p>",
+    "options": [
+      "Lord Curzon",
+      "Lord Reading",
+      "Lord Minto II",
+      "Lord Hardinge",
+      "Lord Chelmsford"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Lord Hardinge was the viceroy of India from 1910 to 1916. The Bengal Partition Act was repealed during his tenure in 1911 whereas the capital of the British empire was transferred from Calcutta to Delhi. Establishment of Hindu Mahasabha by Madan Mohan Malviya also took place in 1915 during his reign in India</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Who was the Viceroy of India when All Indian Kisan Sabha was formed?</p>",
+    "options": [
+      "Lord Minto II",
+      "Lord Curzon",
+      "Lord Reading",
+      "Lord Willingdon",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Lord Willingdon was the Viceroy of India from 1931 to 1936. The major events during his reign are: announcement of Communal Award by Ramsay Macdonald in 1932, the second Round Table Conference in 1932, government of India Act 1935 and formation of Congress Socialist Party in 1934 along with the establishment of All India Kisan Sabha in 1936</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Who among the following repealed the Vernacular Press Act 1882?</p>",
+    "options": [
+      "Lord Minto II",
+      "Lord Curzon",
+      "Lord Minto",
+      "Lord Ripon",
+      "Lord Lytton"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Lord Ripon was the viceroy of India from 1880 to 1884. He repealed the Vernacular Press Act 1882 and at the same time, tried to improve labour condition by introducing the first ever Factory Act in 1881. He also passed a resolution to start local self-governance in India</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Which among the following is related to police reforms in India?</p>",
+    "options": [
+      "Royal Commission",
+      "Fraser Commission",
+      "Royal Commission of Civil Servants",
+      "Butler Committee",
+      "Maclagon Committee"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Fraser Commission was appointed by Lord Curzon in the year 1902 under the leadership of Fraser. The main objective of the commission was to investigate the activities and working procedure of Police personnel in India</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Sandhurst Commission is associated with  - </p>",
+    "options": [
+      "Reform the Indian Press",
+      "Reform the Indian bureaucracy",
+      "Reform the Indian Army",
+      "Reform the education sector in India",
+      "Reform the railways connectivity in India"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Sandhurst Committee was appointed by Lord Reading in the year 1926 under the chairmanship of Andrews Skeen and the main aim of the committee was to suggest Indianization of Indian army in order to exercise a better control of the Indian mass</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Sarojini Naidu became the first woman to be the President of Indian National Congress in 1925. The session was held in  - </p>",
+    "options": [
+      "Lucknow",
+      "Kanpur",
+      "Decca",
+      "Madras",
+      "Gorakhpur"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In 1925, the Congress annual session was held in Kanpur in Uttar Pradesh. It was iconic because in this convention, Sarojini Naidu was made the first ever woman president of Indian National Congress in its history</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Sargent Plan was introduced in the year  - </p>",
+    "options": [
+      "1945",
+      "1946",
+      "1948",
+      "1944",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Lord Wavell wanted to change the standard of education in India like that of Britain. In order to achieve that, he appointed a commission led by John Sargent to recommend the policy changes regarding the same. The committee submitted his plan known as the Sargent Plan in 1944 but nothing substantial was implemented later due to lack of time and political will</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Indian Councils Act 1892 was passed during the viceroy ship of  - </p>",
+    "options": [
+      "Lord Canning",
+      "Lord Minto II",
+      "Lord Minto",
+      "Lord Lansdowne",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Indian Councils Act 1892 was passed by the British in order to enlarge the size of the central legislative assembly so that more members can be accommodated in it. The viceroy of India at that time was Lord Lansdowne</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Who was the Viceroy of India when the Simon Commission came to India?</p>",
+    "options": [
+      "Lord Irwin",
+      "Lord Wavell",
+      "Lord Mountbatten",
+      "Lord Harding",
+      "Lord Reading"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Simon Commission came to India in 1927 with a view to suggest changes in the Government of India Act of 1919 which was nearing its 10 year term in 1929. This commission was totally boycotted by the Indian leaders because of absence of Indians in the commission. The main objective of the commission was to suggest reforms as well as to recommend that India should be made a confederation of states</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>The Widow Remarriage Act was passed during the period of  - </p>",
+    "options": [
+      "Lord William Bentinck",
+      "Lord Dalhousie",
+      "Lord Curzon",
+      "Lord Reading",
+      "Lord Canning"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Widow Remarriage Act was passed in 1856 and the governor general of India at that time was Lord Canning. He legalized the marriage of Hindu widows and was supported by Indians such as Ishwar Chandra Vidyasagar</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Battle of Samugarh took place in the year  - </p>",
+    "options": [
+      "1546 AD",
+      "1678 AD",
+      "1656 AD",
+      "1658 AD",
+      "1659 AD"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>After the death of Shah Jahan, his sons started fighting among themselves for the Mughal throne. In 1659, the fight began between the imperial forces led by Dara and Aurangazeb, both sons of the late king. At the end, Aurangazeb conquered the battle and captured the British throne after defeating all his brothers in succession battle</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Who said \"My ultimate aim is to wipe every tear from every eye\"?</p>",
+    "options": [
+      "Lala Lajpat Rai",
+      "Subhash Chandra Bose",
+      "Jawaharlal Nehru",
+      "Mahatma Gandhi",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Important sayings during the Indian National Movement:</p><p>&#8226; Back to Vedas: Swami Dayanand Saraswati</p><p>&#8226; Dharma Chakra Pravartana: Mahatma Buddha</p><p>&#8226; Dilli Chalo: Subhash Chandra Bose</p><p>&#8226; Do or Die: Mahatma Gandhi</p><p>&#8226; Swaraj is my birth right and I will have it: Bal Gangadhar Tilak</p><p>&#8226; Every blow that is hurled on my back will be a nail in the coffin of the British empire: Lala Lajpat Rai</p><p>&#8226; The Congress is tottering to its fall and one of my greatest ambition while in India is to assist its peaceful demise: Lord Curzon</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Who among the following is known as Patriot of Patriots?</p>",
+    "options": [
+      "JL Nehru",
+      "Mahatma Gandhi",
+      "Subhash Chandra Bose",
+      "Motilal Nehru",
+      "CR Das"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Some nicknames and the real personalities:</p><p>&#8226; Andhra Kesari: T Prakasam</p><p>&#8226; Anna: CN Annadurai</p><p>&#8226; Iron Man of India: Sardar Vallavbhai Patel</p><p>&#8226; Netaji: Subhash Chandra Bose</p><p>&#8226; Scourge of God: Chengiz Khan</p><p>&#8226; Strong Man of India: Sardar Vallavbhai Patel</p><p>&#8226; Nightingale of India: Sarojini Naidu</p><p>&#8226; Punjab Kesari: Lala Lajpat Rai</p><p>&#8226; Liberator of the Indian Press: Sir Charles Metcalfe</p><p>&#8226; Martin Luther of India: Swami Dayanand Saraswati</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>J Tavernier described the happenings of Indian politics during the reign of  - </p>",
+    "options": [
+      "Akbar",
+      "Sultannate dynasty",
+      "Jahangir",
+      "Aurangazeb",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Jean Baptiste Tavernier was a French traveler who came to India during the rule of the Mughal empire. He describes the account of India during the time of Shah Jahan and Aurangazeb. He visited India six times</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>The Direct Action Campaign was launched in 1946 by  - </p>",
+    "options": [
+      "Indian army",
+      "Muslim League",
+      "Indian National Congress",
+      "Indian bureaucrats",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Inspired by the success of Indian National Congress in the constituent assembly elections in 1946, the Muslim League decided to launch the direct action campaign on August 16, 1946. This led to wide spread communal riots across the country between the Hindus and the Muslims</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>The state of Kashmir was annexed to India in  - </p>",
+    "options": [
+      "October 1948",
+      "November 1947",
+      "August 1948",
+      "September 1949",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>After the independence of India, all states except Kashmir, Junagarh and Hyderabad joined the Indian Union of states. The Maharaja of Kashmir acceded to India in October 1947 after Pakistani soldiers attacked his state in order to capture it</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>The first meeting of the constituent assembly took place on  - </p>",
+    "options": [
+      "October 9",
+      "November 9",
+      "December 9",
+      "November 10",
+      "December 11"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The first meeting of the Constituent Assembly of India took place on December 9, 1946 in order to frame a new constitution for India. Dr Rajendra Prasad was elected as the President of this assembly whereas Muslim League refused to join this organization to frame a separate and own constitution</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>The Navy Rebellion in 1946 took place for which among the following reasons?</p>",
+    "options": [
+      "Indian people were not taken care of properly whereas the British soldiers were made comfortable in every possible aspect",
+      "Indian people were racially discriminated with by the British officers",
+      "The British Government arrested BC Dutt for scrawling Quit India on a ship",
+      "Both 1 and 2",
+      "All the above"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Navy Rebellion started on Feb 18, 1946 at HMS Talwar in Bombay for racial discrimination against Indian soldiers on the boats, unpalatable food items served to the Indian soldiers along with the abuse and arrest of BC Dutt who scrawled Quit India on the ship. However, because of very less support from the political class, this rebellion ended abruptly</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Ras Behari Bose was elected the President of Indian Independence League during the convention of the organization held in  - </p>",
+    "options": [
+      "Bangkok",
+      "Tokyo",
+      "London",
+      "Singapore",
+      "Rangoon"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>After the defeat of the British in the hands of the Japanese soldiers in the World War II, a number of Indian soldiers were captured by the Japanese. These people formed Indian Independence in Tokyo in March 1942. Later in the Bangkok Conference of the organization, Ras Behari Bose was elected the President of the organization. It was the beginning of the Indian National Army or the Azad Hind Fauj as it is popularly known as.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Daman and Diu was liberated from the Portuguese in the year  - </p>",
+    "options": [
+      "1956",
+      "1947",
+      "1948",
+      "1961",
+      "1965"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Even after independence, certain places in India were in the control of foreign merchants. Portugese people were predominant in places such as Goa, Daman and Diu, Dadra and Nagar Haveli. In 1954, Dadra and Nagar Haveli was liberated by the freedom fighters whereas in 1961, Goa and Daman &amp; Diu were liberated from the Portugese people</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>The incident of attempting to murder Kingsford took place in the year  - </p>",
+    "options": [
+      "1915",
+      "1916",
+      "1908",
+      "1906",
+      "Other than those given in options"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Kingsford was a vindictive judge and it was decided that he would be killed. Going by that objective, Khudiram Bose and Prafulla Chaki were chosen for the job. They attempted to murder the judge in Muzzafarpur but in vain. This took place in 1908 and for this, both were hanged later</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Which among the following is NOT correctly matched?</p>",
+    "options": [
+      "Vyayam Mandala: Poona",
+      "Mitra Mela: Midnapore",
+      "Abhinava Bharata: Poona",
+      "Anshilan Samiti: Dacca",
+      "All are correct"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Some of the Indian revolutionary organizations along with locations and founders:</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Organization</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Place</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Founders</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Vyayam Mandala</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Poona</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Chapekar Brothers</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Mitra Mela</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Nasik and later Poona</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Savarkar Brothers</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Anushilan Samiti</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Midnapore</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Pramath Nath Mitra</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Abhinava Bharata</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Poona</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Vikram Damodar Savarkar</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Anushilan Samiti</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Dacca</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Pulin Behari Das</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Bharat Mata Society</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Punjab</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Ajit Singh and Sufi Amba Prasad</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Hindustan Republican Association</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Kanpur</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Sachindra Nath Sanyal</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Bharat Naujawan Sabha</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Lahore</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Bhagat Singh</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Swadesh Bandhav Samiti</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Warisal</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Ashwini Kumar Dutta</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Hindustan Socialist Republican Association</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Delhi</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Chandrashekhar Azad</td></tr></table>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

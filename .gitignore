@@ -1,0 +1,8 @@
+.trae/
+.vscode/
+node_modules/
+__pycache__/
+*.pyc
+venv/
+.env
+generate_dashboard.py

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Mock 16 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>If a<sup>3 </sup>-a<sup>2 </sup>&le; a<sup>2 </sup>+ a &le; a<sup>4</sup>, then what is the value of a?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; a<sup>3 </sup>-a<sup>2 </sup>&le; a<sup>2 </sup>+ a &le; a<sup>4 </sup>&#2361;&#2376;, &#2340;&#2379; a &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">0.</span><span class=\"hqt\" style=\"display:none\">0.</span>",
+      "<span class=\"eqt\">2.</span><span class=\"hqt\" style=\"display:none\">2.</span>",
+      "<span class=\"eqt\">-2.</span><span class=\"hqt\" style=\"display:none\">-2.</span>",
+      "<span class=\"eqt\">all the 3.</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2349;&#2368; &#2340;&#2368;&#2344;&#2379;&#2306;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>For a =0</p><p>0 &le; 0&le;0</p><p>So above given inequality is satisfied so a can be 0.</p><p>For a =2</p><p>(2)<sup>3</sup>- (2)<sup>2 </sup>&le; (2)<sup>2 </sup>+ 2 &le; (2)<sup>4</sup></p><p>So above given inequality is satisfied so a can be 2.</p><p>For a =-2</p><p>(-2)<sup>3</sup>- (-2)<sup>2 </sup>&le; (-2)<sup>2 </sup>+ (-2) &le; (-2)<sup>4</sup></p><p>So above given inequality is satisfied so a can be -2.</p><p><sup> </sup></p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x<sup>2</sup>  -  5 = 1/x<sup>2</sup>, then what is the value of (8x<sup>6</sup>  -  8/x<sup>6</sup>)/32?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x<sup>2</sup> - 5 = 1/x<sup>2 </sup>&#2361;&#2376;, &#2340;&#2379; (8x<sup>6</sup> - 8/x<sup>6</sup>)/32 &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">55</span><span class=\"hqt\" style=\"display:none\">55</span>",
+      "<span class=\"eqt\">45</span><span class=\"hqt\" style=\"display:none\">45</span>",
+      "<span class=\"eqt\">35</span><span class=\"hqt\" style=\"display:none\">35</span>",
+      "<span class=\"eqt\">52</span><span class=\"hqt\" style=\"display:none\">52</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>x<sup>2</sup>  -  5 = 1/x<sup>2</sup></p><p>=&gt; x<sup>2</sup>  -  1/x<sup>2</sup> = 5 ----- (i)</p><p>Cubing both sides, we get</p><p>=&gt; (x<sup>2</sup>  -  1/x<sup>2</sup>)<sup>3</sup> = 5<sup>3</sup></p><p>=&gt; (x<sup>2</sup>)<sup>3</sup>  -  (1/x<sup>2</sup>)<sup>3</sup>  -  3 (x<sup>2</sup>)<sup>2</sup>/x<sup>2</sup> + 3x<sup>2</sup>/(x<sup>2</sup>)<sup>2</sup> = 125 ------ [(a  -  b)<sup>3</sup> = a<sup>3</sup>  -  b<sup>3</sup>  -  3a<sup>2</sup>b + 3ab<sup>2</sup>]</p><p>=&gt; x<sup>6 </sup> -  1/x<sup>6 </sup> -  3x<sup>4</sup>/x<sup>2</sup> + 3x<sup>2</sup>/x<sup>4</sup> = 125</p><p>=&gt; x<sup>6</sup>  -  1/x<sup>6</sup>  -  3x<sup>2 </sup>+ 3/x<sup>2</sup> = 125</p><p>=&gt; x<sup>6</sup>  -  1/x<sup>6</sup>  -  3(x<sup>2</sup>  -  1/x<sup>2</sup>) = 125</p><p>=&gt; x<sup>6</sup>  -  1/x<sup>6</sup>  -  3x5 = 125 [Putting the value of equation (i)]</p><p>=&gt; x<sup>6</sup>  -  1/x<sup>6</sup>  -  15 = 125</p><p>=&gt; x<sup>6</sup>  -  1/x<sup>6</sup> = 125 + 15</p><p>=&gt; x<sup>6</sup>  -  1/x<sup>6</sup> = 140 ------- (ii)</p><p>Now,</p><p>(8x<sup>6</sup>  -  8/x<sup>6</sup>)/32</p><p>= 8/32 x (x<sup>6 </sup> -  1/x<sup>6</sup>)</p><p>= &#188; x (x<sup>6</sup>  -  1/x<sup>6</sup>)</p><p>= &#188; x 140 [Putting the value of equation(ii)]</p><p>= 35</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the value of 'm' in the quadratic equation my<sup>2</sup>  -  3m + 9 = 0 which has equal roots?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2381;&#2357;&#2367;&#2328;&#2366;&#2340; &#2360;&#2350;&#2368;&#2325;&#2352;&#2339; my<sup>2</sup> - 3m + 9 = 0 &#2332;&#2367;&#2360;&#2325;&#2375; &#2350;&#2370;&#2354; &#2360;&#2350;&#2366;&#2344; &#2361;&#2376;&#2306;, &#2311;&#2360;&#2350;&#2375;&#2306; 'm' &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Both 0 and 2</span><span class=\"hqt\" style=\"display:none\">&#2342;&#2379;&#2344;&#2379;&#2306; 0 &#2324;&#2352; 2</span>",
+      "<span class=\"eqt\">Both 0 and 4</span><span class=\"hqt\" style=\"display:none\">&#2342;&#2379;&#2344;&#2379;&#2306; 0 &#2324;&#2352; 4</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Quadratic equation my<sup>2</sup>  -  3m + 9 = 0 has equal roots.</p><p>here coefficient of y = 0</p><p>Then, D = 0  -  4 x m x(-3m + 9) = 0</p><p>-3m + 9 = 0</p><p>m = 3</p><p>m cannot be zero, if m = 0 the equation my<sup>2</sup>  -  3m + 9 = 0 becomes invalid.</p><p></p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Number of hens in an animal shelter is 75% more than the number of cows. If the number of legs is 380 more than the number of heads, what is the number of cows in the shelter?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2346;&#2358;&#2369; &#2310;&#2358;&#2381;&#2352;&#2351; &#2350;&#2375;&#2306; &#2350;&#2369;&#2352;&#2381;&#2327;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2327;&#2366;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; 75% &#2309;&#2343;&#2367;&#2325; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#2346;&#2376;&#2352;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2367;&#2352;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; 380 &#2309;&#2343;&#2367;&#2325; &#2361;&#2376;, &#2340;&#2379; &#2310;&#2358;&#2381;&#2352;&#2351; &#2350;&#2375;&#2306; &#2327;&#2366;&#2351;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">60</span><span class=\"hqt\" style=\"display:none\">60</span>",
+      "<span class=\"eqt\">80</span><span class=\"hqt\" style=\"display:none\">80</span>",
+      "<span class=\"eqt\">90</span><span class=\"hqt\" style=\"display:none\">90</span>",
+      "<span class=\"eqt\">100</span><span class=\"hqt\" style=\"display:none\">100</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Let the number of cows be 'x'</p><p>Number of hens = (175/100)*x = 7x/4</p><p>Number of legs = (7x/4)*2 + 4x = 7x/2 + 4x</p><p>Number of heads = x + 7x/4</p><p>So, 7x/2 + 4x  -  x  -  7x/4 = 380</p><p>19x/4 = 380</p><p>x = 80</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>From a point A, the angle of elevation of the top of a tower of height 20m is 60&deg;. From a point B which on the opposite side of the tower, the angle of elevation of its top is 45&deg;. What is the distance between A and B?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2348;&#2367;&#2306;&#2342;&#2369; A &#2360;&#2375;, 20 &#2350;&#2368;&#2335;&#2352; &#2314;&#2305;&#2330;&#2375; &#2319;&#2325; &#2335;&#2377;&#2357;&#2352; &#2325;&#2375; &#2358;&#2368;&#2352;&#2381;&#2359; &#2325;&#2366; &#2313;&#2344;&#2381;&#2344;&#2351;&#2344; &#2325;&#2379;&#2339; 60&deg; &#2361;&#2376;&#2404; &#2348;&#2367;&#2306;&#2342;&#2369; B &#2360;&#2375; &#2332;&#2379; &#2325;&#2367; &#2335;&#2377;&#2357;&#2352; &#2325;&#2375; &#2357;&#2367;&#2346;&#2352;&#2368;&#2340; &#2323;&#2352; &#2361;&#2376;, &#2311;&#2360;&#2325;&#2375; &#2358;&#2368;&#2352;&#2381;&#2359; &#2325;&#2366; &#2313;&#2344;&#2381;&#2344;&#2351;&#2344; &#2325;&#2379;&#2339; 45&deg; &#2361;&#2376;&#2404; A &#2324;&#2352; B &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2368; &#2342;&#2370;&#2352;&#2368; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">20&radic;3 m</span><span class=\"hqt\" style=\"display:none\">20&radic;3 &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">10 m</span><span class=\"hqt\" style=\"display:none\">10 &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">20(1-1/&radic;3) m</span><span class=\"hqt\" style=\"display:none\">20(1-1/&radic;3) &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">20(1+1/&radic;3) m</span><span class=\"hqt\" style=\"display:none\">20(1+1/&radic;3) &#2350;&#2368;&#2335;&#2352;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><img width=221 height=153 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/rrbimg/88824/image001.jpg\"></p><p>Distance between A and foot of the tower=20/tan60=20/&radic;3 m</p><p>Distance between B and foot of the tower=20/tan45=20 m</p><p>Hence, distance between A and B=20(1+1/&radic;3) m</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Deepti buys mangoes at the rate of 18 kg for Rs 288 and sells them at 16 kg for Rs 272. How much mangoes Deepti should sell to obtain a profit of Rs 72?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2368;&#2346;&#2381;&#2340;&#2367; 18 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; 288 &#2352;&#2369;&#2346;&#2351;&#2375; &#2350;&#2375;&#2306; &#2310;&#2350; &#2326;&#2352;&#2368;&#2342;&#2340;&#2368; &#2361;&#2376;&#2306; &#2324;&#2352; &#2313;&#2344;&#2381;&#2361;&#2375;&#2306; 16 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2368; &#2342;&#2352; 272 &#2352;&#2369;&#2346;&#2351;&#2375; &#2350;&#2375;&#2306; &#2348;&#2375;&#2330; &#2342;&#2375;&#2340;&#2368; &#2361;&#2376;&#2404; &#2342;&#2368;&#2346;&#2381;&#2340;&#2367; &#2325;&#2379; 72 &#2352;&#2369;&#2346;&#2351;&#2375; &#2325;&#2366; &#2354;&#2366;&#2349; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2325;&#2352;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; &#2325;&#2367;&#2340;&#2344;&#2375; &#2310;&#2350; &#2348;&#2375;&#2330;&#2344;&#2375; &#2330;&#2366;&#2361;&#2367;&#2319;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">108 kg</span><span class=\"hqt\" style=\"display:none\">108 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">72 kg</span><span class=\"hqt\" style=\"display:none\">72 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">60 kg</span><span class=\"hqt\" style=\"display:none\">60 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">54 kg</span><span class=\"hqt\" style=\"display:none\">54 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Cost price of 1 kg of mangoes =Rs 288/18 = Rs 16</p><p>Selling price of 1 kg of mangoes = Rs 272/16 = Rs 17</p><p>Hence profit obtained by Deepti by selling 1 kg of mango = Rs 1</p><p>Hence she should sell 72 kg mangoes in order to realize a profit of Rs 72.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p>S<sub>1</sub> is a series of 6 consecutive integers which are multiple of 3 and whose average is 1.5. S<sub>2</sub> is another series of 6 consecutive positive multiples of 5 whose 1<sup>st</sup> number is equal to the 3<sup>rd</sup> number of S<sub>1</sub>, what is the sum of S<sub>2</sub>?</p></span><span class=\"hqt\" style=\"display:none\"><p>S<sub>1</sub>, 6 &#2325;&#2381;&#2352;&#2350;&#2367;&#2325; &#2346;&#2370;&#2352;&#2381;&#2339;&#2366;&#2306;&#2325;&#2379;&#2306; &#2325;&#2368; &#2319;&#2325; &#2358;&#2381;&#2352;&#2371;&#2306;&#2326;&#2354;&#2366; &#2361;&#2376;, &#2332;&#2379; 3 &#2325;&#2375; &#2327;&#2369;&#2339;&#2325; &#2361;&#2376;&#2306; &#2324;&#2352; &#2332;&#2367;&#2344;&#2325;&#2366; &#2324;&#2360;&#2340; 1.5 &#2361;&#2376;&#2404; S<sub>2</sub>, 5 &#2325;&#2375; 6 &#2325;&#2381;&#2352;&#2350;&#2367;&#2325; &#2343;&#2344;&#2366;&#2340;&#2381;&#2350;&#2325; &#2327;&#2369;&#2339;&#2325;&#2379;&#2306; &#2325;&#2368; &#2319;&#2325; &#2309;&#2344;&#2381;&#2351; &#2358;&#2381;&#2352;&#2371;&#2306;&#2326;&#2354;&#2366; &#2361;&#2376;, &#2332;&#2367;&#2360;&#2325;&#2368; &#2346;&#2361;&#2354;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; S<sub>1 </sub>&#2325;&#2368; &#2340;&#2368;&#2360;&#2352;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2375; &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2376;, &#2340;&#2379; S<sub>2</sub> &#2325;&#2366; &#2351;&#2379;&#2327; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">75</span><span class=\"hqt\" style=\"display:none\">75</span>",
+      "<span class=\"eqt\">60</span><span class=\"hqt\" style=\"display:none\">60</span>",
+      "<span class=\"eqt\">80</span><span class=\"hqt\" style=\"display:none\">80</span>",
+      "<span class=\"eqt\">90</span><span class=\"hqt\" style=\"display:none\">90</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Let S<sub>1</sub> = x, (x + 3), (x + 6), (x + 9), (x + 12), (x + 15)</p><p>Average of S<sub>1</sub> = (x + x + 3 + x + 6 + x + 9 + x + 12 + x + 15)/6 = 1.5</p><p>=&gt; 6x + 45 = 9</p><p>=&gt; 6x = -36</p><p>=&gt; x = -6</p><p>S<sub>1</sub> = -6, -3, 0, 3, 6, 9</p><p>First number of S<sub>2</sub> = Third number of S<sub>1</sub> = 0</p><p>S<sub>2</sub> = 0, 5, 10, 15, 20, 25</p><p>Sum of S<sub>2</sub> = 0 + 5 + 10 + 15 + 20 + 25 = 75</p>",
+    "question_index": 6
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions  [Set of 4 questions]:</b> Following graph shows percentage marks scored by 5 students in 3 standards (8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup>).</p><p><img width=656 height=484 id=\"Chart 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3439/image009.png\"></p><p>Total marks in 8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup> standards were 500, 600 and 700 respectively.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; ]: </b>&#2344;&#2367;&#2350;&#2381;&#2344; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; 3 &#2325;&#2325;&#2381;&#2359;&#2366;&#2323;&#2306; (8 &#2357;&#2375;&#2306;, 9 &#2357;&#2375;&#2306; &#2324;&#2352; 10 &#2357;&#2375;&#2306;) &#2350;&#2375;&#2306; 5 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2309;&#2306;&#2325; &#2342;&#2352;&#2381;&#2358;&#2366;&#2319; &#2327;&#2319; &#2361;&#2376;&#2306;&#2404;</p><p><img width=\"656\" height=\"484\" id=\"Chart 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3439/image009.png\"></p><p>8 &#2357;&#2368;&#2306;, 9 &#2357;&#2368;&#2306; &#2324;&#2352; 10 &#2357;&#2368;&#2306; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 500, 600 &#2324;&#2352; 700 &#2361;&#2376;&#2306;&#2404;</p></span>",
+    "question": "<span class=\"eqt\"><p>What is average marks scored by all 5 persons in 8<sup>th</sup> standard?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2325;&#2325;&#2381;&#2359;&#2366; 8&#2357;&#2368;&#2306; &#2350;&#2375;&#2306; &#2360;&#2349;&#2368; 5 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2324;&#2360;&#2340; &#2309;&#2306;&#2325; &#2325;&#2367;&#2340;&#2344;&#2375; &#2361;&#2376;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">311</span><span class=\"hqt\" style=\"display:none\">311</span>",
+      "<span class=\"eqt\">312</span><span class=\"hqt\" style=\"display:none\">312</span>",
+      "<span class=\"eqt\">320</span><span class=\"hqt\" style=\"display:none\">320</span>",
+      "<span class=\"eqt\">325</span><span class=\"hqt\" style=\"display:none\">325</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Total marks scored by all 5 persons in English</p><p>= (0.8 +0.65 +0.72 +0.4 +0.54) x 500 = 3.11 x 500</p><p>Required average= (3.11 x 500)/5 = 311</p>",
+    "question_index": 7
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions  [Set of 4 questions]:</b> Following graph shows percentage marks scored by 5 students in 3 standards (8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup>).</p><p><img width=656 height=484 id=\"Chart 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3439/image009.png\"></p><p>Total marks in 8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup> standards were 500, 600 and 700 respectively.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; ]: </b>&#2344;&#2367;&#2350;&#2381;&#2344; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; 3 &#2325;&#2325;&#2381;&#2359;&#2366;&#2323;&#2306; (8 &#2357;&#2375;&#2306;, 9 &#2357;&#2375;&#2306; &#2324;&#2352; 10 &#2357;&#2375;&#2306;) &#2350;&#2375;&#2306; 5 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2309;&#2306;&#2325; &#2342;&#2352;&#2381;&#2358;&#2366;&#2319; &#2327;&#2319; &#2361;&#2376;&#2306;&#2404;</p><p><img width=\"656\" height=\"484\" id=\"Chart 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3439/image009.png\"></p><p>8 &#2357;&#2368;&#2306;, 9 &#2357;&#2368;&#2306; &#2324;&#2352; 10 &#2357;&#2368;&#2306; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 500, 600 &#2324;&#2352; 700 &#2361;&#2376;&#2306;&#2404;</p></span>",
+    "question": "<span class=\"eqt\"><p>What is the percentage marks scored by E in 8<sup>th</sup> and 10<sup>th</sup> standard together?</p></span><span class=\"hqt\" style=\"display:none\"><p>8 &#2357;&#2368;&#2306; &#2324;&#2352; 10 &#2357;&#2368;&#2306; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2319;&#2325; &#2360;&#2366;&#2341; E &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2309;&#2306;&#2325; &#2325;&#2367;&#2340;&#2344;&#2375; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">64%</span><span class=\"hqt\" style=\"display:none\">64%</span>",
+      "<span class=\"eqt\">62.75%</span><span class=\"hqt\" style=\"display:none\">62.75%</span>",
+      "<span class=\"eqt\">64.5%</span><span class=\"hqt\" style=\"display:none\">64.5%</span>",
+      "<span class=\"eqt\">61.25%</span><span class=\"hqt\" style=\"display:none\">61.25%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Marks scored by E in 8<sup>th</sup> standard= 0.54 x 500 = 270</p><p>Marks scored by E in 10<sup>th</sup> standard= 0.69 x 700 = 483</p><p>Required percentage = ((270 +483)/ (500 +700)) x 100%</p><p>= 62.75%</p>",
+    "question_index": 8
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions  [Set of 4 questions]:</b> Following graph shows percentage marks scored by 5 students in 3 standards (8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup>).</p><p><img width=656 height=484 id=\"Chart 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3439/image009.png\"></p><p>Total marks in 8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup> standards were 500, 600 and 700 respectively.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; ]: </b>&#2344;&#2367;&#2350;&#2381;&#2344; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; 3 &#2325;&#2325;&#2381;&#2359;&#2366;&#2323;&#2306; (8 &#2357;&#2375;&#2306;, 9 &#2357;&#2375;&#2306; &#2324;&#2352; 10 &#2357;&#2375;&#2306;) &#2350;&#2375;&#2306; 5 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2309;&#2306;&#2325; &#2342;&#2352;&#2381;&#2358;&#2366;&#2319; &#2327;&#2319; &#2361;&#2376;&#2306;&#2404;</p><p><img width=\"656\" height=\"484\" id=\"Chart 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3439/image009.png\"></p><p>8 &#2357;&#2368;&#2306;, 9 &#2357;&#2368;&#2306; &#2324;&#2352; 10 &#2357;&#2368;&#2306; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 500, 600 &#2324;&#2352; 700 &#2361;&#2376;&#2306;&#2404;</p></span>",
+    "question": "<span class=\"eqt\"><p>What is the difference between total marks scored by all 5 students in 10<sup>th</sup> standard and total marks scored by all 5 students in 9<sup>th</sup> standard?</p></span><span class=\"hqt\" style=\"display:none\"><p>10 &#2357;&#2368;&#2306; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2360;&#2349;&#2368; 5 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325;&#2379;&#2306; &#2324;&#2352; 9 &#2357;&#2368;&#2306; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2360;&#2349;&#2368; 5 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325;&#2379;&#2306; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2366; &#2309;&#2306;&#2340;&#2352; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">533</span><span class=\"hqt\" style=\"display:none\">533</span>",
+      "<span class=\"eqt\">435</span><span class=\"hqt\" style=\"display:none\">435</span>",
+      "<span class=\"eqt\">563</span><span class=\"hqt\" style=\"display:none\">563</span>",
+      "<span class=\"eqt\">433</span><span class=\"hqt\" style=\"display:none\">433</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Total marks scored by all 5 students in 10<sup>th</sup> standard = (0.75 +0.7 +0.55 +0.5 +0.69) x 700</p><p>= 3.19 x 700 = 2233</p><p>Total marks scored by all 5 students in 9<sup>th</sup> standard</p><p>= (0.6 +0.8 +0.64 +0.36 +0.6) x 600</p><p>= 3 x 600 = 1800</p><p>Required difference = 2233 -1800 = 433.</p>",
+    "question_index": 9
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions  [Set of 4 questions]:</b> Following graph shows percentage marks scored by 5 students in 3 standards (8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup>).</p><p><img width=656 height=484 id=\"Chart 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3439/image009.png\"></p><p>Total marks in 8<sup>th</sup>, 9<sup>th</sup> and 10<sup>th</sup> standards were 500, 600 and 700 respectively.</p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361; ]: </b>&#2344;&#2367;&#2350;&#2381;&#2344; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; 3 &#2325;&#2325;&#2381;&#2359;&#2366;&#2323;&#2306; (8 &#2357;&#2375;&#2306;, 9 &#2357;&#2375;&#2306; &#2324;&#2352; 10 &#2357;&#2375;&#2306;) &#2350;&#2375;&#2306; 5 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2309;&#2306;&#2325; &#2342;&#2352;&#2381;&#2358;&#2366;&#2319; &#2327;&#2319; &#2361;&#2376;&#2306;&#2404;</p><p><img width=\"656\" height=\"484\" id=\"Chart 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3439/image009.png\"></p><p>8 &#2357;&#2368;&#2306;, 9 &#2357;&#2368;&#2306; &#2324;&#2352; 10 &#2357;&#2368;&#2306; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 500, 600 &#2324;&#2352; 700 &#2361;&#2376;&#2306;&#2404;</p></span>",
+    "question": "<span class=\"eqt\"><p>What is the ratio of total marks scored by A in all 3 standards together to the total marks scored by D in all 3 standards together?</p></span><span class=\"hqt\" style=\"display:none\"><p>A &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2360;&#2349;&#2368; 3 &#2325;&#2325;&#2381;&#2359;&#2366;&#2323;&#2306; &#2350;&#2375;&#2306; &#2319;&#2325; &#2360;&#2366;&#2341; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325;&#2379;&#2306; &#2324;&#2352; D &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2360;&#2349;&#2368; 3 &#2325;&#2325;&#2381;&#2359;&#2366;&#2323;&#2306; &#2350;&#2375;&#2306; &#2319;&#2325; &#2360;&#2366;&#2341; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325;&#2379;&#2306; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">1285/766</span><span class=\"hqt\" style=\"display:none\">1285/766</span>",
+      "<span class=\"eqt\">1285/763</span><span class=\"hqt\" style=\"display:none\">1285/763</span>",
+      "<span class=\"eqt\">1287/766</span><span class=\"hqt\" style=\"display:none\">1287/766</span>",
+      "<span class=\"eqt\">1285/769</span><span class=\"hqt\" style=\"display:none\">1285/769</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Total marks scored by A in all 3 standards together</p><p>= (0.8 x 500) +(0.6 x600) +(0.75 x 700)</p><p>= 400 +360 + 525 = 1285</p><p>Total marks scored by D in all 3 standards together</p><p>= (0.4 x 500) +(0. 36 x600) +(0.5 x 700)</p><p>= 200 + 216 + 350= 766</p><p>Required ratio= 1285/766.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The average weight of a Family of 4 is 57.5 kg. If the second highest weighing member is not considered, the average drops by 0.5 kg. What is the weight of the heaviest member if it is 16 kg more than the second highest weighing member?</p></span><span class=\"hqt\" style=\"display:none\"><p>4 &#2354;&#2379;&#2327;&#2379;&#2306; &#2325;&#2375; &#2319;&#2325; &#2346;&#2352;&#2367;&#2357;&#2366;&#2352; &#2325;&#2366; &#2324;&#2360;&#2340; &#2357;&#2332;&#2344; 57.5 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#2342;&#2370;&#2360;&#2352;&#2375; &#2360;&#2348;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325; &#2357;&#2332;&#2344; &#2357;&#2366;&#2354;&#2375; &#2360;&#2342;&#2360;&#2381;&#2351; &#2325;&#2379; &#2344;&#2361;&#2368;&#2306; &#2327;&#2367;&#2344;&#2366; &#2332;&#2366;&#2319;, &#2340;&#2379; &#2324;&#2360;&#2340; 0.5 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2350; &#2361;&#2379; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#2360;&#2348;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325; &#2357;&#2332;&#2344; &#2357;&#2366;&#2354;&#2375; &#2360;&#2342;&#2360;&#2381;&#2351; &#2325;&#2366; &#2357;&#2332;&#2344; &#2342;&#2370;&#2360;&#2352;&#2375; &#2360;&#2348;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325; &#2357;&#2332;&#2344; &#2357;&#2366;&#2354;&#2375; &#2360;&#2342;&#2360;&#2381;&#2351; &#2360;&#2375; 16 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2309;&#2343;&#2367;&#2325; &#2361;&#2376;, &#2340;&#2379; &#2360;&#2348;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325; &#2357;&#2332;&#2344; &#2357;&#2366;&#2354;&#2375; &#2360;&#2342;&#2360;&#2381;&#2351; &#2325;&#2366; &#2357;&#2332;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">65 kg</span><span class=\"hqt\" style=\"display:none\">65 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">70 kg</span><span class=\"hqt\" style=\"display:none\">70 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">75 kg</span><span class=\"hqt\" style=\"display:none\">75 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">80 kg</span><span class=\"hqt\" style=\"display:none\">80 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Weight of the second highest weighing member</p><p>= 57.5*4  -  57*3 = 59 kg</p><p>Weight of the heaviest member = 59 + 16 = 75 kg</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Polka borrowed a sum of Rs. 490200 from a bank at 7% simple interest scheme, payable in five equal annual installments. Find the annual installment amount to be paid by him, each year?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2346;&#2379;&#2354;&#2381;&#2325;&#2366; &#2344;&#2375; &#2319;&#2325; &#2348;&#2376;&#2306;&#2325; &#2360;&#2375; 490200 &#2352;&#2369; &#2325;&#2368; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; 7% &#2360;&#2366;&#2343;&#2366;&#2352;&#2339; &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2368; &#2351;&#2379;&#2332;&#2344;&#2366; &#2346;&#2352; &#2313;&#2343;&#2352; &#2354;&#2368;, &#2332;&#2379; &#2346;&#2366;&#2305;&#2330; &#2360;&#2350;&#2366;&#2344; &#2357;&#2366;&#2352;&#2381;&#2359;&#2367;&#2325; &#2325;&#2367;&#2358;&#2381;&#2340;&#2379;&#2306; &#2350;&#2375;&#2306; &#2342;&#2375;&#2351; &#2361;&#2376;&#2404; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2357;&#2352;&#2381;&#2359; &#2313;&#2360;&#2325;&#2375; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2349;&#2369;&#2327;&#2340;&#2366;&#2344; &#2325;&#2368; &#2332;&#2366;&#2344;&#2375; &#2357;&#2366;&#2354;&#2368; &#2357;&#2366;&#2352;&#2381;&#2359;&#2367;&#2325; &#2325;&#2367;&#2360;&#2381;&#2340; &#2325;&#2368; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2351;&#2375;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs. 116100</span><span class=\"hqt\" style=\"display:none\">116100 &#2352;&#2369;</span>",
+      "<span class=\"eqt\">Rs. 111600</span><span class=\"hqt\" style=\"display:none\">111600 &#2352;&#2369;</span>",
+      "<span class=\"eqt\">Rs. 119100</span><span class=\"hqt\" style=\"display:none\">119100 &#2352;&#2369;</span>",
+      "<span class=\"eqt\">Rs. 111900</span><span class=\"hqt\" style=\"display:none\">111900 &#2352;&#2369;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Principal = Rs. 490200</p><p>Amount to be paid back (along with interest) = Rs. (490200 X 1.35) = Rs. 661770.</p><p>Let each annual installment amount paid back by Polka be Rs. X.</p><p>For the first installment, interest will be applicable for 4 years. Hence effective amount paid back = Rs. 1.28X</p><p>For the second installment, interest will be applicable for 3 years. Hence effective amount paid back = Rs. 1.21X</p><p>For the third installment, interest will be applicable for 2 years. Hence effective amount paid back = Rs. 1.14X</p><p>For the fourth installment, interest will be applicable for 1 year. Hence effective amount paid back = Rs. 1.07X</p><p>For the fifth installment, interest will be applicable for 0 years. Hence effective amount paid back = Rs. X</p><p>Total amount paid back effectively = Rs. (1.28 + 1.21 + 1.14 + 1.07 + 1)X = Rs. 661770</p><p>or 5.7X = 661770</p><p>or X = Rs. 116100.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>2 men and 7 boys together can complete a piece of work in 14 days, while 3 men and 8 boys together can do it in 11 days. Then in how many days will 8 men and 6 boys do thrice that work?</p></span><span class=\"hqt\" style=\"display:none\"><p>2 &#2346;&#2369;&#2352;&#2369;&#2359; &#2324;&#2352; 7 &#2354;&#2337;&#2364;&#2325;&#2375; &#2319;&#2325; &#2360;&#2366;&#2341; 14 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2319;&#2325; &#2325;&#2366;&#2350; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2332;&#2348;&#2325;&#2367; 3 &#2346;&#2369;&#2352;&#2369;&#2359; &#2324;&#2352; 8 &#2354;&#2337;&#2364;&#2325;&#2375; &#2319;&#2325; &#2360;&#2366;&#2341; 11 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2311;&#2360;&#2375; &#2325;&#2352; &#2360;&#2325;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2340;&#2379; 8 &#2310;&#2342;&#2350;&#2368; &#2324;&#2352; 6 &#2354;&#2337;&#2364;&#2325;&#2375; &#2325;&#2367;&#2340;&#2344;&#2375; &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2313;&#2360; &#2325;&#2366;&#2350; &#2325;&#2375; &#2340;&#2368;&#2344; &#2327;&#2369;&#2344;&#2366; &#2325;&#2366;&#2350; &#2325;&#2379; &#2325;&#2352;&#2375;&#2306;&#2327;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">11</span><span class=\"hqt\" style=\"display:none\">11</span>",
+      "<span class=\"eqt\">21</span><span class=\"hqt\" style=\"display:none\">21</span>",
+      "<span class=\"eqt\">31</span><span class=\"hqt\" style=\"display:none\">31</span>",
+      "<span class=\"eqt\">41</span><span class=\"hqt\" style=\"display:none\">41</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>2 men and 7 boys do in 1 day = 1/14........(1)</p><p>3 men and 8 boys do in one day = 1/11.......(2)</p><p>Multiplying equation (1) by 3</p><p>6 men and 21 boys do in 1 day =3/14 work......(3)</p><p>Multiplying equation (2) by 2</p><p>6 men and 16 boys do in one day = 2/11......(4)</p><p>Subtracting equation (3) by equation (4)</p><p>5 boys will do in one day = 5/154 work</p><p>1 boys will do in one day = 1/154 work</p><p>And 1 man will do in 1 day =1/77 work</p><p>8 men and 6 boys will do in 1 day = 8/77 + 6/154 = 1/7 work</p><p>8 men and 6 boys will do unit work in = 7 days</p><p>8 men and 6 boys will do thrice work in7x3 = 21 days.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Solve the given expression  - </p><p>CotA * (1  -  4Sin<sup>2</sup>A)/(3  -  4Sin<sup>2</sup>A)</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2368; &#2327;&#2312; &#2309;&#2349;&#2367;&#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2379; &#2361;&#2354; &#2325;&#2352;&#2375;&#2306; -</p><p>CotA * (1 - 4Sin<sup>2</sup>A)/(3 - 4Sin<sup>2</sup>A)</p></span>",
+    "options": [
+      "<span class=\"eqt\">Cot3A</span><span class=\"hqt\" style=\"display:none\">Cot3A</span>",
+      "<span class=\"eqt\">Tan3A</span><span class=\"hqt\" style=\"display:none\">Tan3A</span>",
+      "<span class=\"eqt\">Cos3A</span><span class=\"hqt\" style=\"display:none\">Cos3A</span>",
+      "<span class=\"eqt\">Cosec3A</span><span class=\"hqt\" style=\"display:none\">Cosec3A</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>CotA * (1  -  4Sin<sup>2</sup>A)/(3  -  4Sin<sup>2</sup>A)</p><p>=&gt; CosA/SinA * (1  -  4(1  -  Cos<sup>2</sup>A))/(3  -  4Sin<sup>2</sup>A))</p><p>=&gt; CosA/SinA * (1  -  4 + 4Cos<sup>2</sup>A)/(3  -  4Sin<sup>2</sup>A)</p><p>=&gt; CosA/SinA * (4Cos<sup>2</sup>A  -  3)/(3  -  4Sin<sup>2</sup>A)</p><p>=&gt; (4Cos<sup>3</sup>A  -  3CosA)/(3SinA  -  4Sin<sup>3</sup>A)</p><p>=&gt; Cos3A/Sin3A</p><p>=&gt; Cot3A</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Find the value of &frac12; * [{1 + Tan<sup>2</sup>(45<sup>0</sup> + A)}/Tan(45<sup>0</sup> + A)].</p></span><span class=\"hqt\" style=\"display:none\"><p>&frac12; * [{1 + Tan<sup>2</sup>(45<sup>0</sup> + A)}/Tan(45<sup>0</sup> + A)] &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Cos2A</span><span class=\"hqt\" style=\"display:none\">Cos2A</span>",
+      "<span class=\"eqt\">Sec2A</span><span class=\"hqt\" style=\"display:none\">Sec2A</span>",
+      "<span class=\"eqt\">Sin2A</span><span class=\"hqt\" style=\"display:none\">Sin2A</span>",
+      "<span class=\"eqt\">Cosec2A</span><span class=\"hqt\" style=\"display:none\">Cosec2A</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>&frac12; * [{1 + Tan<sup>2</sup>(45<sup>0</sup> + A)}/Tan(45<sup>0</sup> + A)]</p><p>[1 + Tan<sup>2</sup>(45<sup>0</sup> + A)]/2Tan(45<sup>0</sup> + A) (Since, Sin2A = 2TanA/(1 + Tan<sup>2</sup>A))</p><p>=&gt; 1/Sin2(45<sup>0</sup> + A) = 1/Sin(90<sup>0</sup> + 2A)</p><p>=&gt; 1/Cos2A .. (Since, Sin(90<sup>0</sup> + &#952;) = Cos&#952;) </p><p>= Sec2A</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Aloknath booked a banquet hall for his daughter's marriage, the dimensions of which are 40 feet by 32 feet. He spent &#8377;57600 for carpeting the floor. What is the cost of carpeting per square feet?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2310;&#2354;&#2379;&#2325;&#2344;&#2366;&#2341; &#2344;&#2375; &#2309;&#2346;&#2344;&#2368; &#2348;&#2375;&#2335;&#2368; &#2325;&#2368; &#2358;&#2366;&#2342;&#2368; &#2325;&#2375; &#2354;&#2367;&#2319; &#2319;&#2325; &#2348;&#2376;&#2306;&#2325;&#2381;&#2357;&#2375;&#2335; &#2361;&#2377;&#2354; &#2348;&#2369;&#2325; &#2325;&#2367;&#2351;&#2366;, &#2332;&#2367;&#2360;&#2325;&#2366; &#2310;&#2351;&#2366;&#2350; 40 &#2347;&#2368;&#2335; X 32 &#2347;&#2368;&#2335; &#2361;&#2376;&#2404; &#2313;&#2360;&#2344;&#2375; &#2347;&#2352;&#2381;&#2358; &#2346;&#2352; &#2325;&#2366;&#2354;&#2368;&#2344; &#2348;&#2367;&#2331;&#2366;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; 57600 &#2352;&#2369; &#2326;&#2352;&#2381;&#2330; &#2325;&#2367;&#2319;&#2404; &#2346;&#2381;&#2352;&#2340;&#2367; &#2357;&#2352;&#2381;&#2327; &#2347;&#2368;&#2335; &#2325;&#2366;&#2354;&#2368;&#2344; &#2348;&#2367;&#2331;&#2366;&#2344;&#2375; &#2325;&#2368; &#2354;&#2366;&#2327;&#2340; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">&#8377;59</span><span class=\"hqt\" style=\"display:none\">&#8377;59</span>",
+      "<span class=\"eqt\">&#8377;55</span><span class=\"hqt\" style=\"display:none\">&#8377;55</span>",
+      "<span class=\"eqt\">&#8377;45</span><span class=\"hqt\" style=\"display:none\">&#8377;45</span>",
+      "<span class=\"eqt\">&#8377;42</span><span class=\"hqt\" style=\"display:none\">&#8377;42</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Area of the hall = 40 * 32 = 1280 feet&#178;</p><p>Cost of carpeting per square foot = 57600/1280 = &#8377;45</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Ali Zafar, the butcher sells stale meat at 20% loss on his cost price. Although he uses inaccurate weights which weigh 25% less. What is his percentage profit or loss?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2309;&#2354;&#2368; &#2395;&#2347;&#2352;, &#2325;&#2360;&#2366;&#2312; &#2348;&#2366;&#2360;&#2368; &#2350;&#2366;&#2306;&#2360; &#2325;&#2379; &#2313;&#2360;&#2325;&#2375; &#2325;&#2381;&#2352;&#2351; &#2350;&#2370;&#2354;&#2381;&#2351; &#2346;&#2352; 20% &#2361;&#2366;&#2344;&#2367; &#2346;&#2352; &#2348;&#2375;&#2330;&#2340;&#2366; &#2361;&#2376;&#2404; &#2361;&#2366;&#2354;&#2366;&#2306;&#2325;&#2367; &#2357;&#2361; &#2327;&#2354;&#2340; &#2357;&#2332;&#2364;&#2344; &#2325;&#2366; &#2313;&#2346;&#2351;&#2379;&#2327; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376; &#2332;&#2379; &#2325;&#2367; 25% &#2325;&#2350; &#2357;&#2332;&#2344; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;&#2404; &#2313;&#2360;&#2325;&#2366; &#2354;&#2366;&#2349; &#2351;&#2366; &#2361;&#2366;&#2344;&#2367; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">6.67% loss</span><span class=\"hqt\" style=\"display:none\">6.67% &#2361;&#2366;&#2344;&#2367;</span>",
+      "<span class=\"eqt\">6.33% loss</span><span class=\"hqt\" style=\"display:none\">6.33% &#2361;&#2366;&#2344;&#2367;</span>",
+      "<span class=\"eqt\">5.67% profit</span><span class=\"hqt\" style=\"display:none\">5.67% &#2354;&#2366;&#2349;</span>",
+      "<span class=\"eqt\">6.67% profit</span><span class=\"hqt\" style=\"display:none\">6.67% &#2354;&#2366;&#2349;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Let the cost price of 1 kg of meat be &#8377;1000.</p><p>Selling price = 1000 - 20% of 1000 = &#8377;800.</p><p>But he sells 25% less in weight i.e. 750 g instead of 1000 g.</p><p>=&gt; Selling price of 750 g of meat = &#8377;800</p><p>But the cost price of 750 g of meat = &#8377;750</p><p>Actual gain = 800 - 750 = &#8377;50</p><p>% gain = 50/750 * 100 = 6.67%</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the following diagram XY is the diameter of the circle with centre O. What is the value of 'x'?</p><p><img width=203 height=240 id=\"Picture 10\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3002/image010.png\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; XY &#2325;&#2375;&#2306;&#2342;&#2381;&#2352; O &#2325;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2366; &#2357;&#2381;&#2351;&#2366;&#2360; &#2361;&#2376;&#2404; 'x' &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p><p><img width=\"203\" height=\"240\" id=\"Picture 10\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3002/image010.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">40<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">40<sup>0</sup></span>",
+      "<span class=\"eqt\">30<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">30<sup>0</sup></span>",
+      "<span class=\"eqt\">60<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">60<sup>0</sup></span>",
+      "<span class=\"eqt\">50<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">50<sup>0</sup></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Angle inscribed inside the semicircle is right angle.</p><p>So, m(&ang;XZY) = 90<sup>0</sup></p><p>m(&ang;XZW) = 90<sup>0</sup>................(Adjacent angles)</p><p>In triangle WXZ</p><p>(x +2x) = 90<sup>0</sup></p><p>(x) = 30<sup>0</sup></p>",
+    "question_index": 18
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Find the value of &#8736;MNO in the given figure, if &#8736;MPO = 50<sup>0</sup> and &#8736;NMP = 80<sup>0</sup>.</p><p><img width=173 height=182 id=\"Picture 16\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p2943/image004.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#8736;MPO = 50<sup>0</sup> &#2324;&#2352; &#8736;NMP = 80<sup>0 </sup>&#2361;&#2376;, &#2340;&#2379; &#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306; &#8736;MNO &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p><p><img width=\"173\" height=\"182\" id=\"Picture 16\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p2943/image004.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">45<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">45<sup>0</sup></span>",
+      "<span class=\"eqt\">30<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">30<sup>0</sup></span>",
+      "<span class=\"eqt\">50<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">50<sup>0</sup></span>",
+      "<span class=\"eqt\">60<sup>0</sup></span><span class=\"hqt\" style=\"display:none\">60<sup>0</sup></span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>MNOP is a quadrilateral.</p><p>Let &#8736;MNO = x<sup>0</sup></p><p>&#8736;MPO = 50<sup>0</sup>, &#8736;NMP = 80<sup>0</sup></p><p>Interior &#8736;NOP of quadrilateral MNOP = 360<sup>0</sup> - (2 * &#8736;NMP) = 360<sup>0</sup> - 2 * 80<sup>0</sup> = 200<sup>0</sup> (The angle subtended by an arc at the centre is double the angle subtended by it at any point on the remaining part of the circle.)</p><p>Now &#8736;MNO + &#8736;MPO + &#8736;NOP + &#8736;NMP = 360<sup>0</sup></p><p>=&gt; x<sup>0</sup> + 50<sup>0</sup> + 200<sup>0</sup> + 80<sup>0</sup> = 360<sup>0</sup></p><p>=&gt; x = 30<sup>0</sup></p>",
+    "question_index": 19
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A car travelling with a speed of 60 km/hr catches another car travelling in the same direction and then leaves it 120 m behind in 18 seconds. What is the speed of the second car?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2325;&#2366;&#2352; 60 &#2325;&#2367;&#2350;&#2368; / &#2328;&#2306;&#2335;&#2366; &#2325;&#2368; &#2327;&#2340;&#2367; &#2360;&#2375; &#2351;&#2366;&#2340;&#2381;&#2352;&#2366; &#2325;&#2352;&#2340;&#2368; &#2361;&#2369;&#2319; &#2360;&#2350;&#2366;&#2344; &#2342;&#2367;&#2358;&#2366; &#2350;&#2375;&#2306; &#2351;&#2366;&#2340;&#2381;&#2352;&#2366; &#2325;&#2352; &#2352;&#2361;&#2375; &#2342;&#2370;&#2360;&#2352;&#2375; &#2325;&#2366;&#2352; &#2325;&#2375; &#2360;&#2366;&#2341; &#2361;&#2379; &#2332;&#2366;&#2340;&#2368; &#2361;&#2376; &#2324;&#2352; &#2347;&#2367;&#2352; &#2313;&#2360;&#2375; 18 &#2360;&#2375;&#2325;&#2306;&#2337; &#2350;&#2375;&#2306; 120 &#2350;&#2368;&#2335;&#2352; &#2346;&#2368;&#2331;&#2375; &#2331;&#2379;&#2337;&#2364; &#2342;&#2375;&#2340;&#2368; &#2361;&#2376;&#2404; &#2342;&#2370;&#2360;&#2352;&#2368; &#2325;&#2366;&#2352; &#2325;&#2368; &#2327;&#2340;&#2367; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">26km/hr</span><span class=\"hqt\" style=\"display:none\">26 &#2325;&#2367;&#2350;&#2368;/&#2328;&#2306;&#2335;&#2375;</span>",
+      "<span class=\"eqt\">36km/hr</span><span class=\"hqt\" style=\"display:none\">36 &#2325;&#2367;&#2350;&#2368;/&#2328;&#2306;&#2335;&#2375;</span>",
+      "<span class=\"eqt\">40km/hr</span><span class=\"hqt\" style=\"display:none\">40 &#2325;&#2367;&#2350;&#2368;/&#2328;&#2306;&#2335;&#2375;</span>",
+      "<span class=\"eqt\">32km/hr</span><span class=\"hqt\" style=\"display:none\">32 &#2325;&#2367;&#2350;&#2368;/&#2328;&#2306;&#2335;&#2375;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>60 km/hr = 50/3 m/s</p> <p>Let the speed of the second car be x m/s.</p> <p>The relative speed between the two cars = (50/3  -  x) m/s</p> <p>Now, </p> <p>50/3  -  x = 120/18</p> <p>=&gt; x = 10 m/s = 36 km/hr</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A triangle ABC is right angled at A and AD is perpendicular to BC. AD = 5 cm and BD = 4 cm. Find the length of BC (in cm).</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; ABC, A &#2346;&#2352; &#2360;&#2350;&#2325;&#2379;&#2339; &#2361;&#2376; &#2324;&#2352; AD, BC &#2325;&#2375; &#2354;&#2306;&#2348; &#2361;&#2376;&#2404; AD = 5 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; BD = 4 &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;&#2404; BC &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; (&#2360;&#2375;&#2350;&#2368; &#2350;&#2375;&#2306;) &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">41/4</span><span class=\"hqt\" style=\"display:none\">41/4</span>",
+      "<span class=\"eqt\">11</span><span class=\"hqt\" style=\"display:none\">11</span>",
+      "<span class=\"eqt\">25/2</span><span class=\"hqt\" style=\"display:none\">25/2</span>",
+      "<span class=\"eqt\">9</span><span class=\"hqt\" style=\"display:none\">9</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><img width=148 height=140 id=\"Picture 18\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1006/image006.jpg\"></p><p>AD<sup>2</sup> + DB<sup>2</sup> = AB<sup>2</sup></p><p>25 + 16 = AB<sup>2</sup></p><p>AB<sup>2</sup> = 41 =&gt; AB = &radic;41</p><p>Also, triangle ABC ~ triangle DBA</p><p>AB/DB = BC/AB</p><p>AB<sup>2</sup> = BC*DB</p><p>41 = BC*4</p><p>BC = 41/4 cm</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A number is divided successively in order by 4, 5 and 7. The remainders were respectively 3, 4 and 2. The number is</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2379; &#2325;&#2381;&#2352;&#2350;&#2367;&#2325; &#2352;&#2370;&#2346; &#2360;&#2375; 4, 5 &#2324;&#2352; 7 &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404; &#2358;&#2375;&#2359;&#2347;&#2354; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 3, 4 &#2324;&#2352; 2 &#2341;&#2375;&#2404; &#2357;&#2361; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2361;&#2376;-</p></span>",
+    "options": [
+      "<span class=\"eqt\">197</span><span class=\"hqt\" style=\"display:none\">197</span>",
+      "<span class=\"eqt\">198</span><span class=\"hqt\" style=\"display:none\">198</span>",
+      "<span class=\"eqt\">199</span><span class=\"hqt\" style=\"display:none\">199</span>",
+      "<span class=\"eqt\">200</span><span class=\"hqt\" style=\"display:none\">200</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Starting from last, 7 x 1 + 2 = 9</p><p>5 x 9 + 4 = 49</p><p>4 x 49 + 3 = 199</p><p>Therefore, required number is 199.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p>When the numerator is doubled and 7 is added to the denominator the fraction becomes 2/3 and when 3 is subtracted from both the numerator and the denominator the fraction becomes 1/2, what is the fraction?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2332;&#2348; &#2319;&#2325; &#2349;&#2367;&#2344;&#2381;&#2344; &#2325;&#2375; &#2309;&#2306;&#2358; &#2325;&#2379; &#2342;&#2379;&#2327;&#2369;&#2344;&#2366; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; 7 &#2325;&#2379; &#2361;&#2352; &#2350;&#2375;&#2306; &#2332;&#2379;&#2337;&#2364;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2349;&#2367;&#2344;&#2381;&#2344; 2/3 &#2361;&#2379; &#2332;&#2366;&#2340;&#2368; &#2361;&#2376; &#2324;&#2352; &#2332;&#2348; 3 &#2325;&#2379; &#2309;&#2306;&#2358; &#2324;&#2352; &#2361;&#2352; &#2342;&#2379;&#2344;&#2379;&#2306; &#2360;&#2375; &#2360;&#2375; &#2328;&#2335;&#2366;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2349;&#2367;&#2344;&#2381;&#2344; 1/2 &#2361;&#2379; &#2332;&#2366;&#2340;&#2368; &#2361;&#2376;, &#2340;&#2379; &#2349;&#2367;&#2344;&#2381;&#2344; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3/4</span><span class=\"hqt\" style=\"display:none\">3/4</span>",
+      "<span class=\"eqt\">4/5</span><span class=\"hqt\" style=\"display:none\">4/5</span>",
+      "<span class=\"eqt\">2/3</span><span class=\"hqt\" style=\"display:none\">2/3</span>",
+      "<span class=\"eqt\">5/6</span><span class=\"hqt\" style=\"display:none\">5/6</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Let the fraction be x/y</p><p>So, 2x/(y + 7) = 2/3</p><p>=&gt; 2y + 14 = 6x</p><p>=&gt; y = 3x  -  7</p><p>Also, (x  -  3)/(y  -  3) = 1/2</p><p>=&gt; y  -  3 = 2x  -  6</p><p>=&gt; 3x  -  7  -  3 = 2x  -  6</p><p>=&gt; x = 4</p><p>&#8756; y = 3*4  -  7 = 5</p><p>So, the fraction is 4/5</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the unit digit of (23 x 3 + 15 x 7)<sup>48</sup>?</p></span><span class=\"hqt\" style=\"display:none\"><p>(23 x 3 + 15 x 7)<sup>48 </sup>&#2325;&#2366; &#2311;&#2325;&#2366;&#2312; &#2309;&#2306;&#2325; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>",
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The concept of cyclicity is used to identify the last digit of the number.</p><p>Cyclicity chart:</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" rowspan=\"2\">Number</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" rowspan=\"2\">Cyclicity</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"4\">Unit digit values</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Power 1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Power 2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Power 3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Power 4</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">0</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">0</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr></table><p>(Note: remainder = power. When remainder is 0, power = cyclicity)</p><p>= (23 x 3 + 15 x 7)<sup>48</sup></p><p>= (69 + 105)<sup>48</sup></p><p>= 174<sup>48</sup></p><p>In 174<sup>48</sup>:</p><p>Unit digit of 174 is 4.</p><p>4<sup>48</sup>: From the cyclicity chart, cyclicity of 4 is 2.</p><p>48/2 remainder = 0 =power 2</p><p>Unit digit of 174<sup>48</sup>: 6</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

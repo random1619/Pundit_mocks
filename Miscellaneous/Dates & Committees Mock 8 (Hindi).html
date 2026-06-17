@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dates & Committees Mock 8 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Indian Institute of Science (IISc) is situated in which city?</p>",
+    "options": [
+      "Hyderabad",
+      "New Delhi",
+      "Bangalore",
+      "Kolkata",
+      "Mumbai"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>IISc is the premier institute for advanced scientific and technological research and education in India. It is located in Bangalore city in India, and was established in the year 1909.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Commission for Scientific and Technical Terminology was set up in the year?</p>",
+    "options": [
+      "1957",
+      "1961",
+      "1977",
+      "1982",
+      "1989"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Commission for Scientific and Technical Terminology was set up on 1st October, 1961 by a resolution of Government of India, Ministry of Education.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Which among the following organizations/institutions is located in Dehradun?</p>",
+    "options": [
+      "Indian Military Academy",
+      "Indian Botanical Survey",
+      "Indira Gandhi National Art Centre",
+      "Institute of Indian Diamond",
+      "Indian Anthropology Survey"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Indian Military Academy is located in Dehradun. It is the officer training Academy of the Indian Army. IMA was established in 1932.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>RFRI is situated in Jorhat, Assam. What does \"F\" stand for?</p>",
+    "options": [
+      "Fishery",
+      "Forest",
+      "Farming",
+      "Fruits",
+      "Film"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Rain Forest Research Institute (RFRI) is a Research institute situated in Jorhat in Assam. It works under the Indian Council of Forestry Research and Education.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>National Sanskrit Vidyapeeth is situated in ____________?</p>",
+    "options": [
+      "Varanasi",
+      "Tirupati",
+      "Puri",
+      "Patna",
+      "Kedarnath"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Rashtriya Sanskrit Vidyapeetha, a University established under section 3 of the UGC Act, 1956 is a premier instituion in the field of higher learning in Sanskrit studies. The vidyapeetha was established at Tirupati (A.P.) in 1961.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Sahitya Akademi was founded in the year _______?</p>",
+    "options": [
+      "1954",
+      "1958",
+      "1951",
+      "1949",
+      "1957"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Sahitya Akademi, India's National Academy of Letters, is an organisation dedicated to the promotion of literature in the languages of India. Founded on 12 March 1954.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>National Test House in Kolkata has totally how many regional branches?</p>",
+    "options": [
+      "3",
+      "2",
+      "7",
+      "10",
+      "6"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>It has six of its regional branches located at Kolkata, Mumbai, Chennai, Ghaziabad, Jaipur and Guwahati. In all these branches testing and evaluation facilities of finished products/raw materials of all the branches of engineering disciplines are available under one roof.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Sardar Vallabhbhai Patel National Police Academy is located in ________?</p>",
+    "options": [
+      "Dehra Dun",
+      "Mussoorie",
+      "Jaipur",
+      "Hyderabad",
+      "Surat"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Sardar Vallabhbhai Patel National Police Academy is the Indian national institute for training of Indian Police Service officers. The academy is in Hyderabad, India.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>IBM is situated in Nagpur. What does \"M\" stand for?</p>",
+    "options": [
+      "Measurement",
+      "Mines",
+      "Management",
+      "Monitor",
+      "Metrology"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Indian Bureau of Mines was set up on 1st March,1948. It is situated in Nagpur.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>National Institute of Homoeopathy is located in ________?</p>",
+    "options": [
+      "Kerala",
+      "West Bengal",
+      "Assam",
+      "Tamil Nadu",
+      "Uttar Pradesh"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>National Institute of Homoeopathy (NIH) is an autonomous organization situated in Kolkata, West Bengal.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Which among the following institute related to welfare is situated in Dehradun?</p>",
+    "options": [
+      "National Institute for the Visually Handicapped",
+      "National Institute for Mentally Disabled",
+      "National Hard of Hearing Institute",
+      "National Institute for Orthopedic Disabled",
+      "National Rehabilitation Training and Research Institute"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The National Institute for the Empowerment of Persons with Visual Disabilities (Divyangjan), is a premier Institute in the field of visual disability working under the administrative control of Ministry of Social Justice and Empowerment, Government of India. It is situated in Dehradun.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>National Thermal Power Corporation is situated in ___________?</p>",
+    "options": [
+      "Jaipur",
+      "Allahabad",
+      "Ahmedabad",
+      "New Delhi",
+      "Mumbai"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>NTPC Limited is India's largest energy conglomerate established in 1975 to accelerate power development in India. It is headquartered in New Delhi.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>BRBRAITT is located in Jabalpur, Madhya Pradesh. It is associated with ______?</p>",
+    "options": [
+      "Aviation",
+      "Atomic Research",
+      "Telecom",
+      "Railways",
+      "Rocket Technology"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>BRBRAITT, Jabalpur is the apex training institute of Bharat Sanchar Nigam Limited. BRBRAITT stands for Bharat Ratna Bhim Rao Ambedkar Institute of Telecom Training.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Indian Institute of Tourism and Travel Management is situated in ___________?</p>",
+    "options": [
+      "Cuttack",
+      "Perambur",
+      "Kochi",
+      "Udaipur",
+      "Gwalior"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Indian Institute of Tourism and Travel Management (IITTM) is an institute based in Gwalior, Madhya Pradesh, India.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Saha Nuclear Physics Institute is in which state?</p>",
+    "options": [
+      "Maharashtra",
+      "Uttar Pradesh",
+      "West Bengal",
+      "Rajasthan",
+      "Gujarat"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Saha Institute of Nuclear Physics is for basic research and training in physical and biophysical sciences located in Kolkata, India. The institute is named after the Indian physicist Meghnad Saha.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>National Labour Institute, under the Ministry of Labour in Noida, Uttar Pradesh is named after which among the following Indian personality?</p>",
+    "options": [
+      "Rajendra Prasad",
+      "V. V. Giri",
+      "Zakir Hussain",
+      "Zail Singh",
+      "K.R. Narayanan"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>V.V.Giri National Labour Institute, under the Ministry of Labour of Government of India, is an autonomous institute dedicated to the research in the field of labour and training of labour administrators, trade unions, public sector managers and other government functionaries concerned with labour. National Labour Institute till 1995, it was renamed to its present name in the honour of former President of India V.V. Giri.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Tropical Forest Research Institute is situated in ___________?</p>",
+    "options": [
+      "Jabalpur",
+      "Ranchi",
+      "Allahabad",
+      "Faridabad",
+      "Jodhpur"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Tropical Forest Research Institute is situated in Jabalpur in Madhya Pradesh. It works under the Indian Council of Forestry Research and Education.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>ICPR is situated in New Delhi. What does \"P\" stand for?</p>",
+    "options": [
+      "Physics",
+      "Philosophical",
+      "Physiotherapy",
+      "Pharmacology",
+      "Philanthropical"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Indian Council of Philosophical Research (ICPR) was set up by the Ministry of Education, Government of India in March 1977.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Central Arid Zone Research Institute was established in which city of Rajasthan?</p>",
+    "options": [
+      "Jaipur",
+      "Jodhpur",
+      "Udaipur",
+      "Kota",
+      "Bikaner"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Central Arid Zone Research Institute was established by the Government of India in 1952 in Jodhpur, Rajasthan. It was previously known as Desert Afforestation Research Station until it was renamed in 1959.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>What is the present name of Institute of Armament Studies?</p>",
+    "options": [
+      "Institute of Armament Technology",
+      "Military College of Electrical and Mechanical Engineering",
+      "National Defence Academy",
+      "Defence Management Institute",
+      "Defence Institute of Advanced Technology"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Defence Institute of Advanced Technology, (DIAT) as it is known today, came into being as the Institute of Armament Studies in 1952 in Pune.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Institute of Asian Studies is named after which among the following personality?</p>",
+    "options": [
+      "Maulana Abul Kalam Azad",
+      "Jawaharlal Nehru",
+      "Mahatma Gandhi",
+      "B R Ambedkar",
+      "Rajendra Prasad"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Maulana Abul Kalam Azad Institute of Asian Studies was set up at the joint initiative of the Government of India, Department of culture, Ministry of Human Resource Development and the Government of West Bengal. He became the first Minister of Education in the Indian government.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Central Institute of Buddhist Studies is situated in _________?</p>",
+    "options": [
+      "Varanasi",
+      "Sanchi",
+      "Tawang",
+      "Leh",
+      "Darjeeling"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Central Institute of Buddhist Studies, formerly known as the School of Buddhist Philosophy, is located in Leh, Jammu &amp; Kashmir. It was founded in 1959.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>NRLC in Lucknow is related to __________?</p>",
+    "options": [
+      "Climatology",
+      "Rice technology",
+      "Culture",
+      "Neem",
+      "Lignite"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>National Research Laboratory for Conservation of Cultural Property (NRLC), established in 1976 under the Ministry of Culture, is the premier organization for the researches in conservation of the cultural property including monuments and sites, as well as museums, library and archive collections.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Which among the following institute is situated in Chennai?</p>",
+    "options": [
+      "National Institute of Siddha",
+      "Central Health Education Bureau",
+      "National Institute of Homeopathy",
+      "National Academy of Medical Sciences",
+      "National Institute of Yoga"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>National Institute of Siddha is a premier institute of Siddha medicine situated at Tambaram, Chennai, India.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Sangeet Natak Akademi comes under which Ministry?</p>",
+    "options": [
+      "Ministry of Culture",
+      "Ministry of Human Resources Development",
+      "Ministry of Home Affairs",
+      "Ministry of Information and Broadcasting",
+      "None of the Above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Sangeet Natak Akademi is the national level academy for performing arts set up by the Government of India under Ministry of Culture.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>National Judicial Academy is situated in ___________?</p>",
+    "options": [
+      "Tamil Nadu",
+      "Madhya Pradesh",
+      "Uttar Pradesh",
+      "West Bengal",
+      "Maharashtra"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>National Judicial Academy is an Indian government-funded training institute primarily for Judicial Officers, working in the Supreme Court and the High Courts, during their service. It is loacated in Bhopal, Madhya Pradesh.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>National Film Archive of India was established in the year __________?</p>",
+    "options": [
+      "1951",
+      "1958",
+      "1964",
+      "1972",
+      "1977"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The National Film Archive of India was established as a media unit of the Ministry of Information and Broadcasting in February 1964.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>National Institute of Criminology &amp; Forensic Science was set up in ________?</p>",
+    "options": [
+      "1993",
+      "1988",
+      "1982",
+      "1972",
+      "1969"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The National Institute of Criminology &amp; Forensic Science was set up in January 1972 as a comprehensive facility for teaching, training, research and consultancy in the fields of Criminology &amp; Forensic Science to meet the ground level requirements of the Criminal Justice Administration of the country. The Institute functions under the Ministry of Home Affairs, Government of India as an attached office.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Indian Institute of Astrophysics is located in _________?</p>",
+    "options": [
+      "Hyderabad",
+      "New Delhi",
+      "Vishakhapatnam",
+      "Kochi",
+      "Bangalore"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Indian Institute of Astrophysics, with its headquarters in Bangalore, is a premier National Research Institute of India.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>National Centre for Basic Sciences in Kolkata is named after _______?</p>",
+    "options": [
+      "C.V. Raman",
+      "Homi J Bhaba",
+      "S. N. Bose",
+      "A.P.J. Adbul Kalam",
+      "Har Gobind Khorana"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>S. N. Bose National Centre for Basic Sciences is an Autonomous Research Institute established under Department of Science and Technology, Government of India in 1986 as a Registered Society. The Centre was established to honour the life and work of Professor S. N. Bose.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

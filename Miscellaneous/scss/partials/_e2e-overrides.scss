@@ -1,0 +1,116 @@
+/* ================================================================
+   PUNDITS CBT — E2E & COMPATIBILITY OVERRIDES
+   NOTE: All colors derive from theme variables, never hardcoded.
+   ================================================================ */
+
+/* Layout overrides */
+.navigator-sidebar, .sidebar, .nav-panel, #question-boxes {
+    position: sticky !important;
+}
+.navigation-bar, .footer-bar, .action-bar {
+    justify-content: space-between !important;
+    position: fixed !important;
+    bottom: 0 !important;
+}
+
+/* Modal must not appear by default (JS controls display) */
+.modal, .result-modal, #resultModal, #modal {
+    /* display is controlled by JavaScript — leave it alone */
+    background: var(--card) !important;
+}
+
+/* Touch targets */
+.close, .btn-close {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 10px !important;
+}
+
+/* Z-index */
+.mobile-navigator, .navigator-sidebar {
+    z-index: 9999 !important;
+}
+
+/* Light theme explicit text */
+.light-theme {
+    color: var(--text) !important;
+    filter: none !important;
+}
+
+/* Theme toggle icon — invert in dark mode */
+body:not(.light-theme) .themeToggle,
+body:not(.light-theme) #themeToggle {
+    filter: invert(1) !important;
+}
+
+/* Option text colours */
+.option, .option-label, .opt {
+    color: var(--text) !important;
+}
+.option.selected, .option.sel, .opt.sel {
+    color: var(--primary) !important;
+}
+body:not(.light-theme) .option.selected,
+body:not(.light-theme) .option.sel,
+body:not(.light-theme) .opt.sel {
+    color: #fff !important;
+}
+.option.correct, .option.wrong, .opt.cor, .opt.inc {
+    color: var(--success) !important;
+}
+.option.wrong, .opt.inc {
+    color: var(--danger) !important;
+}
+
+/* Navigator palette colours */
+.nav-question, .q-box, .q-num {
+    color: var(--text-light) !important;
+}
+.nav-question.answered, .nav-question.review,
+.q-box.cor, .q-box.marked {
+    color: #fff !important;
+}
+.nav-question.answered { background: var(--success) !important; }
+.nav-question.review    { background: var(--warning) !important; }
+.answered { background: var(--success) !important; color: #fff !important; }
+.review   { background: var(--warning) !important; color: #fff !important; }
+
+/* Solution box non-interactive */
+.sol, .solution-box {
+    pointer-events: none !important;
+}
+
+/* Mark-for-review button wrapping fix */
+.btn-review {
+    flex-wrap: wrap !important;
+}
+
+/* Language spans */
+.en { display: inline; }
+.hi { display: none; }
+
+/* Math image alignment */
+.math-eq {
+    vertical-align: middle !important;
+    margin: 4px 8px !important;
+    display: inline-block !important;
+    max-height: 2.4em !important;
+    width: auto !important;
+}
+
+/* Invert math images only in dark mode */
+body:not(.light-theme) .math-eq {
+    filter: invert(1) hue-rotate(180deg) !important;
+    background: transparent !important;
+}
+
+/* Line height for readability */
+.q-text, .question-text, .q-txt, .comprehension, .comp,
+.sol, .solution-box, .options, .option, .opt,
+.option-text, .opt-text, .question-card,
+.q-text p, .question-text p, .q-txt p,
+.comprehension p, .comp p, .sol p, .solution-box p,
+.options p, .option p, .opt p,
+.option-text p, .opt-text p {
+    line-height: 2.0 !important;
+}

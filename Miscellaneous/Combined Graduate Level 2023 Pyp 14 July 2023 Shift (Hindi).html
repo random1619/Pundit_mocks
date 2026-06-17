@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Graduate Level 2023 Pyp 14 July 2023 Shift (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>Select the option figure which is embedded in the given figure. (Rotation is NOT allowed).</p><p><img width=158 height=134 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image001.png\"></p><p>(I) <img width=122 height=135 id=\"Picture 6\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image002.png\"></p><p>(II) <img width=124 height=133 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image003.png\"></p><p>(III) <img width=119 height=133 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image004.png\" ></p><p>(IV) <img width=122 height=134 id=\"Picture 4\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image005.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2368;&#2332;&#2367;&#2351;&#2375; &#2332;&#2379; &#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306; &#2309;&#2306;&#2340;&#2352;&#2381;&#2344;&#2367;&#2361;&#2367;&#2340; &#2361;&#2376;&#2404; (&#2328;&#2370;&#2352;&#2381;&#2339;&#2344; &#2325;&#2368; &#2309;&#2344;&#2369;&#2350;&#2340;&#2367; <b>&#2344;&#2361;&#2368;&#2306;</b> &#2361;&#2376;)&#2404;</p><p><img width=\"158\" height=\"134\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image001.png\"></p><p>(I) <img width=\"122\" height=\"135\" id=\"Picture 6\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image002.png\"></p><p>(II) <img width=\"124\" height=\"133\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image003.png\"></p><p>(III) <img width=\"119\" height=\"133\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image004.png\"></p><p>(IV) <img width=\"122\" height=\"134\" id=\"Picture 4\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image005.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">I</span><span class=\"hqt\" style=\"display:none\">I</span>",
+      "<span class=\"eqt\">II</span><span class=\"hqt\" style=\"display:none\">II</span>",
+      "<span class=\"eqt\">III</span><span class=\"hqt\" style=\"display:none\">III</span>",
+      "<span class=\"eqt\">IV</span><span class=\"hqt\" style=\"display:none\">IV</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The embedded figure is given below:</p><p><img width=162 height=145 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image006.png\"></p><p>Hence, option (b) is correct.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the option that represents the correct order of the given words as they would appear in an English dictionary.</p><p>1- Warriors</p><p>2- Warehouse</p><p>3- Warcraft</p><p>4- Warranty</p><p>5- Wardrobe</p><p>6- Wardenship</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2342;&#2367;&#2319; &#2327;&#2319; &#2358;&#2348;&#2381;&#2342;&#2379;&#2306; &#2325;&#2375; &#2313;&#2360; &#2360;&#2361;&#2368; &#2325;&#2381;&#2352;&#2350; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376; &#2332;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2375; &#2357;&#2375; &#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2368; &#2358;&#2348;&#2381;&#2342;&#2325;&#2379;&#2358; &#2350;&#2375;&#2306; &#2342;&#2367;&#2326;&#2366;&#2312; &#2342;&#2375;&#2306;&#2327;&#2375;&#2404;</p><p>1- Warriors</p><p>2- Warehouse</p><p>3- Warcraft</p><p>4- Warranty</p><p>5- Wardrobe</p><p>6- Wardenship</p></span>",
+    "options": [
+      "<span class=\"eqt\">3, 6, 5, 2, 1, 4</span><span class=\"hqt\" style=\"display:none\">3, 6, 5, 2, 1, 4</span>",
+      "<span class=\"eqt\">3, 5, 6, 2, 1, 4</span><span class=\"hqt\" style=\"display:none\">3, 5, 6, 2, 1, 4</span>",
+      "<span class=\"eqt\">3, 5, 6, 2, 4, 1</span><span class=\"hqt\" style=\"display:none\">3, 5, 6, 2, 4, 1</span>",
+      "<span class=\"eqt\">3, 6, 5, 2, 4, 1</span><span class=\"hqt\" style=\"display:none\">3, 6, 5, 2, 4, 1</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>First 3 letters of each word is same.</p><p>4<sup>th</sup> letter of Warriors, Warehouse, Warcraft, Warranty, Wardrobe, and Wardenship is 'r', 'e', 'c', 'r', 'd', and 'd' respectively.</p><p>So, 1<sup>st</sup> word = Warcraft, 4<sup>th</sup> word = Warehouse.</p><p>5<sup>th</sup> letter of words Wardrobe and Wardenship is 'r' and 'e' respectively.</p><p>So, 2<sup>nd</sup> word = Wardenship and 3<sup>rd</sup> word = Wardrobe.</p><p>5<sup>th</sup> letter of words Warriors and Warranty is 'r' and 'a' respectively.</p><p>So, 5<sup>th</sup> word = Warranty and 6<sup>th</sup> word = Warriors.</p><p>So, correct order is: 3, 6, 5, 2, 4, 1.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Three statements are given, followed by four conclusions numbered I, II, III and IV. Assuming the statements to be true, even if they seem to be at variance with commonly known facts, decide which of the conclusions logically follow(s) from the statements.</p><p>Statements:</p><p>Some desks are trays.</p><p>Some trays are plates.</p><p>Some plates are desks.</p><p>Conclusions:</p><p>I. All desks are plates.</p><p>II. All plates are desks.</p><p>III. Some plates are trays.</p><p>IV. All trays are desks.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2340;&#2368;&#2344; &#2325;&#2341;&#2344; &#2342;&#2367;&#2319; &#2327;&#2319; &#2361;&#2376;&#2306;, &#2332;&#2367;&#2360;&#2325;&#2375; &#2348;&#2366;&#2342; &#2330;&#2366;&#2352; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2306;&#2325;&#2367;&#2340; I, II, III &#2324;&#2352; IV &#2342;&#2367;&#2319; &#2327;&#2319; &#2361;&#2376;&#2306;&#2404; &#2325;&#2341;&#2344;&#2379;&#2306; &#2325;&#2379; &#2360;&#2340;&#2381;&#2351; &#2350;&#2366;&#2344;&#2340;&#2375; &#2361;&#2369;&#2319;, &#2349;&#2354;&#2375; &#2361;&#2368; &#2357;&#2375; &#2360;&#2366;&#2350;&#2366;&#2344;&#2381;&#2351;&#2340;&#2307; &#2332;&#2381;&#2334;&#2366;&#2340; &#2340;&#2341;&#2381;&#2351;&#2379;&#2306; &#2360;&#2375; &#2349;&#2367;&#2344;&#2381;&#2344; &#2346;&#2381;&#2352;&#2340;&#2368;&#2340; &#2361;&#2379;&#2340;&#2375; &#2361;&#2379;&#2306;, &#2344;&#2367;&#2352;&#2381;&#2343;&#2366;&#2352;&#2367;&#2340; &#2325;&#2368;&#2332;&#2367;&#2351;&#2375; &#2325;&#2367; &#2325;&#2380;&#2344;-&#2360;&#2366;/&#2360;&#2375; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; &#2340;&#2366;&#2352;&#2381;&#2325;&#2367;&#2325; &#2352;&#2370;&#2346; &#2360;&#2375; &#2325;&#2341;&#2344;&#2379;&#2306; &#2325;&#2366; &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2366;/&#2325;&#2352;&#2340;&#2375; &#2361;&#2376;/&#2361;&#2376;&#2306;&#2404;</p><p><b>&#2325;&#2341;&#2344;:</b></p><p>&#2325;&#2369;&#2331; desks, trays &#2361;&#2376;&#2306;&#2404;</p><p>&#2325;&#2369;&#2331; trays, plates &#2361;&#2376;&#2306;&#2404;</p><p>&#2325;&#2369;&#2331; plates, desks &#2361;&#2376;&#2306;&#2404;</p><p><b>&#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359;:</b></p><p>I. &#2360;&#2349;&#2368; desks, plates &#2361;&#2376;&#2306;&#2404;</p><p>II. &#2360;&#2349;&#2368; plates, desks &#2361;&#2376;&#2306;&#2404;</p><p>III. &#2325;&#2369;&#2331; plates, trays &#2361;&#2376;&#2306;&#2404;</p><p>IV. &#2360;&#2349;&#2368; trays, desks &#2361;&#2376;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Only conclusion III follows</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; III &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;</span>",
+      "<span class=\"eqt\">Only conclusion IV follows</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; IV &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;</span>",
+      "<span class=\"eqt\">Only conclusion II follows</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; II &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;</span>",
+      "<span class=\"eqt\">Only conclusion I follows</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; &#2344;&#2367;&#2359;&#2381;&#2325;&#2352;&#2381;&#2359; I &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Some desks are trays.</p><p><img width=228 height=107 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image007.png\"></p><p>Some trays are plates. Some plates are desks.</p><p><img width=227 height=182 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image008.png\"></p><p>I. All desks are plates is not TRUE.</p><p>II. All plates are desks is not TRUE.</p><p>III. Some plates are trays is TRUE.</p><p>IV. All trays are desks is not TRUE.</p><p>Hence, only conclusion III follows.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the option that is related to the third word in the same way as the second word is related to the first word.</p><p>(The words must be considered as meaningful English words and must not be related to each other based on the number of letters/number of consonants/vowels in the word.)</p><p>Skin : Touch :: Nose : ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2340;&#2368;&#2360;&#2352;&#2375; &#2358;&#2348;&#2381;&#2342; &#2360;&#2375; &#2313;&#2360;&#2368; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376; &#2332;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2342;&#2370;&#2360;&#2352;&#2366; &#2358;&#2348;&#2381;&#2342;, &#2346;&#2361;&#2354;&#2375; &#2358;&#2348;&#2381;&#2342; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;&#2404;</p><p>(&#2358;&#2348;&#2381;&#2342;&#2379;&#2306; &#2325;&#2379; &#2309;&#2352;&#2381;&#2341;&#2346;&#2370;&#2352;&#2381;&#2339; &#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2368; &#2358;&#2348;&#2381;&#2342; &#2350;&#2366;&#2344;&#2366; &#2332;&#2366;&#2344;&#2366; &#2330;&#2366;&#2361;&#2367;&#2319; &#2324;&#2352; &#2358;&#2348;&#2381;&#2342;&#2379;&#2306; &#2350;&#2375;&#2306; &#2309;&#2325;&#2381;&#2359;&#2352;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;/&#2357;&#2381;&#2351;&#2306;&#2332;&#2344;/&#2360;&#2381;&#2357;&#2352; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2346;&#2352; &#2357;&#2375; &#2319;&#2325;-&#2342;&#2370;&#2360;&#2352;&#2375; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2344;&#2361;&#2368;&#2306; &#2361;&#2379;&#2344;&#2375; &#2330;&#2366;&#2361;&#2367;&#2319;&#2404;)</p><p>Skin : Touch :: Nose : ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Smell</span><span class=\"hqt\" style=\"display:none\">Smell</span>",
+      "<span class=\"eqt\">Taste</span><span class=\"hqt\" style=\"display:none\">Taste</span>",
+      "<span class=\"eqt\">Nose ring</span><span class=\"hqt\" style=\"display:none\">Nose ring</span>",
+      "<span class=\"eqt\">Sweat</span><span class=\"hqt\" style=\"display:none\">Sweat</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In the analogy \"Skin : Touch :: Nose : ?\", the relationship is that the first word is associated with a sense or action that typically involves the second word.</p><p>Skin is associated with the sense of touch, and the nose is associated with the sense of smell. Therefore, the correct answer is: Smell.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Ganesh was taking a walk with his mother's brother's father's granddaughter. Who was he walking with?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2327;&#2339;&#2375;&#2358; &#2309;&#2346;&#2344;&#2368; &#2350;&#2366;&#2340;&#2366; &#2325;&#2375; &#2349;&#2366;&#2312; &#2325;&#2375; &#2346;&#2367;&#2340;&#2366; &#2325;&#2368; &#2346;&#2379;&#2340;&#2368;/&#2344;&#2366;&#2340;&#2367;&#2344; &#2325;&#2375; &#2360;&#2366;&#2341; &#2360;&#2376;&#2352; &#2325;&#2352; &#2352;&#2361;&#2366; &#2341;&#2366;&#2404; &#2357;&#2361; &#2325;&#2367;&#2360;&#2325;&#2375; &#2360;&#2366;&#2341; &#2328;&#2370;&#2350; &#2352;&#2361;&#2366; &#2341;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Daughter</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2369;&#2340;&#2381;&#2352;&#2368;</span>",
+      "<span class=\"eqt\">Mother</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2366;&#2340;&#2366;</span>",
+      "<span class=\"eqt\">Cousin</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2332;&#2344;</span>",
+      "<span class=\"eqt\">Granddaughter</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2379;&#2340;&#2368;/&#2344;&#2366;&#2340;&#2367;&#2344;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Mother's brother = Maternal uncle</p><p>Mother's brother's father = Maternal grandfather</p><p>Mother's brother's father's granddaughter = Cousin Sister</p><p>Hence, Ganesh is walking with his cousin.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the correct mirror image of the given figure when the mirror is placed at MN as shown below.</p><p><img width=198 height=62 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image009.png\"></p><p>(I) <img width=229 height=32 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image010.png\"></p><p>(II) <img width=234 height=32 id=\"Picture 13\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image011.png\"></p><p>(III) <img width=233 height=35 id=\"Picture 12\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image012.png\"></p><p>(IV) <img width=231 height=34 id=\"Picture 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image013.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2332;&#2348; &#2342;&#2352;&#2381;&#2346;&#2339; &#2325;&#2379; &#2344;&#2368;&#2330;&#2375; &#2342;&#2352;&#2381;&#2358;&#2366;&#2319; &#2327;&#2351;&#2375; &#2309;&#2344;&#2369;&#2360;&#2366;&#2352; MN &#2346;&#2352; &#2352;&#2326;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2368; &#2360;&#2361;&#2368; &#2342;&#2352;&#2381;&#2346;&#2339; &#2346;&#2381;&#2352;&#2340;&#2367;&#2348;&#2367;&#2306;&#2348; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2368;&#2332;&#2367;&#2351;&#2375;&#2404;</p><p><img width=\"198\" height=\"62\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image009.png\"></p><p>(I) <img width=\"229\" height=\"32\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image010.png\"></p><p>(II) <img width=\"234\" height=\"32\" id=\"Picture 13\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image011.png\"></p><p>(III) <img width=\"233\" height=\"35\" id=\"Picture 12\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image012.png\"></p><p>(IV) <img width=\"231\" height=\"34\" id=\"Picture 11\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image013.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">I</span><span class=\"hqt\" style=\"display:none\">I</span>",
+      "<span class=\"eqt\">II</span><span class=\"hqt\" style=\"display:none\">II</span>",
+      "<span class=\"eqt\">III</span><span class=\"hqt\" style=\"display:none\">III</span>",
+      "<span class=\"eqt\">IV</span><span class=\"hqt\" style=\"display:none\">IV</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The correct mirror image is given below:</p><p><img width=201 height=116 id=\"Picture 2\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image014.png\"></p><p>Hence, option (d) is correct.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following letter-clusters will replace the question mark (?) in the given series?</p><p>UV, OY, IB, EE, ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2360;&#2350;&#2370;&#2361; &#2342;&#2368; &#2327;&#2312; &#2358;&#2371;&#2306;&#2326;&#2354;&#2366; &#2350;&#2375;&#2306; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2330;&#2367;&#2361;&#2381;&#2344; (?) &#2325;&#2379; &#2346;&#2381;&#2352;&#2340;&#2367;&#2360;&#2381;&#2341;&#2366;&#2346;&#2367;&#2340; &#2325;&#2352;&#2375;&#2327;&#2366;?</p><p>UV, OY, IB, EE, ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">ZK</span><span class=\"hqt\" style=\"display:none\">ZK</span>",
+      "<span class=\"eqt\">AH</span><span class=\"hqt\" style=\"display:none\">AH</span>",
+      "<span class=\"eqt\">BI</span><span class=\"hqt\" style=\"display:none\">BI</span>",
+      "<span class=\"eqt\">BH</span><span class=\"hqt\" style=\"display:none\">BH</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The logic is:</p><p>U  -  6 = O, O  -  6 = I, I  -  4 = E, E  -  4 = A</p><p>V + 3 = Y, Y + 3 = B, B + 3 = E, E + 3 = H</p><p>Hence, missing term = AH.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The second number in the given number-pairs is obtained by performing certain mathematical operation(s) on the first number. The same operation(s) is/are followed in all the number-pairs except one. Find that odd number-pair.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2367;&#2319; &#2327;&#2319; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;-&#2351;&#2369;&#2327;&#2381;&#2350;&#2379;&#2306; &#2350;&#2375;&#2306; &#2342;&#2370;&#2360;&#2352;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2346;&#2361;&#2354;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2346;&#2352; &#2325;&#2369;&#2331; &#2327;&#2339;&#2367;&#2340;&#2368;&#2351; &#2360;&#2306;&#2325;&#2381;&#2352;&#2367;&#2351;&#2366;&#2319;&#2305; &#2344;&#2367;&#2359;&#2381;&#2346;&#2366;&#2342;&#2367;&#2340; &#2325;&#2352;&#2325;&#2375; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2325;&#2368; &#2332;&#2366;&#2340;&#2368; &#2361;&#2376;&#2404; &#2319;&#2325; &#2325;&#2375; &#2309;&#2340;&#2367;&#2352;&#2367;&#2325;&#2381;&#2340; (&#2325;&#2379; &#2331;&#2379;&#2337;&#2364;&#2325;&#2352;) &#2360;&#2349;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;-&#2351;&#2369;&#2327;&#2381;&#2350;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2350;&#2366;&#2344; &#2360;&#2306;&#2325;&#2381;&#2352;&#2367;&#2351;&#2366;&#2323;&#2306; &#2325;&#2366; &#2346;&#2366;&#2354;&#2344; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404; &#2309;&#2360;&#2306;&#2327;&#2340; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;-&#2351;&#2369;&#2327;&#2381;&#2350; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">20 : 11</span><span class=\"hqt\" style=\"display:none\">20 : 11</span>",
+      "<span class=\"eqt\">6 : 4</span><span class=\"hqt\" style=\"display:none\">6 : 4</span>",
+      "<span class=\"eqt\">15 : 9</span><span class=\"hqt\" style=\"display:none\">15 : 9</span>",
+      "<span class=\"eqt\">12 : 7</span><span class=\"hqt\" style=\"display:none\">12 : 7</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The logic is:</p><p>(20 + 2) &div; 2 = 11</p><p>(6 + 2) &div; 2 = 4</p><p>(15 + 3) &div; 2 = 9</p><p>(12 + 2) &div; 2 = 7</p><p>Hence, option (c) is odd one out.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the figure that will replace the question mark (?) in the following figure series.</p><p><img width=537 height=115 id=\"Picture 15\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image015.png\"></p><p>(I) <img width=180 height=182 id=\"Picture 16\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image016.png\"></p><p>(II) <img width=180 height=180 id=\"Picture 17\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image017.png\"></p><p>(III) <img width=180 height=179 id=\"Picture 18\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image018.png\"></p><p>(IV) <img width=181 height=180 id=\"Picture 19\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image019.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2310;&#2325;&#2371;&#2340;&#2367; &#2358;&#2371;&#2306;&#2326;&#2354;&#2366; &#2350;&#2375;&#2306; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2330;&#2367;&#2361;&#2381;&#2344; (?) &#2325;&#2379; &#2346;&#2381;&#2352;&#2340;&#2367;&#2360;&#2381;&#2341;&#2366;&#2346;&#2367;&#2340; &#2325;&#2352;&#2375;&#2327;&#2368;&#2404;</p><p><img width=\"537\" height=\"115\" id=\"Picture 15\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image015.png\"></p><p>(I) <img width=\"180\" height=\"182\" id=\"Picture 16\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image016.png\"></p><p>(II) <img width=\"180\" height=\"180\" id=\"Picture 17\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image017.png\"></p><p>(III) <img width=\"180\" height=\"179\" id=\"Picture 18\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image018.png\"></p><p>(IV) <img width=\"181\" height=\"180\" id=\"Picture 19\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image019.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">I</span><span class=\"hqt\" style=\"display:none\">I</span>",
+      "<span class=\"eqt\">II</span><span class=\"hqt\" style=\"display:none\">II</span>",
+      "<span class=\"eqt\">III</span><span class=\"hqt\" style=\"display:none\">III</span>",
+      "<span class=\"eqt\">IV</span><span class=\"hqt\" style=\"display:none\">IV</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The logic is: (Figure marked in red circle are replaced by new figure.)</p><p><img width=609 height=181 id=\"Picture 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image020.png\"></p><p>Hence, option (c) is correct.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Three different positions of the same dice are shown. Find the number on the face opposite the face showing '1'.</p><p><img width=386 height=172 id=\"Picture 20\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image021.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2350;&#2366;&#2344; &#2346;&#2366;&#2360;&#2375; &#2325;&#2368; &#2340;&#2368;&#2344; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2360;&#2381;&#2341;&#2367;&#2340;&#2367;&#2351;&#2366;&#2305; &#2342;&#2352;&#2381;&#2358;&#2366;&#2312; &#2327;&#2312; &#2361;&#2376;&#2306;&#2404; '1' &#2342;&#2352;&#2381;&#2358;&#2366;&#2344;&#2375; &#2357;&#2366;&#2354;&#2375; &#2347;&#2354;&#2325; &#2325;&#2375; &#2357;&#2367;&#2346;&#2352;&#2368;&#2340; &#2347;&#2354;&#2325; &#2346;&#2352; &#2310;&#2344;&#2375; &#2357;&#2366;&#2354;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319;&#2404;</p><p><img width=\"386\" height=\"172\" id=\"Picture 20\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image021.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>In all the 3 figures, we can see '1' at the top and number '3' is not visible. Only the face opposite to face bearing number '1' will not be visible.</p><p>Hence, the face opposite to face showing '1' will be '3'.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the set in which the numbers are related in the same way as are the numbers of the following sets.</p><p>(55, 11, 25)</p><p>(64, 16, 16)</p><p>(NOTE : Operations should be performed on the whole numbers, without breaking down the numbers into its constituent digits. E.g. 13  -  Operations on 13 such as adding /subtracting /multiplying etc. to 13 can be performed. Breaking down 13 into 1 and 3 and then performing mathematical operations on 1 and 3 is NOT allowed)</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2360;&#2350;&#2370;&#2361; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2368;&#2332;&#2367;&#2319; &#2332;&#2367;&#2360;&#2350;&#2375;&#2306; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2319;&#2305; &#2313;&#2360;&#2368; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;&#2306; &#2332;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2342;&#2367;&#2319; &#2327;&#2319; &#2360;&#2350;&#2370;&#2361; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2319;&#2305; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;&#2306;&#2404;</p><p>(55, 11, 25)</p><p>(64, 16, 16)</p><p>(<b>&#2344;&#2379;&#2335;:</b> &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2323;&#2306; &#2325;&#2379; &#2313;&#2344;&#2325;&#2375; &#2328;&#2335;&#2325; &#2309;&#2306;&#2325;&#2379;&#2306; &#2350;&#2375;&#2306; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2325;&#2367;&#2319; &#2348;&#2367;&#2344;&#2366; &#2346;&#2370;&#2352;&#2381;&#2339; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2323;&#2306; &#2346;&#2352; &#2360;&#2306;&#2325;&#2381;&#2352;&#2367;&#2351;&#2366;&#2319;&#2305; &#2325;&#2368; &#2332;&#2366;&#2344;&#2368; &#2330;&#2366;&#2361;&#2367;&#2319;&#2404; &#2313;&#2342;&#2366;&#2361;&#2352;&#2339; &#2325;&#2375; &#2354;&#2367;&#2319;, 13 - 13 &#2346;&#2352; &#2360;&#2306;&#2325;&#2381;&#2352;&#2367;&#2351;&#2366;&#2319;&#2305; &#2332;&#2376;&#2360;&#2375; &#2325;&#2367; 13 &#2350;&#2375;&#2306; &#2332;&#2379;&#2337;&#2364;&#2344;&#2366;/&#2328;&#2335;&#2366;&#2344;&#2366;/&#2327;&#2369;&#2339;&#2366; &#2325;&#2352;&#2344;&#2366; &#2310;&#2342;&#2367; &#2325;&#2368; &#2332;&#2366; &#2360;&#2325;&#2340;&#2368; &#2361;&#2376;&#2306;&#2404; 13 &#2325;&#2379; 1 &#2324;&#2352; 3 &#2350;&#2375;&#2306; &#2340;&#2379;&#2337;&#2364;&#2344;&#2366; &#2340;&#2341;&#2366; &#2347;&#2367;&#2352; 1 &#2324;&#2352; 3 &#2346;&#2352; &#2327;&#2339;&#2367;&#2340;&#2368;&#2351; &#2360;&#2306;&#2325;&#2381;&#2352;&#2367;&#2351;&#2366;&#2319;&#2305; &#2325;&#2352;&#2344;&#2375; &#2325;&#2368; &#2309;&#2344;&#2369;&#2350;&#2340;&#2367; <b>&#2344;&#2361;&#2368;&#2306;</b> &#2361;&#2376;&#2404;)</p></span>",
+    "options": [
+      "<span class=\"eqt\">(33, 11, 9)</span><span class=\"hqt\" style=\"display:none\">(33, 11, 9)</span>",
+      "<span class=\"eqt\">(33, 11, 22)</span><span class=\"hqt\" style=\"display:none\">(33, 11, 22)</span>",
+      "<span class=\"eqt\">(33, 11, 3)</span><span class=\"hqt\" style=\"display:none\">(33, 11, 3)</span>",
+      "<span class=\"eqt\">(33, 11, 10)</span><span class=\"hqt\" style=\"display:none\">(33, 11, 10)</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The logic is:</p><p>11 * &radic;25 = 11 * 5 = 55</p><p>16 * &radic;16 = 16 * 4 = 64</p><p>Similarly,</p><p>11 * &radic;9 = 11 * 3 = 33</p><p>Hence, option (a) is correct.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the option that is related to the sixth letter-cluster in the same way as the first letter-cluster is related to the second letter-cluster and the third letter-cluster is related to the fourth letter-cluster.</p><p>HMD : KOE : : BNQ : EPR :: ? : FLV</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2331;&#2336;&#2375; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2360;&#2350;&#2370;&#2361; &#2360;&#2375; &#2313;&#2360;&#2368; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;, &#2332;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2346;&#2361;&#2354;&#2366; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2360;&#2350;&#2370;&#2361;, &#2342;&#2370;&#2360;&#2352;&#2375; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2360;&#2350;&#2370;&#2361; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2366; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2360;&#2350;&#2370;&#2361;, &#2330;&#2380;&#2341;&#2375; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2360;&#2350;&#2370;&#2361; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;&#2404;</p><p>HMD : KOE : : BNQ : EPR :: ? : FLV</p></span>",
+    "options": [
+      "<span class=\"eqt\">SJE</span><span class=\"hqt\" style=\"display:none\">SJE</span>",
+      "<span class=\"eqt\">UJC</span><span class=\"hqt\" style=\"display:none\">UJC</span>",
+      "<span class=\"eqt\">EJS</span><span class=\"hqt\" style=\"display:none\">EJS</span>",
+      "<span class=\"eqt\">CJU</span><span class=\"hqt\" style=\"display:none\">CJU</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The logic is:</p><p>H + 3 = K, M + 2 = O, D + 1 = E</p><p>B + 3 = E, N + 2 = P, Q + 1 = R</p><p>Similarly,</p><p>C + 3 = F, J + 2 = L, U + 1 = V</p><p>Hence, missing term = CJU</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the figure from the options that can replace the question mark (?) and complete the given pattern.</p><p><img width=542 height=114 id=\"Picture 26\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image022.png\"></p><p>(I) <img width=178 height=179 id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image023.png\"></p><p>(II) <img width=179 height=179 id=\"Picture 23\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image024.png\"></p><p>(III) <img width=179 height=181 id=\"Picture 24\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image025.png\"></p><p>(IV) <img width=179 height=177 id=\"Picture 25\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image026.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2357;&#2367;&#2325;&#2354;&#2381;&#2346;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2313;&#2360; &#2310;&#2325;&#2371;&#2340;&#2367; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2330;&#2367;&#2361;&#2381;&#2344; (?) &#2325;&#2379; &#2346;&#2381;&#2352;&#2340;&#2367;&#2360;&#2381;&#2341;&#2366;&#2346;&#2367;&#2340; &#2325;&#2352; &#2342;&#2367;&#2319; &#2327;&#2319; &#2346;&#2376;&#2335;&#2352;&#2381;&#2344; &#2325;&#2379; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2368; &#2361;&#2376;&#2404;</p><p><img width=\"542\" height=\"114\" id=\"Picture 26\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image022.png\"></p><p>(I) <img width=\"178\" height=\"179\" id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image023.png\"></p><p>(II) <img width=\"179\" height=\"179\" id=\"Picture 23\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image024.png\"></p><p>(III) <img width=\"179\" height=\"181\" id=\"Picture 24\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image025.png\"></p><p>(IV) <img width=\"179\" height=\"177\" id=\"Picture 25\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image026.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">I</span><span class=\"hqt\" style=\"display:none\">I</span>",
+      "<span class=\"eqt\">II</span><span class=\"hqt\" style=\"display:none\">II</span>",
+      "<span class=\"eqt\">III</span><span class=\"hqt\" style=\"display:none\">III</span>",
+      "<span class=\"eqt\">IV</span><span class=\"hqt\" style=\"display:none\">IV</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The logic is:</p><p><img width=606 height=181 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image027.png\"></p><p>Hence, option (d) is correct.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the Venn diagram that best illustrates the relationship between the following classes.</p><p>Ticket, Aeroplane, Rail</p><p>(I) <img width=259 height=108 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image028.png\" ></p><p>(II) <img width=290 height=112 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image029.png\" ></p><p>(III) <img width=149 height=142 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image030.png\" ></p><p>(IV) <img width=183 height=161 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image031.png\" ></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2375;&#2344; &#2310;&#2352;&#2375;&#2326; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2342;&#2379;&#2306; &#2325;&#2375; &#2348;&#2368;&#2330; &#2360;&#2306;&#2348;&#2306;&#2343; &#2325;&#2379; &#2360;&#2352;&#2381;&#2357;&#2379;&#2340;&#2381;&#2340;&#2350; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p>Ticket, Aeroplane, Rail</p><p>(I) <img width=\"259\" height=\"108\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image028.png\"></p><p>(II) <img width=\"290\" height=\"112\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image029.png\"></p><p>(III) <img width=\"149\" height=\"142\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image030.png\"></p><p>(IV) <img width=\"183\" height=\"161\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image031.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">I</span><span class=\"hqt\" style=\"display:none\">I</span>",
+      "<span class=\"eqt\">II</span><span class=\"hqt\" style=\"display:none\">II</span>",
+      "<span class=\"eqt\">III</span><span class=\"hqt\" style=\"display:none\">III</span>",
+      "<span class=\"eqt\">IV</span><span class=\"hqt\" style=\"display:none\">IV</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>We need to book tickets to travel in both Aeroplane and train. So, the circle for ticket will intersect both the circles of Aeroplane and Train but the circles of Aeroplane and Train will not intersect.</p><p>So, correct Venn diagram is: <img width=259 height=108 id=\"Picture 357149285\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image028.png\" ></p><p>Hence, option (a) is correct.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Four letter-clusters have been given, out of which three are alike in some manner and one is different. Select the odd letter-cluster.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2330;&#2366;&#2352; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2360;&#2350;&#2370;&#2361; &#2342;&#2367;&#2319; &#2327;&#2319; &#2361;&#2376;&#2306;, &#2332;&#2367;&#2344;&#2350;&#2375;&#2306; &#2360;&#2375; &#2340;&#2368;&#2344; &#2325;&#2367;&#2360;&#2368; &#2344; &#2325;&#2367;&#2360;&#2368; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2375; &#2319;&#2325; &#2360;&#2350;&#2366;&#2344; &#2361;&#2376;&#2306; &#2324;&#2352; &#2319;&#2325; &#2349;&#2367;&#2344;&#2381;&#2344; &#2361;&#2376;&#2404; &#2309;&#2360;&#2306;&#2327;&#2340; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2360;&#2350;&#2370;&#2361; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">BFJN</span><span class=\"hqt\" style=\"display:none\">BFJN</span>",
+      "<span class=\"eqt\">DHLP</span><span class=\"hqt\" style=\"display:none\">DHLP</span>",
+      "<span class=\"eqt\">HJKP</span><span class=\"hqt\" style=\"display:none\">HJKP</span>",
+      "<span class=\"eqt\">JNRV</span><span class=\"hqt\" style=\"display:none\">JNRV</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>B + 4 = F, F + 4 = J, J + 4 = N</p><p>D + 4 = H, H + 4 = L, L + 4 = P</p><p>H + 2 = J, J + 1 = K, K + 5 = P</p><p>J + 4 = N, N + 4 = R, R + 4 = V</p><p>Hence, HJKP is odd one out.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the option that is related to the fifth number in the same way as the second number is related to the first number and the fourth number is related to the third number.</p><p>5: 45 :: 3: 3 :: 6: ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2346;&#2366;&#2305;&#2330;&#2357;&#2368;&#2306; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; &#2313;&#2360;&#2368; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376; &#2332;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2342;&#2370;&#2360;&#2352;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2346;&#2361;&#2354;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376; &#2324;&#2352; &#2330;&#2380;&#2341;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2340;&#2368;&#2360;&#2352;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;&#2404;</p><p>5: 45 :: 3: 3 :: 6: ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">90</span><span class=\"hqt\" style=\"display:none\">90</span>",
+      "<span class=\"eqt\">106</span><span class=\"hqt\" style=\"display:none\">106</span>",
+      "<span class=\"eqt\">110</span><span class=\"hqt\" style=\"display:none\">110</span>",
+      "<span class=\"eqt\">96</span><span class=\"hqt\" style=\"display:none\">96</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The logic is:</p><p>5 * (5  -  2)<sup>2</sup> = 5 * 9 = 45</p><p>3 * (3  -  2)<sup>2</sup> = 3 * 1 = 3</p><p>Similarly,</p><p>6 * (6  -  2)<sup>2</sup> = 6 * 16 = 96</p><p>Hence, missing term = 96</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following numbers will replace the question mark (?) in the given series?</p><p>8, 15, 26, ? , 56, 75</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2342;&#2368; &#2327;&#2312; &#2358;&#2371;&#2306;&#2326;&#2354;&#2366; &#2350;&#2375;&#2306; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2330;&#2367;&#2361;&#2381;&#2344; (?) &#2325;&#2379; &#2346;&#2381;&#2352;&#2340;&#2367;&#2360;&#2381;&#2341;&#2366;&#2346;&#2367;&#2340; &#2325;&#2352;&#2375;&#2327;&#2368;?</p><p>8, 15, 26, ? , 56, 75</p></span>",
+    "options": [
+      "<span class=\"eqt\">39</span><span class=\"hqt\" style=\"display:none\">39</span>",
+      "<span class=\"eqt\">41</span><span class=\"hqt\" style=\"display:none\">41</span>",
+      "<span class=\"eqt\">35</span><span class=\"hqt\" style=\"display:none\">35</span>",
+      "<span class=\"eqt\">43</span><span class=\"hqt\" style=\"display:none\">43</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The logic is: (Difference of prime numbers.)</p><p>8 + 7 = 15</p><p>15 + 11 = 26</p><p>26 + 13 = <b>39</b></p><p>39 + 17 = 56</p><p>56 + 19 = 75</p><p>Hence, missing term = 39</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the option that is related to the third term in the same way as the second term is related to the first term and the sixth term is related to the fifth term.</p><p>7183 : 3850 :: 6957 : ? :: 8972 : 5639</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2340;&#2368;&#2360;&#2352;&#2375; &#2346;&#2342; &#2360;&#2375; &#2313;&#2360;&#2368; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376; &#2332;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2342;&#2370;&#2360;&#2352;&#2366; &#2346;&#2342;, &#2346;&#2361;&#2354;&#2375; &#2346;&#2342; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376; &#2324;&#2352; &#2331;&#2336;&#2366; &#2346;&#2342;, &#2346;&#2366;&#2305;&#2330;&#2357;&#2375;&#2306; &#2346;&#2342; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;&#2404;</p><p>7183 : 3850 :: 6957 : ? :: 8972 : 5639</p></span>",
+    "options": [
+      "<span class=\"eqt\">3426</span><span class=\"hqt\" style=\"display:none\">3426</span>",
+      "<span class=\"eqt\">3624</span><span class=\"hqt\" style=\"display:none\">3624</span>",
+      "<span class=\"eqt\">3246</span><span class=\"hqt\" style=\"display:none\">3246</span>",
+      "<span class=\"eqt\">3642</span><span class=\"hqt\" style=\"display:none\">3642</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The logic is:</p><p>7183  -  3333 = 3850</p><p>8972  -  3333 = 5639</p><p>Similarly,</p><p>6957  -  3333 = 3624</p><p>Hence, missing term = 3624</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Three different positions of the same dice are shown. Find the number on the face opposite the face showing '4'.</p><p><img width=363 height=155 id=\"Picture 27\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image032.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2350;&#2366;&#2344; &#2346;&#2366;&#2360;&#2375; &#2325;&#2368; &#2340;&#2368;&#2344; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2360;&#2381;&#2341;&#2367;&#2340;&#2367;&#2351;&#2366;&#2305; &#2342;&#2352;&#2381;&#2358;&#2366;&#2312; &#2327;&#2312; &#2361;&#2376;&#2306;&#2404; '4' &#2342;&#2352;&#2381;&#2358;&#2366;&#2344;&#2375; &#2357;&#2366;&#2354;&#2375; &#2347;&#2354;&#2325; &#2325;&#2375; &#2357;&#2367;&#2346;&#2352;&#2368;&#2340; &#2347;&#2354;&#2325; &#2346;&#2352; &#2310;&#2344;&#2375; &#2357;&#2366;&#2354;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319;&#2404;</p><p><img width=\"363\" height=\"155\" id=\"Picture 27\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image032.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>From figure 1 and 3, we can see that the faces adjacent to the faces 5 and 6 are 3 and 4. Which means the faces 3 and 4 will be opposite to each other.</p><p>Hence, option (d) is correct.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the option that is related to the fifth number in the same way as the second number is related to the first number and the fourth number is related to the third number.</p><p>625 : 5 :: 2560 : 8 :: 5000 : ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2346;&#2366;&#2305;&#2330;&#2357;&#2368;&#2306; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; &#2313;&#2360;&#2368; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376; &#2332;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2342;&#2370;&#2360;&#2352;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2346;&#2361;&#2354;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376; &#2324;&#2352; &#2330;&#2380;&#2341;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;, &#2340;&#2368;&#2360;&#2352;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;&#2404;</p><p>625 : 5 :: 2560 : 8 :: 5000 : ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">9</span><span class=\"hqt\" style=\"display:none\">9</span>",
+      "<span class=\"eqt\">12</span><span class=\"hqt\" style=\"display:none\">12</span>",
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>",
+      "<span class=\"eqt\">15</span><span class=\"hqt\" style=\"display:none\">15</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The logic is:</p><p>5<sup>3</sup> * 5 = 125 * 5 = 625</p><p>8<sup>3</sup> * 5 = 512 * 5 = 2560</p><p>Similarly,</p><p>x<sup>3</sup> * 5 = 5000 =&gt; x<sup>3</sup> = 1000 =&gt; x = 10</p><p>Hence, option (c) is correct.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a certain code language, 'ASK' is written as '62' and 'BYE' is written as '64'. How will 'CRY' be written in that language?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2344;&#2367;&#2358;&#2381;&#2330;&#2367;&#2340; &#2325;&#2379;&#2337; &#2349;&#2366;&#2359;&#2366; &#2350;&#2375;&#2306;, 'ASK' &#2325;&#2379; '62' &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2354;&#2367;&#2326;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; 'BYE' &#2325;&#2379; '64' &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2354;&#2367;&#2326;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2360;&#2350;&#2366;&#2344; &#2349;&#2366;&#2359;&#2366; &#2350;&#2375;&#2306; 'CRY' &#2325;&#2379; &#2325;&#2367;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2354;&#2367;&#2326;&#2366; &#2332;&#2366;&#2319;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">68</span><span class=\"hqt\" style=\"display:none\">68</span>",
+      "<span class=\"eqt\">72</span><span class=\"hqt\" style=\"display:none\">72</span>",
+      "<span class=\"eqt\">86</span><span class=\"hqt\" style=\"display:none\">86</span>",
+      "<span class=\"eqt\">92</span><span class=\"hqt\" style=\"display:none\">92</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The logic is:</p><p>Twice the sum of positional value of each letter.</p><p>ASK = 2 * (1 + 19 + 11) = 2 * 31 = 62</p><p>BYE = 2 * (2 + 25 + 5) = 2 * 32 = 64</p><p>Similarly,</p><p>CRY = 2 * (3 + 18 + 25) = 2 * 46 = 92</p><p>Hence, option (d) is correct.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the correct combination of mathematical signs that can sequentially replace the * signs and balance the given equation.</p><p>256 * 4 * 9 * 3 * 14 = 51</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2327;&#2339;&#2367;&#2340;&#2368;&#2351; &#2330;&#2367;&#2361;&#2381;&#2344;&#2379;&#2306; &#2325;&#2375; &#2313;&#2360; &#2360;&#2361;&#2368; &#2360;&#2306;&#2351;&#2379;&#2332;&#2344; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2368;&#2332;&#2367;&#2319; &#2332;&#2379; &#2325;&#2381;&#2352;&#2350;&#2367;&#2325; &#2352;&#2370;&#2346; &#2360;&#2375; * &#2330;&#2367;&#2361;&#2381;&#2344;&#2379;&#2306; &#2325;&#2379; &#2346;&#2381;&#2352;&#2340;&#2367;&#2360;&#2381;&#2341;&#2366;&#2346;&#2367;&#2340; &#2325;&#2352; &#2342;&#2367;&#2319; &#2327;&#2319; &#2360;&#2350;&#2368;&#2325;&#2352;&#2339; &#2325;&#2379; &#2360;&#2306;&#2340;&#2369;&#2354;&#2367;&#2340; &#2325;&#2352; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p>256 * 4 * 9 * 3 * 14 = 51</p></span>",
+    "options": [
+      "<span class=\"eqt\">X  + &#8722; &div;</span><span class=\"hqt\" style=\"display:none\">X + &#8722; &div;</span>",
+      "<span class=\"eqt\">&div;  X  &#8722; +</span><span class=\"hqt\" style=\"display:none\">&div; X &#8722; +</span>",
+      "<span class=\"eqt\">X  &div; + &#8722;</span><span class=\"hqt\" style=\"display:none\">X &div; + &#8722;</span>",
+      "<span class=\"eqt\">&div; &#8722;  X  +</span><span class=\"hqt\" style=\"display:none\">&div; &#8722; X +</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Option (a): 256  X  4 + 9 &#8722; 3 &div; 14 = 256  X  4 + 9  -  (3/14) = 1024 + 9  -  (3/14) = 1032.78</p><p>Option (b): 256 &div; 4  X  9 &#8722; 3 + 14 = 64  X  9 &#8722; 3 + 14 = 576  -  3 + 14 = 587</p><p>Option (c): 256  X  4 &div; 9 + 3 &#8722; 14 = 256  X  (4/9) + 3 &#8722; 14 = (1024/9) + 3  -  14 = 102.77</p><p>Option (d): 256 &div; 4 &#8722; 9  X  3 + 14 = 64 &#8722; 9  X  3 + 14 = 64  -  27 + 14 = 51</p><p>Hence, option (d) is correct.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Select the option that represents the letters that, when placed from left to right in the following blanks, will complete the letter-series.</p><p>C L _ V E C _ _ W E C L O _ _ C _ O _ E</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2325;&#2366; &#2330;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2313;&#2344; &#2309;&#2325;&#2381;&#2359;&#2352;&#2379;&#2306; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2332;&#2367;&#2344;&#2381;&#2361;&#2375;&#2306; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2352;&#2367;&#2325;&#2381;&#2340; &#2360;&#2381;&#2341;&#2366;&#2344; &#2350;&#2375;&#2306; &#2348;&#2366;&#2319;&#2306; &#2360;&#2375; &#2342;&#2366;&#2319;&#2306; &#2352;&#2326;&#2344;&#2375; &#2346;&#2352; &#2309;&#2325;&#2381;&#2359;&#2352;-&#2358;&#2371;&#2306;&#2326;&#2354;&#2366; &#2346;&#2370;&#2352;&#2368; &#2361;&#2379; &#2332;&#2366;&#2319;&#2327;&#2368;&#2404;</p><p>C L _ V E C _ _ W E C L O _ _ C _ O _ E</p></span>",
+    "options": [
+      "<span class=\"eqt\">O L P X E L Y</span><span class=\"hqt\" style=\"display:none\">O L P X E L Y</span>",
+      "<span class=\"eqt\">O L O Y E L Z</span><span class=\"hqt\" style=\"display:none\">O L O Y E L Z</span>",
+      "<span class=\"eqt\">O L O X F M Y</span><span class=\"hqt\" style=\"display:none\">O L O X F M Y</span>",
+      "<span class=\"eqt\">O L O X E L Y</span><span class=\"hqt\" style=\"display:none\">O L O X E L Y</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Option (a): C L O V E C L P W E C L O X E C L O Y E</p><p>Option (b): C L O V E C L O W E C L O Y E C L O Z E</p><p>Option (c): C L O V E C L O W E C L O X F C M O Y E</p><p>Option (d): (C L O V E) (C L O W E) (C L O X E) (C L O Y E)</p><p>Hence, option (d) is correct.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a certain code language, 'TABLE' is coded as ELEAT and 'SWING' is coded as GNLWS. How will 'FRAME' be coded in the same language?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2344;&#2367;&#2358;&#2381;&#2330;&#2367;&#2340; &#2325;&#2379;&#2337; &#2349;&#2366;&#2359;&#2366; &#2350;&#2375;&#2306;, 'TABLE' &#2325;&#2379; ELEAT &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2325;&#2379;&#2337;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; 'SWING' &#2325;&#2379; GNLWS &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2325;&#2379;&#2337;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2360;&#2350;&#2366;&#2344; &#2349;&#2366;&#2359;&#2366; &#2350;&#2375;&#2306; 'FRAME' &#2325;&#2379; &#2325;&#2376;&#2360;&#2375; &#2325;&#2379;&#2337;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2319;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">EMERF</span><span class=\"hqt\" style=\"display:none\">EMERF</span>",
+      "<span class=\"eqt\">EMDRF</span><span class=\"hqt\" style=\"display:none\">EMDRF</span>",
+      "<span class=\"eqt\">ERMDF</span><span class=\"hqt\" style=\"display:none\">ERMDF</span>",
+      "<span class=\"eqt\">MEDFR</span><span class=\"hqt\" style=\"display:none\">MEDFR</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The logic is:</p><p><img width=200 height=98 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image033.png\" ></p><p>And,</p><p><img width=205 height=97 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image034.png\" ></p><p>Similarly,</p><p><img width=199 height=97 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image035.png\" ></p><p>Hence, option (b) is correct.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which two signs should be interchanged to make the given equation correct?</p><p>588 &div; 28  X  32 + 72  -  160 = 760</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2367;&#2319; &#2327;&#2319; &#2360;&#2350;&#2368;&#2325;&#2352;&#2339; &#2325;&#2379; &#2360;&#2361;&#2368; &#2348;&#2344;&#2366;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; &#2325;&#2367;&#2344; &#2342;&#2379; &#2330;&#2367;&#2361;&#2381;&#2344;&#2379;&#2306; &#2325;&#2379; &#2310;&#2346;&#2360; &#2350;&#2375;&#2306; &#2348;&#2342;&#2354;&#2366; &#2332;&#2366;&#2344;&#2366; &#2330;&#2366;&#2361;&#2367;&#2319;?</p><p>588 &div; 28 X 32 + 72 - 160 = 760</p></span>",
+    "options": [
+      "<span class=\"eqt\">-  and +</span><span class=\"hqt\" style=\"display:none\">- &#2324;&#2352; +</span>",
+      "<span class=\"eqt\">&div; and  -</span><span class=\"hqt\" style=\"display:none\">&div; &#2324;&#2352; -</span>",
+      "<span class=\"eqt\">+ and  X</span><span class=\"hqt\" style=\"display:none\">+ &#2324;&#2352; X</span>",
+      "<span class=\"eqt\">&div; and +</span><span class=\"hqt\" style=\"display:none\">&div; &#2324;&#2352; +</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Option (a): 588 &div; 28  X  32  -  72 + 160 = 21  X  32  -  72 + 160 = 672  -  72 + 160 = 760</p><p>Option (b): 588  -  28  X  32 + 72 &div; 160 = 588  -  28  X  32 + 0.45 = 588  -  896 + 0.45 = -307.55</p><p>Option (c): 588 &div; 28 + 32  X  72  -  160 = 21 + 32  X  72  -  160 = 21 + 2304  -  160 = 2165</p><p>Option (d): 588 + 28  X  32 &div; 72  -  160 = 588 + 28  X  (4/9)  -  160 = 588 + (112/9)  -  160 = 440.44</p><p>Hence, option (a) is correct.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Who received the Nobel Prize in 1901 for 'recognition of the extraordinary services rendered by the discovery of the laws of chemical dynamics and osmotic pressure in solutions?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2357;&#2367;&#2354;&#2351;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2352;&#2366;&#2360;&#2366;&#2351;&#2344;&#2367;&#2325; &#2327;&#2340;&#2367;&#2358;&#2368;&#2354;&#2340;&#2366; &#2324;&#2352; &#2346;&#2352;&#2366;&#2360;&#2352;&#2339;&#2368; &#2342;&#2366;&#2348; &#2325;&#2375; &#2344;&#2367;&#2351;&#2350;&#2379;&#2306; &#2325;&#2368; &#2326;&#2379;&#2332; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2346;&#2381;&#2352;&#2342;&#2366;&#2344; &#2325;&#2368; &#2327;&#2312; &#2309;&#2360;&#2366;&#2343;&#2366;&#2352;&#2339; &#2360;&#2375;&#2357;&#2366;&#2323;&#2306; &#2325;&#2368; &#2350;&#2366;&#2344;&#2381;&#2351;&#2340;&#2366; &#2325;&#2375; &#2354;&#2367;&#2319; 1901 &#2350;&#2375;&#2306; &#2325;&#2367;&#2360;&#2375; &#2344;&#2379;&#2348;&#2375;&#2354; &#2346;&#2369;&#2352;&#2360;&#2381;&#2325;&#2366;&#2352; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2341;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Hermann Emil Fischer</span><span class=\"hqt\" style=\"display:none\">&#2361;&#2352;&#2350;&#2344; &#2319;&#2350;&#2367;&#2354; &#2347;&#2367;&#2358;&#2352;</span>",
+      "<span class=\"eqt\">Jacobus Henricus van 't Hoff</span><span class=\"hqt\" style=\"display:none\">&#2332;&#2375;&#2325;&#2379;&#2348;&#2360; &#2361;&#2375;&#2344;&#2352;&#2367;&#2325;&#2360; &#2357;&#2376;&#2344; '&#2335;&#2368; &#2361;&#2377;&#2347;</span>",
+      "<span class=\"eqt\">Svante August Arrhenius&#8201;</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2381;&#2357;&#2306;&#2340;&#2375; &#2309;&#2327;&#2360;&#2381;&#2340; &#2309;&#2352;&#2361;&#2375;&#2344;&#2367;&#2351;&#2360;</span>",
+      "<span class=\"eqt\">Henri Moissan</span><span class=\"hqt\" style=\"display:none\">&#2361;&#2375;&#2344;&#2352;&#2368; &#2350;&#2379;&#2311;&#2360;&#2344;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The first Nobel Prize in Chemistry went to <b>Jacobus Henricus van 't Hoff</b>. He found the laws of chemical dynamics and osmotic pressure. He was a Dutch pioneer of physical and stereochemistry.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following Articles of the Indian Constitution are related to citizenship?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2349;&#2366;&#2352;&#2340;&#2368;&#2351; &#2360;&#2306;&#2357;&#2367;&#2343;&#2366;&#2344; &#2325;&#2375; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2375; &#2309;&#2344;&#2369;&#2330;&#2381;&#2331;&#2375;&#2342; &#2344;&#2366;&#2327;&#2352;&#2367;&#2325;&#2340;&#2366; &#2360;&#2375; &#2360;&#2306;&#2348;&#2306;&#2343;&#2367;&#2340; &#2361;&#2376;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Articles 15 to 21</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2344;&#2369;&#2330;&#2381;&#2331;&#2375;&#2342; 15 &#2360;&#2375; 21 &#2340;&#2325;</span>",
+      "<span class=\"eqt\">Articles 5 to 11</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2344;&#2369;&#2330;&#2381;&#2331;&#2375;&#2342; 5 &#2360;&#2375; 11 &#2340;&#2325;</span>",
+      "<span class=\"eqt\">Articles 2 to 4&#8201;</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2344;&#2369;&#2330;&#2381;&#2331;&#2375;&#2342; 2 &#2360;&#2375; 4 &#2340;&#2325;&#8201;</span>",
+      "<span class=\"eqt\">Articles 25 to 31</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2344;&#2369;&#2330;&#2381;&#2331;&#2375;&#2342; 25 &#2360;&#2375; 31 &#2340;&#2325;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Articles 5 to 11</b> tell us who is a citizen of India and how to become or stop being one. The Parliament can make laws about citizenship. The other articles talk about different things, like rights, states, and religion.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following is the largest pan-India scheme to strengthen health care infrastructure across the country with focus on primary, secondary and tertiary care services?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2346;&#2381;&#2352;&#2366;&#2341;&#2350;&#2367;&#2325;, &#2350;&#2366;&#2343;&#2381;&#2351;&#2350;&#2367;&#2325; &#2324;&#2352; &#2340;&#2371;&#2340;&#2368;&#2351;&#2325; &#2342;&#2375;&#2326;&#2349;&#2366;&#2354; &#2360;&#2375;&#2357;&#2366;&#2323;&#2306; &#2346;&#2352; &#2343;&#2381;&#2351;&#2366;&#2344; &#2325;&#2375;&#2306;&#2342;&#2381;&#2352;&#2367;&#2340; &#2325;&#2352;&#2340;&#2375; &#2361;&#2369;&#2319; &#2342;&#2375;&#2358; &#2349;&#2352; &#2350;&#2375;&#2306; &#2360;&#2381;&#2357;&#2366;&#2360;&#2381;&#2341;&#2381;&#2351; &#2342;&#2375;&#2326;&#2349;&#2366;&#2354; &#2325;&#2375; &#2348;&#2369;&#2344;&#2367;&#2351;&#2366;&#2342;&#2368; &#2338;&#2366;&#2306;&#2330;&#2375; &#2325;&#2379; &#2350;&#2332;&#2348;&#2370;&#2340; &#2325;&#2352;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2368; &#2360;&#2348;&#2360;&#2375; &#2348;&#2337;&#2364;&#2368; &#2309;&#2326;&#2367;&#2354; &#2349;&#2366;&#2352;&#2340;&#2368;&#2351; &#2351;&#2379;&#2332;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">LaQshya</span><span class=\"hqt\" style=\"display:none\">&#2354;&#2325;&#2381;&#2359;&#2381;&#2351; (LaQshya)</span>",
+      "<span class=\"eqt\">AB-PMJAY</span><span class=\"hqt\" style=\"display:none\">AB-PMJAY</span>",
+      "<span class=\"eqt\">PM-ABHIM</span><span class=\"hqt\" style=\"display:none\">PM-ABHIM</span>",
+      "<span class=\"eqt\">PM-MI</span><span class=\"hqt\" style=\"display:none\">PM-MI</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>PM-ABHIM</b> is a scheme launched by PM Modi in 2021 to improve healthcare infrastructure in India. It has a budget of Rs. 64,180 crore for six years and covers primary, secondary and tertiary care services. It has various components such as health and wellness centres, public health labs, hospital blocks, etc.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following countries was the host of AFC Women's Asia Cup Football-2022?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2342;&#2375;&#2358; &#2319;&#2319;&#2347;&#2360;&#2368; &#2350;&#2361;&#2367;&#2354;&#2366; &#2319;&#2358;&#2367;&#2351;&#2366; &#2325;&#2346; &#2347;&#2369;&#2335;&#2348;&#2377;&#2354;-2022 &#2325;&#2366; &#2350;&#2375;&#2332;&#2348;&#2366;&#2344; &#2341;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Japan</span><span class=\"hqt\" style=\"display:none\">&#2332;&#2366;&#2346;&#2366;&#2344;</span>",
+      "<span class=\"eqt\">Bangladesh</span><span class=\"hqt\" style=\"display:none\">&#2348;&#2366;&#2306;&#2327;&#2381;&#2354;&#2366;&#2342;&#2375;&#2358;</span>",
+      "<span class=\"eqt\">India</span><span class=\"hqt\" style=\"display:none\">&#2349;&#2366;&#2352;&#2340;</span>",
+      "<span class=\"eqt\">China</span><span class=\"hqt\" style=\"display:none\">&#2330;&#2368;&#2344;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>India</b> hosted the AFC Women's Asia Cup Football-2022 for the first time since 1979. Twelve teams played from 20 January to 6 February 2022. China won the cup and four teams qualified for the World Cup.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following is used as a cooling medium for the Large Hadron Collider (LHC) and the superconducting magnets in MRI scanners and NMR spectrometers?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2367;&#2360;&#2325;&#2366; &#2313;&#2346;&#2351;&#2379;&#2327; &#2354;&#2366;&#2352;&#2381;&#2332; &#2361;&#2376;&#2337;&#2381;&#2352;&#2377;&#2344; &#2325;&#2379;&#2354;&#2366;&#2311;&#2337;&#2352; (&#2319;&#2354;&#2319;&#2330;&#2360;&#2368;) &#2325;&#2375; &#2354;&#2367;&#2319; &#2358;&#2368;&#2340;&#2354;&#2344; &#2350;&#2366;&#2343;&#2381;&#2351;&#2350; &#2324;&#2352; &#2319;&#2350;&#2310;&#2352;&#2310;&#2312; &#2360;&#2381;&#2325;&#2376;&#2344;&#2352; &#2324;&#2352; &#2319;&#2344;&#2319;&#2350;&#2310;&#2352; &#2360;&#2381;&#2346;&#2375;&#2325;&#2381;&#2335;&#2381;&#2352;&#2379;&#2350;&#2368;&#2335;&#2352; &#2350;&#2375;&#2306; &#2360;&#2369;&#2346;&#2352;&#2325;&#2306;&#2337;&#2325;&#2381;&#2335;&#2367;&#2306;&#2327; &#2350;&#2376;&#2327;&#2381;&#2344;&#2375;&#2335; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Neon</span><span class=\"hqt\" style=\"display:none\">&#2344;&#2367;&#2351;&#2377;&#2344;</span>",
+      "<span class=\"eqt\">Chlorine</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2381;&#2354;&#2379;&#2352;&#2368;&#2344;</span>",
+      "<span class=\"eqt\">Argon</span><span class=\"hqt\" style=\"display:none\">&#2310;&#2352;&#2381;&#2327;&#2344;</span>",
+      "<span class=\"eqt\">Helium</span><span class=\"hqt\" style=\"display:none\">&#2361;&#2368;&#2354;&#2367;&#2351;&#2350;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>Helium</b> is a cooling medium for the LHC and the superconducting magnets in MRI and NMR machines because it has special properties. Helium is very light and does not freeze even at the lowest temperature under normal pressure.</p>",
+    "question_index": 29
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Match the columns.</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Column  -  A (Class)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Column  -  B (Common name)</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">i. Chlorophyceae</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">a. Brown algae</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">ii. Phaeophyceae</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">b. Green algae</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">iii. Rhodophyceae</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">c. Blue  -  green algae</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">iv. Cyanophyceae</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">d. Red algae</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p>&#2325;&#2377;&#2354;&#2350; &#2325;&#2366; &#2350;&#2367;&#2354;&#2366;&#2344; &#2325;&#2352;&#2375;&#2306;&#2404;</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2325;&#2377;&#2354;&#2350; - A (&#2358;&#2381;&#2352;&#2375;&#2339;&#2368;)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2325;&#2377;&#2354;&#2350; - B (&#2360;&#2366;&#2350;&#2366;&#2344;&#2381;&#2351; &#2344;&#2366;&#2350;)</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">i. &#2325;&#2381;&#2354;&#2379;&#2352;&#2379;&#2347;&#2366;&#2311;&#2360;&#2368;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">a. &#2349;&#2370;&#2352;&#2366; &#2358;&#2376;&#2357;&#2366;&#2354;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">ii. &#2347;&#2367;&#2351;&#2379;&#2347;&#2366;&#2311;&#2360;&#2368;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">b. &#2361;&#2352;&#2366; &#2358;&#2376;&#2357;&#2366;&#2354;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">iii. &#2352;&#2379;&#2337;&#2379;&#2347;&#2366;&#2311;&#2360;&#2368;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">c. &#2344;&#2368;&#2354;&#2366;-&#2361;&#2352;&#2366; &#2358;&#2376;&#2357;&#2366;&#2354;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">iv. &#2360;&#2366;&#2351;&#2344;&#2379;&#2347;&#2366;&#2311;&#2360;&#2368;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">d. &#2354;&#2366;&#2354; &#2358;&#2376;&#2357;&#2366;&#2354;</td></tr></table></span>",
+    "options": [
+      "<span class=\"eqt\">i-b, ii-c, iii-a, iv-d</span><span class=\"hqt\" style=\"display:none\">i-b, ii-c, iii-a, iv-d</span>",
+      "<span class=\"eqt\">i-b, ii-a, iii-d, iv-c</span><span class=\"hqt\" style=\"display:none\">i-b, ii-a, iii-d, iv-c</span>",
+      "<span class=\"eqt\">i-d, ii-c, iii-b, iv-a</span><span class=\"hqt\" style=\"display:none\">i-d, ii-c, iii-b, iv-a</span>",
+      "<span class=\"eqt\">i-a, ii-b, iii-c, iv-d</span><span class=\"hqt\" style=\"display:none\">i-a, ii-b, iii-c, iv-d</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The correct matching is:</p><p>i. Chlorophyceae - b. Green algae</p><p>ii. Phaeophyceae - a. Brown algae</p><p>iii. Rhodophyceae - d. Red algae</p><p>iv. Cyanophyceae - c. Blue-green algae</p><p>Hence, i-b, ii-a, iii-d, iv-c.</p>",
+    "question_index": 30
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In October 2021, 19-year-old ________ won the silver medal at the World Wrestling Championships.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2309;&#2325;&#2381;&#2335;&#2370;&#2348;&#2352; 2021 &#2350;&#2375;&#2306;, 19 &#2357;&#2352;&#2381;&#2359;&#2368;&#2351; ___________&#2344;&#2375; &#2357;&#2367;&#2358;&#2381;&#2357; &#2325;&#2369;&#2358;&#2381;&#2340;&#2368; &#2330;&#2376;&#2306;&#2346;&#2367;&#2351;&#2344;&#2358;&#2367;&#2346; &#2350;&#2375;&#2306; &#2352;&#2332;&#2340; &#2346;&#2342;&#2325; &#2332;&#2368;&#2340;&#2366;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Anshu Malik</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2306;&#2358;&#2370; &#2350;&#2354;&#2367;&#2325;</span>",
+      "<span class=\"eqt\">Seema Bisla</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2368;&#2350;&#2366; &#2348;&#2367;&#2360;&#2381;&#2354;&#2366;</span>",
+      "<span class=\"eqt\">Sanju Devi</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2306;&#2332;&#2370; &#2342;&#2375;&#2357;&#2368;</span>",
+      "<span class=\"eqt\">Sonam Malik</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2379;&#2344;&#2350; &#2350;&#2354;&#2367;&#2325;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Anshu Malik </b>is the first Indian woman wrestler to win a silver medal at the World Wrestling Championships. She fought in the women's 57-kg category and was defeated by Helen Maroulis of the USA in the final.</p>",
+    "question_index": 31
+  },
+  {
+    "question": "<span class=\"eqt\"><p>On the basis of tribal population (2011), identify the option that arranges the following states in ascending order.</p><p>A. Madhya Pradesh</p><p>B. Maharashtra</p><p>C. Odisha</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2332;&#2344;&#2332;&#2366;&#2340;&#2368;&#2351; &#2332;&#2344;&#2360;&#2306;&#2326;&#2381;&#2351;&#2366; (2011) &#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2346;&#2352; &#2313;&#2360; &#2357;&#2367;&#2325;&#2354;&#2381;&#2346; &#2325;&#2368; &#2346;&#2361;&#2330;&#2366;&#2344; &#2325;&#2352;&#2375;&#2306; &#2332;&#2379; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2352;&#2366;&#2332;&#2381;&#2351;&#2379;&#2306; &#2325;&#2379; &#2310;&#2352;&#2379;&#2361;&#2368; &#2325;&#2381;&#2352;&#2350; &#2350;&#2375;&#2306; &#2357;&#2381;&#2351;&#2357;&#2360;&#2381;&#2341;&#2367;&#2340; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p>A. &#2350;&#2343;&#2381;&#2351; &#2346;&#2381;&#2352;&#2342;&#2375;&#2358;</p><p>B. &#2350;&#2361;&#2366;&#2352;&#2366;&#2359;&#2381;&#2335;&#2381;&#2352;</p><p>C. &#2323;&#2337;&#2367;&#2358;&#2366;</p></span>",
+    "options": [
+      "<span class=\"eqt\">(C), (B), (A)</span><span class=\"hqt\" style=\"display:none\">(C), (B), (A)</span>",
+      "<span class=\"eqt\">(B), (A), (C),</span><span class=\"hqt\" style=\"display:none\">(B), (A), (C),</span>",
+      "<span class=\"eqt\">(C), (A), (B)</span><span class=\"hqt\" style=\"display:none\">(C), (A), (B)</span>",
+      "<span class=\"eqt\">(B), (C), (A)</span><span class=\"hqt\" style=\"display:none\">(B), (C), (A)</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Odisha has 9,590,756 tribal people.</p><p>Maharashtra has 10,510,213 tribal people.</p><p>Madhya Pradesh has 15,316,784 tribal people.</p><p>Therefore, the answer in ascending order is (C), (B), (A).</p>",
+    "question_index": 32
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Bharatanatyam expresses South Indian religious themes and spiritual ideas of ________.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2349;&#2352;&#2340;&#2344;&#2366;&#2335;&#2381;&#2351;&#2350; &#2342;&#2325;&#2381;&#2359;&#2367;&#2339; &#2349;&#2366;&#2352;&#2340;&#2368;&#2351; &#2343;&#2366;&#2352;&#2381;&#2350;&#2367;&#2325; &#2357;&#2367;&#2359;&#2351;&#2379;&#2306; &#2324;&#2352; ________ &#2325;&#2375; &#2310;&#2343;&#2381;&#2351;&#2366;&#2340;&#2381;&#2350;&#2367;&#2325; &#2357;&#2367;&#2330;&#2366;&#2352;&#2379;&#2306; &#2325;&#2379; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Sufism</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2370;&#2347;&#2368;&#2357;&#2366;&#2342;</span>",
+      "<span class=\"eqt\">Shaivism</span><span class=\"hqt\" style=\"display:none\">&#2358;&#2376;&#2357;</span>",
+      "<span class=\"eqt\">Buddhism</span><span class=\"hqt\" style=\"display:none\">&#2348;&#2369;&#2342;&#2381;&#2343; &#2343;&#2352;&#2381;&#2350;</span>",
+      "<span class=\"eqt\">Jainism</span><span class=\"hqt\" style=\"display:none\">&#2332;&#2376;&#2344; &#2343;&#2352;&#2381;&#2350;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Bharatanatyam is a Tamil classical dance that shows the religious and spiritual ideas of South India. It mainly expresses <b>Shaivism</b>, the worship of Shiva, but also Vaishnavism and Shaktism, the worship of Vishnu and Shakti.</p>",
+    "question_index": 33
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Ms Bhakti Pradip Kulkarni was conferred with the Arjuna Award 2022 for her outstanding contribution in which of the following sports?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2369;&#2358;&#2381;&#2352;&#2368; &#2349;&#2325;&#2381;&#2340;&#2367; &#2346;&#2381;&#2352;&#2342;&#2368;&#2346; &#2325;&#2369;&#2354;&#2325;&#2352;&#2381;&#2339;&#2368; &#2325;&#2379; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2367;&#2360; &#2326;&#2375;&#2354; &#2350;&#2375;&#2306; &#2313;&#2344;&#2325;&#2375; &#2313;&#2340;&#2381;&#2325;&#2371;&#2359;&#2381;&#2335; &#2351;&#2379;&#2327;&#2342;&#2366;&#2344; &#2325;&#2375; &#2354;&#2367;&#2319; &#2309;&#2352;&#2381;&#2332;&#2369;&#2344; &#2346;&#2369;&#2352;&#2360;&#2381;&#2325;&#2366;&#2352; 2022 &#2360;&#2375; &#2360;&#2350;&#2381;&#2350;&#2366;&#2344;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Table Tennis</span><span class=\"hqt\" style=\"display:none\">&#2335;&#2375;&#2348;&#2354; &#2335;&#2375;&#2344;&#2367;&#2360;</span>",
+      "<span class=\"eqt\">Chess</span><span class=\"hqt\" style=\"display:none\">&#2358;&#2340;&#2352;&#2306;&#2332;</span>",
+      "<span class=\"eqt\">Badminton</span><span class=\"hqt\" style=\"display:none\">&#2348;&#2376;&#2337;&#2350;&#2367;&#2306;&#2335;&#2344;</span>",
+      "<span class=\"eqt\">Wrestling</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2369;&#2358;&#2381;&#2340;&#2368;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Ms Bhakti Pradip Kulkarni is an IM in <b>chess</b> who got the Arjuna Award 2022. She won medals in the World and Commonwealth Championships. She also won the Asian Championship and played for India in many events.</p>",
+    "question_index": 34
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In Chola administration, ________ was the assembly in the villages which were inhabited predominantly by the Brahmanas.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2330;&#2379;&#2354; &#2346;&#2381;&#2352;&#2358;&#2366;&#2360;&#2344; &#2350;&#2375;&#2306;, ________ &#2313;&#2344; &#2327;&#2366;&#2306;&#2357;&#2379;&#2306; &#2325;&#2368; &#2360;&#2349;&#2366; &#2341;&#2368; &#2332;&#2361;&#2366;&#2306; &#2350;&#2369;&#2326;&#2381;&#2351; &#2352;&#2370;&#2346; &#2360;&#2375; &#2348;&#2381;&#2352;&#2366;&#2361;&#2381;&#2350;&#2339; &#2352;&#2361;&#2340;&#2375; &#2341;&#2375;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Ur</span><span class=\"hqt\" style=\"display:none\">&#2313;&#2352;</span>",
+      "<span class=\"eqt\">Khilya</span><span class=\"hqt\" style=\"display:none\">&#2326;&#2367;&#2354;&#2381;&#2351;&#2366;</span>",
+      "<span class=\"eqt\">Nagaram</span><span class=\"hqt\" style=\"display:none\">&#2344;&#2366;&#2327;&#2366;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">Sabha</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2349;&#2366;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>Sabha </b>was a group of Brahmins who managed the village affairs. They were in charge of each Brahmadeya, which was land given by the Chola kings to the Brahmins.</p>",
+    "question_index": 35
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The Vedic Aryans lived in the area called Sapt-Sindhu, which means area drained by seven rivers. One of the rivers among the seven is Jhelum. What was its ancient name?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2357;&#2376;&#2342;&#2367;&#2325; &#2310;&#2352;&#2381;&#2351; &#2360;&#2346;&#2381;&#2340;-&#2360;&#2367;&#2306;&#2343;&#2369; &#2344;&#2366;&#2350;&#2325; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352; &#2350;&#2375;&#2306; &#2352;&#2361;&#2340;&#2375; &#2341;&#2375;, &#2332;&#2367;&#2360;&#2325;&#2366; &#2309;&#2352;&#2381;&#2341; &#2361;&#2376; &#2360;&#2366;&#2340; &#2344;&#2342;&#2367;&#2351;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2360;&#2367;&#2306;&#2330;&#2367;&#2340; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2404; &#2311;&#2344; &#2360;&#2366;&#2340; &#2344;&#2342;&#2367;&#2351;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2319;&#2325; &#2344;&#2342;&#2368; &#2333;&#2375;&#2354;&#2350; &#2361;&#2376;&#2404; &#2311;&#2360;&#2325;&#2366; &#2346;&#2381;&#2352;&#2366;&#2330;&#2368;&#2344; &#2344;&#2366;&#2350; &#2325;&#2381;&#2351;&#2366; &#2341;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Askini</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2360;&#2381;&#2325;&#2367;&#2344;&#2368;</span>",
+      "<span class=\"eqt\">Parushni</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2352;&#2369;&#2359;&#2381;&#2339;&#2368;</span>",
+      "<span class=\"eqt\">Vipash</span><span class=\"hqt\" style=\"display:none\">&#2357;&#2367;&#2346;&#2366;&#2358;</span>",
+      "<span class=\"eqt\">Vitasta</span><span class=\"hqt\" style=\"display:none\">&#2357;&#2367;&#2340;&#2360;&#2381;&#2340;&#2366;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The river Jhelum was called <b>Vitasta</b> in the ancient Hindu scriptures and Hydaspes by the old Greeks. Vitasta means \"the shining one\" or \"the swift one\" in Sanskrit.</p>",
+    "question_index": 36
+  },
+  {
+    "question": "<span class=\"eqt\"><p>___ emerged as the poorest state as per the first-ever Multi-dimensional Poverty Index (MPI) prepared by Niti Aayog and launched in November 2021.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2340;&#2367; &#2310;&#2351;&#2379;&#2327; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2340;&#2376;&#2351;&#2366;&#2352; &#2324;&#2352; &#2344;&#2357;&#2306;&#2348;&#2352; 2021 &#2350;&#2375;&#2306; &#2354;&#2377;&#2344;&#2381;&#2330; &#2325;&#2367;&#2319; &#2327;&#2319; &#2346;&#2361;&#2354;&#2375; &#2348;&#2361;&#2369;-&#2310;&#2351;&#2366;&#2350;&#2368; &#2327;&#2352;&#2368;&#2348;&#2368; &#2360;&#2370;&#2330;&#2325;&#2366;&#2306;&#2325; (&#2319;&#2350;&#2346;&#2368;&#2310;&#2312;) &#2325;&#2375; &#2309;&#2344;&#2369;&#2360;&#2366;&#2352; ----------- &#2360;&#2348;&#2360;&#2375; &#2327;&#2352;&#2368;&#2348; &#2352;&#2366;&#2332;&#2381;&#2351; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2313;&#2349;&#2352;&#2366;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Bihar</span><span class=\"hqt\" style=\"display:none\">&#2348;&#2367;&#2361;&#2366;&#2352;</span>",
+      "<span class=\"eqt\">Madhya Pradesh</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2343;&#2381;&#2351; &#2346;&#2381;&#2352;&#2342;&#2375;&#2358;</span>",
+      "<span class=\"eqt\">Uttar Pradesh</span><span class=\"hqt\" style=\"display:none\">&#2313;&#2340;&#2381;&#2340;&#2352; &#2346;&#2381;&#2352;&#2342;&#2375;&#2358;</span>",
+      "<span class=\"eqt\">Mizoram</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2367;&#2332;&#2379;&#2352;&#2350;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Bihar</b> is the poorest state in India as per the MPI report by Niti Aayog. The MPI measures poverty in health, education, and living standards. Bihar has 51.91 per cent poverty, while Mizoram has 1.67 per cent.</p>",
+    "question_index": 37
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following states is NOT a part of the Tapi Basin?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344; &#2360;&#2366; &#2352;&#2366;&#2332;&#2381;&#2351; &#2340;&#2366;&#2346;&#2368; &#2348;&#2375;&#2360;&#2367;&#2344; &#2325;&#2366; &#2361;&#2367;&#2360;&#2381;&#2360;&#2366; &#2344;&#2361;&#2368;&#2306; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rajasthan</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2366;&#2332;&#2360;&#2381;&#2341;&#2366;&#2344;</span>",
+      "<span class=\"eqt\">Maharashtra</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2361;&#2366;&#2352;&#2366;&#2359;&#2381;&#2335;&#2381;&#2352;</span>",
+      "<span class=\"eqt\">Madhya Pradesh</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2343;&#2381;&#2351; &#2346;&#2381;&#2352;&#2342;&#2375;&#2358;</span>",
+      "<span class=\"eqt\">Gujarat</span><span class=\"hqt\" style=\"display:none\">&#2327;&#2369;&#2332;&#2352;&#2366;&#2340;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Tapi River flows from east to west and starts in Multai, Madhya Pradesh and ends in the Arabian Sea in Gujarat. The Tapi Basin covers Madhya Pradesh, Maharashtra, and Gujarat, but not <b>Rajasthan</b>. It covers an area of 65,145 sq km, which is about 2% of India's total area.</p>",
+    "question_index": 38
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which scientist thought of the concept of steady state of the universe?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2348;&#2381;&#2352;&#2361;&#2381;&#2350;&#2366;&#2339;&#2381;&#2337; &#2325;&#2368; &#2360;&#2381;&#2341;&#2367;&#2352; &#2309;&#2357;&#2360;&#2381;&#2341;&#2366; &#2325;&#2368; &#2309;&#2357;&#2343;&#2366;&#2352;&#2339;&#2366; &#2325;&#2367;&#2360; &#2357;&#2376;&#2332;&#2381;&#2334;&#2366;&#2344;&#2367;&#2325; &#2344;&#2375; &#2360;&#2379;&#2330;&#2368;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Harold Jeffrey</span><span class=\"hqt\" style=\"display:none\">&#2361;&#2375;&#2352;&#2379;&#2354;&#2381;&#2337; &#2332;&#2375;&#2347;&#2352;&#2368;</span>",
+      "<span class=\"eqt\">Edwin Hubble</span><span class=\"hqt\" style=\"display:none\">&#2319;&#2337;&#2357;&#2367;&#2344; &#2361;&#2348;&#2354;</span>",
+      "<span class=\"eqt\">Fred Hoyle</span><span class=\"hqt\" style=\"display:none\">&#2347;&#2381;&#2352;&#2375;&#2337; &#2361;&#2377;&#2351;&#2354;</span>",
+      "<span class=\"eqt\">Pierre-Simon Laplace</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2367;&#2351;&#2352;&#2375;-&#2360;&#2366;&#2311;&#2350;&#2344; &#2354;&#2366;&#2346;&#2381;&#2354;&#2366;&#2360;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>Fred Hoyle</b> came up with the steady state theory in 1948 with two other scientists. He believed that the universe is always the same and never changes.</p>",
+    "question_index": 39
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Who is the Administrative Head of the Indian Audit and Accounts Department?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2349;&#2366;&#2352;&#2340;&#2368;&#2351; &#2354;&#2375;&#2326;&#2366;&#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2366; &#2319;&#2357;&#2306; &#2354;&#2375;&#2326;&#2366; &#2357;&#2367;&#2349;&#2366;&#2327; &#2325;&#2375; &#2346;&#2381;&#2352;&#2358;&#2366;&#2360;&#2344;&#2367;&#2325; &#2346;&#2381;&#2352;&#2350;&#2369;&#2326; &#2325;&#2380;&#2344; &#2361;&#2376;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Accountant General</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2361;&#2366;&#2354;&#2375;&#2326;&#2366;&#2325;&#2366;&#2352;</span>",
+      "<span class=\"eqt\">Principal Accountant General</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2381;&#2352;&#2343;&#2366;&#2344; &#2350;&#2361;&#2366;&#2354;&#2375;&#2326;&#2366;&#2325;&#2366;&#2352;</span>",
+      "<span class=\"eqt\">Director General</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2361;&#2366;&#2344;&#2367;&#2342;&#2375;&#2358;&#2325;</span>",
+      "<span class=\"eqt\">The Comptroller and Auditor General</span><span class=\"hqt\" style=\"display:none\">&#2344;&#2367;&#2351;&#2306;&#2340;&#2381;&#2352;&#2325; &#2319;&#2357;&#2306; &#2350;&#2361;&#2366;&#2354;&#2375;&#2326;&#2366; &#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2325;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>The Comptroller and Auditor General</b> is the head of the Indian Audit and Accounts Department and a key pillar of India's democratic government system. He is chosen by the President of India with a warrant under his hand and seal. He oversees the entire financial system of the country at both the Central and state level.</p>",
+    "question_index": 40
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Name a reproductive strategy in which parasites take advantage of the care of other individuals of the same species or different species to raise their young.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2360; &#2346;&#2381;&#2352;&#2332;&#2344;&#2344; &#2352;&#2339;&#2344;&#2368;&#2340;&#2367; &#2325;&#2366; &#2344;&#2366;&#2350; &#2348;&#2340;&#2366;&#2311;&#2319; &#2332;&#2367;&#2360;&#2350;&#2375;&#2306; &#2346;&#2352;&#2332;&#2368;&#2357;&#2368; &#2309;&#2346;&#2344;&#2375; &#2332;&#2368;&#2357; &#2325;&#2375; &#2346;&#2379;&#2359;&#2339; &#2325;&#2375; &#2354;&#2367;&#2319; &#2360;&#2350;&#2366;&#2344; &#2346;&#2381;&#2352;&#2332;&#2366;&#2340;&#2367; &#2351;&#2366; &#2357;&#2367;&#2349;&#2367;&#2344;&#2381;&#2344; &#2346;&#2381;&#2352;&#2332;&#2366;&#2340;&#2367;&#2351;&#2379;&#2306; &#2325;&#2375; &#2309;&#2344;&#2381;&#2351; &#2332;&#2368;&#2357; &#2325;&#2368; &#2342;&#2375;&#2326;&#2349;&#2366;&#2354; &#2325;&#2366; &#2354;&#2366;&#2349; &#2313;&#2336;&#2366;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Brood parasitism</span><span class=\"hqt\" style=\"display:none\">&#2358;&#2366;&#2357; &#2346;&#2352;&#2332;&#2368;&#2357;&#2367;&#2340;&#2366; (&#2309;&#2306;&#2337; &#2346;&#2352;&#2332;&#2368;&#2357;&#2367;&#2340;&#2366;)</span>",
+      "<span class=\"eqt\">Sexual parasitism</span><span class=\"hqt\" style=\"display:none\">&#2351;&#2380;&#2344;/&#2354;&#2376;&#2306;&#2327;&#2367;&#2325; &#2346;&#2352;&#2332;&#2368;&#2357;&#2367;&#2340;&#2366;</span>",
+      "<span class=\"eqt\">Klepto parasitism</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2381;&#2354;&#2375;&#2346;&#2381;&#2335;&#2379; &#2346;&#2352;&#2332;&#2368;&#2357;&#2367;&#2340;&#2366;</span>",
+      "<span class=\"eqt\">Competitive parasitism</span><span class=\"hqt\" style=\"display:none\">&#2346;&#2381;&#2352;&#2340;&#2367;&#2360;&#2381;&#2346;&#2352;&#2381;&#2343;&#2368; &#2346;&#2352;&#2332;&#2368;&#2357;&#2367;&#2340;&#2366;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Brood parasitism</b> is when parasites use other animals or birds to raise their young. They lay their eggs in their nests and let them do the work. This saves them energy and time, but also has some drawbacks.</p>",
+    "question_index": 41
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In which industrial policy was the investment limit for tiny industry/unit increased to &#8377;2 lakh?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2325;&#2367;&#2360; &#2324;&#2342;&#2381;&#2351;&#2379;&#2327;&#2367;&#2325; &#2344;&#2368;&#2340;&#2367; &#2350;&#2375;&#2306; &#2354;&#2328;&#2369; &#2313;&#2342;&#2381;&#2351;&#2379;&#2327;/&#2311;&#2325;&#2366;&#2312; &#2325;&#2375; &#2354;&#2367;&#2319; &#2344;&#2367;&#2357;&#2375;&#2358; &#2360;&#2368;&#2350;&#2366; &#2325;&#2379; &#2348;&#2338;&#2364;&#2366;&#2325;&#2352; &#8377;2 &#2354;&#2366;&#2326; &#2325;&#2352; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">1977</span><span class=\"hqt\" style=\"display:none\">1977</span>",
+      "<span class=\"eqt\">1991</span><span class=\"hqt\" style=\"display:none\">1991</span>",
+      "<span class=\"eqt\">1980</span><span class=\"hqt\" style=\"display:none\">1980</span>",
+      "<span class=\"eqt\">1956</span><span class=\"hqt\" style=\"display:none\">1956</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Janata Government in 1977 raised the investment limit for tiny units from Rs. 1 lakh to Rs. 2 lakhs. This was part of the Industrial Policy Statement <b>1977</b> that focused on small scale and tiny industries.</p>",
+    "question_index": 42
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Who among the following musicians is popular for his mastery over the musical instrument Sitar?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2360;&#2306;&#2327;&#2368;&#2340;&#2325;&#2366;&#2352;&#2379;&#2306; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344; &#2360;&#2306;&#2327;&#2368;&#2340; &#2357;&#2366;&#2342;&#2381;&#2351;&#2351;&#2306;&#2340;&#2381;&#2352; &#2360;&#2367;&#2340;&#2366;&#2352; &#2346;&#2352; &#2309;&#2346;&#2344;&#2368; &#2350;&#2361;&#2366;&#2352;&#2340; &#2325;&#2375; &#2354;&#2367;&#2319; &#2354;&#2379;&#2325;&#2346;&#2381;&#2352;&#2367;&#2351; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Ali Akbar Khan</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2354;&#2368; &#2309;&#2325;&#2348;&#2352; &#2326;&#2366;&#2344;</span>",
+      "<span class=\"eqt\">Vilayat Khan</span><span class=\"hqt\" style=\"display:none\">&#2357;&#2367;&#2354;&#2366;&#2351;&#2340; &#2326;&#2366;&#2344;</span>",
+      "<span class=\"eqt\">Bahadur Khan</span><span class=\"hqt\" style=\"display:none\">&#2348;&#2361;&#2366;&#2342;&#2369;&#2352; &#2326;&#2366;&#2344;</span>",
+      "<span class=\"eqt\">Amjad Ali Khan</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2350;&#2332;&#2342; &#2309;&#2354;&#2368; &#2326;&#2366;&#2344;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Vilayat Khan </b>was a famous sitar player of the 20<sup>th</sup> century. He learned from his father and created his own style of playing. He modified the sitar, performed worldwide, and received many awards.</p>",
+    "question_index": 43
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Ryotwari system of revenue collection in India, introduced by the British, was based on the_______.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2349;&#2366;&#2352;&#2340; &#2350;&#2375;&#2306; &#2352;&#2366;&#2332;&#2360;&#2381;&#2357; &#2360;&#2306;&#2327;&#2381;&#2352;&#2361;&#2339; &#2325;&#2368; &#2352;&#2376;&#2351;&#2340;&#2357;&#2366;&#2337;&#2364;&#2368; &#2346;&#2381;&#2352;&#2339;&#2366;&#2354;&#2368;, &#2332;&#2379; &#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2358;&#2369;&#2352;&#2370; &#2325;&#2368; &#2327;&#2312; &#2341;&#2368;, -------------- &#2346;&#2352; &#2310;&#2343;&#2366;&#2352;&#2367;&#2340; &#2341;&#2368;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">Smith's theory of rent</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2381;&#2350;&#2367;&#2341; &#2325;&#2375; &#2354;&#2327;&#2366;&#2344; &#2325;&#2375; &#2360;&#2367;&#2342;&#2381;&#2343;&#2366;&#2306;&#2340;</span>",
+      "<span class=\"eqt\">Ricardian theory of rent</span><span class=\"hqt\" style=\"display:none\">&#2354;&#2327;&#2366;&#2344; &#2325;&#2375; &#2352;&#2367;&#2325;&#2366;&#2352;&#2381;&#2337;&#2367;&#2351;&#2344; &#2360;&#2367;&#2342;&#2381;&#2343;&#2366;&#2306;&#2340;</span>",
+      "<span class=\"eqt\">Malthusian theory of rent</span><span class=\"hqt\" style=\"display:none\">&#2354;&#2327;&#2366;&#2344; &#2325;&#2375; &#2350;&#2366;&#2354;&#2381;&#2341;&#2360;&#2367;&#2351;&#2344; &#2360;&#2367;&#2342;&#2381;&#2343;&#2366;&#2306;&#2340;</span>",
+      "<span class=\"eqt\">Marx's theory of rent</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2366;&#2352;&#2381;&#2325;&#2381;&#2360; &#2325;&#2375; &#2354;&#2327;&#2366;&#2344; &#2360;&#2367;&#2342;&#2381;&#2343;&#2366;&#2306;&#2340;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The British used the Ryotwari system to collect land revenue in India. They based it on the <b>Ricardian theory of rent,</b> which said that rent was the difference between the output of the best and the worst land. The Ryotwari system gave land rights to the peasants, but also charged them high and fixed revenue.</p>",
+    "question_index": 44
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following festivals is associated with the term 'ties of protection'?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2340;&#2381;&#2351;&#2379;&#2361;&#2366;&#2352; '&#2360;&#2369;&#2352;&#2325;&#2381;&#2359;&#2366; &#2325;&#2375; &#2348;&#2306;&#2343;&#2344;' &#2358;&#2348;&#2381;&#2342; &#2360;&#2375; &#2332;&#2369;&#2337;&#2364;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Baisakhi</span><span class=\"hqt\" style=\"display:none\">&#2348;&#2376;&#2360;&#2366;&#2326;&#2368;</span>",
+      "<span class=\"eqt\">Karwa Chauth</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2352;&#2357;&#2366; &#2330;&#2380;&#2341;</span>",
+      "<span class=\"eqt\">Chhath Pooja</span><span class=\"hqt\" style=\"display:none\">&#2331;&#2336; &#2346;&#2370;&#2332;&#2366;</span>",
+      "<span class=\"eqt\">Raksha Bandhan</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2325;&#2381;&#2359;&#2366;&#2348;&#2306;&#2343;&#2344;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>Raksha Bandhan </b>is a Hindu festival that honours the bond of sisters and brothers. Sisters tie a Rakhi, a protective thread, on their brothers' wrists. Brothers give gifts and pledge protection to their sisters.</p>",
+    "question_index": 45
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Who among the following was the founder of 'Tiger Legion' or 'Free India Legion'?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344; '&#2335;&#2366;&#2311;&#2327;&#2352; &#2354;&#2368;&#2332;&#2344;' &#2351;&#2366; '&#2347;&#2381;&#2352;&#2368; &#2311;&#2306;&#2337;&#2367;&#2351;&#2366; &#2354;&#2368;&#2332;&#2344;' &#2325;&#2366; &#2360;&#2306;&#2360;&#2381;&#2341;&#2366;&#2346;&#2325; &#2341;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Vinayak Damodar Savarkar</span><span class=\"hqt\" style=\"display:none\">&#2357;&#2367;&#2344;&#2366;&#2351;&#2325; &#2342;&#2366;&#2350;&#2379;&#2342;&#2352; &#2360;&#2366;&#2357;&#2352;&#2325;&#2352;</span>",
+      "<span class=\"eqt\">Subhas Chandra Bose</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2369;&#2349;&#2366;&#2359; &#2330;&#2306;&#2342;&#2381;&#2352; &#2348;&#2379;&#2360;</span>",
+      "<span class=\"eqt\">Sohan Singh Bhakhna</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2379;&#2361;&#2344; &#2360;&#2367;&#2306;&#2361; &#2349;&#2366;&#2326;&#2344;&#2366;</span>",
+      "<span class=\"eqt\">Lala Hardayal</span><span class=\"hqt\" style=\"display:none\">&#2354;&#2366;&#2354;&#2366; &#2361;&#2352;&#2342;&#2351;&#2366;&#2354;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Subhas Chandra Bose</b> started the 'Tiger Legion' or 'Free India Legion', a military unit to fight the British in the Second World War. He got support from the German government and army. He gave them the slogan 'Jai Hind' and the tiger emblem.</p>",
+    "question_index": 46
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The consumption of fixed capital is also known as _________.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2381;&#2341;&#2367;&#2352; &#2346;&#2370;&#2305;&#2332;&#2368; &#2325;&#2368; &#2326;&#2346;&#2340; &#2325;&#2379; _________ &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; &#2349;&#2368; &#2332;&#2366;&#2344;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">depreciation</span><span class=\"hqt\" style=\"display:none\">&#2350;&#2370;&#2354;&#2381;&#2351;&#2361;&#2381;&#2352;&#2366;&#2360;</span>",
+      "<span class=\"eqt\">net investment</span><span class=\"hqt\" style=\"display:none\">&#2344;&#2367;&#2357;&#2354; &#2344;&#2367;&#2357;&#2375;&#2358;</span>",
+      "<span class=\"eqt\">appreciation</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2343;&#2367;&#8205;&#2350;&#2370;&#2354;&#2381;&#2351;&#2344;</span>",
+      "<span class=\"eqt\">gross investment</span><span class=\"hqt\" style=\"display:none\">&#2360;&#2325;&#2354; &#2344;&#2367;&#2357;&#2375;&#2358;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>CFC is used in preference to \"<b>depreciation</b>\" to emphasize that fixed capital is used up in the process of generating new output, and because unlike depreciation it is not valued at historic cost but at current market value.</p>",
+    "question_index": 47
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In 2018, Google Doodle celebrated the 100th birthday of Mrinalini Sarabhai. She is an exponent of which of the following dance forms?</p></span><span class=\"hqt\" style=\"display:none\"><p>2018 &#2350;&#2375;&#2306;,&#2327;&#2370;&#2327;&#2354; &#2337;&#2370;&#2337;&#2354; &#2344;&#2375; &#2350;&#2371;&#2339;&#2366;&#2354;&#2367;&#2344;&#2368; &#2360;&#2366;&#2352;&#2366;&#2349;&#2366;&#2312; &#2325;&#2366; 100 &#2357;&#2366;&#2306; &#2332;&#2344;&#2381;&#2350;&#2342;&#2367;&#2344; &#2350;&#2344;&#2366;&#2351;&#2366;&#2404; &#2357;&#2361; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2367;&#2360; &#2344;&#2371;&#2340;&#2381;&#2351; &#2358;&#2376;&#2354;&#2368; &#2325;&#2368; &#2346;&#2381;&#2352;&#2340;&#2367;&#2346;&#2366;&#2342;&#2325; &#2361;&#2376;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Bharatanatyam and Kathakali</span><span class=\"hqt\" style=\"display:none\">&#2349;&#2352;&#2340;&#2344;&#2366;&#2335;&#2381;&#2351;&#2350; &#2324;&#2352; &#2325;&#2341;&#2325;&#2354;&#2368;</span>",
+      "<span class=\"eqt\">Odissi and Kathak</span><span class=\"hqt\" style=\"display:none\">&#2323;&#2337;&#2367;&#2360;&#2368; &#2324;&#2352; &#2325;&#2341;&#2325;</span>",
+      "<span class=\"eqt\">Kuchipudi and Bharatanatyam</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2369;&#2330;&#2367;&#2346;&#2369;&#2337;&#2364;&#2368; &#2324;&#2352; &#2349;&#2352;&#2340;&#2344;&#2366;&#2335;&#2381;&#2351;&#2350;</span>",
+      "<span class=\"eqt\">Yakshagana</span><span class=\"hqt\" style=\"display:none\">&#2351;&#2325;&#2381;&#2359;&#2327;&#2366;&#2344;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Mrinalini Sarabhai was a famous dancer who knew <b>Bharatanatyam and Kathakali</b>, two classical dances of South India. She learned them from different teachers and was one of the first women to do Kathakali, which was usually done by men.</p>",
+    "question_index": 48
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The length of the badminton court for singles is:</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2367;&#2306;&#2327;&#2354;&#2381;&#2360; &#2325;&#2375; &#2354;&#2367;&#2319; &#2348;&#2376;&#2337;&#2350;&#2367;&#2306;&#2335;&#2344; &#2325;&#2379;&#2352;&#2381;&#2335; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2361;&#2379;&#2340;&#2368; &#2361;&#2376;:</p></span>",
+    "options": [
+      "<span class=\"eqt\">13.44 m</span><span class=\"hqt\" style=\"display:none\">13.44 &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">13.55 m</span><span class=\"hqt\" style=\"display:none\">13.55 &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">14 m</span><span class=\"hqt\" style=\"display:none\">14 &#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">13.40 m</span><span class=\"hqt\" style=\"display:none\">13.40 &#2350;&#2368;&#2335;&#2352;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The length of the badminton court is the same for both singles and doubles, <b>13.4 </b>meters. This is what the Badminton World Federation says in their official rules.</p>",
+    "question_index": 49
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two runners, Sony and Mony, start running on a circular track of length 200 m at speeds of 18 and 24 km/h, respectively, in the same direction. After how much time from the start will they meet again at the starting point?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2343;&#2366;&#2357;&#2325;- &#2360;&#2379;&#2344;&#2368; &#2324;&#2352; &#2350;&#2379;&#2344;&#2368;, 200 &#2350;&#2368;&#2335;&#2352; &#2354;&#2306;&#2348;&#2375; &#2319;&#2325; &#2357;&#2371;&#2340;&#2381;&#2340;&#2366;&#2325;&#2366;&#2352; &#2335;&#2381;&#2352;&#2376;&#2325; &#2346;&#2352; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 18 &#2324;&#2352; 24 km/h &#2325;&#2368; &#2330;&#2366;&#2354; &#2360;&#2375; &#2360;&#2350;&#2366;&#2344; &#2342;&#2367;&#2358;&#2366; &#2350;&#2375;&#2306; &#2342;&#2380;&#2337;&#2364;&#2344;&#2366; &#2358;&#2369;&#2352;&#2370; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404; &#2346;&#2381;&#2352;&#2366;&#2352;&#2306;&#2349; &#2360;&#2375; &#2325;&#2367;&#2340;&#2344;&#2375; &#2360;&#2350;&#2351; &#2348;&#2366;&#2342; &#2357;&#2375; &#2346;&#2369;&#2344;&#2307; &#2346;&#2381;&#2352;&#2366;&#2352;&#2306;&#2349;&#2367;&#2325; &#2348;&#2367;&#2306;&#2342;&#2369; &#2346;&#2352; &#2350;&#2367;&#2354;&#2375;&#2306;&#2327;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">120 sec</span><span class=\"hqt\" style=\"display:none\">120 &#2360;&#2375;&#2325;&#2306;&#2337;</span>",
+      "<span class=\"eqt\">110 sec</span><span class=\"hqt\" style=\"display:none\">110 &#2360;&#2375;&#2325;&#2306;&#2337;</span>",
+      "<span class=\"eqt\">100 sec</span><span class=\"hqt\" style=\"display:none\">100 &#2360;&#2375;&#2325;&#2306;&#2337;</span>",
+      "<span class=\"eqt\">90 sec</span><span class=\"hqt\" style=\"display:none\">90 &#2360;&#2375;&#2325;&#2306;&#2337;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Speed of Sony = 18 km/h = 5 m/s</p><p>Speed of Mony = 24 km/h = 20/3 m/s</p><p>Time taken by Sony to cover one round of the track = 200/5 = 40 sec</p><p>Time taken by Mony to cover one round of the track = 200/(20/3) = 30 sec</p><p>LCM of 40 sec and 30 sec = 120 sec</p><p>Hence, Sony and Mony will meet again at the starting point after travelling for 120 sec.</p>",
+    "question_index": 50
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If <div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>3 sin &#952;  -  cos &#952; </span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'> cos &#952; + sin &#952;</span></div> = 1, then the value of cot &#952; is &#58;&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367;<div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>3 sin &#952;  -  cos &#952; </span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'> cos &#952; + sin &#952;</span></div> = 1, then the value of cot &#952; is &#58;&nbsp;</div></p><p></p></span>",
+    "options": [
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>{(3 sin &#952;  -  cos &#952;) / (cos &#952; + sin &#952;)} = 1</p><p>(3 sin &#952;  -  cos &#952;) = (cos &#952; + sin &#952;)</p><p>2 sin &#952; = 2 cos &#952;</p><p>cot &#952; = 1</p>",
+    "question_index": 51
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What will be the remainder when (265)<sup>4081</sup> + 9 is divided by 266?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2332;&#2348; (265)<sup>4081</sup> + 9 &#2325;&#2379; 266 &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2358;&#2375;&#2359;&#2347;&#2354; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">9</span><span class=\"hqt\" style=\"display:none\">9</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>We know that:</b></p><p>When a<sup>n</sup> is divided by (a + 1), then remainder-</p><p>&#183; When 'n' is even, then remainder will always be 1.</p><p>&#183; When 'n' is odd, the remainder will always be 'a'.</p><p>So, remainder when (265)<sup>4081</sup> is divided by 266 will be 265.</p><p>Remainder when (265)<sup>4081</sup> + 9 is divided by 266 = Remainder when sum of 265 and 9 is divided by 266 = Remainder when 274 is divided by 266 = 8</p>",
+    "question_index": 52
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If A is 95% of B, then what per cent of A is B?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; A, B &#2325;&#2366; 95% &#2361;&#2376;, &#2340;&#2379; A &#2325;&#2366; &#2325;&#2367;&#2340;&#2344;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; B &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">110(3/19)%</span><span class=\"hqt\" style=\"display:none\">110(3/19)%</span>",
+      "<span class=\"eqt\">104(7/19)%</span><span class=\"hqt\" style=\"display:none\">104(7/19)%</span>",
+      "<span class=\"eqt\">108(17/19)%</span><span class=\"hqt\" style=\"display:none\">108(17/19)%</span>",
+      "<span class=\"eqt\">105(5/19)%</span><span class=\"hqt\" style=\"display:none\">105(5/19)%</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Let B = 100</p><p>A = 95</p><p>Required percent = (100/95) * 100</p><p>= 105(5/19)%</p>",
+    "question_index": 53
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Study the given table and answer the question that follows.</p><p>The table shows the classification of 100 students based on the marks obtained by them in History and Geography in an examination.</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" rowspan=\"2\">Subject</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"5\">Marks out of 50</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40 and above</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30 and above</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">20 and above</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10 above</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">0 and above</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">History</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Geography</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">21</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">66</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">81</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Average   (Aggregate)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">27</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td></tr></table><p>Based on the table, what is the number of students scoring less than 20% marks in aggregate?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2368; &#2327;&#2312; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2368;&#2332;&#2367;&#2351;&#2375; &#2324;&#2352; &#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2375; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2368;&#2332;&#2367;&#2351;&#2375;&#2404;</p><p>&#2340;&#2366;&#2354;&#2367;&#2325;&#2366; 100 &#2331;&#2366;&#2340;&#2381;&#2352;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2319;&#2325; &#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; &#2311;&#2340;&#2367;&#2361;&#2366;&#2360; &#2324;&#2352; &#2349;&#2370;&#2327;&#2379;&#2354; &#2350;&#2375;&#2306; &#2313;&#2344;&#2325;&#2375; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2309;&#2306;&#2325;&#2379;&#2306; &#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2346;&#2352; &#2313;&#2344;&#2325;&#2375; &#2357;&#2352;&#2381;&#2327;&#2368;&#2325;&#2352;&#2339; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2368; &#2361;&#2376;&#2404;</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2357;&#2367;&#2359;&#2351;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50 &#2350;&#2375;&#2306; &#2360;&#2375; &#2309;&#2306;&#2325;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40 &#2324;&#2352; &#2313;&#2360;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30 &#2324;&#2352; &#2311;&#2360;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">20 &#2324;&#2352; &#2311;&#2360;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10 &#2324;&#2352; &#2311;&#2360;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">0 &#2324;&#2352; &#2311;&#2360;&#2360;&#2375; &#2309;&#2343;&#2367;&#2325;</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2311;&#2340;&#2367;&#2361;&#2366;&#2360;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">32</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">80</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2370;&#2327;&#2379;&#2354;</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">21</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">66</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">81</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2324;&#2360;&#2340; (&#2325;&#2369;&#2354;)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">27</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">73</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td></tr></table><p>&#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2375; &#2310;&#2343;&#2366;&#2352; &#2346;&#2352;, &#2325;&#2369;&#2354; &#2350;&#2367;&#2354;&#2366;&#2325;&#2352; 20% &#2360;&#2375; &#2325;&#2350; &#2309;&#2306;&#2325; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2325;&#2352;&#2344;&#2375; &#2357;&#2366;&#2354;&#2375; &#2331;&#2366;&#2340;&#2381;&#2352;&#2379;&#2306; &#2325;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">13</span><span class=\"hqt\" style=\"display:none\">13</span>",
+      "<span class=\"eqt\">11</span><span class=\"hqt\" style=\"display:none\">11</span>",
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>",
+      "<span class=\"eqt\">12</span><span class=\"hqt\" style=\"display:none\">12</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>20% of maximum marks = 20% of 50 = 10</p><p>Number of students scoring less than 10 marks in aggregate = 100  -  87 = 13</p>",
+    "question_index": 54
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In what time will &#8377;10,000 at 4% per annum, produce the same interest as &#8377;8,000 does in 4 years at 5% simple interest?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2325;&#2367;&#2340;&#2344;&#2375; &#2360;&#2350;&#2351; &#2350;&#2375;&#2306; 4% &#2346;&#2381;&#2352;&#2340;&#2367; &#2357;&#2352;&#2381;&#2359; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; 10,000 &#2352;&#2369;&#2346;&#2351;&#2375; &#2346;&#2352; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2348;&#2381;&#2351;&#2366;&#2332;, 4 &#2357;&#2352;&#2381;&#2359; &#2350;&#2375;&#2306; 5% &#2346;&#2381;&#2352;&#2340;&#2367; &#2357;&#2352;&#2381;&#2359; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; 8,000 &#2352;&#2369;&#2346;&#2351;&#2375; &#2346;&#2352; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2375; &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">5 years</span><span class=\"hqt\" style=\"display:none\">5 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">3 years</span><span class=\"hqt\" style=\"display:none\">3 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">4 years</span><span class=\"hqt\" style=\"display:none\">4 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">6 years</span><span class=\"hqt\" style=\"display:none\">6 &#2357;&#2352;&#2381;&#2359;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Let time = 't' years</p><p>According to the question:</p><p><img width=188 height=37 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image040.png\"></p><p>t = 4 years</p>",
+    "question_index": 55
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If 7b  -  <div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>1</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>4b</span></div> = 7, then what is the value of 16b<sup>2</sup> + <div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>1</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>49b<sup>2</sup></span></div> &quest;&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; 7b -<div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>1</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>4b</span></div> = 7, then what is the value of 16b<sup>2</sup> + <div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>1</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>49b<sup>2</sup></span></div> &quest;&nbsp;</div></p><p></p></span>",
+    "options": [
+      "<span class=\"eqt\">80/49</span><span class=\"hqt\" style=\"display:none\">80/49</span>",
+      "<span class=\"eqt\">104/7</span><span class=\"hqt\" style=\"display:none\">104/7</span>",
+      "<span class=\"eqt\">120/7</span><span class=\"hqt\" style=\"display:none\">120/7</span>",
+      "<span class=\"eqt\">7/2</span><span class=\"hqt\" style=\"display:none\">7/2</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>7b  -  1/4b = 7</p><p>4/7 * (7b  -  1/4b) = 7 * 4/7</p><p>(4b  -  1/7b) = 4</p><p>(4b  -  1/7b)<sup>2</sup> = 4<sup>2</sup></p><p>16b<sup>2</sup> + 1/49b<sup>2</sup>  -  2 * 4b * 1/7b = 16</p><p>16b<sup>2</sup> + 1/49b<sup>2</sup>  -  8/7 = 16</p><p>16b<sup>2</sup> + 1/49b<sup>2</sup> = 16 + 8/7</p><p>16b<sup>2</sup> + 1/49b<sup>2</sup> = 120/7</p>",
+    "question_index": 56
+  },
+  {
+    "question": "<span class=\"eqt\"><p>As part of his journey, a person travels 120 km at 80 km/h, the next 100 km at 40 km/h, and comes back to the starting point at 75 km/h. The average speed of the person throughout the journey (approximately) is:</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2309;&#2346;&#2344;&#2368; &#2351;&#2366;&#2340;&#2381;&#2352;&#2366; &#2325;&#2375; &#2342;&#2380;&#2352;&#2366;&#2344;, &#2319;&#2325; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; 80 km/h &#2325;&#2368; &#2330;&#2366;&#2354; &#2360;&#2375; 120 km &#2330;&#2354;&#2340;&#2366; &#2361;&#2376;, &#2309;&#2327;&#2354;&#2375; 100 km &#2325;&#2368; &#2342;&#2370;&#2352;&#2368; 40 km/h &#2325;&#2368; &#2330;&#2366;&#2354; &#2360;&#2375; &#2340;&#2351; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; 75 km/h &#2325;&#2368; &#2330;&#2366;&#2354; &#2360;&#2375; &#2346;&#2381;&#2352;&#2366;&#2352;&#2306;&#2349;&#2367;&#2325; &#2348;&#2367;&#2306;&#2342;&#2369; &#2346;&#2352; &#2357;&#2366;&#2346;&#2360; &#2310; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404; &#2351;&#2366;&#2340;&#2381;&#2352;&#2366; &#2325;&#2375; &#2342;&#2380;&#2352;&#2366;&#2344; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2368; &#2324;&#2360;&#2340; &#2330;&#2366;&#2354; (&#2354;&#2327;&#2349;&#2327;) &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">63.46 km/h</span><span class=\"hqt\" style=\"display:none\">63.46 km/h</span>",
+      "<span class=\"eqt\">58.74 km/h</span><span class=\"hqt\" style=\"display:none\">58.74 km/h</span>",
+      "<span class=\"eqt\">68.15 km/h</span><span class=\"hqt\" style=\"display:none\">68.15 km/h</span>",
+      "<span class=\"eqt\">49.58 km/h</span><span class=\"hqt\" style=\"display:none\">49.58 km/h</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Total distance covered = 2 * (120 + 100) = 440 km</p><p>Total time taken = (120/80) + (100/40) + (220/75) = 104/15 hours</p><p>Average speed = 440/(104/15)</p><p>= 63.46 km/h</p>",
+    "question_index": 57
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A train 900 m long is running at 108 km/h. How long will it take to clear a 900 m long platform completely?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; 900 m &#2354;&#2306;&#2348;&#2368; &#2335;&#2381;&#2352;&#2375;&#2344; 108 km/h &#2325;&#2368; &#2330;&#2366;&#2354; &#2360;&#2375; &#2330;&#2354;&#2340;&#2368; &#2361;&#2376;&#2404; 900 m &#2354;&#2306;&#2348;&#2375; &#2346;&#2381;&#2354;&#2375;&#2335;&#2347;&#2366;&#2352;&#2381;&#2350; &#2325;&#2379; &#2346;&#2370;&#2352;&#2368; &#2340;&#2352;&#2361; &#2360;&#2375; &#2346;&#2366;&#2352; &#2325;&#2352;&#2344;&#2375; &#2350;&#2375;&#2306; &#2335;&#2381;&#2352;&#2375;&#2344; &#2325;&#2379; &#2325;&#2367;&#2340;&#2344;&#2366; &#2360;&#2350;&#2351; &#2354;&#2327;&#2375;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">60 s</span><span class=\"hqt\" style=\"display:none\">60 &#2360;&#2375;&#2325;&#2306;&#2337;</span>",
+      "<span class=\"eqt\">45 s</span><span class=\"hqt\" style=\"display:none\">45 &#2360;&#2375;&#2325;&#2306;&#2337;</span>",
+      "<span class=\"eqt\">30 s</span><span class=\"hqt\" style=\"display:none\">30 &#2360;&#2375;&#2325;&#2306;&#2337;</span>",
+      "<span class=\"eqt\">18 s</span><span class=\"hqt\" style=\"display:none\">18 &#2360;&#2375;&#2325;&#2306;&#2337;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Speed of train = 108 km/h = 108 * 5/18 = 30 m/s</p><p>Time taken by train to cross a platform of length 900 m = (900 + 900)/30</p><p>= 1800/30</p><p>= 60 s</p>",
+    "question_index": 58
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two concentric circles are of radii 10 cm and 6 cm. Find the length of the chord of the larger circle which touches the smaller circle.</p></span><span class=\"hqt\" style=\"display:none\"><p>10 cm &#2324;&#2352; 6 cm &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2357;&#2366;&#2354;&#2375; &#2342;&#2379; &#2360;&#2306;&#2325;&#2375;&#2306;&#2342;&#2381;&#2352;&#2367;&#2340; &#2357;&#2371;&#2340;&#2381;&#2340; &#2361;&#2376;&#2306;&#2404; &#2348;&#2337;&#2364;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2313;&#2360; &#2332;&#2368;&#2357;&#2366; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319; &#2332;&#2379; &#2331;&#2379;&#2335;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2379; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2325;&#2352;&#2340;&#2368; &#2361;&#2376;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">8 cm</span><span class=\"hqt\" style=\"display:none\">8 cm</span>",
+      "<span class=\"eqt\">16 cm</span><span class=\"hqt\" style=\"display:none\">16 cm</span>",
+      "<span class=\"eqt\">12 cm</span><span class=\"hqt\" style=\"display:none\">12 cm</span>",
+      "<span class=\"eqt\">9 cm</span><span class=\"hqt\" style=\"display:none\">9 cm</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=183 height=176 id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image036.png\"></p><p>OP = 6 cm and OA = 10 cm</p><p>In &#916;AOP:</p><p>OA<sup>2</sup> = OP<sup>2</sup> + AP<sup>2</sup></p><p>10<sup>2</sup> = 6<sup>2</sup> + AP<sup>2</sup></p><p>100  -  36 = AP<sup>2</sup></p><p>AP<sup>2</sup> = 64</p><p>AP = 8 cm</p><p>Length of chord = AB = 2 * AP = 16 cm</p>",
+    "question_index": 59
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The marked price of mustard oil is 25% more than its cost price. At what percentage less than the marked price should it be sold to have no profit and no loss?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2352;&#2360;&#2379;&#2306; &#2325;&#2375; &#2340;&#2375;&#2354; &#2325;&#2366; &#2309;&#2306;&#2325;&#2367;&#2340; &#2350;&#2370;&#2354;&#2381;&#2351; &#2313;&#2360;&#2325;&#2375; &#2325;&#2381;&#2352;&#2351; &#2350;&#2370;&#2354;&#2381;&#2351; &#2360;&#2375; 25% &#2309;&#2343;&#2367;&#2325; &#2361;&#2376;&#2404; &#2311;&#2360;&#2375; &#2309;&#2306;&#2325;&#2367;&#2340; &#2350;&#2370;&#2354;&#2381;&#2351; &#2360;&#2375; &#2325;&#2367;&#2340;&#2344;&#2375; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2325;&#2350; &#2350;&#2370;&#2354;&#2381;&#2351; &#2346;&#2352; &#2348;&#2375;&#2330;&#2366; &#2332;&#2366;&#2344;&#2366; &#2330;&#2366;&#2361;&#2367;&#2319; &#2332;&#2367;&#2360;&#2360;&#2375; &#2325;&#2367; &#2344;&#2366; &#2340;&#2379; &#2325;&#2379;&#2312; &#2354;&#2366;&#2349; &#2361;&#2379; &#2324;&#2352; &#2344;&#2366; &#2361;&#2368; &#2361;&#2366;&#2344;&#2367; &#2361;&#2379;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">15%</span><span class=\"hqt\" style=\"display:none\">15%</span>",
+      "<span class=\"eqt\">20%</span><span class=\"hqt\" style=\"display:none\">20%</span>",
+      "<span class=\"eqt\">18%</span><span class=\"hqt\" style=\"display:none\">18%</span>",
+      "<span class=\"eqt\">22%</span><span class=\"hqt\" style=\"display:none\">22%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Let cost price = 100</p><p>Marked price = 125% of 100 = 125</p><p>He must sell the mustard oil at cost price to have no profit and no loss.</p><p>So required percent = (125  -  100)/125 * 100</p><p>= 20%</p>",
+    "question_index": 60
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the value of (3x<sup>3</sup> + 5x<sup>2</sup>y + 12xy<sup>2</sup> + 7y<sup>3</sup>), when x = -4 and y = -1?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2332;&#2348; x = -4 &#2324;&#2352; y = -1 &#2361;&#2376;, &#2340;&#2379; (3x<sup>3</sup> + 5x<sup>2</sup>y + 12xy<sup>2</sup> + 7y<sup>3</sup>) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">- 329</span><span class=\"hqt\" style=\"display:none\">- 329</span>",
+      "<span class=\"eqt\">- 359</span><span class=\"hqt\" style=\"display:none\">- 359</span>",
+      "<span class=\"eqt\">- 361</span><span class=\"hqt\" style=\"display:none\">- 361</span>",
+      "<span class=\"eqt\">- 327</span><span class=\"hqt\" style=\"display:none\">- 327</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>3x<sup>3</sup> + 5x<sup>2</sup>y + 12xy<sup>2</sup> + 7y<sup>3</sup></p><p>= 3 * (-4)<sup>3</sup> + 5 * (-4)<sup>2</sup> * (-1) + 12 * (-4) * (-1)<sup>2</sup> + 7 * (-1)<sup>3</sup></p><p>= 3 * (-64) + 5 * 16 * (-1) + 12 * (-4) * 1 + 7 * (-1)</p><p>= -192  -  80  -  48  -  7</p><p>= -327</p>",
+    "question_index": 61
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A man, a boy and a woman can finish a work in 10 days, 15 days and 30 days, respectively. In how many days can the work be finished by a man, a woman and a boy when all of them work together?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2346;&#2369;&#2352;&#2369;&#2359;, &#2319;&#2325; &#2354;&#2337;&#2364;&#2325;&#2366; &#2324;&#2352; &#2319;&#2325; &#2350;&#2361;&#2367;&#2354;&#2366; &#2325;&#2367;&#2360;&#2368; &#2325;&#2366;&#2350; &#2325;&#2379; &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; 10 &#2342;&#2367;&#2344;, 15 &#2342;&#2367;&#2344; &#2324;&#2352; 30 &#2342;&#2367;&#2344; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404; &#2332;&#2348; &#2319;&#2325; &#2346;&#2369;&#2352;&#2369;&#2359;, &#2319;&#2325; &#2350;&#2361;&#2367;&#2354;&#2366; &#2324;&#2352; &#2319;&#2325; &#2354;&#2396;&#2325;&#2366; &#2319;&#2325; &#2360;&#2366;&#2341; &#2325;&#2366;&#2350; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;, &#2340;&#2379; &#2313;&#2344;&#2325;&#2375; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2325;&#2366;&#2350; &#2325;&#2379; &#2325;&#2367;&#2340;&#2344;&#2375; &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376; ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>",
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Let total work = LCM of 10, 15, and 30 = 30 units</p><p>Part of work done by a man in 1 day = 30/10 = 3 units</p><p>Part of work done by a boy in 1 day = 30/15 = 2 units</p><p>Part of work done by a woman in 1 day = 30/30 = 1 unit</p><p>Part of work done by a man, a boy, and a woman together in 1 day = 3 + 2 + 1 = 6 units</p><p>Time taken by a man, a boy, and a woman together to finish the work = 30/6 = 5 days</p>",
+    "question_index": 62
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If cos &#952; = &radic;<div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>3</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>2</span></div> , then tan<sup>2</sup> &#952; cos<sup>2</sup> &#952; = &quest;&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; cos &#952; = &radic;<div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>3</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>2</span></div> , then tan<sup>2</sup> &#952; cos<sup>2</sup> &#952; = &quest;&nbsp;</div></p><p></p></span>",
+    "options": [
+      "<span class=\"eqt\">1/&radic;3</span><span class=\"hqt\" style=\"display:none\">1/&radic;3</span>",
+      "<span class=\"eqt\">1/4</span><span class=\"hqt\" style=\"display:none\">1/4</span>",
+      "<span class=\"eqt\">1/2</span><span class=\"hqt\" style=\"display:none\">1/2</span>",
+      "<span class=\"eqt\">&radic;3</span><span class=\"hqt\" style=\"display:none\">&radic;3</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>cos &#952; = &radic;3/2</p><p>cos &#952; = cos 30&deg;</p><p>&#952; = 30&deg;</p><p>Now,</p><p>tan<sup>2</sup> &#952; cos<sup>2</sup> &#952;</p><p>= tan<sup>2</sup> 30&deg; cos<sup>2</sup> 30&deg;</p><p>= (1/&radic;3)<sup>2</sup> * (&radic;3/2)<sup>2</sup></p><p>= 1/3 * 3/4</p><p>= 1/4</p>",
+    "question_index": 63
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the given figure, PAB is a secant and PT is a tangent to the circle from P. If PT = 8 cm, PA = 6 cm and AB = x cm, then the value of x is:</p><p><img width=285 height=148 id=\"Picture 14\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image038.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2368; &#2327;&#2312; &#2310;&#2325;&#2371;&#2340;&#2367; &#2350;&#2375;&#2306;, PAB &#2319;&#2325; &#2331;&#2375;&#2342;&#2367;&#2325;&#2366; &#2361;&#2376; &#2324;&#2352; PT, &#2348;&#2367;&#2306;&#2342;&#2369; P &#2360;&#2375; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2352;&#2375;&#2326;&#2366; &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; PT = 8 &#2360;&#2375;&#2350;&#2368;, PA = 6 &#2360;&#2375;&#2350;&#2368; &#2324;&#2352; AB = x &#2360;&#2375;&#2350;&#2368; &#2361;&#2376;, &#2340;&#2379; x &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p><p><img width=\"285\" height=\"148\" id=\"Picture 14\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image038.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">14/9</span><span class=\"hqt\" style=\"display:none\">14/9</span>",
+      "<span class=\"eqt\">1/3</span><span class=\"hqt\" style=\"display:none\">1/3</span>",
+      "<span class=\"eqt\">14/3</span><span class=\"hqt\" style=\"display:none\">14/3</span>",
+      "<span class=\"eqt\">4/3</span><span class=\"hqt\" style=\"display:none\">4/3</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>We know that:</b> PT<sup>2</sup> = PA * PB</p><p>8<sup>2</sup> = 6 * (6 + x)</p><p>64/6 = 6 + x</p><p>32/3  -  6 = x</p><p>x = 14/3</p>",
+    "question_index": 64
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (a + b + c) = 16, and (a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup>) = 90, find the value of (ab + bc + ca).</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (a + b + c) = 16 &#2324;&#2352; (a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup>) = 90 &#2361;&#2376;, &#2340;&#2379; (ab + bc + ca) &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2351;&#2375;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">84</span><span class=\"hqt\" style=\"display:none\">84</span>",
+      "<span class=\"eqt\">83</span><span class=\"hqt\" style=\"display:none\">83</span>",
+      "<span class=\"eqt\">82</span><span class=\"hqt\" style=\"display:none\">82</span>",
+      "<span class=\"eqt\">81</span><span class=\"hqt\" style=\"display:none\">81</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>(a + b + c) = 16</p><p>(a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup>) = 90</p><p><b>We know that:</b> (a + b + c)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> + 2(ab + bc + ca)</p><p>16<sup>2</sup> = 90 + 2 * (ab + bc + ca)</p><p>256  -  90 = 2 * (ab + bc + ca)</p><p>ab + bc + ca = 166/2</p><p>ab + bc + ca = 83</p>",
+    "question_index": 65
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The following bar chart represents the gross amount (in &#8377; lakhs) and total cost (in &#8377; lakhs) of a firm.</p><p><img width=472 height=378 id=\"Chart 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image039.png\"></p><p>In order to make a profit of 25%, what should the gross amount have been (in &#8377; crores) in 2019-2020, if the total cost remained the same?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2342;&#2306;&#2337; &#2310;&#2352;&#2375;&#2326; &#2319;&#2325; &#2347;&#2352;&#2381;&#2350; &#2325;&#2368; &#2360;&#2325;&#2354; &#2352;&#2366;&#2358;&#2367; (&#8377; &#2354;&#2366;&#2326; &#2350;&#2375;&#2306;) &#2324;&#2352; &#2325;&#2369;&#2354; &#2354;&#2366;&#2327;&#2340; (&#8377; &#2354;&#2366;&#2326; &#2350;&#2375;&#2306;) &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p><img width=\"472\" height=\"378\" id=\"Chart 1\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image039.png\"></p><p>&#2351;&#2342;&#2367; &#2325;&#2369;&#2354; &#2354;&#2366;&#2327;&#2340; &#2360;&#2350;&#2366;&#2344; &#2352;&#2361;&#2340;&#2368; &#2361;&#2376;, &#2340;&#2379; 25% &#2325;&#2366; &#2354;&#2366;&#2349; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2325;&#2352;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; 2019-2020 &#2350;&#2375;&#2306; &#2360;&#2325;&#2354; &#2352;&#2366;&#2358;&#2367; (&#8377; &#2325;&#2352;&#2379;&#2337;&#2364; &#2350;&#2375;&#2306;) &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2379;&#2344;&#2368; &#2330;&#2366;&#2361;&#2367;&#2319;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">7800</span><span class=\"hqt\" style=\"display:none\">7800</span>",
+      "<span class=\"eqt\">8000</span><span class=\"hqt\" style=\"display:none\">8000</span>",
+      "<span class=\"eqt\">8250</span><span class=\"hqt\" style=\"display:none\">8250</span>",
+      "<span class=\"eqt\">8125</span><span class=\"hqt\" style=\"display:none\">8125</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Total cost in 2019-2020 = &#8377;6500 crores</p><p>Gross amount in 2019-2020 in order to make a profit of 25% = 125% of 6500 = &#8377;8125 crores</p>",
+    "question_index": 66
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A shopkeeper offers the following two discount schemes.</p><p>A) Buy 3 get 4 free</p><p>B) Buy 5 get 6 free</p><p>Which scheme has the maximum discount percentage?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2342;&#2379; &#2331;&#2370;&#2335; &#2351;&#2379;&#2332;&#2344;&#2366;&#2323;&#2306; &#2325;&#2368; &#2346;&#2375;&#2358;&#2325;&#2358; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p>A) 3 &#2325;&#2368; &#2326;&#2352;&#2368;&#2342; &#2346;&#2352; 4 &#2350;&#2369;&#2347;&#2381;&#2340;</p><p>B) 5 &#2325;&#2368; &#2326;&#2352;&#2368;&#2342; &#2346;&#2352; 6 &#2350;&#2369;&#2347;&#2381;&#2340;</p><p>&#2325;&#2367;&#2360; &#2351;&#2379;&#2332;&#2344;&#2366; &#2350;&#2375;&#2306; &#2309;&#2343;&#2367;&#2325;&#2340;&#2350; &#2331;&#2370;&#2335; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2350;&#2367;&#2354;&#2340;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">A</span><span class=\"hqt\" style=\"display:none\">A</span>",
+      "<span class=\"eqt\">A does not give any discount</span><span class=\"hqt\" style=\"display:none\">A &#2325;&#2379;&#2312; &#2331;&#2370;&#2335; &#2344;&#2361;&#2368;&#2306; &#2342;&#2375;&#2340;&#2366; &#2361;&#2376;</span>",
+      "<span class=\"eqt\">A and B both have the same discount percentage</span><span class=\"hqt\" style=\"display:none\">A &#2324;&#2352; B &#2342;&#2379;&#2344;&#2379;&#2306; &#2325;&#2366; &#2331;&#2370;&#2335; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2360;&#2350;&#2366;&#2344; &#2361;&#2376;</span>",
+      "<span class=\"eqt\">B</span><span class=\"hqt\" style=\"display:none\">B</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Offer A: The shopkeeper is selling 7 items for the purchase of 3 items. So, discount percent = [(7  -  3)/7] * 100 = 57.14%</p><p>Offer B: The shopkeeper is selling 11 items for the purchase of 5 items. So, discount percent = [(11  -  5)/11] * 100 = 54.54%</p><p>Hence, offer A gives maximum discount percent.</p>",
+    "question_index": 67
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A can complete a piece of work in 25 days while B can complete the same work in 30 days. They work on alternate basis, starting with A. Both A and B follow this pattern for 5 days and then A leaves the work. In how many days will B finish the remaining work?</p></span><span class=\"hqt\" style=\"display:none\"><p>A &#2319;&#2325; &#2325;&#2366;&#2350; &#2325;&#2379; 25 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376; &#2332;&#2348;&#2325;&#2367; B &#2360;&#2350;&#2366;&#2344; &#2325;&#2366;&#2350; &#2325;&#2379; 30 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2366; &#2361;&#2376;&#2404; A &#2360;&#2375; &#2358;&#2369;&#2352;&#2370; &#2325;&#2352;&#2340;&#2375; &#2361;&#2369;&#2319; &#2357;&#2375; &#2319;&#2325;&#2366;&#2344;&#2381;&#2340;&#2352; &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2325;&#2366;&#2350; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404; A &#2324;&#2352; B &#2342;&#2379;&#2344;&#2379;&#2306; 5 &#2342;&#2367;&#2344;&#2379;&#2306; &#2340;&#2325; &#2311;&#2360; &#2325;&#2381;&#2352;&#2350; &#2325;&#2366; &#2309;&#2344;&#2369;&#2360;&#2352;&#2339; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;&#2306; &#2324;&#2352; &#2347;&#2367;&#2352; A &#2325;&#2366;&#2350; &#2325;&#2379; &#2331;&#2379;&#2337;&#2364; &#2342;&#2375;&#2340;&#2366; &#2361;&#2376;&#2404; B &#2358;&#2375;&#2359; &#2325;&#2366;&#2350; &#2325;&#2379; &#2325;&#2367;&#2340;&#2344;&#2375; &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352;&#2375;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">24(2/5)</span><span class=\"hqt\" style=\"display:none\">24(2/5)</span>",
+      "<span class=\"eqt\">5(2/5)</span><span class=\"hqt\" style=\"display:none\">5(2/5)</span>",
+      "<span class=\"eqt\">5(3/5)</span><span class=\"hqt\" style=\"display:none\">5(3/5)</span>",
+      "<span class=\"eqt\">24(3/5)</span><span class=\"hqt\" style=\"display:none\">24(3/5)</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Let total work = LCM of 25 and 30 = 150 units</p><p>Part of work done by A in 1 day = 150/25 = 6 units</p><p>Part of work done by B in 1 day = 150/30 = 5 units</p><p>Total work done by A and B together in 5 days when they work on alternate basis starting with A = 6 + 5 + 6 + 5 + 6 = 28 units</p><p>Remaining work = 150  -  28 = 122 units</p><p>Time taken by B alone to finish the remaining work = 122/5 = 24(2/5) days</p>",
+    "question_index": 68
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If m&#8736;C = m&#8736;Z and AC = XZ, then which of the following conditions is necessary for &#916;ABC and &#916;XYZ to be congruent?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; m&#8736;C = m&#8736;Z &#2324;&#2352; AC = XZ, &#2340;&#2379; &#916;ABC &#2324;&#2352; &#916;XYZ &#2325;&#2375; &#2360;&#2352;&#2381;&#2357;&#2366;&#2306;&#2327;&#2360;&#2350; &#2361;&#2379;&#2344;&#2375; &#2325;&#2375; &#2354;&#2367;&#2319; &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2368; &#2358;&#2352;&#2381;&#2340; &#2310;&#2357;&#2358;&#2381;&#2351;&#2325; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">AB=AC</span><span class=\"hqt\" style=\"display:none\">AB=AC</span>",
+      "<span class=\"eqt\">BC=YZ</span><span class=\"hqt\" style=\"display:none\">BC=YZ</span>",
+      "<span class=\"eqt\">AB=XY</span><span class=\"hqt\" style=\"display:none\">AB=XY</span>",
+      "<span class=\"eqt\">BC=AB</span><span class=\"hqt\" style=\"display:none\">BC=AB</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=337 height=177 id=\"Picture 10\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p23217/image037.png\"></p><p>Two triangles are congruent if they meet one of the following criteria:</p><p>1) All three pairs of corresponding sides are equal.</p><p>2) Two pairs of corresponding sides and the corresponding angles between them are equal.</p><p>3) Two pairs of corresponding angles and the corresponding sides between them are equal.</p><p>Given:</p><p>m&#8736;C = m&#8736;Z and AC = XZ</p><p>So, our desired condition is either m&#8736;A = m&#8736;X or BC = YZ.</p><p>Hence, option (b) is correct.</p>",
+    "question_index": 69
+  },
+  {
+    "question": "<span class=\"eqt\"><p>6<sup>25</sup> + 6<sup>26</sup> + 6<sup>27</sup> + 6<sup>28</sup> is divisible by:</p></span><span class=\"hqt\" style=\"display:none\"><p>6<sup>25</sup> + 6<sup>26</sup> + 6<sup>27</sup> + 6<sup>28</sup> &#2325;&#2367;&#2360;&#2325;&#2375; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2357;&#2367;&#2349;&#2366;&#2332;&#2381;&#2351; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">256</span><span class=\"hqt\" style=\"display:none\">256</span>",
+      "<span class=\"eqt\">254</span><span class=\"hqt\" style=\"display:none\">254</span>",
+      "<span class=\"eqt\">255</span><span class=\"hqt\" style=\"display:none\">255</span>",
+      "<span class=\"eqt\">259</span><span class=\"hqt\" style=\"display:none\">259</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>6<sup>25</sup> + 6<sup>26</sup> + 6<sup>27</sup> + 6<sup>28</sup></p><p>= 6<sup>25</sup> * (6<sup>0</sup> + 6<sup>1</sup> + 6<sup>2</sup> + 6<sup>3</sup>)</p><p>= 625 * (1 + 6 + 36 + 216)</p><p>= 6<sup>25</sup> * 259</p><p>Hence, the given expression will be divisible by 259.</p>",
+    "question_index": 70
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If the four numbers, 39, 117, 17 and y are in proportion, then find the value of y.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2330;&#2366;&#2352; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2319;&#2305;, 39, 117, 17 &#2324;&#2352; y &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2350;&#2375;&#2306; &#2361;&#2376;&#2306;, &#2340;&#2379; y &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2319;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">49</span><span class=\"hqt\" style=\"display:none\">49</span>",
+      "<span class=\"eqt\">51</span><span class=\"hqt\" style=\"display:none\">51</span>",
+      "<span class=\"eqt\">57</span><span class=\"hqt\" style=\"display:none\">57</span>",
+      "<span class=\"eqt\">85</span><span class=\"hqt\" style=\"display:none\">85</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>According to the question:</p><p>39: 117 = 17: y</p><p>1: 3 = 17: y</p><p>y = 17 * 3</p><p>y = 51</p>",
+    "question_index": 71
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If sin (a + b) = 1 and cos (a  -  b) = <div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>1</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>2</span></div> , then find a.&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; sin (a + b) = 1 &#2324;&#2352; cos (a - b) = <div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>1</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>2</span></div>&#2361;&#2376;, &#2340;&#2379; a &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2368;&#2332;&#2367;&#2351;&#2375;&#2404;</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">75&deg;</span><span class=\"hqt\" style=\"display:none\">75&deg;</span>",
+      "<span class=\"eqt\">30&deg;</span><span class=\"hqt\" style=\"display:none\">30&deg;</span>",
+      "<span class=\"eqt\">15&deg;</span><span class=\"hqt\" style=\"display:none\">15&deg;</span>",
+      "<span class=\"eqt\">45&deg;</span><span class=\"hqt\" style=\"display:none\">45&deg;</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>sin (a + b) = 1</p><p>sin (a + b) = sin 90&deg;</p><p>After comparing:</p><p>a + b = 90&deg; ........ (1)</p><p>cos (a  -  b) = 1/2</p><p>cos (a  -  b) = cos 60&deg;</p><p>After comparing:</p><p>a  -  b = 60&deg; ....... (2)</p><p>From (1) and (2):</p><p>a = (90 + 60)/2</p><p>a = 75&deg;</p>",
+    "question_index": 72
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;The volume of a sphere of radius 4.2 cm is: (Use &#960; = <div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>22</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>7</span></div> )&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>4.2 &#2360;&#2375;&#2350;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2357;&#2366;&#2354;&#2375; &#2319;&#2325; &#2327;&#2379;&#2354;&#2375; &#2325;&#2366; &#2310;&#2351;&#2340;&#2344; &#2361;&#2376;: (&#2351;&#2342;&#2367; &#960; = <div style='display: inline-block;position: relative;vertical-align: middle;'><span style='text-align:center;display: block; padding: 0;'>22</span><span style='display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;'>_________</span><span style='display: block; padding: 0;border-top: thin solid black; text-align:center'>7</span></div>)</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">278.234 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">278.234 &#2360;&#2375;&#2350;&#2368;<sup>3</sup></span>",
+      "<span class=\"eqt\">312.725 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">312.725 &#2360;&#2375;&#2350;&#2368;<sup>3</sup></span>",
+      "<span class=\"eqt\">297.824 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">297.824 &#2360;&#2375;&#2350;&#2368;<sup>3</sup></span>",
+      "<span class=\"eqt\">310.464 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">310.464 &#2360;&#2375;&#2350;&#2368;<sup>3</sup></span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Volume of sphere = 4/3 &#960;r<sup>3</sup></p><p>= 4/3 * 22/7 * 4.2<sup>3</sup></p><p>= 310.464 cm<sup>3</sup></p>",
+    "question_index": 73
+  },
+  {
+    "question": "<span class=\"eqt\"><p>8 men can complete a work in 45 days. 8 women can complete the same work in 18 days. In how many days will 5 men and 8 women, together, complete the same work?</p></span><span class=\"hqt\" style=\"display:none\"><p>8 &#2346;&#2369;&#2352;&#2369;&#2359; &#2319;&#2325; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; 45 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2375; &#2361;&#2376;&#2306;&#2404; 8 &#2350;&#2361;&#2367;&#2354;&#2366;&#2319;&#2305; &#2313;&#2360;&#2368; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; 18 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352; &#2360;&#2325;&#2340;&#2368; &#2361;&#2376;&#2306;&#2404; 5 &#2346;&#2369;&#2352;&#2369;&#2359; &#2324;&#2352; 8 &#2350;&#2361;&#2367;&#2354;&#2366;&#2319;&#2305; &#2319;&#2325; &#2360;&#2366;&#2341; &#2313;&#2360;&#2368; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; &#2325;&#2367;&#2340;&#2344;&#2375; &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352;&#2375;&#2306;&#2327;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">13(1/5)</span><span class=\"hqt\" style=\"display:none\">13(1/5)</span>",
+      "<span class=\"eqt\">12(4/5)</span><span class=\"hqt\" style=\"display:none\">12(4/5)</span>",
+      "<span class=\"eqt\">14(2/5)</span><span class=\"hqt\" style=\"display:none\">14(2/5)</span>",
+      "<span class=\"eqt\">15(3/5)</span><span class=\"hqt\" style=\"display:none\">15(3/5)</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Total work = Total persons * Number of days</p><p>Total work = 8M * 45 = 8W * 18</p><p>5M = 2W ...... (1)</p><p>Let required time = 't' days</p><p>Total work = 8W* 18 = (5M + 8W) * t</p><p>8W* 18 = (2W + 8W) * t</p><p>8W * 18 = 10W * t</p><p>t = 14(2/5) days</p>",
+    "question_index": 74
+  },
+  {
+    "question": "<p>Select the correct spelling of the underlined word.</p><p>They denied having any <u>associasion</u> with the terrorists.</p>",
+    "options": [
+      "asociation",
+      "asocciation",
+      "assosiation",
+      "association"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Among the given options, the correct spelling of the underlined word is 'association' (a connection or cooperative link between people or organizations), which is option (d).</p><p>Hence, the correct answer is option (d).</p>",
+    "question_index": 75
+  },
+  {
+    "question": "<p>Select the most appropriate synonym of the given word.</p><p>Feeble</p>",
+    "options": [
+      "Unheedful",
+      "Strong",
+      "Weak",
+      "Baneful"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Unheedful-</p><p>Strong</p><p>Weak- having little physical strength or energy.</p><p>Baneful</p><p>The meaning of the word 'feeble' is 'lacking physical strength, especially as a result of age or illness.' Among the options, the word that is synonymous with the given word is option (c), 'weak'.</p><p>Hence, the correct answer is option (c).</p>",
+    "question_index": 76
+  },
+  {
+    "question": "<p>Select the most appropriate ANTONYM of the underlined word in the given sentence.</p><p>Henry is so <u>servile</u> that other people take advantage of him.</p>",
+    "options": [
+      "Arrogant",
+      "Sheepish",
+      "Bickering",
+      "Cunning"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Arrogant- having or revealing an exaggerated sense of one's own importance or abilities.</p><p>Sheepish- showing or feeling embarrassment from shame or a lack of self-confidence.</p><p>Bickering- argue about petty and trivial matters.</p><p>Cunning- having or showing skill in achieving one's ends by deceit or evasion.</p><p>The meaning of the word 'servile' (having or showing an excessive willingness to serve or please others). Among the options, the word that is opposite in meaning to the given word is option (a), 'arrogant'.</p><p>Hence, the correct answer is option (a).</p>",
+    "question_index": 77
+  },
+  {
+    "question": "<p>Sentences of a paragraph are given below in jumbled order. Arrange the sentences in the correct order to form a meaningful and coherent paragraph.</p><p>A. In Bihar and Central India, in particular, every district had smelters that used local deposits of ore to produce iron which was widely used for the manufacture of implements and tools of daily use.</p><p>B. The smelting was done by men while women worked on the bellows, pumping air that kept the charcoal burning.</p><p>C. But iron smelting in India was extremely common till the end of the nineteenth century.</p><p>D. Production of Wootz steel required a highly specialised technique of refining iron.</p>",
+    "options": [
+      "ACDB",
+      "DCAB",
+      "BCDA",
+      "CBDA"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>If the sentences are read carefully, it can be noted that sentence D is independent and introduces the central theme of the sentences. It is followed by sentence C which is the history of iron smelting in India. This is followed by sentence A in which the locations in India that incorporate iron smelting are mentioned and sentence B explains how the smelting process is carried out in the places that are mentioned in sentence A. So, the final order of the given sentences is DCAB.</p><p>Hence, the correct answer is option (b).</p>",
+    "question_index": 78
+  },
+  {
+    "question": "<p>Sentences of a paragraph are given below in jumbled order. Arrange the sentences in the correct order to form a meaningful and coherent paragraph.</p><p>A. He repeated the experiment, increasing the amount until he had weighed up to a thousand pounds.</p><p>B. During the spring of 1717, the iron foundries in a remote district were often visited by a thin, middle-aged man with a notebook.</p><p>C. Three cauldrons were next prepared under his directions.</p><p>D. He would weigh out two pounds of iron, have them heated till they were red-hot and then weigh them again.</p>",
+    "options": [
+      "BDAC",
+      "ABDC",
+      "BCAD",
+      "CABD"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Sentence B has to come first because it introduces the premise or the time the events happen so that the rest of the sentences can be arranged accordingly. It is followed by sentence D in which the activity that the middle-aged man did on the iron ores is mentioned as a continuation of sentence B. Sentence A follows sentence D in which the way the process was done by the man (repetition of process) is mentioned, which is the extension of the information in sentence D. Sentence C comes as the last sentence, which concludes the result of the directions given by the middle-aged man. So, the final order of the sentences is BDAC.</p><p>Hence, the correct answer is option (a).</p>",
+    "question_index": 79
+  },
+  {
+    "question": "<p>Sentences of a paragraph are given below in jumbled order. Arrange the sentences in the correct order to form a meaningful and coherent paragraph.</p><p>A. The top band is made of saffron, which symbolises power and courage.</p><p>B. The constituent assembly adopted our national flag, Tiranga, which means tricolour, on 22 July 1947.</p><p>C. As a symbol of nationalism and freedom, it is fashioned from khadi, which is domestically spun Indian cotton.</p><p>D. It features three horizontal stripes that are all the same width.</p>",
+    "options": [
+      "CBAD",
+      "CBDA",
+      "BCDA",
+      "BDCA"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Sentences BC make a pair in which the theme of the sentences which is the adoption of our national flag, its significance and the date in which it was adopted are stated. This acts as an introduction to the arrangement. It is followed by sentence D in which the description of the flag is stated and followed by sentence A which explains in detail the significance of one of the colours of the strips. So, the final order of the sentences is BCDA.</p><p>Hence, the correct answer is option (c).</p>",
+    "question_index": 80
+  },
+  {
+    "question": "<p>The following sentence has been split into four segments. Identify the segment that contains an error.</p><p>Neetu have been / waiting for me / since 10 o' clock / in the morning.</p>",
+    "options": [
+      "Neetu have been",
+      "in the morning",
+      "since 10 o'clock",
+      "waiting for me"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Part A has the error. Neetu is a singular noun which is incorrectly followed by the plural verb 'have'. This leads to error in Subject-Verb agreement and thus the plural verb must be replaced by a singular verb.</p><p>The correct sentence is: Neetu has been waiting for me since 10 o' clock in the morning.</p><p>Hence, the correct answer is option (a).</p><p>Note:</p><p><b>Subject-Verb Agreement:</b> Matching up singular or plural subjects with singular or plural forms of a verb is part of the process called agreement. This can be understood better by the examples given: - \"She likes cooking.\" [singular subject and verb] -- \"They like to cook vegetables.\" [plural subject and verb]</p>",
+    "question_index": 81
+  },
+  {
+    "question": "<p>Select the grammatically correct sentence.</p>",
+    "options": [
+      "The participants of the competition are waiting for their turn curiously.",
+      "The participants of the competition has been waiting for their turn curiously.",
+      "A participants of the competition is waiting for their turn curiously.",
+      "The participants of the competition is waiting for their turn curiously."
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>All the sentences, except option (a), have errors in subject-verb agreement. 'Has' in option (b), 'participants' in option (c) and 'is' in option (d), disagree with the verb (b and d) and subject (in option c). Thus, these options are negated. Option (a) is the only sentence that is grammatically and contextually correct.</p><p>Hence, the correct answer is option (a).</p><p>Note:</p><p><b>Subject-Verb Agreement:</b> Matching up singular or plural subjects with singular or plural forms of a verb is part of the process called agreement. This can be understood better by the examples given: - \"She likes cooking.\" [singular subject and verb] -- \"They like to cook vegetables.\" [plural subject and verb]</p>",
+    "question_index": 82
+  },
+  {
+    "question": "<p>Select the most appropriate option that can substitute the underlined word in the given sentence.</p><p>She had an ability to <u>persuade</u> others.</p>",
+    "options": [
+      "halt",
+      "suppress",
+      "outrage",
+      "impress"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Halt- bring or come to an abrupt stop.</p><p>Suppress-forcibly put an end to.</p><p>Outrage-arouse fierce anger, shock, or indignation in (someone).</p><p>Impress- make (someone) feel admiration and respect.</p><p>The meaning of the word 'persuade' is 'induce (someone) to do something through reasoning or argument'. Among the options, the word that can substitute the given word is option (d), 'impress'.</p><p>Hence, the correct answer is option (d).</p>",
+    "question_index": 83
+  },
+  {
+    "question": "<p>Select the most appropriate option that can substitute the underlined segment in the given sentence.</p><p>We must remember that what we teach our children is what we <u>inculcate</u> in them.</p>",
+    "options": [
+      "endanger",
+      "inspire",
+      "instil",
+      "import"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Endanger- put (someone or something) at risk or in danger.</p><p>Inspire- fill (someone) with the urge or ability to do or feel something, especially to do something creative.</p><p>Instil- gradually but firmly establish (an idea or attitude) in a person's mind.</p><p>Import- bring (goods or services) into a country from abroad for sale.</p><p>The meaning of the word 'inculcate' is 'instil (an idea, attitude, or habit) by persistent instruction'. Among the options, the word that can substitute the given word is option (c), 'instil'.</p><p>Hence, the correct answer is option (c).</p>",
+    "question_index": 84
+  },
+  {
+    "question": "<p>Select the most appropriate option to fill in the blank.</p><p>She is _________ a peacock in the blue satin saree.</p>",
+    "options": [
+      "very beautiful as",
+      "so beautiful as",
+      "as beautiful as",
+      "beautiful like"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Options (a) and (b) are negated because 'so' (to such a great extent) and 'very' (in a high degree) lay more stress on the adjective 'beautiful' rather than comparing the person and a peacock. Option (d) is negated because it means to state that the peacock is in a blue saree, which is not the context of the sentence.</p><p>Option (c) correctly establishes the comparison between the person (who is compared) and a peacock (with what/whom the person is compared) and so, it can fill in the given blank.</p><p>The complete sentence is: She is as beautiful as a peacock in the blue satin saree.</p><p>Hence, the correct answer is option (c).</p>",
+    "question_index": 85
+  },
+  {
+    "question": "<p>Select the most appropriate homonym to fill in the blank.</p><p>The hunter dogs followed the hyena's ________.</p>",
+    "options": [
+      "sense",
+      "scent",
+      "cense",
+      "cents"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Sense- a faculty by which the body perceives an external stimulus.</p><p>Scent- a trail indicated by the characteristic smell of an animal and perceptible to hounds or other animals.</p><p>Cense- ritually perfume (something) with the odour of burning incense.</p><p>Cents- a monetary unit in various countries, equal to one hundredth of a dollar, euro, or other decimal currency unit.</p><p>Among the options, 'scent' is the correct word that fits the context of the sentence in which the thing that the dogs used to follow the hyena is justified which is not the case with the remaining options and thus, they are negated.</p><p>The complete sentence is: The hunter dogs followed the hyena's scent.</p><p>Hence, the correct answer is option (b).</p>",
+    "question_index": 86
+  },
+  {
+    "question": "<p>Select the most appropriate synonym of the given word.</p><p>Zealous</p>",
+    "options": [
+      "Enthusiastic",
+      "Detached",
+      "Apathetic",
+      "Indifferent"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Enthusiastic- having or showing intense and eager enjoyment, interest, or approval.</p><p>Detached- separate or disconnected.</p><p>Apathetic- showing or feeling no interest, enthusiasm, or concern.</p><p>Indifferent- having no particular interest or sympathy.</p><p>The meaning of the word 'zealous' is 'showing great energy or enthusiasm in pursuit of a cause or objective'. Among the options, the word that matches the meaning of the given word is option (a), 'enthusiastic'.</p><p>Hence, the correct answer is option (a).</p>",
+    "question_index": 87
+  },
+  {
+    "question": "<p>Select the most appropriate meaning of the underlined idiom in the given sentence.</p><p>Pooja tried to explain the problem, but soon she <u>tied herself up in knots</u>.</p>",
+    "options": [
+      "Be forced to explain your actions and (probably) be punished.",
+      "Become very confused when you are trying to explain something.",
+      "Make no progress in an argument or discussion.",
+      "Won't modify an opinion or agree to even small changes that another person wants"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The meaning of the idiom 'to tie yourself in knots' is to become anxious or confused. Accordingly, the correct meaning of the given idiom is given in option (b), 'Become very confused when you are trying to explain something'.</p><p>Hence, the correct answer is option (b).</p>",
+    "question_index": 88
+  },
+  {
+    "question": "<p>Select the most appropriate ANTONYM of the underlined word.</p><p>Her dog can climb <u>under</u> the fence.</p>",
+    "options": [
+      "Over",
+      "Sink",
+      "Behind",
+      "Beneath"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Over-above so as to cover or protect.</p><p>Sink-go down below the surface of something, especially of a liquid.</p><p>Behind-at or to the far side of (something), typically so as to be hidden by it.</p><p>Beneath-extending or directly underneath.</p><p>The meaning of the word 'under' is 'below'. Among the options, the word that is opposite in meaning to the given word is option (a), 'over'.</p><p>Hence, the correct answer is option (a).</p>",
+    "question_index": 89
+  },
+  {
+    "question": "<p>Select the option that can be used as a one-word substitute for the given group of words.</p><p>A thing fit to eat.</p>",
+    "options": [
+      "Eligible",
+      "Digestible",
+      "Curable",
+      "Edible"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Eligible</p><p>Digestible-able to be digested.</p><p>Curable- able to be cured.</p><p>Edible- fit or suitable to be eaten.</p><p>Among the given options, the word that matches the meaning of the given phrase is option (d), 'edible'.</p><p>Hence, the correct answer is option (d).</p>",
+    "question_index": 90
+  },
+  {
+    "comp": "<p><b>Directions [Set of 5 Questions]:</b>   In the following passage some words have been deleted. Fill in the blanks with the help of the alternatives given. Select the most appropriate option for each number.</p><p>Human life is (1) _______ a unique blessing, which in turn depends on the (2) _______ of the Self. He who is not aware of the Self can neither have peace nor can he foster peaceful co-existence. We have to link our soul with God and body with the physical world for substance. (3) _______ the formless God is invisible to the naked eye, our mind often wanders wherever it goes. (4) _______, we are unable to develop any love for the Divine. And religion like the white light of heavens (5) _______ multi-coloured fragmentations by the prisms of men and loses its gravity. Instead of uniting, it becomes a major dividing force. French philosopher Tail hard de Chardin, thinking deeply on meaning of our existence and relationship with the Divine, expounds, \"we are not human beings having a spiritual experience, we are spiritual beings having a human experience\".</p>",
+    "question": "<p>Select the most appropriate option to fill in blank no. 1.</p>",
+    "options": [
+      "considering",
+      "to consider",
+      "considered",
+      "consider"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Option (a) is negated because 'considering' (V4) denotes an action that continues to happen at the moment, but that is not the context of the sentence. Option (b) is negated because, it requires an object to follow it, which is not the case. Option (d) is negated because the verb that follows the 'to-be' form of verb 'is' has to be either in the continuous form (V4) or past participle form (V3), but 'consider' is in the base form (V1). So, it is negated. Option (c), 'considered' (regard (someone or something) as having a specified quality) denotes how human life is regarded and it fits the context of the sentence and thus can fill in the given blank.</p><p>Hence, the correct answer is option (c).</p><p>Note:</p><p><b>V1 -&gt;</b> Base form/simple form of verb, <b>V2 -&gt;</b> Past form of verb (-ed form or irregular verb), <b>V3 -&gt;</b> Past participle form of verb (-ed, -d, -t, -en, or -n), <b>V4 -&gt;</b> Continuous form of verb / Present participle form of verb (-ing form), <b>V5 -&gt;</b> Third person singular (V1+ -es or -s).</p>",
+    "question_index": 91
+  },
+  {
+    "comp": "<p><b>Directions [Set of 5 Questions]:</b>   In the following passage some words have been deleted. Fill in the blanks with the help of the alternatives given. Select the most appropriate option for each number.</p><p>Human life is (1) _______ a unique blessing, which in turn depends on the (2) _______ of the Self. He who is not aware of the Self can neither have peace nor can he foster peaceful co-existence. We have to link our soul with God and body with the physical world for substance. (3) _______ the formless God is invisible to the naked eye, our mind often wanders wherever it goes. (4) _______, we are unable to develop any love for the Divine. And religion like the white light of heavens (5) _______ multi-coloured fragmentations by the prisms of men and loses its gravity. Instead of uniting, it becomes a major dividing force. French philosopher Tail hard de Chardin, thinking deeply on meaning of our existence and relationship with the Divine, expounds, \"we are not human beings having a spiritual experience, we are spiritual beings having a human experience\".</p>",
+    "question": "<p>Select the most appropriate option to fill in blank no. 2.</p>",
+    "options": [
+      "witness",
+      "known",
+      "awareness",
+      "aware"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Option (c), 'awareness' (knowledge or perception of a situation or fact) is the correct word that defines what is required to understand that human life is a blessing. 'Witness' (evidence; proof), 'known' (be aware of through observation, inquiry, or information) and 'aware' (having knowledge or perception of a situation or fact) do not give a complete meaning to the sentence and are thus negated.</p><p>Hence, the correct answer is option (c).</p>",
+    "question_index": 92
+  },
+  {
+    "comp": "<p><b>Directions [Set of 5 Questions]:</b>   In the following passage some words have been deleted. Fill in the blanks with the help of the alternatives given. Select the most appropriate option for each number.</p><p>Human life is (1) _______ a unique blessing, which in turn depends on the (2) _______ of the Self. He who is not aware of the Self can neither have peace nor can he foster peaceful co-existence. We have to link our soul with God and body with the physical world for substance. (3) _______ the formless God is invisible to the naked eye, our mind often wanders wherever it goes. (4) _______, we are unable to develop any love for the Divine. And religion like the white light of heavens (5) _______ multi-coloured fragmentations by the prisms of men and loses its gravity. Instead of uniting, it becomes a major dividing force. French philosopher Tail hard de Chardin, thinking deeply on meaning of our existence and relationship with the Divine, expounds, \"we are not human beings having a spiritual experience, we are spiritual beings having a human experience\".</p>",
+    "question": "<p>Select the most appropriate option to fill in blank no. 3.</p>",
+    "options": [
+      "Since",
+      "From",
+      "As per",
+      "For"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>'Since' is the right for the blank because it means 'for the reason that; because' and it denotes the reason why our mind wanders by describing the character of God. The rest of the options 'from' (indicating the point in space at which a journey, motion, or action starts), 'as per' (in accordance with) and 'for' (intended to reach; directed or belonging to) do not match the context of the sentence and thus cannot fill in the blank.</p><p>Hence, the correct answer is option (a).</p>",
+    "question_index": 93
+  },
+  {
+    "comp": "<p><b>Directions [Set of 5 Questions]:</b>   In the following passage some words have been deleted. Fill in the blanks with the help of the alternatives given. Select the most appropriate option for each number.</p><p>Human life is (1) _______ a unique blessing, which in turn depends on the (2) _______ of the Self. He who is not aware of the Self can neither have peace nor can he foster peaceful co-existence. We have to link our soul with God and body with the physical world for substance. (3) _______ the formless God is invisible to the naked eye, our mind often wanders wherever it goes. (4) _______, we are unable to develop any love for the Divine. And religion like the white light of heavens (5) _______ multi-coloured fragmentations by the prisms of men and loses its gravity. Instead of uniting, it becomes a major dividing force. French philosopher Tail hard de Chardin, thinking deeply on meaning of our existence and relationship with the Divine, expounds, \"we are not human beings having a spiritual experience, we are spiritual beings having a human experience\".</p>",
+    "question": "<p>Select the most appropriate option to fill in blank no. 4.</p>",
+    "options": [
+      "As a result",
+      "As a reaction",
+      "Causing",
+      "As a reason"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Option (a), 'as a result' is the correct phrase for the blank because it states the effect or resultant of our wandering minds which cannot be clearly comprehended through the remaining options. 'Reaction' (something done, felt, or thought in response to a situation or event), 'reason' (a cause, explanation, or justification for an action or event) and 'causing' (make (something, especially something bad) happen) do not convey the notion of 'result' or 'effect' of the previous actions and are thus negated.</p><p>Hence, the correct answer is option (a).</p>",
+    "question_index": 94
+  },
+  {
+    "comp": "<p><b>Directions [Set of 5 Questions]:</b>   In the following passage some words have been deleted. Fill in the blanks with the help of the alternatives given. Select the most appropriate option for each number.</p><p>Human life is (1) _______ a unique blessing, which in turn depends on the (2) _______ of the Self. He who is not aware of the Self can neither have peace nor can he foster peaceful co-existence. We have to link our soul with God and body with the physical world for substance. (3) _______ the formless God is invisible to the naked eye, our mind often wanders wherever it goes. (4) _______, we are unable to develop any love for the Divine. And religion like the white light of heavens (5) _______ multi-coloured fragmentations by the prisms of men and loses its gravity. Instead of uniting, it becomes a major dividing force. French philosopher Tail hard de Chardin, thinking deeply on meaning of our existence and relationship with the Divine, expounds, \"we are not human beings having a spiritual experience, we are spiritual beings having a human experience\".</p>",
+    "question": "<p>Select the most appropriate option to fill in blank no. 5.</p>",
+    "options": [
+      "break into",
+      "breaks to",
+      "break from",
+      "breaks into"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Options (a) and (c) are negated because the plural verb 'break' does not match the singular noun 'white light' and they lead to errors in subject-verb agreement. Option (b) is negated because the preposition 'to' denotes the end point of some transformation (in the context of the sentence) but that is not what is intended in the sentence. Instead 'breaks into' (into- expressing the result of an action) denotes how the white light gets transformed into multi-coloured fragments. So, option (d), 'breaks into' is the right word to fill in the given blank.</p><p>Hence, the correct answer is option (d).</p><p>Note:</p><p>A <b>Preposition</b> is a word placed before a noun or a pronoun or a noun equivalent (pronoun, adverb, gerund, infinitive, adverbial clause, or any clause that can be used as the object of the preposition) and shows a relationship in space or time or a logical relationship between two or more people, places, or things in a sentence.</p><p><b>Examples</b></p><p>I. The teacher scolded the child <b>for </b><u>being</u> late.</p><p>II. We're going <b>to</b> a <u>party</u>.</p><p>&#183; The words in bold are called prepositions because they normally take position before (pre) a noun/pronoun or a noun equivalent (pronoun, adverb, gerund, infinitive, adverbial clause, or any clause that can be used as the object of the preposition.</p><p>&#183; The noun/pronoun which is used with a preposition is called its Object.</p>",
+    "question_index": 95
+  },
+  {
+    "question": "<p>Select the INCORRECTLY spelt word in the given sentence.</p><p>The village beggars, no longer ill at ease in the gathering of gliterring dignitaries, sat in their assigned rows and joked with vegetarian Brahmin apprentices.</p>",
+    "options": [
+      "assigned",
+      "apprentices",
+      "beggars",
+      "gliterring"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Among the given options, 'gliterring' is incorrectly spelt and the correct spelling is 'glittering' (shine with a bright, shimmering reflected light).</p><p>Hence, the correct answer is option (d).</p>",
+    "question_index": 96
+  },
+  {
+    "question": "<p>Select the option that expresses the given sentence in passive voice.</p><p>The company's board of directors will announce the financial results at the annual meeting tomorrow.</p>",
+    "options": [
+      "The financial results will have been announced by the company's board of directors at the annual meeting tomorrow.",
+      "The financial results are being announced by the company's board of directors at the annual meeting tomorrow.",
+      "The company's board of directors announced the financial results at the annual meeting tomorrow.",
+      "The financial results will be announced by the company's board of directors at the annual meeting tomorrow."
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The subject of the Active Voice is changed into the object of the Passive voice. Also, the object of the Active Voice is changed into the subject of the Passive Voice.</p><p>The usage of a \"to be\" form of verb ['be' in this case] is necessary while changing the voice of the sentence from Active to Passive.</p><p>In Passive Voice, the preposition \"by\" is used before the object. However, it is optional in some cases.</p><p>The Active voice in this question is in <b>Future Indefinite</b>. Thus, the Passive voice will also be in the Future Indefinite.</p><p>The format of Active voice is: Subject + shall/will + V1 + Object.</p><p>Thus, in Passive voice, the format will be: Object of the active voice (Subjective case) + shall/will + be + V3 + by + Subject of the active voice (Objective case).</p><p>For example:</p><p>He will complete the assignment. (Active Voice)</p><p>The assignment will be completed by him. (Passive Voice)</p><p>The options except (d) don't follow the correct grammatical format of the Passive Voice.</p><p>Hence, the correct answer is option (d).</p>",
+    "question_index": 97
+  },
+  {
+    "question": "<p>Select the most appropriate meaning of the given idiom.</p><p>Lily-livered</p>",
+    "options": [
+      "Brave",
+      "Comical",
+      "Not brave",
+      "Naughty"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Brave- showing courage.</p><p>Comical- amusing, especially in a ludicrous or absurd way.</p><p>Naughty- badly behaved.</p><p>Not brave-the opposite of brave; lacking courage.</p><p>The meaning of the idiom 'lily-livered' is 'weak and cowardly'. Among the options, the word/phrase that matches the meaning of the given idiom is option (c), 'not brave'.</p><p>Hence, the correct answer is option (c).</p>",
+    "question_index": 98
+  },
+  {
+    "question": "<p>Select the option that expresses the given sentence in passive voice.</p><p>He won't receive any better choice than this from anywhere.</p>",
+    "options": [
+      "Any better choice won't be received by him than this from anywhere.",
+      "Any better choice wouldn't have received by him than this from anywhere.",
+      "Any better choice shouldn't be received by him than this from anywhere.",
+      "Any better choice won't have been be received by him than this from anywhere"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The subject of the Active Voice is changed into the object of the Passive voice. Also, the object of the Active Voice is changed into the subject of the Passive Voice.</p><p>The usage of a \"to be\" form of verb ['be' in this case] is necessary while changing the voice of the sentence from Active to Passive.</p><p>In Passive Voice, the preposition \"by\" is used before the object. However, it is optional in some cases.</p><p>The Active voice in this question is in Past Indefinite. Thus, the Passive voice will also be in Past Indefinite.</p><p>The format of Active voice is: Subject + V2 + Object.</p><p>Thus, in Passive voice, the format will be: Object of the active voice (Subjective case) + was/were + V3 + by + Subject of the active voice (Objective case).</p><p>The options except (a) don't follow the correct grammatical format of the Passive Voice.</p><p>Hence, the correct answer is option (a).</p>",
+    "question_index": 99
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Gk Oct Mock 2025 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>The Reserve Bank of India (RBI) released its Monetary Policy Report (October 2025) following the 57th meeting of the Monetary Policy Committee held from September 29 to October 1, 2025. Identify the CORRECT Statement(s) regarding this. </p><p>I. RBI has kept the repo rate unchanged at 5.50% with a neutral stance to balance growth and stability. </p><p>II. RBI revised India's GDP growth forecast for FY 2025-26 upwards to 6.8% from the earlier estimate of 6.5%. </p><p>III. RBI raised its CPI inflation forecast for FY 2025-26 to 3.6% from the earlier estimate of 2.6%.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "I and III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Reserve Bank of India (RBI) released its Monetary Policy Report (October 2025) following the 57th meeting of the Monetary Policy Committee held from September 29 to October 1, 2025. RBI has kept the repo rate unchanged at 5.50% with a neutral stance. It signals a balanced approach that supports economic momentum while ensuring financial stability. The report further highlights resilient domestic demand, supportive financial conditions, and a stable external sector, reflecting a cautiously optimistic outlook for the Indian economy. The Reserve Bank of India (RBI) released its Monetary Policy Report (October 2025) following the 57th meeting of the Monetary Policy Committee held from September 29 to October 1, 2025. RBI has kept the repo rate unchanged at 5.50% with a neutral stance. It signals a balanced approach that supports economic momentum while ensuring financial stability. The report further highlights resilient domestic demand, supportive financial conditions, and a stable external sector, reflecting a cautiously optimistic outlook for the Indian economy.</p><p>&#183; <b>RBI kept the repo rate unchanged at 5.50 per cent with a neutral stance.</b></p><p>&#183; <b>RBI revised India's GDP growth forecast for FY 2025-26 upwards to 6.8% from earlier estimate of 6.5%</b></p><p>&#183; <b>RBI has lowered its CPI inflation forecast for FY 2025'26 to 2.6%, down from 3.1%</b></p><p>&#183; <b>India's current account deficit narrowed to 0.2% of GDP in Q1 FY 2025-26 from 0.9% a year ago</b></p><p>&#183; <b>During' April-September of FY'2025-26 so far (up to September 26), Indian equity markets remained on an upward trajectory</b></p><p><b>The RBI revised India's GDP growth forecast for FY 2025-26 upwards to 6.8% from earlier estimate of 6.5%.</b></p><p>&#183; Domestic growth is performing well due to strong consumption, investments, and government spending, with supportive factors like a good monsoon, GST 2.0, better credit flow, and rising capacity utilisation sustaining the positive outlook.</p><p>&#183; India's real GDP' <b>grew 7.8% in Q1 FY 2025-26</b>, up from 7.4% in the previous quarter, the fastest pace in seven quarters, led by strong investment and consumption.</p><p>&#183; Growth for FY 2025-26 is projected at 6.8% (Q1: 7.8%, Q2: 7.0%, Q3: 6.4%, Q4: 6.2%), while FY 2026-27 is estimated at 6.6%, assuming normal monsoon and stable conditions.</p><p>&#183; Consumers' optimism for the year ahead, which is measured by the future expectations index, strengthened further for both urban and rural households, remaining in optimistic territory. '</p><p><b>Global Agencies Reaffirm Growth</b> Several global agencies have '<b>maintained India's strong economic growth prospects</b>, highlighting the country's resilience amid global uncertainties. '<b>IMF (FY26: 6.4%), Fitch (FY26: 6.9%, FY27: 6.3%), S&amp;P Global (FY26: 6.5%), United Nations (FY26: 6.3%, FY27: 6.4%), CII (FY26: 6.4-6.7%) and OECD (FY26: 6.7%) </b>'have noted robust domestic demand, expanding investments, and a stable external sector as key drivers. Strong policy support, structural reforms, and a vibrant services sector are further reinforcing the positive growth outlook. These projections highlight broad confidence in India's ability to sustain high growth amidst global challenges. <b>RBI has lowered its CPI inflation forecast for FY 2025'26 to 2.6%, down from 3.1%.</b></p><p>&#183; <b>Headline consumer price index (CPI) inflation</b>' declined for nine consecutive months to reach an 8-year low of'<b>1.6 per cent in July 2025</b>'before edging up to 2.1 per cent in August, remaining within the RBI inflation target range.</p><p>&#183; While the inflation was earlier projected at 3.8% (Q4 FY 2024-25) and 3.6% (Q1 FY 2025-26), the '<b>actual outcomes were lower by 90 bps.' </b>The fall was driven by a steep, prolonged 9-month food price decline of 10.5%, the longest in the CPI series.</p><p>&#183; Milder summer temperatures further eased seasonal price pressures, keeping realised inflation below expectations in Q1 and Q2 FY 2025-26.</p><p>&#183; <b>GST rate rationalization </b>'from September 22, 2025<b>, has simplified taxes and lowered consumer prices</b>, directly impacting around 11.4% of the CPI basket across product groups.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>In a draft circular released by Reserve Bank of India in October 2025 stated that \"Banks must offer customers a 'basic savings bank deposit' (BSBD) account, including free facilities and without having to maintain a minimum balance\". In context of this draft circular which of the following statement(s) is/are correct?</p><p>I. For a BSBD account the bank should provide unlimited deposits through cash, electronic channels, and ATMs/cash deposit machines.</p><p>II. BSBD account holders will get at least four free withdrawals (including transfers and ATM use) per month.</p><p>III. The holder of a BSBD account are eligible for opening any other savings bank account in the same bank.</p>",
+    "options": [
+      "II and III Only",
+      "I Only",
+      "III Only",
+      "I and II Only",
+      "II Only"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Banks must offer customers a 'basic savings bank deposit' (BSBD) account, including free facilities and without having to maintain a minimum balance, the Reserve Bank of India (RBI), in a draft circular, has said. 'The ongoing (digitisation) of the banking sector requires a BSBD account that is in sync with the customer's evolving requirements. These directions are issued to improve customer service for BSBD account holders and enhance the usage thereof to deepen financial inclusion and (digitisation),' the RBI said.</p><p>&#183; Those under the Pradhan Mantri Jan Dhan Yojana are BSBD accounts. Under that, a BSBD account is opened in any bank branch or a business correspondent (Bank Mitra) outlet by persons not having any other account. Over 566 million accounts have been opened. The accounts have deposits of '2.67 trillion.</p><p>&#183; The central bank, in the draft circular, has asked banks to publicise that BSBD accounts are available and their features.'</p><p>&#183; 'It shall convey the differences between BSBD account and various savings bank account variants offered by them when a customer approaches it to open a deposit account,' the central bank said.'</p><p>&#183; A customer can convert a savings bank deposit account into a BSBD account.'</p><p>&#183; <u>According to the circular, for a BSBD account the bank should provide unlimited deposits through cash, electronic channels, and ATMs/cash deposit machines, and provide free ATM facilities or debit cards, a cheque book of at least 25 leaves yearly, internet and mobile banking, and a passbook or monthly statement at no extra cost.'</u></p><p>&#183; <u>Additionally, BSBD account holders will get at least four free withdrawals (including transfers and ATM use) per month.</u></p><p>&#183; Digital transactions like Unified Payments Interface, National Electronic Fund Transfer, Real-time Gross Settlement, Immediate Payment Service, and Point of Sale are unlimited.</p><p>&#183; Further, the RBI has stated banks may provide additional services, with or without charges, in a non-discretionary and non-discriminatory manner with disclosures to the customer.'</p><p>&#183; Meanwhile, the RBI has said that the holder of a BSBD account will not be eligible for opening another such account in any bank.'</p><p>&#183; Accordingly, before opening a BSBD account, a bank will take a declaration from the customer on this.</p><p>&#183; <u>The holder of a BSBD account will not be eligible for opening any other savings bank account in the same bank. However, the person can open term-deposit accounts.''</u></p><p><b>A fresh stance</b></p><p>&#183; BSBD accounts require' no minimum balance and' offer free basic services</p><p>&#183; Customers can convert' savings accounts to' BSBD within seven days</p><p>&#183; Digital transactions via' UPI, NEFT, etc, are free' and unlimited</p><p>&#183; Only one BSBD account is allowed; other savings accounts must be closed within 30 days</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Consider the following statements regarding the RBI's proposed framework on External Commercial Borrowings (ECBs) and identify the CORRECT Statement(s) regarding this. </p><p>I. The revised framework proposes expansion of eligible borrowers and recognised lenders, rationalisation of borrowing limits, and removal of cost restrictions on ECBs.</p><p>II. RBI has extended the repatriation timeline to three months for accounts maintained with IFSC Banking Units, up from the earlier one-month period. </p><p>III. RBI introduced the Foreign Exchange Management (Borrowing and Lending) Regulations in 2025 to govern ECBs.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "I and III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Reserve Bank of India will release a draft of a revised framework for External Commercial Borrowings (ECBs) aimed at simplifying and easing existing regulations, Governor Sanjay Malhotra announced. The proposed framework includes expanding the scope of eligible borrowers and recognised lenders, relaxing borrowing limits and maturity requirements, removing cost restrictions, reviewing end-use norms, and simplifying reporting processes. </p><p>&#183; 'With an objective to rationalise and simplify the regulations governing External Commercial Borrowings (ECB), the Reserve Bank of India has undertaken a review of the existing provisions under the Foreign Exchange Management (Borrowing and Lending) Regulations, 2018. </p><p>&#183; Based on the review, a revised framework that provides for expansion of eligible borrower and recognized lender base, rationalization of borrowing limits, rationalization of restrictions on average maturity period, removal of restrictions on the cost of borrowing for ECBs, review of end-use restrictions and simplification of reporting requirements, is proposed to be introduced. </p><p>&#183; The draft Framework will be issued shortly,' the RBI said. Separately, the RBI extended the repatriation timeline to three months for such accounts maintained with IFSC Banking Units in India. </p><p>&#183; The move is expected to encourage exporters to use IFSC accounts and enhance foreign exchange liquidity within the International Financial Services Centre. The necessary regulatory amendments will be notified shortly. </p><p>&#183; In January 2025, the RBI allowed Indian exporters to open foreign currency accounts with banks outside India for the realisation of export proceeds. Funds held in these accounts could be used for import payments or were required to be repatriated within one month from the date of receipt.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>To encourage the banks to actively pursue customers/ depositors for re-activation of their inoperative accounts and return of their unclaimed amounts lying with Depositor Education and Awareness (DEA) Fund, the Reserve Bank of India today announced a 'Scheme for Facilitating Accelerated Payout - Inoperative Accounts and Unclaimed Deposits'. Identify which of the following statement(s) is/are NOT correct about the scheme? </p><p>I. It would be open for a period of one year, i.e., from October 01, 2025, to September 30, 2026. </p><p>II. Banks are required to submit their claim for payouts on a quarterly basis in the prescribed format within three months from the end of each quarter to the Reserve Bank. </p><p>III. All inoperative accounts at banks and unclaimed deposits transferred to the DEA Fund, which remain unsettled, are covered under the Scheme.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and III Only",
+      "II and III Only",
+      "I and II Only"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In this endeavour, to encourage the banks to actively pursue customers/ depositors for re-activation of their inoperative accounts and return of their unclaimed amounts lying with Depositor Education and Awareness (DEA) Fund, the Reserve Bank of India today announced a 'Scheme for Facilitating Accelerated Payout - Inoperative Accounts and Unclaimed Deposits'. The Scheme aims to reduce both the stock of existing unclaimed deposits and fresh accretion of flows to the DEA Fund. It will run for a period of one year, viz., October 01, 2025 to September 30, 2026. </p><p><b>About the Scheme for Facilitating Accelerated Payout - Inoperative Accounts and Unclaimed Deposits: -'</b> </p><p><b>Objective: -'</b></p><p>&#183; The objective is to encourage banks to actively pursue customers/ depositors for reactivation of their inoperative accounts and return of their unclaimed amounts lying with Depositors Education Awareness (DEA) Fund to the rightful claimant in a timely and efficient manner. </p><p>&#183; It aims to reduce both the stock of existing unclaimed deposits and fresh accretion of flows to the DEA Fund by encouraging returns to the rightful claimants.</p><p><b>Scope and Coverage: -</b></p><p>&#183; It would be applicable to all the banks registered under the DEA Fund Scheme. All inoperative accounts at banks' and unclaimed deposits transferred to the DEA Fund, 'which remain unsettled, are covered under the Scheme.</p><p><b>Duration of the Scheme: -'</b></p><p>&#183; It would be open for a period of one year, i.e., from October 01, 2025, to September 30, 2026.</p><p><b>Eligibility for Payout: -'</b> </p><p>Inoperative accounts reactivated and the unclaimed deposits settled by the banks to the rightful claimant during the period of the Scheme. </p><p><b>Payout Structure: -</b> </p><p>A differential payout will be given to banks based on a) the period the account remained inoperative and b) the amount of deposits in such accounts. The payout structure is as under:</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Ageing Category#</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Payout to the bank</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Up to 4 years*</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5% of the amount or Rs. 5,000, whichever is less</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4-8 years*</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6% of the amount or Rs. 10,000, whichever is less</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8-10 years*</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7% of the amount or Rs. 15,000, whichever is less</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10 years and above^</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7.5% of the amount or Rs. 25,000, whichever is less</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"2\"># The period would be reckoned from the date on which the account became inoperative.</p><p>* Inoperative Accounts</p><p>^ Unclaimed Deposits</td></tr></table><p><b>Submission of Claims: -</b></p><p>&#183; Banks are required to submit their claim for payouts on a quarterly basis in the prescribed format within one month from the end of each quarter to the Reserve Bank. The claim made shall be duly signed by a Senior Executive identified by the Top Management of the bank.</p><p>&#183; The claim forms submitted by e-mail to'dea.fund@rbi.org.in'shall also be forwarded by post. The claims made to the Reserve Bank may be subjected to internal audit/inspection, as per the bank's extant internal guidelines. The claim shall be settled by the Reserve Bank within 30 days from its submission.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>The Reserve Bank of India (RBI), in October 2025, released the draft norms on Expected Credit Loss (ECL) based provisioning for commercial banks stressed loans and securities. Which of the following statement(s) is/are NOT correct in context of this draft norm?</p><p>I. The RBI intends to roll out a new provisioning regime from April 1, 2027.</p><p>II. In the ECL framework, banks need to adopt a four-stage approach to determine Significant Increase in Credit Risk (SICR).</p><p>III. Banks will get three years (till March 31, 2030) to make additional provision on the existing book.</p>",
+    "options": [
+      "III Only",
+      "II and III Only",
+      "I Only",
+      "II Only",
+      "I and III Only"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Reserve Bank of India (RBI) released draft norms on Expected Credit Loss (ECL)-based provisioning for commercial banks' stressed loans and securities. This will replace the current incurred loss-based norms banks use to make provisions. <u>The RBI intends to roll out a new provisioning regime from April 1, 2027. Banks will get four years, that is, till March 31, 2031, to make additional provision on the existing book.</u></p><p>&#183; 'Determining ECL requires a bank to make an assessment, at each reporting date, if the credit risk on a financial instrument has increased significantly since initial recognition,' the draft norms said. If risk has increased then the bank is required to make a loss allowance, estimated based on lifetime expected credit losses. The RBI has said a bank shall use a general approach consisting of three key functions ' Probability of Default (PD), Loss Given Default (LGD), and Exposure at Default (EAD).</p><p>&#183; The transitional adjustment amount, i.e., the difference between the ECL required as on April 1, 2027 (computed based on the balance sheet position as on March 31, 2027), and the provisions held as per the current norms as on March 31, 2027 be added back to the Common Equity Tier 1 (CET 1) capital, the RBI said.</p><p>&#183; The new regime has staging criteria for asset classification to make provisions. While provisions would be made based on the new regime, the RBI intends to retain the existing norms for classifying loans as non-performing assets (NPAs). There will be suitably calibrated prudential floors for broad exposure, separately under three stages for provisions. The proposed regime would use broad principles of model risk management for implementing ECL models.</p><p>&#183; <u>In the ECL framework, banks need to adopt a three-stage approach to determine Significant Increase in Credit Risk (SICR).</u></p><p>&#183; A financial instrument is said to be under Stage 1 when it has not had a SICR since initial recognition, or has low credit risk, and for these instruments, 12-month ECL shall be recognised.</p><p>&#183; Stage 2 is when it has had a SICR since initial recognition but is not considered to be 'credit impaired'. For such financial instruments, lifetime ECL shall be recognised.</p><p>&#183; A financial instrument is said to be under Stage 3 when it is considered to be 'credit impaired' at the reporting date. For such instruments, lifetime ECL shall be recognised.</p><p>&#183; The RBI said banks will initially measure and recognise financial assets such as loans at fair value plus or minus transaction costs that are directly attributable to the acquisition or issue of the financial asset. Subsequently, such assets will be measured at amortised cost. There would be alignment of the income recognition norms based on Effective Interest Rate (EIR) method for ECL regime.</p><p>&#183; It has been proposed that the new directions are estimated to result in an additional one-time provisioning. However, the overall impact on the minimum regulatory capital requirements of banks is expected to be minimal as they continue to meet the capital requirements comfortably.</p><p>&#183; The regime is expected to further strengthen credit risk management practices, and promote greater comparability across financial institutions. It would also align regulatory norms with internationally accepted regulatory and accounting standards, the RBI added.</p><p>&#183; In its assessment, rating agency CareEdge said the estimated impact on capital adequacy would be up to 30 basis points (bps) based on 2024-25 (FY25) numbers. Banks already hold a buffer in the range of 2-8 per cent of Common Equity Tier I (CET1) capital.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Consider the following statements regarding the new digital payment initiatives launched by the Reserve Bank of India (RBI) at the Global Fintech Festival. Identify the CORRECT Statement(s) regarding this. </p><p>I. The RBI introduced IoT-based UPI payments, enabling users to make payments through connected devices such as smart cars, TVs, and glasses for services like fuel or EV charging. </p><p>II. The UPI Reserve Pay feature allows users to block portions of their savings account balance to facilitate repeat transactions on e-commerce and delivery platforms. </p><p>III. The AI-based UPI Help, powered by NPCI's Small Language Model (SLM), is designed to assist with complaint resolution and mandate management using artificial intelligence.</p>",
+    "options": [
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "II Only",
+      "I Only"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The RBI launched four new digital payment initiatives ' Internet-of-Things (IoT)-based UPI Payments, an interoperable net banking solution, UPI Reserve Pay, and AI-based UPI Help powered by NPCI's Small Language Model (SLM) at the Global Fintech Festival. It also introduced biometric authentication for approving UPI payments without PINs, and a face authentication feature using UIDAI's app-based biometrics to simplify onboarding and remove the need for debit cards to set UPI PINs. IoT payments with UPI: Users can make UPI payments for services like fuel, EV charging, or other services via connected cars, smart glasses, or smart TVs Banking Connect: Allows interoperability between banks and payment aggregators. PAs gain access to all participating banks with a single integration. UPI Reserve Pay: Users can block part of credit cards or pre-sanctioned credit limits to simplify repeat purchases across e-commerce platforms, food delivery apps, cab aggregators AI-based UPI Help: AI-powered support system addressing complaint resolution and mandate management.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>In the context of the Banking Laws (Amendment) Act, 2025, which brings comprehensive changes to nomination facilities in banks, consider the following statements: Which of the above statements is/are correct?</p><p>I. The provisions contained in Sections 10, 11, 12 and 13 will come into force from 1 November 2025.</p><p>II. For safety lockers and articles kept in safe custody, customers may opt for either simultaneous or successive nominations.</p><p>III. The Act carries amendments across five legislations, including the Reserve Bank of India Act, 1934 and the Banking Regulation Act, 1949.</p>",
+    "options": [
+      "I and II only",
+      "II only",
+      "II and III only",
+      "I and III only",
+      "I, II, and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Key Provisions relating to Nomination under the Banking Laws (Amendment) Act, 2025 will come into effect from 1st November 2025. The Banking Laws (Amendment) Act, 2025 was notified on 15th April 2025. It contains a total of 19 amendments across five legislations'the Reserve Bank of India Act, 1934, Banking Regulation Act, 1949, State Bank of India Act, 1955 and Banking Companies (Acquisition and Transfer of Undertakings) Act, 1970 and 1980.</p><p>&#183; The notification said that the provisions of the'<i>Banking Laws (Amendment) Act, 2025</i>'shall come into force on such date as the Central Government may, by notification in the Official Gazette, appoint' and different dates may be appointed for different provisions of the Act.</p><p>&#183; Accordingly, the Central Government has notified that the provisions contained in '<b>Sections 10, 11, 12 and 13</b>'of the'<i>Banking Laws (Amendment) Act, 2025</i>'shall come into force with effect from '<b>1st' November 2025</b>. The' <b>Gazette Notification</b>'to this effect is available at the link below.</p><p>&#183; The provisions now being brought into effect from 1st November 2025 through Sections 10, 11, 12 and 13 relate to nomination facilities in respect of deposit accounts, articles kept in safe custody, and the contents of safety lockers maintained with banks.</p><p>The key features of these provisions are as follows:</p><p>&#183; <b>Multiple Nominations:</b>' Customers may nominate up to four persons, either simultaneously or successively, thereby simplifying claim settlement for depositors and their nominees.</p><p>&#183; <b>Nomination for Deposit Accounts:</b>' Depositors may opt for either simultaneous or successive nominations, as per their preference.</p><p>&#183; <b>Nomination for Articles in Safe Custody and Safety Lockers:</b>' For such facilities, only successive nominations are permitted.</p><p>&#183; <b>Simultaneous Nomination:</b>'Depositors may nominate up to four persons and specify the share or percentage of entitlement for each nominee, ensuring that the total equals 100 percent and enabling transparent distribution amongst all nominees.</p><p>&#183; <b>Successive Nomination:</b>'Individuals maintaining deposits, articles in safe custody, or lockers may specify up to four nominees, where the next nominee becomes operative only upon the death of the nominee placed higher, ensuring continuity in settlement and clarity of succession.</p><p>The implementation of these provisions will give depositors the flexibility to make nominations as per their preference, while ensuring uniformity, transparency, and efficiency in claim settlement across the banking system.</p><p>&#183; The Banking Companies (Nomination) Rules, 2025, detailing the procedure and prescribed forms for making, cancelling, or specifying multiple nominations, will be published in due course to operationalise these provisions uniformly across all banks.</p><p>&#183; The Central Government had earlier appointed'<b>1st August 2025</b>'as the date on which certain provisions of the said Amendment Act, namely'<b>Sections 3, 4, 5, 15, 16, 17, 18, 19 and 20</b>, came into force vide Gazette Notification S.O. 3494(E) dated 29th July 2025. The'<b>Gazette Notification</b>'to this effect is available at the link below.</p><p>&#183; The Banking Laws (Amendment) Act, 2025 aims,'<i>inter-alia</i>, to strengthen governance standards in the banking sector, ensure uniformity in reporting by banks to the Reserve Bank of India, enhance depositor and investor protection, improve audit quality in public sector banks, and promote customer convenience through improved nomination facilities. The Act also provides for rationalisation of the tenure of directors, other than the Chairman and whole-time directors, in co-operative banks.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>The Securities and Exchange Board of India (Sebi) allowed the transfer of Portfolio Management Services (PMS) business by one portfolio manager to another, after seeking prior approval from the regulator, in October 2025. If the transferor and the transferee portfolio managers belong to different groups, they will have to make a joint application to Sebi for approval. Identify which among the following statement(s) is/are NOT correct in context of this. </p><p>I. Portfolio managers shall have the option to transfer select Investment approaches or complete PMS business to another portfolio manager within the same group. </p><p>II. Transfer of select investment approaches (es) of the OMS business to the transferee shall not be permitted. </p><p>III. The entire process of transfer shall be completed as expeditiously as possible, but not later than five months from the date of approval.</p>",
+    "options": [
+      "II Only",
+      "II and III Only",
+      "I Only",
+      "I and II Only",
+      "III Only"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Securities and Exchange Board of India (Sebi) allowed the transfer of Portfolio Management Services (PMS) business by one portfolio manager to another, after seeking prior approval from the regulator. If the transferor and the transferee portfolio managers belong to different groups, they will have to make a joint application to Sebi for approval. <b>Transfer of PMS business from one portfolio manager to another, both holding portfolio manager registration and belonging to the same group: -</b> Portfolio managers shall have the option to transfer select Investment approaches or complete PMS business to another portfolio manager within the same group, subject to the following conditions:</p><p>&#183; If the entire PMS business is transferred, the certificate of OMS registration of the transferor shall be surrendered within a period of 45 working days from the date of completion of transfer.</p><p>&#183; In case of transfer of only select investment approaches, the transferor may continue to hold the certificate of PMS registration.</p><p><b>Transfer of PMS business from one portfolio manager to another portfolio manager not belonging to the same group:</b></p><p>&#183; A joint application by both the portfolio managers (transferor and transferee) shall be made to SEBI for approval of the transfer of PMS business.</p><p>&#183; The transferor shall transfer the complete PMS business. Transfer of select investment approaches (es) of the OMS business to the transferee shall not be permitted.</p><p>&#183; The transfereee shall fulfill all the regulatory requirements and once the transfer of PMS business is complete, the acts, deeds, pending actions/Litigations, and other obligations against the transferee, if any, shall be the responsibility of the transferee.</p><p>&#183; The entire process of transfer shall be completed as expeditiously as possible, but not later than two months from the date of approval. Until the transfer process is complete, the transferor shall continue to act as portfolio manager but shall not on-board any new client(s), At the end of two months or upon completion of all the formalities, whichever is earlier, the transferor shall surrender its registration certificate by following the surrender process.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>In October 2025, Reserve Bank of India (RBI) has announced the final redemption price and date for the eight-year gold-linked government securities, investors in the Sovereign Gold Bond (SGB) 2017-18 Series-IV are set for substantial gains. Which of the following statement(s) is/are correct in context of this? </p><p>I. SGBs have a fixed tenure of ten years. </p><p>II. In the event of the death of a bondholder, nominees can claim the redemption amount through the designated receiving offices. </p><p>III. Investors can redeem SGB 2017-18 Series-IV after the completion of the fifth year.</p>",
+    "options": [
+      "I Only",
+      "II and III Only",
+      "II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Investors in the Sovereign Gold Bond (SGB) 2017-18 Series-IV are set for substantial gains, as the Reserve Bank of India (RBI) has announced the final redemption price and date for the eight-year gold-linked government securities. <b>Exceptional returns: - </b>The 2017-18 Series-IV SGBs were originally issued at Rs 2,987 per gram. Investors will earn an absolute return of nearly 325 per cent, translating to a gain of Rs 9,717 per bond before accounting for interest.</p><p>&#183; Issue price: Rs 2,987 per gram</p><p>&#183; Redemption price: Rs 12,704 per gram</p><p>&#183; Absolute gain: Rs 9,717</p><p>&#183; Percentage return: 325 per cent</p><p>This performance makes SGBs an attractive alternative to holding physical gold, combining capital appreciation with the safety of a government-backed instrument. <b>Early exit and flexibility: - </b>SGBs have a fixed tenure of eight years, but investors can redeem them after the completion of the fifth year, as per RBI guidelines. This allows some liquidity without compromising the core benefit of gold-linked returns. <b>Nominee claims and succession: - </b>In the event of the death of a bondholder, nominees can claim the redemption amount through the designated receiving offices. If there is no nomination, claims can be made by executors, administrators, or holders of a succession certificate, following the provisions of the Government Securities Act, 2006.</p><p>&#183; These rules also apply to deceased minor investors, ensuring that the bonds are transferred as per legal criteria rather than automatically to a natural guardian.</p><p>&#183; With the final redemption of SGB 2017-18 Series-IV, investors who held onto their bonds since issuance now see one of the most lucrative gold-linked returns in recent times, reinforcing the appeal of sovereign bonds for conservative wealth creation.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>According to the draft circular released by the RBI, the unique transaction identifier (UTI) for OTC derivative transactions will be generated in line with the UTI Technical Guidance issued by the Committee on Payments and Market Infrastructures (CPMI) and the International Organization of Securities Commissions (IOSCO) in February 2017. Identify which statement(s) is/are correct about the UTI. </p><p>I. Each UTI will be up to 52 characters long. </p><p>II. The RBI proposed to make the use of a UTI mandatory for all over-the-counter derivative transactions by market participants, effective April 1, 2026. </p><p>III. UTI generating entity will be determined using a 'waterfall table'.</p>",
+    "options": [
+      "I Only",
+      "II and III Only",
+      "II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Reserve Bank of India (RBI) proposed to make the use of a unique transaction identifier (UTI) mandatory for all over-the-counter derivative transactions by market participants, effective April 1, 2026. Each UTI will be up to 52 characters long, comprising the legal entity identifier of the generating entity followed by a unique identifier. According to the draft circular released by the RBI, the UTI for OTC derivative transactions will be generated in line with the UTI Technical Guidance issued by the Committee on Payments and Market Infrastructures (CPMI) and the International Organization of Securities Commissions (IOSCO) in February 2017. The UTI will apply to all transactions in the OTC markets for rupee interest rate derivatives, forward contracts in government securities, foreign currency derivatives, foreign currency interest rate derivatives, and credit derivatives in India, according to the RBI's draft circular on UTIs for OTC derivative transactions. RBI stated that the UTI generating entity will be determined using a 'waterfall table', where the responsibility for UTI generation is assigned to the next entity in the waterfall if the identified entity is unable or unwilling to generate the UTI. In terms of the waterfall, if a transaction is reported to the Clearing Corporation of India Limited Trade Repository (CCIL-TR) without the UTI, the CCIL-TR will generate the UTI for the transaction.</p><p>&#183; For transactions that are reportable in India and in a foreign jurisdiction, with the foreign jurisdiction having a shorter reporting timeline, market participants may undertake reasonable efforts to ensure that the UTI is obtained and reported promptly.</p><p>&#183; In case the market participant is unable to report the UTI within the reporting deadline, it may obtain and submit the UTI to CCIL-TR within two business days from the date of the transaction. The prior UTI generated by the CCIL-TR will then be treated as a temporary/interim UTI.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>The Reserve Bank of India (RBI) has proposed to reduce risk weight on high-quality infrastructure projects of non-banking financial companies (NBFCs), the apex bank said in its draft guidelines issued, in October 2025. Which of the statements given is/are correct regarding this? </p><p>I. The project must have completed at least one year of satisfactory operations post achievement of COD. </p><p>II. The exposure should be classified as standard in the lender's books. </p><p>III. The obligor's revenues should depend on one main counterparty such as the central government or a public sector entity.</p>",
+    "options": [
+      "I and II only",
+      "II only",
+      "II and III only",
+      "I and III only",
+      "I, II, and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Reserve Bank of India (RBI) has proposed to reduce risk weight on high-quality infrastructure projects of non-banking financial companies (NBFCs), the apex bank said in its draft guidelines issued. Loans to high quality infrastructure projects ' where the borrower has repaid at least 10 per cent of the sanctioned amount ' would attract 50 per cent of risk weight. If the borrower has paid at least 5 per cent but less than 10 per cent of the sanctioned amount, it would attract 75 per cent of risk weight compared to 100 per cent earlier, the draft guidelines said.</p><p>&#183; Under the draft guidelines, the central bank has defined 'high-quality infrastructure projects' which have completed at least one year of satisfactory operations post achievement of the date of completion of commercial operations.</p><p>&#183; 'The infrastructure project has completed at least one year of satisfactory operations post achievement of the date of completion of commercial operations. The exposure is classified as 'standard' in the books of the lender and will be classified as a high-quality infrastructure project,' said the draft guidelines.</p><p>&#183; Further, the obligor's or borrower's revenue depends on one main counterparty ' central government or a public sector entity. Additional safeguards such as escrow of cash flows, first charge over assets, and restrictions on additional borrowing are also required.'</p><p>&#183; The draft guidelines also noted that the obligor should have sufficient internal or external financial arrangements to cover the current and future working capital and other funding requirements of the project.</p><p>&#183; The central bank ' in its last Monetary Policy Committee (MPC) meeting ' had proposed to reduce risk weight applicable to lending by NBFCs to high-quality operational infrastructure projects.</p><p>&#183; The existing capital adequacy norms already permit NBFCs to assign lower risk weights to operational projects under the public-private partnership model. The move aims to reduce the cost of financing infrastructure norms.</p><p>&#183; The central bank said the framework aims to align risk weights with the actual risk characteristics of operational infrastructure projects, promoting better risk assessment and capital allocation.</p><p>&#183; Some NBFCs, such as Infrastructure Debt Funds (IDFs) and Infrastructure Finance already apply lower risk weights (50 per cent). This is for loans backed by tripartite agreements but not to other wholesale NBFC lending.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>In October 2025, markets regulator Sebi allowed Investment Advisers (IAs) to give a second opinion on a client's assets that are already under a pre-existing distribution arrangement, like those managed by another distributor. Which of the statements given is/are correct? </p><p>I. Earlier, IAs were not allowed to charge any fee for advising on assets under a pre-existing distribution arrangement. </p><p>II. IAs must obtain annual consent from clients acknowledging that distributor-related costs will continue on those assets. </p><p>III. IAs may charge fees up to 3% per annum of the asset value for second-opinion services.</p>",
+    "options": [
+      "I and II only",
+      "III only",
+      "II and III only",
+      "I and III only",
+      "I, II, and III"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Markets regulator Sebi allowed Investment Advisers (IAs) to give a second opinion on a client's assets that are already under a pre-existing distribution arrangement, like those managed by another distributor. The move is aimed at making business easier for IAs and giving investors more flexibility to seek professional opinions. Earlier, IAs were not allowed to charge fees on such assets. Now, IAs can charge a fee of up to 2.5 per cent annually of the asset value for providing a second opinion, Sebi said in its circular. \"In order to provide investors the opportunity of obtaining a second opinion on assets under pre-existing distribution arrangement with other entity, if so desired, it has been decided -- IAs may charge fee on such assets subject to a limit of 2.5 per cent of such assets value per annum,\" it said. However, IAs are required to disclose and get annual consent from clients, informing them that apart from the advisory fee, they will also continue to bear distributor-related costs on those assets, it added. Under the Sebi's rule, if a client's assets are already managed under another distributor, those assets must be excluded when calculating fees. It means Investment Advisers cannot charge fees based on such assets. However, industry bodies argued that this restriction stops IAs from giving a second opinion on those assets. Accordingly, they requested Sebi to allow IAs to charge a fee for providing such second-opinion services. The circular takes immediate effect.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Consider the following statements regarding the \"Apki Poonji, Apka Adhikar\" campaign launched by Finance Minister Nirmala Sitharaman and identify the CORRECT one regarding this. </p><p>I. The campaign is a Six-month drive focusing on Awareness, Access, and Action to help recover unclaimed funds. </p><p>II. Unclaimed assets worth around Rs. 1.84 trillion are lying with banks, RBI, and IEPF in the form of deposits, insurance, provident fund, and shares. </p><p>III. The RBI's UDGAM portal has been introduced to facilitate tracking and claiming of unclaimed deposits.</p>",
+    "options": [
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "II Only",
+      "I Only"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Union Finance Minister Nirmala Sitharaman on said that financial assets worth '1.84 trillion are lying unclaimed with banks and regulators, and called on officials to ensure that they reach their rightful owners. Launching the Apki Poonji, Apka Adhikar (Your Money, Your Right) campaign in Gandhinagar, Sitharaman said the three-month drive will focus on 'Awareness, Access and Action' to help people recover unclaimed funds.</p><p>&#183; 'Unclaimed monies are lying with the banks or with the RBI (Reserve Bank of India) or with the IEPF (Investor Education and Protection Fund). We have to find the rightful owners and claimants of those funds and hand the money over to them,' Sitharaman said.</p><p>&#183; She said assets worth '1.84 trillion were unclaimed across banks and regulators in the form of deposits, insurance, provident fund, and shares. 'As per the DFS (Department of Financial Services), '1,84,000 crore is lying there. It is safe. I can assure you it is absolutely safe. You come when you want with proper papers. Money will be given to you. The government is the custodian for it,' she said.</p><p>&#183; Sitharaman explained that unclaimed assets are transferred between institutions if they remain unclaimed for long. 'From banks, it goes to the RBI in case of deposits, and in case of stocks or similar assets, it goes from Sebi to another centre or the IEPF,' she said.</p><p>&#183; She highlighted the RBI's UDGAM (Unclaimed Deposits Gateway to Access Information) portal, which allows people to trace and claim their unclaimed deposits. 'It is high time that all of us spread the word to everyone,' she added.</p><p>&#183; She said extending 'Access' through the RBI portal and bank help desks would make it easier for people to claim their assets. 'The third 'A' is action, where you act on whatever you have, like small bits of papers,' she said, urging a 'concerted attempt' to make the campaign successful.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>India and EFTA signed the Trade and Economic Partnership Agreement (TEPA) on 10 March 2024; it took effect on 1 October 2025, marking India's first FTA with four developed European nations. Which of the statements given is/are correct? </p><p>I. TEPA includes binding commitments on investment and job creation'the first such provision in any Indian FTA. </p><p>II. Under Article 7.1, EFTA committed to increase FDI by USD 100 billion in the first 10 years. </p><p>III. EFTA comprises Switzerland, Norway, Iceland, and Liechtenstein.</p>",
+    "options": [
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "II Only",
+      "I Only"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>India and EFTA signed the Trade and Economic Partnership Agreement (TEPA) on 10 March 2024; it took effect on 1 October 2025, marking India's first FTA with four developed European nations.' TEPA commits USD 100 billion in investments and 1 million direct jobs over 15 years, the first binding pledge of its kind in any Indian FTA. ' EFTA covers 92.2% of tariff lines (99.6% of India's exports), while India covers 82.7% (95.3% of EFTA's exports), protecting key sectors like dairy, soya, coal, and agriculture. ' The pact expands market access, drives manufacturing and innovation, and strengthens cooperation in technology and sustainability. ' Services exports gain through digital delivery, commercial presence, professional mobility, and Mutual Recognition Agreements (MRAs) in fields such as nursing, accountancy, and architecture. </p><p><b>WHAT IS EFTA? </b></p><p>&#183; EFTA is the intergovernmental organisation of Iceland, Liechtenstein, Norway and Switzerland. It was set up in 1960 by its then 7 Member States for promotion of free trade and economic integration between its members. EFTA is 1 important economic block out of the 3 (other 2 - EU &amp; UK) in Europe.</p><p>&#183; The India-European Free Trade Association (EFTA) Trade and Economic Partnership Agreement (TEPA), signed on 10 March 2024 in New Delhi, came into force on 1 October 2025, marking a defining moment in India's external trade policy. </p><p>&#183; This is India's first Free Trade Agreement with four developed European nations, Switzerland, Norway, Iceland, and Liechtenstein, and one of the most ambitious in scale and intent. came into force on 1 October 2025, marking a defining moment in India's external trade policy.</p><p>&#183; It represents a strategic convergence between India's Atmanirbhar Bharat vision and EFTA's search for resilient, diversified partnerships. </p><p>WHAT IS TEPA? </p><p>&#183; TEPA (Trade and Economic Partnership Agreement) is a modern and ambitious agreement which, for the first time in any Free Trade Agreement (FTA) signed by India, includes binding commitments on investment and job creation. </p><p>&#183; It represents a strategic convergence between India's Atmanirbhar Bharat vision and EFTA's search for resilient, diversified partnerships. WHAT IS TEPA? TEPA (Trade and Economic Partnership Agreement) is a modern and ambitious agreement which, for the first time in any Free Trade Agreement (FTA) signed by India, includes binding commitments on investment and job creation. </p><p>&#183; Under Article 7.1, the four EFTA states have pledged to increase foreign direct investment (FDI) in India by $50 billion within the first 10 years, followed by an additional $50 billion in the next five years.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The Employees' Provident Fund Organisation (EPFO) has revised the rules for withdrawal of EPF after job loss. Which of the following statements correctly describe the new withdrawal rules? </p><p>I. Members can now withdraw up to 75% of their EPF balance immediately after losing a job, while the remaining 25% can be withdrawn only after 12 months of continuous unemployment. </p><p>II. Previously, full EPF withdrawal was allowed after two months of unemployment, which often affected pension continuity. </p><p>III. Under the revised rule, members are allowed to withdraw 100% of their EPF balance immediately after job loss without affecting pension eligibility.</p>",
+    "options": [
+      "II only",
+      "I and II only",
+      "II and III only",
+      "I and III only",
+      "I, II, and III"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Employees' Provident Fund Organisation (EPFO) has revised the withdrawal timeline for members who lose their jobs, extending the full withdrawal eligibility period from two months to 12 months of unemployment.</p><p>&#183; Under the revised rule, EPFO clarified that members can now withdraw up to 75 per cent of their EPF balance immediately after job loss. The remaining 25 per cent can be withdrawn only after 12 months of continuous unemployment.</p><p>&#183; Earlier, members were allowed to withdraw their full PF balance after two months of leaving a job. However, EPFO noted that this often disrupted continuity in employment records when individuals rejoined work after a short break.</p><p>&#183; If a member withdrew the entire EPF amount within two months and then rejoined a new job after three months, their service was treated as non-continuous. This affected their eligibility for pension under the Employees' Pension Scheme (EPS), which requires at least 10 years of continuous employment.</p><p>&#183; By extending the full withdrawal period to 12 months, EPFO aims to preserve members' pension benefits.</p><p>&#183; EPFO clarified that withdrawing the entire pension fund leads to loss of EPS membership, making the individual ineligible for family pension or member pension in the future. Even if eligible, the member may receive a lower pension amount due to breaks in contribution.</p><p>&#183; ''In case of unemployment, 75 per cent PF balance (that includes employer and employee contribution and interest earned) can be withdrawn immediately. Remaining 25 per cent can also be withdrawn after one year. Full withdrawal of the entire PF balance (including the minimum balance of 25 per cent) is also allowed in case of retirement after attaining 55 years of service, permanent disability, incapacity to work, retrenchment, voluntary retirement, or leaving India permanently etc,' a PIB release said.</p><p><b>Pension eligibility remains unchanged</b></p><p>&#183; The pension eligibility at the age of 58 remains unchanged under the new rules. A member can take out the money from their pension account any time before completing 10 years of service. However, to receive a pension after retirement, they must complete at least 10 years as a member of the Employees' Pension Scheme (EPS).</p><p>&#183; Currently, around 75 per cent of members withdraw their entire pension savings within four years of joining, before reaching the 10-year mark. By doing so, they end their membership and lose access to future pension and social security benefits.</p><p>&#183; If the pension fund is not withdrawn, the member's family can still receive pension benefits for up to three years after contributions stop, in case of the member's death. Once the fund is withdrawn, this family benefit also ends.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Union Minister for Commerce and Industry, Shri Piyush Goyal launched the Logistics Excellence, Advancement, and Performance Shield (LEAPS) 2025 during the event marking the 4th Anniversary of PM GatiShakti at Bharat Mandapam, New Delhi. Which of the statements is/are correct? </p><p>I. LEAPS 2025 is a flagship initiative of the Department for Promotion of Industry and Internal Trade (DPIIT) under the Ministry of Commerce and Industry. </p><p>II. The initiative emphasizes sustainability, ESG practices, and Green Logistics, and fosters collaboration among Government, Industry, and Academia. </p><p>III. Applications can only be submitted by core logistics providers; startups and MSMEs are not eligible.</p>",
+    "options": [
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Union Minister for Commerce and Industry, Shri Piyush Goyal launched the Logistics Excellence, Advancement, and Performance Shield (LEAPS) 2025 during the event marking the 4th Anniversary of PM GatiShakti at Bharat Mandapam, New Delhi. LEAPS is a flagship initiative of the Department for Promotion of Industry and Internal Trade (DPIIT) under the Ministry of Commerce and Industry, aims to benchmark logistics excellence, strengthen India's competitiveness, and align with the vision of the National Logistics Policy (NLP) and PM GatiShakti.</p><p>&#183; LEAPS 2025 has been conceptualized to acknowledge and celebrate best practices, innovation, and leadership within India's logistics industry. It covers a wide spectrum of logistics players ' including air, road, sea, and rail freight operators; warehousing; multimodal transporters; MSMEs; Startups; and Academia.</p><p>&#183; The initiative also emphasizes sustainability, ESG (Environmental, Social, and Governance) practices, and Green Logistics, encouraging collaboration between Government, Industry, and Academia to enhance efficiency, transparency, and resilience in the logistics ecosystem.</p><p>&#183; Registrations for LEAPS 2025 are now open on the Rashtriya Puraskar Portal (https://awards.gov.in/). Interested applicants can submit their entries by 15th November 2025.</p><p>Applications are invited across the following 13 categories: </p><p><b>A. Core Logistics</b> </p><p>1)' 'Air Freight Service Provider </p><p>2) Road Freight Service Provider </p><p>3) Maritime Freight Service Provider </p><p>4) Rail Freight Service Provider </p><p>5) Multimodal Transport Operators (MTOs) </p><p>6) Warehouse Service Provider (Industrial and Consumables) </p><p>7) Warehouse Service Provider (Agriculture) </p><p><b>B. MSME</b> </p><p>8) Logistics Service Provider </p><p><b>C. Startups</b> </p><p>9) Logistics Technology Service Provider </p><p>10) Logistics Operations Service Provider </p><p><b>D. Institutions</b> </p><p>11) Education Institute Promoting Logistics Sector </p><p><b>E. Special Category</b> </p><p>12) Logistics Service Delivery for e-Commerce Operations </p><p>13) Multimodal Logistics Service Provider (3PL Service Provider, Freight Forwarder, Custom Broker/Agent) LEAPS 2025 builds upon the transformative vision of PM GatiShakti and the National Logistics Policy (NLP) 2022, aiming to promote efficiency, competitiveness, and sustainability in India's logistics sector.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>The Ministry of Panchayati Raj in collaboration with the Ministry of Education (Department of School Education and Literacy) and the Ministry of Tribal Affairs jointly organize a National launch of a first of its kind initiative the Model Youth Gram Sabha (MYGS) on 30th October 2025 in New Delhi. Which of the statements given is/are correct? </p><p>I. The national launch is jointly organized by the Ministry of Panchayati Raj, the Ministry of Education (Department of School Education and Literacy), and the Ministry of Tribal Affairs. </p><p>II. The roll-out initially spans more than 1,000 schools including JNVs, EMRSs, and State Government Schools. </p><p>III. The launch will unveil a Training Module and the MYGS Portal.</p>",
+    "options": [
+      "I and II only",
+      "II only",
+      "II and III only",
+      "I and III only",
+      "I, II, and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Ministry of Panchayati Raj in collaboration with the Ministry of Education (Department of School Education and Literacy) and the Ministry of Tribal Affairs jointly organize a National launch of a first of its kind initiative the Model Youth Gram Sabha (MYGS) on 30th October 2025 in New Delhi. During the event, a Training Module on Model Youth Gram Sabha and the MYGS Portal will also be unveiled. These digital tools have been developed to facilitate effective implementation of the initiative, build teacher capacity, and promote active student engagement in grassroots democracy. The initiative will be rolled out across more than 1,000 schools nationwide, including Jawahar Navodaya Vidyalayas (JNVs), Eklavya Model Residential Schools (EMRSs), and State Government Schools.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>The Union Cabinet on October 1, 2025 approved a six-year central scheme, Mission for Aatmanirbharta in Pulses aimed at achieving self-sufficiency in pulses production, with a financial outlay of Rs. 11,440 crore. Identify the CORRECT Statement(s) regarding this.</p><p>I. The mission will run from 2025-26 to 2030-31 with a financial outlay of Rs. 11,440 crore and aims to increase pulses production to 350 lakh tonnes by 2030-31.</p><p>II. The mission includes assured procurement of tur, urad and masur by Nafed and NCCF under the Price Support Scheme (PSS) of PM-AASHA.</p><p>III. The Government will distribute 126 lakh quintals of certified seeds to farmers, covering 370 lakh hectares by 2030-31, with seed tracking through the SATHI portal.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "I and III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Union Cabinet (October 1, 2025) approved a six-year central scheme aimed at achieving self-sufficiency in pulses production, with a financial outlay of '11,440 crore. The \"Mission for Aatmanirbharta in Pulses\", approved by the Union Cabinet chaired by Prime Minister Narendra Modi, will be for the period from 2025-26 to 2030-31. The mission follows Finance Minister Nirmala Sitharaman's announcement in the 2025-26 Budget.</p><p>&#183; The mission will particularly focus on increasing production of'<i>tur, urad</i>'and'<i>masur,</i>'with assured procurement by government agencies National Agricultural Cooperative Marketing Federation of India (Nafed) and National Cooperative Consumers' Federation of India Ltd (NCCF) from registered farmers.</p><p>&#183; \"We are going to start a mission on pulses for six years. Several initiatives will be taken under this,\" Information and Broadcasting Minister Ashwini Vaishnaw told reporters after the Cabinet meeting.</p><p>&#183; Under the mission, the Government has set a target to increase pulses production to 350 lakh tonnes by 2030-32 from 242 lakh tonnes achieved in 2023-24, according to an official statement.</p><p>&#183; The area under pulses cultivation will be expanded to 310 lakh hectares from 242 lakh hectares, while yield is targeted to improve to 1,130 kg per hectare from 881 kg per hectare.</p><p>&#183; The initiative comes as India, the world's largest producer and consumer of pulses, grapples with rising imports. Domestic production has not kept pace with demand driven by rising incomes and standard of living, leading to a 15-20% increase in pulse imports in recent years.</p><p>&#183; The mission will be implemented through a cluster-based approach across 416 focused districts.</p><p>&#183; About 1,000 new packaging and processing units will be set up, with a maximum subsidy of Rs 25 lakh available for establishing processing and packaging facilities.</p><p>&#183; To improve productivity, the emphasis will be on developing and disseminating the latest varieties of pulses that are high in productivity, pest-resistant and climate-resilient. Multi-location trials will be conducted in major pulse-growing states to ensure regional suitability.</p><p>&#183; The Government will distribute 126 lakh quintals of certified seeds to pulse-growing farmers, covering 370 lakh hectares by 2030-31.</p><p>&#183; States will prepare five-year rolling seed production plans, with breeder seed production supervised by the Indian Council of Agricultural Research (ICAR).</p><p>&#183; Foundation and certified seed production will be undertaken by state and central level agencies and tracked through the Seed Authentication, Traceability &amp; Holistic Inventory (SATHI) portal.</p><p>&#183; Additionally, 88 lakh seed kits will be distributed free of cost to farmers to support area expansion by an additional 35 lakh hectares, targeting rice fallow areas and promoting intercropping and crop diversification.</p><p>&#183; A major feature of the mission is the assured procurement of tur, urad and masur under the Price Support Scheme (PSS) of the Pradhan Mantri Annadata Aay Sanrakshan Abhiyan (PM-AASHA). Nafed and NCCF will undertake 100 per cent procurement in participating states for the next four years from farmers who register with these agencies and enter into agreements.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>The PM Surya Ghar Muft Bijli Yojana (PMSGMBY) scheme has achieved a significant milestone in empowering households with clean and affordable solar energy. Identify the CORRECT Statement(s) regarding this. </p><p>I. As of September 2025, Public Sector Banks (PSBs) have sanctioned over 5.79 lakh loan applications amounting to Rs. 10,907 crores. </p><p>II. The loans under this scheme are collateral-free and processed digitally through the JanSamarth Portal integrated with the National Portal for PM Surya Ghar Muft Bijli Yojana. </p><p>III. The model loan scheme allows loans up to Rs. 3 lakhs with a 12-month moratorium period from disbursement.</p>",
+    "options": [
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "II Only",
+      "I Only"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The PM Surya Ghar Muft Bijli Yojana (PMSGMBY) scheme has achieved a significant milestone in empowering households with clean and affordable solar energy. As of September, 2025, Public Sector Banks (PSBs) have sanctioned over 5.79 lakh loan applications, amounting to Rs.10,907 crore, augmenting the financial support to the beneficiaries in installing rooftop solar systems. The implementation of the PM Surya Ghar Muft Bijli Yojana (PMSGMBY) is actively supported by streamlining the credit delivery process, facilitating collateral-free affordable loans at lower interest rates and simplified financing through PSBs. The loans are processed through the JanSamarth Portal, integrated with the National Portal for PM Surya Ghar Muft Bijli Yojana (pmsuryaghar.gov.in), ensuring an end-to-end seamless digital application process, enhanced user experience and data-driven decision making for beneficiaries. The model loan scheme offers key benefits including, Loans up to Rs. 2 lakh at competitive interest, without collateral, longer tenor for repayment in line with the electricity cost saving, 6-month moratorium period from disbursement, lower margin contribution by the applicant and a digital sanction process based on self-declaration. The Department of Financial Services in coordination with Ministry of New and Renewable Energy, actively reviews the progress of loans under the scheme, strengthening implementation through collaboration with State Level Bankers Committees and Lead District Managers, thereby driving faster adoption better outreach and penetration of the scheme.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>In October 2025, The Delhi government has started a scheme to provide collateral-free loans to small businesses and women entrepreneurs, aiming to strengthen the national capital's economic growth. Which of the statements is/are correct? </p><p>I. Micro enterprises can avail loans up to Rs 5 lakh with 85% coverage by CGTMSE and 10% by the Delhi government. </p><p>II. For women entrepreneurs and MSMEs promoted by Agniveers, the scheme provides 90% coverage by CGTMSE and 5% by the Delhi government for loans up to Rs 10 crore. </p><p>III. Small enterprises can avail loans up to Rs 10 crore with 80% coverage by CGTMSE and 15% by the Delhi government.</p>",
+    "options": [
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "II Only",
+      "I Only"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Delhi government has started a scheme to provide collateral-free loans to small businesses and women entrepreneurs, aiming to strengthen the national capital's economic growth. Delhi's FY26 Budget had allocated Rs 5 crore for the scheme and an additional phased contribution of Rs 50 crore is expected in partnership with Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE). According to news agency PTI, the scheme offers a guarantee coverage structure that reduces lenders' risk and enables easier access to funds for small businesses. Coverage levels vary by category:</p><p>&#183; Small enterprises: Loans up to Rs 10 crore, 75 per cent coverage by CGTMSE and 20 per cent by the Delhi government.</p><p>&#183; Women entrepreneurs &amp; MSMEs promoted by Agniveers: Loans up to Rs 10 crore, 90 per cent coverage by CGTMSE and 5 per cent by Delhi government.</p><p>&#183; Micro enterprises: Loans up to Rs 5 lakh, 85 per cent coverage by CGTMSE and 10 per cent by Delhi government.</p><p>&#183; Loans between Rs 5 lakh and Rs 10 crore: 75 per cent coverage by CGTMSE and 20 per cent by Delhi government.</p><p>&#183; This ensures that borrowers across categories can receive up to 95 per cent total guarantee coverage, significantly reducing the lending risk.</p><p>&#183; For small entrepreneurs, especially startups and micro businesses, collateral has often been a major barrier to borrowing.</p><p>CGTMSE, which was established by the central government in 2000, works with 276 lending institutions and has a guarantee portfolio of more than Rs 9.34 trillion. In FY25, it issued guarantees for 2.7 million loan accounts worth Rs 3.05 trillion.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Union Electronics and IT Minister Sh. Ashwini Vaishnaw announced the approval of first trench of 7 projects under the Electronics Components Manufacturing Scheme (ECMS). To reinforce balanced regional growth, the first seven ECMS-approved units were distributed across states. Which exact combination reflects this distribution?</p>",
+    "options": [
+      "Tamil Nadu (4), Karnataka (2), Andhra Pradesh (1)",
+      "Tamil Nadu (3), Andhra Pradesh (2), Madhya Pradesh (2)",
+      "Tamil Nadu (5), Andhra Pradesh (1), Madhya Pradesh (1)",
+      "Tamil Nadu (5), Gujarat (1), Andhra Pradesh (1)",
+      "Karnataka (3), Tamil Nadu (2), Madhya Pradesh (2)"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Union Electronics and IT Minister Sh. Ashwini Vaishnaw announced the approval of first trench of 7 projects under the Electronics Components Manufacturing Scheme (ECMS). Now Multi-Layer Printed Circuit Boards (PCBs) , HDI PCBs, Camera Modules, Copper Clad Laminates, and Polypropylene Films will be Made in India. The scheme has received wonderful response from both domestic and global companies. 249 applications have been recieved. These represents '1.15 lakh crore investment, '10.34 lakh crore production, and 1.42 lakh jobs to be created. It is the highest-ever investment commitment in India's electronics sector.</p><p>&#183; Today marks the approval for seven projects worth '5,532 crore. These projects will lead to production of components worth' '36,559 crore and creation of over 5,100 direct jobs.</p><p>&#183; The approved units are spread across Tamil Nadu (5), Andhra Pradesh (1), and Madhya Pradesh 1). This reinforces the balanced regional growth and expanding high-tech manufacturing beyond metros.</p><p>&#183; Union Minister Sh. Ashwini Vaihnaw informed, \"20% of our domestic demand of PCBs and 15% of'Camera Module sub-assembly'will be met through production from these plants.\"</p><p>&#183; He also mentioned that the demand of copper clad Laminate will now completely be domestically met. The additional 60% of production through these plants will be exported.</p><p>&#183; The approved projects cover key components like High-Density Interconnect (HDI) PCBs, Multi-Layer PCBs, Camera Modules, Copper Clad Laminates, and Polypropylene Films.</p><p>&#183; For the first time, India will establish a Copper Clad Laminate (CCL) manufacturing facility. CCL acts as a base component for manufacturing Multi-layer PCBs. These PCBs go into every electronic equipment. Right now it is imported.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>According to the Henley Passport Index 2025, India's passport ranking has declined compared to the previous year. Which of the following statements correctly describe the recent findings?</p><p>I. India's passport ranks 85th globally in 2025, tied with Mauritania.</p><p>II. Indian passport holders now enjoy visa-free access to 57 countries, down from 59 in 2024.</p><p>III. China has improved its ranking from 94th in 2015 to 64th in 2025, gaining 37 more visa-free destinations.</p>",
+    "options": [
+      "I and II only",
+      "II and III only",
+      "I and III only",
+      "I, II, and III",
+      "III only"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Indian passport has taken a tumble in the latest global passport rankings, slipping several spots to 85th place, tied with Mauritania. Holders of an Indian passport can now travel visa-free to 57 countries, according to the latest Henley Passport Index released by London-based consultancy Henley &amp; Partners. Earlier this year, India was ranked 77th, with access to 59 destinations without needing a visa. The drop reflects changing global mobility agreements and tightening border policies among several nations. <b>India's ranking in Henley Passport Index 2025:</b></p><p>&#183; 2006 - 71st</p><p>&#183; 2007 - 73rd</p><p>&#183; 2008 - 75th</p><p>&#183; 2009 - 75th</p><p>&#183; 2010 - 77th</p><p>&#183; 2011 - 78th</p><p>&#183; 2012 - 82nd</p><p>&#183; 2013 - 74th</p><p>&#183; 2014 - 76th</p><p>&#183; 2015 - 88th</p><p>&#183; 2016 - 85th</p><p>&#183; 2017 - 87th</p><p>&#183; 2018 - 81st</p><p>&#183; 2019 - 82nd</p><p>&#183; 2020 - 82nd</p><p>&#183; 2021 - 90th</p><p>&#183; 2022 - 83rd</p><p>&#183; 2023 - 84th</p><p>&#183; 2024 - 80th</p><p>&#183; 2025 - 85th</p><p><b>Indians can currently travel visa-free to 12 destinations. These include Bhutan, Indonesia, Mauritius, and Trinidad and Tobago. The full list is:</b></p><p>&#183; Bhutan</p><p>&#183; Dominica</p><p>&#183; Haiti</p><p>&#183; Indonesia</p><p>&#183; Mauritius</p><p>&#183; Micronesia</p><p>&#183; Nepal</p><p>&#183; Saint Vincent and the Grenadines</p><p>&#183; Senegal</p><p>&#183; Serbia</p><p>&#183; Trinidad and Tobago</p><p>&#183; Vanuatu</p><p><b>Countries offering visa on arrival</b> In 27 countries, Indian citizens can obtain a visa after landing. Popular destinations in this category include Sri Lanka, Maldives, Jordan, and Qatar.</p><p>&#183; Bolivia</p><p>&#183; Burundi</p><p>&#183; Cambodia</p><p>&#183; Cape Verde Islands</p><p>&#183; Comoro Islands</p><p>&#183; Djibouti</p><p>&#183; Ethiopia</p><p>&#183; Guinea-Bissau</p><p>&#183; Jordan</p><p>&#183; Laos</p><p>&#183; Madagascar</p><p>&#183; Maldives</p><p>&#183; Marshall Islands</p><p>&#183; Mongolia</p><p>&#183; Mozambique</p><p>&#183; Myanmar</p><p>&#183; Niue</p><p>&#183; Palau Islands</p><p>&#183; Qatar</p><p>&#183; Samoa</p><p>&#183; Sierra Leone</p><p>&#183; Sri Lanka</p><p>&#183; St Lucia</p><p>&#183; Tanzania</p><p>&#183; Timor-Leste</p><p>&#183; Togo</p><p>&#183; Tuvalu</p><p>At the top of the 2025 ranking are three Asian nations. Singapore holds the first position with visa-free access to 193 destinations, followed by South Korea with 190 and Japan with 189.</p><p><b>China climbs steadily</b> Meanwhile, China has seen a major leap in global mobility over the past decade, climbing from 94th in 2015 to 64th in 2025. Its citizens can now visit 37 more destinations visa-free than they could ten years ago. In the past year alone, Beijing has added 30 more visa-free destinations, expanding access through fresh agreements with countries across Europe, South America, and the Gulf.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>According to a new report released by the UN Food and Agriculture Organisation (FAO), more than half of the world's forest area is concentrated in just five countries. Which of the following lists exactly those five countries?</p>",
+    "options": [
+      "Russia, Brazil, Canada, United States, China",
+      "Russia, Brazil, Canada, United States, India",
+      "China, India, Brazil, Russia, Democratic Republic of the Congo",
+      "Russia, Canada, United States, China, Indonesia",
+      "Brazil, Canada, United States, China, Australia"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>India has climbed to the ninth spot globally in total forest area and retained its third rank in annual forest area gain, according to a new report released by the UN Food and Agriculture Organisation (FAO). The Environment Ministry said this reflects the success of India's large-scale afforestation and community-led forest protection efforts under Prime Minister Narendra Modi's leadership. Union Environment Minister Bhupender Yadav said India's rise from the 10th to the ninth position marks a \"major achievement\" in sustainable forest management and ecological conservation.</p><p>&#183; The minister said that growing public participation in tree plantation campaigns, particularly under the 'Ek Ped Ma Ke Naam' initiative, and large-scale state government drives have contributed to this progress.</p><p>&#183; The FAO report said the world's total forest area stands at 4.14 billion hectares, covering 32 per cent of the planet's land.</p><p>&#183; More than half (54 per cent) of this is concentrated in just five countries i.e. Russia, Brazil, Canada, the United States and China.</p><p>&#183; India follows Australia, the Democratic Republic of the Congo and Indonesia, placing it among the world's top 10 forest-rich nations.</p><p>&#183; China recorded the highest annual net gain in forest area between 2015 and 2025 at 1.69 million hectares per year, followed by the Russian Federation with 9,42,000 hectares and India with 1,91,000 hectares.</p><p>&#183; Other countries with significant forest expansion include Turkiye (1,18,000 ha), Australia (1,05,000 ha), France (95,900 ha), Indonesia (94,100 ha), South Africa (87,600 ha), Canada (82,500 ha) and Vietnam (72,800 ha).</p><p>&#183; The assessment showed that Asia is the only region to record an increase in forest area between 1990 and 2025, led by gains in China and India.</p><p>&#183; Globally, the annual rate of net forest loss has been cut by more than half, from 10.7 million hectares in the 1990s to 4.12 million hectares during 2015-2025.</p><p>&#183; The FAO said Asia's forest expansion played a key role in slowing global deforestation, which remains the highest in South America and Africa.</p><p>&#183; According to the report, 20 per cent of the world's forests are now in legally established protected areas, while 55 per cent are managed under long-term plans.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>In another step towards streamlining Customs procedures and enhancing trade facilitation, the Central Board of Indirect Taxes and Customs (CBIC) has introduced system-based auto-approval for IFSC code registration to enhance Ease of Doing Business. Identify the INCORRECT Statement(s) regarding this. </p><p>I. The initiative allows automatic approval of the same bank account and IFSC code for an Importer Exporter Code (IEC) across multiple Customs locations once approved at any one location. </p><p>II. The auto-approval system aims to simplify registration processes, reduce manual intervention, and enhance the Ease of Doing Business. </p><p>III. Exporters can register their Authorised Dealer (AD) Codes only through offline submission to Customs officers under this initiative.</p>",
+    "options": [
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "II Only",
+      "I Only"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In another step towards streamlining Customs procedures and enhancing trade facilitation, the Central Board of Indirect Taxes and Customs (CBIC) has introduced system-based auto-approval for IFSC code registration to enhance Ease of Doing Business. As per the new initiative, the system will automatically approve requests for registration of the same incentive bank account and IFSC code for a particular Importer Exporter Code (IEC) at multiple Customs locations, provided the same combination has already been approved at any one location. Thus, manual intervention by the Port officer will be eliminated, and the system will directly approve such requests. </p><p>This initiative is aimed at:</p><p>&#183; swift processing of bank account and IFSC code approval requests,</p><p>&#183; simplifying the registration process at multiple ports,</p><p>&#183; ensuring faster and seamless credit of export incentives into exporters' bank accounts.</p><p>&#183; enhancing overall trade efficiency.</p><p>Exporter get export-related benefits in bank account declared by the exporter in Customs Automated System. There is already a facility for online registration of Authorised Dealer (AD) Code by the exporter on ICEGATE. Requests for registration of incentive-linked bank accounts and IFSC codes under an Importer Exporter Code (IEC) required approval by Customs officers at each port location. This often resulted in duplication of efforts and pendency of requests, particularly when the same bank account and IFSC combination is being registered across multiple customs stations.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>In October 2025, NITI Aayog released a report on 'India's Blue Economy: Strategy for Harnessing Deep-Sea and Offshore Fisheries'. This report was formally launched by Prof. Ramesh Chand, Member (Agriculture), NITI Aayog, and Shri B.V.R. Subrahmanyam, CEO, NITI Aayog. Which of the following statement(s) is/are correct in context of this report? </p><p>I. The framework covers deep-sea fishing within India's EEZ and international waters accessed via regional fisheries agreements. </p><p>II. Implementation is sequenced in three phases: Phase 1 (2025-28), Phase 2 (2029-32), and Phase 3 (2033 onwards). </p><p>III. Inclusive fleet development through fisher cooperatives and cluster-based approaches is emphasized to enable collective ownership and access to modern technology.</p>",
+    "options": [
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>NITI Aayog released a report on 'India's Blue Economy: Strategy for Harnessing Deep-Sea and Offshore Fisheries'. This report was formally launched by Prof. Ramesh Chand, Member (Agriculture), NITI Aayog, and Shri B.V.R. Subrahmanyam, CEO, NITI Aayog, in a special event attended by representatives from the fisheries sector, maritime states, and stakeholder organizations. India is the second-largest fish-producing country in the world, accounting for 8% of global production. India's fisheries sector supports nearly 30 million livelihoods and contributes significantly to exports, with fishery products earning '60,523 crore in FY 2023'24.</p><p>&#183; India's Exclusive Economic Zone (EEZ) of over 2 million sq. km, deep waters beyond the continental shelf, and11,098 km coastline across nine coastal States and four Union Territories, provide immense potential to expand its marine fisheries into the deep seas. Despite a thriving fisheries sector, the deep-sea fishery resources beyond the continental shelf remain largely unexploited. The EEZ has an estimated potential yield of 7.16 million tonnes, including both conventional and non-conventional resources. The report highlights that responsible utilization of deep-sea and offshore fisheries can enhance seafood exports, generate employment opportunities, and reduce pressure on coastal fisheries, while ensuring ecological sustainability.</p><p>&#183; It presents a comprehensive framework covering the deep-sea fishing sector within India's Exclusive Economic Zone (EEZ) and international waters accessed through regional fisheries agreements. This framework adopts a science-based, technology-enabled, socially inclusive, and ecologically sustainable approach to harnessing India's deep-sea fisheries potential.</p><p>&#183; The report identifies six key policy interventions on overhauling policies and regulations; strengthening institutional and capacity building; modernizing fleets and upgrading infrastructure; promoting sustainable fisheries management; mobilizing resources and financing; and enhancing local community participation and partnerships. Recognizing the capital-intensive nature of deep-sea fishing, the report also emphasizes inclusive fleet development by supporting fisher cooperatives and cluster-based approaches, enabling collective ownership, operations, and access to modern technology. It also outlines investment priorities and monitoring mechanisms necessary to ensure long-term ecological and economic sustainability.</p><p>&#183; An indicative costing framework for the three phases has also been provided by considering the convergence of centrally sponsored and central sector schemes related to fisheries ' Phase 1: Laying the foundation and fostering early growth (3 years| 2025-28); Phase 2: Scaling up and achieving global competitiveness (4 years| 2029-32) and Phase 3: Global leadership in sustainable deep-sea fisheries (8 years and beyond | 2033 onwards).</p><p>&#183; Alongside the report release, NITI Aayog organized a workshop which witnessed the participation of 18 institutions. The technical session on 'Strategy of States and Way Forward towards Harnessing Deep-Sea Fisheries and Export' included presentations from coastal States such as Goa, Gujarat, Lakshadweep, Maharashtra, Odisha, and Tamil Nadu. This was followed by a panel discussion on 'Advancing Resource Management through Regulatory Reforms, Research, Financing and Capacity Building' with distinguished panelists.</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

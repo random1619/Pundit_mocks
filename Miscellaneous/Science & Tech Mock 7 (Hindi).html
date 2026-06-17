@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science & Tech Mock 7 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>In meiosis, cell divides into ______</p>",
+    "options": [
+      "Two cells with 46 chromosomes each",
+      "Two cells with 23 chromosomes each",
+      "4 cells with 23 chromosomes each",
+      "4 cells with 46 chromosomes each",
+      "2 cells with one nucleus"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Meiosis is a two-step process that reduces the chromosome number by half - from 46 to 23 - to form sperm and egg cells.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Which is an air pollution indicator?</p>",
+    "options": [
+      "Blue green algae",
+      "Fungi",
+      "Bryophyte",
+      "Lichens",
+      "Epiphytes"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Lichens can be used as air pollution indicators, especially of the concentration of sulfur dioxide in the atmosphere.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Which among the following part of human body is made of protein \"Keratin\"?</p>",
+    "options": [
+      "Eye",
+      "Tongue",
+      "Stomach",
+      "Liver",
+      "Skin"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Keratin is the protein that protects epithelial cells from damage or stress. Keratin is extremely insoluble in water and organic solvents. It is the key structural material making up the outer layer of human skin.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Hemoglobin consists of ________?</p>",
+    "options": [
+      "Calcium",
+      "Magnesium",
+      "Manganese",
+      "Iron",
+      "Sulfur"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Each heme group contains an iron atom, and this is responsible for the binding of oxygen. The presence of hemoglobin in blood increases the oxygen carrying capacity.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Which is associated with regeneration of forests?</p>",
+    "options": [
+      "Viticulture",
+      "Horticulture",
+      "Silviculture",
+      "Apiculture",
+      "Sericulture"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Silvicultural system is the process of tending, harvesting and regenerating a forest.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Parkinson's disease is caused by disorder in ___________?</p>",
+    "options": [
+      "Central Nervous System",
+      "Chromosomes",
+      "Muscle Reflex",
+      "Cell Regenerative mechanism",
+      "Bone formation process"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Parkinson's disease (PD) is a long-term degenerative disorder of the central nervous system that mainly affects the motor system.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Bilirubin blood test helps in determining causes for ________?</p>",
+    "options": [
+      "Malaria",
+      "Typhoid",
+      "Jaundice",
+      "Dengue",
+      "Chikungunya"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Bilirubin blood test can help determine the underlying cause of jaundice. Jaundice occurs when there is too much bilirubin (a yellow pigment) in the blood - a condition called hyperbilirubinemia.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Which hormone is responsible for affecting emotions?</p>",
+    "options": [
+      "Oxytocin",
+      "Dopamine",
+      "Vasopressin",
+      "Cortisol",
+      "Aldosterone"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Dopamine is a chemical in brain that affects emotions, movements and sensations of pleasure and pain.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which tissue is involved in storing energy in the form of fat?</p>",
+    "options": [
+      "Epithelial",
+      "Cartilage",
+      "Cardiac",
+      "Adipose",
+      "Spleen"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Adipose tissue, or fatty tissue, connective tissue consisting mainly of fat cells. Its main role is to store energy in the form of fat.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Which organs develops during pregnancy?</p>",
+    "options": [
+      "Vulva",
+      "Clitoris",
+      "Vas deferens",
+      "Fallopian tubes",
+      "Placenta"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The placenta is an organ that develops in your uterus during pregnancy. This structure provides oxygen and nutrients to your growing baby and removes waste products from your baby's blood.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Southern command of Indian Army is headquartered in _________?</p>",
+    "options": [
+      "Chennai",
+      "Pune",
+      "Bangalore",
+      "Andaman and Nicobar Islands",
+      "Hyderabad"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Southern Command is a formation of the Indian Army, active since 1895. Command headquarters is located at Pune Cantonment in Pune, Maharashtra.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Which among the following tanks of Indian army has been withdrawn from service?</p>",
+    "options": [
+      "Arjun",
+      "Bhishma",
+      "Ajeya",
+      "Vijayanta",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Vijayanta was the first indigenous tank of the Indian Army. It was withdrawn from service of Indian Army.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Indian Army Day is observed on 15<sup>th</sup> of ________?</p>",
+    "options": [
+      "August",
+      "Septemeber",
+      "October",
+      "March",
+      "January"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Indian Army day is observed every year on the 15th of January in the National Capital, Delhi. This was the day when Lt. General KM Cariappa took over as the first Commander in Chief of the Independent India in the year 1948. The day is marked as a day to salute the Brave soldiers who laid down their lives for the protection of the Country.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Operation Sankat Mochan was undertaken by Indian Airforce to evacuate Indians from _____?</p>",
+    "options": [
+      "South Sudan",
+      "Yemen",
+      "Somalia",
+      "Iraq",
+      "Sri Lanka"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Operation Sankat Mochan was an operation of the Indian Air Force to evacuate Indian citizens and other foreign nationals from South Sudan during the South Sudanese Civil War. The operation was carried out during 2016 Juba clashes.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Which award holds the last position in order of precedence in list of gallantry awards?</p>",
+    "options": [
+      "Ashoka Chakra",
+      "Kirti Chakra",
+      "Vir Chakra",
+      "Shaurya Chakra",
+      "Mahavir Chakra"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Order of precedence of these awards is the Param Vir Chakra, the Ashoka Chakra, the Mahavir Chakra, the Kirti Chakra, the Vir Chakra and the Shaurya Chakra.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>\"Duty Unto Death\" is the motto of __________?</p>",
+    "options": [
+      "Indian Army",
+      "Indian Navy",
+      "Indian Air Force",
+      "Central Reserve Police Force",
+      "Border Security Force"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>It is the motto of BSF. The Border Security Force (BSF) is the primary border guarding force of India. It is one of the five Central Armed Police Forces of the Union of India.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>\"Smiling Buddha\" is the code name of ___________?</p>",
+    "options": [
+      "Nuclear test",
+      "Capture of Siachen",
+      "Attack on naxals in Andhra Pradesh",
+      "Annexation of goa from Portugal",
+      "To counter the attack of Sikh extremists"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Smiling Buddha was the assigned code name of India's first successful nuclear bomb test on 18 May 1974.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Defence Research and Development Organisation was founded in __________?</p>",
+    "options": [
+      "1958",
+      "1949",
+      "1950",
+      "1967",
+      "1971"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Defence Research and Development Organisation is an agency of the Republic of India, charged with the military's research and development, headquartered in New Delhi, India. It was founded in 1958.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Sir Creek Line separates Pakistan from which Indian State?</p>",
+    "options": [
+      "Jammu &amp; Kashmir",
+      "Punjab",
+      "Haryana",
+      "Rajasthan",
+      "Gujarat"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Sir Creek is a 96 km (60 mi) tidal estuary on the border of India and Pakistan. The creek, which opens up into the Arabian Sea, divides the Gujarat state of India from the Sindh province of Pakistan.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Yudh Abhyas is joint military exercise between India and _________?</p>",
+    "options": [
+      "China",
+      "USA",
+      "Russia",
+      "Sri Lanka",
+      "Bangladesh"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Exercise Yudh Abhyas is a joint military exercise between Indian and US armies. Both armies jointly train, plan and execute a series of well-developed operations for neutralisation of threats of varied nature.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Common salt in its natural form is known as _______</p>",
+    "options": [
+      "Calcite",
+      "Halite",
+      "Monazite",
+      "Rock phosphate",
+      "Pyrite"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Common salt in its natural form as a crystalline mineral is known as rock salt or halite.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Compressed Natural Gas mainly consists of ___________</p>",
+    "options": [
+      "Nitrogen",
+      "Helium",
+      "Methane",
+      "Carbon dioxide",
+      "Sulphur"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Natural gas consists mostly of methane and is drawn from gas wells or in conjunction with crude oil production.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Alcohol floats on top of the water because of difference in ____</p>",
+    "options": [
+      "Temperature",
+      "Density",
+      "Pressure",
+      "Surface tension",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Water is denser than alcohol, so the alcohol floats on top of the water.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Which inorganic compound is referred to as Philosopher's wool?</p>",
+    "options": [
+      "Zinc Oxide",
+      "Magnesium Sulphide",
+      "Silver Nitrate",
+      "Boron nitride",
+      "Manganese chloride"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Philosophers' Wool or Nix Alba, which means white snow, is actually a synonym for zinc oxide. It is a fine, white, non-toxic, insoluble powder formed by heating zinc in the presence of air.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Law of Definite Proportions was postulated by ____________?</p>",
+    "options": [
+      "Antoine Lavoisier",
+      "Jeremias Benjamin Richter",
+      "Leucippus",
+      "Henry Moseley",
+      "Joseph Proust"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Law of Definite Proportions was given by, a French chemist, Joseph Proust. He stated that a given compound always contains exactly the same proportion of elements by weight.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Which of the following refers to the amount of a substance that contains as many particles or entities as there are atoms in exactly 12 gm of the 12C isotope?</p>",
+    "options": [
+      "Candela",
+      "Amu",
+      "Mole",
+      "Chemodense",
+      "Isotopic mass"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>One mole is the amount of a substance that contains as many particles or entities as there are atoms in exactly 12 g of the 12C isotope. The mass of one mole of a substance in grams is called its molar mass.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Protium is an isotope of which element?</p>",
+    "options": [
+      "Nitrogen",
+      "Oxygen",
+      "Carbon",
+      "Hydrogen",
+      "Phosphate"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Protium, the most common isotope of hydrogen, consists of one proton and one electron.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>What is the highest possible value of azimuthal quantum number?</p>",
+    "options": [
+      "2n",
+      "n<sup>2</sup>",
+      "n+1",
+      "n-1",
+      "n"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Azimuthal quantum number describes the shape of the orbital that an electron occupies. The lowest possible value is 0, and its highest possible value, depending on the principal quantum number, is n-1.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Law of Octaves was propounded by _____________</p>",
+    "options": [
+      "Johann Dobereiner",
+      "Lothar Meyer",
+      "Mendeleev",
+      "Glenn T. Seaborg",
+      "John Alexander Newlands"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>John Alexander Newlands profounded the Law of Octaves. He arranged the elements in increasing order of their atomic weights and noted that every eighth element had properties similar to the first element.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Which alphabet is NOT used in period table for classifying elements as blocks?</p>",
+    "options": [
+      "s",
+      "p",
+      "d",
+      "f",
+      "n"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The four blocks in periodic table are s, p, d, and f.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

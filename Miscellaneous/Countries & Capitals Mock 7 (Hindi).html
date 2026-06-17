@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries & Capitals Mock 7 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>The International Court of Justice (ICJ) is composed of how many judges?</p>",
+    "options": [
+      "10",
+      "8",
+      "15",
+      "12",
+      "20"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The International Court of Justice (ICJ), located in The Hague, in the Netherlands, is the primary judicial organ of the UN. Established in 1945 by the UN Charter, the Court began work in 1946 as the successor to the Permanent Court of International Justice. The ICJ is composed of 15 judges who serve 9-year terms and are appointed by the General Assembly; every sitting judge must be from a different nation.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Which of the following is the most recent member country to the United Nations?</p>",
+    "options": [
+      "Eritrea",
+      "Montenegro",
+      "Tuvalu",
+      "Serbia",
+      "South Sudan"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The United Nations member states are the 193 sovereign states that are members of the United Nations (UN) and have equal representation in the UN General Assembly. The UN is the world's largest intergovernmental organization, ahead of the Organisation of Islamic Cooperation. South Sudan became the 193<sup>rd</sup> member of UN on 14<sup>th</sup> Jul 2011.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>The World Health Organisation is head-quartered in</p>",
+    "options": [
+      "Paris",
+      "Washington DC",
+      "Vienna",
+      "Brussels",
+      "Geneva"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The World Health Organization (WHO) is a specialized agency of the United Nations that is concerned with international public health. It was established on 7 April 1948, headquartered in Geneva, Switzerland. The WHO is a member of the United Nations Development Group. Its predecessor, the Health Organization, was an agency of the League of Nations.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>The United Nations Atomic Energy Commission (UNAEC) was established by</p>",
+    "options": [
+      "NATO",
+      "UN General Assembly",
+      "Amnesty International",
+      "Nuclear Supplier Group",
+      "International Atomic Energy Agency"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The United Nations Atomic Energy Commission (UNAEC) was founded on 24 January 1946 by Resolution 1 of the United Nations General Assembly resolution \"to deal with the problems raised by the discovery of atomic energy.\"</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Who was the first Managing Director of IMF?</p>",
+    "options": [
+      "Ivar Rooth",
+      "Per Jacobsson",
+      "Christine Lagarde",
+      "Dominique Strauss-Kahn",
+      "Camille Gutt"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Camille Gutt, was a Belgian economist, politician, and industrialist. He served as the first Managing Director of the International Monetary Fund (IMF) from 6 May 1946 to 5 May 1951. Camille Gutt was the architect of a monetary reform plan that facilitated the recovery of the Belgian economy after World War II.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The Universal Postal Union (UPU) is head-quartered in</p>",
+    "options": [
+      "Madrid",
+      "Copenhagen",
+      "Bern",
+      "Zurich",
+      "Paris"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Established in 1874, the Universal Postal Union (UPU), with its headquarters in the Swiss capital Berne, is the second oldest international organization worldwide. With its 192 member countries, the UPU is the primary forum for cooperation between postal sector players. It helps to ensure a truly universal network of up-to-date products and services.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>World Development Report is published by</p>",
+    "options": [
+      "International Monetary Fund",
+      "World Trade Organisation",
+      "United Nations Environment Program",
+      "United Nations Development Program",
+      "World Bank"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The World Development Report (WDR) is an annual report published since 1978 by the International Bank for Reconstruction and Development (IBRD) or World Bank. Each WDR provides in-depth analysis of a specific aspect of economic development. Past reports have considered such topics as agriculture, youth, equity, public services delivery, the role of the state, transition economies, labour, infrastructure, health, the environment, risk management, and poverty. The reports are the Bank's best-known contribution to thinking about development.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>NATO initially has how many original founding members?</p>",
+    "options": [
+      "8",
+      "12",
+      "18",
+      "10",
+      "20"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>NATO has 12 original founding member nation states, and from 18 February 1952 to 6 May 1955, it added three more member nations, and a fourth on 30 May 1982. After the end of the Cold War, NATO added 13 more member nations (10 former Warsaw Pact members and three former Yugoslav republics) from 12 March 1999 to 5 June 2017.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Where is the secretariat head-quarters of Caribbean Community located?</p>",
+    "options": [
+      "Brades",
+      "Punta Cana",
+      "Georgetown",
+      "Port-Au-Prince",
+      "Kingstown"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Caribbean Community (CARICOM) is an organization of fifteen Caribbean nations and dependencies whose main objective is to promote economic integration and cooperation among its members, to ensure that the benefits of integration are equitably shared, and to coordinate foreign policy. The organization was established in 1973. The secretariat headquarters is in Georgetown, Guyana. CARICOM is an official United Nations Observer.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Which among the following is not a member of Gulf Cooperation Council?</p>",
+    "options": [
+      "Saudi Arabia",
+      "United Arab Emirates",
+      "Oman",
+      "Yemen",
+      "Kuwait"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The original union comprised the Persian Gulf states of Bahrain, Kuwait, Oman, Qatar, Saudi Arabia and the United Arab Emirates. The unified economic agreement between the countries of the Gulf Cooperation Council was signed on 11 November 1981 in Abu Dhabi. These countries are often referred to as \"the GCC states\".</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Asian Development Bank is head-quartered in</p>",
+    "options": [
+      "Shanghai",
+      "Beijing",
+      "Manila",
+      "Tokyo",
+      "Bangkok"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Asian Development Bank (ADB) is a regional development bank established on 19 December 1966, which is headquartered in the Ortigas Centre located in Mandaluyong, Metro Manila, Philippines. The company also maintains 31 field offices around the world to promote social and economic development in Asia. The bank admits the members of the United Nations Economic and Social Commission for Asia and the Pacific (UNESCAP, formerly the Economic Commission for Asia and the Far East or ECAFE) and non-regional developed countries.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Who among the following is the first elected chairman of New Development Bank?</p>",
+    "options": [
+      "Arun Jaitley",
+      "Raghuram Rajan",
+      "Urjit Patel",
+      "KV Kamath",
+      "Lou Jiwei"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The NDB President will be elected on a rotational basis from one of the founding members, and there will be at least one Vice President from each of the other four founding members. K. V. Kamath, from India, is the first elected president of the NDB. The first chair of the Board of Governors is from Russia and the first chair of the Board of Directors is from Brazil.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>The capital of Cameroon is</p>",
+    "options": [
+      "Lome",
+      "Yaounde",
+      "Douala",
+      "Bertoua",
+      "Abuja"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Yaounde is the capital of Cameroon and, with a population of approximately 2.5 million, the second largest city in the country after the port city Douala. It lies in the Centre Region of the nation at an elevation of about 750 metres above sea level.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Which of the following is the capital of Canada?</p>",
+    "options": [
+      "Toronto",
+      "Vancouver",
+      "Ontario",
+      "Ottawa",
+      "Montreal"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Ottawa is the capital city of Canada. It stands on the south bank of the Ottawa River in the eastern portion of southern Ontario. Ottawa borders Gatineau, Quebec; the two form the core of the Ottawa - Gatineau census metropolitan area (CMA) and the National Capital Region (NCR).</p><p>Ottawa is the most educated city in Canada and is home to a number of post-secondary, research, and cultural institutions, including the National Arts Centre, the National Gallery, and numerous national museums. Ottawa has the highest standard of living in the nation and low unemployment. It ranked 2<sup>nd</sup> nationally, 24<sup>th</sup> worldwide in the quality of life index and is consistently rated the best place to live in Canada.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The capital of Chad is</p>",
+    "options": [
+      "Abuja",
+      "Niamey",
+      "N'Djamena",
+      "Bangui",
+      "Bobo-Dioulasso"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>N'Djamena is the capital and largest city of Chad. A port on the Chari River, near the confluence with the Logone River, it directly faces the Cameroonian town of Kousseri, to which the city is connected by a bridge. It is a regional market for livestock, salt, dates, and grains. Meat, fish and cotton processing are the chief industries, and the city continues to serve as the centre of economic activity in Chad.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>The capital of Jamaica is</p>",
+    "options": [
+      "Kingston",
+      "Roseau",
+      "Port of Spain",
+      "Puerto Rico",
+      "St Lucia"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Kingston is the capital and largest city of Jamaica, located on the south-eastern coast of the island. It faces a natural harbour protected by the Palisadoes, a long sand spit which connects the town of Port Royal and the Norman Manley International Airport to the rest of the island. In the Americas, Kingston is the largest predominantly English-speaking city south of the United States.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which of the following is the capital of Latvia?</p>",
+    "options": [
+      "Vilnius",
+      "Riga",
+      "Tallinn",
+      "St Petersburg",
+      "Helsinki"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Riga is the capital and the largest city of Latvia. The city lies on the Gulf of Riga, at the mouth of the Daugava. Riga's territory covers 307.17 square kilometres and lies between one and ten metres above sea level, on a flat and sandy plain.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Beirut is the capital of</p>",
+    "options": [
+      "Jordan",
+      "Syria",
+      "Lebanon",
+      "Iraq",
+      "Egypt"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Beirut is the capital and largest city of Lebanon. No recent population census has been done but in 2007 estimates ranged from slightly more than 1 million to slightly less than 2 million as part of Greater Beirut. Located on a peninsula at the midpoint of Lebanon's Mediterranean coast, Beirut is the country's largest and main seaport.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>What is the capital of Senegal?</p>",
+    "options": [
+      "Conakry",
+      "Dakar",
+      "Bamako",
+      "Freetown",
+      "Ouagadougou"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Dakar is the capital and largest city of Senegal. It is located on the Cap-Vert peninsula on the Atlantic coast and is the westernmost city in the Old World as well as on the African mainland. Senegal, officially the Republic of Senegal, is a country in West Africa. Senegal is bordered by Mauritania in the north, Mali to the east, Guinea to the southeast, and Guinea-Bissau to the southwest.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Freetown is the capital of which of the following country?</p>",
+    "options": [
+      "The Gambia",
+      "Guinea",
+      "Burkina Faso",
+      "Sierra Leone",
+      "Mauritania"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Freetown is the capital and largest city of Sierra Leone. It is a major port city on the Atlantic Ocean and is located in the Western Area of the country. Freetown is Sierra Leone's major urban, economic, financial, cultural, educational and political centre.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>The capital of Somalia is</p>",
+    "options": [
+      "Addis Ababa",
+      "Mogadishu",
+      "Asmara",
+      "Tunis",
+      "Tripoli"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Mogadishu known locally as Hamar, is the capital and most populous city of Somalia. Located in the coastal Banaadir region on the Indian Ocean, the city has served as an important port for millennia. Somalia, is a country located in the Horn of Africa. It is bordered by Ethiopia to the west, Djibouti to the northwest, the Gulf of Aden to the north, the Indian Ocean to the east, and Kenya to the southwest.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>What is the currency of Portugal?</p>",
+    "options": [
+      "Dollar",
+      "Pound",
+      "Euro",
+      "Franc",
+      "Peso"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Currency of Portugal is Euro and the sub unit of Euro is cent. The escudo was the currency of Portugal prior to the introduction of the euro on 1 January 1999 and its removal from circulation on 28 February 2002.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>The currency of Nicaragua is</p>",
+    "options": [
+      "Cordoba",
+      "Peso",
+      "Euro",
+      "Dollar",
+      "Shilling"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The cordoba (sign: C$; code: NIO) is the currency of Nicaragua. It is divided into 100 centavos. Since 1991, the Central Bank of Nicaragua has used a crawling peg scheme, devaluing the cordoba against the United States dollar by 5% per annum.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Which among the following was the currency of Italy, prior to the introduction of Euro in 2002?</p>",
+    "options": [
+      "Franc",
+      "Lira",
+      "Peso",
+      "Rupee",
+      "Pound"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The lira was the currency of Italy between 1861 and 2002 and of the Albanian Kingdom between 1941 and 1943. Between 1999 and 2002, the Italian lira was officially a national subunit of the euro. However, cash payments could be made in lira only, as euro coins or notes were not yet available. The lira was also the currency of the Napoleonic Kingdom of Italy between 1807 and 1814.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Birr is the currency of</p>",
+    "options": [
+      "Morocco",
+      "Ethiopia",
+      "Mozambique",
+      "Lesotho",
+      "Swaziland"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The birr is the unit of currency in Ethiopia. Before 1976, dollar was the official English translation of birr. Today, it is officially birr in English as well. The smaller units of birr is santim.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>What is the currency of The Gambia?</p>",
+    "options": [
+      "Peso",
+      "Euro",
+      "Dollar",
+      "Kroon",
+      "Dalasi"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The dalasi is the currency of the Gambia. It is subdivided into 100 bututs. The dalasi was adopted in 1971. It replaced the Gambian pound at a rate of 1 pound = 5 dalasis, i.e., 1 dalasi = 0.2 pound = 4 shillings.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>'Lari' is the currency of</p>",
+    "options": [
+      "Belarus",
+      "Georgia",
+      "Greece",
+      "Morocco",
+      "Sweden"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The lari is the currency of Georgia. It is divided into 100 tetri. The name lari is an old Georgian word denoting a hoard, property, while tetri is an old Georgian monetary term (meaning 'white') used in ancient Colchis from the 6th century BC. Earlier Georgian currencies include the maneti, abazi, and Georgian coupon.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Rappen is the smallest unit of which among the following currency?</p>",
+    "options": [
+      "Taka",
+      "Rand",
+      "Yuan",
+      "Yen",
+      "Swiss Franc"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The smaller denomination, a hundredth of a franc, is a Rappen (Rp.) in German, centime (c.) in French, centesimo (ct.) in Italian, and rap (rp.) in Romansh.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>What is the currency of Haiti?</p>",
+    "options": [
+      "Rand",
+      "Lari",
+      "Dalasi",
+      "Gourde",
+      "Dollar"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The gourde is the currency of Haiti. Its ISO 4217 code is HTG and it is divided into 100 centimes (French) or santim (Creole).</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Lempira is the currency of</p>",
+    "options": [
+      "Panama",
+      "Honduras",
+      "Ecuador",
+      "Columbia",
+      "Brazil"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The lempira (sign: L, ISO 4217 code: HNL) is the currency of Honduras. It is subdivided into 100 centavos. The lempira was named after the 16th-century cacique Lempira, a ruler of the indigenous Lenca people, who is renowned in Honduran folklore for leading the (ultimately unsuccessful) local native resistance against the Spanish conquistador forces. He is a national hero, and is honoured on both the 1 lempira note and the 20 and 50 centavos coins.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geography Mock 5 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>The Palk Strait separates Indian mainland from _________.</p>",
+    "options": [
+      "Andaman and Nicobar Island",
+      "Maldives",
+      "Seychelles",
+      "Sri Lanka"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Palk Strait is a strait between the <b>Tamil Nadu state of India</b> and the <b>Mannar district of the Northern Province of the island nation of Sri Lanka. </b>It connects the Bay of Bengal in the northeast with the Palk Bay and thence with the Gulf of Mannar in the southwest. The strait is 33 to 50 miles (53 to 80 km) wide. Several rivers flow into it, including the Vaigai River of Tamil Nadu. The strait is named after Robert Palk, who was a governor of Madras Presidency during the Company Raj period.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Which of the following is NOT one of the Great Lakes in North America?</p>",
+    "options": [
+      "Lake Superior",
+      "Lakes Ontario",
+      "Great Bear",
+      "Lake Erie"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Great Lakes are a series of interconnected freshwater lakes located in northeastern North America, on the Canada - United States border, which connect to the Atlantic Ocean through the Saint Lawrence River. Consisting <b>of Lakes Superior, Michigan, Huron (or Michigan - Huron), Erie, and Ontario</b>, they form the largest group of freshwater lakes on Earth, containing 21% of the world's surface fresh water by volume.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>In which mountain range is the Siachen glacier located?</p>",
+    "options": [
+      "Zanskar Range",
+      "Karakoram Range",
+      "Ladhak Range",
+      "Pir Panjal Range"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>The Siachen Glacier is located in the eastern Karakoram range</b> in the Himalaya Mountains, where the Line of Control between India and Pakistan ends. At 76 km,it is the longest glacier in the Karakoram and second-longest in the world's non-polar areas. <b>The entire Siachen Glacier, with all major passes, is currently under the administration of India since 1984, while Pakistan controls the region west of Saltoro Ridge with Pakistani posts located 3,000 ft below 100 Indian posts on Saltoro Ridge.</b></p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following question.</p> <p>1. The latitudes are parallel to the Equator.</p> <p>2. The longitudes meet at the poles.</p> <p>3. All latitudes have the same length.</p><p>Which of the following options lists the correct statements?</p>",
+    "options": [
+      "1, 2 and 3",
+      "1 and 2",
+      "Only 3",
+      "2 and 3"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In geography, <b>latitude (&#966;)</b> is a geographic coordinate that specifies the north-south position of a point on the Earth's surface. Latitude is an angle (defined below) which ranges from 0&deg; at the Equator to 90&deg; (North or South) at the poles. <b>Lines of constant latitude, or parallels, run east-west as circles parallel to the equator. These are circles of different radii, and hence have different lengths.</b></p> <p><b>Longitude, </b>is a geographic coordinate that specifies the east-west position of a point on the Earth's surface. It is an <b>angular measurement</b>, usually expressed in degrees and denoted by the Greek letter lambda (&#955;). <b>Meridians (lines running from the North Pole to the South Pole)</b> connect points with the same longitude. By convention, one of these, the Prime Meridian, which passes through the Royal Observatory, Greenwich, England, was allocated the position of zero degrees longitude.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>In the picture given below, which peninsular river is pointed out?</p><p><img width=449 height=325 id=\"Picture 9\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/05/image001.jpg\" > </p>",
+    "options": [
+      "Krishna",
+      "Vaigai",
+      "Mahanadi",
+      "Cauvery"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><img width=455 height=296 id=\"Picture 10\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/05/image002.jpg\" ></p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>On which Island was Indira Point located?</p>",
+    "options": [
+      "Diu",
+      "Car Nicobar",
+      "Little Andaman",
+      "Great Nicobar"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Indira Point is a village in the Nicobar district of Andaman and Nicobar Islands, India. It is located in the <b>Great Nicobar</b>. It is the location of the southernmost point of India's territory. The village is named after Indira Point, the southernmost point of India's territory, itself named after Prime Minister Indira Gandhi. The point was formerly known as <b>Pygmalion Point and Parsons Point</b>. It was renamed in honor of Indira Gandhi during mid-1980s. The announcement was made by the local Member of Parliament when Indira Gandhi visited the local light house on 19 February 1984. The official renaming ceremony happened on 10 October 1985. The Indira Point lighthouse was commissioned into service on 30 April 1972. After the 2004 Indian Ocean earthquake and tsunami, the southernmost tip subsided 4.25 meters.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Which of the following is responsible for the spiral motion of a tropical cyclone?</p>",
+    "options": [
+      "Pressure gradient",
+      "Gravitational attraction",
+      "Exchange of mass and energy with the Earth",
+      "Coriolis effect"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>A tropical cyclone is a rapidly rotating storm system characterized by a low-pressure center, strong winds, and a spiral arrangement of thunderstorms that produce heavy rain.</b> Depending on its location and strength, a tropical cyclone is referred to by names such as hurricane typhoon, tropical storm, cyclonic storm, tropical depression, and simply cyclone. <b>Tropical cyclones typically form over large bodies of relatively warm water.</b> <b>They derive their energy through the evaporation of water from the ocean surface, which ultimately recondenses into clouds and rain when moist air rises and cools to saturation.</b> <b>The strong rotating winds of a tropical cyclone are a result of the conservation of angular momentum imparted by the Earth's rotation as air flows inwards toward the axis of rotation.</b> As a result, they rarely form within 5&deg; of the equator. Tropical refers to the geographical origin of these systems, which form almost exclusively over tropical seas. Cyclone refers to their cyclonic nature, with wind blowing counterclockwise in the Northern Hemisphere and clockwise in the Southern Hemisphere. <b>The manner of circulation is due to the Coriolis effect.</b></p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Which of the following refers to a geomorphological phenomena occurring when a stream is diverted from its own bed, and flows instead down the bed of a neighboring stream?</p>",
+    "options": [
+      "River Rejuvenation",
+      "River Beheading",
+      "Misfit",
+      "Cataracts"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Stream capture, river capture, or stream piracy is a geomorphological phenomenon occurring when a stream or river drainage system or watershed is diverted from its own bed, and flows instead down the bed of a neighboring stream</b>. This can happen for several reasons, including:</p> <p><b>Tectonic earth movements</b>, where the slope of the land changes, and the stream is tipped out of its former course</p> <p><b>Natural damming</b>, such as by a landslide or ice sheet</p> <p><b>Erosion,</b> either</p> <p><b>Headward erosion</b> of one stream valley upwards into another, or</p> <p><b>Lateral erosion</b> of a meander through the higher ground dividing the adjacent streams.</p> <p><b>Within an area of karst topography</b>, where streams may sink, or flow underground (a sinking or losing stream) and then reappear in a nearby stream valley</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which of the following dam is NOT located in Himachal Pradesh?</p>",
+    "options": [
+      "Pandoh Dam",
+      "Nathpa Jhakri Dam",
+      "Chamera Dam",
+      "Koteshwar Dam"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The <b>Koteshwar Dam is a gravity dam on the Bhagirathi River</b>, located 22 km (14 mi) downstream of the Tehri Dam in Tehri District, <b>Uttarakhand, India. </b>The dam is part of the Tehri Hydropower Complex and serves to regulate the Tehri Dam's tailrace for irrigation and create the lower reservoir of the Tehri Pumped Storage Power Station. In addition, the dam has a 400 MW (4x100 MW) run-of-the-river power station. </p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Which of the following refers to a cone shaped accumulation of volcanic material NOT a part of the central vent of a volcano?</p>",
+    "options": [
+      "Ancillary Cone",
+      "Conduit",
+      "Parasitic Cones",
+      "Dyke"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>A parasitic cone is the cone-shaped accumulation of volcanic material not part of the central vent of a volcano.</b> It forms from eruptions from fractures on the flank of the volcano. These fractures occur because the flank of the volcano is unstable. Eventually, the fractures reach the magma chamber and generate eruptions called flank eruptions, which, in turn, produce a parasitic cone. A parasitic cone can also be formed from a dike or sill cutting up to the surface from the central magma chamber in an area different from the central vent. An example of parasitic cone is Mount Scott, which is the \"parasite\" of Mount Mazama in Crater Lake National Park, Oregon, USA.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Which of the following refers to a mountain formed by denudation?</p>",
+    "options": [
+      "dissected mountains",
+      "residual mountains",
+      "block mountains",
+      "fold mountains"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Relict or Residual Mountains</b> - the Mountains which are subjected to weathering and erosion for a long time, are lowered down and are called Relief or Residual mountains. The mountains of the Western Ghats, the Aravalli Mountain and the Parasnath mountain of Bihar belong to this type.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>In which state is the Dampa Tiger Reseve located?</p>",
+    "options": [
+      "Tripura",
+      "Meghalaya",
+      "Mizoram",
+      "Assam"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>Dampa Tiger Reserve or Dampha Tiger Reserve,</b> the largest <b>wildlife sanctuary in Mizoram</b>, was notified in 1985 and declared a Tiger Reserve in 1994. It is situated in the western part of Mizoram state. It covers an area of approximately 550 km&#178;. The tropical forests of Dampa are home to rich flora and fauna. It consists of forest interpolated with steep precipitous hills, deep valleys, jungle streams, ripping rivulets, natural salts licks, with an altitudinal zone of 200 - 800 mts. Dampa Tiger Reserve is a part of Project Tiger funded by the Government of India. Dampa Tiger Reserve is the natural home of <b>leopards, Indian bison, barking deer, sloth bear, gibbons, langurs, slow loris, rhesus macaque, Indian Python (Python Molurus Molurus), wild boar and a variety of birds.</b> Unfortunately its namesake tiger has disappeared almost entirely, the enumeration indicated only 4 individuals in 1994, when it was pronounced as a tiger reserve.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following question.</p> <p>1. Magma with high proportion of silica is said to be basic.</p> <p>2. Acid magma is more viscous than basic magma.</p> <p>3. The ocean floor comprises mainly of basaltic rock.</p><p>Which of the following options list the correct statements?</p>",
+    "options": [
+      "1 and 2",
+      "1 and 3",
+      "2 and 3",
+      "1, 2 and 3"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The terms basic and acidic originated in the late 19th century as a chemical classification for rocks, based on the idea that <b>high-silica magmas were acidic</b> and that <b>low-silica magmas were basic. </b>Although we now know that this idea is erroneous; the use of these terms has persisted as a broad and indeed useful classification scheme for both rocks and magmas. <b>Thus, although these original definitions are still valid. The magma rich is Silica is more viscous than the magma having a low proportion of silica.</b></p> <p>The oceanic crust is the lower layer of the Earth's crust. This layer is made of rocks rich in magnesium silicate minerals. Typically when the sima comes to the surface it is basalt, so sometimes this layer is called the <b>'basalt layer'</b> of the crust. The sima layer is also called the 'basal crust' or 'basal layer' because it is the lowest layer of the crust.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Which of the following is NOT included in United Kingdom?</p>",
+    "options": [
+      "England",
+      "Scotland",
+      "Wales",
+      "Republic of Ireland"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Politically, the term <b>Great Britain</b> usually extends to include surrounding islands that form part of <b>England, Scotland, and Wales</b>. The United Kingdom of <b>Great Britain</b> and <b>Northern Ireland</b>, commonly known as the United Kingdom (UK) or Britain, is a sovereign state in Europe. Northern Ireland is the only part of the UK that shares a land border with another state - the <b>Republic of Ireland</b>.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Orang National Park lies on the banks of which of the following rivers?</p>",
+    "options": [
+      "Ganga",
+      "Tapti",
+      "Subarnrekha",
+      "Brahmputra"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Orang National Park, located on the north bank of <b>the Brahmaputra River</b> in the Darrang and Sonitpur districts of Assam, India, covers an area of 78.81 square kilometers (30.43 sq mi). <b>It was established as a sanctuary in 1985 and declared a national park on 13 April 1999. It is also known as the mini Kaziranga National Park (IUCN site)</b> since the two parks have a similar landscape made up of marshes, streams and grasslands. The park has a rich flora and fauna, including great Indian <b>one-horned rhinoceros, pigmy hog, elephants, wild buffalo and tigers.</b> It is the only stronghold of rhinoceros on the north bank of the Brahmaputra River.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>In which country is the Black Forest located?</p>",
+    "options": [
+      "France",
+      "Germany",
+      "Poland",
+      "Denmark"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Black Forest is a large forested mountain range in the state of <b>Baden-W&#252;rttemberg in southwestern Germany</b>. It is bounded by the Rhine valley to the west and south. Its highest peak is the Feldberg with an elevation of 1,493 meters (4,898 ft). The region is almost rectangular in shape with a length of 160 km and breadth of up to 60 km.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>The Relative Humidity is expressed as-</p>",
+    "options": [
+      "grams per cubic meter",
+      "percentage",
+      "milliliters per cubic meter",
+      "cubic meters"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Relative humidity (abbreviated RH) is the ratio of the partial pressure of water vapor to the equilibrium vapor pressure of water at the same temperature. Relative humidity depends on temperature and the pressure of the system of interest. Relative humidity is normally expressed as a <b>percentage</b>; a higher percentage means that the air-water mixture is more humid.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>In which of the following regions is are Jeseri and Mahl spoken?</p>",
+    "options": [
+      "Assam",
+      "Chhattisgarh",
+      "Lakshadweep",
+      "Gujarat"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Maldivian is an Indo-Aryan language predominantly spoken by about 350,000 people in the Maldives, where it is the national language. It is also the first language of nearly 10,000 people on the island of Minicoy in the <b>Union territory of Lakshadweep</b>, India, where <b>the Mahl dialect</b> of the Maldivian language is spoken. </p> <p><b>Jeseri (also known as Jesri or Dweep Bhasha) is a dialect related to Malayalam, spoken in the Union Territory of Lakshadweep in India. </b>It is spoken on the islands of Chetlat, Bitra, Kiltan, Kadmath, Amini, Kavarathi, Androth, Agathi, and Kalpeni, in the archipelago of Lakshadweep. Each of these islands has its own dialect.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>In which continent are Queen Maud Mountains located?</p>",
+    "options": [
+      "Europe",
+      "North America",
+      "Antarctica",
+      "Asia"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>The Queen Maud Mountains are a major group of mountains, ranges and subordinate features of the Transantarctic Mountains, lying between the Beardmore and Reedy Glaciers and including the area from the head of the Ross Ice Shelf to the polar plateau in Antarctica. </b>Captain Roald Amundsen and his South Pole party ascended Axel Heiberg Glacier near the central part of this group in November 1911, naming these mountains for the Norwegian queen Maud of Wales.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Which of the following is NOT a permanent pressure belt?</p>",
+    "options": [
+      "Doldrums",
+      "Katabatic",
+      "Polar high pressure belt",
+      "Subtropical High pressure belt."
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>There is a pattern of alternate high and low pressure belts over the earth. These are called the <b>permanent pressure belts</b>. This is due to the spherical shape of the earth - different parts of the earth are heated unequally. The Equatorial region receives great amount of heat throughout the year. Warm air being light,the air at the Equator rises, creating a low pressure. At the poles the cold heavy air causes high pressure to be created/formed. It is also due to the rotation of the earth. In the Sub-polar region around latitudes 60&deg; to 65&deg; North and South of the Equator, the rotation of the earth pushes up the bulk of the air towards the Equator, creating a low pressure belt in this region.</p> <p>(i) <b>Equatorial Low Pressure Belts</b></p> <p>This low pressure belt extends from 0 to 5&deg; North and South of Equator. Due to the vertical rays of the sun here, there is intense heating. The air therefore, expands and rises as convection current causing a low pressure to develop here. This low pressure belt is also called as <b>doldrums</b>, because it is a zone of total calm without any breeze.</p> <p>(ii<b>) Sub-tropical High Pressure Belts</b></p> <p>At about 30&deg;North and South of Equator lies the area where the ascending equatorial air currents descend. This area is thus an area of high pressure. It is also called as the Horse latitude.</p> <p>Winds always blow from high pressure to low pressure. So the winds from sub-tropical region blow towards Equator as Trade winds and another wind blows towards Sub-Polar Low-Pressure as Westerlies.</p> <p>(iii) <b>Circum-polar Low Pressure Belts</b></p> <p>These belts located between 60&deg; and 70&deg; in each hemisphere are known as Circum-polar Low Pressure Belts. In the Sub-tropical region the descending air gets divided into two parts. One part blows towards the Equatorial Low Pressure Belt. The other part blows towards the Circum- polar Low Pressure Belt. This zone is marked by ascent of warm Sub-tropical air over cold polar air blowing from poles. Due to earth's rotation, the winds surrounding the Polar region blow towards the Equator. Centrifugal forces operating in this region create the low pressure belt appropriately called Circum-polar Low Pressure Belt. This region is marked by violent storms in winter.</p> <p>(iv) <b>Polar High Pressure Areas</b></p> <p>At the North and South Poles, between 70&deg; to 90&deg; North and South, the temperatures are always extremely low. The cold descending air gives rise to high pressures over the Poles. These areas of Polar high pressure are known as the Polar Highs. These regions are characterized by permanent Ice Caps.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>The tribes Apa Tani and Nyishi belong to which region of India?</p>",
+    "options": [
+      "Assam",
+      "Bihar",
+      "Arunachal Pradesh",
+      "Jharkhand"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>The Apatani, or Tanw, also known by Apa and Apa Tani</b>, are a tribal group of people living in the <b>Ziro valley in the Lower Subansiri district of Arunachal Pradesh in India. </b>Their language belongs to the Sino-Tibetan family as well as the Tibeto-Burman and North Assam groups.</p> <p>The <b>Nyishi tribe is one of the principal inhabitants of Arunachal Pradesh</b> in north-eastern India. Nyi refers to \"a man\" and the word shi denotes \"a being\", which collectively means a civilized human being. <b>They are spread across six districts of Arunachal Pradesh</b>. </p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following question.</p> <p>1. Temperature increases with increase in latitude.</p> <p>2. Temperature increases with decrease in altitude.</p> <p>3. Distance of a place from the sea influences its temperature.</p><p>Which of the following options lists the correct statements?</p>",
+    "options": [
+      "1 and 3",
+      "1 and 2",
+      "2 and 3",
+      "1, 2 and 3"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The temperature <b>decreases with increase in latitude</b> (as we move from the equator to the poles).</p> <p>The <b>temperature decreases with increase in altitude</b> and increases with decrease in altitude. As we move higher, the temperature decreases. At first the temperature drops for 1 degree Celsius, for every 165 m of height gained.</p> <p><b>Distance from the sea influences the temperature of a place</b>. The climate of a place on the sea shore is called Maritime Climate. The climate in the interior of a landmass is called the continental climate. There are extremes of temperature in the continental climate, while the maritime climate has equable temperature in all the seasons. </p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>The Strait of Malacca separates the Malay Peninsula and __________.</p>",
+    "options": [
+      "Sumatra",
+      "Vietnam",
+      "China",
+      "Sri Lanka"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Strait of Malacca or Straits of Malacca is a narrow, 805 km (500 mi) stretch of water between the <b>Malay Peninsula (Peninsular Malaysia) and the Indonesian island of Sumatra. </b>It is named after the Malacca sultanate that ruled over the archipelago between 1400 and 1511.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>In which of the following regions, there are three crops of rice, namely- Aus, Aman and Boro?</p>",
+    "options": [
+      "West Bengal",
+      "Assam",
+      "Uttar Pradesh",
+      "Andhra Pradesh"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>West Bengal has three crops of rice.</p> <p>1.<b> Aus</b> in pre Kharif/Autumn season.</p> <p>2.<b> Aman </b>in winter/Kharif season.</p> <p>3.<b> Boro</b> in summer.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Which of the following is known as the \"Roof of the World\"?</p>",
+    "options": [
+      "Andes Mountains",
+      "Pamir mountains",
+      "Colorado Plateau",
+      "Columbia Plateau"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The <b>Pamir Mountains</b> are a mountain range in Central Asia at the junction of the Himalayas with the Tian Shan, Karakoram, Kunlun, and Hindu Kush ranges. They are among the world's highest mountains, and since Victorian times, they have been known as the <b>\"Roof of the World\"</b>, presumably a translation from Persian</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Which city is the capital of the Democratic Republic of Congo?</p>",
+    "options": [
+      "Kinshasa",
+      "Lubumbashi",
+      "Mbuji-Mayi",
+      "Goma"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Democratic Republic of Congo is extremely rich in natural resources, but political instability, a lack of infrastructure, deep rooted corruption, and centuries of both commercial and colonial extraction and exploitation have limited holistic development. Besides the capital, Kinshasa, the other major cities, Lubumbashi and Mbuji-Mayi, are both mining communities. DR Congo's largest export is raw minerals, with China accepting over 50% of DRC's exports in 2012. As of 2013, according to the Human Development Index (HDI), DR Congo has a low level of human development, ranking 176 out of 187 countries.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Which of the following is a major black pepper producing region of India?</p>",
+    "options": [
+      "Andhra Pradesh",
+      "Kerala",
+      "Assam",
+      "Gujarat"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Kerala produces 97% of the national output of black pepper and accounts for 85% of the natural rubber in the country.</b> <b>Coconut, tea, coffee, cashew, and spices</b> - including <b>cardamom, vanilla, cinnamon, and nutmeg </b>are the main agricultural products. The key agricultural staple is rice, with varieties grown in extensive paddy fields. Home gardens made up a significant portion of the agricultural sector.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following question.</p> <p>1. Sahara and Namib deserts are located in Africa.</p> <p>2. The Nile and The Danube are important rivers of Africa</p> <p>3. Islands of Zanzibar commercially produce cloves. </p><p>Which of the following options lists the correct statements?</p>",
+    "options": [
+      "1 and 3",
+      "2 and 3",
+      "1 and 2",
+      "1, 2 and 3"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Sahara is the largest hot desert in the world. It is the third largest desert after Antarctica and the Arctic. Its surface area of 9,400,000 square kilometers. The desert comprises much of the land found within <b>North Africa</b>, excluding the fertile coastal region situated against the Mediterranean Sea, the Atlas Mountains of the Maghreb, and the Nile Valley of Egypt and Sudan. The Sahara stretches from the Red Sea in the east and the Mediterranean in the north, to the Atlantic Ocean in the west, where the landscape gradually transitions to a coastal plain.</p> <p>The <b>Namib is a coastal desert in southern Africa. </b>The name Namib is of Nama origin and means \"vast place\". According to the broadest definition, the Namib stretches for more than 2,000 kilometers along the Atlantic coasts of Angola, Namibia, and South Africa, extending southward from the Carunjamba River in Angola, through Namibia and to the Olifants River in Western Cape, South Africa.</p> <p>The <b>Nile</b> is an African River, while the <b>Danube </b>flows in Europe.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>What is the name of the proposed capital of Andhra Pradesh?</p>",
+    "options": [
+      "Amravati",
+      "Penneru",
+      "Vijayawada",
+      "Tirupati"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Amaravati is the proposed riverfront capital city of the Indian state of Andhra Pradesh</b>. It is located on the southern banks of the River Krishna in Guntur and Krishna districts. The new city will cover an area of 217.23 sq. km., within the Andhra Pradesh Capital Region. The foundation stone of the planned city was laid at Uddandarayunipalem village of Guntur district by Prime Minister Narendra Modi on 22 October 2015. The cities of Guntur and Vijayawada are the major suburbs of the city.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Which metal is found in auriferous lodes?</p>",
+    "options": [
+      "Silver",
+      "Platinum",
+      "Gold",
+      "Lead"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>Auriferous Deposits</b>: A natural repository of gold, including gold-bearing lodes and sediments which contain gold in grains or nuggets.</p> <p>Gold is also found in sands of some rivers<b>. Kolar, Hutti, Ramgiri and Yeppamanna</b> are gold fields located in India.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Mock 13 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>In Rama's opinion, the weight of her son Amit is not more than 72 kg. In Amit's opinion, his weight is not greater than 74 kg but not less than 66 kg. According to Amit's brother, Amit's weight is not less than 67 kg but not more than 70 kg. If each of them are correct in their estimation, then what is the average of different possible weights of Amit (in kg)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2352;&#2350;&#2366; &#2325;&#2368; &#2352;&#2366;&#2351; &#2325;&#2375; &#2309;&#2344;&#2369;&#2360;&#2366;&#2352;, &#2313;&#2360;&#2325;&#2375; &#2348;&#2375;&#2335;&#2375; &#2309;&#2350;&#2367;&#2340; &#2325;&#2366; &#2357;&#2332;&#2344; 72 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2360;&#2375; &#2309;&#2343;&#2367;&#2325; &#2344;&#2361;&#2368;&#2306; &#2361;&#2376;| &#2309;&#2350;&#2367;&#2340; &#2325;&#2368; &#2352;&#2366;&#2351; &#2325;&#2375; &#2309;&#2344;&#2369;&#2360;&#2366;&#2352;, &#2313;&#2360;&#2325;&#2366; &#2357;&#2332;&#2344; 74 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2360;&#2375; &#2309;&#2343;&#2367;&#2325; &#2344;&#2361;&#2368;&#2306; &#2361;&#2376; &#2354;&#2375;&#2325;&#2367;&#2344; 66 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2360;&#2375; &#2325;&#2350; &#2349;&#2368; &#2344;&#2361;&#2368;&#2306; &#2361;&#2376;&#2404; &#2309;&#2350;&#2367;&#2340; &#2325;&#2375; &#2349;&#2366;&#2312; &#2325;&#2375; &#2309;&#2344;&#2369;&#2360;&#2366;&#2352;, &#2309;&#2350;&#2367;&#2340; &#2325;&#2366; &#2357;&#2332;&#2344; 67 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2360;&#2375; &#2325;&#2350; &#2344;&#2361;&#2368;&#2306; &#2361;&#2376; &#2354;&#2375;&#2325;&#2367;&#2344; 70 &#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2360;&#2375; &#2309;&#2343;&#2367;&#2325; &#2349;&#2368; &#2344;&#2361;&#2368;&#2306; &#2361;&#2376;| &#2351;&#2342;&#2367; &#2313;&#2344;&#2350;&#2375;&#2306; &#2360;&#2375; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2309;&#2346;&#2344;&#2375; &#2310;&#2325;&#2354;&#2344; &#2350;&#2375;&#2306; &#2360;&#2361;&#2368; &#2361;&#2376;, &#2340;&#2379; &#2309;&#2350;&#2367;&#2340; &#2325;&#2375; &#2357;&#2367;&#2349;&#2367;&#2344;&#2381;&#2344; &#2360;&#2350;&#2381;&#2349;&#2366;&#2357;&#2367;&#2340; &#2357;&#2332;&#2344; (&#2325;&#2367;&#2354;&#2379;&#2327;&#2381;&#2352;&#2366;&#2350; &#2350;&#2375;&#2306;) &#2325;&#2366; &#2324;&#2360;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">67</span><span class=\"hqt\" style=\"display:none\">67</span>",
+      "<span class=\"eqt\">69</span><span class=\"hqt\" style=\"display:none\">69</span>",
+      "<span class=\"eqt\">68</span><span class=\"hqt\" style=\"display:none\">68</span>",
+      "<span class=\"eqt\">None of these</span><span class=\"hqt\" style=\"display:none\">&#2311;&#2344;&#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2379;&#2312; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Let the weight of Amit be W.</p><p>According to Rama, W &le; 72</p><p>According to Amit, 66 &le; W &le; 74</p><p>According to Amit's brother, 67 &le; W &le; 70</p><p>Now, the value satisfying all the conditions are 67, 68, 69 and 70.</p><p>Therefore the average of different possible weights of Amit is (67 + 68 + 69 + 70)/4 = 68.5 kg</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What should be added to 8x<sup>3</sup>-12x<sup>2</sup>+2x+5 to make it exactly divisible by (2x+1) ? </p></span><span class=\"hqt\" style=\"display:none\"><p>8x<sup>3</sup>-12x<sup>2</sup>+2x+5 &#2350;&#2375;&#2306; &#2325;&#2367;&#2340;&#2344;&#2366; &#2332;&#2379;&#2396;&#2366; &#2332;&#2366;&#2344;&#2366; &#2330;&#2366;&#2361;&#2367;&#2319; &#2325;&#2367; &#2351;&#2361; (2x+1) &#2360;&#2375; &#2346;&#2370;&#2352;&#2381;&#2339;&#2340;&#2307; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2361;&#2379; &#2360;&#2325;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">-2</span><span class=\"hqt\" style=\"display:none\">-2</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">-3</span><span class=\"hqt\" style=\"display:none\">-3</span>",
+      "<span class=\"eqt\">&radic;-4</span><span class=\"hqt\" style=\"display:none\">&radic;-4</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>If the given equation is exactly divisible by (2x + 1)</p><p>2x+1&#8594;x=-1/2</p><p>Use the remainder theorem to find the remainder:</p><p>f(-1/2)=8(-1/2)<sup>3</sup>-12(-1/2)<sup>2</sup>+2(-1/2)+5</p><p>f(-1/2)=8(-1/8)-12(1/4)+2(-1/2)+5=-1-3-1+5=0</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The diagonal of the square is 5&radic;2 cm. The diagonal of the other square whose area is double that of the first?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2357;&#2352;&#2381;&#2327; &#2325;&#2366; &#2357;&#2367;&#2325;&#2352;&#2381;&#2339; 5&radic;2 &#2360;&#2375;&#2350;&#2368;. &#2361;&#2376;&#2404; &#2309;&#2344;&#2381;&#2351; &#2357;&#2352;&#2381;&#2327; &#2325;&#2366; &#2357;&#2367;&#2325;&#2352;&#2381;&#2339; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;, &#2332;&#2367;&#2360;&#2325;&#2366; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2347;&#2354; &#2346;&#2361;&#2354;&#2375; &#2357;&#2352;&#2381;&#2327; &#2325;&#2375; &#2357;&#2367;&#2325;&#2352;&#2381;&#2339; &#2360;&#2375; &#2342;&#2379;&#2327;&#2369;&#2339;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">12 cm</span><span class=\"hqt\" style=\"display:none\">12 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">20 cm</span><span class=\"hqt\" style=\"display:none\">20 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">54 cm</span><span class=\"hqt\" style=\"display:none\">54 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">10 cm</span><span class=\"hqt\" style=\"display:none\">10 &#2360;&#2375;&#2350;&#2368;.</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>diagonal of square= &radic;2 a</p><p>a= side of square.</p><p>now,</p><p>d = 5&radic;2</p><p>Side of the square = 5 cm</p><p>Area of the square = 5 * 5 = 25 cm<sup>2</sup></p><p>Area of other square of double the area = 2 * 25 = 50 cm<sup>2</sup></p><p>Side of square = &radic;50 = 5&radic;2 cm</p><p>Diagonal of the square = 10 cm</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Find the speed of the man walking in the direction of the train if the length of train is 1000m and is moving with a speed of 66km/hr and it takes 60sec for the train to cross the man.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2319;&#2325; &#2335;&#2381;&#2352;&#2375;&#2344; &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; 1000 &#2350;&#2368;&#2335;&#2352; &#2361;&#2376; &#2324;&#2352; 66 &#2325;&#2367;&#2350;&#2368;/&#2328;&#2306;&#2335;&#2366; &#2325;&#2368; &#2327;&#2340;&#2367; &#2325;&#2375; &#2360;&#2366;&#2341; &#2310;&#2327;&#2375; &#2348;&#2397;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; &#2335;&#2381;&#2352;&#2375;&#2344; &#2319;&#2325; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2379; &#2346;&#2366;&#2352; &#2325;&#2352;&#2344;&#2375; &#2350;&#2375;&#2306; 60 &#2360;&#2375;&#2325;&#2306;&#2337; &#2325;&#2366; &#2354;&#2327;&#2366;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2335;&#2381;&#2352;&#2375;&#2344; &#2325;&#2368; &#2342;&#2367;&#2358;&#2366; &#2350;&#2375;&#2306; &#2330;&#2354;&#2344;&#2375; &#2357;&#2366;&#2354;&#2375; &#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2368; &#2327;&#2340;&#2367; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306; ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3 km/hr</span><span class=\"hqt\" style=\"display:none\">3 &#2325;&#2367;&#2350;&#2368; /&#2328;&#2306;&#2335;&#2366;</span>",
+      "<span class=\"eqt\">4km/hr</span><span class=\"hqt\" style=\"display:none\">4 &#2325;&#2367;&#2350;&#2368; /&#2328;&#2306;&#2335;&#2366;</span>",
+      "<span class=\"eqt\">5km/hr</span><span class=\"hqt\" style=\"display:none\">5 &#2325;&#2367;&#2350;&#2368; /&#2328;&#2306;&#2335;&#2366;</span>",
+      "<span class=\"eqt\">6km/hr</span><span class=\"hqt\" style=\"display:none\">6 &#2325;&#2367;&#2350;&#2368; /&#2328;&#2306;&#2335;&#2366;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Relative speed of train = Relative distance /relative time</p><p>=&gt; Relative speed of train = 1000/60</p><p>=&gt; Relative speed of train = 50/3m/sec</p><p>=&gt; Relative speed of train = 50*18 /3*5</p><p>=&gt; Relative speed of train = 60 km/h</p><p>=&gt; Actual speed of the train  -  speed of the man = relative speed of the train</p><p>=&gt; 66  -  x = 60</p><p>=&gt; x = 6km/hr</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>An equilateral triangle is such that P and Q are mid-points of sides AB and AC and PQ is parallel to BC. If length of PQ is 10 cm, then what is the length of BC? (in cm)</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2350;&#2348;&#2366;&#2361;&#2369; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; &#2350;&#2375;&#2306; AB &#2324;&#2352; AC &#2349;&#2369;&#2332;&#2366; &#2346;&#2352; P &#2324;&#2352; Q &#2350;&#2343;&#2381;&#2351;&#2348;&#2367;&#2344;&#2381;&#2342;&#2369; &#2361;&#2376; &#2324;&#2352; PQ, BC &#2325;&#2375; &#2360;&#2350;&#2366;&#2344;&#2366;&#2306;&#2340;&#2352; &#2361;&#2376;| &#2351;&#2342;&#2367; PQ &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; 10 &#2360;&#2375;&#2350;&#2368;. &#2361;&#2376;, &#2340;&#2379; BC &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; (&#2360;&#2375;&#2350;&#2368;. &#2350;&#2375;&#2306;) &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">25 cm</span><span class=\"hqt\" style=\"display:none\">25 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">5 cm</span><span class=\"hqt\" style=\"display:none\">5 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">45 cm</span><span class=\"hqt\" style=\"display:none\">45 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">20 cm</span><span class=\"hqt\" style=\"display:none\">20 &#2360;&#2375;&#2350;&#2368;.</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><img width=210 height=242 id=\"Picture 13\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p1260/image004.png\"></p><p>=&gt; Since P and Q are mid points AB and AC and PQ || BC</p><p>=&gt; Therefore, AP/AB =AQ/AC = PQ/BC</p><p>=&gt; &frac12;=PQ/BC</p><p>=&gt; BC=2*10</p><p>=&gt; BC = 20cm</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Find the value of (x<sup>4</sup> +5x<sup>3</sup> + 7 x<sup>2</sup> +5x + 1) / (x<sup>4</sup> + 1) if x + 1/x =2.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x + 1/x =2 &#2361;&#2376;, &#2340;&#2379; (x<sup>4</sup> +5x<sup>3</sup> + 7 x<sup>2</sup> +5x + 1) / (x<sup>4</sup> + 1) if x + 1/x =2 &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">7.5</span><span class=\"hqt\" style=\"display:none\">7.5</span>",
+      "<span class=\"eqt\">8.5</span><span class=\"hqt\" style=\"display:none\">8.5</span>",
+      "<span class=\"eqt\">9.5</span><span class=\"hqt\" style=\"display:none\">9.5</span>",
+      "<span class=\"eqt\">10.5</span><span class=\"hqt\" style=\"display:none\">10.5</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>=&gt; x+ 1/x = 2</p><p>Squaring on both sides we get</p><p>=&gt; x<sup>2</sup> + 1/x<sup>2</sup> + 2=4</p><p>=&gt; x<sup>2</sup> + 1/x<sup>2</sup> = 2</p><p>=&gt; x<sup>4</sup> + 5x<sup>3</sup> + 7x<sup>2</sup> + 5x + 1 / x<sup>4</sup> + 1</p><p>=&gt; Dividing each term by x<sup>2</sup></p><p>=&gt; x<sup>2</sup> + 5x + 7 + 5/x + 1/x<sup>2</sup> / x<sup>2</sup> + 1/x<sup>2</sup></p><p>=&gt; Now x<sup>2</sup> + 1/x<sup>2</sup> = 2</p><p>=&gt; (x<sup>2</sup> + 1/x<sup>2</sup>) + 5(x+1/x<sup>2</sup>) + 7 / x<sup>2</sup> + 1/x<sup>2</sup></p><p>=&gt; 2+ 5*2 + 7 / 2</p><p>=&gt; 2+ 10+ 7 / 2</p><p>=&gt; = 19/2</p><p>=&gt; = 9.5</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The price of a commodity is Rs 2000 and the seller want to earn a profit of 8%.If the seller lists the commodity at 20% above the price, find what should be the allowed discount.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2357;&#2360;&#2381;&#2340;&#2369; &#2325;&#2366; &#2350;&#2370;&#2354;&#2381;&#2351; 2000 &#2352;&#2370;&#2346;&#2351;&#2375; &#2361;&#2376; &#2324;&#2352; &#2357;&#2367;&#2325;&#2381;&#2352;&#2375;&#2340;&#2366; 8% &#2325;&#2366; &#2354;&#2366;&#2349; &#2325;&#2350;&#2366;&#2344;&#2366; &#2330;&#2366;&#2361;&#2340;&#2366; &#2361;&#2376;| &#2351;&#2342;&#2367; &#2357;&#2367;&#2325;&#2381;&#2352;&#2375;&#2340;&#2366; 20% &#2325;&#2375; &#2350;&#2370;&#2354;&#2381;&#2351; &#2360;&#2375; &#2314;&#2346;&#2352; &#2357;&#2360;&#2381;&#2340;&#2369; &#2325;&#2366; &#2350;&#2370;&#2354;&#2381;&#2351; &#2309;&#2306;&#2325;&#2367;&#2340; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2325;&#2367;&#2340;&#2344;&#2368; &#2331;&#2370;&#2335; &#2325;&#2368; &#2309;&#2344;&#2369;&#2350;&#2340;&#2367; &#2361;&#2379;&#2344;&#2368; &#2330;&#2366;&#2361;&#2367;&#2319;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">20%</span><span class=\"hqt\" style=\"display:none\">20%</span>",
+      "<span class=\"eqt\">50%</span><span class=\"hqt\" style=\"display:none\">50%</span>",
+      "<span class=\"eqt\">10%</span><span class=\"hqt\" style=\"display:none\">10%</span>",
+      "<span class=\"eqt\">5%</span><span class=\"hqt\" style=\"display:none\">5%</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><u>Short cut method :</u></p><p>=&gt; Let the discount allowed be d</p><p>=&gt; 20  -  d  -  20x/100=8</p><p>=&gt; 12=120d/100</p><p>=&gt; <b>d</b>= 10%</p><p><u>Alternative method:</u></p><p>=&gt; SP=(1+8/100)*2000</p><p>=&gt; Rs.2160</p><p>=&gt; And list price =(1+20/100)*2000= Rs.2400</p><p>=&gt; Discount=2400 - 2160</p><p>=&gt; Rs.240</p><p>=&gt; Discount %=240*100/2400</p><p>=&gt; 10%</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A shopkeeper purchased an article by paying 10% less than original price and he then sells it at 25% profit on the price that he had purchased. Calculate the profit percentage earned by the shopkeeper on the original price.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2344;&#2375; &#2357;&#2366;&#2360;&#2381;&#2340;&#2357;&#2367;&#2325; &#2350;&#2370;&#2354;&#2381;&#2351; &#2360;&#2375; 10% &#2325;&#2368; &#2361;&#2366;&#2344;&#2367; &#2346;&#2352; &#2319;&#2325; &#2357;&#2360;&#2381;&#2340;&#2369; &#2326;&#2352;&#2368;&#2342;&#2366; &#2324;&#2352; &#2347;&#2367;&#2352; &#2357;&#2361; &#2357;&#2360;&#2381;&#2340;&#2369; &#2325;&#2379; &#2326;&#2352;&#2368;&#2342;&#2375; &#2327;&#2319; &#2350;&#2370;&#2354;&#2381;&#2351; &#2360;&#2375; 25% &#2354;&#2366;&#2349; &#2346;&#2352; &#2348;&#2375;&#2330;&#2340;&#2366; &#2361;&#2376;| &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2357;&#2366;&#2360;&#2381;&#2340;&#2357;&#2367;&#2325; &#2350;&#2370;&#2354;&#2381;&#2351; &#2346;&#2352; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2354;&#2366;&#2349; &#2325;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">12.5%</span><span class=\"hqt\" style=\"display:none\">12.5%</span>",
+      "<span class=\"eqt\">15 %</span><span class=\"hqt\" style=\"display:none\">15 %</span>",
+      "<span class=\"eqt\">25 %</span><span class=\"hqt\" style=\"display:none\">25 %</span>",
+      "<span class=\"eqt\">10 %</span><span class=\"hqt\" style=\"display:none\">10 %</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>=&gt; Let original price = Rs 100</p><p>=&gt;  Price paid by him = 100-10 = 90</p><p>=&gt; And S.P = 90*125/100</p><p>=&gt; 112.50</p><p>=&gt; Profit % on original price i.e Rs 100 is</p><p>=&gt; (112.5  -  100)*100/100 %</p><p>=&gt; 12.5 %</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A and B can complete a work in 7 days, B and C in 21 days and C and A in 28 days. Find in how many days will A complete the work alone?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; A &#2324;&#2352; B 7 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306;, B &#2324;&#2352; C 21 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306;, C &#2324;&#2352; A 28 &#2342;&#2367;&#2344;&#2379;&#2306; &#2350;&#2375;&#2306; &#2346;&#2370;&#2352;&#2366; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;| &#2325;&#2366;&#2352;&#2381;&#2351; &#2325;&#2379; &#2309;&#2325;&#2375;&#2354;&#2375; &#2360;&#2350;&#2366;&#2346;&#2381;&#2340; &#2325;&#2352;&#2344;&#2375; &#2350;&#2375;&#2306; A &#2325;&#2379; &#2325;&#2367;&#2340;&#2344;&#2375; &#2342;&#2367;&#2344; &#2354;&#2327;&#2375;&#2306;&#2327;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">165/11</span><span class=\"hqt\" style=\"display:none\">165/11</span>",
+      "<span class=\"eqt\">168/11</span><span class=\"hqt\" style=\"display:none\">168/11</span>",
+      "<span class=\"eqt\">165/13</span><span class=\"hqt\" style=\"display:none\">165/13</span>",
+      "<span class=\"eqt\">168/13</span><span class=\"hqt\" style=\"display:none\">168/13</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>=&gt; (A+B)'s 1 day's work=1/7</p><p>=&gt; (B+C)'s 1 day's work= 1/21</p><p>=&gt; (C+A)'s 1 day's work= 1/28</p><p>=&gt; 2*{(A+B+C)'s 1 day's work}=1/7+1/21+1/28</p><p>=&gt; =(12+4+3)/84</p><p>=&gt; =19/84</p><p>=&gt; (A+B+C) 1 day's work =19/2*84=19/168</p><p>=&gt; A's 1 day work =(A+B+C) 1 day's work -(B+C)'s 1 day's work = 19/168 - 1/21</p><p>=&gt; =(19-8)/168</p><p>=&gt; 11/168</p><p>=&gt; A will complete the work in 168/11 days.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Find the surface area of the cube which in formed by melting three smaller cubes of sides 12 cm, 20 cm, and 16cm.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2328;&#2344; &#2325;&#2366; &#2325;&#2366; &#2344;&#2367;&#2352;&#2381;&#2350;&#2366;&#2339; 12 &#2360;&#2375;&#2350;&#2368;, 20 &#2360;&#2375;&#2350;&#2368;. &#2324;&#2352; 16 &#2360;&#2375;&#2350;&#2368;. &#2349;&#2369;&#2332;&#2366; &#2325;&#2375; &#2340;&#2368;&#2344; &#2331;&#2379;&#2335;&#2375; &#2328;&#2344;&#2379;&#2306; &#2325;&#2379; &#2346;&#2367;&#2328;&#2354;&#2366; &#2325;&#2352; &#2325;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376; &#2311;&#2360; &#2328;&#2344; &#2325;&#2366; &#2346;&#2371;&#2359;&#2381;&#2336;&#2368;&#2351; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2347;&#2354; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306; ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3456cm<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">3456 &#2360;&#2375;&#2350;&#2368;.<sup>2</sup></span>",
+      "<span class=\"eqt\">3480cm<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">3480 &#2360;&#2375;&#2350;&#2368;.<sup>2</sup></span>",
+      "<span class=\"eqt\">3496cm<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">3496 &#2360;&#2375;&#2350;&#2368;.<sup>2</sup></span>",
+      "<span class=\"eqt\">3446cm<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">3446 &#2360;&#2375;&#2350;&#2368;.<sup>2</sup></span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>=&gt; Total volume of 3 cubes = (12)<sup>3</sup> + (20)<sup>3</sup> + (16)<sup>3</sup></p><p>=&gt; 1728 + 8000 + 4036</p><p>=&gt; 13824 cm <sup>3</sup></p><p>=&gt; New case volume = a<sup>3</sup></p><p>=&gt; a<sup>3 </sup>= 13824</p><p>=&gt; a = 24</p><p>=&gt; Surface area = 6a<sup>2</sup></p><p>=&gt; 6*24*24</p><p>=&gt; 3456 cm<sup>2</sup></p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In an right-angle triangle if sin33<sup>0</sup> = a/&radic;(a<sup>2</sup> + b<sup>2</sup>), then what is the value of [(tan<sup>2</sup>33<sup>0</sup>/a<sup>2</sup>) + (sin<sup>2</sup>57<sup>0</sup>)/b<sup>2</sup>] * sec<sup>2</sup>57<sup>0</sup> * cot<sup>2</sup>33<sup>0</sup>?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2319;&#2325; &#2360;&#2350;&#2325;&#2379;&#2339; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; &#2350;&#2375;&#2306; sin33<sup>0</sup> = a/&radic;(a<sup>2</sup> + b<sup>2</sup>) &#2361;&#2376;, &#2340;&#2379; [(tan<sup>2</sup>33<sup>0</sup>/a<sup>2</sup>) + (sin<sup>2</sup>57<sup>0</sup>)/b<sup>2</sup>] * sec<sup>2</sup>57<sup>0</sup> * cot<sup>2</sup>33<sup>0</sup>? &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">(2a<sup>2</sup> + 2b<sup>2</sup>)/a<sup>4</sup></span><span class=\"hqt\" style=\"display:none\">(2a<sup>2</sup> + 2b<sup>2</sup>)/a<sup>4</sup></span>",
+      "<span class=\"eqt\">(a<sup>2</sup> + b<sup>2</sup>)/a<sup>4</sup></span><span class=\"hqt\" style=\"display:none\">(a<sup>2</sup> + b<sup>2</sup>)/a<sup>4</sup></span>",
+      "<span class=\"eqt\">(a<sup>2</sup> + 2b<sup>2</sup>)/2a<sup>4</sup></span><span class=\"hqt\" style=\"display:none\">(a<sup>2</sup> + 2b<sup>2</sup>)/2a<sup>4</sup></span>",
+      "<span class=\"eqt\">(a<sup>2</sup> + 2b<sup>2</sup>)/a<sup>4</sup></span><span class=\"hqt\" style=\"display:none\">(a<sup>2</sup> + 2b<sup>2</sup>)/a<sup>4</sup></span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>sin33<sup>0</sup> = a/&radic;(a<sup>2</sup> + b<sup>2</sup>) = perpendicular/hypotenuse</p><p><img width=211 height=129 id=\"Picture 31\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3698/image007.jpg\"></p><p>= [(tan<sup>2</sup>33<sup>0</sup>/a<sup>2</sup>) + (sin<sup>2</sup>57<sup>0</sup>)/b<sup>2</sup>] * sec<sup>2</sup>57<sup>0</sup> * cot<sup>2</sup>33<sup>0</sup></p><p>= [(a<sup>2</sup>/b<sup>2</sup>)/a<sup>2</sup> + (b<sup>2</sup>/(a<sup>2</sup> + b<sup>2</sup>))/b<sup>2</sup>] * (a<sup>2</sup> + b<sup>2</sup>)/a<sup>2</sup> * (b<sup>2</sup>/a<sup>2</sup>)</p><p>= [(1/b<sup>2</sup>) + 1/(a<sup>2</sup> + b<sup>2</sup>)] * [b<sup>2</sup>(a<sup>2</sup> + b<sup>2</sup>)/a<sup>4</sup>]</p><p>= [(a<sup>2</sup> + b<sup>2</sup> + b<sup>2</sup>)/b<sup>2</sup>(a<sup>2</sup> + b<sup>2</sup>)] * [b<sup>2</sup>(a<sup>2</sup> + b<sup>2</sup>)/a<sup>4</sup>]</p><p>= (a<sup>2</sup> + 2b<sup>2</sup>)/a<sup>4</sup></p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If 4x<sup>2</sup>  -  px + q is a perfect square, what is the value of (p<sup>2</sup>  -  8q)/(p<sup>2</sup> + 8q)? [q&#8800;0]</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 4x<sup>2</sup> - px + q &#2319;&#2325; &#2346;&#2370;&#2352;&#2381;&#2339; &#2357;&#2352;&#2381;&#2327; &#2361;&#2376;, &#2340;&#2379; (p<sup>2</sup> - 8q)/(p<sup>2</sup> + 8q)? [q&#8800;0] &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">1/2</span><span class=\"hqt\" style=\"display:none\">1/2</span>",
+      "<span class=\"eqt\">1/3</span><span class=\"hqt\" style=\"display:none\">1/3</span>",
+      "<span class=\"eqt\">1/4</span><span class=\"hqt\" style=\"display:none\">1/4</span>",
+      "<span class=\"eqt\">2/3</span><span class=\"hqt\" style=\"display:none\">2/3</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>For (4x<sup>2</sup>  -  px + q), the discriminent of the equation should be zero.</p><p>D = 0</p><p>=> (-p)<sup>2</sup> - 4*4*q = 0</p><p>=> p<sup>2</sup> = 16q</p><p>(p<sup>2</sup>  -  8q)/(p<sup>2</sup> + 8q)</p><p>= (16q  -  8q)/(16q + 8q)</p><p>= 8q/24q</p><p>= 1/3 [q&#8800;0]</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (ax<sup>2</sup> + bx + 5) is completely divisible by (3x  -  5) and (2x  -  1), then what is the value of (a  -  b)<sup>2</sup>?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (ax<sup>2</sup> + bx + 5) &#2346;&#2370;&#2352;&#2368; &#2340;&#2352;&#2361; &#2360;&#2375; (3x - 5) &#2324;&#2352; (2x - 1) &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2361;&#2376;&#2306;, &#2340;&#2379; (a - b)<sup>2</sup> &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">49</span><span class=\"hqt\" style=\"display:none\">49</span>",
+      "<span class=\"eqt\">169</span><span class=\"hqt\" style=\"display:none\">169</span>",
+      "<span class=\"eqt\">289</span><span class=\"hqt\" style=\"display:none\">289</span>",
+      "<span class=\"eqt\">361</span><span class=\"hqt\" style=\"display:none\">361</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Since, f(x) = (ax<sup>2</sup> + bx + 5) is completely divisible by (3x  -  5) and (2x  -  1).</p><p>f(5/3) = 0 and f(1/2) = 0</p><p>f(5/3) = a(5/3)<sup>2</sup> + b(5/3) + 5 = 0</p><p>(25a/9) + (5b/3) + 5 = 0</p><p>(5a + 3b) = -9 ........ (1)</p><p>f(1/2) = a(1/2)<sup>2</sup> + b(1/2) + 5 = 0</p><p>(a/4) + (b/2) + 5 = 0</p><p>(a + 2b + 20) = 0</p><p>(5a + 10b) = -100 ........ (2)</p><p>From (1) and (2)-</p><p>(5a + 3b)  -  (5a + 10b) = -9  -  (-100)</p><p>-7b = 91</p><p>b = -13</p><p>5a + 3(-13) = -9</p><p>5a = 30</p><p>a = 6</p><p>= (a  -  b)<sup>2</sup></p><p>= (6  -  (-13))<sup>2</sup></p><p>= 19<sup>2</sup> = 361</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two circles with radii 6 cm and 2 cm touch each other externally. Find the length of the direct common tangent.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2379; &#2357;&#2371;&#2340;&#2381;&#2340; &#2332;&#2367;&#2360;&#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366;&#2319;&#2305; 6 &#2360;&#2375;&#2350;&#2368;. &#2324;&#2352; 2 &#2360;&#2375;&#2350;&#2368;. &#2361;&#2376;, &#2342;&#2379;&#2344;&#2379;&#2306; &#2319;&#2325;-&#2342;&#2370;&#2360;&#2352;&#2375; &#2325;&#2379; &#2348;&#2366;&#2361;&#2352;&#2368; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352; &#2350;&#2375;&#2306; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2325;&#2352;&#2340;&#2375; &#2361;&#2376;| &#2360;&#2368;&#2343;&#2368; &#2360;&#2366;&#2333;&#2366; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358;&#2352;&#2375;&#2326;&#2366; &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">3&radic;3 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">2&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">2&radic;3 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">5&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">5&radic;3 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">4&radic;3 cm</span><span class=\"hqt\" style=\"display:none\">4&radic;3 &#2360;&#2375;&#2350;&#2368;.</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><img width=271 height=186 id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3789/image017.png\"></p><p>OP = 6 + 2 = 8cm</p><p>OC = 6  -  2 = 4 cm</p><p>By Pythagoras theorem</p><p>PC = &radic;[(OP)<sup>2</sup>  -  (OC)<sup>2</sup>]</p><p>=&gt; PC = &radic;(8<sup>2</sup>  -  4<sup>2</sup>)</p><p>=&gt; PC = &radic;(64  -  16)</p><p>=&gt; PC = &radic;48</p><p>=&gt; PC = 4&radic;3 cm</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Solve the following expression: (1/cosA) * [sin(60<sup>0</sup> + A) + sin(60<sup>0</sup>  -  A)].</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344; &#2309;&#2349;&#2367;&#2357;&#2381;&#2351;&#2325;&#2381;&#2340;&#2367; &#2325;&#2379; &#2361;&#2354; &#2325;&#2352;&#2375;&#2306;: (1/cosA) * [sin(60<sup>0</sup> + A) + sin(60<sup>0</sup> - A)].</p></span>",
+    "options": [
+      "<span class=\"eqt\">&radic;3</span><span class=\"hqt\" style=\"display:none\">&radic;3</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">2&radic;3</span><span class=\"hqt\" style=\"display:none\">2&radic;3</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>= (1/cosA) * [sin(60<sup>0</sup> + A) + sin(60<sup>0</sup>  -  A)]</p><p>= (1/cosA) * [(sin60<sup>0</sup>.cosA + cos60<sup>0</sup>.sinA) + (sin60<sup>0</sup>.cosA  -  cos60<sup>0</sup>.sinA)]</p><p>= (1/cosA) * [(&radic;3/2) * cosA + (&radic;3/2) * cosA]</p><p>= (1/cosA) * (&radic;3cosA)</p><p>= &radic;3</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In an entrance exam, 450 girls and 600 boys appeared. If 20% of the girls and 25% of the boys are failed, find the total number of passed students.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2346;&#2381;&#2352;&#2357;&#2375;&#2358; &#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; 450 &#2354;&#2337;&#2364;&#2325;&#2367;&#2351;&#2366;&#2306; &#2324;&#2352; 600 &#2354;&#2337;&#2364;&#2325;&#2375; &#2313;&#2346;&#2360;&#2381;&#2341;&#2367;&#2340; &#2361;&#2369;&#2319;&#2404; &#2351;&#2342;&#2367; &#2354;&#2337;&#2364;&#2325;&#2367;&#2351;&#2379;&#2306; &#2325;&#2366; 20% &#2324;&#2352; &#2354;&#2396;&#2325;&#2379;&#2306; &#2325;&#2366; 25% &#2309;&#2360;&#2347;&#2354; &#2361;&#2379;&#2340;&#2366; &#2361;&#2376;, &#2340;&#2379; &#2313;&#2340;&#2381;&#2340;&#2368;&#2352;&#2381;&#2339; &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">810</span><span class=\"hqt\" style=\"display:none\">810</span>",
+      "<span class=\"eqt\">840</span><span class=\"hqt\" style=\"display:none\">840</span>",
+      "<span class=\"eqt\">720</span><span class=\"hqt\" style=\"display:none\">720</span>",
+      "<span class=\"eqt\">630</span><span class=\"hqt\" style=\"display:none\">630</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Percentage of passed girls = 100  -  20 = 80%</p><p>Number of passed girls = (80/100) x 450 = 360</p><p>Percentage of passed boys = 100  -  25 = 75%</p><p>Number of passed boys = (75/100) x 600 = 450</p><p>Total number of passed students = 360 + 450 = 810</p>",
+    "question_index": 15
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Line graph below shows the total number (in Million) of Web users and App users of four different social media plat-forms such as WhatsApp, Facebook, Telegram and Instagram.</p><p><img width=452 height=259 id=\"Chart 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3966/image008.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]: </b>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2352;&#2375;&#2326;&#2366; &#2310;&#2352;&#2375;&#2326; &#2330;&#2366;&#2352; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2360;&#2379;&#2358;&#2354; &#2350;&#2368;&#2337;&#2367;&#2351;&#2366; &#2346;&#2381;&#2354;&#2375;&#2335;-&#2347;&#2377;&#2352;&#2381;&#2350;&#2379;&#2306; &#2309;&#2352;&#2381;&#2341;&#2366;&#2352;&#2381;&#2340; &#2357;&#2381;&#2361;&#2366;&#2335;&#2381;&#2360;&#2319;&#2346;, &#2347;&#2375;&#2360;&#2348;&#2369;&#2325;, &#2335;&#2375;&#2354;&#2368;&#2327;&#2381;&#2352;&#2366;&#2350; &#2324;&#2352; &#2311;&#2306;&#2360;&#2381;&#2335;&#2366;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; &#2357;&#2375;&#2348; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2324;&#2352; &#2320;&#2346; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; (&#2354;&#2366;&#2326;&#2379;&#2306; &#2350;&#2375;&#2306;) &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p><img width=\"452\" height=\"259\" id=\"Chart 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3966/image008.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>Total App users of Facebook is what per cent of total Web Users of Telegram and Instagram together?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2347;&#2375;&#2360;&#2348;&#2369;&#2325; &#2325;&#2375; &#2325;&#2369;&#2354; &#2320;&#2346; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;, &#2360;&#2366;&#2350;&#2370;&#2361;&#2367;&#2325; &#2352;&#2370;&#2346; &#2360;&#2375; &#2335;&#2375;&#2354;&#2368;&#2327;&#2381;&#2352;&#2366;&#2350; &#2324;&#2352; &#2311;&#2306;&#2360;&#2381;&#2335;&#2366;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; &#2325;&#2369;&#2354; &#2357;&#2375;&#2348; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2325;&#2366; &#2325;&#2367;&#2340;&#2344;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2361;&#2376;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">50%</span><span class=\"hqt\" style=\"display:none\">50%</span>",
+      "<span class=\"eqt\">60%</span><span class=\"hqt\" style=\"display:none\">60%</span>",
+      "<span class=\"eqt\">40%</span><span class=\"hqt\" style=\"display:none\">40%</span>",
+      "<span class=\"eqt\">75%</span><span class=\"hqt\" style=\"display:none\">75%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Social Media</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Web</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>App</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>WhatsApp</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Facebook</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">15</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">12</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">27</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Telegram</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">12</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Instagram</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">20</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">28</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td></tr></table><br><p>Total App users of Facebook = 12 million</p><p>Total Web Users of Telegram and Instagram together = 12 + 8 = 20 million</p><p>Required per cent = (12/20) * 100 = 60%</p>",
+    "question_index": 16
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Line graph below shows the total number (in Million) of Web users and App users of four different social media plat-forms such as WhatsApp, Facebook, Telegram and Instagram.</p><p><img width=452 height=259 id=\"Chart 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3966/image008.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]: </b>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2352;&#2375;&#2326;&#2366; &#2310;&#2352;&#2375;&#2326; &#2330;&#2366;&#2352; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2360;&#2379;&#2358;&#2354; &#2350;&#2368;&#2337;&#2367;&#2351;&#2366; &#2346;&#2381;&#2354;&#2375;&#2335;-&#2347;&#2377;&#2352;&#2381;&#2350;&#2379;&#2306; &#2309;&#2352;&#2381;&#2341;&#2366;&#2352;&#2381;&#2340; &#2357;&#2381;&#2361;&#2366;&#2335;&#2381;&#2360;&#2319;&#2346;, &#2347;&#2375;&#2360;&#2348;&#2369;&#2325;, &#2335;&#2375;&#2354;&#2368;&#2327;&#2381;&#2352;&#2366;&#2350; &#2324;&#2352; &#2311;&#2306;&#2360;&#2381;&#2335;&#2366;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; &#2357;&#2375;&#2348; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2324;&#2352; &#2320;&#2346; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; (&#2354;&#2366;&#2326;&#2379;&#2306; &#2350;&#2375;&#2306;) &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p><img width=\"452\" height=\"259\" id=\"Chart 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3966/image008.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>What is the difference between total users of Instagram (both App and Web) and total App users of WhatsApp?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2311;&#2306;&#2360;&#2381;&#2335;&#2366;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; (&#2320;&#2346; &#2324;&#2352; &#2357;&#2375;&#2348; &#2342;&#2379;&#2344;&#2379;&#2306;) &#2325;&#2369;&#2354; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2324;&#2352; &#2357;&#2381;&#2361;&#2366;&#2335;&#2381;&#2360;&#2319;&#2346; &#2325;&#2375; &#2325;&#2369;&#2354; &#2320;&#2346; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2366; &#2309;&#2306;&#2340;&#2352; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">14 million</span><span class=\"hqt\" style=\"display:none\">14 &#2350;&#2367;&#2354;&#2367;&#2351;&#2344;</span>",
+      "<span class=\"eqt\">12 million</span><span class=\"hqt\" style=\"display:none\">12 &#2350;&#2367;&#2354;&#2367;&#2351;&#2344;</span>",
+      "<span class=\"eqt\">10 million</span><span class=\"hqt\" style=\"display:none\">10 &#2350;&#2367;&#2354;&#2367;&#2351;&#2344;</span>",
+      "<span class=\"eqt\">8 million</span><span class=\"hqt\" style=\"display:none\">8 &#2350;&#2367;&#2354;&#2367;&#2351;&#2344;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Social Media</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Web</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>App</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>WhatsApp</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Facebook</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">15</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">12</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">27</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Telegram</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">12</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Instagram</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">20</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">28</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td></tr></table><br><p>Total users of Instagram (both App and Web) = 28 million</p><p>Total App users of WhatsApp = 40 million</p><p>Required difference = 40  -  28 = 12 million</p>",
+    "question_index": 17
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Line graph below shows the total number (in Million) of Web users and App users of four different social media plat-forms such as WhatsApp, Facebook, Telegram and Instagram.</p><p><img width=452 height=259 id=\"Chart 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3966/image008.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]: </b>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2352;&#2375;&#2326;&#2366; &#2310;&#2352;&#2375;&#2326; &#2330;&#2366;&#2352; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2360;&#2379;&#2358;&#2354; &#2350;&#2368;&#2337;&#2367;&#2351;&#2366; &#2346;&#2381;&#2354;&#2375;&#2335;-&#2347;&#2377;&#2352;&#2381;&#2350;&#2379;&#2306; &#2309;&#2352;&#2381;&#2341;&#2366;&#2352;&#2381;&#2340; &#2357;&#2381;&#2361;&#2366;&#2335;&#2381;&#2360;&#2319;&#2346;, &#2347;&#2375;&#2360;&#2348;&#2369;&#2325;, &#2335;&#2375;&#2354;&#2368;&#2327;&#2381;&#2352;&#2366;&#2350; &#2324;&#2352; &#2311;&#2306;&#2360;&#2381;&#2335;&#2366;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; &#2357;&#2375;&#2348; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2324;&#2352; &#2320;&#2346; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; (&#2354;&#2366;&#2326;&#2379;&#2306; &#2350;&#2375;&#2306;) &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p><img width=\"452\" height=\"259\" id=\"Chart 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3966/image008.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>What is the average of total Web users of all the four Social media plat-forms together?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2349;&#2368; &#2330;&#2366;&#2352; &#2360;&#2379;&#2358;&#2354; &#2350;&#2368;&#2337;&#2367;&#2351;&#2366; &#2346;&#2381;&#2354;&#2375;&#2335;&#2347;&#2364;&#2377;&#2352;&#2381;&#2350; &#2325;&#2375; &#2360;&#2366;&#2350;&#2370;&#2361;&#2367;&#2325; &#2352;&#2370;&#2346; &#2360;&#2375; &#2325;&#2369;&#2354; &#2357;&#2375;&#2348; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2325;&#2366; &#2324;&#2360;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">12.5 million</span><span class=\"hqt\" style=\"display:none\">12.5 &#2350;&#2367;&#2354;&#2367;&#2351;&#2344;</span>",
+      "<span class=\"eqt\">11.25 million</span><span class=\"hqt\" style=\"display:none\">11.25 &#2350;&#2367;&#2354;&#2367;&#2351;&#2344;</span>",
+      "<span class=\"eqt\">10.75 million</span><span class=\"hqt\" style=\"display:none\">10.75 &#2350;&#2367;&#2354;&#2367;&#2351;&#2344;</span>",
+      "<span class=\"eqt\">8.5 million</span><span class=\"hqt\" style=\"display:none\">8.5 &#2350;&#2367;&#2354;&#2367;&#2351;&#2344;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Social Media</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Web</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>App</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>WhatsApp</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Facebook</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">15</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">12</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">27</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Telegram</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">12</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Instagram</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">20</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">28</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td></tr></table><br><p>Total Web users of all the four Social media plat-forms together = 45 million</p><p>Required average = 45/4 = 11.25 million</p>",
+    "question_index": 18
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Line graph below shows the total number (in Million) of Web users and App users of four different social media plat-forms such as WhatsApp, Facebook, Telegram and Instagram.</p><p><img width=452 height=259 id=\"Chart 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3966/image008.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]: </b>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2351;&#2366; &#2327;&#2351;&#2366; &#2352;&#2375;&#2326;&#2366; &#2310;&#2352;&#2375;&#2326; &#2330;&#2366;&#2352; &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2360;&#2379;&#2358;&#2354; &#2350;&#2368;&#2337;&#2367;&#2351;&#2366; &#2346;&#2381;&#2354;&#2375;&#2335;-&#2347;&#2377;&#2352;&#2381;&#2350;&#2379;&#2306; &#2309;&#2352;&#2381;&#2341;&#2366;&#2352;&#2381;&#2340; &#2357;&#2381;&#2361;&#2366;&#2335;&#2381;&#2360;&#2319;&#2346;, &#2347;&#2375;&#2360;&#2348;&#2369;&#2325;, &#2335;&#2375;&#2354;&#2368;&#2327;&#2381;&#2352;&#2366;&#2350; &#2324;&#2352; &#2311;&#2306;&#2360;&#2381;&#2335;&#2366;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; &#2357;&#2375;&#2348; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2324;&#2352; &#2320;&#2346; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2325;&#2368; &#2325;&#2369;&#2354; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; (&#2354;&#2366;&#2326;&#2379;&#2306; &#2350;&#2375;&#2306;) &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2366; &#2361;&#2376;&#2404;</p><p><img width=\"452\" height=\"259\" id=\"Chart 9\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p3966/image008.png\"></p></span>",
+    "question": "<span class=\"eqt\"><p>What is the ratio of total App users of WhatsApp and Instagram together to total Web users of WhatsApp, Telegram and Instagram together?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2357;&#2381;&#2361;&#2366;&#2335;&#2381;&#2360;&#2319;&#2346; &#2324;&#2352; &#2311;&#2306;&#2360;&#2381;&#2335;&#2366;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; &#2360;&#2366;&#2350;&#2370;&#2361;&#2367;&#2325; &#2352;&#2370;&#2346; &#2360;&#2375; &#2325;&#2369;&#2354; &#2320;&#2346; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2340;&#2341;&#2366; &#2357;&#2381;&#2361;&#2366;&#2335;&#2381;&#2360;&#2319;&#2346;, &#2335;&#2375;&#2354;&#2368;&#2327;&#2381;&#2352;&#2366;&#2350; &#2324;&#2352; &#2311;&#2306;&#2360;&#2381;&#2335;&#2366;&#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; &#2360;&#2366;&#2350;&#2370;&#2361;&#2367;&#2325; &#2352;&#2370;&#2346; &#2360;&#2375; &#2325;&#2369;&#2354; &#2357;&#2375;&#2348; &#2313;&#2346;&#2351;&#2379;&#2327;&#2325;&#2352;&#2381;&#2340;&#2366;&#2323;&#2306; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">2: 3</span><span class=\"hqt\" style=\"display:none\">2: 3</span>",
+      "<span class=\"eqt\">4: 3</span><span class=\"hqt\" style=\"display:none\">4: 3</span>",
+      "<span class=\"eqt\">1: 2</span><span class=\"hqt\" style=\"display:none\">1: 2</span>",
+      "<span class=\"eqt\">2: 1</span><span class=\"hqt\" style=\"display:none\">2: 1</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Social Media</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Web</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>App</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>WhatsApp</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Facebook</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">15</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">12</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">27</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Telegram</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">12</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">18</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">30</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Instagram</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">20</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">28</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Total</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td></tr></table><br><p>Total App users of WhatsApp and Instagram together = 40 + 20 = 60 million</p><p>Total Web users of WhatsApp, Telegram and Instagram together = 10 + 12 + 8 = 30 million</p><p>Required ratio = 60: 30 = 2: 1</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Current ages of son and his father are in the ratio of 2:5. After 8 years the ratio becomes 1:2. What will be the ratio of ages of father and son after 10 years?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2348;&#2375;&#2335;&#2375; &#2324;&#2352; &#2313;&#2360;&#2325;&#2375; &#2346;&#2367;&#2340;&#2366; &#2325;&#2368; &#2357;&#2352;&#2381;&#2340;&#2350;&#2366;&#2344; &#2310;&#2351;&#2369; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 2: 5 &#2361;&#2376;&#2404; 8 &#2357;&#2352;&#2381;&#2359; &#2348;&#2366;&#2342; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 1: 2 &#2361;&#2379; &#2332;&#2366;&#2340;&#2368; &#2361;&#2376;, &#2340;&#2379; 10 &#2357;&#2352;&#2381;&#2359;&#2379;&#2306; &#2325;&#2375; &#2348;&#2366;&#2342; &#2346;&#2367;&#2340;&#2366; &#2324;&#2352; &#2348;&#2375;&#2335;&#2375; &#2325;&#2368; &#2310;&#2351;&#2369; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">27:13</span><span class=\"hqt\" style=\"display:none\">27:13</span>",
+      "<span class=\"eqt\">23:14</span><span class=\"hqt\" style=\"display:none\">23:14</span>",
+      "<span class=\"eqt\">25:13</span><span class=\"hqt\" style=\"display:none\">25:13</span>",
+      "<span class=\"eqt\">29:15</span><span class=\"hqt\" style=\"display:none\">29:15</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Ratio of ages of father and son =2:5</p> <p>Let their ages be 2x and 5x.</p> <p>Ratio of ages of son and father after 6 years = 1:2</p> <p>(2x+8)/(5x+8)=1/2 &#8594;4x+16=5x+8</p> <p>x=8</p> <p>Therefore the age of father = 5  X  8 = 40 years</p> <p>Age of the son = 2  X  8 =16 years</p> <p>The age of father and son after 10 years will be 50 years and 26 years respectively.</p> <p>Subsequently the ratio of their ages will be 50:26 which is equal to 25:13</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If the compound interest on a sum for 2 years at 12 1/2% per annum is Rs 510, the simple interest on the same sum at the same rate for the same period of time is:</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 2 &#2357;&#2352;&#2381;&#2359; &#2325;&#2375; &#2354;&#2367;&#2319; 12 1/2% &#2346;&#2381;&#2352;&#2340;&#2367; &#2357;&#2352;&#2381;&#2359; &#2325;&#2368; &#2342;&#2352; &#2360;&#2375; &#2319;&#2325; &#2352;&#2366;&#2358;&#2367; &#2346;&#2352; &#2330;&#2325;&#2381;&#2352;&#2357;&#2371;&#2342;&#2381;&#2343;&#2367; &#2348;&#2381;&#2351;&#2366;&#2332; 510 &#2352;&#2369;&#2346;&#2351;&#2375; &#2361;&#2376;, &#2340;&#2379; &#2360;&#2350;&#2366;&#2344; &#2360;&#2350;&#2351; &#2325;&#2375; &#2354;&#2367;&#2319; &#2360;&#2350;&#2366;&#2344; &#2342;&#2352; &#2360;&#2375; &#2360;&#2350;&#2366;&#2344; &#2352;&#2366;&#2358;&#2367; &#2346;&#2352; &#2360;&#2366;&#2343;&#2366;&#2352;&#2339; &#2348;&#2381;&#2351;&#2366;&#2332; &#2361;&#2376;:</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs 400</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2369; 400</span>",
+      "<span class=\"eqt\">Rs 480</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2369; 480</span>",
+      "<span class=\"eqt\">Rs 450</span><span class=\"hqt\" style=\"display:none\">&#2352;&#2369; 450</span>",
+      "<span class=\"eqt\">None of the Above</span><span class=\"hqt\" style=\"display:none\">&#2311;&#2344;&#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2379;&#2312; &#2349;&#2368; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>let the sum be 'a'.</p><p>CI for two years at 12 (1/2)% rate = Rs. 510</p><p>so 510 = a[ (1 + 12.5/100)<sup>2</sup> - 1]</p><p>on solving we get sum a = Rs 1920.</p><p>so SI for same sum at same rate and same period of time = PRT/ 100 = (1920 x (25/2) x 2) x 100 =  Rs. 480</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What value will come in place of question mark (?) in the following question?</p><p>256<sup>0.34</sup> x 256<sup>0.41</sup> = ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2350;&#2375;&#2306; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344; &#2330;&#2367;&#2361;&#2381;&#2344; (?) &#2325;&#2375; &#2360;&#2381;&#2341;&#2366;&#2344; &#2346;&#2352; &#2325;&#2381;&#2351;&#2366; &#2350;&#2366;&#2344; &#2310;&#2319;&#2327;&#2366;?</p><p>256<sup>0.34</sup> x 256<sup>0.41</sup> = ?</p></span>",
+    "options": [
+      "<span class=\"eqt\">64</span><span class=\"hqt\" style=\"display:none\">64</span>",
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">16</span><span class=\"hqt\" style=\"display:none\">16</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>? = 256<sup>(0.34 + 0.41)</sup> = 256<sup>0.75</sup> = 256<sup>3/4</sup><p>Since, 256<sup>1/4</sup> = 4, ? = 4<sup>3</sup> = 64</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><table><tr><td rowspan=\"4\" style=\"vertical-align:top\">Evaluate: 1 +</td><td colspan=\"4\" style=\"text-align:center;border-bottom:solid 1px;\">1</td></tr><tr><td rowspan=\"3\" style=\"vertical-align:top\">1 +</td><td colspan=\"3\" style=\"text-align:center;border-bottom:solid 1px;\">2</td></tr><tr><td rowspan=\"2\" style=\"vertical-align:top\">2 +</td><td colspan=\"2\" style=\"text-align:center;border-bottom:solid 1px;\">3</td></tr><tr><td colspan=\"2\">1 + 4/5</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><table><tr><td rowspan=\"4\" style=\"vertical-align:top\">&#2350;&#2370;&#2354;&#2381;&#2351;&#2366;&#2306;&#2325;&#2344; &#2325;&#2352;&#2375;&#2306;: 1 +</td><td colspan=\"4\" style=\"text-align:center;border-bottom:solid 1px;\">1</td></tr><tr><td rowspan=\"3\" style=\"vertical-align:top\">1 +</td><td colspan=\"3\" style=\"text-align:center;border-bottom:solid 1px;\">2</td></tr><tr><td rowspan=\"2\" style=\"vertical-align:top\">2 +</td><td colspan=\"2\" style=\"text-align:center;border-bottom:solid 1px;\">3</td></tr><tr><td colspan=\"2\">1 + 4/5</td></tr></table></span>",
+    "options": [
+      "<span class=\"eqt\">28/17</span><span class=\"hqt\" style=\"display:none\">28/17</span>",
+      "<span class=\"eqt\">17/11</span><span class=\"hqt\" style=\"display:none\">17/11</span>",
+      "<span class=\"eqt\">28/11</span><span class=\"hqt\" style=\"display:none\">28/11</span>",
+      "<span class=\"eqt\">21/17</span><span class=\"hqt\" style=\"display:none\">21/17</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": " <table><tr><td rowspan=\"4\" style=\"vertical-align:top\">1 +</td><td colspan=\"4\" style=\"text-align:center;border-bottom:solid 1px;\">1</td></tr><tr><td rowspan=\"3\" style=\"vertical-align:top\">1 +</td><td colspan=\"3\" style=\"text-align:center;border-bottom:solid 1px;\">2</td></tr><tr><td rowspan=\"2\" style=\"vertical-align:top\">2 +</td><td colspan=\"2\" style=\"text-align:center;border-bottom:solid 1px;\">3</td></tr><tr><td colspan=\"2\">1 + 4/5</td></tr></table><br><table><tr><td rowspan=\"4\" style=\"vertical-align:top\">= 1 +</td><td colspan=\"4\" style=\"text-align:center;border-bottom:solid 1px;\">1</td></tr><tr><td rowspan=\"3\" style=\"vertical-align:top\">1 +</td><td colspan=\"3\" style=\"text-align:center;border-bottom:solid 1px;\">2</td></tr><tr><td rowspan=\"2\" style=\"vertical-align:top\">2 +</td><td colspan=\"2\" style=\"text-align:center;border-bottom:solid 1px;\">3</td></tr><tr><td colspan=\"2\">9/5</td></tr></table><br><table><tr><td rowspan=\"4\" style=\"vertical-align:top\">= 1 +</td><td colspan=\"4\" style=\"text-align:center;border-bottom:solid 1px;\">1</td></tr><tr><td rowspan=\"3\" style=\"vertical-align:top\">1 +</td><td colspan=\"3\" style=\"text-align:center;border-bottom:solid 1px;\">2</td></tr><tr><td rowspan=\"2\" style=\"vertical-align:top\">2 +</td><td colspan=\"2\" style=\"text-align:center;\">5/3</td></tr></table><br><table><tr><td rowspan=\"4\" style=\"vertical-align:top\">= 1 +</td><td colspan=\"4\" style=\"text-align:center;border-bottom:solid 1px;\">1</td></tr><tr><td rowspan=\"3\" style=\"vertical-align:top\">1 +</td><td colspan=\"3\" style=\"text-align:center;border-bottom:solid 1px;\">2</td></tr><tr><td rowspan=\"2\" style=\"vertical-align:top\">11/3</td></tr></table><br><table><tr><td rowspan=\"4\" style=\"vertical-align:top\">= 1 +</td><td colspan=\"4\" style=\"text-align:center;border-bottom:solid 1px;\">1</td></tr><tr><td rowspan=\"3\" style=\"vertical-align:top\">1 +</td><td colspan=\"3\" style=\"text-align:center;\">6/11</td></tr></table><p>= 1 + 11/17 = 28/17</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The elevation of the top of a tower from a point on the ground is 45&deg;. On travelling 60 m from the point towards the tower the elevation of the top becomes 60&deg;. The height of the tower in metres, is </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2349;&#2370;&#2340;&#2354; &#2346;&#2352; &#2319;&#2325; &#2348;&#2367;&#2344;&#2381;&#2342;&#2369; &#2360;&#2375; &#2311;&#2350;&#2366;&#2352;&#2340; &#2325;&#2375; &#2358;&#2368;&#2352;&#2381;&#2359; &#2325;&#2366; &#2313;&#2344;&#2381;&#2344;&#2351;&#2344; &#2325;&#2379;&#2339; 45&deg; &#2361;&#2376;| &#2311;&#2350;&#2366;&#2352;&#2340; &#2325;&#2368; &#2323;&#2352; &#2348;&#2367;&#2344;&#2381;&#2342;&#2369; &#2360;&#2375; 60 &#2350;&#2368;&#2335;&#2352; &#2325;&#2368; &#2323;&#2352; &#2351;&#2366;&#2340;&#2381;&#2352;&#2366; &#2325;&#2352;&#2344;&#2375; &#2346;&#2352; &#2358;&#2368;&#2352;&#2381;&#2359; &#2325;&#2366; &#2313;&#2344;&#2381;&#2344;&#2351;&#2344; &#2325;&#2379;&#2339; 60&deg; &#2361;&#2379; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;| &#2311;&#2350;&#2366;&#2352;&#2340; &#2325;&#2368; &#2314;&#2305;&#2330;&#2366;&#2312; ________ &#2350;&#2368;&#2335;&#2352; &#2361;&#2376;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">30</span><span class=\"hqt\" style=\"display:none\">30</span>",
+      "<span class=\"eqt\">30 (3 - &radic;3)</span><span class=\"hqt\" style=\"display:none\">30 (3 - &radic;3)</span>",
+      "<span class=\"eqt\">30 (3 +&radic;3)</span><span class=\"hqt\" style=\"display:none\">30 (3 +&radic;3)</span>",
+      "<span class=\"eqt\">30&radic;3</span><span class=\"hqt\" style=\"display:none\">30&radic;3</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": " <p>Let h be height of tower.</p> <p><img width=206 height=137 id=\"Picture 33\" src=\"https://u1.oliveboard.in/exams/solution/sscimg/8386/image079.png\"></p> <p>Now in &Delta;BCD,</p> <p>tan 60 = CD/BC or &radic;3 = h/x</p><p>=&gt; h = x&radic;3 ..(i)</p> <p>and in &Delta;ACD, tan 45&deg;=CD/AC</p> <p>1 = h/(x+ 60) or h = x+60</p><p>From eqs (i) and (ii), we get</p> <p>x&radic;3 = x + 60 </p><p>x = 60/(&radic;3 - 1) = 60(&radic;3 + 1)/2 = 30(&radic;3 + 1)</p><p>height of tower h = x&radic;3 = 30(3 + &radic;3)</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Mock 01 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>500 gm of sugar solution has 45% sugar in it by weight. How much sugar must be added in the solution to make it 60% sugar solution (by weight)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2330;&#2368;&#2344;&#2368; &#2325;&#2375; 500 &#2327;&#2381;&#2352;&#2366;&#2350; &#2328;&#2379;&#2354; &#2350;&#2375;&#2306; &#2349;&#2366;&#2352; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; 45% &#2330;&#2368;&#2344;&#2368; &#2361;&#2376;| &#2328;&#2379;&#2354; &#2350;&#2375;&#2306; &#2324;&#2352; &#2325;&#2367;&#2340;&#2344;&#2368; &#2330;&#2368;&#2344;&#2368; &#2350;&#2367;&#2354;&#2366;&#2312; &#2332;&#2366;&#2351;&#2375; &#2332;&#2367;&#2360;&#2360;&#2375; &#2325;&#2367; &#2328;&#2379;&#2354; &#2350;&#2375;&#2306; &#2330;&#2368;&#2344;&#2368; &#2325;&#2368; &#2350;&#2366;&#2340;&#2381;&#2352;&#2366; 60% &#2361;&#2379; &#2332;&#2366;&#2351;&#2375;? (&#2349;&#2366;&#2352; &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306;)</p></span>",
+    "options": [
+      "<span class=\"eqt\">175.5 gm</span><span class=\"hqt\" style=\"display:none\">175.5 &#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">195.25 gm</span><span class=\"hqt\" style=\"display:none\">195.25 &#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">187.5 gm</span><span class=\"hqt\" style=\"display:none\">187.5 &#2327;&#2381;&#2352;&#2366;&#2350;</span>",
+      "<span class=\"eqt\">180 gm</span><span class=\"hqt\" style=\"display:none\">180 &#2327;&#2381;&#2352;&#2366;&#2350;</span>"
+    ],
+    "solution": "<p>Initial amount of sugar in the solution = 45% of 500 gm = (0.45  X  500) = 225 gm</p><p>Let's assume 'x' gm sugar added in order to have 60% solution.</p><p>Hence according to the question, ((225+x)/(500+x))*100 = 60</p><p>=&gt; 225 + x = 0.6(500 + x)</p><p>=&gt; 225 + x = 300 + 0.6x</p><p>=&gt; 0.4x = 75</p><p>=&gt; x = 187.5 gm</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p>How many numbers are there from 35 to 289 (including both these numbers) which are divisible by either 5 or 17?</p></span><span class=\"hqt\" style=\"display:none\"><p>35 &#2360;&#2375; 289 (&#2311;&#2344; &#2342;&#2379;&#2344;&#2379;&#2306; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2323;&#2306; &#2360;&#2361;&#2367;&#2340;) &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2367;&#2340;&#2344;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2319;&#2306; &#2361;&#2376;&#2306;, &#2332;&#2379; &#2351;&#2366; &#2340;&#2379; 5 &#2351;&#2366; 17 &#2360;&#2375; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2361;&#2379;&#2340;&#2375; &#2361;&#2376;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">70</span><span class=\"hqt\" style=\"display:none\">70</span>",
+      "<span class=\"eqt\">62</span><span class=\"hqt\" style=\"display:none\">62</span>",
+      "<span class=\"eqt\">69</span><span class=\"hqt\" style=\"display:none\">69</span>",
+      "<span class=\"eqt\">63</span><span class=\"hqt\" style=\"display:none\">63</span>"
+    ],
+    "solution": "<p>Total such numbers = Numbers divisible by 5 + Numbers divisible by 17  -  Numbers divisible by 85</p><p>Numbers from 35 to 289 (including both these numbers) which are divisible by 5 =35, 40, 45, ....., 285</p><p>n = [(285  -  35)/5] + 1 = 51</p><p>Numbers from 35 to 289 (including both these numbers) which are divisible by 17 =51, 68, 85, ....., 289</p><p>n = [(289  -  51)/17] + 1 = 15</p><p>Numbers from 35 to 289 (including both these numbers) which are divisible by 85 = 85, 170, 255 = 3</p><p>Total numbers from 35 to 289 (including both these numbers) which are divisible by 5 or 17= 51 + 15  -  3 = 63</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following polynomial is divisible by x-3?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2367;&#2350;&#2381;&#2344; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2348;&#2361;&#2369;&#2346;&#2342; x-3 &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2357;&#2367;&#2349;&#2366;&#2332;&#2367;&#2340; &#2325;&#2367;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">4x<sup>3</sup> -6x<sup>2</sup> -7x-5</span><span class=\"hqt\" style=\"display:none\">4x<sup>3</sup> -6x<sup>2</sup> -7x-5</span>",
+      "<span class=\"eqt\">2x<sup>3</sup> -3x<sup>2</sup> -4x-9</span><span class=\"hqt\" style=\"display:none\">2x<sup>3</sup> -3x<sup>2</sup> -4x-9</span>",
+      "<span class=\"eqt\">x<sup>4</sup> -8x<sup>2</sup> -x-7</span><span class=\"hqt\" style=\"display:none\">x<sup>4</sup> -8x<sup>2</sup> -x-7</span>",
+      "<span class=\"eqt\">3x<sup>3</sup> -6x<sup>2</sup> -5x-12</span><span class=\"hqt\" style=\"display:none\">3x<sup>3</sup> -6x<sup>2</sup> -5x-12</span>"
+    ],
+    "solution": "<p>A polynomial is divisible by x-3 if its value is zero for x=3</p><p>From option (1)</p><p>4x<sup>3</sup> -6x<sup>2</sup> -7x-5 = 4(3)<sup>3</sup> -6(3)<sup>2</sup> -7(3)-5</p><p>= 108  -  54 -21 -5 =28</p><p>From option (2)</p><p>2x<sup>3</sup> -3x<sup>2</sup> -4x-9 = 2(3)<sup>3</sup> -3(3)<sup>2</sup> -4(3)-9</p><p>= 54 -27 -12 -9 =6</p><p>From option (3)</p><p>x<sup>4</sup> -8x<sup>2</sup> -x-7 = (3)<sup>4</sup> -8(3)<sup>2</sup> -(3)-7</p><p>= 81 -72 -3-7 = -1</p><p>From option (4)</p><p>3x<sup>3</sup> -6x<sup>2</sup> -5x-12 = 3(3)<sup>3</sup> -6(3)<sup>2</sup> -5(3)-12</p><p>= 81 -54 -15 -12 = 0</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If 2x  -  1/5x = 5, then find the value of (1000x<sup>6</sup>  -  1)/25x<sup>3</sup>.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 2x - 1/5x = 5 &#2361;&#2376;, &#2340;&#2379; (1000x<sup>6</sup> - 1)/25x<sup>3 </sup>&#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">645</span><span class=\"hqt\" style=\"display:none\">645</span>",
+      "<span class=\"eqt\">635</span><span class=\"hqt\" style=\"display:none\">635</span>",
+      "<span class=\"eqt\">655</span><span class=\"hqt\" style=\"display:none\">655</span>",
+      "<span class=\"eqt\">625</span><span class=\"hqt\" style=\"display:none\">625</span>"
+    ],
+    "solution": "<p>2x  -  1/5x = 5 =&gt; 10x<sup>2</sup>  -  1 = 25x. [x&#8800;0]</p><p>Now, 1000x<sup>6</sup>  -  1 = (10x<sup>2</sup>)<sup>3</sup>  -  1<sup>3</sup> = (10x<sup>2</sup>  -  1)(100x<sup>4</sup> + 10x<sup>2</sup> +1)</p><p>= 25x((10x<sup>2</sup>)<sup>2</sup>  -  2  X  10x<sup>2 </sup> X  1 + 1<sup>2</sup> + 30x<sup>2</sup>)</p><p>= 25x((10x<sup>2</sup>  -  1)<sup>2</sup> + 30x<sup>2</sup>)</p><p>= 25x((25x)<sup>2</sup> + 30x<sup>2</sup>)</p><p>= 25x(625x<sup>2</sup> + 30x<sup>2</sup>)</p><p>= 25  X  655x<sup>3</sup></p><p>&#8756; (1000x<sup>6</sup>  -  1)/25x<sup>3</sup> = (25  X  655x<sup>3</sup>)/25x<sup>3</sup></p><p>= 655</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A rectangular sheet of Aluminum foil is 66 cm long and 25 cm wide. A cylinder is made out of it, by rolling it along its length. What will be the volume of the cylinder?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2354;&#2381;&#2351;&#2369;&#2350;&#2368;&#2344;&#2367;&#2351;&#2350; &#2347;&#2377;&#2351;&#2354; &#2325;&#2368; &#2310;&#2351;&#2340;&#2366;&#2325;&#2366;&#2352; &#2358;&#2368;&#2335; 66 &#2360;&#2375;&#2306;&#2335;&#2368;&#2350;&#2368;&#2335;&#2352; &#2354;&#2350;&#2381;&#2348;&#2368; &#2324;&#2352; 25 &#2360;&#2375;&#2306;&#2335;&#2368;&#2350;&#2368;&#2335;&#2352; &#2330;&#2380;&#2396;&#2368; &#2361;&#2376;| &#2311;&#2360;&#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2366;&#2312; &#2325;&#2368; &#2323;&#2352; &#2360;&#2375; &#2350;&#2379;&#2396;&#2340;&#2375; &#2361;&#2369;&#2319; &#2319;&#2325; &#2348;&#2375;&#2354;&#2344; &#2348;&#2344;&#2366;&#2351;&#2366; &#2332;&#2366;&#2340;&#2366; &#2361;&#2376;| &#2348;&#2375;&#2354;&#2344; &#2325;&#2366; &#2310;&#2351;&#2340;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">8622.5 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">8622.5 &#2328;&#2344; &#2360;&#2375;&#2306;&#2335;&#2368;&#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">8662.5 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">8662.5 &#2328;&#2344; &#2360;&#2375;&#2306;&#2335;&#2368;&#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">8262.5 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">8262.5 &#2328;&#2344; &#2360;&#2375;&#2306;&#2335;&#2368;&#2350;&#2368;&#2335;&#2352;</span>",
+      "<span class=\"eqt\">8626.5 cm<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">8626.5 &#2328;&#2344; &#2360;&#2375;&#2306;&#2335;&#2368;&#2350;&#2368;&#2335;&#2352;</span>"
+    ],
+    "solution": "<p>Length of roll = circumference of cylinder</p> <p>2&#960;r = 66</p> <p>=&gt; r = 66 x 7/(22 x 2) = 10.5 cm</p> <p>Volume of the cylinder = &#960;r&#178;h = 22/7 x 10.5 x 10.5 x 25 = 8662.5 cm&ge;</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the given figure, the circle touches the sides of the quadrilateral PQRS. If PQ = a and RS = b, express (PS + QR) in terms of a and b?</p><p><img width=200 height=186 id=\"Picture 4\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/91452/image006.jpg\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306; &#2357;&#2371;&#2340;&#2381;&#2340; &#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; PQRS &#2325;&#2368; &#2349;&#2369;&#2332;&#2366;&#2323;&#2306; &#2325;&#2379; &#2360;&#2381;&#2346;&#2352;&#2381;&#2358; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;| &#2351;&#2342;&#2367; PQ = a &#2324;&#2352; RS = b, &#2340;&#2379; a &#2324;&#2352; b &#2325;&#2375; &#2352;&#2370;&#2346; &#2350;&#2375;&#2306; (PS + QR) &#2325;&#2379; &#2309;&#2349;&#2367;&#2357;&#2381;&#2351;&#2325;&#2381;&#2340; &#2325;&#2352;&#2375;&#2306; ?</p><p><img width=\"200\" height=\"186\" id=\"Picture 4\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/91452/image006.jpg\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">(a + b)/2</span><span class=\"hqt\" style=\"display:none\">(a + b)/2</span>",
+      "<span class=\"eqt\">a + b</span><span class=\"hqt\" style=\"display:none\">a + b</span>",
+      "<span class=\"eqt\">2 (a + b)</span><span class=\"hqt\" style=\"display:none\">2 (a + b)</span>",
+      "<span class=\"eqt\">2 (a  -  b)</span><span class=\"hqt\" style=\"display:none\">2 (a - b)</span>"
+    ],
+    "solution": "<p>Let W, X, Y and Z be the points at which PQ, QR, RS and SP touch the circle respectively.</p> <p><img width=200 height=186 id=\"Picture 5\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/91452/image007.jpg\"></p> <p>PZ = PW = p</p> <p>SZ = SY = q</p> <p>QW = QX = r</p> <p>RX = RY = s</p> <p>PQ + RS = p + r + s + q = a + b</p> <p>PS + QR = p + q + r + s = a + b</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The value of sin (60 + &theta;)  -  cos (30 - &theta;) is </p></span><span class=\"hqt\" style=\"display:none\"><p>sin (60 + &#952;) - cos (30 - &#952;) &#2325;&#2366; &#2350;&#2366;&#2344; &#2361;&#2376;-</p></span>",
+    "options": [
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">1/2</span><span class=\"hqt\" style=\"display:none\">1/2</span>",
+      "<span class=\"eqt\">None of these</span><span class=\"hqt\" style=\"display:none\">&#2311;&#2344;&#2350;&#2375; &#2360;&#2375; &#2325;&#2379;&#2312; &#2344;&#2361;&#2368;&#2306;</span>"
+    ],
+    "solution": "<p>sin (90  -  (30 - &theta;))  -  cos (30 - &theta;)</p> <p>= cos (30 - &theta;)  -  cos (30 - &theta;) = 0</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x = 5 + 2&radic;6, then the value of &radic;x  -  (1/&radic;x) is </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x = 5 + 2&radic;6 &#2361;&#2376;, &#2340;&#2379; &radic;x - (1/&radic;x) &#2325;&#2366; &#2350;&#2366;&#2344; &#2361;&#2376;-</p></span>",
+    "options": [
+      "<span class=\"eqt\">2&radic;2</span><span class=\"hqt\" style=\"display:none\">2&radic;2</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>"
+    ],
+    "solution": "<p>[&radic;x  -  (1/&radic;x)]&#178; = x + 1/x  -  2 </p> <p>= 5 + 2&radic;6  -  2 + 1/ (5 + 2&radic;6)</p> <p>= 3 + 2&radic;6 + (5 - 2&radic;6)/(5 - 2&radic;6) (5 + 2&radic;6)</p> <p>= 3 + 2&radic;6 + (5 - 2&radic;6)/(25  -  24)</p> <p>= 3 + 2&radic;6 + 5  -  2&radic;6 = 8 </p> <p>&radic;x  -  (1/&radic;x) = &radic;8 = 2&radic;2</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Ratish takes 3 hours to type 24 pages. Shamik takes 9 hours to type 45 pages. In how many hours they will type 351 pages together ?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2352;&#2340;&#2367;&#2358; 24 &#2346;&#2375;&#2332; &#2335;&#2366;&#2311;&#2346; &#2325;&#2352;&#2344;&#2375; &#2350;&#2375;&#2306; 3 &#2328;&#2306;&#2335;&#2375; &#2325;&#2366; &#2360;&#2350;&#2351; &#2354;&#2375;&#2340;&#2366; &#2361;&#2376;| &#2358;&#2350;&#2367;&#2325; 45 &#2346;&#2375;&#2332; &#2335;&#2366;&#2311;&#2346; &#2325;&#2352;&#2344;&#2375; &#2350;&#2375;&#2306; 9 &#2328;&#2306;&#2335;&#2375; &#2354;&#2375;&#2340;&#2366; &#2361;&#2376;| &#2357;&#2375; &#2325;&#2367;&#2340;&#2344;&#2375; &#2328;&#2306;&#2335;&#2379;&#2306; &#2350;&#2375;&#2306; &#2319;&#2325; &#2360;&#2366;&#2341; &#2350;&#2367;&#2354;&#2325;&#2352; 351 &#2346;&#2375;&#2332; &#2335;&#2366;&#2311;&#2346; &#2325;&#2352; &#2354;&#2375;&#2306;&#2327;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">24 hours</span><span class=\"hqt\" style=\"display:none\">24 &#2328;&#2306;&#2335;&#2375;</span>",
+      "<span class=\"eqt\">18 hours</span><span class=\"hqt\" style=\"display:none\">18 &#2328;&#2306;&#2335;&#2375;</span>",
+      "<span class=\"eqt\">27 hours</span><span class=\"hqt\" style=\"display:none\">27 &#2328;&#2306;&#2335;&#2375;</span>",
+      "<span class=\"eqt\">30 hours</span><span class=\"hqt\" style=\"display:none\">30 &#2328;&#2306;&#2335;&#2375;</span>"
+    ],
+    "solution": "<p>Ratish types 24/3 = 8 pages per hour</p><p>Shamik types 45/9 = 5 pages per hour</p><p>Together they can type 8 + 5 = 13 pages per hour .</p> <p>So together they will take 351/13  X  1 = 27 hours. </p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If p<sup>2</sup>&#8722;3p+2=0,then the value of p<sup>2 </sup>- p is -</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; p<sup>2</sup>&#8722;3p+2=0 &#2361;&#2376;, &#2340;&#2379; p<sup>2 </sup>- p &#2325;&#2366; &#2350;&#2366;&#2344; &#2361;&#2376;-</p></span>",
+    "options": [
+      "<span class=\"eqt\">2,0</span><span class=\"hqt\" style=\"display:none\">2,0</span>",
+      "<span class=\"eqt\">3,2</span><span class=\"hqt\" style=\"display:none\">3,2</span>",
+      "<span class=\"eqt\">1,2</span><span class=\"hqt\" style=\"display:none\">1,2</span>",
+      "<span class=\"eqt\">1,3</span><span class=\"hqt\" style=\"display:none\">1,3</span>"
+    ],
+    "solution": "<p>p<sup>2</sup>&#8722;3p+2 = 0</p> <p>p<sup>2 </sup>- 2p - p + 2= 0</p> <p>p ( p-2) -1 ( p-2) = 0</p> <p>(p  -  2) ( p  -  1) = 0</p> <p>p = 2,1</p> <p>Then , for p = 2, p<sup>2 </sup>- p = 4  -  2 = 2</p> <p>and for p = 1, p<sup>2 </sup>- p = 1  -  1 = 0</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A shopkeeper sells sugar in such a way that the selling price of 950 gm is the same as the cost price of one kilogram, find his gain percent.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2330;&#2368;&#2344;&#2368; &#2325;&#2379; &#2311;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2348;&#2375;&#2330;&#2340;&#2366; &#2361;&#2376; &#2325;&#2367; 950 &#2327;&#2381;&#2352;&#2366;&#2350; &#2330;&#2368;&#2344;&#2368; &#2325;&#2366; &#2350;&#2370;&#2354;&#2381;&#2351; 1 &#2325;&#2367;&#2327;&#2381;&#2352;&#2366;. &#2330;&#2368;&#2344;&#2368; &#2325;&#2375; &#2325;&#2381;&#2352;&#2351; &#2350;&#2370;&#2354;&#2381;&#2351; &#2325;&#2375; &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2376;, &#2354;&#2366;&#2349; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">5%</span><span class=\"hqt\" style=\"display:none\">5%</span>",
+      "<span class=\"eqt\">50/19%</span><span class=\"hqt\" style=\"display:none\">50/19%</span>",
+      "<span class=\"eqt\">100/19%</span><span class=\"hqt\" style=\"display:none\">100/19%</span>",
+      "<span class=\"eqt\">100/21%</span><span class=\"hqt\" style=\"display:none\">100/21%</span>"
+    ],
+    "solution": "<p>Let the cost price per gram be Re 1.</p> <p>CP of 950 gm = Rs 950.</p> <p>SP of 950 gm = CP of 1000 gm = Rs 1000</p> <p>&#8757; x = 1000 gm and y = 950 gm</p> <p>Gain percentage = 100 x (1000-950)/950 = 100/19 %</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The area of trapezium is 336 sq.cm. If its parallel sides are in the ratio 5:7 and the perpendicular distance between them be 14 cm, then the smaller of the parallel sides is</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2360;&#2350;&#2354;&#2350;&#2381;&#2348; &#2330;&#2340;&#2369;&#2352;&#2381;&#2349;&#2369;&#2332; &#2325;&#2366; &#2325;&#2381;&#2359;&#2375;&#2340;&#2381;&#2352;&#2347;&#2354; 336 &#2357;&#2352;&#2381;&#2327; &#2360;&#2375;&#2306;&#2335;&#2368;&#2350;&#2368;&#2335;&#2352; &#2361;&#2376;| &#2351;&#2342;&#2367; &#2311;&#2360;&#2325;&#2368; &#2360;&#2350;&#2366;&#2344;&#2366;&#2344;&#2381;&#2340;&#2352; &#2349;&#2369;&#2332;&#2366;&#2323; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 5:7 &#2361;&#2379; &#2324;&#2352; &#2311;&#2344; &#2342;&#2379;&#2344;&#2379;&#2306; &#2349;&#2369;&#2332;&#2366;&#2323; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2368; &#2354;&#2350;&#2381;&#2348;&#2357;&#2340; &#2342;&#2370;&#2352;&#2368; 14 &#2360;&#2375;&#2306;&#2335;&#2368;&#2350;&#2368;&#2335;&#2352; &#2361;&#2379;, &#2340;&#2379; &#2360;&#2350;&#2366;&#2344;&#2366;&#2344;&#2381;&#2340;&#2352; &#2349;&#2369;&#2332;&#2366;&#2323; &#2350;&#2375;&#2306; &#2360;&#2348;&#2360;&#2375; &#2331;&#2379;&#2335;&#2368; &#2349;&#2369;&#2332;&#2366; &#2325;&#2380;&#2344;-&#2360;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">20 cm</span><span class=\"hqt\" style=\"display:none\">20 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">25 cm</span><span class=\"hqt\" style=\"display:none\">25 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">27.5 cm</span><span class=\"hqt\" style=\"display:none\">27.5 &#2360;&#2375;&#2350;&#2368;.</span>",
+      "<span class=\"eqt\">28 cm</span><span class=\"hqt\" style=\"display:none\">28 &#2360;&#2375;&#2350;&#2368;.</span>"
+    ],
+    "solution": "<p>Let the length of the parallel sides be 5L and 7L.</p> <p>Area = &frac12; (a+b) x h</p><p>336 =  &frac12; (5L + 7L) x 14</p><p>L = 336 x 2 / (12 x 14) = 4</p><p>Hence, length of required side = 5 x 4 = 20 cm</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Value of (tan 1&deg; tan2&deg; tan3&deg;...... tan 89&deg;) is</p></span><span class=\"hqt\" style=\"display:none\"><p>(tan 1&deg; tan2&deg; tan3&deg;...... tan 89&deg;) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">Undefined</span><span class=\"hqt\" style=\"display:none\">&#2309;&#2344;&#2344;&#2381;&#2340;</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>"
+    ],
+    "solution": "<p>tan1&deg; tan2&deg; tan3&deg;..... tan89&deg;</p> <p>= tan (90&deg; - 89&deg; ) tan(90&deg; - 88&deg; )..... tan 88&deg; tan 89&deg;</p> <p>= cot 89&deg; cot 88&deg; ... tan 45&deg;... tan 88&deg; tan 89&deg;</p> <p>Since cot 89 = 1/tan 89, cot 89 x tan 89 = 1.</p><p>Similarly, cot 88 x tan 2 = 1, .. cot 46 x tan 44 = 1</p><p>So, the product = 1 x tan 45 = 1</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The average age of 35 students in a class is 16 years. The average age of 21 students is 14 years. What is the average age remaining 14 students? </p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2325;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; 35 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2324;&#2360;&#2340; &#2310;&#2351;&#2369; 16 &#2357;&#2352;&#2381;&#2359; &#2361;&#2376;| 21 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2324;&#2360;&#2340; &#2310;&#2351;&#2369; 14 &#2357;&#2352;&#2381;&#2359; &#2361;&#2376;| &#2358;&#2375;&#2359; 14 &#2357;&#2367;&#2342;&#2381;&#2351;&#2366;&#2352;&#2381;&#2341;&#2367;&#2351;&#2379;&#2306; &#2325;&#2368; &#2324;&#2360;&#2340; &#2310;&#2351;&#2369; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">15 years</span><span class=\"hqt\" style=\"display:none\">15 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">17 years</span><span class=\"hqt\" style=\"display:none\">17 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">18 years</span><span class=\"hqt\" style=\"display:none\">18 &#2357;&#2352;&#2381;&#2359;</span>",
+      "<span class=\"eqt\">19 years</span><span class=\"hqt\" style=\"display:none\">19 &#2357;&#2352;&#2381;&#2359;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Total age of 35 students of the class = 16x35 = 560</p> <p>Total age of 21 students = 21x14= 294</p> <p>Total age of the remaining 14 students = 560 - 294 = 266</p> <p>Hence, average age of these 14 students = 266/14 = 19</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>A dishonest shopkeeper professes to sell goods at 10% profit and also uses a false weight of 950 gms, for each kilogram. Find his gain percentage?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2348;&#2375;&#2312;&#2350;&#2366;&#2344; &#2342;&#2369;&#2325;&#2366;&#2344;&#2342;&#2366;&#2352; &#2357;&#2360;&#2381;&#2340;&#2369;&#2323;&#2306; &#2325;&#2379; 10% &#2354;&#2366;&#2349; &#2346;&#2352; &#2348;&#2375;&#2330;&#2344;&#2375; &#2325;&#2366; &#2342;&#2366;&#2357;&#2366; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376; &#2324;&#2352; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2325;&#2367;&#2327;&#2381;&#2352;&#2366; &#2325;&#2375; &#2354;&#2367;&#2319; 950 &#2327;&#2381;&#2352;&#2366;&#2350; &#2325;&#2375; &#2327;&#2354;&#2340; &#2348;&#2366;&#2335; &#2325;&#2366; &#2346;&#2381;&#2352;&#2351;&#2379;&#2327; &#2325;&#2352;&#2340;&#2366; &#2361;&#2376;| &#2313;&#2360;&#2325;&#2366; &#2354;&#2366;&#2349; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">15(13/19)%</span><span class=\"hqt\" style=\"display:none\">15(13/19)%</span>",
+      "<span class=\"eqt\">15(15/19)%</span><span class=\"hqt\" style=\"display:none\">15(15/19)%</span>",
+      "<span class=\"eqt\">13(15/19)%</span><span class=\"hqt\" style=\"display:none\">13(15/19)%</span>",
+      "<span class=\"eqt\">13(13/19)%</span><span class=\"hqt\" style=\"display:none\">13(13/19)%</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>(100 + G)/ (100 + x) = true weight/ false weight </p> <p>(100 + G)/ 110 = 1000/950 </p> <p>Or G = 15 (15/19)%</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Ramya lent certain sum of money at 4% simple interest to Seema and in 8 years the interest amounted to Rs.3400 less than the sum lent. Find the sum lent by Ramya to Seema?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2352;&#2366;&#2350;&#2381;&#2351;&#2366; &#2344;&#2375; &#2360;&#2368;&#2350;&#2366; &#2325;&#2379; &#2319;&#2325; &#2344;&#2367;&#2358;&#2381;&#2330;&#2367;&#2340; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; 4% &#2360;&#2366;&#2343;&#2366;&#2352;&#2339; &#2348;&#2381;&#2351;&#2366;&#2332; &#2325;&#2368; &#2342;&#2352; &#2346;&#2352; &#2313;&#2343;&#2366;&#2352; &#2342;&#2368; &#2324;&#2352; 8 &#2357;&#2352;&#2381;&#2359; &#2348;&#2366;&#2342; &#2309;&#2352;&#2381;&#2332;&#2367;&#2340; &#2348;&#2381;&#2351;&#2366;&#2332; 3400 &#2352;&#2370;&#2346;&#2351;&#2375; &#2361;&#2379;&#2340;&#2368; &#2361;&#2376;, &#2332;&#2379; &#2313;&#2343;&#2366;&#2352; &#2342;&#2368; &#2327;&#2312; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; &#2360;&#2375; &#2325;&#2350; &#2361;&#2376;| &#2352;&#2366;&#2350;&#2381;&#2351;&#2366; &#2344;&#2375; &#2360;&#2368;&#2350;&#2366; &#2325;&#2379; &#2325;&#2367;&#2340;&#2344;&#2368; &#2343;&#2344;&#2352;&#2366;&#2358;&#2367; &#2313;&#2343;&#2366;&#2352; &#2342;&#2368;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">Rs.3050</span><span class=\"hqt\" style=\"display:none\">3050 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.6100</span><span class=\"hqt\" style=\"display:none\">6100 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.8200</span><span class=\"hqt\" style=\"display:none\">8200 &#2352;&#2370;&#2346;&#2351;&#2375;</span>",
+      "<span class=\"eqt\">Rs.5000</span><span class=\"hqt\" style=\"display:none\">5000 &#2352;&#2370;&#2346;&#2351;&#2375;</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Let the sum be Rs. y.</p><p>Simple interest incurred on Rs.y=(y  X r  X t)/100=(y X 4 X 8)/100=32y/100</p><p>y-32y/100=68y/100</p><p>When interest is 68y/100 less, the sum is Rs.y.</p><p>When sum is 3400 less, the sum is 340 * y /(68y/100) = Rs. 5000</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If sec63&deg; = p, find the value of</p><p>(1/sec<sup>2</sup>27&deg;) + cos<sup>2</sup>63&deg; + cot<sup>2</sup>27&deg; - (1/(cos<sup>2</sup>27&deg;*cosec<sup>2</sup>63&deg;))</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; sec63&deg; = p, &#2340;&#2379;</p><p>(1/sec<sup>2</sup>27&deg;) + cos<sup>2</sup>63&deg; + cot<sup>2</sup>27&deg; - (1/(cos<sup>2</sup>27&deg;*cosec<sup>2</sup>63&deg;)) &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;|</p></span>",
+    "options": [
+      "<span class=\"eqt\">&radic;(p<sup>2 </sup> -  1)</span><span class=\"hqt\" style=\"display:none\">&radic;(p<sup>2 </sup> - 1)</span>",
+      "<span class=\"eqt\">p<sup>2 </sup> -  1</span><span class=\"hqt\" style=\"display:none\">p<sup>2 </sup> - 1</span>",
+      "<span class=\"eqt\">1  -  p<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">1 - p<sup>2</sup></span>",
+      "<span class=\"eqt\">&radic;(1  -  p<sup>2</sup>)</span><span class=\"hqt\" style=\"display:none\">&radic;(1 - p<sup>2</sup>)</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>(1/sec<sup>2</sup>27&deg;) + cos<sup>2</sup>63&deg; + cot<sup>2</sup>27&deg; - (1/(cos<sup>2</sup>27&deg;*cosec<sup>2</sup>63&deg;))</p><p>= cos<sup>2</sup>27&deg; + cos<sup>2</sup>63&deg; + cot<sup>2</sup>27&deg; - sin<sup>2</sup>63&deg;/cos<sup>2</sup>27&deg;</p><p>= sin<sup>2</sup>63&deg; + cos<sup>2</sup>63&deg; + tan<sup>2</sup>63&deg; - sin<sup>2</sup>63&deg;/sin<sup>2</sup>63&deg;</p><p>= 1 + tan<sup>2</sup>63&deg; - 1 = tan<sup>2</sup>63&deg; = sec<sup>2</sup>63&deg; - 1 = p<sup>2 </sup> -  1 </p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>The sum of three numbers is 98. If the ratio between the first and second is 2:3 and that between the second and third is 5:8, then the second number is ___.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2340;&#2368;&#2344; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366;&#2323;&#2306; &#2325;&#2366; &#2351;&#2379;&#2327; 98 &#2361;&#2376;&#2404; &#2351;&#2342;&#2367; &#2346;&#2361;&#2354;&#2375; &#2324;&#2352; &#2342;&#2370;&#2360;&#2352;&#2375; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 2: 3 &#2361;&#2376; &#2324;&#2352; &#2342;&#2370;&#2360;&#2352;&#2375; &#2324;&#2352; &#2340;&#2368;&#2360;&#2352;&#2375; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2366; &#2309;&#2344;&#2369;&#2346;&#2366;&#2340; 5: 8 &#2361;&#2376;, &#2340;&#2379; &#2342;&#2370;&#2360;&#2352;&#2368; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; ____ &#2361;&#2376;&#2404;</p></span>",
+    "options": [
+      "<span class=\"eqt\">30</span><span class=\"hqt\" style=\"display:none\">30</span>",
+      "<span class=\"eqt\">20</span><span class=\"hqt\" style=\"display:none\">20</span>",
+      "<span class=\"eqt\">58</span><span class=\"hqt\" style=\"display:none\">58</span>",
+      "<span class=\"eqt\">48</span><span class=\"hqt\" style=\"display:none\">48</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>It is given that A: B = 2:3 and B: C = 5:8</p><p>Combined ratio of A: B: C will be 10:15:24</p><p>Since A+B+C = 98</p><p>10x + 15x + 24x = 49x</p><p>x = 98/49 = 2</p><p>Therefore, A = 20</p><p>B = 30 and C = 48.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In the figure below, AC is the diameter. What is the radius of the circle if AB:BC = 3:4, AB = 15cm?</p><p><img width=282 height=232 id=\"Picture 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p790/image004.jpg\" alt=1.JPG></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2351;&#2375; &#2310;&#2352;&#2375;&#2326; &#2350;&#2375;&#2306;, AC &#2357;&#2381;&#2351;&#2366;&#2360; &#2361;&#2376;| &#2351;&#2342;&#2367; AB:BC = 3:4, AB = 15 &#2360;&#2375;&#2350;&#2368;. &#2361;&#2376;, &#2340;&#2379; &#2357;&#2371;&#2340;&#2381;&#2340; &#2325;&#2368; &#2340;&#2381;&#2352;&#2367;&#2332;&#2381;&#2351;&#2366; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p><p><img width=\"282\" height=\"232\" id=\"Picture 3\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p790/image004.jpg\" alt=\"1.JPG\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">10cm</span><span class=\"hqt\" style=\"display:none\">10 &#2360;&#2375;.&#2350;&#2368;</span>",
+      "<span class=\"eqt\">12cm</span><span class=\"hqt\" style=\"display:none\">12 &#2360;&#2375;.&#2350;&#2368;</span>",
+      "<span class=\"eqt\">12.5cm</span><span class=\"hqt\" style=\"display:none\">12.5 &#2360;&#2375;.&#2350;&#2368;</span>",
+      "<span class=\"eqt\">25cm</span><span class=\"hqt\" style=\"display:none\">25 &#2360;&#2375;.&#2350;&#2368;</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Angle subtended by the diameter on any part of the circumference = 90&deg;. So, &#8736;ABC = 90&deg;</p><p>Now, AB:BC = 3:4 and AB = 15cm. So BC = 20cm</p><p>Using the Pythagoras Theorem,</p><p>AC = &radic;(AB<sup>2</sup> + BC<sup>2</sup>) = &radic;(225 + 400) = 25cm</p><p>Radius = AC/2 = 12.5cm </p>",
+    "question_index": 18
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Two trains of equal length are running on parallel lines in the same directions at 64 km/hr. and 54 km/hr. The faster trains pass the slower train in 18 seconds. The length of each train is-</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2360;&#2350;&#2366;&#2344; &#2354;&#2306;&#2348;&#2366;&#2312; &#2325;&#2368; &#2342;&#2379; &#2335;&#2381;&#2352;&#2375;&#2344;&#2375;&#2306; &#2360;&#2350;&#2366;&#2344; &#2342;&#2367;&#2358;&#2366; &#2350;&#2375;&#2306; &#2360;&#2350;&#2366;&#2344;&#2366;&#2306;&#2340;&#2352; &#2346;&#2335;&#2352;&#2367;&#2351;&#2379;&#2306; &#2346;&#2352; 64 &#2325;&#2367;&#2350;&#2368; / &#2328;&#2306;&#2335;&#2366; &#2324;&#2352; 54 &#2325;&#2367;&#2350;&#2368; / &#2328;&#2306;&#2335;&#2366; &#2325;&#2368; &#2327;&#2340;&#2367; &#2360;&#2375; &#2330;&#2354; &#2352;&#2361;&#2368; &#2361;&#2376;&#2306;| &#2340;&#2375;&#2332; &#2335;&#2381;&#2352;&#2375;&#2344; , &#2343;&#2368;&#2350;&#2368; &#2335;&#2381;&#2352;&#2375;&#2344; &#2325;&#2379; 18 &#2360;&#2375;&#2325;&#2306;&#2337; &#2350;&#2375;&#2306; &#2346;&#2366;&#2352; &#2325;&#2352;&#2340;&#2368; &#2361;&#2376;, &#2340;&#2379; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2335;&#2381;&#2352;&#2375;&#2344; &#2325;&#2368; &#2354;&#2306;&#2348;&#2366;&#2312; &#2325;&#2367;&#2340;&#2344;&#2368; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">36m</span><span class=\"hqt\" style=\"display:none\">36 &#2350;&#2368;.</span>",
+      "<span class=\"eqt\">42m</span><span class=\"hqt\" style=\"display:none\">42 &#2350;&#2368;.</span>",
+      "<span class=\"eqt\">25m</span><span class=\"hqt\" style=\"display:none\">25 &#2350;&#2368;.</span>",
+      "<span class=\"eqt\">64m</span><span class=\"hqt\" style=\"display:none\">64 &#2350;&#2368;.</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The relative speed of train is 64-54 = 10 Km/hr =10 X 5/18=25/9 <i>m</i>/<i>s</i></p><p>In 18 secs the total distance travelled is 18 x25/9 = 50 m.</p><p>Therefore the length of each train is = 50/2 = 25 m.</p>",
+    "question_index": 19
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Study the following table carefully and answer the questions.</p> <p>Marks obtained by 5 candidates in 6 different subjects in an examination. The numbers in the brackets give the maximum marks in each subject.</p> <table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>SUBJECTS (FULL MARKS)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>A</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>B</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>C</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>D</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>E</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Maths(150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">123</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">101</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">147</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">English(150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">140</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">133</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Physics(120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">82</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">History(120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">110</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">98</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">108</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Geography(100)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">77</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">64</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">61</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Music (50 )</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">46</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">42</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]:</b> &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2343;&#2381;&#2351;&#2366;&#2344;&#2346;&#2370;&#2352;&#2381;&#2357;&#2325; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2324;&#2352; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2375; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2375;&#2306;|</p><p>&#2319;&#2325; &#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; 6 &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2357;&#2367;&#2359;&#2351;&#2379;&#2306; &#2350;&#2375;&#2306; 5 &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;| &#2325;&#2379;&#2359;&#2381;&#2336;&#2325;&#2379; &#2350;&#2375;&#2306; &#2342;&#2368; &#2327;&#2312; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2357;&#2367;&#2359;&#2351; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2319; &#2309;&#2343;&#2367;&#2325;&#2340;&#2350; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2368; &#2361;&#2376;|</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2357;&#2367;&#2359;&#2351; (&#2346;&#2370;&#2352;&#2381;&#2339; &#2309;&#2306;&#2325;)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>A</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>B</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>C</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>D</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>E</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2327;&#2339;&#2367;&#2340; (150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">123</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">101</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">147</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2368; (150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">140</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">133</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2380;&#2340;&#2367;&#2325; &#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344; (120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">82</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2311;&#2340;&#2367;&#2361;&#2366;&#2360; (120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">110</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">98</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">108</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2370;&#2327;&#2379;&#2354; (100)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">77</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">64</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">61</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2360;&#2306;&#2327;&#2368;&#2340; (50)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">46</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">42</td></tr></table></span>",
+    "question": "<span class=\"eqt\"><p>What is the total marks obtained by candidate C?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352; C &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325; &#2325;&#2367;&#2340;&#2344;&#2375; &#2361;&#2376;&#2306;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">575</span><span class=\"hqt\" style=\"display:none\">575</span>",
+      "<span class=\"eqt\">587</span><span class=\"hqt\" style=\"display:none\">587</span>",
+      "<span class=\"eqt\">577</span><span class=\"hqt\" style=\"display:none\">577</span>",
+      "<span class=\"eqt\">585</span><span class=\"hqt\" style=\"display:none\">585</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The required aggregate= 135+126+114+98+64+40 =577</p>",
+    "question_index": 20
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Study the following table carefully and answer the questions.</p> <p>Marks obtained by 5 candidates in 6 different subjects in an examination. The numbers in the brackets give the maximum marks in each subject.</p> <table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>SUBJECTS (FULL MARKS)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>A</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>B</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>C</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>D</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>E</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Maths(150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">123</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">101</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">147</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">English(150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">140</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">133</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Physics(120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">82</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">History(120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">110</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">98</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">108</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Geography(100)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">77</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">64</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">61</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Music (50 )</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">46</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">42</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]:</b> &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2343;&#2381;&#2351;&#2366;&#2344;&#2346;&#2370;&#2352;&#2381;&#2357;&#2325; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2324;&#2352; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2375; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2375;&#2306;|</p><p>&#2319;&#2325; &#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; 6 &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2357;&#2367;&#2359;&#2351;&#2379;&#2306; &#2350;&#2375;&#2306; 5 &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;| &#2325;&#2379;&#2359;&#2381;&#2336;&#2325;&#2379; &#2350;&#2375;&#2306; &#2342;&#2368; &#2327;&#2312; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2357;&#2367;&#2359;&#2351; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2319; &#2309;&#2343;&#2367;&#2325;&#2340;&#2350; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2368; &#2361;&#2376;|</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2357;&#2367;&#2359;&#2351; (&#2346;&#2370;&#2352;&#2381;&#2339; &#2309;&#2306;&#2325;)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>A</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>B</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>C</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>D</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>E</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2327;&#2339;&#2367;&#2340; (150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">123</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">101</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">147</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2368; (150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">140</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">133</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2380;&#2340;&#2367;&#2325; &#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344; (120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">82</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2311;&#2340;&#2367;&#2361;&#2366;&#2360; (120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">110</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">98</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">108</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2370;&#2327;&#2379;&#2354; (100)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">77</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">64</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">61</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2360;&#2306;&#2327;&#2368;&#2340; (50)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">46</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">42</td></tr></table></span>",
+    "question": "<span class=\"eqt\"><p>What will be A's total marks if all full marks are converted to 150?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; &#2360;&#2349;&#2368; &#2346;&#2370;&#2352;&#2381;&#2339; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; 150 &#2309;&#2306;&#2325;&#2379; &#2350;&#2375;&#2306; &#2348;&#2342;&#2354; &#2342;&#2367;&#2351;&#2366; &#2332;&#2366;&#2319;, &#2340;&#2379; A &#2325;&#2375; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325; &#2325;&#2367;&#2340;&#2344;&#2375; &#2361;&#2379;&#2306;&#2327;&#2375;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">762</span><span class=\"hqt\" style=\"display:none\">762</span>",
+      "<span class=\"eqt\">774</span><span class=\"hqt\" style=\"display:none\">774</span>",
+      "<span class=\"eqt\">781</span><span class=\"hqt\" style=\"display:none\">781</span>",
+      "<span class=\"eqt\">755</span><span class=\"hqt\" style=\"display:none\">755</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The required marks:</p> <p>=123+140+(96x150/120)+(110x150/120)+(77x150/100)+(46x150/50)</p> <p>=123+140+120+137.5+115.5+138</p> <p>=774</p>",
+    "question_index": 21
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Study the following table carefully and answer the questions.</p> <p>Marks obtained by 5 candidates in 6 different subjects in an examination. The numbers in the brackets give the maximum marks in each subject.</p> <table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>SUBJECTS (FULL MARKS)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>A</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>B</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>C</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>D</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>E</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Maths(150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">123</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">101</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">147</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">English(150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">140</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">133</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Physics(120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">82</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">History(120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">110</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">98</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">108</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Geography(100)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">77</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">64</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">61</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Music (50 )</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">46</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">42</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]:</b> &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2343;&#2381;&#2351;&#2366;&#2344;&#2346;&#2370;&#2352;&#2381;&#2357;&#2325; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2324;&#2352; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2375; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2375;&#2306;|</p><p>&#2319;&#2325; &#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; 6 &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2357;&#2367;&#2359;&#2351;&#2379;&#2306; &#2350;&#2375;&#2306; 5 &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;| &#2325;&#2379;&#2359;&#2381;&#2336;&#2325;&#2379; &#2350;&#2375;&#2306; &#2342;&#2368; &#2327;&#2312; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2357;&#2367;&#2359;&#2351; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2319; &#2309;&#2343;&#2367;&#2325;&#2340;&#2350; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2368; &#2361;&#2376;|</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2357;&#2367;&#2359;&#2351; (&#2346;&#2370;&#2352;&#2381;&#2339; &#2309;&#2306;&#2325;)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>A</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>B</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>C</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>D</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>E</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2327;&#2339;&#2367;&#2340; (150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">123</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">101</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">147</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2368; (150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">140</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">133</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2380;&#2340;&#2367;&#2325; &#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344; (120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">82</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2311;&#2340;&#2367;&#2361;&#2366;&#2360; (120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">110</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">98</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">108</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2370;&#2327;&#2379;&#2354; (100)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">77</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">64</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">61</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2360;&#2306;&#2327;&#2368;&#2340; (50)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">46</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">42</td></tr></table></span>",
+    "question": "<span class=\"eqt\"><p>What is the difference between the total marks obtained by the candidates B and E?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352; B &#2324;&#2352; &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352; E &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2325;&#2369;&#2354; &#2309;&#2306;&#2325;&#2379; &#2325;&#2375; &#2348;&#2368;&#2330; &#2325;&#2366; &#2309;&#2344;&#2381;&#2340;&#2352; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">31</span><span class=\"hqt\" style=\"display:none\">31</span>",
+      "<span class=\"eqt\">27</span><span class=\"hqt\" style=\"display:none\">27</span>",
+      "<span class=\"eqt\">33</span><span class=\"hqt\" style=\"display:none\">33</span>",
+      "<span class=\"eqt\">24</span><span class=\"hqt\" style=\"display:none\">24</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The total marks obtained by B = 101+133+82+105+92+36 = 549</p> <p>The total marks obtained by E = 95+125+87+108+61+42 = 518</p> <p>Therefore, the required difference = (549-518) = 31</p>",
+    "question_index": 22
+  },
+  {
+    "comp": "<span class=\"eqt\"><p><b>Directions [Set of 4 questions]: </b>Study the following table carefully and answer the questions.</p> <p>Marks obtained by 5 candidates in 6 different subjects in an examination. The numbers in the brackets give the maximum marks in each subject.</p> <table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>SUBJECTS (FULL MARKS)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>A</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>B</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>C</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>D</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>E</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Maths(150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">123</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">101</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">147</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">English(150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">140</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">133</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Physics(120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">82</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">History(120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">110</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">98</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">108</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Geography(100)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">77</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">64</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">61</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Music (50 )</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">46</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">42</td></tr></table></span><span class=\"hqt\" style=\"display:none\"><p><b>&#2344;&#2367;&#2352;&#2381;&#2342;&#2375;&#2358; [4 &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2366; &#2360;&#2350;&#2370;&#2361;]:</b> &#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2340;&#2366;&#2354;&#2367;&#2325;&#2366; &#2325;&#2366; &#2343;&#2381;&#2351;&#2366;&#2344;&#2346;&#2370;&#2352;&#2381;&#2357;&#2325; &#2309;&#2343;&#2381;&#2351;&#2351;&#2344; &#2325;&#2352;&#2375;&#2306; &#2324;&#2352; &#2346;&#2381;&#2352;&#2358;&#2381;&#2344;&#2379;&#2306; &#2325;&#2375; &#2313;&#2340;&#2381;&#2340;&#2352; &#2342;&#2375;&#2306;|</p><p>&#2319;&#2325; &#2346;&#2352;&#2368;&#2325;&#2381;&#2359;&#2366; &#2350;&#2375;&#2306; 6 &#2309;&#2354;&#2327;-&#2309;&#2354;&#2327; &#2357;&#2367;&#2359;&#2351;&#2379;&#2306; &#2350;&#2375;&#2306; 5 &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352;&#2379;&#2306; &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2361;&#2376;| &#2325;&#2379;&#2359;&#2381;&#2336;&#2325;&#2379; &#2350;&#2375;&#2306; &#2342;&#2368; &#2327;&#2312; &#2360;&#2306;&#2326;&#2381;&#2351;&#2366; &#2346;&#2381;&#2352;&#2340;&#2381;&#2351;&#2375;&#2325; &#2357;&#2367;&#2359;&#2351; &#2350;&#2375;&#2306; &#2342;&#2367;&#2319; &#2327;&#2319; &#2309;&#2343;&#2367;&#2325;&#2340;&#2350; &#2309;&#2306;&#2325;&#2379; &#2325;&#2379; &#2342;&#2352;&#2381;&#2358;&#2366;&#2340;&#2368; &#2361;&#2376;|</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>&#2357;&#2367;&#2359;&#2351; (&#2346;&#2370;&#2352;&#2381;&#2339; &#2309;&#2306;&#2325;)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>A</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>B</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>C</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>D</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>E</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2327;&#2339;&#2367;&#2340; (150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">123</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">101</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">147</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2368; (150)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">140</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">133</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">95</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2380;&#2340;&#2367;&#2325; &#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344; (120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">82</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">96</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">87</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2311;&#2340;&#2367;&#2361;&#2366;&#2360; (120)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">110</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">105</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">98</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">114</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">108</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2349;&#2370;&#2327;&#2379;&#2354; (100)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">77</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">92</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">64</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">100</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">61</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">&#2360;&#2306;&#2327;&#2368;&#2340; (50)</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">46</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">36</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">40</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">24</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">42</td></tr></table></span>",
+    "question": "<span class=\"eqt\"><p>What is the point difference in the percentage of marks secured by the candidate B in Physics and Music and by the candidate D in Geography and English?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352; B &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2349;&#2380;&#2340;&#2367;&#2325; &#2357;&#2367;&#2332;&#2381;&#2334;&#2366;&#2344; &#2324;&#2352; &#2360;&#2306;&#2327;&#2368;&#2340; &#2350;&#2375;&#2306; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2309;&#2306;&#2325;&#2379; &#2325;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2324;&#2352; &#2313;&#2350;&#2381;&#2350;&#2368;&#2342;&#2357;&#2366;&#2352; D &#2342;&#2381;&#2357;&#2366;&#2352;&#2366; &#2349;&#2370;&#2327;&#2379;&#2354; &#2324;&#2352; &#2309;&#2306;&#2327;&#2381;&#2352;&#2375;&#2332;&#2368; &#2350;&#2375;&#2306; &#2346;&#2381;&#2352;&#2366;&#2346;&#2381;&#2340; &#2325;&#2367;&#2319; &#2327;&#2319; &#2309;&#2306;&#2325;&#2379; &#2325;&#2366; &#2346;&#2381;&#2352;&#2340;&#2367;&#2358;&#2340; &#2348;&#2367;&#2306;&#2342;&#2369; &#2309;&#2344;&#2381;&#2340;&#2352; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">7.55%</span><span class=\"hqt\" style=\"display:none\">7.55%</span>",
+      "<span class=\"eqt\">4.73%</span><span class=\"hqt\" style=\"display:none\">4.73%</span>",
+      "<span class=\"eqt\">8.59%</span><span class=\"hqt\" style=\"display:none\">8.59%</span>",
+      "<span class=\"eqt\">6.87%</span><span class=\"hqt\" style=\"display:none\">6.87%</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Candidate B's percentage in Physics and Music = (82+36)/(50+120) x 100</p> <p>= 118/170 x 100 = 69.41%</p> <p>Candidate D's percentage in Geography and English = (100+95)/(150+100) x 100</p> <p>= 195/250 x 100 = 78%</p> <p>The required difference = 78  -  69.41 = 8.59%</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>In a triangle ABC, OB and OC respectively are the bisectors of &#8736;ABC and &#8736;ACB. Then &#8736;BOC is equal to</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2319;&#2325; &#2340;&#2381;&#2352;&#2367;&#2349;&#2369;&#2332; ABC &#2350;&#2375;&#2306;, OB &#2324;&#2352; OC &#2325;&#2381;&#2352;&#2350;&#2358;&#2307; &#8736;ABC &#2324;&#2352; &#8736;ACB &#2325;&#2375; &#2342;&#2381;&#2357;&#2367;&#2349;&#2366;&#2332;&#2325; &#2361;&#2376;&#2306;, &#2340;&#2379; &#8736;BOC &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2376;-</p></span>",
+    "options": [
+      "<span class=\"eqt\">90&#730; - &frac12; &#8736;A</span><span class=\"hqt\" style=\"display:none\">90&#730; - &frac12; &#8736;A</span>",
+      "<span class=\"eqt\">90&#730; + &frac12; &#8736;A</span><span class=\"hqt\" style=\"display:none\">90&#730; + &frac12; &#8736;A</span>",
+      "<span class=\"eqt\">90&#730; + &#8736;A</span><span class=\"hqt\" style=\"display:none\">90&#730; + &#8736;A</span>",
+      "<span class=\"eqt\">180&#730; - &frac12; &#8736;A</span><span class=\"hqt\" style=\"display:none\">180&#730; - &frac12; &#8736;A</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=177 height=144 id=\"Picture 2\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/17991/image001.jpg\"></p> <p>&#8736;ABC + &#8736;ACB + &#8736;BAC = 180&#730;</p> <p>=&gt; &#8736;ABC + &#8736; ACB =180&#730;- &#8736;A</p> <p>&#8736;BOC +&#8736;OBC+&#8736;OCB = 180&#730;</p> <p>=&gt; &#8736;BOC + &frac12; (&#8736;ABC + &#8736; ACB) =180&#730;</p> <p>=&gt; &#8736;BOC + &frac12;(180&#730;-&#8736; A) =180&#730;</p> <p>=&gt; &#8736;BOC=90&#730;+1/2 &#8736;A</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

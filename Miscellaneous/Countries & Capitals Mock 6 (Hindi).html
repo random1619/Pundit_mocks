@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries & Capitals Mock 6 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Who was the first Secretary General of United Nations?</p>",
+    "options": [
+      "Trygve Lie",
+      "Dag Hammarskj&#246;ld",
+      "U Thant",
+      "Kurt Waldheim",
+      "Javier P&#233;rez de Cu&#233;llar"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Trygve Halvdan Lie, was a Norwegian politician, labour leader, government official and author. He served as Norwegian Foreign minister during the critical years of the Norwegian government in exile in London from 1940 to 1945. From 1946 to 1952 he was the first Secretary-General of the United Nations. Lie earned a reputation as a pragmatic, determined politician.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>What is the term of Non-Permanent members of UN Security Council?</p>",
+    "options": [
+      "1 year",
+      "2 years",
+      "3 years",
+      "4 years",
+      "5 years"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Security Council consists of fifteen members. The great powers that were the victors of World War II - the Soviet Union (now represented by Russia), the United Kingdom, France, Republic of China (now represented by the People's Republic of China), and the United States - serve as the body's five permanent members. These permanent members can veto any substantive Security Council resolution, including those on the admission of new member states or candidates for Secretary-General. The Security Council also has 10 non-permanent members, elected on a regional basis to serve two-year terms. The body's presidency rotates monthly among its members.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Who was the first executive director of United Nations Environment Program (UNEP)?</p>",
+    "options": [
+      "Mostafa Kamal Tolba",
+      "Elizabeth Dowdeswell",
+      "Klaus T&#246;pfer",
+      "Maurice Strong",
+      "Erik Solheim"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Maurice Frederick Strong, was a Canadian oil and mineral businessman and a diplomat who served as Under-Secretary-General of the United Nations. Strong had his start as an entrepreneur in the Alberta oil patch and was President of Power Corporation of Canada until 1966. In the early 1970s he was Secretary General of the United Nations Conference on the Human Environment and then became the first executive director of the United Nations Environment Programme.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Head-quarter of the United Nations Economic and Social Commission for Asia and the Pacific (UNESCAP) is located in</p>",
+    "options": [
+      "Singapore",
+      "Bangkok",
+      "Shanghai",
+      "Bali",
+      "Manila"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Economic and Social Commission for Asia and the Pacific (UNESCAP or ESCAP), located in the United Nations Building in Rajadamnern Nok Avenue in Bangkok, Thailand, is one of the five regional commissions of the United Nations Economic and Social Council, under the administrative direction of the United Nations headquarters. It was established in 1947 (then as the UN Economic Commission for Asia and the Far East, ECAFE) to encourage economic cooperation among its member states. The name was changed to the current in 1974. ESCAP has 53 member States and nine Associate members, home to more than two-third of the world population. As well as countries in Asia and the Pacific, it includes France, the Netherlands, the United Kingdom and the United States.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>International Monetary Fund (IMF) was formed at the</p>",
+    "options": [
+      "Bali Package",
+      "Doha conference",
+      "Paris conference",
+      "Bretton-Woods conference",
+      "Vienna conference"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The International Monetary Fund (IMF) is an international organization headquartered in Washington, D.C., of \"189 countries working to foster global monetary cooperation, secure financial stability, facilitate international trade, promote high employment and sustainable economic growth, and reduce poverty around the world.\" Formed in 1944 at the Bretton Woods Conference primarily by the ideas of Harry Dexter White and John Maynard Keynes.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The Universal Postal Union (UPU) was established in</p>",
+    "options": [
+      "1974",
+      "1898",
+      "1928",
+      "1874",
+      "1946"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Universal Postal Union, established by the Treaty of Bern of 1874, is a specialized agency of the United Nations that coordinates postal policies among member nations, in addition to the worldwide postal system. The UPU contains four bodies consisting of the Congress, the Council of Administration (CA), the Postal Operations Council (POC) and the International Bureau (IB). It also oversees the Telematics and EMS cooperatives. Each member agrees to the same terms for conducting international postal duties. The UPU's headquarters are located in Bern, Switzerland.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Who among the following was served as the first president of World Bank Group?</p>",
+    "options": [
+      "Eugene Meyer",
+      "John J. McCloy",
+      "Eugene R. Black",
+      "George D. Woods",
+      "Jim Yong Kim"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Eugene Isaac Meyer was an American financier, public official, and newspaper publisher. He was the publisher of the Washington Post newspaper. He served as Chairman of the Federal Reserve from 1930 to 1933. He also served as the first President of the World Bank Group. He was the father of publisher Katharine Graham and portrait photographer Florence Meyer.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>North Atlantic Treaty Organisation (NATO) is head-quartered in</p>",
+    "options": [
+      "Paris",
+      "Vienna",
+      "Brussels",
+      "London",
+      "Washington DC"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The North Atlantic Treaty Organization, also called the North Atlantic Alliance, is an intergovernmental military alliance between several North American and European states based on the North Atlantic Treaty that was signed on 4 April 1949. NATO constitutes a system of collective defence whereby its member states agree to mutual defence in response to an attack by any external party. Three NATO members (the United States, France and the United Kingdom) are permanent members of the United Nations Security Council with the power to veto and are officially nuclear-weapon states. NATO Headquarters are located in Haren, Brussels, Belgium, while the headquarters of Allied Command Operations is near Mons, Belgium.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which of the following is the most populous member country of Arab league?</p>",
+    "options": [
+      "Egypt",
+      "Saudi Arabia",
+      "Algeria",
+      "Iraq",
+      "Morocco"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Arab League is a culturally and ethnically one association of 22 member states, with the overwhelming majority of the League's population identified as Arab (on a cultural ethno-racial basis). As of July 1, 2013, about 359 million people live in the states of the Arab League. Its population grows faster than in most other global regions. The most populous member state is Egypt, with a population of about 91 million. The least populated is the Comoros, with over 0.6 million inhabitants.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Shanghai Cooperation is head-quartered in</p>",
+    "options": [
+      "Shanghai",
+      "Astana",
+      "Moscow",
+      "Beijing",
+      "Ufa"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>SCO was formulated in 1996 with five countries- Kazakhstan, Kyrgyzstan, Russia, China, Tajikistan. Uzbekistan joined in the group in 2001. The primary motive behind the formation was to ensure stability along the borders. India and Pakistan, who have been observers, became permanent members of the body in 2017. SCO is head-quartered in Beijing, China.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>The capital of Germany is</p>",
+    "options": [
+      "Frankfurt",
+      "Munich",
+      "Hamburg",
+      "Bern",
+      "Berlin"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Berlin is the capital and the largest city of Germany as well as one of its 16 constituent states. Located in north-eastern Germany on the banks of the rivers Spree and Havel, it is the centre of the Berlin-Brandenburg Metropolitan Region, which has roughly 6 million residents from more than 180 nations, making it the sixth most populous urban area in the European Union.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Accra is the capital of</p>",
+    "options": [
+      "Ghana",
+      "Togo",
+      "Benin",
+      "Burkina Faso",
+      "Sierra Leone"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Accra is the capital and most populous city of Ghana, with an estimated urban population of 2.27 million as of 2012. It is also the capital of the Greater Accra Region and of the Accra Metropolis District, with which it is conterminous. Accra is furthermore the anchor of a larger metropolitan area, the Greater Accra Metropolitan Area (GAMA), which is inhabited by about 4 million people and is the thirteenth-largest metropolitan area in Africa.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>What is the capital of Greece?</p>",
+    "options": [
+      "Tirana",
+      "Athens",
+      "Prishtina",
+      "Sofia",
+      "Bucharest"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Athens is the capital and largest city of Greece. Athens dominates the Attica region and is one of the world's oldest cities, with its recorded history spanning over 3,400 years, and its earliest human presence starting somewhere between the 11<sup>th</sup> and 7<sup>th</sup> century BC. Athens is home to two UNESCO World Heritage Sites, the Acropolis of Athens and the medieval Daphni Monastery.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>The capital of Maldives is</p>",
+    "options": [
+      "Lilongwe",
+      "Male",
+      "Moroni",
+      "Colombo",
+      "Port Louis"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Male is the capital and most populous city in the Republic of Maldives. The city is geographically located at the southern edge of North Male Atoll. Administratively, the city consists of a central island, an airport island, and two other islands governed by the Male City Council.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Valletta is the capital of</p>",
+    "options": [
+      "Montenegro",
+      "Bulgaria",
+      "Malta",
+      "Portugal",
+      "Morocco"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Malta, officially known as the Republic of Malta, is a Southern European island country consisting of an archipelago in the Mediterranean Sea. Valletta is the capital city of Malta, colloquially known as Il-Belt in Maltese. Geographically, it is located in the South Eastern Region, in the central-eastern portion of the main island of Malta having its western coast with access to the Marsamxett Harbour and its eastern coast in the Grand Harbour. Valletta is the southernmost capital of Europe and the second southernmost capital of the European Union after Nicosia.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>The capital of Marshall islands is</p>",
+    "options": [
+      "Majuro",
+      "Honolulu",
+      "Manila",
+      "Sorong",
+      "Makassar"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Majuro is the capital and largest city of the Republic of the Marshall Islands. It is also a large coral atoll of 64 islands in the Pacific Ocean. It forms a legislative district of the Ratak (Sunrise) Chain of the Marshall Islands. The atoll has a land area of 9.7 square kilometres and encloses a lagoon of 295 square kilometres. As with other atolls in the Marshall Islands, Majuro consists of narrow land masses.</p><p>The Marshall Islands, officially the Republic of the Marshall Islands is an island country located near the equator in the Pacific Ocean, slightly west of the International Date Line. Geographically, the country is part of the larger island group of Micronesia.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which of the following is the capital of Turkey?</p>",
+    "options": [
+      "Istanbul",
+      "Ankara",
+      "Bursa",
+      "Kiev",
+      "Tbilisi"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Ankara, formerly known as Ancyra and Angora, is the capital of the Republic of Turkey. It is Turkey's second largest city after former imperial capital Istanbul, having overtaken Izmir.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Ashgabat is the capital of</p>",
+    "options": [
+      "Kazakhstan",
+      "Kyrgyzstan",
+      "Tajikistan",
+      "Uzbekistan",
+      "Turkmenistan"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Ashgabat is the capital and the largest city of Turkmenistan in Central Asia, situated between the Karakum Desert and the Kopet Dag mountain range. Turkmenistan, formerly known as Turkmenia, is a country in Central Asia, bordered by Kazakhstan to the northwest, Uzbekistan to the north and east, Afghanistan to the southeast, Iran to the south and southwest, and the Caspian Sea to the west.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>What is the capital of Uganda?</p>",
+    "options": [
+      "Kampala",
+      "Kigali",
+      "Bujumbura",
+      "Dar es Salaam",
+      "Lilongwe"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Kampala is the capital and largest city of Uganda. The city is divided into five boroughs that oversee local planning: Kampala Central Division, Kawempe Division, Makindye Division, Nakawa Division, and Lubaga Division. The city is coterminous with Kampala District.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Currency of Uzbekistan is</p>",
+    "options": [
+      "Shilling",
+      "Som",
+      "Peso",
+      "Lev",
+      "Manat"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The so&#699;m is the currency of Uzbekistan in Central Asia. The ISO 4217 currency code is UZS. Uzbekistan replaced the ruble with so&#699;m at par in on November 15, 1993. No subdivisions of this som were issued and only banknotes were produced, in denominations of 1, 3, 5, 10, 25, 50, 100, 200, 500, 1000, 5000, and 10,000 so&#699;m. Because it was meant to be a transitional currency, the design was rather simplistic. All notes had the Coat of arms on obverse, and Sher-Dor Madrasah of the Registan in Samarkand on reverse.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Which of the following is not a currency of SDR basket?</p>",
+    "options": [
+      "Euro",
+      "Rupee",
+      "Yen",
+      "Pound",
+      "Renminbi"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The SDR is an international reserve asset, created by the IMF in 1969 to supplement its member countries' official reserves. SDRs can be exchanged for freely usable currencies. The value of the SDR is based on a basket of five major currencies - the US dollar, the euro, the Chinese renminbi (RMB), the Japanese yen, and the British pound sterling.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>'Hryvna' is the currency of</p>",
+    "options": [
+      "Ukraine",
+      "Sweden",
+      "Finland",
+      "Denmark",
+      "Uruguay"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The hryvnia, sometimes hryvnya (sign: &#8372;, code: UAH), has been the national currency of Ukraine since 2 September 1996. The hryvnia is subdivided into 100 kopiyky. It is named after a measure of weight used in medieval Kievan Rus'.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>'Won' is the currency of</p>",
+    "options": [
+      "Australia and New Zealand",
+      "Iceland and Greenland",
+      "South Korea and North Korea",
+      "Austria and Hungary",
+      "Uzbekistan and Turkmenistan"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The (symbol: &#8361;; code: KRW) or the Korean Won is the currency of South Korea and North Korea. A single won is divided into 100 jeon, the monetary subunit. The jeon is no longer used for everyday transactions, and appears only in foreign exchange rates.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Currency of Kuwait is</p>",
+    "options": [
+      "Dinar",
+      "Dirham",
+      "Rial",
+      "Riyal",
+      "Shekel"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Kuwaiti dinar (code: KWD) is the currency of Kuwait. It is sub-divided into 1,000 fils. The Kuwaiti dinar is the world's highest-valued currency unit.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>What is the currency of Kyrgyzstan?</p>",
+    "options": [
+      "Dinar",
+      "Tenge",
+      "Shilling",
+      "Som",
+      "Franc"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The som is the currency of the Kyrgyz Republic. The ISO 4217 currency code is KGS. The som is sub-divided into 100 tyiyn.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>The currency of Yemen is</p>",
+    "options": [
+      "Euro",
+      "Dinar",
+      "Shilling",
+      "Rial",
+      "Peso"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The rial or riyal is the currency of Yemen. It is technically divided into 100 fils, although coins denominated in fils have not been issued since Yemeni unification.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>The International Seabed Authority is head-quartered in</p>",
+    "options": [
+      "Colombo",
+      "Singapore",
+      "Jakarta",
+      "Kingston",
+      "Lima"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The International Seabed Authority (ISA) is an intergovernmental body based in Kingston, Jamaica, that was established to organize, regulate and control all mineral-related activities in the international seabed area beyond the limits of national jurisdiction, an area underlying most of the world's oceans. It is an organization established by the Law of the Sea Convention.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>The head-quarters of International Council for the Exploration of the Sea (ICES) is located in</p>",
+    "options": [
+      "Jakarta",
+      "Hobart",
+      "Manila",
+      "Rome",
+      "Copenhagen"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The International Council for the Exploration of the Sea (ICES) is the world's oldest intergovernmental science organization. ICES is headquartered in Copenhagen, Denmark, where its multinational Secretariat staff of 51 provide scientific, administrative and secretarial support to the ICES community. It was established on July 22, 1902 in Copenhagen.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>What is the smallest denominations of currency, Qatari Riyal?</p>",
+    "options": [
+      "Dirham",
+      "Ban",
+      "Cent",
+      "Penny",
+      "Poisha"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Qatari riyal is the currency of the State of Qatar. It is divided into 100 dirhams and is abbreviated as either QR. In 1966, coins were introduced in the name of Qatar and Dubai for 1, 5, 10, 25 and 50 dirham. In 1973, a new series of coins was introduced in the same sizes and compositions as the earlier pieces but in the name of Qatar only.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>The Indian Rupee sign (&#8377;) was designed by</p>",
+    "options": [
+      "Rajesh Ranganath",
+      "Shruthi Krishnamurthi",
+      "D. Udaya Kumar",
+      "Vinay Rajendran",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Indian rupee sign (sign: &#8377;; code: INR) is the currency sign for the Indian rupee, the official currency of India. Designed by D. Udaya Kumar, it was presented to the public by the Government of India on 15 July 2010, following its selection through an \"open\" competition among Indian residents. Before its adoption, the most commonly used symbols for the rupee were Rs, Re or, if the text was in an Indian language, an appropriate abbreviation in that language. The design is based on the Devanagari letter \"&#2352;\" (ra) with a double horizontal line at the top. It also resembles the Latin capital letter \"R\".</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

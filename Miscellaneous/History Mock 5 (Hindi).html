@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Mock 5 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>The Harappan site Kalibanga is located in which among the following Indian states?</p>",
+    "options": [
+      "Madhya Pradesh",
+      "Uttar Pradesh",
+      "Rajasthan",
+      "Haryana",
+      "Punjab"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Kalibanga is located on the banks of the river Ghaggar in Hanumangarh district in Rajasthan. It was excavated by A Ghosh in 1951 followed by BV Lal and BK Thapar (1961). It had ploughed field surface, 7 fire altars, decorated bricks, wheels of a toy cart etc when it was found</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Who among the following is considered as the founder of the Sankhya Darshana?</p>",
+    "options": [
+      "Patanjali",
+      "Kapila",
+      "Uluka Kanada",
+      "Jaimini",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Various Indian schools of philosophy and their founders:</p><p>&#8226; Sankhya Darshana: Kapila</p><p>&#8226; Yoga Darshana: Patanjali</p><p>&#8226; Nyaya Darshana: Akshapada Gautama</p><p>&#8226; Vaisheshika Darshana: Uluka Kanada</p><p>&#8226; Mimansa: Jaimini</p><p>&#8226; Vedant: Badarayana</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Who among the following was considered as the most important God during the Vedic era?</p>",
+    "options": [
+      "Indra",
+      "Varuna",
+      "Agni",
+      "Bramha",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Indra, Varuna, Agni were the most popular deities for the Vedic Aryans. Indra or Purandara was the most important God of the period as around 250 Rigvedic hymns are dedicated to him. He played the role of warlord and was considered to be the Rain God</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Who among the following was known by the title of Kunika?</p>",
+    "options": [
+      "Bimbisara",
+      "Bindusara",
+      "Ashoka",
+      "Ajatashatru",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Ajatashatru was the son of Bimbisara and was also known as Kunika as he ruled from 492 BC to 460 BC. He followed a more aggressive policy than his father and gained complete control of Kashi and broke the earlier amicable relations by attacking his maternal uncle Prasenjit, the King of Kosala. He built the fort of Rajgriha</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Gautama Buddha passed away at the age of-</p>",
+    "options": [
+      "70 years",
+      "75 years",
+      "80 years",
+      "90 years",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>At the age of 80 years, Gautama Buddha passed away in 483 BC at Kushinagar in UP. This incident is known as Mahaparinirbana in Buddhist ideology. The village where he breathed his last is similar to the village Kasia in Kushinagar district in UP</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Mahavibhasa Shastra is authored by whom among the following?</p>",
+    "options": [
+      "Ashwaghosa",
+      "Vasumitra",
+      "Buddhaghosa",
+      "Nagarjuna",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Some of the Sanskrit Texts in Buddhism and their authors:</p><p>&#8226; Buddha Charita, Saundarananda, Sutralankar, Sariputra Prakaran and Vajra Suchi: Ashwaghosa</p><p>&#8226; Visuddhamagga, Athakathayen and Sumangalvasini: Buddhaghosa</p><p>&#8226; Madhyamika Karika and Prajnaparamita Karika: Nagarjuna</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Vallabhi University was established by Maitrak ruler Bhatatrak in-</p>",
+    "options": [
+      "Madhya Pradesh",
+      "Gujarat",
+      "Rajasthan",
+      "Bengal",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Some of the Buddhist Universities along with their locations:</p><p>&#8226; Nalanda: Badagaon, Bihar</p><p>&#8226; Odantapuri: Biharsharif, Bihar</p><p>&#8226; Vikramshila: Bhagalpur, Bihar</p><p>&#8226; Somapuri: North Bengal</p><p>&#8226; Jagadal: Bengal</p><p>&#8226; Vallabhi: Gujarat</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Mahavira is considered as the .... Tirthankar in the Jain Tradition</p>",
+    "options": [
+      "22<sup>nd</sup>",
+      "21<sup>st</sup>",
+      "24<sup>th</sup>",
+      "25<sup>th</sup>",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>According to Jain Tradition, there were 24 Tirthankars (literally Ford maker, across the stream of existence), the first being Adinatha or Rishabhadeva and the last being Mahavira. The Vishnu Purana describes Rishabhadeva as an incarnation of Narayana. However, historicity of 22 tirthankars is ambiguous and historical proof of only Parshwanath (23<sup>rd</sup>) and Mahavira can be found</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>The first Jain Council was held in the year-</p>",
+    "options": [
+      "400 BC",
+      "350 BC",
+      "300 BC",
+      "250 BC",
+      "200 BC"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The first Jain Council was held in 300 BC in Pataliputra and Chandragupta Maurya was the patron behind it. This saw the compilation of 12 Angas. In the second Jain Council that was held in 512 AD in Vallabhi, final compilation of 12 angas and 12 Upangas took place under the chairmanship of Devardhi Kshmarsramana</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Who among the following was known as the chief treasury officer during the Mauryan administration?</p>",
+    "options": [
+      "Samaharta",
+      "Sannidhata",
+      "Vyavaharika",
+      "Pradeshta",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Some important officials during the Mauryan rule:</p><p>&#8226; Samaharta: The collector general of revenue</p><p>&#8226; Dharmastha: Chief Justice of civil court</p><p>&#8226; Pradeshta: Chief Justice of criminal court</p><p>&#8226; Dhamma Mahamatra: A new post created by Ashoka empowered with the dual functions of propagating dhamma as well as taking care of the folks for material well being</p><p>&#8226; Rashtrapala: The viceroys in charge of a province</p><p>&#8226; Pradesika: They were the modern district magistrate</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Bharhut Stupa which is a famous monument in India was built during the reign of-</p>",
+    "options": [
+      "The Mauryas",
+      "The Guptas",
+      "The Vakatakas",
+      "The Sungas",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>During the Sunga rule from 185 BC  -  73 BC, there was a revival of Bramhanical traditions and the Bhagavata religion became the most important. Patanjali, the author of Mahavashya was born in Gonarda in Central India during this time as he was the priest in 2 Ashwamedha Yajnas. The fine gateway railing that surrounds the Sachi Stupa was built during this period along with the famous Bharhuta Stupa</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Pulamavi III was the last ruler of the Satvahanas. He was the ... ruler of the dynasty</p>",
+    "options": [
+      "25<sup>th</sup>",
+      "27<sup>th</sup>",
+      "4<sup>th</sup>",
+      "30<sup>th</sup>",
+      "23<sup>rd</sup>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Simuka was the founder of the Satvahana dysnasty in the western part of India as the capital was in Pratisthan or Paithan in Maharashtra. They were considered identical with the Andhras who were mentioned in the Puranas. Gautamiputra Satkarni was the greatest ruler of the dynasty who ruled from 106 AD to 130 AD whereas Pulamavi III was the last ruler</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Hatigumpha inscription is related to Kharvela of Kalinga. He belonged to which among the following dynasties?</p>",
+    "options": [
+      "Chera",
+      "Chedi",
+      "Sakas",
+      "Hala",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>After the defeat in the hands of Ashoka, Chedi dynasty rose in Kalinga in the 1<sup>st</sup> century BC and the information regarding the same is derived from the Hatigumpha inscription related to Kharvela, who was the 3<sup>rd</sup> ruler of the dynasty. He was a follower of Jainism</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Who among the following is also known as 'Second Ashoka'?</p>",
+    "options": [
+      "Samudragupta",
+      "Kanishka",
+      "Chandragupta II",
+      "Vikramaditya",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Kushans were basically from Central Asia and the greatest ruler in the dynasty was Kanishka who ruled from 78-101 AD and he was known as 'Second Ashoka'. He started an era in 78 AD which is now known as Saka era and is also followed by the Government of India. The capitals of the dynasty were Peshawar and Mathura. Kanishka was a great patron of Buddhism</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Who among the following was known as 'Sakari' among the ancient Indian kings?</p>",
+    "options": [
+      "Samudragupta",
+      "Kanishka",
+      "Ashoka",
+      "Mihirkula",
+      "Chandragupta II"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Chandrgupta II was one of the famous Gupta rulers after Samudragupta and he ascended the throne after Ramgupta who ruled for a very short tenure. He extended the limits of his empire by matrimonial alliances as well as conquests as in Western India. Due to his conquests in West India, he ended the Saka rule there and assumed the title of 'Sakari'</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Hiuen Tsang visited India during the rule of whom among the following?</p>",
+    "options": [
+      "Chandragupta Maurya",
+      "Prabhakarvardhan",
+      "Harshavardhan",
+      "Rajyavardhan",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Harshavardhan maintained diplomatic ties with China and sent missionaries to China in 641 AD as a result of which, three subsequent Chinese missions visited his court. Hieun Tsang, the celebrated Chinese pilgrim came to his court and spent about 8 years in the dominions of Harsha</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Dantidurg is known as the founder of which among the following dynasties?</p>",
+    "options": [
+      "Pratihars",
+      "Palas",
+      "Senas",
+      "Rashtrakutas",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Dantidurg (752-756 AD) who fixed his capital at Malkhed in Gulbarga district in Karnataka founded the Rashtrakuta kingdom. The greatest rulers of this dynasty were Govinda III and Amoghavarsha. The famous rock cut temple of Kailash at Ellora was built by one of the Rashtrakuta kings named Krishna I</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>The first Muslim invasion in India happened in the year-</p>",
+    "options": [
+      "712 AD",
+      "714 AD",
+      "715 AD",
+      "852 AD",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The first Muslim invasion in Delhi happened during 712 AD when Mohammed Bin Qasim invaded India and conquered Sindh which came under the kingdom of Omayyad Khilafat. After this, Sultan Mahmud of Ghazni invaded India 17 times and destroyed the Somnath temple in 1026 AD in Gujarat</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Adhai din ka Jhopra is considered as a famous mosque built during the Sultanate period. It is located in-</p>",
+    "options": [
+      "Delhi",
+      "Ajmer",
+      "Secunderabad",
+      "Agra",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Qutubuddin Aibak is considered as the founder of the Slave dynasty in India which started in 1206 AD. He dies in 1210 AD playing polo. He constructed two famous mosques namely the Quwat ul Islam in Delhi and Adhai din ka Jhopra in Ajmer. He also began the construction of Qutub Minar in the memory of Sufi saint Khwaja Qutubuddin Bakhtiyar Qafi</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Who among the following is known as Andhra Bhoja or Andhra Pitamaha?</p>",
+    "options": [
+      "Harihara",
+      "Bukka",
+      "Krishna Deva Raya",
+      "Achyuta Deva Raya",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Krisha Deva Raya ascended the throne of Vijaynagar in 1509 AD and ruled till 1529 AD. He maintained friendly relations with the Portugese and was instrumental in building temples such as Vitthal Swami temple and Vijaya Mahal. He took the titles of Yavanaraja Sthapnacharya and Abhinava Bhoja. He was also known as Andhra Bhoja</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Who is known as the founder of the city of Hyderabad?</p>",
+    "options": [
+      "Quli Qutub Shah",
+      "Mohammad Quli Qutub Shah",
+      "Tajuddin Firoz Shah",
+      "Ibrahim Adil Shah",
+      "Muhammad Adil Shah"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Mohammad Quli Qutub Shah was the greatest ruler of the Qutub Shahi dynasty and it was he who founded the city of Hyderabad which was actually known as Bhagyanagar after the name of the Sultan's favourite, Bhagyamati. He also built the famous Charminar</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>'Bhavarthapadika' was authored by whom among the following?</p>",
+    "options": [
+      "Tulsidas",
+      "Jnanadeva",
+      "Namadeva",
+      "Eknath",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The fountain-head of the Bhkati movement in Maharashtra and the founder of the Marathi language and literature, Jnanadeva, wrote a long commentary on the Bhagvad Gita, called the 'Bhavarthapadika', more commonly known as 'Jnaneshvari'</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>The real name of Nurjahan was-</p>",
+    "options": [
+      "Gulab Rani",
+      "Mihar-un-Nisa",
+      "Rani Durgabati",
+      "Meher-ul-Shamad",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In 1611, Jahangir married Mihar-un-Nisa, the widow of Sher Afghan, a Persian nobleman of Bengal. Later on she was given the title of Nurjahan. Nurjahan exercised tremendous rights over the state affairs as she was made the official Padshah Begum</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Which among the following was the official language of the Mughal Empire?</p>",
+    "options": [
+      "Hindi",
+      "Persian",
+      "Urdu",
+      "Bengali",
+      "Marathi"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>It was during the reign of Akbar that Mughal empire came to its real form as he was instrumental in extending as well as stabilizing the kingdom. He was the first Mughal ruler who divorced religion from politics and also made Persian the one and only official language of the Mughal empire. He was known as the real founder of the Mughal empire</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Who among the following was known as the 'Raj Kavi' during the Mughal rule?</p>",
+    "options": [
+      "Faizi",
+      "Abul Fazl",
+      "Birbal",
+      "Abdus Samad",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Some of the titles given by various Mughal rulers:</p><p>&#8226; Jagat Guru: Harivijay Suri</p><p>&#8226; Zari Kalam: Mohammad Hussain</p><p>&#8226; Sirin Kalam: Abdus Samad</p><p>&#8226; Kavi Priya: Birbal</p><p>&#8226; Nadir-ul-Asra: Ustad Mansur</p><p>&#8226; Nadir-ur-Zaman: Abdul Hassan</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Among the council of ministers of Shivaji, who was known as the foreign minister?</p>",
+    "options": [
+      "Peshwa",
+      "Majumdar",
+      "Waqenavis",
+      "Dabir",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Shivaji's Ashtapradhan or the Council of Ministers:</p><p>&#8226; Peshwa: Finance and General Administration, later he became PM and assumed greater importance</p><p>&#8226; Majumdar: Revenue and Finance Minister</p><p>&#8226; Waqenavis: Home Minister</p><p>&#8226; Dabir: Foreign Minister</p><p>&#8226; Surnavis: Head of Royal Correspondence</p><p>&#8226; Pandit Rao: Head of religious affairs</p><p>&#8226; Sar-i-Naubat: Military commander</p><p>&#8226; Nyayadhish: Justice</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>The Convention of Wadgaon is related to which among the following?</p>",
+    "options": [
+      "First Anglo Sikh War",
+      "First Anglo Maratha War",
+      "First Anglo French War",
+      "Second Anglo Sikh War",
+      "None of the above"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The First Anglo Maratha War took place during 1775 to 1782 AD. Favouring the cause of Raghoba or Raghunath Rao for Peshwaship, English came in conflict with the Marathas. On being defeated, the British had to sign the humiliating Convention of Wadgaon and later on, they signed Treaty of Salbai in 1782 renouncing the cause of Raghoba</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>The first Dutch factory in India came up in-</p>",
+    "options": [
+      "Surat",
+      "Pulicat",
+      "Masulipattanam",
+      "Chinsura",
+      "Bimilipatam"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Dutch East India Company was created in 1602 as \"United East India Company\" and its first permanent trading post was in Indonesia. In India, they established the first factory in Masulipattanam in 1605, followed by Pulicat in 1610, Surat in 1616, Bimilipatam in 1641 and Chinsura in 1653.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Who was the Viceroy of India when Ryotwari system was introduced in Bombay as a revenue collection system?</p>",
+    "options": [
+      "Lord Cornwallis",
+      "Lord Curzon",
+      "Lord Munro",
+      "Lord Reed",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Ryotwari system was introduced in Bombay and it was recommended by Lord Munro and Charles Reed. In this, there was a direct settlement between the government and the ryot i.e. the cultivator. The revenue was fixed for a period not exceeding thirty years, on the basis of soil and the quality of crops grown in it. It was based on the scientific rent theory of Ricardo</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>The founder of the Deccan Education Society was-</p>",
+    "options": [
+      "VD Phadke",
+      "Syed Ahmed Khan",
+      "CG Agarkar",
+      "MG Ranade",
+      "None of the above"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Some socio-religious movements in 19<sup>th</sup>-20<sup>th</sup> centuries:</p><p>&#8226; Atmiya Sabha: Raja Rammohan Roy</p><p>&#8226; Bramho Samaj: Raja Rammohan Roy</p><p>&#8226; Dharma Sabha: Radhakant Dev</p><p>&#8226; Tattavodhini Sabha: Devendranath Tagore</p><p>&#8226; Nirankaris: Dayal Das, Darbara Singh, Rattan Chand etc</p><p>&#8226; Manav Dharma Sabha: Durgaram Mancharam</p><p>&#8226; Paramhansa Mandli: Dadoba Pandurang</p><p>&#8226; Namdharis: Ram Singh</p><p>&#8226; Radha Swami Satsang: Tulsi Ram</p><p>&#8226; Prarthana Samaj: Atmaram Pandurang</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

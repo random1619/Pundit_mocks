@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Gk Aug Mock 2025 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>The National Payments Corporation of India (NPCI) has rolled out new guidelines to enhance the efficiency and reliability of UPI transactions, in August 2025. Identify the CORRECT Statement(s) regarding this.</p><p>I. Customers can make up to 50 balance enquiry requests per app per day, and these must be customer-initiated.</p><p>II. List Account API usage is restricted to 15 requests per customer per day, and retries can be made automatically by the system during failure.</p><p>III. The NPCI has directed Payment Service Providers (PSPs) to implement the relevant changes in their system by July 31, 2025.</p>",
+    "options": [
+      "I and II Only",
+      "II and III Only",
+      "I and III Only",
+      "I Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The National Payments Corporation of India (NPCI) has rolled out new guidelines to enhance the efficiency and reliability of UPI transactions. These include measures such as capping balance enquiry requests and streamlining the use of key APIs like Autopay Mandate Execution and Validate Address, which UPI ecosystem participants must now follow. <u>As per the new NPCI guidelines, each customer can make up to 50 balance enquiries per app per day within a rolling 24-hour period.</u> These requests must be initiated only by the customer and not by the app or system automatically. To reduce system load during peak hours, UPI apps should have the ability to limit or stop balance enquiry requests when needed. Additionally, issuer banks are required to include the available account balance in the confirmation message after every successful UPI transaction. </p><p><b>Access limit on bank accounts linked to UPI</b>- </p><p>&#183; The List Account API helps users view the list of bank accounts linked to their mobile number through a specific bank in the UPI app. </p><p>&#183; <u>As per NPCI guidelines, the usage is limited to 25 requests per customer per app per day (on a rolling 24-hour basis). </u></p><p>&#183; These requests should be made only after the customer selects their bank in the UPI app. </p><p>&#183; If the account list fails to load, any retry must be done only with the customer's consent to avoid unnecessary system load. </p><p><b>Fixed time windows for auto-debits, mandate execution limit</b>- </p><p>NPCI has set a limit of one initial attempt and up to three retries per mandate (identified by each sequence number). This means a total of four attempts are allowed to execute a single mandate.</p><p>&#183; To further reduce congestion, all Autopay executions should be scheduled during non-peak hours only.</p><p>&#183; Peak hours are defined as the period during the day when UPI financial transactions reach the highest transactions per second, observed from 10:00 hrs to 13:00 hrs and from 17:00 hrs to 21:30 hrs.</p><p><u>The NPCI has directed Payment Service Providers (PSPs) to implement the relevant changes in their system by July 31, 2025.</u> Failure to comply may lead to actions such as restrictions on UPI API access, penalties, suspension of new customer onboarding, or other appropriate measures.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>The market regulator, Sebi, announced an extension of the timeline for the implementation of the second and third phases of the nomination process in the securities market, citing operational difficulties expressed by the Depositories, depository participants, and Industry Associations as the primary reason. Which of the following statement(s) is/are correct about this.</p><p>I. In its circular, Sebi stated that the implementation date for Phase II, originally scheduled for June 1, has been extended to August 8.</p><p>II. An investor with a single holding/account/folio can opt out of nomination, either online or through the physical/offline mode.</p><p>III. In January, Sebi issued guidelines to revise and revamp nomination facilities in the Indian securities market.</p>",
+    "options": [
+      "II and III Only",
+      "I and II Only",
+      "I Only",
+      "II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The market regulator, Sebi, announced an extension of the timeline for the implementation of the second and third phases of the nomination process in the securities market, citing operational difficulties expressed by the Depositories, depository participants, and Industry Associations as the primary reason. </p><p>&#183; <u>In its circular, Sebi stated that the implementation date for Phase II, originally scheduled for June 1, has been extended to August 8, while the date for Phase III, earlier set for September 1, has been deferred to December 15. </u></p><p>&#183; This extension follows representations from the Depositories (CDSL, NSDL), depository participants, and Industry Associations (ANMI, CPAI) requesting more time to carry out system developments and process changes required for implementing Phase II. </p><p>&#183; Additionally, the depositories, after consultation with depository participants and ANMI, requested an extension of the timeline for implementing Phase III of the Nomination Circular until December 15, 2025, to allow sufficient time for development and testing. </p><p>&#183; <u>In January, Sebi issued guidelines to revise and revamp nomination facilities in the Indian securities market. </u>Following these guidelines, based on representations from various stakeholders and discussions held, amendments and clarifications to the January circular were announced.</p><p><b><u>As per the February circular, some of the key amendments include:</u></b></p><p>&#183; In the case of joint accounts/holdings, upon the demise of one or more joint holders, the regulated entity shall transmit the assets to the surviving joint holder(s) by deleting the name(s) of the deceased. However, the regulated entity must provide the surviving joint holder(s) with the option to transmit the assets into another existing or new account/folio.</p><p>&#183; <u>An investor with a single holding/account/folio can opt out of'nomination, either online or through the physical/offline mode.</u></p><p>&#183; Regulated entities shall not reject transmission via name deletion to the surviving joint holder(s) for non-submission of KYC details, unless the KYC documents had previously been requested and were not provided.</p><p>&#183; If a joint account/folio becomes a single holding after the demise of one or more holders, either a nomination or an opt-out is mandatory. For investors opening new accounts/folios online, the opt-out must be submitted online. For those using the offline/physical mode, the opt-out must be submitted offline as well.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Under the RBI's final co-lending norms issued with effect from January 1, 2026, which of the following statement(s) correctly reflect the mandatory provisions for regulated entities (REs) entering into Co-Lending Agreements (CLAs)?</p><p>I. Each RE must retain at least 10% of the individual loan share on its books under the CLA model.</p><p>II. The originating RE may offer a default loss guarantee up to 5% of the sanctioned loans to its partner RE.</p><p>III. Existing and new CLAs before January 1, 2026, must comply with the new guidelines.</p><p>IV. Disbursement shares must be reflected in the books of both REs within 15 calendar days from the date of loan disbursement.</p><p>V. Change in customer interface can occur without any borrower notification, provided it's approved internally by the RE.</p>",
+    "options": [
+      "I, II and III only",
+      "I, III and IV only",
+      "II, III and V only",
+      "I, II, III and IV only",
+      "I, II, III, IV and V"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Reserve Bank of India (RBI) launched the final co-lending norms, wherein each entity under a co-lending agreement (CLA) shall be required to retain a minimum 10 per cent share of the individual loans in its books. The entity which originates loans under this model may provide default loss guarantee up to 5 per cent of outstanding loans sanctioned under the agreement to the partner entity. Importantly, existing co-lending agreements executed before the date of issuance of these directions and new CLAs entered into prior to the effective date' which is January 1, 2026'shall be in compliance with the existing regulations. </p><p>&#183; 'The credit policy of a RE (registered entity) shall suitably incorporate provisions relating to CLAs, including the internal limit for the proportion of their lending portfolio under CLAs; target borrower segments; due diligence of the partner entities; customer service and grievance redressal mechanism,' the RBI said. </p><p>&#183; Further, the loan agreement signed with the borrower shall make an upfront disclosure regarding the segregation of the roles and responsibilities (such as sourcing, and servicing) of concerned entity, including clear identification of the entity being the single point of interface with the customer. </p><p>&#183; Any subsequent change in customer interface shall only be done after prior intimation to the borrower, the RBI said. The loan-agreement shall also appropriately disclose suitable provisions related to customer protection, and grievance redressal mechanism. </p><p>&#183; The CLA shall entail an irrevocable commitment on the part of partner RE to take into its books, on back to back basis, its share of the individual loans as originated by the originating RE. </p><p>&#183; The CLA shall ensure that the respective shares of the REs are reflected in the books of both REs without delay after disbursement by the originating RE to the borrower, in any case not later than 15 calendar days from the date of disbursement,' the regulator said.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>As per the Draft RBI (Deposit Accounts) Directions, 2025, of Reserve Bank of India that is released in August 2025 which of the following statement(s) is/are correct?</p><p>I. The reference date for reckoning the amount due and the prevailing bank rate will be the date of receipt of all requisite documents from the claimant.</p><p>II. For delayed settlement of safe deposit locker claims, the bank shall compensate the claimant at the rate of Rs. 5,000 per day.</p><p>III. In case of delay in settlement of deceased deposit account claims, the bank shall pay interest not less than Bank Rate 4% per annum for the delayed period, if the delay is attributable to the bank.</p>",
+    "options": [
+      "II and III Only",
+      "I and II Only",
+      "II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Banks will make available in their branches as well as websites standardised forms and other documents required for settlement of claims with respect to deposit accounts and safe deposit locker/ articles in safe custody kept by a deceased customer, as per RBI's draft circular on Settlement of Claims in respect of Deceased Customers of Banks. Further, for the convenience of the claimants, banks will also display on their website the list of documents to be submitted by a claimant and the procedure to be followed for settlement of claims in various scenarios.</p><p><b>Delay in claims settlement</b></p><p>&#183; A time limit of 15 days has been proposed for settlement of claims, and compensation will be paid for delay in settlement of claims to the claimants.</p><p>&#183; As part of the RBI's proposed simplified procedure for settlement of claims in the case of accounts without nominee/ survivorship clause, the central bank said a bank, based on its risk management systems, can fix a threshold limit, subject to a minimum of Rs. 15 lakh for settlement of such claims.</p><p>&#183; A claimant will be allowed to lodge the claim at any of the bank's branches against acknowledgment, according to the draft circular ' Reserve Bank of India (Settlement of Claims in respect of Deceased Customers of Banks) Directions, 2025.</p><p>&#183; In case all requisite documents required for processing of the claim have been submitted by the claimant, the bank will also issue a confirmation in this regard.</p><p>&#183; However, in case of pending or incomplete/ incorrect documents, the bank shall intimate the claimant about the list of such documents along with the acknowledgement.</p><p>&#183; On subsequent submission of all the required documents, the bank shall issue a confirmation to the claimant that all requisite documents have been received for processing of the claim.</p><p>&#183; Upon a claimant uploading the claim form along with the requisite documents, the bank will send acknowledgement/ confirmation through appropriate channels and also make available the provision for online tracking of the status of the claim.</p><p>&#183; In such cases, if the bank requires the claimant to produce original documents for submission or verification, the same shall be allowed to be done at any of its branches.</p><p>&#183; A bank needs to settle a claim in respect of deposit accounts of a deceased customer within a period not exceeding 15 calendar days from the date of receipt of all the requisite documents associated with the claim.</p><p>&#183; In case of safe deposit locker/ articles in safe custody, the bank should, within 15 days of receipt of all the requisite documents, process the claim and issue communication to the claimant for fixing the date for taking inventory of the locker/ articles in safe custody.</p><p><b>Compensation</b></p><p>&#183; If any deposit related claim is not settled within the stipulated timeframe, then the bank will communicate to the claimants the reasons for such delay.</p><p>&#183; Further, in cases of delay attributable to the bank, compensation will be paid in the form of interest, at a rate not less than the prevailing bank rate of 4 per cent per annum, on the settlement amount due for the period of delay.</p><p>&#183; The reference date for reckoning the amount due and the prevailing bank rate will be the date of receipt of all requisite documents from the claimant.</p><p>&#183; <u>In the case of claims related to safe deposit locker/ articles in safe custody, the bank will be required to pay compensation to the claimants at the rate of Rs. 5,000 for each day of delay, in cases where it doesn't adhere to the timeline prescribed.</u></p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>The RBI has decided to transition the Cheque Truncation System (CTS) to 'continuous clearing with on-realisation settlement' in two phases, with the first phase beginning on October 4, 2025 and the second on January 3, 2026. Which among the following statement(s) are/is correct about this?</p><p>I. As per the modalities for continuous clearing with on-realisation settlement in CTS, there will be a single (cheque) presentation session from 10 AM to 4 PM.</p><p>II. Starting from 10 AM, settlement will be done every hour till the end of confirmation session.</p><p>III. Cheques received by the bank branches will be scanned and sent to the clearing house immediately and continuously during the presentation session.</p>",
+    "options": [
+      "II Only",
+      "I and III Only",
+      "III Only",
+      "I Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The RBI has decided to transition the Cheque Truncation System (CTS) to 'continuous clearing with on-realisation settlement' in two phases, with the first phase beginning on October 4, 2025 and the second on January 3, 2026. This move is aimed at improving the efficiency of cheque clearing and reduce settlement risk for participants in the cheque clearing system.</p><p>&#183; The CTS is being transitioned from the current approach of batch processing to continuous clearing with 'on-realisation-settlement'. CTS currently processes cheques with a clearing cycle of up to two working days. <u>As per the modalities for continuous clearing with on-realisation settlement in CTS, there will be a single (cheque) presentation session from 10 AM to 4 PM.</u></p><p>&#183; <u>Cheques received by the bank branches will be scanned and sent to the clearing house immediately and continuously during the presentation session.</u> The clearing house will in turn release the cheque images to drawee banks on a continuous basis. The confirmation session by drawee banks will start at 10 AM and close at 7 PM.</p><p>&#183; For every cheque presented, the drawee bank will generate either positive confirmation (for honoured cheques) or negative confirmation (for dishonoured cheques). Processing of cheques by drawee banks is to be done continuously throughout the day and on a real time basis as soon as cheque images are received.</p><p>&#183; <u>Starting from 11 AM, settlement will be done every hour till the end of confirmation session, based on the positive confirmations received from drawee banks and cheques considered deemed approved. </u>The presenting bank must process confirmations and release customer payments within 1 hour of successful settlement, subject to usual safeguards.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>In August 2025, through the official notification, the Reserve Bank of India (RBI) asked all regulated entities (REs) to take appropriate measures to ensure compliance with Supreme Court's directives that make the process of digital KYC accessible to persons with disabilities, especially facial / eye disfigurements due to acid attacks and visual impairments. Identity the correct statement(s) in context of this.</p><p>I. RBI has been asked to amend the Master Direction (MD) on KYC so as to enhance the implementation of the 'OTP based e-KYC authentication' (face-to-face) to customers.</p><p>II. A designated officer has to be empowered to override automated rejections and approve applications on a case-by-case basis.</p><p>III. The respondent authorities are required to ensure that online services are accessible to persons with disabilities, thereby fostering a barrier-free digital environment.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Reserve Bank of India (RBI) asked all regulated entities (REs) to take appropriate measures to ensure compliance with Supreme Court's directives that make the process of digital KYC accessible to persons with disabilities, especially facial / eye disfigurements due to acid attacks and visual impairments. The SC directives require authorities/Ministries to appoint a nodal officer in every department responsible for digital accessibility compliance. The respondent authorities have to establish dedicated helplines for persons with disabilities, offering step-by-step assistance in completing the KYC process through voice or video support. </p><p>&#183; The authorities have been directed to establish a mechanism for human review of rejected KYC applications in cases where accessibility-related challenges prevent successful verification. </p><p>&#183; A designated officer has to be empowered to override automated rejections and approve applications on a case-by-case basis. This order was passed in the case of two writ petitions -- Pragya Prasun &amp; Others vs Union of India &amp; Others; and Amar Jain vs Union of India &amp; Others. </p><p>&#183; The Court emphasised that RBI shall issue guidelines to all regulated entities to adopt and incorporate alternative modes for verifying the 'liveness' or capturing a 'live photograph' of the customers for the purpose of conducting Digital KYC / e-KYC beyond the traditional 'blinking of eyes' to ensure inclusivity and user-convenience.</p><p>&#183; Further, RBI shall issue appropriate clarifications / guidelines / directions to all REs that Customer Due Diligence (CDD) and on-boarding of new customers can be done using the video-based KYC process or the 'V-CIP' procedure, wherein blinking of the eyes is not a mandatory requirement.</p><p>&#183; The Court underscored that he resptondent authorities must design their KYC templates or customer acquisition forms to capture disability type and percentage of the customer and appropriately record as part of the account records so as to provide them accessible services or reasonable accommodations.</p><p>&#183; The respondent authorities should provide clear directions to all regulated entities to accept image of thumb impression during Digital KYC process.</p><p>&#183; RBI has been asked to amend the Master Direction (MD) on KYC so as to enhance the implementation of the 'OTP based e-KYC authentication' (face-to-face) to customers.</p><p>&#183; The Court said paper-based KYC process for verification of customers shall continue, enabling the petitioners and other similarly placed individuals to avail an accessible alternative for completing the KYC procedure.</p><p>&#183; The respondent authorities shall provide options for sign language interpretation, closed captions and audio descriptions for visually and hearing impaired users.</p><p>&#183; The Court said the respondent authorities shall develop alternative formats, including Braille, easy-to-read formats, voice-enabled services, to disseminate government notifications and deliver public services, ensuring accessibility for all.</p><p>&#183; The respondent authorities are required to ensure that online services, including e-governance platforms, digital payment systems and e-launching platforms, are accessible to persons with disabilities, thereby fostering a barrier-free digital environment.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Consider the following statements regarding the Framework for Responsible and Ethical Enablement of Artificial Intelligence (FREE-AI) recommended by the RBI committee. Identify the CORRECT Statement(s) Regarding this.</p><p>I. The committee proposed the development of indigenous financial sector-specific AI models, along with shared infrastructure and an AI Innovation Sandbox.</p><p>II. The 7 sutras developed by the committee include Trust is the Foundation, People First, Innovation over Restraint, Fairness and Equity, Accountability, Understandable by Design, and Safety, Resilience and Sustainability.</p><p>III. The report outlines 26 recommendations for Al adoption in the financial sector.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>A committee set up by the Reserve Bank of India (RBI) to develop a Framework for Responsible and Ethical Enablement of Artificial Intelligence (FREE-AI) in the financial sector has recommended the establishment of shared infrastructure by regulated entities (REs) to democratise access to data and compute, and for the creation of an Al Innovation Sandbox. The panel submitted its report, which has been uploaded on the RBI website. The report sets a framework to guide on the use of AI in the financial sector, aiming to harness its potential while safeguarding against associated risks.</p><p>&#183; The committee has developed 7'<i>sutras'</i>to serve as the foundational principles for AI adoption. Guided by the 7<i>'sutra</i>s, the committee has recommended a forward-looking approach, containing 26 actionable recommendations under six strategic pillars.'The report envisions a financial ecosystem where encouraging innovation is in harmony, and not at odds, with mitigation of risk, the RBI said.</p><p>&#183; <b>The 7 sutras' include Trust is the Foundation, People First, Innovation over Restraint, Fairness and Equity, Accountability, Understandable by Design and'Safety, Resilience and Sustainability.</b></p><p>&#183; Using the '<i>sutras' </i>as guidance, the committee has recommended an approach that fosters innovation and mitigates risks, treating these two seemingly competing objectives as complementary forces that must be pursued in tandem. This is achieved through a unified vision spread across 6 strategic Pillars that address the dimensions of innovation enablement as well as risk mitigation.'</p><p>&#183; Under innovation enablement, the focus is on Infrastructure, Policy and Capacity and for risk mitigation, the focus is on Governance, Protection and Assurance.' Under these six pillars, the report outlines 26 recommendations for Al adoption in the financial sector.</p><p>&#183; To foster innovation, the panel has recommended the establishment of shared infrastructure to democratise access to data and compute; the creation of an Al Innovation Sandbox and the development of indigenous financial sector-specific Al models.</p><p>&#183; It has also recommended for the formulation of an Al policy to provide necessary regulatory guidance, institutional capacity building at all levels, including the board and the workforce of REs and other stakeholders, the sharing of best practices and learnings across the financial sector and a more tolerant approach to compliance for low-risk Al solutions to facilitate inclusion and other priorities.</p><p>&#183; To mitigate Al risks, the committee has recommended for the formulation of a board-approved Al policy by Regulated Entities,' the expansion of product approval processes, consumer protection frameworks and audits to include Al related aspects and the augmentation of cybersecurity practices and incident reporting frameworks.</p><p>&#183; Besides, it has prescribed the establishment of robust governance frameworks across the Al lifecycle and making consumers aware when they are dealing with Al. 'This is the FREE-Al vision: a financial ecosystem where the encouragement of innovation is in harmony with the mitigation of risk,' the committee said in the report.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>The Reserve Bank of India has been regularly conducting Urban Consumer Confidence Survey (UCCS) and Rural Consumer Confidence Survey (RCCS). Identify the INCORRECT Statement(s) regarding this. </p><p>I. The Urban Consumer Confidence Survey (UCCS) covers 19 major Indian cities, while the Rural Consumer Confidence Survey (RCCS) spans across 31 States/UTs. </p><p>II. The survey results from both UCCS and RCCS serve as useful inputs for the formulation of India's monetary policy. </p><p>III. The September 2025 round of RCCS is being conducted by M/s Hansa Research Group Pvt. Ltd., while the UCCS round is being conducted by M/s Ipsos Research Pvt. Ltd.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Reserve Bank of India has been regularly conducting Urban Consumer Confidence Survey (UCCS). The September 2025 round of the survey is being launched. The survey seeks qualitative responses from households, regarding their sentiments on general economic situation, employment scenario, price level, households' income and spending. The survey is conducted regularly in 19 cities, viz., Ahmedabad, Bengaluru, Bhopal, Bhubaneswar, Chandigarh, Chennai, Delhi, Guwahati, Hyderabad, Jaipur, Jammu, Kolkata, Lucknow, Mumbai, Nagpur, Patna, Raipur, Ranchi and Thiruvananthapuram. The results of this survey provide useful inputs for monetary policy. The agency, M/s Hansa Research Group Private Limited, Mumbai has been engaged to conduct the survey of this round on behalf of the Reserve Bank of India. For this purpose, the selected households will be approached by the agency, and they are requested to provide their responses. Other individuals, who are not approached by the agency, can also participate in this survey by providing their responses using the'linked survey schedule.' </p><p><b>RBI launches the September 2025 round of the Rural Consumer Confidence Survey</b></p><p>&#183; The Reserve Bank of India has been regularly conducting Rural Consumer Confidence Survey (RCCS). The'September 2025 round'of the survey is being launched. </p><p>&#183; The survey collects current perceptions and one year ahead expectations of households on general economic situation, employment scenario, overall price situation, own income and spending from the households residing in the rural and semi-urban areas across'31 states/ UTs'viz., Andhra Pradesh, Arunachal Pradesh, Assam, Bihar, Chhattisgarh, Goa, Gujarat, Haryana, Himachal Pradesh, Jammu and Kashmir, Jharkhand, Karnataka, Kerala, Madhya Pradesh, Maharashtra, Manipur, Meghalaya, Mizoram, Nagaland, NCT of Delhi, Odisha, Punjab, Rajasthan, Sikkim, Tamil Nadu, Telangana, Tripura, Union Territory of Ladakh, Uttar Pradesh, Uttarakhand and West Bengal. The results of this survey provide useful inputs for monetary policy.</p><p>&#183; The agency, M/s Ipsos Research Private Limited, Gurugram has been engaged to conduct the survey of this round on behalf of the Reserve Bank of India. For this purpose, the selected households will be approached by the agency, and they are requested to provide their response. Other individuals, who are not approached by the agency can also participate in this survey by providing their responses using the'linked survey schedule.'</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>The original Income Tax Bill, 2025, introduced in February 2025, was withdrawn on August 8, 2025, after concerns were raised over certain provisions and a revised version, incorporating the recommendations of a Parliamentary Select Committee, was reintroduced in the Lok Sabha on August 11, 2025, and passed on the same date. Which among the following statement(s) are/is NOT correct about the the Income Tax Bill 2025?</p><p>I. The total number of sections has been reduced from 819 to 415.</p><p>II. Under the existing law, a delay in paying any of the first three advance tax instalments attracts interest of 5 per cent per quarter.</p><p>III. The current law exempts commuted pension from approved pension funds, regardless of employment status.</p>",
+    "options": [
+      "I and II Only",
+      "II Only",
+      "I Only",
+      "I and III Only",
+      "II and III Only"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The original Income Tax Bill, 2025, introduced in February 2025, was withdrawn on August 8, 2025, after concerns were raised over certain provisions. A revised version, incorporating the recommendations of a Parliamentary Select Committee, was reintroduced in the Lok Sabha on August 11, 2025, and passed on the same date. The Rajya Sabha cleared the Bill on August 12. This legislation is slated to come into force from April 1, 2026. The total number of sections has been reduced from 819 to 536. Fifty-seven tables and 46 formulae have been added to make the law easier to comprehend. </p><p><b>Digital-first approach: -</b></p><p>&#183; The Bill promotes digitisation and automation. It encourages the use of technology to file returns, process them, and for grievance redressal. Minimising human interface is expected to improve efficiency.</p><p><b>Parity between NPS and UPS: -</b></p><p>&#183; The new Bill aligns the taxation of the Unified Pension Scheme (UPS) with the National Pension System (NPS). 'At retirement - superannuation, voluntary exit, or early retirement - up to 60 per cent of the pension corpus withdrawn by a UPS subscriber will be tax-free, same as in NPS.</p><p>&#183; Premature withdrawals from UPS will also be taxed in the same way as NPS withdrawals, removing earlier inconsistencies. This ensures tax equity between UPS and NPS contributors,'.</p><p><b>Uniform treatment of commuted pension: -</b></p><p>&#183; The current law exempts commuted pension from approved pension funds, regardless of employment status. The original Income Tax Bill, 2025, limited this exemption to employees while excluding non-employees. On the Select Committee's recommendation, even non-employees will receive full deduction.</p><p><b>File tax return, get refund: -</b></p><p>&#183; The first draft of the Income Tax Bill introduced in February 2025 had included a provision that mandated taxpayers eligible for a refund to file their tax returns on or before the due date.</p><p>&#183; 'The new Bill has removed this provision and restored the law regarding taxpayers as existed in the current tax regime.</p><p><b>Clarification on advance tax penal interest: -</b>'</p><p>&#183; On August 12, 2025, the Ministry of Finance issued a corrigendum to fix a drafting error in Clause 425 of the new Income Tax Bill, bringing it in line with the current interest calculation under Section 234C of the 1961 Act.</p><p>&#183; Under the existing law, a delay in paying any of the first three advance tax instalments (due on June 15, September 15 and December 15) ' even by a day ' attracts interest of 3 per cent per quarter.</p><p>The Bill retains the Rs 12 lakh annual basic exemption introduced in the 2025 Union Budget. Tax slabs under the new tax regime, starting with Rs 4 lakh no-tax threshold and progressing through multiple rate bands (5, 10, 15, 20, 25 and 30 per cent), remain the same. Rebate under Section 87A, which was enhanced to Rs 60,000 (or tax payable, whichever is lower), also remains unchanged.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>At the end of FY24, Indian mutual funds held assets of over $ 8.81 billion in foreign assets, as per the central bank's annual survey of foreign assets and liabilities of mutual funds. According to the central bank Reserve Bank of India (RBI) annual survey of foreign assets and liabilities of mutual funds. In FY25, Indian mutual funds' overseas assets dropped by ________ per cent to ________ billion.</p>",
+    "options": [
+      "3.9%; $8.5",
+      "6.2%; $9.0",
+      "4.8%; $7.9",
+      "5.0%; $8.0",
+      "5.6%; $8.3"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Indian mutual funds' overseas assets dropped <b>5.6 per cent to $ 8.3 billion in FY25</b>, the Reserve Bank of India (RBI) said. At the end of FY24, Indian mutual funds held assets of over $ 8.81 billion in foreign assets, as per the central bank's annual survey of foreign assets and liabilities of mutual funds.</p><p>&#183; There was a 3.9 per cent drop in equity securities held abroad by MFs at market value in the US at ' 44,500 crore, while the same in Ireland and Taiwan also witnessed declines.</p><p>&#183; Over 95 per cent of the overseas equity investment of the MFs were concentrated in the US, Luxembourg, and Ireland, the RBI said.</p><p>&#183; The flows into MFs' equity schemes surged nearly 25 per cent to Rs. 29.45 lakh crore in FY25, indicating stronger preference among investors to punt on the domestic markets.</p><p>&#183; The RBI survey revealed that the foreign liabilities of MFs increased 19.9 per cent in FY25 to $ 30.5 billion at market value, due to the rise in units issued to non-residents.</p><p>&#183; People in the UAE were the biggest holders in Indian MFs' schemes at '52,549 crore, while Australia had the highest growth at over 40 per cent in the liabilities of domestic MFs.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>The Lok Sabha passed The Promotion and Regulation of Online Gaming Bill, 2025, by a voice vote August 20, 2025. Identify the CORRECT Statement(s) Regarding this.</p><p>I. The Bill classifies any game involving an entry fee or monetary deposit as an 'online money game,' regardless of whether it is skill-based or chance-based.</p><p>II. Repeat offences of online real-money games can lead to 3'5 years' imprisonment with fines.</p><p>III. Banks, payment providers, or intermediaries processing RMG payments face up to Five years in prison and a fine of Rs. 50 lakh.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Lok Sabha passed The Promotion and Regulation of Online Gaming Bill, 2025, by a voice vote August 20, 2025. The Bill seeks 'to prohibit the offering, operation, facilitation, advertisement, promotion and participation in online money games', targeting firms that offer fantasy sports and card games where users can deposit and risk money. Online real-money gaming (RMG) refers to digital platforms where players pay to participate in games and can win cash rewards. These include any online games involving cash stakes and monetary winnings. Banks and payment providers will also be prohibited from processing RMG transactions. Under the draft Bill, all online real-money gaming services are covered. This means any game where users stake or win money would be banned, as the Bill makes it an offence to 'offer, aid, abet, induce, or otherwise promote' such games.</p><p>&#183; The Bill specifically distinguishes e-sports and online social games (where players spend on in-app purchases or ads but do not win cash rewards).</p><p>&#183; A new authority (or an existing one) will be tasked with promoting and regulating e-sports, while banning RMG.</p><p>The' Promotion and Regulation of Online Gaming Bill, 2025, cleared by the Union Cabinet, seeks to:</p><p>&#183; Ban any person or company from offering, aiding, or promoting online money games.</p><p>&#183; Classify any game involving an entry fee or monetary deposit as an 'online money game,' regardless of whether it is skill- or chance-based.</p><p>&#183; Prohibit advertisements for such games.</p><p>&#183; Bar banks and financial institutions from processing payments linked to these platforms.</p><p><b>Penalties and non-compliance under new online gaming bill</b> The Bill also seeks to impose heavy penalties for those caught breaking the rule. These penalties include:</p><p>&#183; Up to three years' imprisonment and fines of '1 crore for hosting such games.</p><p>&#183; Up to two years' imprisonment and fines of '50 lakh for promoting them.</p><p>Other legal provisions in the bill include:</p><p>&#183; <b>Repeat offences</b>: Hosting or facilitating RMG a second time can draw a mandatory minimum of three years' imprisonment (up to five years) and fines between '1 crore and '2 crore. Repeat advertising violations carry 2-3 years' jail and fines between '50 lakh and '1 crore.</p><p>&#183; <b>Corporate liability</b>: If a company is involved, directors and managers can be prosecuted unless they prove the offence happened without their knowledge or despite due diligence. Independent/non-executive directors are exempt.</p><p>&#183; <b>Banks, payment providers, or intermediaries</b>'who process RMG payments face up to 3 years in prison and a '1 crore fine.</p><p>Failure to follow directions from the central government or the new authority may lead to '10 lakh fine, suspension or cancellation of registration, and prohibition from operating. Offences related to hosting and financial facilitation are explicitly declared cognisable and non-bailable under the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023.</p><p>&#183; A new authority will be set up to oversee the enforcement of the Bill. It is expected to cost about '50 crore initially and '20 crore annually, funded from the Consolidated Fund of India</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Bharat Sanchar Nigam Limited (BSNL) signed strategic Memoranda of Understanding (MoUs) with four global technology leaders, aimed at accelerating India's digital transformation and strengthening the skilling ecosystem. Identify the CORRECT Statement Regarding this.</p><p>I. Ericsson India will establish a 5G Centre of Excellence at BRBRAITT, offering hands-on and online 5G training under the Ericsson Educate Program to over 2000 students annually.</p><p>II. Qualcomm Technologies Inc. will sponsor training for the first 100 participants in the inaugural year at the Qualcomm Institute, focusing on advanced 5G and AI training.</p><p>III. Nokia Solutions and Networks India Pvt. Ltd. will train 300 students annually in 5G and AI/ML applications.</p>",
+    "options": [
+      "II and III Only",
+      "I and II Only",
+      "II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>In a significant move towards creating industry-ready skilled manpower, Bharat Sanchar Nigam Limited (BSNL) signed strategic Memoranda of Understanding (MoUs) with four global technology leaders: Ericsson India Pvt. Ltd., Qualcomm Technologies Inc., Cisco Systems, and Nokia Solutions and Networks India Pvt. Ltd. Aimed at accelerating India's digital transformation and strengthening the skilling ecosystem, these partnerships will roll out advance training initiatives in 5G, AI/ML, networking, and digital technologies at BSNL's apex training institute, Bharat Ratna Bhim Rao Ambedkar Institute of Telecom Training (BRBRAITT) in Jabalpur. This development is a step towards a broader plan by the Department of Telecommunications (DoT), Ministry of Communications, to establish a Telecom Innovation, Research and Training Centre (TIRTC) at BRBRAITT. Envisioned as an industry-led national hub, TIRTC will focus on developing telecom-specific R&amp;D talent and a future-ready workforce. </p><p><b>The key initiatives under these MoUs are:</b></p><p>&#183; As part of this initiative<b>, Ericsson India</b>'will help establish a dedicated Ericsson 5G Centre of Excellence at BRBRAITT to provide hands-on 5G training as well as online learning modules under the Ericsson Educate Program to 2000 students annually. </p><p>&#183; The students undergoing the 5G Onsite training will benefit from the classroom infrastructure being provided by BSNL. Students undergoing the online training part of the Ericsson Educate program, will benefit from Ericsson's global curriculum, trainers, and lab facilities ' creating a world-class learning environment aligned with national priorities.</p><p>&#183; <b>Qualcomm Technologies Inc.</b>'will set up a Qualcomm Institute at BRBRAITT, focusing on advanced 5G and AI training for students, BSNL trainers, and government stakeholders. The programme will include premium online content, live sessions, and internships. Qualcomm will sponsor training for the first 100 participants in the inaugural year. This initiative aims to position BRBRAITT as a hub for advanced, scalable, and industry-relevant digital skill development.</p><p>&#183; <b>Cisco Systems</b>'will leverage its Cisco Networking Academy Program to enhance skills in networking, cybersecurity, and IT infrastructure. Cisco will provide free access to online curriculum and digital tools, while BSNL will coordinate implementation across non-profit educational institutions nationwide ' promoting equitable access to digital learning. The collaboration seeks to create a digitally enabled, job-ready youth workforce.</p><p>&#183; <b>Nokia Solutions and Networks India Pvt. Ltd.</b>' will support the creation of a 5G Centre of Excellence and AI/ML Lab at BRBRAITT. The programme will train 300 students annually in 5G radio, core networks, and AI/ML applications. It includes a joint certification programme by Nokia and BRBRAITT, with support from the Telecom Sector Skill Council.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>The Union Cabinet chaired by the Prime Minister Narendra Modi has approved the Central Sector Scheme Grant in aid to National Cooperative Development Corporation (NCDC), in July 2025. Identify the CORRECT Statement(s) regarding this.</p><p>I. The total outlay of the scheme is Rs.2500 crore, and it is to be disbursed over five years.</p><p>II. NCDC is expected to raise Rs.20,000 crore from the open market based on the grant-in-aid received.</p><p>III. Around 2.9 crore members of over 13,000 cooperative societies across sectors are expected to benefit from the scheme.</p>",
+    "options": [
+      "I and II Only",
+      "II and III Only",
+      "I and III Only",
+      "I Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><u>The Union Cabinet chaired by the Prime Minister Shri Narendra Modi has approved the Central Sector Scheme 'Grant in aid to National Cooperative Development Corporation (NCDC)' with an outlay of Rs.2000 crore for a period of four years from 2025-26 to 2028- 29 (Rs.500 crore each year from FY 2025-26).</u> On the basis of grant in aid of Rs. 2000 crore to NCDC from FY 2025-26 to FY 2028-29, <u>NCDC will be able to raise Rs. 20,000 crore from open market over a span of four years.</u> These funds will be utilized by NCDC for granting loans to Cooperatives for setting up new projects / expansion of plants and loan for meeting the working capital requirements. </p><p><b>Financial implications:</b> </p><p>&#183; The source of finance of Rs. 2000 crore (Rs. 500 crore each year from FY 2025-26 to FY 2028-29) grant to NCDC shall be through budgetary support from Government of India. On the basis of grant in aid of Rs. 2000 crore to NCDC from FY 2025-26 to FY 2028-29, NCDC will be able to raise Rs. 20,000 crore from open market over a span of four years. </p><p><b>Benefits:</b> </p><p><u>Approximately 2.9 crore members of 13,288 Cooperative societies of various sectors like Dairy, Livestock, Fisheries, Sugar, Textile, Food Processing, Storage and Cold Storage; Labour and Women led cooperatives. across the country are likely to get benefitted</u> . </p><p><b>Implementation strategy and targets:</b></p><p>&#183; NCDC will be the executing agency for this scheme for the purpose of disbursement, follow up, monitoring of implementation of project, and recovery of loan disbursed out of the fund.</p><p>&#183; NCDC will provide loans to cooperatives either through state government or directly, as per NCDC guidelines. Cooperatives, which are meeting the criteria of direct funding guidelines of NCDC would be considered for financial assistance directly against admissible security or state government guarantee.</p><p>&#183; NCDC will provide loans to cooperatives, long term credit for setting up/ modernization/ technology upgradation/ expansion of project facilities for various sectors and working capital to run their businesses efficiently and profitably.'</p><p><b>Impact, including employment generation potential:</b></p><p>&#183; Funds provided to these cooperatives will lead to creation of income generating capital assets and provide cooperatives with much needed liquidity in the form of working capital.</p><p>&#183; In addition to economic benefits, cooperatives through their principles of democracy, equality and community concerns are an essential tool to bridge the socio-economic gap and increase participation of women in the workforce.</p><p>&#183; The availability of loans will help cooperatives in their capacity augmentation, modernization, diversification of activities, increasing their profitability and enable them to increase their productivity and generate more employment improving the economic conditions of the farmer members.</p><p>&#183; Additionally, term loans for the infrastructure development also create widespread employment opportunities across different skill levels.</p><p><b>Background:</b></p><p>&#183; The cooperative sector is contributing immensely to the Indian economy.' Cooperatives play a vital role in socio-economic upliftment, infrastructure development, and job creation in the rural sector. </p><p>&#183; Cooperative Sector contributes substantially across all the sectors of their respective production in the country.' The cooperatives in India cover a wide array of activities, including credit and banking, fertilizer, sugar, dairy, marketing, consumer goods, handloom, handicraft, fisheries, housing, etc.' </p><p>&#183; India has more than 8.25 lakh cooperatives with more than 29 crore members and 94 percent farmers are associated with cooperatives in some form or the other.</p><p>&#183; Due to their important socio-economic contribution to the rural economy, it is essential to support the weaker sectors like dairy, poultry &amp; livestock, fisheries, sugar, textile, processing, storage &amp; cold storage, labour cooperatives and women cooperatives etc. by granting them long term and working capital loans.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>The Government has taken many initiatives to deepen financial inclusion and ensure that access to basic banking services leads to meaningful participation in the formal financial system, including access to credit. Identify the CORRECT Statement(s) regarding this.</p><p>I. Pradhan Mantri Jan Dhan Yojana (PMJDY) was launched in August 2014 to enable the unbanked population to open basic savings bank accounts with features.</p><p>II. The Pradhan Mantri MUDRA Yojana (PMMY) offers collateral-free credit up to Rs. 20 lakh to micro and small enterprises.</p><p>III. The Grameen Credit Score and MSME New Digital Credit Assessment Framework use conventional credit history as the primary basis for evaluating loan eligibility.</p>",
+    "options": [
+      "II and III Only",
+      "I and II Only",
+      "II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Government has taken many initiatives to deepen financial inclusion and ensure that access to basic banking services leads to meaningful participation in the formal financial system, including access to credit. The launch of the Pradhan Mantri Jan Dhan Yojana (PMJDY) in August 2014 marked a significant step in banking the unbanked by facilitating the opening of basic savings bank deposit accounts, with associated features such as RuPay debit cards and an in-built overdraft facility. As on date, over 55.90 crore accounts have been opened under PMJDY. </p><p>The Government has, inter-alia, undertaken several measures to ensure that credit inclusion complements deposit inclusion, with a strong focus on funding the unfunded:</p><p>&#183; The Pradhan Mantri MUDRA Yojana (PMMY) was launched and provides collateral-free credit of up to Rs. 20 lakh to micro and small enterprises, thereby enabling self-employment and income generation. Since its inception, 53.85 crore loans amounting to over Rs. 35.13 lakh crore have been sanctioned under the scheme.</p><p>&#183; Dedicated schemes such as Stand-Up India (SUPI), PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi), PM Vishwakarma, and the Prime Minister's Employment Generation Programme (PMEGP) have been implemented to expand credit access for SC/ST and women entrepreneurs, street vendors, artisans, and other micro-enterprises.</p><p>&#183; 'Credit Guarantee Mechanisms: Includes the Credit Guarantee Fund for Micro Units (CGFMU) and the Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE), which reduce credit risk for lenders and incentivizes formal lending to underserved segments.</p><p>To strengthen credit assessment frameworks for individuals lacking conventional credit history, the Government is leveraging technology and alternative data sources:</p><p>&#183; A Grameen Credit Score has been announced to support credit appraisal of Self-Help Group (SHG) borrowers and rural populations, including farmers and marginalized communities. This initiative is expected to enhance the quality and objectivity of credit decisions and facilitate improved access to formal credit in rural areas.</p><p>&#183; The MSME New Digital Credit Assessment Framework by Public Sector Banks makes use of integrated data from Income Tax returns, GST filings, and utility payments to enable faster and more precise credit evaluation.</p><p>&#183; The Jan Samarth Portal, a unified digital platform, has been launched to connect credit seekers with eligible Government schemes, thereby enhancing transparency, reducing processing time, and improving outreach.</p><p>Further, Reserve Bank of India (RBI) mandates Priority Sector Lending (PSL) targets to ensure that credit flows to sectors such as agriculture, micro and small enterprises, weaker sections, and other underserved areas of the economy. Through these concerted efforts, the Government aims to ensure that financial inclusion evolves from mere access to bank accounts to encompass equitable access to timely and affordable credit, thereby promoting inclusive growth.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Prime Minister Narendra Modi announced the Pradhan Mantri Viksit Bharat Rozgar Yojana, aims to support creation over 3.5 crore jobs in two years. Identify the CORRECT Statement(s) Regarding this.</p><p>I. Part A gives first-time employees (salary up to Rs. 1 lakh) an EPF wage incentive of Rs. 15,000 in two instalments.</p><p>II. Part B gives employers up to Rs. 3,000/month per new employee for 2 years, extended to 4 years in manufacturing.</p><p>III. All payments under both parts are made only through DBT into Aadhaar-linked accounts.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Marking his 12th Independence Day address from the historic Red Fort, Prime Minister Narendra Modi announced the Pradhan Mantri Viksit Bharat Rozgar Yojana. With an outlay of Rs. 1 lakh crore. This transformative scheme aims to support creation over 3.5 crore jobs in two years. This transformative scheme aims to support creation over 3.5 crore jobs in two years. The scheme will provide incentive of up to Rs. 15,000 in two instalments to newly employed youth and upto 3000 per month per new employee to employers for creation new job opportunities. </p><p><b>Key Features of the Scheme:</b> </p><p><b>Part A ' Support to First-Time Employees:</b></p><p>&#183; Targeting first-time employees registered with EPFO, this Part will offer one-month EPF wage up to Rs 15,000 in two instalments. Employees with salaries up to Rs 1 lakh will be eligible for the incentives. The 1st instalment will be payable after 6 months of service and the 2nd instalment will be payable after 12 months of service and completion of a financial literacy programme by the employee. To encourage the habit of saving, a portion of the incentive will be kept in a savings instrument of deposit account for a fixed period and can be withdrawn by the employee at a later date.</p><p>&#183; The Part A will benefit around 1.92 crore first time employees.</p><p><b>Part B ' Incentives for Employers:</b></p><p>&#183; This part will encourage generation of additional employment in all sectors, with a special focus on the manufacturing sector. The employers will get incentives in respect of 'new' employees with salaries up to Rs 1 lakh. </p><p>&#183; The Government will incentivize employers, up to Rs 3000 per month, for two years, for each additional employment, sustained' for at least six months. </p><p>&#183; For the manufacturing sector, incentives will be extended to the 3rd'and 4th'years as well.</p><p>&#183; This part is expected to incentivize employers for the creation of additional employment of nearly 2.60 crore persons.</p><p><b>Incentive Payment Mechanism:</b>'</p><p>&#183; All payments to the First Time Employees under Part A of the Scheme will be made through DBT (Direct Benefit Transfer) mode using Aadhar Bridge Payment System (ABPS). </p><p>&#183; Payments to the Employers under Part B will be made directly into their PAN-linked Accounts. With ELI Scheme, the government intends to catalyse job creation in all sectors, particularly in manufacturing sector, besides incentivizing youth joining the workforce for the first time. </p><p>&#183; An important outcome of the Scheme will also be formalization of the country's workforce by extending social security coverage for crores of young men and women.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>The Government has introduced an amendment in the National Highways Fee (Determination of Rates and Collection) Rules, 2008, published on 17th June, 2025. The Annual Pass scheme aims to reduce frequent recharge of FASTag &amp; user fee burden on non-commercial vehicle (car/jeep/vans) users. Which among the following statement(s) are/is correct about this?</p><p>I. The Annual pass is applicable on National Highway (NH) and National Expressway (NE) fee plazas.</p><p>II. This scheme offers 200 NH fee plaza crossings or one year validity, whichever is earlier, by payment of Rs. 5000/-.</p><p>III. The amendment introduced a FASTag Annual Pass for non- commercial cars, jeeps, and vans, which has been effective from 30th August, 2025.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "II and III Only",
+      "I and III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Government has introduced an amendment in the National Highways Fee (Determination of Rates and Collection) Rules, 2008, published on 17th June, 2025. The Annual Pass scheme aims to reduce frequent recharge of FASTag &amp; user fee burden on non-commercial vehicle (car/jeep/vans) users.</p><p>&#183; <u>The amendment introduced a FASTag Annual Pass for non- commercial cars, jeeps, and vans, which has been effective from 15th August, 2025.</u> Annual Pass scheme will be activated on payment of Rs. 3000/- and offers travel for non-commercial car/jeep/vans on all National Highway/National Expressway fee plaza for one year or upto 200 fee plaza crossings whichever is earlier.</p><p>&#183; <u>The Annual pass is applicable on National Highway (NH) and National Expressway (NE) fee plazas. </u>While the Annual Pass presently does not apply to State Highways &amp; Expressways, if the State Government is willing to introduce such pass system for the State Highways/ Expressways, full technical support will be offered for the purpose.</p><p>The Ministry has introduced the following measures which will result in reduction of user fees at fee plazas on National Highways:</p><p>&#183; <b>FASTag-based Annual Pass Scheme for non-commercial car/jeep/van, became effective from 15th'August, 2025, dated 17th'June 2025.</b> This scheme offers 200 NH fee plaza crossings or one year validity, whichever is earlier, by payment of Rs. 3000/- (Rupees three thousand).</p><p>&#183; The Ministry vide Gazette Notification No. G.S.R. 437(E) dated 1st'July, 2025 has <b>recently rationalized the rate of fee for use of a section of national highway comprising of structure or structures, which shall be calculated by adding ten times the length of structure or structures, to the length of the section of national highway excluding the length of structure or structures, or five times the total length of section of national highway, whichever is lesser.</b></p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>The Union Cabinet, chaired by Prime Minister Narendra Modi, has approved the 'Restructuring and extension of the lending period beyond 31.12.2024 of Prime Minister Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) Scheme'. Identify the INCORRECT Statement(s) regarding this. </p><p>I. The lending period of PM SVANidhi has been extended till March 31, 2030 with a total outlay of Rs. 7,332 crore. </p><p>II. Under the enhanced loan structure, the first tranche loan is up to Rs. 20,000 and the second tranche loan is up to Rs. 30,000. </p><p>III. Beneficiaries who repay the second loan will be eligible for a UPI-linked RuPay Credit Card to meet emergent business and personal requirements.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Union Cabinet, chaired by Prime Minister Shri Narendra Modi, has approved the 'Restructuring and extension of the lending period beyond 31.12.2024 of Prime Minister Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) Scheme'. The lending period has now been extended until March 31, 2030. The total outlay for the scheme is Rs. 7,332 crore. The restructured scheme aims to benefit 1.15 crore beneficiaries including 50 lakh new beneficiaries.</p><p>&#183; Implementation of the scheme would be the joint responsibility of Ministry of Housing &amp; Urban Affairs (MoHUA) and Department of Financial Services (DFS), with DFS being responsible for facilitating access to loan/ credit cards through banks/financial institution and their ground level functionaries.'</p><p>&#183; The key features of the restructured scheme include enhanced loan amount across first &amp; second tranche, provision of UPI-linked RuPay Credit Card for beneficiaries who have repaid the second loan, and digital cashback incentives for retail &amp; wholesale transactions. The scheme's coverage is being expanded beyond statutory towns to census towns, peri-urban areas etc. in graded manner.'</p><p>&#183; The enhanced loan structure includes first tranche loans increased up to Rs. 15,000 (from Rs. 10,000) and second tranche loans increased up to Rs. 25,000 (from Rs. 20,000), while the third tranche remains unchanged at Rs. 50,000.'</p><p>&#183; The introduction of UPI-linked RUPAY Credit Card would provide immediate access of credit to the street vendors in order to meet any emergent business and personal requirements.'</p><p>&#183; Further, in order to give boost to digital adoption, the street vendors can avail cashback incentives upto'1,600 on making retail &amp; wholesale transactions.'</p><p>&#183; The Government had initially launched PM SVANidhi Scheme on 1st' June 2020 to support street vendors who faced unprecedented hardships during the COVID-19 pandemic. However, since the inception of the scheme it has proved to be more than financial support for street vendors and has given them a sense of identity &amp; formal recognition for their contribution to the economy.'</p><p>&#183; The celebrated PM SVANidhi scheme has already achieved significant milestones. As of July 30, 2025, over 96 lakh loans amounting to Rs. 13,797 crore have been disbursed to more than 68 lakh street vendors. Nearly 47 lakh digitally active beneficiaries have conducted over 557 crore digital transactions worth Rs. 6.09 lakh crore, earning a total cashback of Rs. 241 crore. Under the 'SVANidhi se Samriddhi' initiative, 46 lakh beneficiaries across 3,564 Urban Local Bodies (ULBs) have been profiled, leading to over 1.38 crore scheme sanctions.</p><p>&#183; The scheme has received national recognition, winning the Prime Minister's Award for Excellence in Public Administration (2023) for Innovation (Central Level) for its outstanding contribution to boosting the economy, promoting livelihoods, advancing financial inclusion, and driving digital empowerment and the Silver Award for Excellence in Government Process Re-engineering for Digital Transformation (2022).</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>The Prime Minister of India Narendra Modi paid an Official Working Visit to Japan on 29-30 August 2025 for the 15th India-Japan Annual Summit. Identify the CORRECT Statement(s) regarding this.</p><p>I. India and Japan agreed on a Joint Lunar Polar Exploration Mission under ISRO'JAXA cooperation, linked to the Chandrayaan-5 mission.</p><p>II. A Joint Declaration on Security Cooperation was signed to evolve defence and security ties under the framework of the Special Strategic and Global Partnership.</p><p>III. Japan committed to a private investment target of JPY 5 trillion in India for the next decade.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>At the invitation of the Prime Minister of Japan H.E. Mr. Ishiba Shigeru, the Prime Minister of India Shri Narendra Modi paid an Official Working Visit to Japan on 29-30 August 2025 for the 15th India-Japan Annual Summit. Prime Minister Modi was received by Prime Minister Ishiba at the Prime Minister's Office (Kantei) on the evening of 29 August 2025 where he received a ceremonial guard of honour. </p><p>&#183; <u>India - Japan Joint Vision for the Next Decade: -</u> A 10-year strategic prioritization for economic and functional cooperation in eight lines of effort in economic partnership, economic security, mobility, ecological sustainability, technology and innovation, health, people to people and state-prefecture engagement.</p><p>&#183; <u>Joint Declaration on Security Cooperation: -</u> A comprehensive framework to evolve our defense and security cooperation to respond to contemporary security challenges in line with our Special Strategic and Global Partnership</p><p>&#183; <u>Action Plan for India - Japan Human Resource Exchange: -</u> An action plan to promote two-way exchange of 500,000 people between India and Japan, particularly 50,000 skilled and semi-skilled personnel from India to Japan in the next five years</p><p>&#183; <u>Memorandum of Cooperation on Joint Crediting Mechanism: -</u> An instrument to facilitate the diffusion of decarbonizing technologies, products, systems, and infrastructure thereby contributing to India's greenhouse gas emission reduction goals, promote Japanese investment in India and India's sustainable development.</p><p>&#183; <u>MoU on India - Japan Digital Partnership 2.0: -</u> A document to advance bilateral collaboration in digital public infrastructure, development of digital talent and joint R&amp;D in futuristic technological fields such as AI, IoT, semiconductors</p><p>&#183; <u>Memorandum of Cooperation in the Field of Mineral Resources: -</u> An instrument to advance cooperation in supply chain resilience for critical minerals including through the development of processing technologies, joint investments for exploration and mining and efforts for stockpiling critical minerals.</p><p>&#183; <u>Implementing Arrangement between the Indian Space Research Organization and Japan Aerospace Exploration Agency concerning Joint Lunar Polar Exploration Mission: - </u>A document that defines terms and conditions for cooperation between India and Japan on the Chandrayaan 5 mission, thus giving practical shape to a landmark collaboration</p><p>&#183; <u>Joint Declaration of Intent on Clean Hydrogen and Ammonia: -</u> A document to promote research, investment and implementation of projects on hydrogen/ammonia and deepen collaboration on cutting-edge research and innovation for developing technologies</p><p>&#183; <u>Memorandum of Cooperation on Cultural Exchange: -</u> An instrument to promote cooperation in the field of art and culture through exhibitions, museum collaborations and exchange of best practices in the field of cultural preservation</p><p>&#183; <u>MoU on Decentralized Domestic Waste Water Management: -</u> A document to promote cooperation in effective reuse of wastewater and decentralized wastewater management which is crucial for public health, environmental protection and sustainable development.</p><p>&#183; <u>Memorandum of Cooperation in the field of Environment Cooperation:</u> - An enabling framework for collaboration in areas pertaining to environmental preservation such as pollution control, climate change, waste management, sustainable use of biodiversity and environmental technologies.</p><p>&#183; <u>MoU between Sushma Swaraj Institute of Foreign Service and Ministry of Foreign Affairs, Japan: -</u> A framework to promote exchanges between diplomats, academics, officials, experts and researchers to advance mutual understanding in the field of foreign policy.</p><p>&#183; <u>Joint Statement of Intent between the Ministry of Science and Technology and Ministry of Education, Culture, Sports, Science and Technology (MEXT), Japan: -</u> A declaration to advance cooperation in the field of science and technology through the exchange of scientists and researchers, strengthen institutional cooperation between research and scientific institutions of both countries with the involvement of start-ups and industries.</p><p><b><u>Other notable outcomes: -</u></b></p><p>&#183; Private investment target of JPY 10 trillion from Japan to India for the next decade.</p><p>&#183; <u>India and Japan launched the Economic Security Initiative to promote supply chain resilience in strategic sectors such as semiconductors, clean energy, telecom, pharmaceuticals, critical minerals as well as new and emerging technologies: -</u> They also issued an Economic Security Fact Sheet as an illustrative list of actual cooperation in these fields.</p><p>&#183; <u>Launch of the India - Japan AI Initiative: -</u> To advance collaboration in Large Language Models, training, capacity building and support for businesses and start-ups to foster a trustworthy AI ecosystem.</p><p>&#183; <u>Launch of the Next-General Mobility Partnership: -</u> To foster G2G and B2B partnerships in the infrastructure, logistics and mobility sectors particularly railways, aviation, roads, shipping and ports, with a focus on Make-in-India of mobility products and solutions.</p><p>&#183; <u>Launch of the India - Japan Small and Medium Enterprises Forum to strengthen collaboration between Indian and Japanese SMEs, which are the engines of our respective economies: - </u>Launch of the Sustainable Fuel Initiative to promote energy security, farmer livelihoods and advance R&amp;D in technologies related to sustainable fuels such as biogas and biofuels.</p><p>&#183; <u>High-level exchanges between states and prefectures, including three visits in each direction to be organized by the Foreign Offices: -</u> Establishment of business forums between India and the two regions of Kansai and Kyushu to strengthen business, people to people and cultural linkages.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Capital markets regulator Securities and Exchange Board of India (Sebi) has given the green light to classify Life Insurance Corporation of India (LIC) as a public shareholder of IDBI Bank for its residual stake on completion of strategic divestment in the lender. Identify the CORRECT Statement(s) regarding this.</p><p>I. The Centre and LIC together hold 95 per cent stake in IDBI, of which 60.72 per cent is on the block.</p><p>II. LIC must reduce its residual shareholding in IDBI Bank to 15% or below within two years as per RBI directions.</p><p>III. LIC will continue to have representation, including nominees, on the Board of Directors of IDBI Bank.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Capital markets regulator Securities and Exchange Board of India (Sebi) has given green light to classify Life Insurance Corporation of India (LIC) as a public shareholder of IDBI Bank for its residual stake on completion of strategic divestment in the lender. The reclassification as public shareholder is subject to fulfilling the conditions relating to the transaction. Mumbai-based IDBI Bank, in a filing with BSE, said the Department of Investment and Public Asset Management (Dipam) informed that Sebi has approved reclassification of LIC as public shareholder. One of the conditions that LIC would have to fulfil is that its voting rights shall not exceed 10 per cent of the total net effective voting rights of IDBI Bank. LIC cannot exercise control over the affairs of the bank, directly or indirectly. LIC may not have any special rights relating to IDBI Bank, through any arrangement, including shareholders agreements.</p><p>&#183; <u>The insurer would not have representation, including nominees on the Board of directors at IDBI Bank.</u></p><p>&#183; The reclassification of LIC as 'public' shareholder post disinvestment would stand withdrawn automatically if the insurer fails to comply with any of the specified conditions.</p><p>&#183; Post completion of the strategic disinvestment transaction, <u>LIC would have to bring down residual shareholding in IDBI Bank to 15 per cent or below within two years as directed by the Reserve Bank of India (RBI).</u></p><p>&#183; <u>The Centre and LIC together hold 95 per cent stake in IDBI, of which 60.72 per cent is on the block.</u></p><p>&#183; The qualified bidders have begun due diligence and will finish the exercise by September.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Which among the following statement(s) are/is correct about the RBI Monetary Policy Committee (MPC) announcements made under Governor Sanjay Malhotra, in August 2025.</p><p>I. The repo rate was kept unchanged at 5.5% after three consecutive rate cuts earlier in the year.</p><p>II. The Cash Reserve Ratio (CRR) was reduced by 100 basis points to 3% of NDTL, to be implemented in four tranches starting from September 2025.</p><p>III. The RBI revised its FY26 inflation forecast upward to 4.4% due to rising food prices.</p>",
+    "options": [
+      "II and III Only",
+      "I and II Only",
+      "II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Reserve Bank of India's Monetary Policy Committee (MPC), chaired by Governor' Sanjay 'Malhotra decided to keep the benchmark repo rate unchanged at 5.5'per'cent. The decision, taken with a 6-0 unanimous vote, comes after three consecutive rate cuts earlier this year. The committee also maintained its policy stance at 'neutral', signalling that future moves will depend on inflation and growth dynamics. The Standing Deposit Facility (SDF) rate remains at 5.25'per'cent, while the Marginal Standing Facility (MSF) rate and the Bank Rate are unchanged at 5.75'per'cent each.</p><p>&#183; The RBI reiterated that the cash reserve ratio (CRR) cut, announced in June, will be effective from September to support banking system liquidity. Governor Sanjay Malhotra said the CRR cut will 'ensure adequate liquidity in the banking system to support credit growth and smooth financial market functioning\", adding that policy rates would remain unchanged to allow earlier rate cuts to transmit through the economy.</p><p>&#183; In the June MPC meet, the RBI decided to cut the CRR by 100 basis points to 3 per cent from 4 per cent of net demand and time liabilities (NDTL), in four equal tranches of 25 basis points each. The reductions will take effect on September 6, October 4, November 1, and November 29, 2025.</p><p><b>RBI MPC eases inflation forecast for FY26</b></p><p>&#183; The RBI's' MPC 'has revised its Consumer Price Index (CPI)-based inflation projections, sharply decreasing estimates for the financial year 2025-26 (FY26), mainly due to softer food prices, a favourable base effect, and easing global commodity costs.</p><p>&#183; The FY26 inflation forecast has been eased to 3.1 per cent, down from 3.7 per cent, with Q2 FY26 dropping to 2.1 per cent from 3.4 per cent. However, inflation is expected to climb back toward 4.9 per cent in the first quarter of the next financial year (FY27) as the low base fades.</p><p><b>The quarterly inflation forecast stands as follows:</b></p><p>&#183; <b>Q2 FY26:</b>'2.1 per cent, down from 3.4 per cent</p><p>&#183; <b>Q3 FY26</b>: 3.1 per cent, down from 3.9 per cent</p><p>&#183; <b>Q4 FY26</b>: Maintained at 4.4 per cent</p><p>&#183; <b>Q1 FY27</b>: 4.9 per cent</p><p>&#183; <b>FY26</b>: 3.1 per cent, down from 3.7 per cent</p><p><b>RBI MPC maintains growth forecast</b></p><p>&#183; The RBI has kept its real gross domestic product (GDP) growth forecast for FY26 unchanged at 6.5 per cent, supported by resilient domestic demand, government capital spending, and improving rural consumption. Quarterly projections indicate steady momentum, with growth peaking in Q2 before moderating slightly toward year-end.</p><p><b>The quarterly GDP forecast stands as follows:</b></p><p>&#183; <b>Q1 FY26</b>: 6.5 per cent</p><p>&#183; <b>Q2 FY26</b>: 6.7 per cent'</p><p>&#183; <b>Q3 FY26</b>: 6.6 per cent</p><p>&#183; <b>Q4 FY26</b>: 6.3 per cent</p><p>&#183; <b>FY26</b>: 6.5 per cent</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Reserve Bank of India (RBI) has, from time to time, emphasised that banks must communicate with customers in their preferred language to ensure clarity and convenience. Identify the CORRECT Statement Regarding this.</p><p>I. Banks must ensure all customer communications are issued in Hindi, English, and the concerned regional language.</p><p>II. RBI's toll-free Contact Centre (14448) is operational 24/7 with live personnel support at all times.</p><p>III. The Reserve Bank Integrated Ombudsman Scheme (RB-IOS), 2021, provides a cost-free platform for complaints if banks fail to respond within the prescribed timeline.</p>",
+    "options": [
+      "I and III Only",
+      "I and II Only",
+      "II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Reserve Bank of India (RBI) has, from time to time, emphasised that banks must communicate with customers in their preferred language to ensure clarity and convenience. RBI's Master Circular on Customer Service in Banks states, inter alia, that all customer-facing materials at the branches of Scheduled Commercial Banks must be made available in Hindi, English, and the concerned regional language. Further, RBI vide its letter dated September 30, 2024, reiterated that all communications to customers, should invariably be issued in a trilingual format-Hindi, English, and the regional language. All Banks have a robust board approved grievance redressal mechanism in place to address complaints.</p><p>&#183; Further, the Reserve Bank ' Integrated Ombudsman Scheme (RB-IOS), 2021, provides a cost-free platform for redressal of complaints against RBI-regulated entities (REs) in matters relating to deficiency in service, if the grievance is not redressed or reply is not given by the RE within the prescribed timeline.</p><p>&#183; Government through the Centralized Public Grievance Redress and Monitoring System (CPGRAMS) portal, has a feedback call centre since June 2022, to assess citizen satisfaction after grievance disposal. The feedback data gets finally forwarded to the banks concerned for appropriate action.</p><p>Further, RBI's toll-free Contact Centre (14448), operational since November 2021, provides information on the grievance redressal mechanism, assistance in filing complaints, and updates on existing cases. While the Contact Centre (CC) is available 24*7 through the Interactive Voice Response System (IVRS), the facility to connect to the CC personnel is available from Monday to Saturday (except National Holidays) from 8:00 am to 10:00 pm in Hindi, English and ten regional languages.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>The Employees' Provident Fund Organisation (EPFO) has rolled out fresh rules to make it simpler for its over 27 crore members to link Aadhaar with their Universal Account Number (UAN) and correct personal details, aimed at cutting red tape, reducing employer dependency and speeding up benefit settlements. Identify the CORRECT Statement(s) Regarding this.</p><p>I. Members whose name, gender and date of birth match in Aadhaar and UAN can directly approach their employer for Aadhaar seeding without additional EPFO approval.</p><p>II. In case of mismatch or incorrect Aadhaar linking, employers can initiate a Joint Declaration (JD) request online, while members of closed units can submit a physical JD attested by authorised officials.</p><p>III. After the death of a member, a guardianship certificate is mandatory for minors to receive provident fund or pension benefits in their bank account.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Employees' Provident Fund Organisation (EPFO) has rolled out fresh rules to make it simpler for its over 27 crore members to link Aadhaar with their Universal Account Number (UAN) and correct personal details. The move is aimed at cutting red tape, reducing employer dependency and speeding up benefit settlements. Direct Aadhaar-UAN linking if details match Members whose name, gender and date of birth match in both Aadhaar and UAN records can now approach their employer directly for Aadhaar seeding through the KYC function on the employer portal. In such cases, no additional EPFO approval will be needed. Earlier, even straightforward matches often got delayed due to multiple verification layers. Simplified Joint Declaration (JD) process EPFO has overhauled its Joint Declaration (JD) mechanism for cases where Aadhaar and UAN details do not match, or where a wrong Aadhaar has been linked.</p><p>&#183; Employer-led corrections: Employers can submit a JD request online to rectify name, gender or date of birth mismatches, or to update an incorrect Aadhaar.</p><p>&#183; For closed units or absent employers: Members can submit a physical JD, attested by authorised officials, at the Public Relations Officer (PRO) counter of the regional office. After verification, the PRO will upload the details for further processing.</p><p>&#183; However, changes to Aadhaar details that are already verified will not be permitted.</p><p><b>Relief for minor beneficiaries: - </b></p><p>In a significant change to claim settlements after a member's death, no guardianship certificate will be required for minors if benefits are credited directly to the child's bank account. Officials have been told to help claimants open accounts in the minor's name so that both lump sum settlements and pension amounts can be credited without delay. </p><p><b>'Linking via UMANG app: - </b></p><p>EPFO has also reminded members they can link Aadhaar to UAN using the UMANG mobile app:</p><p>&#183; Enter UAN and verify OTP sent to the registered mobile number.'</p><p>&#183; Enter Aadhaar details and verify OTP sent to Aadhaar-linked mobile and email.'</p><p>&#183; On successful verification, Aadhaar will be linked to UAN.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Towards the objective of facilitating availability, accessibility &amp; affordability of credit to MSMEs, National Small Industries Corporation entered into Memoranda of Understandings (MOUs) with various private sector banks on 11th August, 2025 under its MSME Credit facilitation program. Which of the following banks was NOT mentioned as a partner with NSIC in its 2025 MoUs?</p><p>I. Axis Bank</p><p>II. Dhanlaxmi Bank</p><p>III. ICICI Bank</p><p>IV. HDFC Bank</p><p>V. IndusInd Bank</p>",
+    "options": [
+      "II, IV and V Only",
+      "I, III and IV Only",
+      "II and IV only",
+      "III and IV Only",
+      "II and V Only"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Towards the objective of facilitating availability, accessibility &amp; affordability of credit to MSMEs, National Small Industries Corporation entered into Memoranda of Understandings (MOUs) with various private sector banks such as <u>Axis Bank, Dhanlaxmi Bank, Karnataka Bank, AU Small Finance Bank and IndusInd Bank on 11th August, 2025 under its MSME Credit facilitation program.</u> The collaboration aims to extend handholding support to MSMEs and help them link to the formal financial system, with increased focus on the Banks to expand their outreach to deserving micro &amp; small enterprises, the arrangement is expected to be a force multiplier in the efforts of Banks to reach the last mile.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Consider the following Statement with reference to the PM GatiShakti National Master Plan (PMGS NMP). Identify the INCORRECT Statement(s) regarding this.</p><p>I. A total of 57 Central Ministries/Departments, including Infrastructure, Social, and Economic sectors, have been onboarded onto the PMGS NMP.</p><p>II. The initiative has a dedicated fund of Rs. 10,000 crore allocated annually by the Ministry of Finance.</p><p>III. The District Master Plan (DMP) was launched in 2024-25 to support data-driven planning in 28 aspirational districts.</p>",
+    "options": [
+      "II and III Only",
+      "I and II Only",
+      "II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>PM GatiShakti National Master Plan (PMGS NMP) was launched in October 2021. Since the launch, substantial progress has been made, which includes development of the geospatial platform, integration of multiple georeferenced data, provision of planning tools/software for planning infrastructure projects (including socio-economic infrastructure), and capacity building. Mechanism of Network Planning Group(NPG) has been institutionalised, under which infrastructure projects are evaluated for integrated planning, multimodality, inter-modality, synchronization of efforts, whole of Government approach and Last-mile connectivity in and around the project catchment area. So far, 293 infrastructure projects amounting to Rs. 13.59 Lakh Crore have been evaluated through the NPG mechanism. <u>Under PM GatiShakti initiative, as on date, 57 Central Ministries/Departments including 8 Infrastructure, 22 Social and 27 Economic &amp; other Ministries/Departments have been onboarded on PMGS NMP.</u></p><p>&#183; 36 States/UTs have also been onboarded on PMGS NMP. About 1700 data layers, including 969 layers from States/UTs and 731 layers from Central Ministries/Departments, have been mapped and integrated on the PMGS NMP. Year wise progress made under PMGS is given in Annexure-A</p><p>&#183; <u>The PM GatiShakti National Master Plan has no specific or separate fund allocation. However, Ministry of Finance, Department of Expenditure through Part- II of the \"Scheme for Special Assistance to States for Capital Investment for 2022- 23\" made a provision of Rs. 5000 crores for disbursement among the States for PMGS related infrastructure development.</u></p><p>&#183; 36 new Ministries/Departments, in addition to the initial 21, have been included in the PMGS-National Master Plan. As on date, total 57 Central Ministries/Departments have been onboarded on PMGS NMP.'</p><p><b>Year 2021 - 2022</b></p><p>&#183; PMGS NMP was launched.</p><p>&#183; Institutional mechanism of NPG was set up.</p><p>&#183; Initiation of onboarding of Infrastructure Ministries.</p><p>&#183; Mapping of assets of infrastructure Ministries and planning of infrastructure projects on the PMGS NMP platform.</p><p>&#183; Training and Capacity Building exercise for PM GatiShakti started. Five workshops/training sessions conducted for training and capacity building of officers, wherein about 500 officers participated.</p><p><b>Year 2022 - 2023</b></p><p>&#183; 8 Key infrastructure Ministries onboarded.</p><p>&#183; Mapping of assets of infrastructure Ministries and planning of infrastructure projects on the National Master Plan portal.</p><p>&#183; 71 infrastructure projects of Central Ministries evaluated in NPG.</p><p>&#183; A digital learning course on PM GatiShakti launched on iGoTKarmayogi platform.</p><p>&#183; About 50 workshops/training session, including 05 regional/state level workshops, conducted for training and capacity building of officers wherein more than 5000 officers participated.</p><p><b>Year 2023 - 2024</b></p><p>&#183; 2 Social Sector Ministries/Departments onboarded.</p><p>&#183; Mapping of assets of Social Sector Ministries on the PMGS NMP portal.</p><p>&#183; 73 infrastructure projects of Central Ministries evaluated in NPG.</p><p>&#183; Social sector project planning by Ministries on the PMGS NMP portal.</p><p>&#183; An MoU was signed with Gati Shakti Vishwavidyalaya, which was set up in December 2022.</p><p>&#183; A digital learning course on National Logistics Policy launched on iGoTKarmayogi platform.</p><p>&#183; About 100 workshops/training sessions, including 10 regional/state level workshops, conducted for training and capacity building of officers wherein more than 10000 officers participated.</p><p><b>Year 2024 - 2025</b></p><p>&#183; 20 Economic sector Ministries onboarded.</p><p>&#183; 05 other Ministries/Departments onboarded.</p><p>&#183; Mapping of assets of Economic Ministries on the PMGS NMP.</p><p>&#183; 121 infrastructure projects of Central Ministries evaluated through the NPG mechanism.</p><p>&#183; District Master Plan (DMP) launched for 28 aspirational districts to enable geospatial data driven planning by adopting the Area Development Approach at district level.</p><p>&#183; Digital learning courses on PM GatiShakti- Roles and Responsibilities and PM GatiShakti for effective infrastructure planning and development, launched on iGoTKarmayogi platform.</p><p>&#183; More than 100 workshops/training sessions, including 10 regional/state level workshops, conducted for training and capacity building of officers wherein more than 10000 officers participated.</p><p><b>Year 2025 - 2026</b></p><p>&#183; 02 other Ministries/Departments onboarded.</p><p>&#183; Standard Operating Process (SOP) for 50 no. of Ministries/Departments finalized/revised.</p><p>&#183; A group of JS level officers including existing NPG members, BISAG-N, MeitY and MoHUA has been set up for technical upgradation and technical issue resolution of PMGS NMP.</p><p>&#183; A single Sign-On User Management System using NIC JanParichay has been implemented through which access of PMGS NMP was provided to States/UTs.</p><p>&#183; 28 infrastructure projects of Central Ministries evaluated through the NPG mechanism.</p><p>&#183; About 25 workshops/training sessions (Ministry wise) conducted for training and capacity building of officers wherein 100 officers participated. Under the Capacity Building initiative, more than 25000 officers got trained cumulatively.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Which among the following pair of International/National Day and their theme is NOT correct?</p>",
+    "options": [
+      "International Day of the World's Indigenous Peoples: - Indigenous Peoples and AI: Defending Rights, Shaping Futures",
+      "International Youth Day: - Local youth actions for the SDGs and beyond",
+      "National Space Day: - Aryabhatta to Gaganyaan: Ancient Wisdom to Infinite Possibilities",
+      "National Sports Day: - Ek din, ek khel, ek ghanta",
+      "All of the Above are correct"
+    ],
+    "correct_option_id": 3,
+    "solution": "<table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"3\"><b> Important Days from August 2025</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>DATE </b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>DAY </b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>THEME</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>1<sup>st </sup> -  7<sup>th</sup> August 2025</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">World Breastfeeding Week</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Prioritise breastfeeding: Create sustainable support systems</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>6<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">International Day of Awareness of the Special Development Needs and Challenges of Landlocked Developing Countries</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>9<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">International Day of the World's Indigenous Peoples</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Indigenous Peoples and AI: Defending Rights, Shaping Futures</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>11<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">World Steelpan Day</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">From Roots to Resonance: Echoing Across Generations and Nations</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>10<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">World Lion Day</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>12<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">International Youth Day</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Local youth actions for the SDGs and beyond</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>19<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">World Humanitarian Day</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>21<sup>st</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">International Day of Remembrance and Tribute to the Victims of Terrorism</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>22<sup>nd</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">International Day Commemorating the Victims of Acts of Violence Based on Religion or Belief</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>23<sup>rd</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">National Space Day</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Aryabhatta to Gaganyaan: Ancient Wisdom to Infinite Possibilities</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>23<sup>rd</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">International Day for the Remembrance of the Slave Trade and its Abolition</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>27<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">World Lake Day</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>29<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">National Sports Day</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Ek Ghanta, Khel ke Maidan Main</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>29<sup>th</sup> August</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">International Day Against Nuclear Tests</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"></td></tr></table><p></p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geography Mock 4 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Which of the following states does NOT share a border with Nepal?</p>",
+    "options": [
+      "West Bengal",
+      "Assam",
+      "Sikkim",
+      "Uttarakhand"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=499 height=278 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/04/image001.jpg\" ></p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>In which mountain range is the Khyber Pass located?</p>",
+    "options": [
+      "Karakoram range",
+      "Suleiman range",
+      "Zagros mountains",
+      "Spin Ghar range"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Khyber Pass is a mountain pass connecting Afghanistan and Pakistan, cutting through the northeastern part of the <b>Spin Ghar mountains</b>. An integral part of the <b>ancient Silk Road, it is one of the oldest known passes in the world. </b>Throughout history it has been an important trade route between Central Asia and South Asia and a strategic military location. <b>The Khyber Pass is part of the Asian Highway 1 (AH1).</b></p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Which is the highest peak of the Karakoram Range?</p>",
+    "options": [
+      "Gasherbrum I",
+      "Broad Peak",
+      "Masherbrum I",
+      "K2"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>K2, is the second highest mountain in the world, after Mount Everest, at 8,611 metres (28,251 ft) above sea level. It is located on the China-Pakistan border between Baltistan, in the Gilgit - Baltistan region of northern Pakistan, and the Taxkorgan Tajik Autonomous County of Xinjiang, China. </b>K2 is the highest point of the Karakoram range and the highest point in Pakistan. <b>K2 is in Pakistan Occupied Kashmir, hence Kanchenjunga is considered to be India's highest peak. </b>K2 is known as the <b>Savage Mountain</b> due to the extreme difficulty of ascent. It has the second-highest fatality rate among the eight thousanders. With around 300 successful summits and 80 fatalities, about one person dies on the mountain for every four who summit. It is more difficult and hazardous to reach the peak of K2 from the Chinese side; thus, it is usually climbed from the Pakistani side. </p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Which term is used to describe the solar radiation coming to the Earth?</p>",
+    "options": [
+      "Radiation",
+      "Insolation",
+      "Total solar emission",
+      "Insulation"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The amount of solar radiation reaching the Earth is called <b>Insolation</b>. Insolation is the only source of energy for the Earth, and variation in insolation brings changes in the climate of the Earth.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>In which country is the capital of the European Union located?</p>",
+    "options": [
+      "Netherlands",
+      "Switzerland",
+      "Belgium",
+      "Denmark"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Brussels, officially the Brussels-Capital Region is a region of Belgium. <b>Brussels serves as capital of the European Union, hosting the major political institutions of the Union. The EU has not declared a capital formally, though the Treaty of Amsterdam formally gives Brussels the seat of the European Commission (the executive/government branch) and the Council of the European Union (a legislative institution made up from executives of member states).</b> It locates the formal seat of European Parliament in the French city of Strasbourg, where votes take place with the Council on the proposals made by the Commission. However meetings of political groups and committee groups are formally given to Brussels along with a set number of plenary sessions.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The Panama Canal connects Caribbean Sea to _________.</p>",
+    "options": [
+      "Pacific Ocean",
+      "Indian Ocean",
+      "Arctic Ocean",
+      "Southern Ocean"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Panam&#225; Canal is a 48-mile (77 km) ship canal in Panama that connects the <b>Atlantic Ocean (via the Caribbean Sea) to the Pacific Ocean</b>. The canal cuts across the Isthmus of Panama and is a key conduit for international maritime trade. There are locks at each end to lift ships up to Gatun Lake, an artificial lake created to reduce the amount of excavation work required for the canal, 26 meters (85 ft) above sea level. The current locks are 33.5 meters (110 ft) wide. A third, wider lane of locks is currently under construction and is due to open in April of 2016. The construction of the Panama Canal greatly affected the world because generally, it made the world smaller in a way. It made trading much easier, which made people encounter new ideas through trade.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>In which ocean is the Mariana Trench located?</p>",
+    "options": [
+      "Pacific Ocean",
+      "Indian Ocean",
+      "Atlantic Ocean",
+      "Southern Ocean"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>The Mariana Trench or Marianas Trench is the deepest part of the world's oceans.</b> It is located in the <b>western Pacific Ocean</b>, to the east of the Mariana Islands. The trench is about 2,550 kilometers (1,580 mi) long but has an average width of only 69 kilometers (43 mi). <b>It reaches a maximum-known depth of 10,994 m (&#177; 40 m) or 6.831 mi (36,070 &#177; 131 ft) at a small slot-shaped valley in its floor known as the Challenger Deep, at its southern end, although some unrepeated measurements place the deepest portion at 11,030 meters (36,190 ft).</b></p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>In which continent are the Alps located?</p>",
+    "options": [
+      "Asia",
+      "Europe",
+      "Both Europe and Asia",
+      "Africa"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The <b>Alps are the highest and most extensive mountain range system that lies entirely in Europe</b>, stretching approximately 1,200 kilometers (750 mi) across eight Alpine countries: Austria, France, Germany, Italy, Liechtenstein, Monaco, Slovenia, and Switzerland. <b>The Caucasus Mountains are higher, and the Urals longer, but both lie partly in Asia. </b>The mountains were formed over tens of millions of years as the African and Eurasian tectonic plates collided.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>In which state is the Sardar Sarovar Dam located?</p>",
+    "options": [
+      "Maharashtra",
+      "Odisha",
+      "Madhya Pradesh",
+      "Gujarat"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The <b>Sardar Sarovar Dam is a gravity dam on the Narmada river near Navagam, Gujarat</b> in India. It is the <b>largest dam and part of the Narmada Valley Project,</b> a large hydraulic engineering project involving the construction of a series of large irrigation and hydroelectric multi-purpose dams on the Narmada river. The project took form in 1979 as part of a development scheme to increase irrigation and produce hydroelectricity. One of the 30 dams planned on river Narmada, Sardar Sarovar Dam (SSD) is the largest structure to be built. <b>Following a number of controversial cases before the Supreme Court of India (1999, 2000, 2003), by 2014 the Narmada Control Authority had approved a series of changes in the final height  -  and the associated displacement caused by the increased reservoir, from the original 80 m (260 ft) to a final 163 m (535 ft) from foundation.</b> The project will irrigate more than 18,000 km2 (6,900 sq mi), most of it in drought prone areas of Kutch and Saurashtra.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following questions.</p> <p>1. Tides are caused by the currents of the ocean.</p> <p>2. Constant flow of water on the surface of the ocean, as a stream in a definite direction is known as current.</p> <p>3. Waves are caused by the gravitation of the sun and moon.</p><p>Which option lists all the correct statements, from the statements given above?</p>",
+    "options": [
+      "1, 2 and 3",
+      "1 and 3",
+      "Only 2",
+      "1 and 3"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>Tides are the rise and fall of sea levels caused by the combined effects of gravitational forces exerted by the Moon, Sun, and rotation of the Earth.</b></p> <p><b>An ocean current is a continuous, directed movement of seawater generated by forces acting upon this mean flow, such as breaking waves, wind, the Coriolis effect, temperature and salinity differences, while tides are caused by the gravitational pull of the Sun and Moon. </b>Depth contours, shoreline configurations, and interactions with other currents influence a current's direction and strength. Ocean currents flow for great distances, and together, create the global conveyor belt which plays a dominant role in determining the climate of many of the Earth's regions. More specifically, ocean currents influence the temperature of the regions through which they travel.</p> <p><b>The wind causes waves on the surface of the ocean (and on lakes).</b> The wind transfers some of its energy to the water, through friction between the air molecules and the water molecules. Stronger winds (like storm surges) cause larger waves. Waves of water do not move horizontally, they only move up and down (a wave does not represent a flow of water).</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>The atmosphere above the Horse Latitudes is dominated by-</p>",
+    "options": [
+      "High pressure",
+      "Thunderstorms",
+      "Cyclones",
+      "heavy precipitation"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Horse latitudes or subtropical highs are subtropical latitudes between 30 and 38 degrees both north and south where Earth's atmosphere is dominated by the <b>subtropical high, an area of high pressure, which suppresses precipitation and cloud formation, and has variable winds mixed with calm.</b> The horse latitudes are associated with the <b>subtropical anticyclone</b> and the large-scale descent of air from high-altitude currents moving toward the poles. After reaching the earth's surface, this air spreads toward the equator as part of the prevailing trade winds or toward the poles as part of the westerlies. <b>The belt in the Northern Hemisphere is sometimes called the \"calms of Cancer\" and that in the Southern Hemisphere the \"calms of Capricorn\". </b>The consistently warm, dry, and sunny conditions of the horse latitudes are the main cause for the existence of the world's major non-polar deserts, such as the <b>Sahara Desert in Africa, the Arabian and Syrian deserts in the Middle East, the Mojave and Sonoran deserts in the southwestern United States and northern Mexico, all in the Northern Hemisphere; and the Atacama Desert, the Kalahari Desert, and the Australian Desert in the Southern Hemisphere.</b></p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>The Dachigam National Park is famous for which critically endangered animal?</p>",
+    "options": [
+      "Chiru",
+      "Tibetan Ibex",
+      "Hangul",
+      "Musk Deer"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The <b>Kashmir stag (Cervus elaphus hanglu), also called hangul</b>, is a <b>subspecies of red deer native to India. </b>It is found in dense riverine forests in the high valleys and mountains of the <b>Kashmir Valley and northern Chamba district in Himachal Pradesh</b>. In Kashmir, it's found in the <b>Dachigam National Park</b> where it receives protection but elsewhere it is more at risk. In the 1940s, the population was between 3000 and 5000 individuals, but since then <b>habitat destruction, over-grazing by domestic livestock and poaching have greatly reduced that dramatically. </b>The Kashmir stag is listed as <b>critically endangered </b>by the International Union for Conservation of Nature as the population had been reduced to 160 mature individuals in the 2008 census.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which of the following describes a cooling of surface ocean waters along west coast of South America?</p>",
+    "options": [
+      "El Nino",
+      "La Nina",
+      "Coriolis Effect",
+      "ENSO"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>La Ni&#241;a is a climate pattern that describes the cooling of surface ocean waters along the tropical west coast of South America. La Nina is considered to be the counterpart to El Nino, </b>which is characterized by unusually warm ocean temperatures in the equatorial region of the Pacific Ocean. <b>Together, La Ni&#241;a and El Ni&#241;o are the \"cold\" (La Ni&#241;a) and \"warm\" (El Ni&#241;o) phases of the El Nino-Southern Oscillation (ENSO).</b> ENSO is series of linked weather- and ocean-related phenomena. Besides unusually warm or cool sea-surface temperatures, ENSO is also characterized by changes in atmospheric pressure.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following question.</p> <p>1. A river shapes new landforms by three processes: erosion, transportation and deposition.</p> <p>2. While descending a steep slope the predominant action of a river is lateral corrasion.</p> <p>3. Negative Movement occurs when there is an uplift of land and fall in sea level.</p> <p>Which of the following options lists all the correct statements, from the statements given above?</p>",
+    "options": [
+      "1 and 2",
+      "1 and 3",
+      "Only 2",
+      "2 and 3"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>There are three main types of processes that occur in a river. These are erosion<b>, transportation and deposition.</b> All three depend on the amount of energy there is in a river.</p> <p>While descending steep slopes a river is very swift. As it descends the predominant action is <b>vertical corrasion.</b> The down cutting of the valley takes place so swiftly that lateral corrasion cannot keep pace.</p> <p><b>A negative movement occurs when there is an uplift of land or a fall in sea level</b>. This steepens the slope so that active down-cutting is renewed.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>In which state is the Simlipal Biosphere Reserve located?</p>",
+    "options": [
+      "West Bengal",
+      "Odisha",
+      "Jharkhand",
+      "Assam"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Simlipal National Park is a national park and a tiger reserve in the Mayurbhanj district in the Indian state of <b>Odisha. </b>It is part of the Similipal-Kuldiha-Hadgarh Elephant Reserve popularly known as <b>Mayurbhanj Elephant Reserve</b>, which includes three protected areas  -  Similipal Tiger Reserve, Hadgarh Wildlife Sanctuary and Kuldiha Wildlife Sanctuary. <b>Simlipal National Park derives its name from the abundance of semul (red silk cotton trees) that bloom abundantly here.</b> Palpala River near Lulung, Similipal National Park. Simlipal is home to <b>99 royal Bengal tigers</b> and <b>432 wild elephants</b>. Besides, Simlipal is famous <b>for gaurs (Indian bison), chausingha, as well as an orchidarium</b>. One can enter Similipal through Pithabata (22 kilometres (14 mi)) from Baripada) and 98 km via Jashipur. <b>This reserve is part of the UNESCO World Network of Biosphere Reserves since 2009.</b></p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>The volcano at Barren Island is a/an _________ volcano?</p>",
+    "options": [
+      "Active",
+      "Dormant",
+      "Extinct",
+      "None of the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Barren Island is located in the Andaman Sea, one of the most easterly island of the Andaman Islands. It is the <b>only confirmed active volcano in South Asia. </b>Along with the rest of the Andamans, it is a part of the Indian Union Territory of Andaman and Nicobar Islands, and lies about 135 km (84 mi) northeast of the territory's capital, Port Blair. The first recorded eruption of the volcano dates back to 1787. Since then, the volcano has erupted more than ten times, with the <b>most recent one which started in September 2010 and continued through January 2011.</b> After the first recorded eruption in 1787, further eruptions were recorded in <b>1789, 1795, 1803 - 04, and 1852</b>. After nearly one and half century of dormancy, the island had another eruption in 1991 that lasted six months and caused considerable damage. There were eruptions in <b>1994 - 95 and 2005 - 07</b>, the latter being considered to be linked to the 2004 Indian Ocean earthquake.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which of the following is a volcanic mountain?</p>",
+    "options": [
+      "Himalayas",
+      "Andes",
+      "Mt. Fuji",
+      "Hunsruck mountains"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>Mount Fuji, located on Honshu Island, is the highest mountain in Japan at 3,776.24 m (12,389 ft). An active stratovolcano that last erupted in 1707 - 08</b>. Mount Fuji's exceptionally symmetrical cone, which is snow-capped several months a year, is a well-known symbol of Japan and it is frequently depicted in art and photographs, as well as visited by sightseers and climbers.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Which of the following is a distributary of Kaveri?</p>",
+    "options": [
+      "Shimsha",
+      "Hemavati",
+      "Kollidam",
+      "Amravati"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The <b>Kaveri (or Cauvery in English)</b> is a large Indian river. The origin of the river is traditionally placed at Talakaveri, Kodagu in the Western Ghats in Karnataka, flows generally south and east through Karnataka and Tamil Nadu and across the southern Deccan plateau through the southeastern lowlands, emptying into the Bay of Bengal through two principal mouths. The Kollidam is a river in southeastern India. The <b>Kollidam is the northern distributary of the Kaveri River as it flows through the delta of Thanjavur</b>. It splits from the main branch of the Kaveri River at the island of Srirangam and flows eastward into the Bay of Bengal. The distribution system in Kollidam lies at <b>Lower Anaicut</b> which is an island of river Kollidam.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Which country is pointed out in the picture given below?</p><p><img width=562 height=233 id=\"Picture 25\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/04/image002.jpg\" > </p>",
+    "options": [
+      "Tajikistan",
+      "Saudi Arabia",
+      "Iran",
+      "Mongolia"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><img width=526 height=252 id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/04/image003.jpg\" ></p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>An igneous rock formed below the surface of the Earth is called _________.</p>",
+    "options": [
+      "Volcanic Rock",
+      "Dyke",
+      "Plutonic Rock",
+      "Sills"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>In geology, a <b>plutonic rock is a body of intrusive igneous rock</b> (called a plutonic rock) that is crystallized from magma slowly cooling below the surface of the Earth.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Which of the following folk dances do NOT belong to Rajasthan?</p>",
+    "options": [
+      "Kalbelia",
+      "Bhavai",
+      "Lavani",
+      "Kacchi Ghodi"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>Lavani is a combination of traditional song and dance</b>, which is particularly performed to the beats of Dholki, a percussion instrument. Lavani is noted for its powerful rhythm. Lavani has contributed substantially to the development of <b>Marathi folk theatre</b>. In <b>Maharashtra and southern Madhya Pradesh, it is performed by the female performers</b> wearing nine-yard long saris. The songs are sung in a quick tempo.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Which of the following is the World's largest island, by area?</p>",
+    "options": [
+      "Island of Madagascar",
+      "Greenland",
+      "New Guinea",
+      "Baffin Island"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Greenland is an autonomous country within the Danish Realm, located between the Arctic and Atlantic Oceans, east of the Canadian Arctic Archipelago. Though physiographically a part of the continent of North America, Greenland has been politically and culturally associated with Europe (specifically Norway and Denmark, the colonial powers, as well as the nearby island of Iceland) for more than a millennium. In 2008, the people of Greenland passed a referendum supporting greater autonomy; 75% of votes cast were in favor. <b>Greenland is the world's largest island</b>, over three-quarters of which is covered by the only permanent ice sheet outside of Antarctica. With a population of about 56,480 (2013), it is the <b>least densely populated country in the world.</b></p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Read the statements given below and answer the following question.</p> <p>1. North America is the fourth largest continent, by area.</p> <p>2. The Island of Madagascar is located near North America in the Atlantic Ocean.</p><p>Which of the following option lists the correct statements?</p>",
+    "options": [
+      "1 only",
+      "Both 1 and 2",
+      "2 only",
+      "Neither 1 nor 2"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>North America is a continent entirely within the Northern Hemisphere and almost all within the Western Hemisphere. It can also be considered a northern subcontinent of the Americas. It is bordered to the north by the Arctic Ocean, to the east by the Atlantic Ocean, to the west and south by the Pacific Ocean, and to the southeast by South America and the Caribbean Sea. North America is the <b>third largest continent by area</b>, following Asia and Africa, and the fourth by population after Asia, Africa, and Europe.</p> <p>Madagascar, officially the Republic of Madagascar, and previously known as the Malagasy Republic, is an island country in the <b>Indian Ocean</b>, off the coast of Southeast Africa. The nation comprises the island of Madagascar (the fourth-largest island in the world), as well as numerous smaller peripheral islands. Following the prehistoric breakup of the supercontinent Gondwana, Madagascar split from the Indian peninsula around 88 million years ago, allowing native plants and animals to evolve in relative isolation. Consequently, <b>Madagascar is a biodiversity hotspot</b>; over 90% of its wildlife is found nowhere else on Earth. The island's diverse ecosystems and unique wildlife are threatened by the encroachment of the rapidly growing human population and other environmental threats.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>On which peak of the Western Ghats is ISRO Propulsion Complex located?</p>",
+    "options": [
+      "Anaimudi",
+      "Dodda Betta",
+      "Mannamalai",
+      "Mahendragiri"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Mahendragiri is the name of a hill in Tirunelveli District, South Tamil Nadu. It is part of the southern tip of the Western Ghats, with an elevation of 1,645.2 meters (5,398 ft). <b>ISRO Propulsion Complex</b>, a test facility <b>for Indian Space Research Organization's</b> launch vehicle and satellite propulsion systems, is situated on the lower slopes of this mountain.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Which continents does the Hudson Bay touch?</p>",
+    "options": [
+      "North America",
+      "South America",
+      "Europe",
+      "Both 1 and 3"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Hudson Bay, sometimes (usually historically) called Hudson's Bay, is a large body of saltwater in <b>northeastern Canada. </b>The southern arm of Hudson Bay is called James Bay. As the Hudson Bay touches Canada, it also touches <b>North America.</b></p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Which tributary of the Ganga is pointed out in the figure given below?</p><p><img width=530 height=302 id=\"Picture 7\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/04/image004.jpg\" > </p>",
+    "options": [
+      "Kosi",
+      "Parbati",
+      "Yamuna",
+      "Tista"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><img width=530 height=302 id=\"Picture 8\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/04/image005.jpg\" ></p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Kalyan, Sona and Sonalika are high-yielding varieties of _________.</p>",
+    "options": [
+      "Jowar",
+      "Bajara",
+      "Wheat",
+      "Arhar"
+    ],
+    "correct_option_id": 2,
+    "solution": "`\rsMr\u00125C\u0001\"\u0010`\u0004\tVO`\rsMr\u00125C\u0001\"\u0010`\u0004\tVO",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which of the following is NOT a part of the West Indies?</p>",
+    "options": [
+      "Cuba",
+      "Bahamas",
+      "Guyana",
+      "Jamaica"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>In the modern day, the West Indies refers to:</p> <p>The islands of <b>the Bahamas</b></p> <p><b>Cuba</b></p> <p><b>Jamaica</b></p> <p><b>Haiti</b></p> <p><b>The Dominican Republic</b></p> <p><b>Puerto Rico</b></p> <p><b>United States Virgin Islands</b></p> <p><b>The Leeward Islands and Windward Islands</b></p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>The state of Telangana does NOT share a boundary with which of the following?</p>",
+    "options": [
+      "Karnataka",
+      "Chhattisgarh",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Telangana is bordered by the states of <b>Maharashtra</b> to the north and North West, <b>Chhattisgarh </b>to the North, <b>Karnataka</b> to the west, and <b>Andhra Pradesh</b> to the east and south. </p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Which metal is extracted from Khetri, Rajasthan?</p>",
+    "options": [
+      "Iron",
+      "Copper",
+      "Lead",
+      "Aluminum"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Khetri is situated at the foothills of the Aravalli Range,</b> <b>which hosts copper </b>mineralization, giving rise to a 80 km long metallogenetic province from Singhana in the north to Raghunathgarh in the south, popularly known as Khetri Copper Belt. The belt comprises tightly folded Proterozoic metasediments that rest over basement gneisses and is a part of the North Delhi fold belt. Prominent deposits of the belt are: <b>Khetri, Kolihan, Banwas, Chandmari, Dhani Basri, Baniwali Ki Dhani (Neem Ka Thana, Rajasthan). Other deposits are: Dholamala, Akwali, Muradpura - Pacheri (Jhunjhunu, Rajasthan), and Devtalai (Bhilwara, Rajasthan).</b></p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

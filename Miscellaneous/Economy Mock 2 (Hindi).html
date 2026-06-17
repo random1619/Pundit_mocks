@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economy Mock 2 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "Raul Prebisch's argument is concerned with the effects of business cycles on--",
+    "options": [
+      "Terms of Trade",
+      "Consumption",
+      "Balance of Payments",
+      "Output"
+    ],
+    "correct_option_id": 0,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 0
+  },
+  {
+    "question": "Among the following tax revenues of the Union Government, which is the biggest source?",
+    "options": [
+      "Customs Duty",
+      "Income Tax",
+      "Central Excise",
+      "Corporation Tax"
+    ],
+    "correct_option_id": 2,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 1
+  },
+  {
+    "question": "Who amongst the following is the Regulator of Insurance sector in India?",
+    "options": [
+      "SEBI",
+      "RBI",
+      "AMFI",
+      "IRDA"
+    ],
+    "correct_option_id": 3,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 2
+  },
+  {
+    "question": "Depreciation is equal to",
+    "options": [
+      "Gross national product - Net national product",
+      "Personal Income - personal taxes",
+      "Gross national product - personal income",
+      "Net national Product - Gross national product"
+    ],
+    "correct_option_id": 0,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 3
+  },
+  {
+    "question": "Funds not belonging to the Government are called--",
+    "options": [
+      "Consolidated Fund",
+      "Private Accounts",
+      "Public Accounts",
+      "Contingency Fund"
+    ],
+    "correct_option_id": 1,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 4
+  },
+  {
+    "question": "Expand the term IFRS.",
+    "options": [
+      "International Financial Reporting Standards",
+      "None of these",
+      "Indian Financial Reporting Standards",
+      "Indian Financial Reporting Systems"
+    ],
+    "correct_option_id": 0,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 5
+  },
+  {
+    "question": "K.L.M. Royal Airlines belongs to",
+    "options": [
+      "Japan",
+      "Austria",
+      "Netherlands",
+      "Italy"
+    ],
+    "correct_option_id": 2,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 6
+  },
+  {
+    "question": "An example of \"Foot Loose\" industry is:",
+    "options": [
+      "Sugar",
+      "Oil Refinery",
+      "Aluminium",
+      "Software"
+    ],
+    "correct_option_id": 3,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 7
+  },
+  {
+    "question": "Which Index Number method has an upward bias?",
+    "options": [
+      "Fisher's method",
+      "Laspeyre's method",
+      "Passche's method",
+      "Bowley's method"
+    ],
+    "correct_option_id": 1,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 8
+  },
+  {
+    "question": "The Difference between Gross Domestic product and Net Domestic product is",
+    "options": [
+      "Government Revenue",
+      "Net Capital Formation",
+      "Net Indirect Tax (Indirect Tax Subsidy)",
+      "Consumption of fixed Capital"
+    ],
+    "correct_option_id": 1,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 9
+  },
+  {
+    "question": "In the recent past, Reliance has found the gas in..........",
+    "options": [
+      "Mumbai offshore",
+      "Mahanadi basin",
+      "Kaveri basin",
+      "Krishna -Godavari basin"
+    ],
+    "correct_option_id": 3,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 10
+  },
+  {
+    "question": ".... has the highest number of cotton mills in India.",
+    "options": [
+      "Gujarat",
+      "Tamil Nadu",
+      "Maharashtra",
+      "West Bengal"
+    ],
+    "correct_option_id": 1,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 11
+  },
+  {
+    "question": "....is the largest oil refinery in India.",
+    "options": [
+      "Koyali",
+      "Jamnagar",
+      "Digboi",
+      "Mathura",
+      "Trombay"
+    ],
+    "correct_option_id": 1,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 12
+  },
+  {
+    "question": "India's largest supplier of crude oil is",
+    "options": [
+      "Qatar",
+      "Iran",
+      "Nigeria",
+      "Saudi Arabia"
+    ],
+    "correct_option_id": 3,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 13
+  },
+  {
+    "question": "Which is the largest tea producing country in the world?",
+    "options": [
+      "Kenya",
+      "Indonesia",
+      "India",
+      "China"
+    ],
+    "correct_option_id": 3,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 14
+  },
+  {
+    "question": "Disinvestment in Public Sector is called",
+    "options": [
+      "Privatisation",
+      "Industrialisation",
+      "Liberalisation",
+      "Globlisation"
+    ],
+    "correct_option_id": 0,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 15
+  },
+  {
+    "question": "\"The Doing Business Report\" is prepared by which of the following organizations every year?",
+    "options": [
+      "World Bank",
+      "World Trade Organization(WTO)",
+      "International Monetary Fund (IMF)",
+      "Asian Development Bank (ADB)"
+    ],
+    "correct_option_id": 0,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 16
+  },
+  {
+    "question": "The demand for labour by a firm is a derived demand because it depends upon -",
+    "options": [
+      "Thee degree of substitution between labour and other factors of production",
+      "The elasticity of demand for labour",
+      "The demand for other factors of production",
+      "The demand for goods and services that labour helps to produce"
+    ],
+    "correct_option_id": 3,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 17
+  },
+  {
+    "question": "Which one of the following States has passed a bill to regulate the interest rates on micro-finance?",
+    "options": [
+      "Haryana",
+      "Karnataka",
+      "Orissa",
+      "Andhra Pradesh"
+    ],
+    "correct_option_id": 3,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 18
+  },
+  {
+    "question": "Bad loans are also known as",
+    "options": [
+      "CBS",
+      "Prime Asset",
+      "NPAs",
+      "BPOs"
+    ],
+    "correct_option_id": 2,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 19
+  },
+  {
+    "question": "Pohang Steel Company (POSCO) is a company originally based in",
+    "options": [
+      "Vietnam",
+      "USA",
+      "South Korea",
+      "Italy"
+    ],
+    "correct_option_id": 2,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 20
+  },
+  {
+    "question": "Who takes the decision about the monetary Policy of India?",
+    "options": [
+      "Finance Minister of India",
+      "Reserve Bank of India",
+      "International Monetary Fund",
+      "Prime Minister of India"
+    ],
+    "correct_option_id": 1,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 21
+  },
+  {
+    "question": "\"Yen\" is the currency of __",
+    "options": [
+      "South Korea",
+      "Italy",
+      "China",
+      "Japan"
+    ],
+    "correct_option_id": 3,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 22
+  },
+  {
+    "question": "What is the full form of ESOP as seen in financial newspapers?",
+    "options": [
+      "Early Sales Opportunities",
+      "Emergency Stock Operations",
+      "Employee Stock Options",
+      "Executive Salary Options"
+    ],
+    "correct_option_id": 2,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 23
+  },
+  {
+    "question": "India's first special Economic Zone dedicated to the aerospace industries has been launched at",
+    "options": [
+      "Shimla",
+      "Hallargi",
+      "Hyderabad",
+      "Ahmedabad"
+    ],
+    "correct_option_id": 1,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 24
+  },
+  {
+    "question": "Which sector contributes the maximum share in National income of India?",
+    "options": [
+      "Tertiary",
+      "Primary",
+      "Secondary",
+      "All the above have equal share"
+    ],
+    "correct_option_id": 0,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 25
+  },
+  {
+    "question": "In an economy, the sectors are classified into public and private on the basis of",
+    "options": [
+      "ownership of enterprises",
+      "employment conditions",
+      "use of raw materials",
+      "nature of economic activities"
+    ],
+    "correct_option_id": 0,
+    "solution": "\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP\fS\u0001\u0013\u0018%\"E=QK#B\u000fAP",
+    "question_index": 26
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

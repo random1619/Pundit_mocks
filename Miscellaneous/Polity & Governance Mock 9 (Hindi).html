@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polity & Governance Mock 9 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Which among the following High Courts has jurisdiction over highest number of states?</p>",
+    "options": [
+      "Bombay",
+      "Guwahati",
+      "Chandigarh",
+      "Madras",
+      "Calcutta"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Guwahati High Court has jurisdiction over Assam, Nagaland, Mizoram and Arunachal Pradesh.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>In India, there are totally how many states with bicameral legislature?</p>",
+    "options": [
+      "12",
+      "16",
+      "6",
+      "9",
+      "11"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Six Indian States, Andhra Pradesh, Telangana, Bihar, Karnataka, Maharashtra and Uttar Pradesh, have bicameral Legislatures- assembly and council.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>What is the minimum strength of council of ministers required for state governments?</p>",
+    "options": [
+      "4",
+      "8",
+      "12",
+      "16",
+      "20"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The total number of ministers, including the chief minister, in the council of ministers in a state shall not exceed 15 per cent of the total strength of the legislative assembly of that state. But, the number of ministers, including the chief minister, in a state shall not be less than 12.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Who among the following act as vice-chairman of Zonal Councils?</p>",
+    "options": [
+      "Governors",
+      "Vice-President",
+      "Chief Ministers",
+      "Home Ministers of States",
+      "Union Cabinet Secretary"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The home minister of Central government is the common chairman of the five zonal councils. Each chief minister acts as a vice-chairman of the council by rotation, holding office for a period of one year at a time.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>What is the maximum period of operation for financial emergency?</p>",
+    "options": [
+      "1 year",
+      "6 months",
+      "2 years",
+      "2 years and 6 months",
+      "There is no maximum period"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Once approved by both the Houses of Parliament, the Financial Emergency continues indefinitely till it is revoked. There is no maximum period prescribed for its operation.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Which authority is empowered to alter the boundaries of states?</p>",
+    "options": [
+      "Parliament",
+      "Governor",
+      "President",
+      "State Legislature",
+      "Supreme Court"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Parliament can by unilateral action change the area, boundaries or name of any state. It derives this power from Article 3 of the constitution.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>The ideal of justice in preamble of constitution is taken from which country?</p>",
+    "options": [
+      "France",
+      "UK",
+      "USA",
+      "Russia",
+      "Japan"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The ideal of justice - social, economic and political - has been taken from the Russian Revolution (1917).</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Which of the following amendment acts is referred to as \"mini-constitution\"?</p>",
+    "options": [
+      "24<sup>th</sup> Amendment Act",
+      "42<sup>nd</sup> Amendment Act",
+      "81<sup>st</sup> Amendment Act",
+      "44<sup>th</sup> Amendment Act",
+      "58<sup>th</sup> Amendment Act"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The 42nd Amendment Act (1976) is known as 'Mini-Constitution' due to the important and large number of changes made by it in various parts of the Constitution.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which schedule deals with Oath and affirmations of Union Ministers?</p>",
+    "options": [
+      "Second",
+      "Tenth",
+      "Sixth",
+      "Third",
+      "Ninth"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Third Schedule deals with Forms of Oaths or Affirmations for 1. The Union ministers 2. The candidates for election to the Parliament 3. The members of Parliament 4. The judges of the Supreme Court 5. The Comptroller and Auditor-General of India 6. The state ministers 7. The candidates for election to the state legislature 8. The members of the state legislature 9. The judges of the High Courts.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>The constituent assembly was constituted in which year?</p>",
+    "options": [
+      "1945",
+      "1946",
+      "1950",
+      "1949",
+      "1948"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Constituent Assembly was constituted in November 1946 under the scheme formulated by the Cabinet Mission Plan.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Who among the following held Agriculture portfolio in the first cabinet of Independent India?</p>",
+    "options": [
+      "Dr. Rajendra Prasad",
+      "Sardar Vallabhai Patel",
+      "Jagjivan Ram",
+      "Sardar Baldev Singh",
+      "C.H.Bhaba"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Dr. Rajendra Prasad held both Food &amp; Agriculture portfolio. He was also the first president of India.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Which among the following acts introduced Dyarchy system in British India?</p>",
+    "options": [
+      "Indian Councils Act of 1861",
+      "Indian Councils Act of 1909",
+      "Government of India Act of 1919",
+      "Government of India Act of 1935",
+      "Charter Act of 1853"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The dual scheme of governance known as 'dyarchy' was introduced by Government of India Act of 1919.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>To be recognized as a state political party, it has to secure what percentage of total votes polled in the state at general elections?</p>",
+    "options": [
+      "2%",
+      "4%",
+      "6%",
+      "8%",
+      "10%"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>If a party secures eight per cent of the total valid votes polled in the state at a General Election to the Lok Sabha from the state or to the legislative assembly of the state it will be recoganised as a state party.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>The first general elections in India were held in which year?</p>",
+    "options": [
+      "1947",
+      "1948",
+      "1949",
+      "1950",
+      "1951"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The first general elections in India were held during 1951-52 based on adult franchise by Election commission of India.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The office of the Special Officer for Linguistic Minorities is headquartered in _______?</p>",
+    "options": [
+      "Kolkata",
+      "Allahabad",
+      "Chennai",
+      "New Delhi",
+      "Bengaluru"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Commissioner has his headquarters at Allahabad (Uttar Pradesh). He has three regional offices at Belgaum (Karnataka), Chennai (Tamil Nadu) and Kolkata (West Bengal). Each is headed by an Assistant Commissioner.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Who is the head of the Indian Audit and Accounts Department?</p>",
+    "options": [
+      "Union Finance Minister",
+      "Comptroller and Auditor General of India",
+      "Prime Minister",
+      "President",
+      "Vice-President"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Comptroller and Auditor General of India (CAG) is the head of the Indian Audit and Accounts Department. He is the guardian of the public purse and controls the entire financial system of the country at both the levels - the Centre and the state.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>What is the term of office of Attorney general of India?</p>",
+    "options": [
+      "2 years",
+      "3 years",
+      "5 years",
+      "1 year",
+      "Not Fixed"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Attorney General for India is the highest law officer in the country. The term of office of the AG is not fixed by the Constitution.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Who is qualified to be the chairman of National Human Rights Commission?</p>",
+    "options": [
+      "Retired Chief Justice of India",
+      "Serving Chief Justice of High Court",
+      "Retired Chief Justice of High Court",
+      "Serving Chief Justice of India",
+      "Any judge of Supreme Court nominated by CJI"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>National Human Rights Commission is a statutory body. The chairman should be a retired chief justice of India.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Institution of Lokpal is based on Ombudsman system of which country?</p>",
+    "options": [
+      "Norway",
+      "Denmark",
+      "Finland",
+      "Sweden",
+      "Ireland"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The institution of Ombudsman was first created in Sweden in 1809, based on which India's Lokpal and Lokayaktas were founded.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Which authority can initiate a resolution for creation of new All India Services?</p>",
+    "options": [
+      "President",
+      "Lok Sabha",
+      "Rajya Sabha",
+      "State Legislature",
+      "Prime Minister"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Parliament can create new all-India services (including an all-India judicial service), if the Rajya Sabha passes a resolution declaring that it is necessary or expedient in the national interest to do so.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>The Central Administrative Tribunal has totally how many regular benches?</p>",
+    "options": [
+      "15",
+      "8",
+      "11",
+      "13",
+      "17"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>At present, Central Administrative Tribunal has 17 regular benches, 15 of which operate at the principal seats of high courts and the remaining two at Jaipur and Lucknow.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Which part of the constitution deals with provisions for State Governments?</p>",
+    "options": [
+      "Part V",
+      "Part VI",
+      "Part VII",
+      "Part VIII",
+      "Part IX"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Part VI of the constitution deals with executive power of state governments, legislative powers, high courts, governors and subordinate courts.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Which Union Territory was formed for reasons of cultural distinctiveness?</p>",
+    "options": [
+      "Puducherry",
+      "Daman &amp; Diu",
+      "Dadra Nagar Haveli",
+      "Both 1 &amp; 3",
+      "All the above"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The union territories have been created for a variety of reasons. Because of Cultural distinctiveness - Puducherry, Dadra and Nagar Haveli, and Daman and Diu were created.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Date of election to the office of Deputy Speaker of parliament is fixed by ________?</p>",
+    "options": [
+      "President",
+      "Prime Minister",
+      "Chief Election Commissioner",
+      "Speaker",
+      "Parliamentary Affairs Minister"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The date of election of the Deputy Speaker is fixed by the Speaker. The Deputy Speaker performs the duties of the Speaker's office when it is vacant. He also acts as the Speaker when the latter is absent from the sitting of the House.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>The first parliamentary forum was established in which year?</p>",
+    "options": [
+      "1982",
+      "1973",
+      "1994",
+      "2005",
+      "2001"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The first Parliamentary Forum on Water Conservation and Management was constituted in the year 2005.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Who is the ex-officio chairman of General Purpose Committee?</p>",
+    "options": [
+      "Prime Minister",
+      "President",
+      "Presiding Officer",
+      "Parliamentary Affairs Minister",
+      "Parliamentary Secretary"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>General Purpose committee considers and advises on matters concerning affairs of the House, which do not fall within the jurisdiction of any other parliamentary committee. In each House, this committee consists of the presiding officer (Speaker / Chairman) as its ex-officio chairman.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Which article of the constitution deals with Budget?</p>",
+    "options": [
+      "Article 112",
+      "Article 124",
+      "Article 147",
+      "Article 153",
+      "Article 103"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Constitution refers to the budget as the 'annual financial statement'. It has been dealt with in Article 112 of the Constitution.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Single transferable vote system is NOT adopted in elections to offices of _________?</p>",
+    "options": [
+      "State Legislative Council",
+      "President",
+      "Vice-President",
+      "Rajya Sabha",
+      "Lok Sabha"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Single Transferable Vote is adopted for the election of members to the Rajya Sabha and state legislative council and for electing the President and the Vice-President.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Apart from members of the house of parliament, who among the following can take part in the proceedings of the house?</p>",
+    "options": [
+      "Attorney General of India",
+      "Comptroller and Auditor General",
+      "Chairman of UPSC",
+      "Chief Election Commissioner",
+      "Director of CBI"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In addition to the members of a House, every minister and the attorney general of India have the right to speak and take part in the proceedings of either House, any joint sitting of both the Houses and any committee of Parliament of which he is a member, without being entitled to vote.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Which among the following motions is used to defeat a government?</p>",
+    "options": [
+      "Censure Motion",
+      "Adjournment Motion",
+      "No-Confidence Motion",
+      "Calling Attention Motion",
+      "Government Motion"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Lok Sabha can remove the ministry by passing No-Confidence Motion as the Council of Ministers are collectively responsible to it.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

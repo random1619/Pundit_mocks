@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geography Mock 3 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Which of the following Indian states does NOT share a boundary with Pakistan?</p>",
+    "options": [
+      "Gujarat",
+      "Punjab",
+      "Rajasthan",
+      "Himachal Pradesh"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><img width=499 height=348 src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image001.jpg\" ></p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>The aneroid barometer contains which of the following liquid(s)?</p>",
+    "options": [
+      "Mercury",
+      "Alcohol",
+      "Ferrofluid",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>A <b>non-liquid barometer</b> called the <b>aneroid barometer</b> is widely used in portable instruments and in aircraft <b>altimeters</b> because of its smaller size and convenience. It contains a flexible-walled evacuated capsule, the wall of which deflects with changes in atmospheric pressure. This deflection is coupled mechanically to an indicating needle.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>The Kathiawar Peninsula lies in the state of ________.</p>",
+    "options": [
+      "Maharashtra",
+      "Gujarat",
+      "Rajasthan",
+      "Chhattisgarh"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Kathiawar is a peninsula in western India and part of the <b>Saurashtra region</b>, <b>Gurjrat</b>. Its coastline borders the Gulf of Kutch to the west, the Arabian Sea to the south and the Gulf of Khambhat to the southeast and east. </p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Which layer is situated immediately above Stratosphere?</p>",
+    "options": [
+      "Troposphere",
+      "Ionosphere",
+      "Exosphere",
+      "Mesosphere"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The layers of the atmosphere (bottom to top) are <b>Troposphere, Stratosphere, Mesosphere and Thermosphere</b>. Ionosphere is a zone in which elements exist mostly in ionized form. This is a part of the lower Thermosphere. Exosphere marks the end of the atmosphere and the beginning of the interplanetary space. </p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Which two cities form the terminals of the transcontinental railway in Australia?</p>",
+    "options": [
+      "Canberra and Sydney",
+      "Sydney and Perth",
+      "Darwin and Adelaide",
+      "Melbourne and Perth"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=624 height=374 src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image002.jpg\" ></p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>In which state is the Bhander Plateau located?</p>",
+    "options": [
+      "Maharashtra",
+      "Karnataka",
+      "Madhya Pradesh",
+      "Chhattisgarh"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The <b>Bhander Plateau is a plateau in the state of Madhya Pradesh in India. </b>It links the Deccan Plateau to the <b>south with the Indo-Gangetic Plains</b> and the <b>Chota Nagpur Plateau</b> to the north and east respectively. <b>The plateau is part of the Vindhya Range in central India. </b></p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Which of the following form the conventional boundary between Europe and Asia?</p>",
+    "options": [
+      "Baltic Sea",
+      "Black Sea",
+      "Ural Mountains",
+      "Andes Mountains"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Ural Mountains, or simply the Urals, are a mountain range that runs approximately from north to south through western Russia, from the coast of the Arctic Ocean to the Ural River and northwestern Kazakhstan. <b>The mountain range forms part of the conventional boundary between the continents of Europe and Asia. </b>Vaygach Island and the islands of Novaya Zemlya form a further continuation of the chain to the north into the Arctic Ocean.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Cryology is the study of-</p>",
+    "options": [
+      "Maps",
+      "Glaciers",
+      "portions of the Earth surface where water is in solid form",
+      "volcanic eruptions inside the sea"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>The cryosphere refers to those portions of Earth's surface where water is in solid form, including sea ice, lake ice, river ice, snow cover, glaciers, ice caps, ice sheets, and frozen ground (which includes permafrost).</b> Thus, there is a wide overlap with the hydrosphere. The cryosphere is an integral part of the global climate system with important linkages and feedbacks generated through its influence on surface energy and moisture fluxes, clouds, precipitation, hydrology, atmospheric and oceanic circulation. <b>Cryology is the study of cryospheres</b>.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>In which state is the Tarapur nuclear power plant situated?</p>",
+    "options": [
+      "Maharashtra",
+      "Gujarat",
+      "Uttar Pradesh",
+      "Andhra Pradesh"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Tarapur Atomic Power Station (T.A.P.S.) is located in Tarapur, Maharashtra</b> town of (India). It was initially constructed with two <b>Boiling water reactor (BWR)</b> units of 210 Mw each initially by Bechtel and GE under the 1963 <b>123 Agreement</b> between <b>India, the United States, and the International Atomic Energy Agency (IAEA)</b>. The capacity of units 1 and 2 was reduced to 160 Mw later on due to technical difficulties. Units 1 and 2 started commercial operation in 1969. These were the first of their kind in Asia. More recently, an additional two <b>Pressurized heavy water reactor (PHWR)</b> units of 540 Mw each were constructed by L &amp; T and Gammon India, seven months ahead of schedule and well within the original cost estimates. Unit 3 started commercial operation in 2006, and unit 4 in 2005.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Pedogenesis, is the process of formation of-</p>",
+    "options": [
+      "Rocks",
+      "Soil",
+      "Humus",
+      "Cyclone"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><b>Pedogenesis</b> (also termed soil development, soil evolution, soil formation, and soil genesis) is the process of soil formation as regulated by the effects of place, environment, and history.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Which of the following refers to an underground layer of water bearing permeable rock?</p>",
+    "options": [
+      "Aquifer",
+      "Hot spring",
+      "Geysers",
+      "Basin"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>An aquifer is an underground layer of water-bearing permeable rock, rock fractures or unconsolidated materials (gravel, sand, or silt) from which groundwater can be extracted. </b>The study of water flow in aquifers and the characterization of aquifers is called <b>hydrogeology</b>. If the impermeable area overlies the aquifer, pressure could cause it to become a confined aquifer.</p> <p><img width=520 height=287 src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image003.gif\" ></p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>On which river is the Balimela Reservoir situated?</p>",
+    "options": [
+      "Nagavali",
+      "Sileru",
+      "Vamsadhara",
+      "Mahanadi"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The <b>Balimela Reservoir</b> is located in Malkangiri district, Odisha, India on the river <b>Sileru</b> which is a tributary of the Godavari river. The gross storage capacity of Balimela reservoir is 3610 million cubic meters.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which of the following is synonymous to a huge mass of igneous rock present beneath the surface of the Earth?</p>",
+    "options": [
+      "Lopolith",
+      "Phacolith",
+      "Batholith",
+      "Laccolith"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><b>A batholith is a large emplacement of igneous intrusive (also called plutonic) rock that forms from cooled magma deep in the Earth's crust.</b> Batholiths are almost always made mostly of felsic or intermediate rock-types, such as granite, quartz monzonite, or diorite.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>The Himalayas can be categorized as  - </p>",
+    "options": [
+      "Fold mountains",
+      "Block mountains",
+      "Volcanic mountains",
+      "Residual mountains"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Himalayas or Himalaya is a mountain range in the South Asia, which separates the Indo-Gangetic Plain from the Tibetan Plateau. This range is home to nine of the ten highest peaks on Earth, including the highest above sea level, Mount Everest. They are young fold mountains made of sedimentary rock. <b>Fold Mountains are mountains that form mainly by the effects of folding on layers within the upper part of the Earth's crust. Before either plate tectonic theory developed or the internal architecture of thrust belts became well understood, the term was used for most mountain belts, such as the Himalayas.</b></p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Which of the following animals are found in the National Park at Velavadar?</p>",
+    "options": [
+      "Asiatic Lion",
+      "Indian Hornbill",
+      "Royal Bengal Tiger",
+      "Blackbuck"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>Blackbuck National Park at Velavadar</b> is situated in the Bhavnagar District of Gujarat state, India. Established in 1976 in the Bhal region of Saurashtra, the park is located around 42 km from the district headquarters city of Bhavnagar. It was primarily a <b>\"vidi\" (grassland) of the maharaja of the princely state of Bhavnagar for hunting the blackbucks with his famous hunting cheetahs.</b> <b>Successful conservation programs for the blackbuck, wolf and lesser florican (a bustard) are ongoing</b>. Considered to be an endemic Indian species, the <b>lesser florican, which once lived throughout the country, has become endangered in recent decades. Today, the largest population is in this park.</b> </p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>What is Barysphere?</p>",
+    "options": [
+      "An interior layer of the crust",
+      "An interior layer of the mantle",
+      "The top layer of the crust",
+      "Core of the Earth"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The core of the Earth is also called <b>Barysphere.</b></p> <p><img width=564 height=228 id=\"Picture 1\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image004.jpg\" ></p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>The image shows a planet orbiting a star. The quantity x is the largest distance between the sun and the planet. x can also be called the _______.</p><p><img width=213 height=190 src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image005.gif\" ></p>",
+    "options": [
+      "Perihelion",
+      "Orbit",
+      "Aphelion",
+      "Apogee"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The perihelion is the point in the orbit of a planet, minor planet, or comet, where it is nearest to its point of orbit, generally a star. It is the opposite of <b>aphelion</b>, which is the point in the orbit where the celestial body is farthest from its point of orbit.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Madu and Penganga are tributaries of which river?</p>",
+    "options": [
+      "Pranhita",
+      "Wardha",
+      "Godavari",
+      "Manjara"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Wardha River is one of the biggest rivers in Vidarbha region in India. The Wardha River joins the <b>Wainganga River </b>south of Chamorshi and forms the Pranahita River at Adilabad District, Telangana. <b>Kar, Wena, Jam, Erai</b> are the left tributaries. <b>Madu, Bembla, Penganga</b> are the right tributaries.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>The Panama Canal connects which of the following water bodies?</p>",
+    "options": [
+      "The Pacific Ocean and the Atlantic Ocean",
+      "The Atlantic Ocean and the Southern Ocean",
+      "The Indian Ocean and the Southern Ocean",
+      "The South China Sea and the Atlantic Ocean"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Panam&#225; Canal is a 48-mile (77 km) ship canal in Panama that <b>connects the Atlantic Ocean (via the Caribbean Sea) to the Pacific Ocean.</b> The canal cuts across the Isthmus of Panama and is a key conduit for international maritime trade. </p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Where is the Labrador Peninsula Located?</p>",
+    "options": [
+      "United States of America",
+      "France",
+      "Canada",
+      "Australia"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The <b>Labrador Peninsula is a large peninsula in eastern Canada. </b>It is bounded by the <b>Hudson Bay</b> to the west, the <b>Hudson Strait</b> to the north, the <b>Labrador Sea</b> to the east, and the <b>Gulf of Saint Lawrence</b> to the southeast. The peninsula includes the region of Labrador, which is part of the province of Newfoundland and Labrador, and the regions of Saguenay-Lac-Saint-Jean, C&#244;te-Nord, and Nord-du-Qu&#233;bec, which are in the province of Quebec. It also has an area of 1,400,000 km2 (541,000 sq mi), making it the <b>4th largest peninsula</b> in the world.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>The classical dance Sattriya belongs to which region of India?</p>",
+    "options": [
+      "Assam",
+      "West Bengal",
+      "Karnataka",
+      "Uttarakhand"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><b>Sattriya or Sattriya Nritya</b> is one among the eight principal classical Indian dance traditions. Recognized in 2000 as a classical dance by Sangeet Natak Akademi, the Sattriya is the most recent entrant in this list. Whereas some of the other traditions have been revived in the recent past, Sattriya has remained a living tradition since its creation by the medieval polymath <b>Srimanta Sankardev in 15th century Assam.</b></p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>The Appalachian Mountains are located in which continent?</p>",
+    "options": [
+      "Europe",
+      "Asia",
+      "Africa",
+      "North America"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>The Appalachian Mountains, often called the Appalachians, are a system of mountains in eastern North America. </b>The Appalachians first formed roughly 480 million years ago during the Ordovician Period and once reached elevations similar to those of the Alps and the Rocky Mountains before they were eroded. The Appalachian chain is a barrier to east-west travel as it forms a series of alternating ridgelines and valleys oriented in opposition to any road running east-west.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>What is the name of the area encircled in the picture given below?</p><p><img width=459 height=245 id=\"Picture 21\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image006.gif\" > </p>",
+    "options": [
+      "Singapore",
+      "Brunei",
+      "Japan",
+      "Vietnam"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p><img width=643 height=304 id=\"Picture 22\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image007.jpg\" ></p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Where is the Space Applications Centre of ISRO located?</p>",
+    "options": [
+      "Gurgaon",
+      "Ooty",
+      "Bangalore",
+      "Ahmedabad"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><b>The Space Applications Centre (SAC) is an institution of research in Ahmedabad</b>, India under the aegis of the <b>Indian Space Research Organization (ISRO)</b>. It is one of the major centers of ISRO that is engaged in the research, development and demonstration of applications of space technology in the field of <b>telecommunications, remote sensing, meteorology and satellite navigation (Sat Nav).</b> Some of the achievements of the Space Applications Centre include development of communication and <b>meteorological payloads for INSAT satellites, optical and microwave payloads for IRS satellites.</b> SAC provides its infrastructure to conduct training courses to the students of the Center for Space Science and Technology Education in Asia and The Pacific (CSSTEAP). SAC has <b>three campuses, two of which are located at Ahmadabad and one at Delhi.</b></p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>What is the name of the landform pointed out in the picture given below?</p><p><img width=358 height=323 id=\"Picture 2\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image008.jpg\" > </p>",
+    "options": [
+      "Rocky Mountains",
+      "The Great Basin",
+      "Central Lowlands",
+      "Appalachian Mountains"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p><img width=393 height=294 id=\"Picture 6\" src=\"https://u1.oliveboard.in/exams/solution/gkimg/geo/03/image009.jpg\" ></p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>What are Fazendas in South America?</p>",
+    "options": [
+      "Plantations",
+      "Factories",
+      "Lakes",
+      "Trees"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>A <b>fazenda is a plantation found throughout Brazil</b>; during the colonial period (16th - 18th centuries) they were concentrated primarily in the northeastern region, where sugar was produced, expanding during the 19th century in the southeastern region to coffee production. Fazendas created major export commodities for Brazilian trade, but also led to intensification of slavery in Brazil. <b>Coffee provided a new basis for agricultural expansion in southern Brazil</b>. In the provinces of Rio de Janeiro and then S&#227;o Paulo, coffee estates, or fazendas, began to spread toward the interior as new lands were opened. <b>By 1850, coffee made up more than 50% of Brazil's exports</b>, and more than half of world coffee production. One of the world's major breadbaskets, <b>Brazil has been the largest producer of coffee for the last 150 years.</b></p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Coffee plantations can be found in which of the following regions of India?</p>",
+    "options": [
+      "Karnataka",
+      "West Bengal",
+      "Telangana",
+      "Both a and b"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In India, coffee plantations are found near the Nilgiri Hills, in the states of <b>Karnataka, Kerala and Tamil Nadu.</b></p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>The Deccan Trap is mainly made up of ________ rock.</p>",
+    "options": [
+      "Metamorphic",
+      "Sedimentary",
+      "Igneous",
+      "Intrusive rock"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Deccan Traps are a <b>large igneous province located on the Deccan Plateau of west-central India (between 17&deg; - 24&deg;N, 73&deg; - 74&deg;E) and one of the largest volcanic features on Earth. </b>They consist of multiple layers of solidified flood basalt that together are more than 2,000 m (6,562 ft) thick, cover an area of 500,000 km2 (193,051 sq mi) and have a volume of 512,000 km3 (123,000 cu mi).</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Which valley is called the 'Ruhr of India'?</p>",
+    "options": [
+      "Damodar Valley",
+      "Kaveri Valley",
+      "Luni Valley",
+      "Brahmaputra Valley"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Damodar River is a river flowing across the Indian states of West Bengal and Jharkhand. <b>Rich in mineral resources, the valley is home to large-scale mining and industrial activity.</b> Earlier known as the <b>Sorrow of Bengal</b> because of its ravaging floods in the plains of West Bengal, the Damodar and its tributaries have been somewhat tamed with the construction of several dams. Several dams have been constructed in the valley, for the generation of hydroelectric power. The valley is called <b>\"the Ruhr of India\".</b></p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Which mineral is found in Niyamgiri hills of Odisha?</p>",
+    "options": [
+      "Bauxite",
+      "Hematite",
+      "Magnetite",
+      "Monazite"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Niyamgiri is a hill range situated in the districts of Kalahandi and Rayagada in Odisha. These hills are home to <b>Dongria Kondh indigenous people</b>. The hills have one of India's most pristine forests in the interiors. <b>Those hills also have rich and commercially extractable deposits of Bauxite</b>. The Environment and Forest ministry of Govt. of India scrapped a forest clearance given to a mining firm, and the mining project was scrapped. In 2013, the Supreme Court of India asked the tribal people to take the decision, in which BMP was rejected in all village council meetings.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

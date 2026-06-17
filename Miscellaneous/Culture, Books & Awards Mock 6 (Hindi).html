@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture, Books & Awards Mock 6 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Who among the following was the first women on whom Jnanpith award was conferred?</p>",
+    "options": [
+      "Ashapoorna Devi",
+      "Mahasweta Devi",
+      "Amrita Pritam",
+      "Mahadevi Varma",
+      "Indira Goswami"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>In 1976, Bengali novelist Ashapoorna Devi became the first woman to win the award and was honoured for the 1965 novel Pratham Pratisruti. The other women recipients of the award are Amrita Pritam, Qurratulain Hyder, Mahadevi Varma, Indira Goswami, Mahasweta Devi, Pratibha ray.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Who among the following was the first Indian to secure an Olympic medal in Individual sport?</p>",
+    "options": [
+      "Rajyavardhan Singh Rathore",
+      "Vijaya Kumar",
+      "Karnam Malleshwari",
+      "Leander Peas",
+      "K.D. Jadhav"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>K.D. Jadhav was the first individual athlete from India to win a medal at the Olympics. He won a bronze medal in wrestling at the 1952 Summer Olympics in Helsinki. Prior to him India has own gold medals in team sport- Hockey.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Which among the following organization/Institution confers Pulitzer Prize?</p>",
+    "options": [
+      "Pulitzer Publishing Association",
+      "Columbia University",
+      "Man Group",
+      "Swansea university",
+      "Publishers Association Of USA"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The award is administered by Columbia University in New York City. The award is presented for achievements in the field of newspaper, magazine and online journalism, literature, and musical composition in the United States. The award comprises 21 categories. The awards are presented in memory of Newspaper publisher Joseph Pulitzer.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>For which of his works was Rabindranath Tagore awarded Nobel Prize?</p>",
+    "options": [
+      "Chaturanga",
+      "Gora",
+      "Noukadubi",
+      "Gitanjali",
+      "Chandalika"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Gitanjali, also called as Song Offerings (English Translation) received Nobel Prize in literature in the year 1913. It is also a part of the Collection from the UNESCO of Representative Works. Tagore was the first Indian and first non- European to receive Nobel Prize in literature. He is referred to as \"the Bard of Bengal\". He is the composer of national anthem of India and Bangladesh.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Which among the following organization established Florence Nightingale Medal?</p>",
+    "options": [
+      "International Conference of Red Cross",
+      "Amnesty International",
+      "Human Right watch",
+      "International Federation for Human Rights",
+      "UN Watch"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Florence Nightingale Medal was instituted in 1912 by the International Committee of the Red Cross. The ICRC is an independent, neutral organization ensuring humanitarian protection and assistance for victims of armed conflict and other situations of violence. It also acts in response to emergencies. It was established in 1863.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>International Gandhi Peace Prize was established in which year?</p>",
+    "options": [
+      "1965",
+      "1975",
+      "1985",
+      "1995",
+      "1955"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>International Gandhi Peace Prize was established in the year 1995 by Government of India. This is an annual award given to individuals and institutions for their contributions towards social, economic and political transformation through non-violence and other Gandhian methods. It is open to all persons regardless of nationality, race, creed or sex.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Which among the following is the highest Military Award in India?</p>",
+    "options": [
+      "Maha Vir Chakra",
+      "Param Vir Chakra",
+      "Ashok Chakra",
+      "Kirti Chakra",
+      "Shaurya Chakra"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Param Vir Chakra is India's highest military decoration awarded for the displaying distinguished acts of valor during wartime. It is awarded to officers or enlisted personnel from all branches of the Indian military.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Which among the following organization was the first recipient of the Indira Gandhi Peace Prize?</p>",
+    "options": [
+      "United Nations Children's Emergency Fund",
+      "Medecins Sans Frontieres",
+      "Bill and Melinda Gates Foundation",
+      "United Nations High Commissioner for Refugees",
+      "Parliamentarians for Global Action"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Parliamentarians for Global Action was the first recipient of the award in the year 1986. It is a prestigious award accorded annually by India to individuals or organizations in recognition of creative efforts toward promoting international peace, development and a new international economic order.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which among the following is the highest sporting honor in India?</p>",
+    "options": [
+      "Rajiv Gandhi Khel Ratna",
+      "Dronacharya Award",
+      "Arjuna Award",
+      "Dhyan Chand Award",
+      "Bharat Award"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>It is the highest sporting honor in India. It is awarded annually by the Ministry of Youth Affairs and Sports. The award comprises a medallion, a certificate, and a cash prize of &#8377;7.5 lakh. The performance of the sportsperson over a period of four years taken into consideration for conferring the award.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>The Dhyan Chand Award was instituted in which year?</p>",
+    "options": [
+      "1995",
+      "2000",
+      "2007",
+      "2002",
+      "2005"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The award was first instituted in the year 2002. The first recipients of the award were Shahuraj Birajdar (Boxing), Ashok Diwan (Hockey), and Aparna Ghosh (Basketball). The award is the lifetime achievement sporting honour presented in India.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Which among the following book was the last work of Dr. A.P.J Abdul Kalam?</p>",
+    "options": [
+      "Target 3 Billion",
+      "A manifesto for change",
+      "Beyond 2020",
+      "Advantage India",
+      "Reignited"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>'Advantage India-From Challenge to Opportunity' was the last work of Dr. A.P.J Abdul kalam. It was coauthored by Srijan Pal Singh. He has also coauthored Kalam's Target 3 Billion. This book provide insight into how can the new initiatives, such as 'Make in India', 'Swachh Bharat', skill development and 'Smart Cities', can be used to unleash the country's vast potential.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Who among the following co-authored the book \"Rebooting India\" along with Nandan Nilekani?</p>",
+    "options": [
+      "Viral Shah",
+      "Vinay Satpati",
+      "Kishwar Desai",
+      "Bhim Singh",
+      "Raghav Bahl"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Rebooting India: Realizing A Billion Aspirations was authored by Nandan Nilekani and Viral Shah. The book suggests a road map for a \"technology-enabled social transformation of India\". It tries to reshape government through technology.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which among the following works of Premchand was translated into English as \"The Second Wife\"?</p>",
+    "options": [
+      "Kaayakalp",
+      "Gaban",
+      "Godaan",
+      "Nirmala",
+      "Mangalsootra"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Nirmala is a Hindi fiction novel written in Hindi and Urdu writer Munshi Premchand. It was first translated in 1988 as The Second Wife by David Rubin, and in 1999 as Nirmala by Alok Rai, Premchand's grandson.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Who among the following was the author of the Book Jungle Stories?</p>",
+    "options": [
+      "Rudyard Kipling",
+      "Jim Corbett",
+      "R.K.Narayan",
+      "John Masters",
+      "Muhammed Basheer"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Jungle stories was written by Jim Corbett. He was a British-Indian hunter and tracker-turned-conservationist, author and naturalist, who hunted many man-eating tigers and leopards in India.</p><p>The Jungle Book was written by Rudyard Kipling.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The book \"Advice and Dissent\" deals with the life of which among the following professional?</p>",
+    "options": [
+      "Politician",
+      "Public Servant",
+      "Doctor",
+      "Musician",
+      "Social Activist"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Advice and Dissent was written by Y.V. Reddy Harper. The book deals with the professional life of the author, who was a Public Servant.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Who co-authored the book \"Option B: Facing Adversity, Building Resilience, and Finding Joy\" with Adam Grant?</p>",
+    "options": [
+      "Denise Robbins",
+      "David Cesarini",
+      "Bibek Debroy",
+      "Sheryl Sandberg",
+      "Joan Didion"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The book was written by Sherly Sandberg and Adam Grant. The book deals with loss of loved ones, the grief and the joy one finds in their life.</p><p>Sheryl Kara Sandberg is an American technology executive, activist, and author. She is the chief operating officer of Facebook and founder of Leanin.org. In June 2012, she was elected to the board of directors by the existing board members, becoming the first woman to serve on Facebook's board.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>The book \"Final Solution\" deals with history of which of the following?</p>",
+    "options": [
+      "Holocaust of Jews",
+      "Industrial Revolution",
+      "Nuclear attack on Japan",
+      "Indian Independence movement",
+      "Cold War"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The book was written by David Cesarini. It gives an integrated history of the period between 1933 and 1949 that debunks traditional concepts that have framed conventional Holocaust narratives.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Who among the following created the character Sherlock Holmes in their work?</p>",
+    "options": [
+      "Sidney Sheldon",
+      "Sir Arthur Canon Doyle",
+      "Sir Lothian Hume",
+      "Emile Gaboriau",
+      "Iain Banks"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Sherlock Holmes is a fictional private detective created by British author Sir Arthur Conan Doyle. He is Known as a \"consulting detective\" in the stories.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Which among the following is an autobiography of Sidney Sheldon?</p>",
+    "options": [
+      "No Questions Asked",
+      "The other side of me",
+      "Memories of Midnight",
+      "A stranger in the mirror",
+      "Bloodline"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Other Side of Me is the autobiographical memoirs of American writer Sidney Sheldon published in 2005. It was also his final book. In this book, Sheldon reveals that he was subject to frequent mood swings and often felt inappropriate emotions for his circumstances.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>\"Long Walk to Freedom\" is the autobiography of who among the following?</p>",
+    "options": [
+      "Jawaharlal Nehru",
+      "Muhammed Ali",
+      "Milkha Singh",
+      "Nelson Mandela",
+      "Hellen Keller"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Long Walk to Freedom is an autobiographical work written by South African President Nelson Mandela, and first published in 1994. The book profiles his early life, coming of age, education and 27 years in prison. Under the apartheid government, Mandela was regarded as a terrorist and jailed on the infamous Robben Island for his role as a leader of the then-outlawed ANC.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Ramakant Pathak is famous for which of the following musical instrument?</p>",
+    "options": [
+      "Sitar",
+      "Mridang",
+      "Phakwaj",
+      "Shenani",
+      "Tabla"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Ramakant Pathak was a Phakwaj player. He was awarded Fellowship of Snageet Natak Academy. Pakhawaj is essentially a north Indian version of the mridangam. Pakhawaj is also very much used for Orissi dancers and occasionally for kathak. It is also found in a classical form from Rajasthan known as Haveli Sangeet.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Which among the following folk dances doesn't belong to state of Bihar?</p>",
+    "options": [
+      "Jat- Jatin",
+      "Kajari",
+      "Sohar- Kilouna",
+      "Dindi",
+      "Jhumar"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Dindi is folk dance of Maharashtra. It is a religious devotional dance. The musicians for this dance comprise of a `Mridangam` player and a vocalist who give the dancers the necessary musical background. Dindi is a widely popular in Varkari people. This dance is usually performed on the Ekadashi day in the month of Kartik.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Which among the following is NOT a folk culture of Gujarat?</p>",
+    "options": [
+      "Tippani",
+      "Saang",
+      "Dandia-Ras",
+      "Garba Dance",
+      "Bhavai"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Saang dance is a dance form of Haryana. A group comprising in even numbers such as ten or twelve persons performs it. The dance is mainly reflecting religious stories and folk tales. Some of the male participants dress as women to perform the female casting in dance. The meaning of `Saang` or `Swang` is disguise or `to impersonate`.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Government of India follows which of the following era as reference for official purpose?</p>",
+    "options": [
+      "Vikramadhitya Era",
+      "Gupta Era",
+      "Saka Era",
+      "Anglo Era",
+      "Magadhan Era"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Saka Era was adopted by Government of India as reference period. It was first started by King Kanishka of Kushan Dynasty. Indian National Calendar is based Saka era.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Kailashanatha temple is in which among the following caves?</p>",
+    "options": [
+      "Elephanta caves",
+      "Ajantha Caves",
+      "Ellora caves",
+      "Khandagiri Caves",
+      "Badami Caves"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Kailasanatha temple is one of the largest rock-cut ancient Hindu temples located in Ellora, Maharashtra, India. The construction of the temple was commissioned under Rashtrakuta dynasty. It was carved out of one single rock.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Which among the following community practices Tangalia Weaving?</p>",
+    "options": [
+      "Bharwad Community",
+      "Dangasia Community",
+      "Chakma Community",
+      "Hakka Pikki Community",
+      "Badagas Community"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Tangaliya shawl uses a unique weaving technique and it is only practiced by the Dangasia community of Gujarat. It was also given Geographical Indications recognition. Tangalia textiles are usually worn as a shawl and wraparound skirt by the women of the Bharwad shepherd community.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Yak Dance is performed in which state?</p>",
+    "options": [
+      "Sikkim",
+      "Uttarakhand",
+      "Jammu &amp; Kashmir",
+      "Arunachal Pradesh",
+      "Himachal Pradesh"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Yak dance is a famous among Mahayana sect of Buddhism and performed in Arunachal Pradesh. The masked dancer represents the members of a family who are said to have discovered the Yak with the help of a magical bird hundreds of years ago. Performed during Losar festival, the dance represents the joy of the people upon finding the yak and their belief that performing the dance would relieve them of all their complications and anxieties.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which among the following is NOT associated with art form of Karnataka?</p>",
+    "options": [
+      "Nagamandala Dance",
+      "Yakshagana Dance",
+      "Bayalata Dance",
+      "Dollu Kunitha",
+      "Karagatam Dance"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>It is a popular folk dance originated from Thanjavur and spread to the neighbouring areas. It is a ritualistic dance involving acrobatics feats performed during the month of August. It is dedicated to the goddess of health and rain Mariamman. It is performed by an individual or two persons.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Which among the following is an embroidery art form?</p>",
+    "options": [
+      "Chamba Rumal",
+      "Hojagiri",
+      "Sangodd",
+      "Dollu Kuntia",
+      "Vaidyas"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Chamba Rumal is the finest specimen of Pahari art flourishing in Chamba town of Himachal Pradesh during late 18th century. Hand woven satin cloth is embroidered with untwisted silken thread in double stitch that comes the same on both sides known as do-rukha. Rasleela, Astanayika and scenes from ancient legends and myths are generally depicted on Rumal.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Hornbill festival is celebrated in which of the following state?</p>",
+    "options": [
+      "Andaman &amp; Nicobar Islands",
+      "Nagaland",
+      "Sikkim",
+      "Manipur",
+      "Mizoram"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Hornbill festival is celebrated in Nagaland. The festival is a tribute to the \"Hornbill\" bird of Nagaland. It is organized by the State Tourism and Art &amp; Culture Departments. It is celebrated by all Naga tribes at one place- Naga Heritage Village, Kisama.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

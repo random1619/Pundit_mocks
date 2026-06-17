@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polity & Governance Mock 5 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Who among the following is the chairman of NITI Aayog?</p>",
+    "options": [
+      "Union Home Minister",
+      "Home Secretary",
+      "Prime Minister",
+      "President",
+      "A person appointed by Government"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Prime Minister acts as the chairman of NITI Aayog. A person appointed by the government acts as the Vice-Chairman of NITI Aayog.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>In the first cabinet of Independent India, who among the following held the External Affairs portfolio?</p>",
+    "options": [
+      "Jawaharlal Nehru",
+      "Sardar Vallabhai Patel",
+      "Maulana Abul Kalam Azad",
+      "Dr. John Mathai",
+      "Dr. B.R. Ambedkar"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Jawaharlal Nehru held the following portfolios in the first cabinet of independent India.</p><p>Prime Minister, External Affairs &amp; Commonwealth Relations and Scientific Research.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>The boundary commission to demarcate boundaries between India and Pakistan was headed by who among the following?</p>",
+    "options": [
+      "Thomas B. Maculay",
+      "Lord Mountbatten",
+      "Sir Cyril Radcliffe",
+      "Sir Creek",
+      "McMohan"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>In order to determine exactly which territories to assign to each country, in June 1947, Britain appointed Sir Cyril Radcliffe to chair two Boundary Commissions - one for Bengal and one for Punjab, thereby dividing Pakistan and India.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Originally the eighth schedule consisted of how many languages?</p>",
+    "options": [
+      "12",
+      "10",
+      "18",
+      "22",
+      "14"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Eighth schedule consist of languages recognized by the Constitution. Originally, it had 14 languages but presently there are 22 languages. They are: Assamese, Bengali, Bodo, Dogri (Dongri), Gujarati, Hindi, Kannada, Kashmiri, Konkani, Mathili (Maithili), Malayalam, Manipuri, Marathi, Nepali, Oriya, Punjabi, Sanskrit, Santhali, Sindhi, Tamil, Telugu and Urdu. Sindhi was added by the 21st Amendment Act of 1967; Konkani, Manipuri and Nepali were added by the 71st Amendment Act of 1992; and Bodo, Dongri, Maithili and Santhali were added by the 92nd Amendment Act of 2003.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Which among the following state/UT was the first to change its name?</p>",
+    "options": [
+      "Tamil Nadu",
+      "Karnataka",
+      "Lakshadweep",
+      "Uttar Pradesh",
+      "Puducherry"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The United Provinces was the first state to have a new name. It was renamed 'Uttar Pradesh' in 1950. In 1969, Madras was renamed 'Tamil Nadu'. Similarly, in 1973, Mysore was renamed 'Karnataka'. In the same year, Laccadive, Minicoy and Amindivi Islands were renamed 'Lakshadweep'. In 1992, the Union Territory of Delhi was redesignated as the National Capital Territory of Delhi (without being conferred the status of a full-fledged state) by the 69th Constitutional Amendment Act, 1991.24 In 2006, Uttaranchal was renamed25 as 'Uttarakhand'. In the same year, Pondicherry was renamed26 as 'Puducherry'.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The fundamental Rights primarily promotes which among the following ideal?</p>",
+    "options": [
+      "Social Democracy",
+      "Political Democracy",
+      "Economic Democracy",
+      "Legal Democracy",
+      "Secular Democracy"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Fundamental Rights are meant for promoting the ideal of political democracy. They prevent the establishment of an authoritarian and despotic rule in the country, and protect the liberties and freedoms of the people against the invasion by the State.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Article 35A is related to which among the following states?</p>",
+    "options": [
+      "Assam",
+      "Sikkim",
+      "Manipur",
+      "Arunachal Pradesh",
+      "Jammu &amp; Kashmir"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Article 35A of the Indian Constitution is an article that empowers the Jammu and Kashmir state's legislature to define \"permanent residents\" of the state and provide special rights and privileges to those permanent residents.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>What is the maximum age till which children are entitled for free education under the constitutional provisions?</p>",
+    "options": [
+      "6 years",
+      "11 years",
+      "18 years",
+      "12 years",
+      "14 years"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Article 21 A declares that the State shall provide free and compulsory education to all children of the age of six to fourteen years.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which among the following authority has laid out the \"basic feature of the constitution\"?</p>",
+    "options": [
+      "President",
+      "Speaker of Lok Sabha",
+      "High Court",
+      "Supreme Court",
+      "Parliament"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Supreme Court has laid out the basic structure doctrine. Which can't be altered to the disadvantage of constitution even through amendment.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Which among the following is the fundamental principle underlying parliamentary system of India?</p>",
+    "options": [
+      "Collective Responsibility",
+      "Separation of Power",
+      "Division of Power",
+      "Legal Responsibility",
+      "Federal System"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The fundamental principle underlying the working of parliamentary system of government is the principle of collective responsibility. Article 75 clearly states that the council of ministers is collectively responsible to the Lok Sabha.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Emoluments to which among the following authorities is non-votable by parliament?</p>",
+    "options": [
+      "Prime Minister",
+      "President",
+      "Council of Ministers",
+      "Attorney General of India",
+      "Advocate General of state"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Emoluments and allowances of the President and other expenditure relating to his office can't be voted by parliament. The budget consists of two types of expenditure - the expenditure 'charged' upon the Consolidated Fund of India and the expenditure 'made' from the Consolidated Fund of India. The charged expenditure is non-votable by the Parliament, that is, it can only be discussed by the Parliament.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Public Accounts Committee was first set up in which year?</p>",
+    "options": [
+      "1919",
+      "1928",
+      "1921",
+      "1930",
+      "1932"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The committee was setup first in 1921 under the provisions of the Government of India Act of 1919 and has since been in existence. At present, it consists of 22 members (15 from the Lok Sabha and 7 from the Rajya Sabha).</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Who among the following appoints Comptroller and Auditor General of India?</p>",
+    "options": [
+      "Prime Minister",
+      "Chief Justice of India",
+      "Finance Minister",
+      "President",
+      "Vice-President"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>President appoints Comptroller and Auditor General of India. As a constitutional functionary, CAG is primarily entrusted with the responsibility to audit the accounts of the Union Government and of the State Governments of India.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>The office of Governor in India is modelled based on constitution of which country?</p>",
+    "options": [
+      "USA",
+      "Canada",
+      "Australia",
+      "UK",
+      "Japan"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Office of Governor is based on Canadian model, where the governor of a province (state) is appointed by the Governor-General (Centre), which is similar to appointment by President in India.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Which among the following schedule deals with Panchayat Raj System?</p>",
+    "options": [
+      "9<sup>th</sup> Schedule",
+      "10<sup>th</sup> Schedule",
+      "11<sup>th</sup> Schedule",
+      "12<sup>th</sup> Schedule",
+      "8<sup>th</sup> Schedule"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Eleventh Schedule specifies the powers, authority and responsibilities of Panchayats. It has 29 matters. This schedule was added by the 73rd Amendment Act of 1992.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>What is upper-age limit for a person to hold the office of chairman of State Public Service Commission?</p>",
+    "options": [
+      "55 years",
+      "60 years",
+      "62 years",
+      "65 years",
+      "70 years"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The chairman and members of the State Public Service Commission hold office for a term of six years or until they attain the age of 62 years, whichever is earlier.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which among the following states has English as their official language?</p>",
+    "options": [
+      "Meghalaya",
+      "Arunachal Pradesh",
+      "Nagaland",
+      "All the above",
+      "None of the above"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Meghalaya, Arunachal Pradesh and Nagaland have adopted English as their official language.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Who among the following is referred to as the \"Father of all India Services\"?</p>",
+    "options": [
+      "Dr. B.R. Ambedkar",
+      "Sardar Vallabhai Patel",
+      "Jawaharlal Nehru",
+      "M.N.Roy",
+      "Pattabhi Sitaramayya"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Sardar Vallabhbhai Patel was the chief protagonist of all-India services in the Constituent Assembly. Hence, he came to be regarded as the 'Father of all India Services'.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>National emergency cannot be declared on which among the following grounds?</p>",
+    "options": [
+      "Internal Disturbance",
+      "War",
+      "External Aggression",
+      "Armed Rebellion",
+      "Imminent Danger"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Under Article 352, the President can declare a national emergency when the security of India or a part of it is threatened by war or external aggression or armed rebellion or imminent danger. Internal Disturbance as a ground was removed through 44<sup>th</sup> Amendment act.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>The States Reorgansiation act, 1956 divided country into how many zones?</p>",
+    "options": [
+      "3",
+      "5",
+      "8",
+      "6",
+      "4"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Zonal Councils are the statutory (and not the constitutional) bodies. They are established by an Act of the Parliament, that is, States Reorganisation Act of 1956. The act divided the country into five zones (Northern, Central, Eastern, Western and Southern) and provided a zonal council for each zone.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>To create a new All-India Services, a resolution for that purpose must be initiated by which among the following authorities?</p>",
+    "options": [
+      "State Legislative Council",
+      "Lok Sabha",
+      "State Legislative Assemble",
+      "Rajya Sabha",
+      "President"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Article 312 of the Constitution authorizes the Parliament to create new All-India Services on the basis of a Rajya Sabha resolution to that effect. IAS, IPS and Indian Forest Service are the three All India Services.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Feature of Bicameralism in Indian Constitution refers to which among the following?</p>",
+    "options": [
+      "Separation of legislative powers among the state and centre",
+      "Constitution of Lok Sabha and Rajya Sabha",
+      "Prime Minister and President as Federal Executives",
+      "Creation of High Court and Supreme court",
+      "Provision of Union and State Executives"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Constitution provides for a bicameral legislature consisting of an Upper House (Rajya Sabha)</p><p>and a Lower House (Lok Sabha). The Rajya Sabha represents the states of Indian Federation, while the Lok Sabha represents the people of India as a whole. The Rajya Sabha (even though a less powerful chamber) is required to maintain the federal equilibrium by protecting the interests of the states against the undue interference of the Centre.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>As per the provisions in Indian Constitution, there are totally how many types of amendments?</p>",
+    "options": [
+      "2",
+      "5",
+      "4",
+      "3",
+      "No limit is mentioned"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Constitution can be amended in three ways: (a) Amendment by simple majority of the Parliament, (b) Amendment by special majority of the Parliament, and (c) Amendment by special majority of the Parliament and the ratification of half of the state legislatures.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>What is the other name mentioned in the constitution for India?</p>",
+    "options": [
+      "Hindustan",
+      "Bharatakanda",
+      "Hind",
+      "Jambudvipa",
+      "Bharat"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>There was no unanimity in the Constituent Assembly about the name of the country. Some members suggested the traditional name (Bharat) while other advocated the modern name (India). Hence, the Constituent Assembly had to adopt a mix of both ('India, that is, Bharat'). Article 1 describes India, that is, Bharat as a 'Union of States'.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>National Emblem was adopted from which among the following heritage site?</p>",
+    "options": [
+      "Sarnath",
+      "Sanchi",
+      "Bodh Gaya",
+      "Nalanda",
+      "Vikramashila"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>National emblem of India is an adaptation of the Lion Capital of Ashoka at Sarnath, preserved in the Varanasi Sarnath Museum in India. It was adopted on 26 January, 1950. It acts as the official seal for all national and state government offices and is the compulsory part of any letterhead used by the government.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Preamble doesn't reveal about which among the following information?</p>",
+    "options": [
+      "Source of authority of constitution",
+      "Nature of Indian State",
+      "Objectives of Indian Constitution",
+      "Date of adoption of Constitution",
+      "Basic source of Preamble"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Preamble reveals four ingredients or components: 1. Source of authority of the Constitution: The Preamble states that the Constitution derives its authority from the people of India.</p><p>2. Nature of Indian State: It declares India to be of a sovereign, socialist, secular democratic and republican polity. 3. Objectives of the Constitution: It specifies justice, liberty, equality and fraternity as the objectives. 4. Date of adoption of the Constitution: It stipulates November 26, 1949 as the date.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Which among the following lists has highest number of subjects in it?</p>",
+    "options": [
+      "Union List",
+      "State List",
+      "Concurrent List",
+      "Both 1 &amp; 2",
+      "Both 2 &amp; 3"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Presently, the Union List contains 100 subjects (originally 97), the state list contains 61 subjects (originally 66) and the concurrent list contains 52 subjects (originally 47).</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which among the following Indian state was previously an \"associate state\" of India?</p>",
+    "options": [
+      "Meghalaya",
+      "Sikkim",
+      "Goa",
+      "Mizoram",
+      "Uttarakhand"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Accordingly, the 35th Constitutional Amendment Act (1974) was enacted by the parliament which introduced a new class of statehood under the constitution by conferring on Sikkim the status of an 'associate state' of the Indian Union. Later it was conferred full statehood under Indian Union.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Which among the following right is NOT a part of Right to equality?</p>",
+    "options": [
+      "Prohibition of discrimination",
+      "Abolition of untouchability",
+      "Equality of opportunity",
+      "Right to elementary education",
+      "Abolition of titles"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Right to equality consist of</p><p>(Articles 14 - 18)</p><p>(a) Equality before law and equal protection of laws (Article 14).</p><p>(b) Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth (Article 15).</p><p>(c) Equality of opportunity in matters of public employment (Article 16).</p><p>(d) Abolition of untouchability and prohibition of its practice (Article 17).</p><p>(e) Abolition of titles except military and academic (Article 18).</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Which among the following is the recent amendment made to Fundamental Duties?</p>",
+    "options": [
+      "86<sup>th</sup> Constitutional Amendment Act",
+      "59<sup>th</sup> Constitutional Amendment Act",
+      "62<sup>nd</sup> Constitutional Amendment Act",
+      "75<sup>th</sup> Constitutional Amendment Act",
+      "92<sup>nd</sup> Constitutional Amendment Act"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Fundamental Duties was amended by the 86<sup>th</sup> Amendment Act, 2002 to include the following duty to the list: To provide opportunities for education to his child or ward between the age of six and fourteen years.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

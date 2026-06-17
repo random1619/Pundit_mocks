@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Gk Sep Mock 2025 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>In September 2025, a microsite for banknotes has been launched by the Reserve Bank of India. The microsite provides members of the public, a platform to access information on banknotes such as details of the design and security features through a 360-degree view of the banknotes Identify the CORRECT Statement(s) regarding this.</p><p>I. The microsite also has a dedicated section for information on exchange of banknotes.</p><p>II. The 500 denomination banknotes in the Mahatma Gandhi (New) Series have a motif of \"Red Fort\" on the reverse, symbolizing India's cultural heritage.</p><p>III. The 200 denomination banknotes in the Mahatma Gandhi (New) Series have the base colour of the note is bright yellow.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and III Only",
+      "III Only",
+      "I II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>A microsite for banknotes has been launched by the Reserve Bank of India. The microsite provides members of the public, a platform to access information on banknotes such as details of the design and security features through a 360-degree view of the banknotes, multimedia (video, audio and animation), interactive games etc., with simple and efficient navigation. The microsite also has a dedicated section for information on exchange of banknotes. The new microsite replaces the earlier microsite. </p><p><b>Rs. 2000 Banknote (Mahatma Gandhi New Series) General Details</b></p><p>&#183; Issued by the Reserve Bank of India (RBI) with Governor's signature</p><p>&#183; Base colour: Magenta</p><p>&#183; Size: 66 mm ' 166 mm</p><p>&#183; Reverse motif: Mangalyaan (India's first interplanetary mission)</p><p><b>Obverse Features</b></p><p>&#183; See-through register with numeral 2000</p><p>&#183; Mahatma Gandhi's portrait and electrotype watermark (2000)</p><p>&#183; Latent image with numeral 2000</p><p>&#183; Number panel with numerals in ascending font (top left, bottom right)</p><p>&#183; Denominational numeral '2000' in Devanagari</p><p>&#183; Denominational numeral with Rupee symbol ('2000) in colour-changing ink (green to blue) at bottom right</p><p>&#183; Portrait of Mahatma Gandhi at the centre</p><p>&#183; Ashoka Pillar emblem on the right</p><p>&#183; Micro letters: ' and 'India'</p><p>&#183; Features for visually impaired: raised printing of Gandhi portrait, Ashoka Pillar emblem, identification mark with 2000, seven angular bleed lines</p><p>&#183; Colour-shift security thread with inscriptions ', 'RBI', '2000' (green to blue when tilted)</p><p>&#183; Guarantee clause, Governor's signature with promise clause, and RBI emblem near Gandhi's portrait</p><p><b>Reverse Features</b></p><p>&#183; Year of printing on the left</p><p>&#183; Language panel</p><p>&#183; Swachh Bharat logo with slogan</p><p>&#183; Motif of Mangalyaan</p><p>&#183; Denominational numeral '2000' in Devanagari</p><p>&#183; Design includes geometric patterns matching the colour scheme on both sides</p><p><b>Rs. 500 Notes: -</b> The 500 denomination banknotes in the Mahatma Gandhi (New) Series bear the signature of the Governor, Reserve Bank of India. The note has a motif of \"Red Fort\" on the reverse, symbolizing India's cultural heritage. The base colour of the note is stone grey. The note features additional designs and geometric patterns in line with its colour scheme on both sides. The size of the note is 66 mm x 150 mm. <b>Obverse Features: -</b></p><p>&#183; See through register with denominational numeral 500</p><p>&#183; Mahatma Gandhi's Portrait and electrotype (500) watermarks</p><p>&#183; Latent image with denominational numeral 500</p><p>&#183; Number panel with numerals in ascending font on the top left side and bottom right side</p><p>&#183; Denominational numeral ' in Devanagari</p><p>&#183; Denominational numeral with Rupee Symbol, (500) in colour changing ink (green to blue) on bottom right</p><p>&#183; Portrait of Mahatma Gandhi at the centre</p><p>&#183; Ashoka Pillar emblem on the right</p><p>&#183; Micro letters \"'\" and 'India'</p><p>&#183; Some features for the visually impaired: Intaglio or raised printing of Mahatma Gandhi portrait, Ashoka Pillar emblem, circular identification mark with microtext 500 on the right, five angular bleed lines on both the left and right sides</p><p>&#183; Colour shift windowed security thread with inscriptions ''', 'RBI'. Colour of the thread changes from green to blue when the note is tilted</p><p>&#183; Guarantee Clause, Governor's signature with Promise Clause and RBI emblem towards right of Mahatma Gandhi's portrait</p><p><b>Reverse Features: -</b></p><p>&#183; Year of printing of the note on the left</p><p>&#183; Language panel</p><p>&#183; Swachh Bharat logo with slogan</p><p>&#183; Motif of Red Fort</p><p>&#183; Denominational numeral ' in Devanagari</p><p><b>Rs. 200 Notes: -</b> The 200 denomination banknotes in the Mahatma Gandhi (New) Series bear the signature of the Governor, Reserve Bank of India. The note has a motif of \"Sanchi Stupa\" on the reverse, depicting the country's cultural heritage. The base colour of the note is bright yellow. The note features other designs and geometric patterns aligning with the overall colour scheme, both at obverse and reverse. The size of the note is 66 mm x 146 mm. <b>Obverse Features: -</b></p><p>&#183; See through register with denominational numeral 200</p><p>&#183; Mahatma Gandhi's Portrait and electrotype (200) watermarks</p><p>&#183; Latent image with denominational numeral 200</p><p>&#183; Number panel with numerals in ascending font on the top left side and bottom right side</p><p>&#183; Denominational numeral ' in Devanagari</p><p>&#183; Denominational numeral with Rupee Symbol, (200) in colour changing ink (green to blue) on bottom right</p><p>&#183; Portrait of Mahatma Gandhi at the centre</p><p>&#183; Ashoka Pillar emblem on the right</p><p>&#183; Micro letters \"'\" and 'India'</p><p>&#183; Some features for the visually impaired: Intaglio or raised printing of Mahatma Gandhi portrait (4), Ashoka Pillar emblem (11), identification mark H with micro-text '200 on the right, four angular bleed lines with two circles in between the lines both on the left and right sides</p><p>&#183; Colour shift windowed security thread with inscriptions \"'\" and 'RBI'. Colour of the thread changes from green to blue when the note is tilted</p><p>&#183; Guarantee Clause, Governor's signature with Promise Clause and RBI emblem towards right of Mahatma Gandhi's portrait</p><p><b>Reverse Features: -</b></p><p>&#183; Year of printing of the note on the left</p><p>&#183; Language panel</p><p>&#183; Swachh Bharat logo with slogan</p><p>&#183; Motif of Sanchi Stupa</p><p>&#183; Denominational numeral ' in Devanagari</p><p><b>Rs. 100 Notes: -</b> The 100 denomination banknotes in the Mahatma Gandhi (New) Series bear the signature of the Governor, Reserve Bank of India. The note has a motif of \"Rani ki Vav\" on the reverse, showcasing India's cultural heritage. The base colour of the note is lavender. The note also has other designs and geometric patterns aligning with the overall colour scheme on both obverse and reverse. The size of the note is'<b>66 mm x 142 mm</b>. <b>Obverse Features: -</b></p><p>&#183; See through register with denominational numeral 100</p><p>&#183; Latent image with denominational numeral 100</p><p>&#183; Denominational numeral ' in Devanagari</p><p>&#183; Portrait of Mahatma Gandhi at the centre</p><p>&#183; Micro letters \"'\" and 'India'</p><p>&#183; Colour shift windowed security thread with inscriptions \"'\" and 'RBI', changing colour from green to blue when tilted</p><p>&#183; Guarantee Clause, Governor's signature with Promise Clause and RBI emblem towards right of Mahatma Gandhi's portrait</p><p>&#183; Mahatma Gandhi's portrait and electrotype (100) watermarks</p><p>&#183; Number panel with numerals in ascending font on the top left side and bottom right side</p><p>&#183; Ashoka Pillar emblem on the right</p><p>&#183; Features for the visually impaired:</p><p>1) Intaglio or raised printing of Mahatma Gandhi's portrait and Ashoka Pillar emblem</p><p>2) Triangular identification mark with micro-text 100 on the right</p><p>3) Four angular bleed lines on both left and right sides</p><p><b>Reverse Features: -</b></p><p>&#183; Year of printing of the note on the left</p><p>&#183; Language panel</p><p>&#183; Swachh Bharat logo with slogan</p><p>&#183; Motif of Rani ki Vav</p><p>&#183; Denominational numeral ' in Devanagari</p><p><b>Rs. 50 Notes: -</b> The '50 denomination banknotes in the Mahatma Gandhi (New) Series bear the signature of the Governor, Reserve Bank of India. The note has a motif of \"Hampi with Chariot\" on the reverse, depicting the country's cultural heritage. The base colour of the note is fluorescent blue. The note features other designs and geometric patterns aligned with the overall colour scheme, at both obverse and reverse. The size of the note is'<b>66 mm x 135 mm</b>. <b>Obverse Features: -</b></p><p>&#183; See through register with denominational numeral 50</p><p>&#183; Denominational numeral ' in Devanagari</p><p>&#183; Portrait of Mahatma Gandhi at the centre</p><p>&#183; Micro letters \"'\" and 'India'</p><p>&#183; Windowed demetalised security thread with inscriptions \"'\" and 'RBI'</p><p>&#183; Guarantee Clause, Governor's signature with Promise Clause and RBI emblem towards right of Mahatma Gandhi's portrait</p><p>&#183; Mahatma Gandhi's portrait and electrotype (50) watermarks</p><p>&#183; Number panel with numerals in ascending font on the top left side and bottom right side</p><p>&#183; Ashoka Pillar emblem on the right</p><p><b>Reverse Features: -</b></p><p>&#183; Year of printing of the note on the left</p><p>&#183; Language panel</p><p>&#183; Swachh Bharat logo with slogan</p><p>&#183; Motif of Hampi with Chariot</p><p>&#183; Denominational numeral ' in Devanagari</p><p><b>Rs. 20 Notes: -</b> The '20 denomination banknotes in the Mahatma Gandhi (New) Series bear the signature of the Governor, Reserve Bank of India. The note has a motif of'<b>Ellora Caves</b>'on the reverse, highlighting India's cultural heritage. The base colour of the note is greenish yellow, and it includes other designs and geometric patterns matching the overall colour scheme on both sides. The size of the note is'<b>63 mm x 129 mm</b>. <b>Obverse Features: -</b></p><p>&#183; See through register with denominational numeral 20</p><p>&#183; Denominational numeral ' in Devanagari</p><p>&#183; Portrait of Mahatma Gandhi at the centre</p><p>&#183; Micro letters \"'\" and 'India'</p><p>&#183; Windowed demetalised security thread with inscriptions \"'\" and 'RBI'</p><p>&#183; Guarantee Clause, Governor's signature with Promise Clause and RBI emblem to the right of Mahatma Gandhi's portrait</p><p>&#183; Mahatma Gandhi's portrait and electrotype (20) watermarks</p><p>&#183; Number panel with numerals in ascending font on the top left side and bottom right side</p><p>&#183; Ashoka Pillar emblem on the right</p><p><b>Reverse Features: -</b></p><p>&#183; Year of printing of the note on the left</p><p>&#183; Swachh Bharat logo with slogan</p><p>&#183; Language panel</p><p>&#183; Motif of Ellora Caves</p><p>&#183; Denominational numeral ' in Devanagari</p><p><b>Rs. 10 Notes: -</b> The '10 denomination banknotes in the Mahatma Gandhi (New) Series bear the signature of the Governor, Reserve Bank of India. The note features a motif of'<b>Sun Temple, Konark</b>'on the reverse, depicting India's cultural heritage. The base colour of the note is chocolate brown, with other designs and geometric patterns aligned to the overall colour scheme. The size of the note is'<b>63 mm x 123 mm</b>. <b>Obverse Features: -</b></p><p>&#183; See through register with denominational numeral 10</p><p>&#183; Denominational numeral ' in Devanagari</p><p>&#183; Portrait of Mahatma Gandhi at the centre</p><p>&#183; Micro letters \"'\" and 'India'</p><p>&#183; Windowed demetalised security thread with inscriptions \"'\" and 'RBI'</p><p>&#183; Guarantee Clause, Governor's signature with Promise Clause and RBI emblem to the right of Mahatma Gandhi's portrait</p><p>&#183; Mahatma Gandhi's portrait and electrotype (10) watermarks</p><p>&#183; Number panel with numerals in ascending font on the top left side and bottom right side</p><p>&#183; Ashoka Pillar emblem on the right</p><p><b>Reverse Features: -</b></p><p>&#183; Year of printing of the note on the left</p><p>&#183; Language panel</p><p>&#183; Swachh Bharat logo with slogan</p><p>&#183; Motif of Sun Temple, Konark</p><p>&#183; Denominational numeral ' in Devanagari</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>The Reserve Bank of India has announced the premature redemption price and date for the Sovereign Gold Bond (SGB) 2019-20 Series-X scheme, offering investors a chance to book gains of nearly 156 per cent. Redemption date and price. Which of the above statements is/are correct in context of this?</p><p>I. SGBs have an eight-year tenure, with early redemption permitted after the fifth year on interest payout dates.</p><p>II. The SGB redemption price is based on the simple average of 995-purity gold closing prices of the previous five business days.</p><p>III. Over and above the price-linked return, investors in SGBs earn 2.5% annual interest payable semi-annually. </p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and III Only",
+      "III Only",
+      "I II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Reserve Bank of India has announced the premature redemption price and date for the Sovereign Gold Bond (SGB) 2019-20 Series-X scheme, offering investors a chance to book gains of nearly 156 per cent. Redemption date and price. The early exit window for the tranche opened on September 11. The redemption price has been fixed at Rs 10,905 per gram, based on the simple average closing price of 999-purity gold for 8-10 September 2025, as published by the India Bullion and Jewellers Association (IBJA). This series was originally issued on March 11, 2020 at Rs 4,260 per gram. The new redemption price implies an absolute return of Rs 6,645 per gram, nearly 156 per cent, excluding the 2.5 per cent annual interest that SGB investors earn during the holding period. </p><p><b>Early redemption rules for SGBs(Sovereign gold bond)</b> SGBs have an eight-year tenure but investors can redeem after the fifth year on interest payout dates. Key points:</p><p>&#183; <b>Eligible date:</b>' Redemptions are made after five years.</p><p>&#183; <b>Price calculation:</b>' Based on the simple average of closing gold prices for the previous three business days.</p><p>&#183; <b>Mode: </b>'Investors must approach their banks, brokers, or depositories to submit redemption requests.</p><p><b>A quick recap of SGB benefits</b></p><p>&#183; <b>Secure investment: </b>'No risk of theft or purity issues.</p><p>&#183; <b>Annual interest: </b>'2.5 per cent interest paid semi-annually.</p><p>&#183; <b>Tax efficiency: </b>Capital gains on redemption after maturity are tax-free.</p><p>&#183; <b>Loan collateral:</b>' Can be pledged for secured loans.</p><p><b>Market risk</b></p><p>&#183; While SGBs track gold prices, investors should remember that returns are tied to market rates. If gold prices fall, redemption value may be lower.</p><p>&#183; For those holding the 2019-20 Series-X bonds, the upcoming redemption offers an attractive opportunity to realize significant gains.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>The Ministry of Tribal Affairs, Government of India, is launching the Beta Version of 'Adi Vaani', India's first AI-powered translator for tribal languages, in August 2025. Identify the INCORRECT Statement(s) regarding this. </p><p>I. Adi Vaani has been developed under the banner of Janjatiya Gaurav Varsh by the Ministry of Tribal Affairs.</p><p>II. In its Beta launch, Adi Vaani supports Vantali, Bhili, Mundari, and Bondi languages.</p><p>III. The project is led by IIT Bombay in collaboration with BITS Pilani, IIIT Hyderabad, and IIIT Nava Raipur.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>In a landmark step towards inclusive tribal empowerment and preservation of India's rich linguistic diversity, the Ministry of Tribal Affairs, Government of India, is launching the Beta Version of 'Adi Vaani', India's first AI-powered translator for tribal languages. Developed under the banner of Janjatiya Gaurav Varsh, this pioneering initiative is set to transform the linguistic and educational landscape in tribal regions. Adi Vaani is designed to bridge communication gaps between tribal and non-tribal communities, while safeguarding endangered tribal languages using advanced Artificial Intelligence (AI). About Adi Vaani- Adi Vaani is an AI-based translation tool that serves as the foundation for a future large language model dedicated to tribal languages. The project combines advanced AI technologies with community-driven approaches to protect, promote, and revitalize tribal languages and cultures across India. India's Linguistic Landscape India is home to 461 tribal languages spoken by Scheduled Tribes and 71 distinct tribal mother tongues (Census of India, 2011). Among these, 81 languages are vulnerable and 42 are critically endangered. Many face the risk of extinction due to limited documentation and intergenerational transmission gaps. Developed by a national consortium of premier institutions led by IIT Delhi with BITS Pilani, IIIT Hyderabad, and IIIT Nava Raipurin collaboration withTribal Research Institutes (TRIs) in Jharkhand, Odisha, Madhya Pradesh, Chhattisgarh, and Meghalaya, the project aims to:</p><p>&#183; Enable real-time translation (text and speech) between Hindi/English and tribal languages.</p><p>&#183; Provide interactive language learning for students and early learners.</p><p>&#183; Digitally preserve folklore, oral traditions, and cultural heritage.</p><p>&#183; Support digital literacy, healthcare communication, and civic inclusion in tribal communities.</p><p>&#183; Awareness on govt. schemes and important speeches</p><p><b>Scope &amp; Languages</b> In its Beta launch, Adi Vaani supports:</p><p>&#183; Santali (Odisha), Bhili (Madhya Pradesh), Mundari (Jharkhand), Gondi (Chhattisgarh)</p><p>Additional languages including Kui and Garo are under development for the next phase. </p><p><b>Methodology &amp; Features AI Language Models: </b>'Refined deployment of models such as No Language Left Behind (NLLB) and IndicTrans2 for low-resource tribal languages. </p><p><b>Community Participation:</b>' TRIs, experts, and communities are involved in data collection, validation, and iterative development. <b>Functional Toolkit:</b></p><p>&#183; Text-to-Text, Text-to-Speech, Speech-to-Text, Speech-to-Speech translations.</p><p>&#183; Optical Character Recognition (OCR) for digitizing manuscripts and primers.</p><p>&#183; Bilingual dictionaries and curated repositories.</p><p>&#183; Subtitles for Prime Minister's speeches, health advisories (e.g., Sickle Cell Disease awareness), and information on government schemes and initiatives in tribal languages.</p><p><b>Impact &amp; Way Forward</b> Adi Vaani is more than a translation tool ' it is a national mission to:</p><p>&#183; Digitize and safeguard tribal knowledge and cultural expressions.</p><p>&#183; Empower tribal communities with education, healthcare access, and public service delivery in their native languages.</p><p>&#183; Promote inclusive governance by ensuring last-mile reach of government schemes.</p><p>&#183; Position India as a global leader in AI-driven preservation of endangered languages.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>The Employees' State Insurance Corporation (ESIC) has initiated a nationwide series of outreach activities focused on the Amnesty Scheme 2025, with field offices across India leading the campaign to raise awareness and support participation in this one-time dispute resolution initiative. Identify the INCORRECT Statement(s) regarding this.</p><p>I. The scheme comes into effect from 1st October 2025 and is valid until 30th September 2026.</p><p>II. Employers can withdraw cases even if they have not paid dues, without any conditions.</p><p>III. Regional Directors and Sub-Regional Officers are empowered to process withdrawals under this scheme.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "II and III Only",
+      "I and II Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Employees' State Insurance Corporation (ESIC) announced the kickstarting of a series of outreach activities centred around the Amnesty Scheme 2025, to be undertaken by ESIC field offices across the country. ESIC, in its 196th Meeting held on 26th June 2025 at Shimla, Himachal Pradesh, under the chairmanship of Dr. Mansukh Mandaviya, Union Minister for Labour &amp; Employment and Youth Affairs &amp; Sports, approved the launch of Amnesty 2025. The initiative was formally announced on 27th June 2025. <b>Amnesty Scheme 2025</b> The Amnesty Scheme 2025 is a one-time dispute resolution initiative aimed at reducing the backlog of court cases and promoting compliance under the ESI Act. The scheme will come into effect on 1st October 2025 and remain valid until 30th September 2026, providing a structured mechanism for employers to resolve legal disputes with ESIC through out-of-court settlements. As of 31st March 2025, around 27,000 cases were pending in various courts. The scheme allows:</p><p>&#183; Settlement of ad-hoc assessments by paying actual contributions and interest'no damages will be levied.</p><p>&#183; Withdrawal of cases where employers have already paid dues, subject to payment of 10% of disputed damages.</p><p>&#183; Cases filed by ESIC for non-submission of records or delayed payments, which were later complied with, will also be withdrawn with court permission.</p><p>&#183; Court cases filed up to 31.03.2025 are eligible under this scheme.</p><p>Importantly, Regional Directors and Sub-Regional Officers have been empowered to process withdrawals during this period.</p><p>&#183; Before this scheme, limited appeal provisions and lack of withdrawal powers often prolonged litigation even after compliance. Amnesty 2025 addresses these gaps, offering a practical and employer-friendly route to dispute resolution and supporting the government's broader goal of enhancing ease of doing business.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Shri Manohar Lal, Hon'ble Minister for Housing and Urban Affairs, launched 'Angikaar 2025', a last-mile outreach campaign under Pradhan Mantri Awas Yojana - Urban 2.0 (PMAY-U 2.0), in New Delhi on 4th September 2025. Identity which among the following statement(s) about the Agnikaar 2025 is/are NOT correct?</p><p>I. Angikaar 2025 is launched with an objective to inform stakeholders about the Credit Risk Guarantee Fund Trust for Low Income Housing (CRGFTLIH) scheme.</p><p>II. Angikaar 2025 will run for a period of three months across 5,000 Urban Local Bodies (ULBs) in the country.</p><p>III. Angikaar 2025 is an outreach campaign that will accelerate the implementation of PMAY-U 2.0 by creating widespread awareness about scheme.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and III Only",
+      "III Only",
+      "I and II Only"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Shri Manohar Lal, Hon'ble Minister for Housing and Urban Affairs, launched 'Angikaar 2025', a last-mile outreach campaign under Pradhan Mantri Awas Yojana - Urban 2.0 (PMAY-U 2.0), in New Delhi on 4th September 2025.Angikaar 2025 is an outreach campaign that will accelerate the implementation of PMAY-U 2.0 by creating widespread awareness about the scheme across the country The campaign is also designed to fast-track verification of applications under the scheme and expedite the completion of already sanctioned houses under PMAY-U. Another key objective of Angikaar 2025 is to inform stakeholders about the Credit Risk Guarantee Fund Trust for Low Income Housing (CRGFTLIH) scheme. Additionally, benefits of the PM Surya Ghar: Muft Bijli Yojana will be provided to beneficiaries of PMAY-U and housing needs of beneficiaries from Special Focus Group identified under PMAY-U 2.0 will be prioritised. Under PMAY-U, 120 lakh houses have been sanctioned, out of which 94.11 lakh pucca houses have been already completed and delivered to beneficiaries. Angikaar 2025 will run for a period of two months from 4th September 2025 to 31st October 2025 across 5,000 Urban Local Bodies (ULBs) in the country. Widespread door-to-door awareness will be created across the country and by other outreach mediums and community mobilisation.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Incentive Scheme, which is a part of National Critical Mineral Mission (NCMM), which aimed at building the domestic capacity of critical minerals, was approved government of India with an outlay of Rs. 1,500 crore in September 2025. Identify which among the following statement(s) are/is correct about this scheme?</p><p>I. The Scheme will have a tenure of six years from FY 2025-26 to FY 2030-31.</p><p>II. The incentives under the Scheme will comprise 20% Capex subsidy on plant &amp; machinery, equipment and associated utilities for starting production within specified timeframe.</p><p>III. In order to ensure greater number of beneficiaries, total incentive per entity will be subject to an overall ceiling of Rs.50 crore for large entities.</p>",
+    "options": [
+      "I Only",
+      "II and III Only",
+      "III Only",
+      "I and III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Union Cabinet chaired by the Prime Minister Shri Narendra Modi approved a Rs.1,500 crore Incentive Scheme to develop recycling capacity in the country for the separation and production of critical minerals from secondary sources. This scheme is part of the National Critical Mineral Mission (NCMM), which is aimed at building the domestic capacity of critical minerals. The Scheme will have a tenure of six years from FY 2025-26 to FY 2030-31. Eligible feedstock is e-waste, Lithium Ion Battery (LIB) scrap, and scrap other than e-waste &amp; LIB scrap e.g. catalytic convertors in end-of-life vehicles. Expected beneficiaries will be both large, established recyclers, as well as small, new recyclers (including start-ups). In order to ensure greater number of beneficiaries, total incentive (Capex plus Opex subsidy) per entity will be subject to an overall ceiling of Rs.50 crore for large entities and Rs.25 crore for small entities, within which there will be a ceiling for Opex subsidy of Rs.10 crore and Rs.5 crore respectively. </p><p><b>More About the Scheme: -'</b></p><p>&#183; The incentives under the Scheme will comprise 20% Capex subsidy on plant &amp; machinery, equipment and associated utilities for starting production within specified timeframe, beyond which reduced subsidy applicable; and Opex subsidy, which will be an incentive on incremental sales over the base year (FY 2025-26) viz. 40% of eligible Opex subsidy in the 2nd year and balance 60% in the 5th year from FY 2026-27 to FY 2030-31 on achievement of specified threshold incremental sales.'</p><p>&#183; The Scheme will provide incentive for the recycling value chain which is involved in actual extraction of critical minerals, and not the value chain involved in only black mass production.</p><p>&#183; In terms of key outcomes, the Scheme incentives are expected to develop at least 270 kilo ton of annual recycling capacity resulting in around 40 kilo ton annual critical mineral production, bringing in about Rs.8,000 crore of investment and creating close to 70,000 direct and indirect jobs.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>National Institutional Ranking Framework (NIRF) 2025 was released in September 2025, in which Institutions are ranked on five key parameters: teaching, learning and resources; research and professional practice; graduation outcomes; outreach and inclusivity; and perception. Consider the following and Identify the INCORRECT Statement(s) Regarding this.</p><p>I. IIT Madras topped the overall rankings for a record seventh time.</p><p>II. AIIMS, Delhi secured the eighth position in the overall list.</p><p>III. The NIRF was first introduced in 2015 by the Ministry of Human Resource Development.</p>",
+    "options": [
+      "II Only",
+      "III Only",
+      "I and III Only",
+      "I and II Only",
+      "None of the Above"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Institute of Medical Education and Research Indian Institute of Technology, (IIT) Madras has once again topped the National Institutional Ranking Framework (NIRF) 2025. The premier tech-school is followed by Indian Institute of Science (IISc), Bengaluru in the second place, while IIT Bombay is third. The list includes four more IITs in the top 10, including IIT Delhi, Kanpur, Kharagpur and Roorkee at positions 4-7, respectively. Meanwhile All India Institute of Medical Sciences (AIIMS), Delhi is placed eighth. Jawaharlal Nehru University (JNU) and Banaras Hindu University (BHU) complete the top 10 list. This year's rankings evaluated institutions under 17 categories -- including overall, universities, colleges, research institutions, engineering, management, pharmacy, medical, dental, law, architecture and planning, agriculture and allied sectors, open universities, skill universities, state public universities and Sustainable Development Goals (SDGs).</p><p>&#183; Institutions are ranked on five key parameters: teaching, learning and resources; research and professional practice; graduation outcomes; outreach and inclusivity; and perception.</p><p>&#183; The NIRF was first introduced in 2015 by the Ministry of Human Resource Development (now Ministry of Education) to provide a transparent and comprehensive framework for evaluating higher education institutions across the country.</p><p><b>Top 10 over all institutes</b></p><p>1) IIT, Madras</p><p>2) IISc, Bengaluru</p><p>3) IIT, Bombay</p><p>4) IIT, Delhi</p><p>5) IIT, Kanpur</p><p>6) IIT, Kharagpur</p><p>7) IIT, Roorkee</p><p>8) AIIMS, Delhi</p><p>9) JNU, Delhi</p><p>10) BHU, Delhi</p><p><b>Top law universities</b> Among the law universities, National Law School of India, Bengaluru was placed first yet again followed by National Law University, Delhi and Hyderabad's Nalsar University of Law.</p><p>1) National Law School of India, Bengaluru</p><p>2) National Law University, Delhi</p><p>3) University of Law, Hyderabd</p><p>4) West Bengal National University of Juridical Sciences, Kolkata</p><p>5) Gujarat National Law University, Gandhinagar</p><p><b>Top medical institutes</b> While AIIMS, Delhi cemented its place as the top medical school in India, Post Graduate Institute of Medical Education and Research in Chandigarh was ranked second. Vellore's Christian Medical College was third.</p><p>1) AIIMS, Delhi</p><p>2) Post Graduate Institute of Medical Education and Research, Chandigarh</p><p>3) Christian Medical College, Vellore</p><p>4) Jawaharlal Nehru Institute of Medical Education and Research, Puducherry</p><p>5) Sanjay Gandhi Post Graduate Institute of Medical Sciences, Lucknow</p><p><b>Top architecture &amp; planning colleges</b> IIT Roorkee was ranked the best for architecture. It was followed by National Institute of Technology, Calicut and IIT Kharagpur.</p><p>1) IIT, Roorkee</p><p>2) NIT, Calicut</p><p>3) IIT, Kharagpur</p><p>4) Indian Institute of Engineering and Technology, Shibpur</p><p>5) Jamia Malia Islamia, Delhi</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>As of September 6, 2025, the U.S. Department of State has ended the long-standing \"third-country stamping\" practice. As per this Indian citizens' including those applying for F-1 student, B-1/B-2 visitor, H-1B, or O-1 visas' must now interview only in their home country, unless they fall under narrow exemptions. Identify the CORRECT Statement(s) regarding this.</p><p>I. Fees are non-transferable ' if you mistakenly book in the wrong country, you lose your payment.</p><p>II. Visa fees are transferable across countries if booked incorrectly.</p><p>III. Existing appointments generally won't be canceled, but new bookings must follow the new rule.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and III Only",
+      "III Only",
+      "I II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>As of September 6, 2025, the U.S. Department of State has ended the long-standing \"third-country stamping\" practice. Indian citizens' including those applying for F-1 student, B-1/B-2 visitor, H-1B, or O-1 visas' must now interview only in their home country, unless they fall under narrow exemptions. Until now, many applicants ' especially those in high-demand countries like India, China, Mexico, and Brazil ' could apply for U.S. visas in other countries with shorter wait times. For example, an Indian H-1B worker might fly to Thailand or Germany for a quicker visa stamp. As of September 6, 2025, that option is gone. The State Department now requires:</p><p>&#183; Interviews must be held in your home country (where you are a citizen or have legal residence).</p><p>&#183; Fees are non-transferable ' if you mistakenly book in the wrong country, you lose your payment.</p><p>&#183; Existing appointments generally won't be canceled, but any new bookings must follow the rule.</p><p><b>In-Person Interviews Now Mandatory for Almost All</b></p><p>&#183; Effective September 2, 2025, visa applicants' including seniors and frequent travelers' are no longer eligible for interview waivers or \"drop box\" renewals. Virtually every nonimmigrant visa now requires a mandatory in-person interview.</p><p><b>Visa Duration Caps Proposed</b></p><p>&#183; The Trump administration has proposed replacing the open-ended \"duration of status\" (D/S) for student visas with a fixed-term cap, potentially limiting stays to four years for students and restricting media professionals to 240 days.</p><p><b>Heightened Scrutiny, Visa Revocations, and Growing Unease</b></p><p>&#183; Visa revocations: The U.S. has revoked over 6,000 student visas in 2025, with approximately 4,000 tied to criminal or immigration violations such as overstays and DUI incidents.</p><p><b>Deportations on the Rise</b></p><p>&#183; Under Trump's second term (2025'present), deportations of Indian nationals have sharply increased' from an average of 3 per day under Biden to 8 per day by mid-2025. Notably, 1,703 Indians were deported from January to July 2025</p><p>Rahul Reddy, Partner at Reddy Neumann Brown explains Why this matters for high-skilled workers: For high-skilled immigrants, this change means:</p><p>&#183; Longer wait times at high-volume countries. U.S. visa demand is already backlogged ' some consulates have appointment wait times over a year. Without third-country options, bottlenecks may worsen.</p><p>&#183; Less flexibility for travel. Business travelers who once combined a trip abroad with a quick stamping elsewhere will now need to return home.</p><p>&#183; More risk if plans change. Since fees are non-refundable and non-transferable, booking errors carry financial consequences.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>The Ministry of Tribal Affairs today unveiled the Beta Version of Adi Sanskriti, a pioneering digital learning platform for tribal artforms, preserving heritage, enabling livelihoods, and connecting India's tribal communities with the world, at Bharat Mandapam, New Delhi. Identify the INCORRECT Statement(s) Regarding this.</p><p>I. Adi Sanskriti integrates Adi Vishwavidyalaya, Adi Sampada, and Adi Haat as its three core components.</p><p>II. In its first phase, State Tribal Research Institutes (TRIs) from fifteen states contributed to documentation and digital mapping of tribal artforms.</p><p>III. Adi Vishwavidyalaya currently offers 68 immersive courses covering dance, crafts, music, and folklore.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and III Only",
+      "III Only",
+      "I II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Ministry of Tribal Affairs today unveiled the Beta Version of Adi Sanskriti, a pioneering digital learning platform for tribal artforms, preserving heritage, enabling livelihoods, and connecting India's tribal communities with the world, at Bharat Mandapam, New Delhi, during the National Conference on Adi Karmayogi Abhiyan. The platform was formally launched by the Hon'ble Minister of State for Tribal Affairs, Shri Durgadas Uikey, unveiling a new digital era for the preservation and promotion of tribal culture and heritage. Adi Sanskriti is envisioned as the world's first' <b>Digital University to preserve and promote the culture and traditional knowledge of tribal communities, and an online marketplace for the world to access products made by tribal artisans</b>. The platform integrates three major components:</p><p>&#183; <b>Adi Vishwavidyalaya (Digital Tribal Art Academy):</b>'Currently offering'<b>45 immersive courses</b>' on tribal dance, painting, crafts, music, and folklore.</p><p>&#183; <b>Adi Sampada (Socio-Cultural Repository):</b>'A collection of over'<b>5,000 curated documents across five themes</b>, covering paintings, dance, clothing &amp; textiles, artefacts and livelihood.</p><p>&#183; <b>Adi Haat (Online marketplace):</b>'Currently linked with TRIFED, this will evolve into a' <b>dedicated online marketplace </b>'for tribal artisans, enabling sustainable livelihoods and direct consumer access.</p><p><b>Building Through Convergence with State TRIs</b></p><p>&#183; Adi Sanskriti is being built in close partnership with' <b>State Tribal Research Institutes (TRIs)</b>, ensuring grassroots participation, authenticity, and convergence in its development. In its' <b>first phase</b>, TRIs from '<b>Andhra Pradesh, Assam, Bihar, Chhattisgarh, Goa, Gujarat, Kerala, Madhya Pradesh, Maharashtra, Meghalaya, Odisha, Rajasthan, Tamil Nadu, Telangana, and Uttar Pradesh</b>' have contributed to the documentation, content curation, and digital mapping of tribal artforms. This collective effort has laid the foundation for a platform that reflects the diversity and richness of India's tribal heritage.</p><p>&#183; By bringing together preservation, education, and economic empowerment, '<i>Adi Sanskriti</i>' stands as a milestone initiative to safeguard and celebrate the' <b>rich cultural legacy of India's tribal communities</b>, while empowering them as active participants in the digital knowledge economy.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>The Pension Fund Regulatory and Development Authority (PFRDA) announced the introduction of a Multiple Scheme Framework (MSF) for non-government sector subscribers under the National Pension System (NPS), the new system marks a significant departure from the existing structure where subscribers were restricted to a single investment choice per tier and linked to one Central Recordkeeping Agency (CRA). Identify which among the following statement(s) is/are correct in context of the same?</p><p>I. Under the MSF, subscribers across the non-government segment will be able to hold and manage maximum of 4 schemes within the NPS through their Permanent Account Number (PAN).</p><p>II. Exit provisions, including annuitisation requirements, will continue to be governed by the PFRDA (Exits and Withdrawals under the NPS) Regulations.</p><p>III. Switching between Section 20(2) schemes will be allowed only after a minimum vesting period of fifteen years or at the time of normal exit.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "II and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Pension Fund Regulatory and Development Authority (PFRDA) announced the introduction of a Multiple Scheme Framework (MSF) for non-government sector subscribers under the National Pension System (NPS), effective from October 1, 2025. According to the official PFRDA notification, the new system marks a significant departure from the existing structure where subscribers were restricted to a single investment choice per tier and linked to one Central Recordkeeping Agency (CRA). </p><p><b>More About the Scheme: -'</b></p><p>&#183; Under the MSF, subscribers across the non-government segment, including corporate employees, professionals, self-employed individuals, and platform-based digital economy workers, will be able to hold and manage multiple schemes within the NPS through their Permanent Account Number (PAN).</p><p>&#183; The consolidated reporting system will allow subscribers to monitor their holdings at both scheme and aggregate levels, with account aggregation enabled across CRAs through PAN.</p><p>&#183; The notification added that PFRDA has allowed Pension Funds (PFs) to design schemes tailored to specific subscriber groups, such as digital economy workers, self-employed professionals, and corporate employees with employer co-contributions.</p><p>&#183; Each scheme must offer at least two variants ' moderate and high risk ' with equity allocation permitted up to 100 per cent in the high-risk category. Pension Funds may also introduce low-risk options at their discretion.</p><p>&#183; Exit provisions, including annuitisation requirements, will continue to be governed by the PFRDA (Exits and Withdrawals under the NPS) Regulations.</p><p>&#183; Switching from schemes launched under MSF to common schemes will be permitted during the vesting period. Switching between Section 20(2) schemes will be allowed only after a minimum vesting period of fifteen years or at the time of normal exit.</p><p>&#183; The regulator said that the cost structure of the MSF has been designed to remain low in line with NPS principles, with total charges capped at 0.30 per cent of Assets Under Management annually.</p><p>&#183; An additional incentive of 0.10 per cent will be available to Pension Funds that attract more than 80 per cent new subscribers to a scheme, applicable for three years from launch or until the scheme reaches 50 lakh subscribers, whichever is earlier.</p><p>&#183; All new schemes will require prior approval of PFRDA, must adhere to prescribed investment norms, and will be benchmarked against relevant market indices.</p><p>&#183; Pension Funds will also be mandated to publish a standardised 'NPS Scheme Essentials' document covering details such as scheme objectives, asset allocation, risks, vesting provisions, switching and exit rules, fee structure, and fund manager details.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Consider the following statements regarding RBI's recent initiative on unclaimed deposits, in September 2025. Identify the CORRECT Statement(s) regarding this. </p><p>I. Unclaimed deposits are those savings or current accounts not operated for 10 years, or term deposits unclaimed within 10 years from maturity, which are transferred to the Depositor Education and Awareness Fund of the RBI. </p><p>II. The special settlement drive for unclaimed funds will run from October to December 2025, with the first camp scheduled in Gujarat. </p><p>III. As of June 2025, unclaimed deposits in banks stood at around Rs. 47,003 crores, and the Udgam portal currently covers 60% of such deposits in value terms.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "II and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Reserve Bank of India (RBI) has asked all banks to beef up settlements of unclaimed funds ' deposits, dividends, interest warrants, pensions, etc ' over the next three months (October to December) to reduce such funds in the banking system. Balances in savings or current accounts that have not been operated for 10 years, or term deposits not claimed within 10 years from the date of maturity, are classified as 'unclaimed deposits'. These amounts are transferred by banks to the Depositor Education and Awareness Fund maintained by the RBI. Depositors, however, are still entitled to claim the deposits at a later date from the banks where they were held, along with applicable interest. In a communication to banks, the regulator said that in a recent meeting of the Financial Stability and Development Council, it was decided to hold district-level, week-long joint camps to settle unclaimed funds. The first camp is scheduled for the first week of October in Gujarat, and more such camps will be held across the country until December. The State Level Bankers' Committee (SLBC) has been given primary responsibility to lead this initiative in the respective states.</p><p>&#183; SLBCs have been asked to strive for maximum claim settlement during the special drive period from October to December.</p><p>&#183; Banks have been asked to prepare district-wise lists of unclaimed deposits and share them with respective branches to contact the rightful claimants. The SLBC has been asked to review unclaimed deposit data in the state and districts.</p><p>&#183; SLBC's review of unclaimed deposit data in the states and' districts will be based on ageing profile and bucket-wise concentration, to provide appropriate strategy guidance to member banks.'</p><p>&#183; The committee has also been asked to liaise effectively with state government departments and agencies, draw their attention to unclaimed deposits pertaining to the state government, and ensure their active support in logistics, selection of venues for camps, and verification with the death registry.'</p><p>&#183; Banks have been requested to ensure due care and give personal attention to make the initiative successful and reduce unclaimed funds in the system.'</p><p>&#183; According to the RBI, the growing volume of unclaimed deposits arises mainly due to the non-closure of savings or current accounts that depositors no longer intend to operate, or due to not submitting redemption claims for matured fixed deposits. There are also cases of accounts belonging to deceased depositors, where nominees or legal heirs do not come forward to make a claim on the bank(s) concerned.</p><p>&#183; In July, Parliament was informed that unclaimed deposits with banks, including private lenders, stood at around '67,003 crore at the end of June 2025.</p><p>&#183; The Unclaimed Deposits ' Gateway to Access (Udgam) information portal, developed by the RBI, allows registered users to search unclaimed deposits/accounts across multiple banks in one centralised location.</p><p>&#183; As of March 4, 2024, 30 banks are part of the Udgam portal, covering around 90 per cent of unclaimed deposits in value terms.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>According to a research paper published in the Reserve Bank of India (RBI) Bulletin, Bank credit expansion moderated during 2024-25 (FY25), but non-bank sources, both domestic and foreign, played a key role in bridging the funding gap for India's commercial sector. Identify the CORRECT Statement(s) regarding this. </p><p>I. Non-bank domestic sources contributed Rs. 3.7 trillion, mainly due to buoyant equity issuances and higher NBFC lending. </p><p>II. Outstanding credit from non-bank sources at the end of March 2025 stood at Rs. 88.9 trillion, which was 26.9% of GDP. </p><p>III. The services sector accounted for the largest share of India's gross FDI inflows in 2024, followed by transport and agriculture.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "II and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Bank credit expansion moderated during 2024-25 (FY25), but non-bank sources, both domestic and foreign, played a key role in bridging the funding gap for India's commercial sector, according to a research paper published in the Reserve Bank of India (RBI) Bulletin. The increase in funding from non-bank sources was largely driven by equity issuances amid buoyancy in the domestic equity market, credit extended by non-banking financial companies (NBFCs), and a rebound in short-term external credit.</p><p>&#183; According to the paper, flows from non-bank domestic sources rose by '3.7 trillion during FY25, mainly due to a rise in equity issuances amid buoyancy in the domestic equity market and an increase in credit by NBFCs. Flows from non-bank foreign sources increased by '80,000 crore during the same period, primarily reflecting a rise in short-term credit from abroad as India's merchandise imports rebounded.</p><p>&#183; Among the major non-bank credit sources, NBFCs remained dominant. Industry and retail sectors received a larger share of NBFCs' credit, with the power sector accounting for the bulk of credit to industries at the end of March 2024.</p><p>&#183; Outstanding credit from non-bank sources rose to '88.9 trillion, 26.9 per cent of gross domestic product (GDP), from '77.6 trillion, 25.7 per cent of GDP, at the end of March 2024. Consequently, total outstanding credit from banks and non-bank sources to the commercial sector increased to '270.9 trillion at the end of March 2025, from '241.7 trillion at the end of March 2024.</p><p>&#183; Regarding external sources of funding, foreign direct investment (FDI) continues to play a major role. During FY25, net FDI flows to India increased despite higher repatriation. The services sector accounted for the largest share of gross FDI inflows in 2024, followed by manufacturing, electricity and other energy sectors, retail and wholesale trade, and transport.</p><p>&#183; External commercial borrowings remain an important channel for corporations to access long-term foreign capital. Short-term credit from abroad also increased during FY25 amid a rebound in India's merchandise imports.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Consider the following statements regarding RBI's new guidelines on digital payment authentication effective from April 1, 2026. Identify the INCORRECT Statement(s) regarding this. </p><p>I. The guidelines mandate two factors of authentication for all digital payments, with at least one authentication dynamically created and unique to each transaction. </p><p>II. SMS-based OTPs will be discontinued under the new rules, with biometric authentication made compulsory. </p><p>III. Card issuers must validate the additional factor of authentication (AFA) in non-recurring cross-border card-not-present (CNP) transactions when requested by overseas merchants or acquirers.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "II and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Reserve Bank of India (RBI) has mandated two factors of authentication for all types of digital payments in the country from April 1, 2026, to strengthen transaction security. As per the RBI, at least one form of authentication for a transaction must be dynamically created or proven. This means the proof of possession of this authentication should be unique to that transaction. According to the new guidelines, authentication measures include password, SMS-based one-time password (OTP), passphrase, PIN, card hardware, software token, fingerprint, or other biometrics (device-native or Aadhaar-based). Currently, authentication for digital payments relies largely on SMS-based OTPs. Under the new rules, additional measures including biometrics can be implemented. However, the RBI clarified that the new rules do not call for the discontinuation of SMS-based OTPs as an authentication factor.</p><p>&#183; The authentication factors should be such that compromise of one does not affect the reliability of the other.</p><p>&#183; 'The guidelines focus on encouraging the introduction of new factors of authentication by leveraging technological advancements. Issuers may adopt additional risk-based checks beyond the minimum two-factor authentication based on the fraud risk perception of the underlying transaction,' the RBI added.</p><p>&#183; The guidelines also mandate card issuers to validate the additional factor of authentication (AFA) in non-recurring cross-border card-not-present (CNP) transactions whenever requested by the overseas merchant or acquirer.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Consider the following statements regarding RBI's announcement on Ways and Means Advances (WMA) and Government borrowing for H2 of FY 2025-26. Identify the INCORRECT Statement(s) regarding this. </p><p>I. The WMA limit for the second half of FY 2025-26 has been fixed at Rs. 50,000 crore, and the RBI may trigger fresh floatation of market loans once 75% of this limit is utilised. </p><p>II. The Government of India plans to borrow Rs. 6.77 lakh crore in H2 of FY 2025-26, including Rs. 10,000 crore through Sovereign Green Bonds (SGrBs). </p><p>III. The share of 10-year securities in the borrowing programme has been fixed at 18.4% of the total, making it the single largest maturity category.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "I and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Reserve Bank of India, in consultation with the Government of India, has decided that the limit for Ways and Means Advances (WMA) for the second half of the financial year 2025-26 (October 2025 to March 2026) will be '50,000 crore. Reserve Bank of India may trigger fresh floatation of market loans when the Government of India utilises 75 per cent of the WMA limit. Reserve Bank of India, in consultation with the Government of India, retains the flexibility to revise the WMA limit at any time taking into consideration the prevailing circumstances. The interest rate on WMA/Overdraft will be as under: WMA: Repo Rate Overdraft: Two percent above the Repo Rate</p><p>&#183; The Government of India, in consultation with the Reserve Bank of India, has finalized its borrowing programme for the second half (H2) of FY 2025-26.</p><p>&#183; Government of India plans to borrow '6.77 lakh crore in the second half of the fiscal year 2025-26 (H2: FY 2025-26) through dated securities, including '10,000 crore through issuance of Sovereign Green Bonds (SGrBs).</p><p>&#183; The Gross Market Borrowing of '6.77 lakh crore shall be completed through 22 weekly auctions till March 6, 2026.'The market borrowing will be spread over 3, 5, 7, 10, 15, 30, 40 and 50 year securities. The share of borrowing'(including SGrBs)'under different maturities will be: 3-year (6.6%), 5-year (13.3%), 7-year (8.1%), 10-year (28.4%), 15-year (14.2%), 30-year (9.2%), 40-year (11.1%) and 50-year (9.2%).</p><p>&#183; The Government will continue to carry out switching/buyback of securities to smoothen the redemption profile.</p><p>&#183; The Government will continue to reserve the right to exercise greenshoe option to retain an additional subscription of up to '2,000 crore against each of the securities indicated in the auction notifications.</p><p>&#183; Weekly borrowing through issuance of Treasury Bills in the third quarter (Q3) of FY 2025-26 is expected to be '19,000 crore for 13 weeks with issuance of '7,000 crore under 91 DTBs, '6,000 crore under 182 DTBs and '6,000 crore under 364 DTBs, respectively.</p><p>&#183; To take care of temporary mismatches in Government payments and receipts, , the Reserve Bank of India has fixed the Ways and Mean Advances (WMA) limit for H2 of FY 2025-26 at '50,000 crore.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Consider the following statements regarding the RBI (Settlement of Claims in respect of Deceased Customers of Banks) Directions, 2025. Identify the INCORRECT Statement(s) regarding this. </p><p>I. Banks must settle claims in respect of deceased customers' deposit accounts within 15 calendar days from the date of receipt of all required documents. </p><p>II. For co-operative banks, the threshold limit for simplified settlement of claims without nomination/survivorship clause is '15 lakh, while for other banks it is Rs. 5 lakhs. </p><p>III. In case of delay attributable to the bank, compensation shall be paid at not less than the prevailing Bank Rate 4% per annum for deposits, while for lockers/articles in safe custody, it is '5,000 per day.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "I and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Reserve Bank issued revised norms for the settlement of claims on deceased customers' bank accounts and lockers within a 15-day timeframe and prescribed compensation to nominees for delays in the settlement. The revised instructions are aimed at streamlining the divergent practices followed by banks in the settlement of claims in respect of deceased customers. It has also standardised the documentation to bring improvement in the quality of customer service. The central banks said the 'Reserve Bank of India (Settlement of Claims in respect of Deceased Customers of Banks) Directions, 2025' revised instructions will be implemented as expeditiously as possible, but not later than March 31, 2026. The central banks said the 'Reserve Bank of India (Settlement of Claims in respect of Deceased Customers of Banks) Directions, 2025' revised instructions will be implemented as expeditiously as possible, but not later than March 31, 2026. A deposit account where a depositor had made a nomination or where the account was opened with a survivorship clause, the payment of the outstanding balance upon the death of the depositor(s) to the nominee(s)/ survivor(s) shall be considered a valid discharge of a bank's liability, the RBI said.</p><p>&#183; In cases where accounts are without a nominee/survivorship clause, banks have been asked to adopt a simplified procedure for settlement of claims in cases where the aggregate amount payable is less than the threshold limit.</p><p>&#183; Threshold limit means Rs 5 lakh in case of a co-operative bank and Rs 15 lakh in case of any other bank or such higher limit as may be fixed by the bank, including a co-operative bank.</p><p>&#183; In cases where the amount is above the threshold limit, the bank may ask for additional documents like a succession certificate or a legal heir certificate.</p><p>&#183; The RBI's latest directions also prescribe norms for the settlement of claims not falling under the simplified procedure.</p><p>&#183; It also details norms to be followed for the settlement of claims in a safe deposit locker and articles in safe custody by a deceased customer.</p><p>&#183; On the time limit for settlement of claims, the RBI said a bank shall settle a claim in respect of deposit accounts of a deceased customer within a period not exceeding 15 calendar days from the date of receipt of all the required documents associated with the claim.</p><p>&#183; \"In case of safe deposit locker/ articles in safe custody, the bank shall, within 15 calendar days of receipt of all the required documents, process the claim and communicate with the claimant(s) for fixing the date for making inventory of the locker/articles in safe custody,\" the central bank said.</p><p>&#183; If any deposit-related claim is not settled within the timeframe stipulated, the RBI said, then the bank will communicate the reasons for such delay to the claimant(s).</p><p>&#183; \"Further, in cases of delay attributable to the bank, compensation shall be paid by the bank in the form of interest, at a rate not less than the prevailing Bank Rate 4 per cent per annum, on the settlement amount due for the period of delay,\" it said.</p><p>&#183; For claims related to safe deposit locker/ articles in safe custody, the bank will be required to pay compensation to the claimant(s) at the rate of Rs 5,000 for each day of delay, in cases where it doesn't adhere to the timeline.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>The government notified a revised schedule of central goods and services tax (CGST) rates, superseding the original 2017 schedules. The notification issued by the finance ministry will come into force on September 22. Consider the following statements regarding the revised Central Goods and Services Tax (CGST) schedules notified in September 2025 and identify the INCORRECT Statement(s) regarding this.</p><p>I. Schedule I covers essential commodities like dairy products, cereals, medicines, and renewable energy devices, taxed at 2.5% CGST (5% GST).</p><p>II. Schedule III attracts 20% CGST (40% GST) and includes luxury/demerit goods such as high-end cars, energy drinks, and online money gaming.</p><p>III. Schedule V prescribes the highest notified rate of 14% CGST (28% GST), applicable to tobacco-related products.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The government notified a revised schedule of central goods and services tax (CGST) rates, superseding the original 2017 schedules. The notification issued by the finance ministry will come into force on September 22. The changes cover seven schedules, with CGST rates notified at 2.5, 9, 20, 1.5, 0.125, 0.75 and 14 per cent. States will separately issue their own notifications for the state goods and services tax (SGST) at the same rates. Under the new framework, Schedule I items will attract 2.5 per cent CGST, meaning a total levy of 5 per cent once the SGST component is added, as the two are charged in equal proportion.</p><p>&#183; This schedule largely covers essential commodities and primary goods, including dairy products such as milk powder, yoghurt, butter and ghee; packaged food grains and cereals such as rice, wheat and pulses; as well as spices, tea, coffee, dried fruits, nuts, honey, edible oils, medicines, fertilisers, soaps, toothpaste, incense sticks and renewable energy devices such as solar panels, windmills and biogas plants.</p><p>&#183; Schedule II attracts 9 per cent CGST (18 per cent GST), applying to a broader set of industrial inputs, intermediate goods, textiles and consumer products. Goods under Schedule III attract 20 per cent CGST (40 per cent GST). This schedule covers luxury and demerit items such as aerated waters and energy drinks, high-end passenger cars and SUVs, hybrid vehicles above specified engine capacity, motorcycles exceeding 350 cc, personal-use aircraft, yachts and revolvers and pistols. It also includes actionable claims by way of betting, casinos, horse racing, lottery and online money gaming.'</p><p>&#183; Schedule IV specifies 1.5 per cent CGST (3 per cent GST) for pearls, gold, silver and jewellery, while Schedule V prescribes the lowest rate of 0.125 per cent CGST (0.25 per cent GST) for precious stones and diamonds. Schedule VI sets 0.75 per cent CGST (1.5 per cent GST) for certain specialised inputs, while Schedule VII notifies 14 per cent CGST (28 per cent GST) on tobacco-related products.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Consider the following statements regarding India's recent inclusion of natural heritage sites in UNESCO's Tentative List. Identify the INCORRECT Statement(s) regarding this.</p><p>I. With the inclusion of seven new sites, India's total on the Tentative List has increased from 62 to 69, comprising 49 cultural, 17 natural, and 3 mixed heritage properties.</p><p>II. The Naga Hill Ophiolite in Nagaland represents oceanic crust uplifted onto continental plates, providing insights into tectonic processes and mid-ocean ridge dynamics.</p><p>III. Inclusion in the Tentative List automatically qualifies a site for the UNESCO World Heritage List.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and III Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>In a moment of national pride, seven remarkable natural heritage sites from across the country have been successfully included in UNESCO's Tentative List of World Heritage Sites, increasing India's count on the Tentative List from 62 to 69 properties. With this inclusion, India now has a total of 69 sites under consideration by UNESCO, comprising 49 cultural, 17 natural, and 3 mixed heritage properties. This accomplishment reaffirms India's unwavering commitment to preserving and promoting its extraordinary natural and cultural legacy.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>The Department of Posts introduced Speed Post on 1st August 1986 to provide fast and reliable delivery of letters and parcels across the country. Identify the CORRECT Statement(s) regarding this. </p><p>I. The tariff of Inland Speed Post was last revised in October 2012 and will again be revised effective from 1st October 2025. </p><p>II. A nominal charge of Rs. 10/- per item, plus applicable GST, will apply for both 'Registration' and 'OTP Delivery' services under Speed Post. </p><p>III. To promote accessibility, students are eligible for a 10% discount on Speed Post tariff, while new bulk customers are eligible for a 5% discount.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "I and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Department of Posts introduced Speed Post on 1st August 1986 to provide fast and reliable delivery of letters and parcels across the country. Launched as part of India Post's modernization efforts, the service was designed to ensure time-bound, efficient, and secure mail delivery. Over the years, Speed Post has emerged as one of the most popular and trusted mail services in India, standing strong against private courier companies. Since its inception, Speed Post has continued to evolve to meet changing customer needs. To further strengthen its position as the preferred delivery service in the country, it has now been upgraded with the following new features aimed at enhancing reliability, security, and customer convenience:</p><p>&#183; OTP-based secure delivery</p><p>&#183; Online payment facility</p><p>&#183; SMS-based delivery notifications</p><p>&#183; Convenient online booking services</p><p>&#183; Real-time delivery updates</p><p>&#183; Registration facility for users</p><p>The tariff of Inland Speed Post was last revised in October 2012. In order to sustain ongoing improvements, meet rising operational costs, and invest in new innovations, the tariff of Speed Post (documents) has now been rationally revised. The revised tariff will be effective from 1st October 2025, as notified vide Gazette Notification No. 4256 dated 25.09.2025.'</p><p>&#183; Registration is also available as a value-added service under speed post for both documents and parcels, customers can have addressee specific secured delivery specifically designed to bring trust and speed together. A nominal charge of '5/- per Speed Post item (Document/Parcel), plus applicable GST, will be levied for the value-added service of 'Registration', wherein the item will be delivered exclusively to the addressee or a person duly authorised by the addressee.</p><p>&#183; Similarly, a charge of '5/- per Speed Post item (Document/Parcel), plus applicable GST, will apply for the value-added service of 'One-Time Password (OTP) Delivery'. Under this feature, the item will be handed over to the addressee only upon successful confirmation of the OTP shared with the delivery staff.</p><p>&#183; To enhance accessibility of Speed Post services for students, 10% discount on Speed Post tariff has been introduced.' Besides, special discount of 5% discount have been introduced for new bulk customers.</p><p>&#183; These initiatives are part of India Post's ongoing journey of evolving into a more secure, transparent, and technology-enabled service provider. By introducing sustainable innovations and trust-enhancing features, Speed Post continues to adapt to the changing needs of customers while reaffirming its position as the nation's most reliable and affordable delivery partner.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>The Government of India has notified the National Policy on Geothermal Energy (2025), reinforcing its commitment towards achieving the ambitious 2070 Net Zero Goal and strengthening the country's energy security through diversified renewable energy sources. Identify the CORRECT Statement(s) regarding this.</p><p>I. The policy aims to promote electricity generation, space heating/cooling, agriculture, tourism, and desalination using geothermal energy.</p><p>II. he Ministry of New and Renewable Energy (MNRE) will continue to monitor the progress while providing a conducive environment for developers, industries, and research institutions.</p><p>III. As a first step towards exploration of geothermal energy, the Ministry has sanctioned five projects in the sector.</p>",
+    "options": [
+      "II Only",
+      "I Only",
+      "I and II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Government of India has notified the National Policy on Geothermal Energy (2025), reinforcing its commitment towards achieving the ambitious 2070 Net Zero Goal and strengthening the country's energy security through diversified renewable energy sources. India, with its untapped geothermal resources, is poised to leverage this clean and reliable energy source for power generation and direct-use applications such as district heating, agriculture, aquaculture, and space cooling and heating via Ground Source Heat Pumps (GSHPs). The newly unveiled policy provides a comprehensive framework to promote exploration, development, and utilization of geothermal energy in India. </p><p><b>Key Highlights of the Policy</b></p><p>&#183; <b>Research and Best Practices</b>: Encourages research, inter-ministerial collaboration, and adoption of global best practices for geothermal energy development. Regulatory and stewardship responsibilities for geothermal energy will rest with the Ministry.</p><p>&#183; <b>Integration with National Goals</b>: Targets integration of geothermal energy with India's' <b>Net Zero (2070)</b>'and renewable energy objectives.</p><p>&#183; <b>Diverse Applications</b>: Focus on electricity generation, space heating/cooling, agriculture (greenhouses, cold storage), tourism, and desalination.</p><p>&#183; <b>Technological Innovation</b>: Promotes R&amp;D of advanced systems such as hybrid geothermal-solar plants, retrofitting abandoned oil wells, and Enhanced/Advanced Geothermal Systems (EGS/AGS).</p><p>&#183; <b>Local Innovation and Partnerships</b>: Emphasis on local innovation, joint ventures, and repurposing existing oil/gas infrastructure.</p><p>&#183; <b>Collaboration</b>: Partnerships with international geothermal bodies and pioneering nations, as well as collaboration with state governments, oil and gas companies, and research institutions.</p><p>&#183; <b>Ecosystem Development</b>: Building a robust public-private ecosystem for the long-term development of the geothermal sector.</p><p>&#183; <b>Capacity Building</b>: Promotes knowledge sharing and human resource development in the sector.</p><p>As a first step towards exploration of geothermal energy, the Ministry has'<b>sanctioned five projects</b>'in the sector. These include both pilot initiatives and resource assessment projects aimed at exploring the viability and potential of geothermal energy in India.</p><p>&#183; The'<b>Ministry of New and Renewable Energy (MNRE)</b>'will continue to monitor the progress while providing a conducive environment for developers, industries, and research institutions to actively participate in India's clean energy transition.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Consider the following statements regarding the recent expansion of Pradhan Mantri Ujjwala Yojana (PMUY). Identify the CORRECT Statement(s) regarding this. </p><p>I. With the release of 25 lakh additional LPG connections in FY 2025-26, the total number of PMUY connections will rise to 10.58 crore. </p><p>II. The Government has approved an expenditure of Rs. 676 crore for this expansion, which includes Rs. 512.5 crore for deposit-free connections, Rs. 160 crore for targeted LPG subsidy, and Rs. 3.5 crore for project management expenses. </p><p>III. Beneficiaries under PMUY are required to pay for the security deposit and the first refill, while the cost of the stove is borne by the Government of India.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "II and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Government has approved the release of 25 lakh additional LPG connections under the Pradhan Mantri Ujjwala Yojana (PMUY) during the Financial Year 2025-26, in a major step towards women empowerment. With this expansion, the total number of PMUY connections will rise to 10.58 crore. Under PMUY, beneficiaries receive a deposit-free LPG connection that covers the security deposit of cylinder, pressure regulator, suraksha hose, Domestic Gas Consumer Card (DGCC) booklet, and installation charges.</p><p>&#183; In addition, the first refill and stove are also provided free of cost. Beneficiaries are not required to make any payment for the LPG connection, the first refill, or the stove, as these costs are borne by the Government of India and the Oil Marketing Companies (OMCs). Beneficiaries have the flexibility to choose from a 14.2 kg single bottle connection, a 5 kg single bottle connection, or a 5 kg double bottle connection.</p><p>&#183; The Government has approved an expenditure of '676 crore for the release of these connections, which includes '512.5 crore for providing 25 lakh deposit-free connections at the rate of '2,050 per connection, '160 crore for targeted subsidy of '300 per 14.2 kg domestic LPG cylinder (for up to nine refills per year, proportionately pro-rated for 5 kg cylinders), and '3.5 crore towards project management expenses, transaction and SMS charges, Information, Education &amp; Communication (IEC) activities, and administrative expenditure.</p><p>&#183; Launched in May 2016, PMUY initially targeted 8 crore deposit-free LPG connections, which was achieved in September 2019. To cover the remaining poor households, Ujjwala 2.0 was launched in August 2021 with a target of 1 crore additional connections, achieved by January 2022. Subsequently, the Government approved 60 lakh additional connections under Ujjwala 2.0, achieved in December 2022, and another 75 lakh connections, achieved by July 2024. As of July 2025, over 10.33 crore PMUY connections have been released across the country, making it one of the largest clean energy initiatives globally.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Consider the following statements regarding the 71st National Film Awards (2023). Identify the CORRECT Statement(s) regarding this. </p><p>I. 12th Fail received the Best Feature Film award, while Flowering Man won the Best Non-Feature Film award. </p><p>II. Shah Rukh Khan received his first National Film Award for Jawan, sharing the Best Actor award with Vikrant Massey for 12th Fail. </p><p>III. Rani Mukerji was honoured with the Best Actress award for Sam Bahadur, which was her first National Film Award.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "II and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The 71st National Film Awards lit up Vigyan Bhawan, New Delhi, with moments of pride, applause and standing ovations as the Hon'ble President of India, Smt. Droupadi Murmu, conferred honours on the finest talents of Indian cinema. The winners of the 71st National Film Awards for the year 2023 were announced by the respective juries. This year, the awards saw 332 entries in the feature film category, 115 in non-feature films, 27 books, and 16 critics' submissions. 12th Fail has been honoured with the Best Feature Film award at the 71st National Film Awards.</p><p>&#183; Flowering Man won the Best Non-Feature Film award, while God Vulture and Human was recognised as the Best Documentary. Both films earned their first National Film Award.</p><p>&#183; Shah Rukh Khan (Jawan) and Vikrant Massey (12th Fail) have been awarded the Best Actor award. This is the first National Film Award of Sharukh Khan in his career.</p><p>&#183; Rani Mukerji was honoured with the Best Actress award for her powerful performance in Mrs. Chatterjee Vs Norway. This is also her first-ever National Film Award.</p><p>&#183; Veteran actor Vijayaraghavan and Muthupettai Somu Bhaskar were awarded Best Supporting Actor.</p><p>&#183; The announcement was made by Shri Ashutosh Gowariker (Feature Film Jury Chairperson), Shri P. Sheshadri (Non-Feature Film Jury Chairperson), and Dr. Ajay Nagabhushan MN, Joint Secretary (Films). Ms. Mattu J. P. Singh, Director General, PIB, was also present on the occasion.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>As per the GII 2025, Sweden ranks 2ndglobally in both Business sophistication and Creative outputs and leads in theindicators Researchers (1st), Global brand value (2nd), Gross expenditure onR&amp;D (3rd) and Knowledge-intensive employment (3rd). Identify which of the following statement(s) is/are not correct in context of this?</p><p>I. Sweden and the United States of America retain their 2nd and 3rd positions for the third year in a row.</p><p>II. Finland (7th) and the Netherlands (8th) maintain a strong position within the top 10.</p><p>III. The United Arab Emirates advances to 28th place, in 2025, marking continued progress and its best rank to date.</p>",
+    "options": [
+      "I and II Only",
+      "II and III Only",
+      "I and II Only",
+      "III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Switzerland remains the world's innovation leader in 2025. China enters the top 10 for the first time, while middle-income economies ' India, Trkiye, Viet Nam, the Philippines, Indonesia, Morocco, Albania and Iran ' are the fastest climbers since 2013. Sweden and the United States of America retain their 2nd and 3rd positions for the third year in a row. India strengthens its lead in Central and Southern Asia, rising to 38th place. It performs exceptionally well in areas such as ICT services exports (1st), Late-stage VC deals (4th), Intangible asset intensity (8th), and Unicorn valuation (11th), reflecting its growing innovation-driven economy. India strengthens its lead in Central and Southern Asia, rising to 38th place. It performs exceptionally well in areas such as ICT services exports (1st), Late-stage VC deals (4th), Intangible asset intensity (8th), and Unicorn valuation (11th), reflecting its growing innovation-driven economy. <b>Sweden ranks 2nd</b>'globally in both Business sophistication and Creative outputs and leads in the'indicators'Researchers (1st), Global brand value (2nd), Gross expenditure on'R&amp;D' (3rd) and Knowledge-intensive employment (3rd).</p><p>&#183; The United States holds the top spot in both Market and Business sophistication. It leads in gross expenditure on R&amp;D (4th), in Global corporate R&amp;D investors (1st) and performs exceptionally well in R&amp;D performed and financed by business (4th'and 5th, respectively), underscoring the central role of the private sector in driving innovation.</p><p>&#183; The'<b>Republic of Korea</b>'climbs to 4th'place in 2025 ' its highest position to date. It leads globally in the Human capital and research pillar and ranks'among the top three worldwide for Researchers (2nd), overall'R&amp;D expenditure'(2nd),'R&amp;D'performed by business'(1st), Researchers in businesses (1st), and PCT patents by inventor origin (3rd).</p><p>&#183; <b>Finland'</b>(7th) and'<b>the Netherlands</b>'(8th) maintain a'strong position'within the top 10. Finland excels in Infrastructure (3rd), while the Netherlands ranks 6th'in Creative outputs, reflecting a balanced innovation ecosystem. Denmark advances one position to 9th, supported by a'top-tier performance in Institutions (2nd), ICT access (1st), and Online creativity (5th).</p><p>&#183; Japan moves up one position to 12th'in 2025' its highest rank since 2011. It continues to excel in high-technology and R&amp;D, ranking 2nd'in Patent families and 3rd'in'R&amp;D performed by business. Strong results in Business sophistication (6th) further reflect the depth of Japan's industrial innovation capabilities.'</p><p>&#183; 'Israel climbs one position to 14th. It ranks 1st'in overall'R&amp;D expenditure, VC received, University'industry'R&amp;D collaboration, and'R&amp;D performed by business, showcasing a vibrant and well-funded innovation ecosystem.</p><p>&#183; Ireland rises one rank to 18th'and solidifies its place within the top 20. It continues to benefit from its strong ICT sector, ranking 1st'in ICT services exports and Intellectual'property (IP) payments, 2nd'in Intangible asset intensity, and 3rd'in Software spending.'</p><p>&#183; The'<b>United Arab Emirates</b>'advances to 30th'place, in 2025, marking continued progress and its best rank to date. The United Arab Emirates has top-tier rankings in Institutions (7th), Business sophistication (28th), plus a highly internationalized higher education system. It performs well in Business environment (2nd) and remains a benchmark in areas such as ICT access (6th), ICT use (7th) and Government online services (16th).</p><table style=\"border-collapse:collapse;\"><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Income Group Rank</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>GII Rank</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Economy</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Income Group Rank</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>GII Rank</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\"><b>Economy</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"3\"><b>High Income Economies (54 in total)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"3\"><b>Upper Middle Income Economies (36 in total)</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Switzerland</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">China</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Sweden</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">34</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Malaysia</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">United States</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">43</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Turkiye</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Republic of Korea</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">45</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Thanland</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Singapore</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">52</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Brazil</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">United Kingdom</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">53</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Mauritius</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Finland</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">54</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Serbia</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Netherlands</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">55</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Indonesia</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Denmark</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">56</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Georgia</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">11</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Germany</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">58</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Mexico</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"3\"><b>Lower Middle Income Economies (37 in total)</b></td><td align=\"left\" style=\"border:1px solid black;padding:5px;\" colspan=\"3\"><b>Low Income Economies (11 in total)</b></td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">38</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">India</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">1</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">104</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Rwanda</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">44</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Vietnam</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">2</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">117</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Togo</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">50</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Philippines</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">3</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">120</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Madagascar</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">57</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Morocco</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">4</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">124</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Uganda</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">65</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Jordon</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">5</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">125</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Malawi</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">76</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Tunisia</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">6</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">126</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Burkina Faso</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">79</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Uzekistan</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">7</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">127</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Burundi</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">86</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Egypt</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">8</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">128</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Mozambique</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">89</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Senegal</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">9</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">134</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Ethiopia</td></tr><tr><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">90</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Lebanon</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">10</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">135</td><td align=\"left\" style=\"border:1px solid black;padding:5px;\">Mali</td></tr></table>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>The free trade agreement between India and the four-nation European bloc EFTA will come into force from Oct 1 2025 under which New Delhi has received an investment commitment from the grouping while allowing several products such as Swiss watches, chocolates and cut and polished diamonds at lower or zero duties. Which of the following statement(s) is/are CORRECT in context of this?</p><p>I. Under TEPA, EFTA committed $100 billion investment in India over 15 years, with $50 billion in the first 10 years and $50 billion in the subsequent five years. </p><p>II. India offered tariff concessions covering 82.7% of its tariff lines, which account for 95.3% of EFTA's exports, of which more than 80% are gold. </p><p>III. TEPA is the first trade agreement signed by India with developed countries from the Western Hemisphere.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "I and III Only",
+      "I, II and III"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The free trade agreement between India and the four-nation European bloc EFTA will come into force from Oct 1 2025 under which New Delhi has received an investment commitment of $100 billion in 15 years from the grouping while allowing several products such as Swiss watches, chocolates and cut and polished diamonds at lower or zero duties. The European Free Trade Association (EFTA) members are Iceland, Liechtenstein, Norway, and Switzerland. It was signed on March 10, 2024.</p><p>&#183; Domestic customers will get access to high-quality Swiss products such as watches, chocolates, biscuits, and clocks at lower prices as India will phase out customs duties under the trade pact on these goods over 10 years.</p><p>&#183; The bloc committed an investment of $100 billion -- $50 billion within 10 years after the implementation of the agreement and another $50 billion in the next five years - which would facilitate the creation of one million direct jobs in India.</p><p>&#183; This is a first-of-its-kind pledge agreed upon in any of the trade deals signed by India so far.</p><p>&#183; There is a provision in the pact, officially known as Trade and Economic Partnership Agreement (TEPA), that if the proposed investments would not come because of some reasons, India can re-balance or suspend the duty concessions to the four countries.</p><p>&#183; Commerce and Industry Minister Piyush Goyal on Monday reiterated that the TEPA will come into force from October 1.</p><p>&#183; India is offering 82.7 per cent of its tariff lines or product categories, which covers 95.3 per cent of EFTA exports of which more than 80 per cent of imports are gold.</p><p>&#183; Sectors such as dairy, soya, coal and sensitive agricultural products are kept on the exclusion list and there will not be any duty concessions on these goods.</p><p>&#183; In the services sector, India has offered 105 sub-sectors to the EFTA like accounting, business services, computer services, distribution and health.</p><p>&#183; On the other hand, the country has secured commitments in 128 sub-sectors from Switzerland, 114 from Norway, 107 from Liechtenstein, and 110 from Iceland.</p><p>&#183; Segments where Indian services will get a boost include legal, audio-visual, R&amp;D, computer, accounting, and auditing.</p><p>&#183; Further the pact would provide an opportunity for domestic exporters to integrate into EU (European Union) markets. Over 40 per cent of Switzerland's global services exports are to the EU. Indian companies can look to Switzerland as a base for extending their market reach to the EU.</p><p>&#183; TEPA was the 14th trade deal that India has signed with individual countries and regional blocs. TEPA is the first trade agreement with developed countries from the Western Hemisphere.</p><p>&#183; This will be the fifth agreement of the Modi-led government. India signed pacts with Mauritius, the UAE, UK, and Australia. Talks are at an advanced stage with the US, Oman, EU, Chile, New Zealand and Peru for FTAs.</p><p>&#183; India's exports to the EFTA bloc rose by 1.22 per cent to $1.97 billion in 2024-25 from $1.94 billion in 2023-24. Imports jumped to $22.44 billion in 2024-25 from $22.05 billion in 2023-24. The two way trade stood at $24.41 billion in the last fiscal. The trade gap is in the favour of the bloc with a $20.47 trade deficit in 2024-25.</p><p>&#183; The biggest trading partner of India in the bloc is Switzerland (exports $1.47 billion and imports $21.8 billion in 2024-25), which already has zero customs duties on almost all industrial goods.</p><p>&#183; India has low trade volumes with the remaining three countries - Iceland (exports $66 million and imports $11 million in 2024-25), Liechtenstein (exports $0.41 million and imports $1.82 million in 2024-25), and Norway (exports $425 million and imports $632.8 million in 2024-25).</p><p>&#183; India has received $10.87 billion foreign direct investment (FDI) from Switzerland during April 2000 and June 2025. It was $54.07 million from Iceland; $110.26 million from Liechtenstein; and $941.81 million from Norway.</p><p>&#183; EFTA countries are not part of the European Union (EU). It is an inter-governmental organisation for the promotion and intensification of free trade. It was founded as an alternative for states that did not wish to join the European community.</p><p>&#183; India is negotiating a comprehensive free trade agreement separately with the EU, the 27-nation bloc.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>The Ministry of Tribal Affairs, in partnership with the United Nations in India, today launched the Adi Yuva Fellowship and the Adi Karmayogi Volunteers Programme under the Adi Karmayogi Abhiyan. Identify the INCORRECT Statement(s) regarding this. </p><p>I. The Adi Karmayogi Abhiyan, launched on 17 September 2025, aims to directly engage 11 crore citizens across tribal villages and is part of Janjatiya Gaurav Varsh (15 Nov 2024 ' 15 Nov 2025). </p><p>II. The Adi Yuva Fellowship, supported by UN India, will provide selected tribal youth with a 12-month paid Fellowship, monthly allowance, insurance, mentorship, and access to skilling schemes like PMKVY 4.0 and NAPS. </p><p>III. The Adi Karmayogi Volunteers initiative, supported by UNICEF, has deployed 82 volunteers in 13 districts of Madhya Pradesh and Rajasthan for grassroots engagement in Village Vision 2030 planning.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "II and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Ministry of Tribal Affairs, in partnership with the United Nations in India, today launched the Adi Yuva Fellowship and the Adi Karmayogi Volunteers Programme under the Adi Karmayogi Abhiyan, a flagship initiative envisioned as the world's largest tribal grassroots leadership movement. The Adi KarmayogiAbhiyan was inaugurated by Hon'ble Prime Minister Shri Narendra Modi on 17 September 2025 as part of Janjatiya Gaurav Varsh (15 Nov 2024 ' 15 Nov 2025). It aims to directly engage 11 crore citizens across one lakh tribal-dominated villages in 550 districts of 30 States and Union Territories. As part of the initiative, the'<b>Adi SewaParv (17 September ' 2 October 2025)</b>'is underway, during which tribal communities and government officials will collaboratively prepare'<b>Tribal Village Vision 2030 Action Plans</b>'to chart local development pathways towards inclusive growth. <b>Adi Yuva Fellowship</b> The Adi Yuva Fellowship, supported by UN India, is a first-of-its-kind programme designed to empower tribal youth through'<b>structured learning, mentorship, and career development</b>.</p><p>&#183; Selected tribal youth will undertake a'<b>12-month paid Fellowship</b>, with a tailored learning plan that balances knowledge-building, on-the-job experience, and reflective practice.</p><p>&#183; Fellows will receive monthly allowances, comprehensive health and life insurance, and access to high-quality UN and commercial learning platforms.</p><p>&#183; The programme will link Fellows to national skilling and employability schemes such as'<b>PMKVY 4.0, NAPS, and PM Viksit Bharat Rozgar Yojana</b>, ensuring pathways to long-term careers.</p><p>&#183; Fellows will also benefit from structured mentorship, peer-to-peer learning, and exposure to national and international platforms.</p><p>The'<b>first batch of 16 Fellows</b>'will be selected next month through a competitive process and placed with UN agencies at the national, state, and district levels. <b>Adi Karmayogi Volunteers</b> The'<b>Adi Karmayogi Volunteers initiative</b>, supported by'<b>UNFPA</b>, will equip tribal youth to act as'<b>catalysts for grassroots change</b>'and strengthen last-mile service delivery in tribal regions.</p><p>&#183; <b>82 UN Community Volunteers as Adi karmayogi Volunteers supported by UNFPA</b>'have been deployed across'<b>82 blocks in 13 districts of Madhya Pradesh and Rajasthan</b>'for an intensive two-month grassroots engagement.</p><p>&#183; Volunteers will support'<b>Village Vision 2030 planning, awareness drives, outreach, and improved access to schemes and services</b>.</p><p>&#183; Their contribution will strengthen community participation and inclusive governance at the village level.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>As per the Mercedes-Benz Hurun India Wealth Report 2025, the distribution of wealth across states highlights the rise of southern and western India as the country's financial engines, while new hubs like Telangana and Haryana are emerging fast. Identify the INCORRECT Statement(s) regarding this. </p><p>I. Maharashtra, with a 19% income tax-to-GSDP ratio, tops both tax efficiency and millionaire household concentration, with Mumbai alone accounting for 80% of the state's millionaires. </p><p>II. Gujarat has the fifth-highest millionaire households, but with a tax-to-GSDP ratio of just 4%, much of its wealth lies outside the formal tax net. </p><p>III. Tamil Nadu ranks third in millionaire households, with 72,600, and its 9% tax-to-GSDP ratio makes it one of India's most tax-efficient states after Maharashtra and Delhi.</p>",
+    "options": [
+      "III Only",
+      "II Only",
+      "I and II Only",
+      "II and III Only",
+      "I Only"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>New data from the Mercedes-Benz Hurun India Wealth Report 2025 shows a clear link between states with higher income tax-to-GSDP ratios and the density of millionaire households. Maharashtra and Delhi, with tax collections of 19% and 18% of their GSDP respectively, also top the charts with the largest concentration of millionaires. India's wealth creation is booming, and its formalisation through taxes is accelerating. At the same time, the distribution of wealth across states highlights the rise of southern and western India as the country's financial engines, while new hubs like Telangana and Haryana are emerging fast. </p><p><b>Income Tax as Wealth's Mirror</b></p><p>&#183; The Income Tax as a % of GSDP metric offers a rare lens into the formalisation of India's economy.</p><p>&#183; Maharashtra collected'7.6 lakh crore in taxes in FY24, equivalent to 19% of its GSDP' the highest in the country.</p><p>&#183; Delhi followed closely with 18%.</p><p>&#183; Karnataka stood at 9%, while Tamil Nadu and Uttarakhand reported 5% each.</p><p>&#183; Gujarat and West Bengal were at 4%, highlighting relatively lower formalisation despite their industrial bases.</p><p>&#183; Contrast this with Uttar Pradesh (1.89%) and Bihar (0.78%), where large informal and agrarian economies keep tax efficiency low.</p><p><b>Key points to note:'</b></p><p>&#183; Maharashtra (19%) and Delhi (18%) top the list, driven by financial services, large corporations, and high-paying jobs, resulting in a high tax yield relative to their economic size.</p><p>&#183; Karnataka (9%), Chandigarh, and Haryana (7% each) follow closely, reflecting the strength of their world-class IT hubs and corporate centres, which generate substantial taxable income.</p><p>&#183; In contrast, states with a larger agrarian or informal sector show much lower ratios. For example, despite large populations, Uttar Pradesh (1.89%) and Bihar (0.78%) have a lower tax-to-GSD'ratio, highlighting a different economic structure and composition.</p><p><b>Millionaire Households Surge ' Tamil Nadu, Karnataka, Gujarat in Focus</b></p><p>&#183; India now has 8,71,700 millionaire households, and the growth is far from uniform. States that combine economic expansion with industrial or IT ecosystems have seen the sharpest rise.</p><p>&#183; Unsurprisingly, Maharashtra and Delhi lead the millionaire charts ' thanks to their strong economies and high tax yields.</p><p>&#183; Maharashtra: With a GSDP of over'40.5 lakh crore (comparable to Norway), Maharashtra tops the list with 1,42,000 millionaire households. Mumbai alone accounts for 80% of these, cementing its status as India's financial capital.</p><p>&#183; Delhi: With 68,200 millionaire households, the national capital contributes 85% of the UT's millionaire base. Real estate, high-value services, and corporate headquarters power Delhi's wealth machine. Its 18% tax-to-GSDP ratio underscores its highly formalised economy.</p><p>&#183; Tamil Nadu ranks third with 72,600 millionaire households, a 75% jump, driven by a 52% rise in GSDP and a 36% increase in active companies. The state is home to 119 individuals on the Hurun India Rich List 2024. Its tax-to-GSDP ratio is 5%, showing scope for deeper formalisation.</p><p>&#183; Karnataka is fourth with 68,800 millionaire households, up 88%. Fuelled by its tech and startup ecosystem, the state's GSDP jumped 56%, supported by 40% growth in active companies. Bengaluru alone accounts for 46% of Karnataka's millionaires. With a 9% tax-to-GSDP ratio, Karnataka is one of the most tax-efficient states after Maharashtra and Delhi.</p><p>&#183; Gujarat comes fifth with 68,300 millionaire households, marking an 89% rise. With a 50% jump in GSDP and 39% more active companies, the state remains India's industrial powerhouse. However, its 4% tax-to-GSDP ratio shows much of its wealth still lies outside the formal tax net.</p><p><b>The Next Tier: Telangana, Haryana, Uttar Pradesh</b></p><p>&#183; Other states are also emerging as wealth powerhouses:</p><p>&#183; Telangana recorded 138% growth in millionaire households, driven by its tech and pharma sectors. Its tax-to-GSDP ratio is 6%.</p><p>&#183; Haryana saw 91% growth in millionaires, supported by a 59% rise in active companies. With a 7% tax-to-GSDP ratio, Gurugram is at the centre of this surge.</p><p>&#183; Uttar Pradesh, India's most populous state, grew millionaire households by 58%. Its economy expanded 56%, yet its tax-to-GSDP ratio of 1.89% highlights the dominance of agriculture and the informal sector.</p><p><b>City-Wise Wealth: Mumbai, Delhi, Bengaluru Top the List</b> Wealth in India is city-driven, with metros hosting the densest clusters of millionaires:</p><p>&#183; Mumbai: 1,42,000 millionaire households.</p><p>&#183; New Delhi: 68,200.</p><p>&#183; Bengaluru: 31,600.</p><p>&#183; Ahmedabad: 26,800.</p><p>&#183; Kolkata: 26,600.</p><p>&#183; Chennai: 22,800.</p><p>&#183; Pune: 22,500.</p><p>&#183; Hyderabad: 19,800.</p><p>Emerging hubs include Gurugram (10,100), Surat (5,700), Jaipur (4,800), Vadodara (4,600), Nagpur (3,700), Vizag (2,900), and Lucknow (2,900).</p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

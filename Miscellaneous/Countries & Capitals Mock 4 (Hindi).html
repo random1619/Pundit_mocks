@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries & Capitals Mock 4 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>European Central Bank (ECB) is head-quartered in</p>",
+    "options": [
+      "Frankfurt",
+      "Geneva",
+      "Brussels",
+      "The Hague",
+      "Paris"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Treaty of Amsterdam established the European Central Bank in 1998, and it is headquartered in Frankfurt, Germany. The ECB is the central bank for the euro and administers monetary policy of the eurozone, which consists of 19 EU member states and is one of the largest currency areas in the world.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Which of the following is the last member inducted to BRICS?</p>",
+    "options": [
+      "India",
+      "China",
+      "Brazil",
+      "South Africa",
+      "Russia"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>BRICS is the acronym for an association of five major emerging national economies: Brazil, Russia, India, China and South Africa. Originally the first four were grouped as \"BRIC\" (or \"the BRICs\"), before the induction of South Africa in 2010.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Head-quarters of the International Police Organization (INTERPOL) is located in</p>",
+    "options": [
+      "Berlin",
+      "The Hague",
+      "Rome",
+      "Frankfurt",
+      "Lyon"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The International Police Organization or INTERPOL, is an intergovernmental organization facilitating international police cooperation. Its new headquarters were established in Saint-Cloud, a suburb of Paris. They remained there until 1989, when they were moved to their present location in Lyon.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Australia is the member of</p>",
+    "options": [
+      "Union of European Football Associations (UEFA)",
+      "Oceania Football Confederation (OFC)",
+      "South American Football Confederation (CONMEBOL)",
+      "Confederation of African Football (CAF)",
+      "Asian Football Confederation (AFC)"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Asian Football Confederation (AFC) is the governing body of association football in Asia and Australia. It has 47 member countries, mostly located on the Asian and Australian continent, but excludes the transcontinental countries with territory in both Europe and Asia  -  Azerbaijan, Georgia, Kazakhstan, Russia, and Turkey  -  which are instead members of UEFA.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>The head-quarters of Agreement on the Conservation of Albatrosses and Petrels (ACAP) located in</p>",
+    "options": [
+      "Lisbon",
+      "Hobart",
+      "Geneva",
+      "London",
+      "Paris"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Agreement on the Conservation of Albatrosses and Petrels (ACAP) is a legally binding international treaty signed in 2001 and entered into force on 1 February 2004 when South Africa ratified as the fifth Party to the Agreement. The Secretariat is located at 119 Macquarie Street, Hobart, Tasmania, Australia.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The Asian Infrastructure Investment Bank was proposed by</p>",
+    "options": [
+      "Philippines",
+      "China",
+      "Japan",
+      "India",
+      "Russia"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Asian Infrastructure Investment Bank (AIIB) is an multilateral development bank that aims to support the building of infrastructure in the Asia-Pacific region. The bank was proposed by China in 2013 and the initiative was launched at a ceremony in Beijing in October 2014.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>The 4<sup>th</sup> annual African Development Bank (AfDB) conference was held in which city of India in 2017?</p>",
+    "options": [
+      "New Delhi",
+      "Gandhinagar",
+      "Mumbai",
+      "Hyderabad",
+      "Pune"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>African Development Bank's(AfDB) 4<sup>th</sup> annual conference outside Africa, was held in India (Gandhinagar, Gujarat) in May 22-26<sup>th</sup> 2017. Previous conferences outside Africa were in Spain, China, Portugal.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>International Organization for Standardization (ISO) is head-quartered in</p>",
+    "options": [
+      "New Delhi",
+      "Washington DC",
+      "Frankfurt",
+      "London",
+      "Geneva"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The International Organization for Standardization (ISO) is an international standard-setting body composed of representatives from various national standards organizations. Founded on 23 February 1947, the organization promotes worldwide proprietary, industrial and commercial standards. It is headquartered in Geneva, Switzerland.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which of the following rounds of GATT negotiations was led to the creation of World Trade Organisation (WTO)?</p>",
+    "options": [
+      "Dillon Round",
+      "Kennedy Round",
+      "Tokyo Round",
+      "Uruguay Round",
+      "Doha Round"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Uruguay Round was the 8<sup>th</sup> round of multilateral trade negotiations (MTN) conducted within the framework of the General Agreement on Tariffs and Trade (GATT), spanning from 1986 to 1994 and embracing 123 countries as \"contracting parties\". The Round led to the creation of the World Trade Organization, with GATT remaining as an integral part of the WTO agreements.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>The United Nations Development Group (UNDG) is a consortium of many United Nations agencies, formed in</p>",
+    "options": [
+      "1995",
+      "1997",
+      "1946",
+      "1975",
+      "1966"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The United Nations Development Group (UNDG) is a consortium of many United Nations agencies, created by the Secretary-General of the United Nations in 1997 to improve the effectiveness of UN development activities at the country level.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Which among the following is not a founding member of Organization of the Petroleum Exporting Countries (OPEC)?</p>",
+    "options": [
+      "Iran",
+      "Qatar",
+      "Iraq",
+      "Saudi Arabia",
+      "Venezuela"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Organization of the Petroleum Exporting Countries (OPEC) is an intergovernmental organization of 14 nations as of May 2017, founded in 1960 in Baghdad by the first five members (Iran, Iraq, Kuwait, Saudi Arabia, Venezuela), and headquartered since 1965 in Vienna.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Which among the following is the non-European full-time member country of the European Organization for Nuclear Research (CERN)?</p>",
+    "options": [
+      "India",
+      "USA",
+      "Canada",
+      "Russia",
+      "Israel"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The European Organization for Nuclear Research (CERN), is a European research organization that operates the largest particle physics laboratory in the world. CERN is an official United Nations Observer. Established in 1954, the organization is based in a northwest suburb of Geneva on the Franco - Swiss border, and has 22 member states. Israel is the only non-European country granted full membership.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>The capital of Ecuador is</p>",
+    "options": [
+      "Bogota",
+      "Quito",
+      "Caracas",
+      "Georgetown",
+      "Paramaribo"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Quito, formally San Francisco de Quito, is the capital city of Ecuador, and at an elevation of 2,850 metres above sea level, it is the second highest official capital city in the world after La Paz, Bolivia and the one which is closest to the equator. It is located in the Guayllabamba river basin, on the eastern slopes of Pichincha, an active stratovolcano in the Andes mountains. It is also the capital of the Pichincha province and the seat of the Metropolitan District of Quito. In 2008, the city was designated as the headquarters of the Union of South American Nations.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>What is the capital of Fiji?</p>",
+    "options": [
+      "Noumea",
+      "Honiara",
+      "Suva",
+      "Port Moresby",
+      "Wellington"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Suva is the capital, second largest municipality and largest municipality with city status in Fiji. It is located on the southeast coast of the island of Viti Levu, in the Rewa Province, Central Division.</p><p>Suva is Fiji's political and administrative capital. It is the largest and most cosmopolitan city in the southern Pacific Ocean and has become an important regional centre.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Helsinki is the capital of</p>",
+    "options": [
+      "Denmark",
+      "Finland",
+      "Sweden",
+      "Norway",
+      "Estonia"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Helsinki is the capital and largest city of Finland. It is in the region of Uusimaa, in southern Finland, on the shore of the Gulf of Finland. In 2009, Helsinki was chosen to be the World Design Capital for 2012 by the International Council of Societies of Industrial Design, narrowly beating Eindhoven for the title. The city was the venue for the 1952 Summer Olympics and the 52<sup>nd</sup> Eurovision Song Contest 2007.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Antananarivo is the capital of</p>",
+    "options": [
+      "Botswana",
+      "Lesotho",
+      "Madagascar",
+      "Swaziland",
+      "Niger"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Antananarivo, also known by its French colonial shorthand form Tana, is the capital and largest city of Madagascar. The larger urban area surrounding the city, known as Antananarivo-Renivohitra, is the capital of Analamanga region. The city is located 1,280 m above the sea level in the centre of the island, and has been the island's largest population centre since at least the 18<sup>th</sup> century.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which of the following countries doesn't have an official capital?</p>",
+    "options": [
+      "Papua New Guinea",
+      "Solomon islands",
+      "Nauru",
+      "New Zealand",
+      "Marshall islands"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Nauru, officially the Republic of Nauru and formerly known as Pleasant Island, is an island country in Micronesia in the Central Pacific. Its nearest neighbour is Banaba Island in Kiribati, 300 kilometres to the east. It further lies northwest of Tuvalu, north of the Solomon Islands, east-northeast of Papua New Guinea, southeast of the Federated States of Micronesia and south of the Marshall Islands. With 10,084 residents in a 21 km<sup>2</sup> area, Nauru is the smallest state in the South Pacific and third smallest state by area in the world, behind only Vatican City and Monaco.</p><p>Nauru does not have an official capital, but Yaren is the largest settlement and the seat of parliament.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>The capital of Paraguay is</p>",
+    "options": [
+      "Asuncion",
+      "Santiago",
+      "Buenos Aires",
+      "Salvador",
+      "La Paz"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Asuncion is the capital and largest city of Paraguay. Paraguay, officially the Republic of Paraguay, is a landlocked country in central South America, bordered by Argentina to the south and southwest, Brazil to the east and northeast, and Bolivia to the northwest. Paraguay lies on both banks of the Paraguay River, which runs through the centre of the country from north to south. Due to its central location in South America, it is sometimes referred to as Corazon de Sudamerica (\"Heart of South America\"). Paraguay is one of the two landlocked countries (the other is Bolivia) outside Afro-Eurasia, and is the smallest landlocked country in the Americas.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Which among the following is the capital of Ireland?</p>",
+    "options": [
+      "Glasgow",
+      "Dublin",
+      "Bristol",
+      "Edinburgh",
+      "Liverpool"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Dublin is the capital and largest city of Ireland. Dublin is in the province of Leinster on Ireland's east coast, at the mouth of the River Liffey. Founded as a Viking settlement, the Kingdom of Dublin became Ireland's principal city following the Norman invasion. The city expanded rapidly from the 17<sup>th</sup> century and was briefly the second largest city in the British Empire before the Acts of Union in 1800. Following the partition of Ireland in 1922, Dublin became the capital of the Irish Free State, later renamed Ireland.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>The capital of Israel is</p>",
+    "options": [
+      "Tel Aviv",
+      "Dimona",
+      "Netanya",
+      "Jerusalem",
+      "Beirut"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Jerusalem is a city in the Middle East, located on a plateau in the Judaean Mountains between the Mediterranean and the Dead Sea. Israelis and Palestinians both claim Jerusalem as their capital, as the State of Israel maintains its primary governmental institutions there while the State of Palestine ultimately foresees the city as its seat of power; however, neither claim is widely recognized internationally.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>What is the capital of Italy?</p>",
+    "options": [
+      "Milan",
+      "Rome",
+      "Florence",
+      "Turin",
+      "Genoa"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Rome is the capital of Italy and a special comune (named Comune di Roma Capitale). Rome also serves as the capital of the Lazio region. It is the fourth-most populous city in the European Union by population within city limits. Rome is located in the central-western portion of the Italian Peninsula, within Lazio (Latium), along the shores of the Tiber. The Vatican City is an independent country inside the city boundaries of Rome, the only existing example of a country within a city: for this reason Rome has been often defined as capital of two states.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Currency of Czech Republic is</p>",
+    "options": [
+      "Dollar",
+      "Pound",
+      "Euro",
+      "Yuan",
+      "Koruna"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The koruna (sign: K&#269;; code: CZK) is the currency of the Czech Republic since 1993, and in English it is sometimes referred to as Czech crown. The koruna is one of European Union's 11 currencies, and the Czech Republic is legally bound to adopt the euro currency in the future. The official name in Czech is koruna ceska. The ISO 4217 code is CZK and the local acronym is K&#269;, which is placed after the numeric value.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Krone is the currency of</p>",
+    "options": [
+      "Switzerland",
+      "Bolivia",
+      "Denmark",
+      "The Netherlands",
+      "Finland"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The krone is the official currency of Denmark, Greenland and the Faroe Islands, introduced on 1 January 1875. Both the ISO code \"DKK\" and currency sign \"kr.\" are in common use; the former precedes the value, the latter in some contexts follows it. The currency is sometimes referred to as the Danish crown in English, since krone literally means crown. Historically, krone coins have been minted in Denmark since the 17<sup>th</sup> century. One krone is subdivided into 100 &#248;re, the name &#248;re possibly deriving from Latin aureus meaning \"gold coin\". Altogether there are eleven denominations of the krone, with the smallest being the 50 &#248;re coin, which is valued at one half of a krone. Formerly there were more &#248;re coins, but those were discontinued due to inflation.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>What is the currency of Guatemala?</p>",
+    "options": [
+      "Cedi",
+      "Peso",
+      "Quetzal",
+      "Franc",
+      "Krona"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The quetzal is the currency of Guatemala, named after the national bird of Guatemala, the resplendent quetzal. In ancient Mayan culture, the quetzal bird's tail feathers were used as currency. It is divided into 100 cents or lenes in Guatemalan slang. The plural is quetzales.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>Currency of Bhutan is</p>",
+    "options": [
+      "Ngultrum",
+      "Franc",
+      "Taka",
+      "Ringgit",
+      "Poisha"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The ngultrum (symbol: Nu., code: BTN) is the currency of the Kingdom of Bhutan. It is subdivided into 100 chhertum (spelled as chetrums on coins until 1979). The Royal Monetary Authority of Bhutan is the minting authority of the Ngultrum banknotes and coins. The Ngultrum is currently pegged to the Indian rupee at par.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>What is the currency of Cuba?</p>",
+    "options": [
+      "Dollar",
+      "Euro",
+      "Pound",
+      "Peso",
+      "Franc"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The peso (ISO 4217 code: CUP, sometimes called the \"national currency\" or in Spanish moneda nacional) is one of two official currencies in use in Cuba, the other being the convertible peso (ISO 4217 code: CUC, occasionally called \"dollar\" in the spoken language). There are currently 25 CUP per CUC.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>What is the smallest unit of currency  -  Quetzal?</p>",
+    "options": [
+      "Centavo",
+      "Cent",
+      "Fill",
+      "Shilling",
+      "Rappen"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Centavo is a Spanish and Portuguese word, derived from the Latin centum, meaning \"one hundred\", and the suffix -avo, meaning \"portion\" or \"fraction\". Centavo means, strictly, \"one-hundredth\". It is a fractional monetary unit, used to represent one hundredth of a basic monetary unit of Guatemala currency - Quetzal.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>What is the currency of Kenya?</p>",
+    "options": [
+      "Dinar",
+      "Franc",
+      "Shilling",
+      "Som",
+      "Yen"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The shilling (sign: KSh; code: KES) is the currency of Kenya. It is divisible into 100 cents. The Kenyan shilling replaced the East African shilling in 1966 at par.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Currency of Laos is</p>",
+    "options": [
+      "Som",
+      "Yen",
+      "Kip",
+      "Taka",
+      "Krona"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The kip (sign: &#8365; or &#8365;N) is the currency of Laos since 1952. Historically, one kip was divided into 100 att.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>The ouguiya is the currency of</p>",
+    "options": [
+      "Morocco",
+      "Niger",
+      "Nigeria",
+      "Mauritania",
+      "Sudan"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The ouguiya (sign: UM; currency code: MRO), also spelled \"ougiya\", is the currency of Mauritania. Each ouguiya constitutes five khoums. As such it is one of two circulating currencies, along with the Malagasy ariary, whose division units are not based on a power of ten.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

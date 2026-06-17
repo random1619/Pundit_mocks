@@ -1,0 +1,11 @@
+{
+  "name": "pundits-mocks-styles",
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "sass scss:css --style=compressed",
+    "watch:css": "sass scss:css --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

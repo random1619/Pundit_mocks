@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude Algebra 1 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If 25<sup>(3a  -  2b)</sup> = 5<sup>(b  -  a)</sup> = 5<sup>2</sup> and&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">a</span></div>&nbsp;+&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">b</span></div>&nbsp;+&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">c</span></div>&nbsp;=&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">13</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">35</span></div>&nbsp;, then find the value of ab  -  c.&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; 25<sup>(3a - 2b)</sup> = 5<sup>(b - a)</sup> = 5<sup>2</sup> &#2324;&#2352; &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">a</span></div>&nbsp;+&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">b</span></div>&nbsp;+&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">c</span></div>&nbsp;=&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">13</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">35</span></div>&nbsp; &#2361;&#2376;, &#2340;&#2379; ab - c &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">1</span><span class=\"hqt\" style=\"display:none\">1</span>",
+      "<span class=\"eqt\">0</span><span class=\"hqt\" style=\"display:none\">0</span>",
+      "<span class=\"eqt\">-1</span><span class=\"hqt\" style=\"display:none\">-1</span>",
+      "<span class=\"eqt\">-2</span><span class=\"hqt\" style=\"display:none\">-2</span>"
+    ],
+    "solution": "<p>25<sup>(3a  -  2b)</sup> = 5<sup>(b  -  a)</sup> = 5<sup>2</sup></p><p>5<sup>2 (3a  -  2b)</sup> = 5<sup>(b  -  a)</sup> = 5<sup>2</sup></p><p>5<sup>(6a  -  4b)</sup> = 5<sup>(b  -  a)</sup> = 5<sup>2</sup></p><p>5<sup>(6a  -  4b)</sup> = 5<sup>2</sup></p><p>6a  -  4b = 2</p><p>3a  -  2b = 1 ....... (1)</p><p>5<sup>(b  -  a)</sup> = 5<sup>2</sup></p><p>b  -  a = 2</p><p>2b  -  2a = 4 ...... (2)</p><p>From (1) and (2):</p><p>3a  -  2a  -  4 = 1</p><p>a = 5</p><p>b = 7</p><p>Now,</p><p><img width=178 height=126 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image002.png\"></p><p>Value of ab  -  c</p><p>= 5 * 7  -  35</p><p>= 35  -  35</p><p>= 0</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If 4<sup>(4b  -  3a)</sup> = 2<sup>(2b + c)</sup> = 8<sup>(c  -  a)</sup> and a + b + c = 11 , then find the value of&nbsp;&nbsp;4 (&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">ab</span></div>&nbsp;+&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">bc</span></div>&nbsp;+&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">ca</span></div>&nbsp;)&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; 4<sup>(4b - 3a)</sup> = 2<sup>(2b + c)</sup> = 8<sup>(c - a)</sup> &#2324;&#2352; a + b + c = 11 &#2361;&#2376;, &#2340;&#2379; &nbsp;&nbsp;4 (&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">ab</span></div>&nbsp;+&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">bc</span></div>&nbsp;+&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">1</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">ca</span></div>&nbsp;)&nbsp; &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">11/9</span><span class=\"hqt\" style=\"display:none\">11/9</span>",
+      "<span class=\"eqt\">9/11</span><span class=\"hqt\" style=\"display:none\">9/11</span>",
+      "<span class=\"eqt\">6/5</span><span class=\"hqt\" style=\"display:none\">6/5</span>",
+      "<span class=\"eqt\">5/6</span><span class=\"hqt\" style=\"display:none\">5/6</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>4<sup>(4b  -  3a)</sup> = 2<sup>(2b + c)</sup> = 8<sup>(c  -  a)</sup></p><p>2<sup>2 (4b  -  3a)</sup> = 2<sup>(2b + c)</sup> = 2<sup>3 (c  -  a)</sup></p><p>2<sup>(8b  -  6a)</sup> = 2<sup>(2b + c)</sup> = 2<sup>(3c  -  3a)</sup></p><p>2<sup>(8b  -  6a)</sup> = 2<sup>(3c  -  3a)</sup></p><p>8b  -  6a = 3c  -  3a</p><p>8b = 3a + 3c ........ (1)</p><p>2<sup>(2b + c)</sup> = 2<sup>(3c  -  3a)</sup></p><p>2b + c = 3c  -  3a</p><p>3a + 2b = 2c ........ (2)</p><p>2<sup>(8b  -  6a)</sup> = 2<sup>(2b + c)</sup></p><p>8b  -  6a = 2b + c</p><p>6b = 6a + c ....... (3)</p><p>From (1) and (2):</p><p>8b = 2c  -  2b + 3c =&gt; 10b = 5c =&gt; c = 2b =&gt; <b>b = c/2</b></p><p>From (1) and (3):</p><p>8b = 3a + 3 (6b  -  6a) =&gt; 15a = 10b =&gt; 3a = 2b =&gt; <b>a = 2b/3 = c/3</b></p><p>a + b + c = 11</p><p>(c/3) + (c/2) + c = 11</p><p>c = 6, b = 3 and a = 2</p><p>Value of <img width=110 height=42 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image003.png\"></p><p><img width=122 height=162 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image004.png\"></p>",
+    "question_index": 1
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Find the value of:</p><p><img width=104 height=46 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image005.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;:</p><p><img width=\"104\" height=\"46\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image005.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">4a<sup>2</sup> + 36b<sup>2</sup> + 9c<sup>2</sup> + 12ab + 18bc + 6ac</span><span class=\"hqt\" style=\"display:none\">4a<sup>2</sup> + 36b<sup>2</sup> + 9c<sup>2</sup> + 12ab + 18bc + 6ac</span>",
+      "<span class=\"eqt\">36a<sup>2</sup> + 9b<sup>2</sup> + 4c<sup>2</sup> + 18ab + 6bc + 12ac</span><span class=\"hqt\" style=\"display:none\">36a<sup>2</sup> + 9b<sup>2</sup> + 4c<sup>2</sup> + 18ab + 6bc + 12ac</span>",
+      "<span class=\"eqt\">a<sup>2</sup> + 4b<sup>2</sup> + 9c<sup>2</sup> + 4ab + 12bc + 6ac</span><span class=\"hqt\" style=\"display:none\">a<sup>2</sup> + 4b<sup>2</sup> + 9c<sup>2</sup> + 4ab + 12bc + 6ac</span>",
+      "<span class=\"eqt\">9a<sup>2</sup> + b<sup>2</sup> + 4c<sup>2</sup> + 6ab + 4bc + 12ac</span><span class=\"hqt\" style=\"display:none\">9a<sup>2</sup> + b<sup>2</sup> + 4c<sup>2</sup> + 6ab + 4bc + 12ac</span>"
+    ],
+    "solution": "<p>We know that:</p><p><b>(a + b + c)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> + 2ab + 2bc + 2ca</b></p><p><img width=354 height=178 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image006.png\"></p>",
+    "question_index": 2
+  },
+  {
+    "question": "<span class=\"eqt\"><p>8p<sup>3</sup>  -  27q<sup>3</sup>  -  36p<sup>2</sup>q + 54pq<sup>2</sup> is equivalent to:</p></span><span class=\"hqt\" style=\"display:none\"><p>8p<sup>3</sup> - 27q<sup>3</sup> - 36p<sup>2</sup>q + 54pq<sup>2</sup> &#2325;&#2375; &#2348;&#2352;&#2366;&#2348;&#2352; &#2361;&#2376; :</p></span>",
+    "options": [
+      "<span class=\"eqt\">(2p + 3q)<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">(2p + 3q)<sup>3</sup></span>",
+      "<span class=\"eqt\">(2p  -  3q)<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">(2p - 3q)<sup>3</sup></span>",
+      "<span class=\"eqt\">(3p  -  2q)<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">(3p - 2q)<sup>3</sup></span>",
+      "<span class=\"eqt\">(3p + 2q)<sup>3</sup></span><span class=\"hqt\" style=\"display:none\">(3p + 2q)<sup>3</sup></span>"
+    ],
+    "solution": "<p>We know that:</p><p><b>(a  -  b)<sup>3</sup> = a<sup>3</sup>  -  b<sup>3</sup>  -  3a<sup>2</sup>b + 3ab<sup>2</sup></b></p><p>8p<sup>3</sup>  -  27q<sup>3</sup>  -  36p<sup>2</sup>q + 54pq<sup>2</sup></p><p>= (2p)<sup>3</sup>  -  (3q)<sup>3</sup>  -  3 * (2p)<sup>2</sup> * 3q + 3 * 2p * (3q)<sup>2</sup></p><p>= (2p  -  3q)<sup>3</sup></p>",
+    "question_index": 3
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (Ax + By  -  Cz)<sup>2</sup> = 4x<sup>2</sup> + 3y<sup>2</sup> + 2z<sup>2</sup> + 4&radic;3xy  -  2&radic;6yz  -  4&radic;2xz, then find the value of A<sup>2</sup> + B<sup>2</sup>C<sup>2</sup>.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (Ax + By - Cz)<sup>2</sup> = 4x<sup>2</sup> + 3y<sup>2</sup> + 2z<sup>2</sup> + 4&radic;3xy - 2&radic;6yz - 4&radic;2xz &#2361;&#2376;, &#2340;&#2379; A<sup>2</sup> + B<sup>2</sup>C<sup>2 </sup>&#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;</p></span>",
+    "options": [
+      "<span class=\"eqt\">16</span><span class=\"hqt\" style=\"display:none\">16</span>",
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>",
+      "<span class=\"eqt\">12</span><span class=\"hqt\" style=\"display:none\">12</span>",
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>"
+    ],
+    "solution": "<p>We know that:</p><p><b>(a + b + c)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> + 2ab + 2bc + 2ca</b></p><p>(Ax + By  -  Cz)<sup>2</sup> = 4x<sup>2</sup> + 3y<sup>2</sup> + 2z<sup>2</sup> + 4&radic;3xy  -  2&radic;6yz  -  4&radic;2xz</p><p>(Ax + By  -  Cz)<sup>2</sup> = (2x)<sup>2</sup> + (&radic;3y)<sup>2</sup> + ( - &radic;2z)<sup>2</sup> + 2 * 2x * &radic;3y + 2 * &radic;3y * ( - &radic;2z) + 2 * 2x * ( - &radic;2z)</p><p>(Ax + By  -  Cz)<sup>2</sup> = (2x + &radic;3y  - &radic;2z)<sup>2</sup></p><p>After comparing:</p><p>A = 2, B = &radic;3 and C = &radic;2</p><p>Now,</p><p>A<sup>2</sup> + B<sup>2</sup>C<sup>2</sup></p><p>= 2<sup>2</sup> + (&radic;3)<sup>2</sup> * (&radic;2)<sup>2</sup></p><p>= 4 + 6</p><p>= 10</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If A =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>3</sup> - y<sup>3</sup></span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>2</sup> - y<sup>2</sup></span></div>&nbsp;, B =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x+y</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>2</sup> + y<sup>2</sup> + xy</span></div>&nbsp;and C =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">3xy<sup>2</sup> - 3x<sup>2</sup>y</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>2</sup>-y<sup>2</sup></span></div>&nbsp;, then find the value of AB(A+C)&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; A =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>3</sup> - y<sup>3</sup></span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>2</sup> - y<sup>2</sup></span></div>&nbsp;, B =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x+y</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>2</sup> + y<sup>2</sup> + xy</span></div>&nbsp;and C =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">3xy<sup>2</sup> - 3x<sup>2</sup>y</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>2</sup>-y<sup>2</sup></span></div>&nbsp;&#2361;&#2376;, &#2340;&#2379; AB(A+C) &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">(x  -  y)/(x + y)</span><span class=\"hqt\" style=\"display:none\">(x - y)/(x + y)</span>",
+      "<span class=\"eqt\">(x  -  y)/(x + y)<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">(x - y)/(x + y)<sup>2</sup></span>",
+      "<span class=\"eqt\">(x  -  y)<sup>2</sup>/(x + y)</span><span class=\"hqt\" style=\"display:none\">(x - y)<sup>2</sup>/(x + y)</span>",
+      "<span class=\"eqt\">(x  -  y)<sup>2</sup>/(x + y)<sup>2</sup></span><span class=\"hqt\" style=\"display:none\">(x - y)<sup>2</sup>/(x + y)<sup>2</sup></span>"
+    ],
+    "solution": "<p><img width=346 height=46 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image012.png\"></p><p>Now,</p><p>AB (A + C)</p><p><img width=402 height=252 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image013.png\"></p>",
+    "question_index": 5
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If P =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">2x<sup>2</sup> + x - 6</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">(x+2)<sup>2</sup> - (x-2)<sup>2</sup></span></div>&nbsp;, Q =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>2</sup> + 3x + 9</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">(2x-3)(x<sup>2</sup>-4)</span></div>&nbsp;and R =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>3</sup> - 27</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>4</sup> - 16</span></div>&nbsp;, then find the value of P  X  Q &div; R.&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; P =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">2x<sup>2</sup> + x - 6</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">(x+2)<sup>2</sup> - (x-2)<sup>2</sup></span></div>&nbsp;, Q =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>2</sup> + 3x + 9</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">(2x-3)(x<sup>2</sup>-4)</span></div>&nbsp;and R =&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>3</sup> - 27</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>4</sup> - 16</span></div>&nbsp;&#2361;&#2376;, &#2340;&#2379; P X Q &div; R &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">(x + 2)/[2 (x  -  3)]</span><span class=\"hqt\" style=\"display:none\">(x + 2)/[2 (x - 3)]</span>",
+      "<span class=\"eqt\">(x + 2)/(x  -  3)</span><span class=\"hqt\" style=\"display:none\">(x + 2)/(x - 3)</span>",
+      "<span class=\"eqt\">2 (x + 2)/(x  -  3)</span><span class=\"hqt\" style=\"display:none\">2 (x + 2)/(x - 3)</span>",
+      "<span class=\"eqt\">4 (x + 2)/(x  -  3)</span><span class=\"hqt\" style=\"display:none\">4 (x + 2)/(x - 3)</span>"
+    ],
+    "solution": "<p><img width=396 height=54 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image014.png\"></p><p>Now,</p><p>P  X  Q &div; R</p><p><img width=452 height=220 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image015.png\"></p>",
+    "question_index": 6
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If Ax<sup>2</sup> (x + 2) + 8 + 36x = (2 + 3x)<sup>3</sup>, then find the value of <sup>3</sup>&radic;A.</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; Ax<sup>2</sup> (x + 2) + 8 + 36x = (2 + 3x)<sup>3 </sup>&#2361;&#2376;, &#2340;&#2379; <sup>3</sup>&radic;A &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;</p></span>",
+    "options": [
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Ax<sup>2</sup> (x + 2) + 8 + 36x = (2 + 3x)<sup>3</sup></p><p>Ax<sup>3</sup> + 2Ax<sup>2</sup> + 8 + 36x = 8 + 27x<sup>3</sup> + 36x + 54x<sup>2</sup></p><p>Ax<sup>3</sup> + 2Ax<sup>2</sup> = 27x<sup>3</sup> + 54x<sup>2</sup></p><p>After comparing:</p><p>A = 27</p><p>Now,</p><p><sup>3</sup>&radic;A</p><p>= <sup>3</sup>&radic;27</p><p>= 3</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If x = a<sup>2</sup> + 1 and y = a<sup>2</sup>  -  a + 1 , then find the value of&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>3</sup> - y<sup>3</sup> - xy<sup>2</sup> + x<sup>2</sup>y</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">(x+y)<sup>2</sup></span></div></div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2351;&#2342;&#2367; x = a<sup>2</sup> + 1 &#2324;&#2352; y = a<sup>2</sup> - a + 1 &#2361;&#2376;, &#2340;&#2379; &nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>3</sup> - y<sup>3</sup> - xy<sup>2</sup> + x<sup>2</sup>y</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">(x+y)<sup>2</sup></span></div>&nbsp; &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;</div></p></span>",
+    "options": [
+      "<span class=\"eqt\">a  -  1</span><span class=\"hqt\" style=\"display:none\">a - 1</span>",
+      "<span class=\"eqt\">a<sup>2</sup> + 1</span><span class=\"hqt\" style=\"display:none\">a<sup>2</sup> + 1</span>",
+      "<span class=\"eqt\">a</span><span class=\"hqt\" style=\"display:none\">a</span>",
+      "<span class=\"eqt\">a<sup>2</sup> + a</span><span class=\"hqt\" style=\"display:none\">a<sup>2</sup> + a</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>x = a<sup>2</sup> + 1</p><p>y = a<sup>2</sup>  -  a + 1</p><p>Now,</p><p><img width=230 height=248 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image019.png\"></p><p>= (a<sup>2</sup> + 1)  -  (a<sup>2</sup>  -  a + 1)</p><p>= a<sup>2</sup> + 1  -  a<sup>2</sup> + a  -  1</p><p>= a</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If a<sup>2</sup> + b<sup>2</sup> = 89 and a<sup>2</sup>  -  b<sup>2</sup> = 39, then find the value of a<sup>3</sup>  -  b<sup>3</sup>  -  3ab, (a, b &gt;0).</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; a<sup>2</sup> + b<sup>2</sup> = 89 &#2324;&#2352; a<sup>2</sup> - b<sup>2</sup> = 39 &#2361;&#2376;, &#2340;&#2379; a<sup>3</sup> - b<sup>3</sup> - 3ab, (a, b &gt;0) &#2325;&#2366; &#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306;</p></span>",
+    "options": [
+      "<span class=\"eqt\">272</span><span class=\"hqt\" style=\"display:none\">272</span>",
+      "<span class=\"eqt\">281</span><span class=\"hqt\" style=\"display:none\">281</span>",
+      "<span class=\"eqt\">253</span><span class=\"hqt\" style=\"display:none\">253</span>",
+      "<span class=\"eqt\">267</span><span class=\"hqt\" style=\"display:none\">267</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>a<sup>2</sup> + b<sup>2</sup> = 89 ........ (1)</p><p>a<sup>2</sup>  -  b<sup>2</sup> = 39 ........ (2)</p><p>From (1) and (2):</p><p>a<sup>2</sup> = 64 =&gt; a = 8</p><p>b<sup>2</sup> = 25 =&gt; b = 5</p><p>Now,</p><p>a<sup>3</sup>  -  b<sup>3</sup>  -  3ab</p><p>= 8<sup>3</sup>  -  5<sup>3</sup>  -  3 * 8 * 5</p><p>= 512  -  125  -  120</p><p>= 267</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<span class=\"eqt\"><p>Which of the following is a factor of 8p<sup>3</sup> + 125q<sup>3</sup>?</p></span><span class=\"hqt\" style=\"display:none\"><p>8p<sup>3</sup> + 125q<sup>3 </sup>&#2344;&#2367;&#2350;&#2381;&#2344;&#2354;&#2367;&#2326;&#2367;&#2340; &#2350;&#2375;&#2306; &#2360;&#2375; &#2325;&#2380;&#2344;-&#2360;&#2366; &#2319;&#2325; &#2327;&#2369;&#2339;&#2344;&#2326;&#2306;&#2337; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">(2p  -  5q)</span><span class=\"hqt\" style=\"display:none\">(2p - 5q)</span>",
+      "<span class=\"eqt\">(4p<sup>2</sup> + 25q<sup>2</sup>  -  10pq)</span><span class=\"hqt\" style=\"display:none\">(4p<sup>2</sup> + 25q<sup>2</sup> - 10pq)</span>",
+      "<span class=\"eqt\">(4p<sup>2</sup>  -  25q<sup>2</sup> + 10pq)</span><span class=\"hqt\" style=\"display:none\">(4p<sup>2</sup> - 25q<sup>2</sup> + 10pq)</span>",
+      "<span class=\"eqt\">(5p + 2q)</span><span class=\"hqt\" style=\"display:none\">(5p + 2q)</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>We know that:</p><p><b>a<sup>3</sup> + b<sup>3</sup> = (</b><b>a + b) (a<sup>2</sup> + b<sup>2</sup>  -  ab)</b></p><p>8p<sup>3</sup> + 125q<sup>3</sup></p><p>= (2p)<sup>3</sup> + (5q)<sup>3</sup></p><p>= (2p + 5q) [(2p)<sup>2</sup> + (5q)<sup>2</sup>  -  2p * 5q]</p><p>= (2p + 5q) (4p<sup>2</sup> + 25q<sup>2</sup>  -  10pq)</p><p>Hence, (2p + 5q) and (4p<sup>2</sup> + 25q<sup>2</sup>  -  10pq) are the required factors.</p><p>Only option (b) is TRUE.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;Find the value of:&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>4</sup> - 81</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">2x<sup>2</sup> + 13x + 15</span></div>&nbsp;x&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">2x + 3</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>3</sup> + 27</span></div>&nbsp;x&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">[(x-3)<sup>2</sup> + 3x] (x+5)</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">(x+3)<sup>2</sup> - 6x</span></div></div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p><div>&#2350;&#2366;&#2344; &#2332;&#2381;&#2334;&#2366;&#2340; &#2325;&#2352;&#2375;&#2306; : <div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">x<sup>4</sup> - 81</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">2x<sup>2</sup> + 13x + 15</span></div>&nbsp;x&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">2x + 3</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>3</sup> + 27</span></div>&nbsp;x&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">[(x-3)<sup>2</sup> + 3x] (x+5)</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">(x+3)<sup>2</sup> - 6x</span></div></div></p></span>",
+    "options": [
+      "<span class=\"eqt\">(x<sup>2</sup>  -  9)</span><span class=\"hqt\" style=\"display:none\">(x<sup>2</sup> - 9)</span>",
+      "<span class=\"eqt\">(x  -  3)</span><span class=\"hqt\" style=\"display:none\">(x - 3)</span>",
+      "<span class=\"eqt\">(x + 5)</span><span class=\"hqt\" style=\"display:none\">(x + 5)</span>",
+      "<span class=\"eqt\">(2x + 3)</span><span class=\"hqt\" style=\"display:none\">(2x + 3)</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=430 height=210 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p12062/image027.png\"></p>",
+    "question_index": 11
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If <img width=89 height=41 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image002.png\">, then what is the value of <img width=100 height=41 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image003.png\">?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; <img width=\"89\" height=\"41\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image002.png\"> &#2361;&#2376;, &#2340;&#2379; <img width=\"100\" height=\"41\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image003.png\"> &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">52</span><span class=\"hqt\" style=\"display:none\">52</span>",
+      "<span class=\"eqt\">64</span><span class=\"hqt\" style=\"display:none\">64</span>",
+      "<span class=\"eqt\">48</span><span class=\"hqt\" style=\"display:none\">48</span>",
+      "<span class=\"eqt\">76</span><span class=\"hqt\" style=\"display:none\">76</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>We know, (a  -  b)<sup>3</sup> = a<sup>3</sup>  -  b<sup>3</sup>  -  3ab(a  -  b)</p><p>Now, <img width=335 height=45 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image004.png\"></p><p>4<sup>3</sup> = <img width=100 height=41 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image003.png\">  -  3 * 4</p><p><img width=100 height=41 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image003.png\"> = <b>76</b></p>",
+    "question_index": 12
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If x<sup>2</sup>  -  4x + 3 = 0, then what is the value of (x<sup>3</sup> + 4x<sup>2 </sup>+ 7x + 24)(x<sup>2</sup> + 2x + 3)<sup>-1</sup>?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; x<sup>2</sup> - 4x + 3 = 0 &#2361;&#2376;, &#2340;&#2379; (x<sup>3</sup> + 4x<sup>2 </sup>+ 7x + 24)(x<sup>2</sup> + 2x + 3)<sup>-1 </sup>&#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>",
+      "<span class=\"eqt\">7</span><span class=\"hqt\" style=\"display:none\">7</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>x<sup>2</sup>  -  4x + 3 = 0</p><p>x<sup>2</sup> = 4x  -  3...(i)</p><p>Now, (x<sup>3</sup> + 4x<sup>2 </sup>+ 7x + 24)(x<sup>2</sup> + 2x + 3)<sup>-1</sup></p><p>= (x(4x  -  3) + 4x<sup>2 </sup>+ 7x + 24)((4x  -  3) + 2x + 3)<sup>-1 </sup><b>(from (i))</b></p><p>= (4x<sup>2</sup>  -  3x + 4x<sup>2 </sup>+ 7x + 24)(6x)<sup>-1</sup></p><p>= (8x<sup>2</sup> + 4x + 24)/(6x)</p><p>= (8(4x  -  3) + 4x + 24)/(6x) <b>(from (i))</b></p><p>= (32x  -  24 + 4x + 24)/(6x)</p><p>= <b>6</b></p>",
+    "question_index": 13
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If <img width=127 height=45 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image005.png\"> and x &#8800; 0, then what is the value of <img width=89 height=44 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image006.png\">?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; <img width=\"127\" height=\"45\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image005.png\"> &#2324;&#2352; x &#8800; 0 &#2361;&#2376;, &#2340;&#2379; <img width=\"89\" height=\"44\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image006.png\"> &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">&radic;(3/2)</span><span class=\"hqt\" style=\"display:none\">&radic;(3/2)</span>",
+      "<span class=\"eqt\">&radic;(5/2)</span><span class=\"hqt\" style=\"display:none\">&radic;(5/2)</span>",
+      "<span class=\"eqt\">&radic;(5/4)</span><span class=\"hqt\" style=\"display:none\">&radic;(5/4)</span>",
+      "<span class=\"eqt\">&radic;(3/4)</span><span class=\"hqt\" style=\"display:none\">&radic;(3/4)</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><img width=127 height=45 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image005.png\"></p><p>20x<sup>2</sup> + 5  -  3x = 32x</p><p>20x<sup>2</sup> + 5 = 35x</p><p>4x<sup>2</sup>  -  7x + 1 = 0</p><p>4x<sup>2</sup> + 1 = 7x...(i)</p><p>Now, <img width=184 height=48 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image011.png\"></p><p>= (4x<sup>2</sup>  -  4x + 1)/2x</p><p>= (7x  -  4x)/2x <b>(from (i))</b></p><p>= 3/2</p><p>Therefore, <img width=127 height=44 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image012.png\"></p>",
+    "question_index": 14
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If <img width=115 height=44 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image013.png\"> and x &#8800; 0, then what is the value of <img width=127 height=45 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image014.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; <img width=\"115\" height=\"44\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image013.png\"> &#2324;&#2352; x &#8800; 0 &#2361;&#2376;, &#2340;&#2379; <img width=\"127\" height=\"45\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image014.png\"> &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">-3</span><span class=\"hqt\" style=\"display:none\">-3</span>",
+      "<span class=\"eqt\">-2</span><span class=\"hqt\" style=\"display:none\">-2</span>",
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">2</span><span class=\"hqt\" style=\"display:none\">2</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p><img width=115 height=44 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image013.png\"></p><p><img width=112 height=48 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image015.png\"></p><p><img width=93 height=36 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image016.png\"></p><p>x<sup>2</sup>  -  2x + 1 = -5x</p><p>x<sup>2</sup> + 3x + 1 = 0</p><p>Then, x<sup>2</sup> + 1 = -3x...(i)</p><p>Now, <img width=119 height=45 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image017.png\"></p><p><img width=139 height=40 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image018.png\"></p><p>= <img width=108 height=36 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image019.png\"></p><p>= <img width=40 height=36 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image020.png\"></p><p>= <b>-3</b></p>",
+    "question_index": 15
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (4x + 3y): (28x  -  y) = 1: 5, then what is the value of (3x<sup>2</sup> + 4y<sup>2</sup>): (7x<sup>2</sup> + 2y<sup>2</sup>)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (4x + 3y): (28x - y) = 1: 5 &#2361;&#2376;, &#2340;&#2379; (3x<sup>2</sup> + 4y<sup>2</sup>): (7x<sup>2</sup> + 2y<sup>2</sup>) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3: 5</span><span class=\"hqt\" style=\"display:none\">3: 5</span>",
+      "<span class=\"eqt\">8: 15</span><span class=\"hqt\" style=\"display:none\">8: 15</span>",
+      "<span class=\"eqt\">10: 21</span><span class=\"hqt\" style=\"display:none\">10: 21</span>",
+      "<span class=\"eqt\">7: 12</span><span class=\"hqt\" style=\"display:none\">7: 12</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>(4x + 3y): (28x  -  y) = 1: 5</p><p>5(4x + 3y) = 28x  -  y</p><p>20x + 15y = 28x  -  y</p><p>x = 2y</p><p>Now, (3x<sup>2</sup> + 4y<sup>2</sup>): (7x<sup>2</sup> + 2y<sup>2</sup>)</p><p>= (3 * (2y)<sup>2</sup> + 4y<sup>2</sup>): (7 * (2y)<sup>2</sup> + 2y<sup>2</sup>)</p><p>= <b>8: 15</b></p>",
+    "question_index": 16
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If a<sup>3 </sup>+ b<sup>3 </sup>+ c<sup>3 </sup>= 62, abc = -6 and (a + b + c) = 5, then what is the value of ab + bc + ac?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; a<sup>3 </sup>+ b<sup>3 </sup>+ c<sup>3 </sup>= 62, abc = -6 &#2324;&#2352; (a + b + c) = 5 &#2361;&#2376;, &#2340;&#2379; ab + bc + ac &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">4</span><span class=\"hqt\" style=\"display:none\">4</span>",
+      "<span class=\"eqt\">5</span><span class=\"hqt\" style=\"display:none\">5</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>We know, (a + b + c)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> + 2ab + 2bc + 2ac</p><p>5<sup>2 </sup>= a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> + 2(ab + bc + ac)</p><p>a<sup>2</sup> + b<sup>2</sup> + c<sup>2 </sup>= 25  -  2(ab + bc + ac))...(i)</p><p>a<sup>3</sup> + b<sup>3</sup> + c<sup>3 </sup>= (a + b + c)(a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup>  -  ab  -  bc  -  ac) + 3abc</p><p>62 = 5 * (25  -  2(ab + bc + ac)  -  (ab + bc + ac)) + 3 * (-6) <b>(from (i))</b></p><p><b>ab + bc + ac = 3</b></p>",
+    "question_index": 17
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If a, b and c are integers such that a<sup>2</sup> + b<sup>2</sup> + c<sup>2 </sup>= 228, a + b + c = 26 and b = c, then what is the value of a?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; a, b &#2324;&#2352; c &#2346;&#2370;&#2352;&#2381;&#2339;&#2366;&#2306;&#2325; &#2311;&#2360; &#2340;&#2352;&#2361; &#2360;&#2375; &#2361;&#2376;&#2306; &#2325;&#2367; a<sup>2</sup> + b<sup>2</sup> + c<sup>2 </sup>= 228, a + b + c = 26 &#2324;&#2352; b = c &#2361;&#2376;, &#2340;&#2379; a &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>",
+      "<span class=\"eqt\">10</span><span class=\"hqt\" style=\"display:none\">10</span>",
+      "<span class=\"eqt\">12</span><span class=\"hqt\" style=\"display:none\">12</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>We know, (a + b + c)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> + 2(ab + bc + ac)</p><p>Then, 26<sup>2</sup> = 228 + 2(ab + b<sup>2</sup> + ab)</p><p>224 = b(2a + b)</p><p>And, a + b + b = 26</p><p>a = 26  -  2b</p><p>Now, 224 = b(2(26  -  2b) + b)</p><p>b = 8, 28/3 (but b is an integer)</p><p>Then, b = 8 = c</p><p>Therefore, a = 26  -  2 * 8 = <b>10</b></p>",
+    "question_index": 18
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If <img width=104 height=41 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image021.png\">, then what is the value of <img width=81 height=41 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image022.png\">?</p><p>A) +2</p><p>B) -2</p><p>C) +4</p><p>D) -4</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; <img width=\"104\" height=\"41\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image021.png\"> &#2361;&#2376;, &#2340;&#2379; <img width=\"81\" height=\"41\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image022.png\"> &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p><p>A) +2</p><p>B) -2</p><p>C) +4</p><p>D) -4</p></span>",
+    "options": [
+      "<span class=\"eqt\">Only A</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; A</span>",
+      "<span class=\"eqt\">Only C</span><span class=\"hqt\" style=\"display:none\">&#2325;&#2375;&#2357;&#2354; C</span>",
+      "<span class=\"eqt\">Both C and D</span><span class=\"hqt\" style=\"display:none\">&#2342;&#2379;&#2344;&#2379;&#2306; C &#2324;&#2352; D</span>",
+      "<span class=\"eqt\">Both A and B</span><span class=\"hqt\" style=\"display:none\">&#2342;&#2379;&#2344;&#2379;&#2306; A &#2324;&#2352; B</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>As we know, (a + b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + 2ab</p><p>Then, <img width=251 height=47 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image023.png\"></p><p><img width=147 height=45 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image024.png\"></p><p><img width=100 height=41 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image025.png\"></p><p>Similarly, we know, (a + b)<sup>3</sup> = a<sup>3</sup> + b<sup>3</sup> + 3ab(a + b)</p><p>Now, <img width=317 height=47 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image026.png\"></p><p><img width=177 height=39 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image027.png\"></p><p><img width=99 height=39 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image028.png\"></p>",
+    "question_index": 19
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If a, b and c are integers such that a<sup>3</sup> + b<sup>3</sup> + c<sup>3 </sup>= 192 + 3abc, ab + bc + ac = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup>  -  16, then what is the value of (a + b + c)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; a, b &#2324;&#2352; c &#2346;&#2370;&#2352;&#2381;&#2339;&#2366;&#2306;&#2325; &#2311;&#2360; &#2346;&#2381;&#2352;&#2325;&#2366;&#2352; &#2361;&#2376;&#2306; &#2325;&#2367; a<sup>3</sup> + b<sup>3</sup> + c<sup>3 </sup>= 192 + 3abc, ab + bc + ac = a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup> - 16 &#2361;&#2376;, &#2340;&#2379; (a + b + c) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>",
+      "<span class=\"eqt\">20</span><span class=\"hqt\" style=\"display:none\">20</span>",
+      "<span class=\"eqt\">12</span><span class=\"hqt\" style=\"display:none\">12</span>",
+      "<span class=\"eqt\">18</span><span class=\"hqt\" style=\"display:none\">18</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>As we know, a<sup>3</sup> + b<sup>3</sup> + c<sup>3 </sup>= (a + b + c)(a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup>  -  ab  -  bc  -  ac) + 3abc</p><p>Then, 192 + 3abc = (a + b + c)(a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup>  -  (a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup>  -  16)) + 3abc</p><p><b>a + b + c = 12</b></p>",
+    "question_index": 20
+  },
+  {
+    "question": "<span class=\"eqt\"><p><div>&nbsp;If&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">4x + x<sup>2</sup></span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x<sup>2</sup> - 3x + 4</span></div>&nbsp;=&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">2</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">3</span></div>&nbsp;, then what is the value of x -&nbsp;<div style=\"display: inline-block;position: relative;vertical-align: middle;\"><span style=\"text-align:center;display: block; padding: 0;\">8</span><span style=\"display: block; padding: 0;position: absolute; top: 0em; display: none;letter-spacing: -0.1em;\">_________</span><span style=\"display: block; padding: 0;border-top: thin solid black; text-align:center\">x</span></div>&nbsp;?&nbsp;</div></p><p></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; 4x + x<sup>2 </sup>/ x<sup>2</sup> - 3x + 4 = 2/3</p><p>&#2361;&#2376;, &#2340;&#2379; x - 8/x &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2379;&#2327;&#2366;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">-24</span><span class=\"hqt\" style=\"display:none\">-24</span>",
+      "<span class=\"eqt\">-18</span><span class=\"hqt\" style=\"display:none\">-18</span>",
+      "<span class=\"eqt\">-36</span><span class=\"hqt\" style=\"display:none\">-36</span>",
+      "<span class=\"eqt\">-42</span><span class=\"hqt\" style=\"display:none\">-42</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p><img width=104 height=41 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/sc-alg-pr-ex-so-13-001.png\"></p><p>12x + 3x<sup>2</sup> = 2x<sup>2 </sup> -  6x + 8</p><p>x<sup>2 </sup>= 8  -  18x ...(i)</p><p>Now, <img width=38 height=36 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/sc-alg-pr-ex-so-13-002.png\"></p><p><img width=57 height=39 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/sc-alg-pr-ex-so-13-003.png\"></p><p>= <img width=76 height=36 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/other/sc-alg-pr-ex-so-13-004.png\"></p><p>= <b>-18</b></p><p></p>",
+    "question_index": 21
+  },
+  {
+    "question": "<span class=\"eqt\"><p>If (x  -  1)<sup>3</sup> + (y  -  2)<sup>3</sup> + (z  -  3)<sup>3</sup> + 3(x + y  -  3)(y + z  -  5)(x + z  -  4) = 0, then what is the value of (x + y + z)?</p></span><span class=\"hqt\" style=\"display:none\"><p>&#2351;&#2342;&#2367; (x - 1)<sup>3</sup> + (y - 2)<sup>3</sup> + (z - 3)<sup>3</sup> + 3(x + y - 3)(y + z - 5)(x + z - 4) = 0 &#2361;&#2376;, &#2340;&#2379; (x + y + z) &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">3</span><span class=\"hqt\" style=\"display:none\">3</span>",
+      "<span class=\"eqt\">8</span><span class=\"hqt\" style=\"display:none\">8</span>",
+      "<span class=\"eqt\">6</span><span class=\"hqt\" style=\"display:none\">6</span>",
+      "<span class=\"eqt\">9</span><span class=\"hqt\" style=\"display:none\">9</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>As we know, (a + b + c)<sup>3</sup> = a<sup>3</sup> + b<sup>3 </sup>+ c<sup>3</sup> + 3(a + b)(b + c)(a + c)</p><p>Then, here, a = x  -  1, b = y  -  2 and c = z  -  3</p><p>Now, according to the question:</p><p>a<sup>3</sup> + b<sup>3 </sup>+ c<sup>3</sup> + 3(a + b)(b + c)(a + c) = 0</p><p>So, (a + b + c)<sup>3</sup> = 0</p><p>(a + b + c) = 0</p><p>Then, (x  -  1 + y  -  2 + z  -  3) = 0</p><p>Therefore, <b>(x + y + z) = 6</b></p>",
+    "question_index": 22
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the value of 'x' in the expression given below?</p><p><img width=297 height=51 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image039.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p>&#2344;&#2368;&#2330;&#2375; &#2342;&#2367;&#2319; &#2327;&#2319; &#2360;&#2350;&#2368;&#2325;&#2352;&#2339; &#2350;&#2375;&#2306; 'x' &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2367;&#2340;&#2344;&#2366; &#2361;&#2376;?</p><p><img width=\"297\" height=\"51\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image039.png\"></p></span>",
+    "options": [
+      "<span class=\"eqt\">2.5</span><span class=\"hqt\" style=\"display:none\">2.5</span>",
+      "<span class=\"eqt\">3.5</span><span class=\"hqt\" style=\"display:none\">3.5</span>",
+      "<span class=\"eqt\">1.5</span><span class=\"hqt\" style=\"display:none\">1.5</span>",
+      "<span class=\"eqt\">4.5</span><span class=\"hqt\" style=\"display:none\">4.5</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>We know, (a  -  b)<sup>2</sup> = a<sup>2</sup>  -  2ab + b<sup>2</sup></p><p>a<sup>3</sup>  -  b<sup>3 </sup>= (a  -  b)(a<sup>2</sup> + ab  -  b<sup>2</sup>)</p><p>(a<sup>4</sup>  -  b<sup>4</sup>) = (a<sup>2</sup> + b<sup>2</sup>)(a + b)(a  -  b)</p><p>Now, <img width=296 height=47 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image040.png\"></p><p><img width=392 height=57 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image041.png\"></p><p><b>x = 3.5</b></p>",
+    "question_index": 23
+  },
+  {
+    "question": "<span class=\"eqt\"><p>What is the value of <img width=273 height=44 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image042.png\"></p></span><span class=\"hqt\" style=\"display:none\"><p><img width=\"273\" height=\"44\" src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image042.png\"> &#2325;&#2366; &#2350;&#2366;&#2344; &#2325;&#2381;&#2351;&#2366; &#2361;&#2376;?</p></span>",
+    "options": [
+      "<span class=\"eqt\">(x-y)/(x+y)</span><span class=\"hqt\" style=\"display:none\">(x-y)/(x+y)</span>",
+      "<span class=\"eqt\">(x+y)/(x-y)</span><span class=\"hqt\" style=\"display:none\">(x+y)/(x-y)</span>",
+      "<span class=\"eqt\">x + y</span><span class=\"hqt\" style=\"display:none\">x + y</span>",
+      "<span class=\"eqt\">x - y</span><span class=\"hqt\" style=\"display:none\">x - y</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>We know, (a  -  b)<sup>2</sup> = a<sup>2</sup>  -  2ab + b<sup>2</sup></p><p>a<sup>4</sup> + b<sup>4</sup> + a<sup>2</sup>b<sup>2</sup> = (a<sup>2</sup>  -  ab + b<sup>2</sup>)(a<sup>2</sup> + ab + b<sup>2</sup>)</p><p>a<sup>3</sup>  -  b<sup>3 </sup>= (a  -  b)(a<sup>2</sup> + ab  -  b<sup>2</sup>)</p><p>Then, <img width=264 height=44 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image045.png\"></p><p>= <img width=257 height=47 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image046.png\"></p><p>= <img width=409 height=60 src=\"https://u1.oliveboard.in/exams/solution/oliveimg/p8429/image047.png\"></p><p>= <b>x  -  y</b></p>",
+    "question_index": 24
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

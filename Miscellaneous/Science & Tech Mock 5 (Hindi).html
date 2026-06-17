@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science & Tech Mock 5 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>BrahMos missile was jointly developed by India and ________?</p>",
+    "options": [
+      "USA",
+      "Russia",
+      "France",
+      "Israel",
+      "Canada"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The BrahMos is a short-range ramjet supersonic cruise missile that can be launched from submarine, ships, aircraft, or land. It is a joint venture between the Russian Federation's NPO Mashinostroeyenia and India's Defence Research and Development Organisation.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Which is a joint military exercise between India and Sri Lanka?</p>",
+    "options": [
+      "Mitra Shakti",
+      "Indra",
+      "Yudh Abhyas",
+      "Hand in Hand",
+      "Surya Kiran"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>\"Mitra Shakti\" series of bilateral exercises is one of the major bilateral defence cooperation initiatives between India and Sri Lanka since 2013.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Central Command of Indian Army is headquartered in _________?</p>",
+    "options": [
+      "Amritsar",
+      "Chandigarh",
+      "New Delhi",
+      "Lucknow",
+      "Bhopal"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Central Command of the Indian Army is one of the seven operational commands of the army. It is based at Lucknow, Uttar Pradesh.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Unity and Discipline is the motto of __________?</p>",
+    "options": [
+      "Indian Army",
+      "Border Security Force",
+      "Indo-Tibetan Border Force",
+      "National Cadet Corps",
+      "Indian Coast Guard"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The National Cadet Corps is the Indian military cadet corps with its Headquarters at New Delhi. Its motto is Unity and Discipline.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Who is the supreme commander of Indian Armed Forces?</p>",
+    "options": [
+      "Army General",
+      "Air Marshall",
+      "President of India",
+      "Admiral",
+      "Prime Minister"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The President of India is the (de jure) Supreme Commander of the Indian Armed Forces.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Who was the first Indian commander-in-chief of the Indian Army?</p>",
+    "options": [
+      "Field Marshal Sam Manekshaw",
+      "Field Marshal K.C. Cariappa",
+      "General Vijay Kumar Singh",
+      "General K S Thimayya",
+      "General P N Thapar"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Field Marshal K C Cariappa was the first Indian commander-in-chief of the Indian Army. He led Indian forces on the Western Front during the Indo-Pakistani War of 1947.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>First-ever Indian circumnavigation of the globe by an all-women crew is been undertaken in ________?</p>",
+    "options": [
+      "INSV Tarini",
+      "INSV Mehdi",
+      "INSV Arihant",
+      "INSV Chakra",
+      "INSV Rana"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The sail boat INSV Tarini was inducted into the Navy and it was the platform for First Indian All Women Circumnavigation of the Globe expedition of the Indian Navy.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Who among the following was the first recipient of Param Vir Chakra?</p>",
+    "options": [
+      "Jadu Nath Singh",
+      "Rama Raghoba Rane",
+      "Karam Singh",
+      "Somnath Sharma",
+      "Dhan Singh Thapa"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Major Somnath Sharma, PVC, an Indian Army officer, was the first recipient of the Param Vir Chakra (PVC), India's highest military decoration. Sharma was killed on 3 November 1947 while evicting Pakistani infiltrators from Srinagar Airport, and was posthumously awarded the Param Vir Chakra for his actions prior to his death.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which among the following is a Nuclear-powered ballistic missile submarine?</p>",
+    "options": [
+      "INS Sindhurakshak",
+      "INS Kolkata",
+      "INS Ranvijay",
+      "INS Ranvir",
+      "INS Arihant"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>INS Arihant is the lead ship of India's Arihant class of nuclear-powered ballistic missile submarines.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>National Defence College is situated in ___________?</p>",
+    "options": [
+      "Pune",
+      "Kolkata",
+      "Hyderabad",
+      "New Delhi",
+      "Patna"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>National Defence College of India located in New Delhi is the highest seat of strategic learning for Indian Defence and Civil Services officers of the rank of Brigadier and Joint Secretary to Government of India.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>What is the chemical name of Mohr's Salt?</p>",
+    "options": [
+      "Manganese Sulfate",
+      "Ammonium Ferrous Sulfate",
+      "Potassium Dichromate",
+      "Copper Sulfate Pentahydrate",
+      "Cobalt Chloride Hexahydrate"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Mohr's salt or ammonium ferrous sulfate is the inorganic compound. It is used in the Fricke's dosemeter to measure high doses of gamma rays.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Who among the following is regarded as the father of modern chemistry?</p>",
+    "options": [
+      "Antoine Lavoisier",
+      "John Dalton",
+      "Joseph Priestley",
+      "Robert Boyle",
+      "Dmitri Mendeleev"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Antoine Lavoisier is considered the father of modern chemistry. He was a French nobleman who recognized and named oxygen and isolated the major components of air.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>Which is NOT an inert gas?</p>",
+    "options": [
+      "Helium",
+      "Hydrogen",
+      "Argon",
+      "Neon",
+      "Krypton"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Chemically inert gaseous elements of the periodic table: helium, neon, argon, krypton, xenon, and radon.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Synthetic plastic polymer PVC stands for ___________?</p>",
+    "options": [
+      "Potash Vinyl Carbon",
+      "Phosphate Vinyl Chloride",
+      "Poly Vinyl Carbon",
+      "Phosphorous Vinyl Chloride",
+      "Poly Vinyl Chloride"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Polyvinyl chloride is abbreviated PVC, is the world's third-most widely produced synthetic plastic polymer.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>Which is commonly used in cloud seeding?</p>",
+    "options": [
+      "Potassium nitrate",
+      "Silver Oxide",
+      "Silver Iodide",
+      "Potassium Chloride",
+      "Copper Iodide"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The most common chemicals used for cloud seeding include silver iodide, potassium iodide.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>pH of blood is _________?</p>",
+    "options": [
+      "Highly Basic",
+      "Highly Acidic",
+      "Slightly Basic",
+      "Slightly Acidic",
+      "Varies as per water consumed"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Blood is normally slightly basic, with a normal pH range of 7.35 to 7.45.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Which is referred to as stranger gas?</p>",
+    "options": [
+      "Argon",
+      "Krypton",
+      "Neon",
+      "Xenon",
+      "Helium"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Xenon name came from the Greek word xenos, which means 'stranger'. Sir William Ramsay and M. W. Travers discovered this element in 1898.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Atomic number represents which among the following?</p>",
+    "options": [
+      "Number of protons",
+      "Number of electrons",
+      "Number of neutrons",
+      "Number of protons and neutrons",
+      "Number of electrons and neutrons"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The atomic number of an element is equal to the number of protons in the nucleus.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>What is the Color of the dye obtained as by-product in lac industry?</p>",
+    "options": [
+      "Blue",
+      "Red",
+      "Black",
+      "Grey",
+      "Yellow"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Lac Dye Color is extracted from laccifer lacca through refinement after exposure to weak alkali solutions. This product appears as a red to reddish-purple powder that will vary according to pH ranges.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>Which is the predominant metal extracted from sea water?</p>",
+    "options": [
+      "Sodium",
+      "Magnesium",
+      "Sulfur",
+      "Calcium",
+      "Potassium"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Each cubic kilometre of seawater contains more than a million tons of magnesium compounds. The metal is extracted from seawater and brines by means of electrolysis, a process that requires the passing of a current through a molten salt.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>CSIR  -  National Chemical Laboratory is situated in _______?</p>",
+    "options": [
+      "New Delhi",
+      "Chennai",
+      "Hyderabad",
+      "Bangalore",
+      "Pune"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>National Chemical Laboratory (CSIR-NCL), Pune, established in 1950, is a constituent laboratory of Council of Scientific and Industrial Research (CSIR). CSIR-NCL is a science and knowledge based research, development and consulting organization.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>What is the escape velocity of earth?</p>",
+    "options": [
+      "12 Km/s",
+      "11.2 Km/s",
+      "13.6 Km/s",
+      "9.8 km/s",
+      "10.5 Km/s"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>On the surface of the Earth, the escape velocity is about 11.2 km/s, which is approximately 33 times the speed of sound.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>Barometer is used for measuring ________</p>",
+    "options": [
+      "Velocity",
+      "Force",
+      "Viscosity",
+      "Pressure",
+      "Heat"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>It is an instrument measuring atmospheric pressure, used especially in forecasting the weather and determining altitude.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Which is NOT a scalar quantity?</p>",
+    "options": [
+      "Pressure",
+      "Length",
+      "Area",
+      "Force",
+      "Temperature"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Force is a vector quantity. It has 2 dimensions.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>What is the value of \"g\", earth's acceleration due to gravity?</p>",
+    "options": [
+      "7.8 m/s<sup>2</sup>",
+      "6.8 m/s<sup>2</sup>",
+      "8.8 m/s<sup>2</sup>",
+      "9.8 m/s<sup>2</sup>",
+      "10.8 m/s<sup>2</sup>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The acceleration due to gravity at the surface of Earth is represented as g. It has a standard value defined as 9.8 m/s<sup>2</sup>.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Newton's first law of motion is referred to as law of ______</p>",
+    "options": [
+      "Motion",
+      "Reaction",
+      "Inertia",
+      "Magnitude",
+      "Momentum"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Newton's First Law of Motion explains how inertia affects moving and nonmoving objects. Newton's first law states that an object will remain at rest or move at a constant speed in a straight line unless it is acted on by an unbalanced force.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Which wave doesn't need a medium to propagate?</p>",
+    "options": [
+      "Electromagnetic waves",
+      "Sound waves",
+      "Longitudinal waves",
+      "Mechanical waves",
+      "Transverse waves"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Electromagnetic waves can travel not only through air and solid materials, but also through the vacuum of space.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>In which process energy is transferred by movement of medium?</p>",
+    "options": [
+      "Convection",
+      "Conduction",
+      "Radiation",
+      "Both 1 &amp; 2",
+      "All the above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Convection is the transfer of energy by movement of a medium.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Gravitational force is directly proportional to product of which among the following properties?</p>",
+    "options": [
+      "Weight",
+      "Mass",
+      "Distance",
+      "Velocity",
+      "Acceleration"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Newton's law of universal gravitation states that a particle attracts every other particle in the universe using a force that is directly proportional to the product of their masses and inversely proportional to the square of the distances.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Angle of incidence is _____ angle of reflection?</p>",
+    "options": [
+      "Equal to",
+      "Greater than",
+      "Lesser than",
+      "Greater than or equal to",
+      "Lesser than or equal to"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Law of Reflection states the angle of incidence (&#952;i) is equal to the angle of reflection (&#952;r) and that the reflected ray lies in the plane of incidence.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

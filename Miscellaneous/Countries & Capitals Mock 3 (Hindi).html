@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries & Capitals Mock 3 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>The Office of the United Nations High Commissioner for Refugees (UNHCR) is head-quartered in</p>",
+    "options": [
+      "Geneva",
+      "Vienna",
+      "The Hague",
+      "Paris",
+      "New York"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Office of the United Nations High Commissioner for Refugees (UNHCR), also known as the UN Refugee Agency, is a United Nations programme mandated to protect and support refugees at the request of a government or the UN itself and assists in their voluntary repatriation, local integration or resettlement to a third country. Its headquarters are in Geneva, Switzerland, and it is a member of the United Nations Development Group. The UNHCR has won two Nobel Peace Prizes, once in 1954 and again in 1981.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>What stands for 'P' in IPCC  -  a scientific and intergovernmental body under UN?</p>",
+    "options": [
+      "Protocol",
+      "Pacific",
+      "Panel",
+      "Primary",
+      "Pollution"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The Intergovernmental Panel on Climate Change (IPCC) is a scientific and intergovernmental body under the auspices of the United Nations, set up at the request of member governments, dedicated to the task of providing the world with an objective, scientific view of climate change and its political and economic impacts. It was first established in 1988 by two United Nations organizations, the World Meteorological Organization (WMO) and the United Nations Environment Programme (UNEP), and later endorsed by the United Nations General Assembly through Resolution 43/53. Membership of the IPCC is open to all members of the WMO and UNEP.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>The United Nations Office for Project Services (UNOPS) was established in 1973 as part of</p>",
+    "options": [
+      "United Nations Educational, Scientific and Cultural Organization",
+      "United Nations Human Settlements Programme",
+      "United Nations Environment Programme",
+      "United Nations Development Programme",
+      "International Labour Organization"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>UNOPS was established in 1973 as part of UNDP. It became an independent, self-financing organization in 1995. The UNOPS vision is to \"advance sustainable implementation practices in development, humanitarian and peacebuilding contexts\" in some of the world's most challenging environments. UNOPS concentrates its support in areas where it has a clear mandate and expertise: infrastructure, procurement and project management services.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>The first meeting of United Nations Conference on Trade and Development (UNCTAD) was held in</p>",
+    "options": [
+      "New Delhi",
+      "Nairobi",
+      "Geneva",
+      "Santiago",
+      "Manila"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The United Nations Conference on Trade and Development (UNCTAD) was established in 1964 as a permanent intergovernmental body and the Conference held every four years. The first such meeting was held in Geneva, Switzerland from 23 Mar-16 Jun 1964.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>In 1988, the UNICEF Innocenti Research Centre was established in which of the following places?</p>",
+    "options": [
+      "Rome",
+      "Florence",
+      "Milan",
+      "Turin",
+      "Genoa"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The UNICEF Innocenti Research Centre in Florence, Italy, was established in 1988. The centre, formally known as the International Child Development Centre, has as its prime objectives to improve international understanding of issues relating to children's rights, to promote economic policies that advance the cause of children, and to help facilitate the full implementation of the United Nations Convention on the Rights of the Child in industrialized and developing countries. The programme for 2006 - 2008 was approved by UNICEF Executive Board in September 2005.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>The International Maritime Organization (IMO) is head-quartered in</p>",
+    "options": [
+      "Washington DC",
+      "London",
+      "Vancouver",
+      "Rome",
+      "Barcelona"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The International Maritime Organization (IMO), known as the Inter-Governmental Maritime Consultative Organization (IMCO) until 1982, is a specialised agency of the United Nations responsible for regulating shipping. The IMO was established in Geneva in 1948 and came into force ten years later, meeting for the first time in 1959. Headquartered in London, United Kingdom, the IMO has 172 Member States and three Associate Members.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Which of the following is the official language of the Universal Postal Union (UPU)?</p>",
+    "options": [
+      "Spanish",
+      "Chinese",
+      "Arabic",
+      "Russian",
+      "French"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>French is the official language of the UPU. English was added as a working language in 1994. The majority of the UPU's documents and publications  -  including its flagship magazine, Union Postale  -  are available in the United Nations' six official languages (French, English, Russian, Mandarin Chinese, Spanish, and Arabic).</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>The Knowledge Network Issues Paper Series is published by</p>",
+    "options": [
+      "Universal Postal Union",
+      "World Tourism Organization",
+      "United Nations Industrial Development Organization",
+      "International Telecommunication Union",
+      "International Maritime Organization"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The Knowledge Network Issue Paper Series present research-based papers that investigate tourism issues in a practical way and provide recommendations for decision makers, published by UN World Tourism Organisation. The papers are a collaborative effort of two or more Knowledge Network institutions that address critical aspects in their region or area of expertise. The main purpose of the series is to provide a thorough analysis and tangible recommendations of practical subject matters that are on the forefront of policy makers and industry leaders' discussions. The Knowledge Network Issue Paper Series are the main applied sciences exercise of the Knowledge Network Community and its result can take form of a publication, report, case study analysis or guidelines for decision makers.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Which among the following is an official language of NATO?</p>",
+    "options": [
+      "Spanish",
+      "French",
+      "Italian",
+      "Dutch",
+      "Portuguese"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>English and French are the official languages for the entire North Atlantic Treaty Organization.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>Caribbean Community (CARICOM) is an organisation of how many member countries?</p>",
+    "options": [
+      "8",
+      "12",
+      "13",
+      "15",
+      "18"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Caribbean Community (CARICOM) is an organization of fifteen Caribbean nations and dependencies whose main objective is to promote economic integration and cooperation among its members, to ensure that the benefits of integration are equitably shared, and to coordinate foreign policy. The organization was established in 1973. Its major activities involve coordinating economic policies and development planning; devising and instituting special projects for the less-developed countries within its jurisdiction; operating as a regional single market for many of its members (Caricom Single Market); and handling regional trade disputes. The secretariat headquarters is in Georgetown, Guyana. CARICOM is an official United Nations Observer.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>Traditionally, the president of the Asian Development Bank (ADB) from which country?</p>",
+    "options": [
+      "China",
+      "Philippines",
+      "Singapore",
+      "Japan",
+      "Australia"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Traditionally, and because Japan is one of the largest shareholders of the bank, the president has always been Japanese.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>The head-quarters of European Bank for Reconstruction and Development (EBRD) is located in</p>",
+    "options": [
+      "Paris",
+      "Bern",
+      "Frankfurt",
+      "London",
+      "Geneva"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The European Bank for Reconstruction and Development (EBRD) is head-quartered in London. The EBRD is owned by 65 countries and two EU institutions.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>What is the capital of Myanmar?</p>",
+    "options": [
+      "Yangoon",
+      "Naypyidaw",
+      "Mandalay",
+      "Bago",
+      "Taungdwingyi"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Myanmar officially the Republic of the Union of Myanmar, also known as Burma, is a sovereign state in the region of Southeast Asia. Myanmar is bordered by India and Bangladesh to its west, Thailand and Laos to its east, and China to its north and northeast. Its capital city is Naypyidaw and its largest city and former capital city is Yangon (Rangoon). Myanmar has been a member of the Association of Southeast Asian Nations (ASEAN) since 1997.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Which among the following is the capital of The Netherlands?</p>",
+    "options": [
+      "The Hague",
+      "Rotterdam",
+      "Copenhagen",
+      "Amsterdam",
+      "Hamburg"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Netherlands also known informally as Holland, is a densely populated country in Western Europe, also incorporating three island territories in the Caribbean. It is the main constituent country of the Kingdom of the Netherlands. The European portion of the Netherlands borders Germany to the east, Belgium to the south, and the North Sea to the northwest, sharing maritime borders in the North Sea with Belgium, the United Kingdom, and Germany. The four largest cities in the Netherlands are Amsterdam, Rotterdam, The Hague and Utrecht. Amsterdam is the country's capital, while The Hague holds the Dutch seat of parliament and government The port of Rotterdam is the largest port in Europe and the world's largest outside east Asia. Utrecht is a central node for road and railway communications, commerce, and cultural events.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>The capital of New Zealand is</p>",
+    "options": [
+      "Christchurch",
+      "Wellington",
+      "Auckland",
+      "Napier",
+      "Dunedin"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>New Zealand is an island nation in the southwestern Pacific Ocean. The country geographically comprises two main landmasses - the North Island, and the South Island and around 600 smaller islands. New Zealand is situated some 1,500 kilometres (900 mi) east of Australia across the Tasman Sea and roughly 1,000 kilometres (600 mi) south of the Pacific island areas of New Caledonia, Fiji, and Tonga. Because of its remoteness, it was one of the last lands to be settled by humans. During its long period of isolation, New Zealand developed a distinct biodiversity of animal, fungal and plant life. The country's varied topography and its sharp mountain peaks, such as the Southern Alps, owe much to the tectonic uplift of land and volcanic eruptions. New Zealand's capital city is Wellington, while its most populous city is Auckland.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Doha is the capital of which of the following countries?</p>",
+    "options": [
+      "Bahrain",
+      "Oman",
+      "Kuwait",
+      "Yemen",
+      "Qatar"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Doha is the capital city and most populous city of the State of Qatar. The city is located on the coast of the Persian Gulf in the east of the country. It is Qatar's fastest growing city, with over 50% of the nation's population living in Doha or its surrounding suburbs, and it is also the economic centre of the country.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>What is the capital of Romania?</p>",
+    "options": [
+      "Zagreb",
+      "Bucharest",
+      "Budapest",
+      "Chisinau",
+      "Tirana"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Romania is a sovereign state located in South-eastern Europe. It borders the Black Sea, Bulgaria, Ukraine, Hungary, Serbia, and Moldova. It has an area of 238,397 square kilometres and a temperate-continental climate. With almost 20 million inhabitants, the country is the seventh most populous member state of the European Union. Its capital and largest city, Bucharest, is the sixth-largest city in the EU.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Lusaka is the capital of which of the following country?</p>",
+    "options": [
+      "Malawi",
+      "Mozambique",
+      "Tanzania",
+      "Zambia",
+      "Angola"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Lusaka is the capital and largest city of Zambia. One of the fastest developing cities in southern Africa, Lusaka is in the southern part of the central plateau at an elevation of about 1,279 metres. Lusaka is the centre of both commerce and government in Zambia and connects to the country's four main highways heading north, south, east and west. English is the official language of the city, but Nyanja and Bemba are also common.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Tbilisi is the capital of which among the following countries?</p>",
+    "options": [
+      "Azerbaijan",
+      "Georgia",
+      "Armenia",
+      "Ukraine",
+      "Slovakia"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Tbilisi is the capital and the largest city of Georgia, lying on the banks of the Kura River with a population of approximately 1.5 million people. Founded in the 5<sup>th</sup> century AD by Vakhtang I Gorgasali, the monarch of the Kingdom of Iberia, Tbilisi since served as the capital of various Georgian kingdoms and republics. Between 1801 and 1917, then being under the rule of the former Russian Empire, Tbilisi was the seat of the Imperial Viceroy, governing both Southern and Northern Caucasus.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>The capital of Indonesia is</p>",
+    "options": [
+      "Bali",
+      "Sumatra",
+      "Java",
+      "Jakarta",
+      "Singapore"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Jakarta officially the Special Capital Region of Jakarta, is the capital and most populous city of Indonesia. Located on the northwest coast of the world's most populous island of Java, the city is the centre of economics, culture and politics of Indonesia. Jakarta's business opportunities, as well as its potential to offer a higher standard of living, attract migrants from all over Indonesian archipelago, making the city a melting pot of many communities and cultures.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Tehran is the capital which among the following countries?</p>",
+    "options": [
+      "Iraq",
+      "Lebanon",
+      "Jordan",
+      "Yemen",
+      "Iran"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Tehran is the capital of Iran and Tehran Province. Tehran's most famous landmarks include the Azadi Tower, a memorial built under the reign of the Pahlavi dynasty, and the Milad Tower, the world's sixth-tallest self-supporting tower which was completed in 2007. The Tabiat Bridge, a newly-built landmark, was completed in 2014.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Currency of Vietnam is</p>",
+    "options": [
+      "Kyat",
+      "Ngultrum",
+      "Ringgit",
+      "Dollar",
+      "Dong"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The dong (sign: &#8363;; code: VND) has been the currency of Vietnam since May 3, 1978. Issued by the State Bank of Vietnam, it is represented by the symbol \"&#8363;\". Formerly, it was subdivided into 10 h&#224;o, which was further subdivided into 10 xu, neither of which is now used. Since 2012 the use of coins has decreased greatly, and since 2014 coins are generally now not accepted in retail, but will still be accepted in some banks (not all).</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>What is the currency of Vanuatu?</p>",
+    "options": [
+      "Vanu",
+      "Vatu",
+      "Peso",
+      "Shilling",
+      "Kyat"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The vatu (sign: VT; ISO 4217: VUV) is the currency of Vanuatu. The vatu has no subdivisions. The vatu was introduced in 1981, one year after independence, to replace the New Hebrides franc at par. The vatu was issued as a single unit with no subunit, having 1 vatu being the smallest denomination possible, in a similar vein to the Japanese yen and Tajikistani ruble.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>Bolivar is the currency of</p>",
+    "options": [
+      "Venezuela",
+      "Ecuador",
+      "Chile",
+      "Peru",
+      "Colombia"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The bol&#237;var fuerte (sign: Bs.F. or Bs.; ISO 4217 code: VEF) has been the currency of Venezuela since 1 January 2008. It is subdivided into 100 c&#233;ntimos and replaced the original bol&#237;var at the rate of Bs.F. 1 = Bs. 1,000 because of inflation. The bol&#237;var was adopted by the monetary law of 1879, replacing the short-lived venezolano at a rate of five bol&#237;vares to one venezolano.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>What is the currency of Egypt?</p>",
+    "options": [
+      "Egyptian Pound",
+      "Egyptian Peso",
+      "Egyptian Krona",
+      "Egyptian Real",
+      "Egyptian Dollar"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The Egyptian pound is the currency of Egypt. It is divided into 100 piastres, or ersh, or 1,000 millimes. The Egyptian pound is frequently abbreviated as LE or L.E., which stands for livre &#233;gyptienne (French for Egyptian pound). E&le; and &le;E are commonly used on the internet. The name Gen&#275;h is derived from the Guinea coin, which had almost the same value of 100 piastres at the end of the 19<sup>th</sup> century.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Currency of Eritrea is</p>",
+    "options": [
+      "Krona",
+      "Birr",
+      "Lev",
+      "Nakfa",
+      "Rand"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The nakfa (ISO 4217 code: ERN) is the currency of Eritrea and was introduced on 8 November 1997 to replace the Ethiopian birr at par. The currency takes its name from the Eritrean town of Nakfa. The nakfa is divided into 100 cents.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>'Cedi' is the currency of</p>",
+    "options": [
+      "Nigeria",
+      "Niger",
+      "Costa Rica",
+      "Ghana",
+      "Uganda"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Ghanaian cedi (currency sign: GH&#8373;; currency code: GHS) is the unit of currency of Ghana. It is the fourth historical and only current legal tender in the Republic of Ghana. One Ghana cedi is divided into one hundred pesewas (Gp).</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>What is the currency of The Bahamas?</p>",
+    "options": [
+      "Bahamian Peso",
+      "Bahamian Riyal",
+      "Bahamian Dollar",
+      "Bahamian Ringgit",
+      "Bahamian Dinar"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The dollar (sign: $; code: BSD) has been the currency of The Bahamas since 1966. It is normally abbreviated with the dollar sign $, or alternatively B$ to distinguish it from other dollar-denominated currencies. It is divided into 100 cents.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>Currency of Bangladesh is</p>",
+    "options": [
+      "Rupee",
+      "Peso",
+      "Ruble",
+      "Yuan",
+      "Taka"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Bangladeshi taka (sign: &#2547; or Tk, code: BDT) is the currency of the People's Republic of Bangladesh. Issuance of banknotes &#2547;10 and larger is controlled by Bangladesh Bank, and for the &#2547;1, &#2547;2 and &#2547;5 banknotes, which are the responsibility of the Ministry of Finance of the government of Bangladesh. The most commonly used symbol for the taka is \"&#2547;\" and \"Tk\", used on receipts while purchasing goods and services. &#2547;1 is subdivided into 100 poisha.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>What is the currency of Belgium?</p>",
+    "options": [
+      "Franc",
+      "Pound",
+      "Euro",
+      "Krone",
+      "Dollar"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The euro (sign: &#8364;; code: EUR) is the official currency of the eurozone, which consists of 19 of the 28 member states of the European Union: Austria, Belgium, Cyprus, Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, the Netherlands, Portugal, Slovakia, Slovenia, and Spain.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

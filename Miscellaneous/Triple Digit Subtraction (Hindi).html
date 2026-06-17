@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple Digit Subtraction (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">pundits</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<span class=\"eqt\"><p>432 - 7</p>\r\n</span><span class=\"hqt\"><p>432 - 7</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>425</p>\r\n</span><span class=\"hqt\"><p>425</p>\r\n</span>",
+      "<span class=\"eqt\"><p>426</p>\r\n</span><span class=\"hqt\"><p>426</p>\r\n</span>",
+      "<span class=\"eqt\"><p>435</p>\r\n</span><span class=\"hqt\"><p>435</p>\r\n</span>",
+      "<span class=\"eqt\"><p>424</p>\r\n</span><span class=\"hqt\"><p>424</p>\r\n</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 1</strong> i.e. <strong>425.</strong></p>\r\n\r\n<p>432 - 7</p>\r\n\r\n<p>= 425</p>\r\n\r\n<p>&nbsp;</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 1</strong> अर्थात <strong>425</strong> है।&nbsp;</p>\r\n\r\n<p>432 - 7</p>\r\n\r\n<p>= 425</p>\r\n</span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>132 - 89</p>\r\n</span><span class=\"hqt\"><p>132 - 89</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>63</p>\r\n</span><span class=\"hqt\"><p>63</p>\r\n</span>",
+      "<span class=\"eqt\"><p>42</p>\r\n</span><span class=\"hqt\"><p>42</p>\r\n</span>",
+      "<span class=\"eqt\"><p>43</p>\r\n</span><span class=\"hqt\"><p>43</p>\r\n</span>",
+      "<span class=\"eqt\"><p>53</p>\r\n</span><span class=\"hqt\"><p>53</p>\r\n</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 3</strong> i.e. <strong>43.</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://hranker.com/admin/assets/uploads/ckeditor/qus 342025_05_09_10_54_02xscxa2025_05_23_01_11_08.jpg\" style=\"height:95px; width:100px\" /></p>\r\n\r\n<p>11 + 32 = 43</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 3</strong> अर्थात <strong>43</strong> है।&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://hranker.com/admin/assets/uploads/ckeditor/qus 342025_05_09_10_54_02xscxa2025_05_23_01_11_08.jpg\" style=\"height:95px; width:100px\" /></p>\r\n\r\n<p>11 + 32 = 43</p>\r\n</span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>262 - 179</p>\r\n</span><span class=\"hqt\"><p>262 - 179</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>53</p>\r\n</span><span class=\"hqt\"><p>53</p>\r\n</span>",
+      "<span class=\"eqt\"><p>83</p>\r\n</span><span class=\"hqt\"><p>83</p>\r\n</span>",
+      "<span class=\"eqt\"><p>73</p>\r\n</span><span class=\"hqt\"><p>73</p>\r\n</span>",
+      "<span class=\"eqt\"><p>63</p>\r\n</span><span class=\"hqt\"><p>63</p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 2&nbsp;</strong>i.e. <strong>83.</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://hranker.com/admin/assets/uploads/ckeditor/qus 342025_05_09_10_54_02xscxawa2025_05_23_01_16_17.jpg\" style=\"height:95px; width:100px\" /></p>\r\n\r\n<p>= 21 + 62 = 83</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 2</strong> अर्थात <strong>83</strong> है।&nbsp;<!--<div contenteditable=\"true\" style=\"position: relative;\">--></p>\r\n\r\n<p><img alt=\"\" src=\"https://hranker.com/admin/assets/uploads/ckeditor/qus 342025_05_09_10_54_02xscxawa2025_05_23_01_16_17.jpg\" style=\"height:95px; width:100px\" /></p>\r\n\r\n<p>= 21 + 62 = 83</p>\r\n</span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>518 - 464</p>\r\n</span><span class=\"hqt\"><p>518 - 464</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>54</p>\r\n</span><span class=\"hqt\"><p>54</p>\r\n</span>",
+      "<span class=\"eqt\"><p>76</p>\r\n</span><span class=\"hqt\"><p>76</p>\r\n</span>",
+      "<span class=\"eqt\"><p>60</p>\r\n</span><span class=\"hqt\"><p>60</p>\r\n</span>",
+      "<span class=\"eqt\"><p>64</p>\r\n</span><span class=\"hqt\"><p>64</p>\r\n</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 1</strong> i.e. <strong>54.</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://hranker.com/admin/assets/uploads/ckeditor/qus 342025_05_09_10_54_02xscxawadf2025_05_23_01_18_53.jpg\" style=\"height:95px; width:100px\" /></p>\r\n\r\n<p>36 + 18 = 54</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 1</strong> अर्थात <strong>54</strong> है।&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://hranker.com/admin/assets/uploads/ckeditor/qus 342025_05_09_10_54_02xscxawadf2025_05_23_01_18_53.jpg\" style=\"height:95px; width:100px\" /></p>\r\n\r\n<p>36 + 18 = 54</p>\r\n<!--<div contenteditable=\"true\" style=\"position: relative;\">--></span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>845 - 548</p>\r\n</span><span class=\"hqt\"><p>845 - 686</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>296</p>\r\n</span><span class=\"hqt\"><p>296</p>\r\n</span>",
+      "<span class=\"eqt\"><p>297</p>\r\n</span><span class=\"hqt\"><p>297</p>\r\n</span>",
+      "<span class=\"eqt\"><p>269</p>\r\n</span><span class=\"hqt\"><p>269</p>\r\n</span>",
+      "<span class=\"eqt\"><p>198</p>\r\n</span><span class=\"hqt\"><p>198</p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 2&nbsp;</strong>i.e. <strong>297.</strong></p>\r\n\r\n<p>Here is a trick for subtraction if the numbers are reverses of each other. Let the numbers are&nbsp;&#39;abc&#39; and &#39;cba&#39;. So the resultant will be:</p>\r\n\r\n<p><strong>First Digit:</strong> a - c - 1</p>\r\n\r\n<p><strong>Second Digit:</strong> 9</p>\r\n\r\n<p><strong>Third Digit: </strong>9 &ndash; (a - c - 1)</p>\r\n\r\n<p>For this question:</p>\r\n\r\n<p>845 - 548</p>\r\n\r\n<p><strong>First Digit:</strong>&nbsp;8&nbsp;- 5&nbsp;- 1 = 2</p>\r\n\r\n<p><strong>Second Digit:</strong> 9</p>\r\n\r\n<p><strong>Third Digit: </strong>9 &ndash; 2 = 7</p>\r\n\r\n<p><strong>Final Answer:</strong> 297</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 2</strong> अर्थात <strong>297</strong> है।&nbsp;<!--<div contenteditable=\"true\" style=\"position: relative;\">--></p>\r\n\r\n<p>यदि संख्याएँ एक दूसरे के विपरीत हैं तो घटाने के लिए यहाँ एक तरकीब दी गई है। मान लें कि संख्याएँ &#39;abc&#39; और &#39;cba&#39; हैं। तो परिणाम होगा:</p>\r\n\r\n<p><strong>पहला अंक:</strong> a - c - 1</p>\r\n\r\n<p><strong>दूसरा अंक:</strong> 9</p>\r\n\r\n<p><strong>तीसरा अंक: </strong>9 &ndash; (a - c - 1)</p>\r\n\r\n<p>इस प्रश्न के लिए:</p>\r\n\r\n<p>845 - 548</p>\r\n\r\n<p><strong>पहला अंक:</strong>&nbsp;8&nbsp;- 5&nbsp;- 1 = 2</p>\r\n\r\n<p><strong>दूसरा अंक:</strong> 9</p>\r\n\r\n<p><strong>तीसरा अंक:&nbsp;</strong>9 &ndash; 2 = 7</p>\r\n\r\n<p><strong>अंतिम उत्तर:</strong> 297</p>\r\n</span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>576 - 198 - 213</p>\r\n</span><span class=\"hqt\"><p>576 - 198 - 213</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>178</p>\r\n</span><span class=\"hqt\"><p>178</p>\r\n</span>",
+      "<span class=\"eqt\"><p>168</p>\r\n</span><span class=\"hqt\"><p>168</p>\r\n</span>",
+      "<span class=\"eqt\"><p>268</p>\r\n</span><span class=\"hqt\"><p>268</p>\r\n</span>",
+      "<span class=\"eqt\"><p>165</p>\r\n</span><span class=\"hqt\"><p>165</p>\r\n</span>"
+    ],
+    "correct_option_id": 3,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 4</strong> i.e. <strong>165.</strong></p>\r\n\r\n<p>576 - 198 - 213</p>\r\n\r\n<p>= (600 - 24) - (200 -&nbsp;2) - (200 + 13)</p>\r\n\r\n<p>= (600 - 200 - 200) - (24 -&nbsp;2 + 13)</p>\r\n\r\n<p>= 200 - 35</p>\r\n\r\n<p>= 165</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 4</strong> अर्थात <strong>165</strong> है।&nbsp;</p>\r\n\r\n<p>576 - 198 - 213</p>\r\n\r\n<p>= (600 - 24) - (200 -&nbsp;2) - (200 + 13)</p>\r\n\r\n<p>= (600 - 200 - 200) - (24 -&nbsp;2 + 13)</p>\r\n\r\n<p>= 200 - 35</p>\r\n\r\n<p>= 165</p>\r\n\r\n<p><!--<div contenteditable=\"true\" style=\"position: relative;\">--></p>\r\n</span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>348 - 152 - 241 - 103</p>\r\n</span><span class=\"hqt\"><p>348 - 152 - 241 - 103</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>-155</p>\r\n</span><span class=\"hqt\"><p>-155</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-148</p>\r\n</span><span class=\"hqt\"><p>-148</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-45</p>\r\n</span><span class=\"hqt\"><p>-45</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-145</p>\r\n</span><span class=\"hqt\"><p>-145</p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 2&nbsp;</strong>i.e. <strong>-148</strong>.</p>\r\n\r\n<p>348 - 152 - 241 - 103</p>\r\n\r\n<p>= (350 - 2) - (150 + 2) - (250 -&nbsp;9) - (100 + 3)</p>\r\n\r\n<p>= (350 - 150 - 250 - 100) - (2 +&nbsp;2 - 9 + 3)</p>\r\n\r\n<p>= -150 + 2</p>\r\n\r\n<p>= -148</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 2</strong> अर्थात <strong>-148&nbsp;</strong>है।</p>\r\n\r\n<p>348 - 152 - 241 - 103</p>\r\n\r\n<p>= (350 - 2) - (150 + 2) - (250 -&nbsp;9) - (100 + 3)</p>\r\n\r\n<p>= (350 - 150 - 250 - 100) - (2 +&nbsp;2 - 9 + 3)</p>\r\n\r\n<p>= -150 + 2</p>\r\n\r\n<p>= -148</p>\r\n<!--<div contenteditable=\"true\" style=\"position: relative;\">--></span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>986 - 454 - 121 - 347 - 63</p>\r\n</span><span class=\"hqt\"><p>986 - 454 - 121 - 347 - 63</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>14</p>\r\n</span><span class=\"hqt\"><p>14</p>\r\n</span>",
+      "<span class=\"eqt\"><p>7</p>\r\n</span><span class=\"hqt\"><p>7</p>\r\n</span>",
+      "<span class=\"eqt\"><p>1</p>\r\n</span><span class=\"hqt\"><p>1</p>\r\n</span>",
+      "<span class=\"eqt\"><p>4</p>\r\n</span><span class=\"hqt\"><p>4</p>\r\n</span>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 3</strong> i.e. <strong>1.</strong></p>\r\n\r\n<p>986 - 454 - 121 - 347 - 63</p>\r\n\r\n<p>= (1000 - 14) - (450 + 4) - (100 + 21) - (350 - 3) - (50 + 13)</p>\r\n\r\n<p>= (1000 - 450 - 100 - 350 - 50) - (14 + 4 + 21 - 3 + 13)</p>\r\n\r\n<p>= 50 - 49</p>\r\n\r\n<p>= 1</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 3</strong> अर्थात <strong>1</strong> है।&nbsp;</p>\r\n\r\n<p>986 - 454 - 121 - 347 - 63</p>\r\n\r\n<p>= (1000 - 14) - (450 + 4) - (100 + 21) - (350 - 3) - (50 + 13)</p>\r\n\r\n<p>= (1000 - 450 - 100 - 350 - 50) - (14 + 4 + 21 - 3 + 13)</p>\r\n\r\n<p>= 50 - 49</p>\r\n\r\n<p>= 1</p>\r\n</span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>817 - 256 - 348 - 132 - 444 - 659</p>\r\n</span><span class=\"hqt\"><p>817 - 256 - 348 - 132 - 444 - 659</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>-1210</p>\r\n</span><span class=\"hqt\"><p>-1210</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-1022</p>\r\n</span><span class=\"hqt\"><p>-1022</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-1191</p>\r\n</span><span class=\"hqt\"><p>-1191</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-1110</p>\r\n</span><span class=\"hqt\"><p>-1110</p>\r\n</span>"
+    ],
+    "correct_option_id": 1,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 2&nbsp;</strong>i.e. <strong>-1022.</strong></p>\r\n\r\n<p>817 - 256 - 348 - 132 - 444 - 659</p>\r\n\r\n<p>(800 + 17) - (250 + 6) - (350 - 2) - (100 + 32) - (450 - 6) - (650 + 9)</p>\r\n\r\n<p>= (800 - 250 - 350 - 100 - 450 - 650) - (-17 + 6 - 2 + 32 - 6 + 9)</p>\r\n\r\n<p>= [(800 - 350 - 450) - (250 + 100 + 650)] - 22</p>\r\n\r\n<p>= -1000 - 22</p>\r\n\r\n<p>= -1022</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 2</strong> अर्थात <strong>-1022</strong> है।&nbsp;</p>\r\n\r\n<p>817 - 256 - 348 - 132 - 444 - 659</p>\r\n\r\n<p>(800 + 17) - (250 + 6) - (350 - 2) - (100 + 32) - (450 - 6) - (650 + 9)</p>\r\n\r\n<p>= (800 - 250 - 350 - 100 - 450 - 650) - (-17 + 6 - 2 + 32 - 6 + 9)</p>\r\n\r\n<p>= [(800 - 350 - 450) - (250 + 100 + 650)] - 22</p>\r\n\r\n<p>= -1000 - 22</p>\r\n\r\n<p>= -1022</p>\r\n<!--<div contenteditable=\"true\" style=\"position: relative;\">--></span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  },
+  {
+    "question": "<span class=\"eqt\"><p>917 - 512 - 219 - 153 - 111 - 343 - 235</p>\r\n</span><span class=\"hqt\"><p>917 - 512 - 219 - 153 - 111 - 343 - 235</p>\r\n</span>",
+    "comp": "",
+    "options": [
+      "<span class=\"eqt\"><p>-656</p>\r\n</span><span class=\"hqt\"><p>-656</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-626</p>\r\n</span><span class=\"hqt\"><p>-626</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-636</p>\r\n</span><span class=\"hqt\"><p>-636</p>\r\n</span>",
+      "<span class=\"eqt\"><p>-686</p>\r\n</span><span class=\"hqt\"><p>-686</p>\r\n</span>"
+    ],
+    "correct_option_id": 0,
+    "solution": "<span class=\"eqt\"><p>The correct answer is <strong>option 1</strong> i.e. <strong>-656</strong>.</p>\r\n\r\n<p>917 - 512 - 219 - 153 - 111 - 343 - 235</p>\r\n\r\n<p>= (900 + 17) - (500 + 12) - (200 + 19) - (150 + 3) - (100 + 11) - (350 - 7) - (250 - 15)</p>\r\n\r\n<p>= (900 - 500 - 200 - 150 - 100 - 350 - 250) - (-17 + 12 + 19 + 3 + 11 - 7 - 15)</p>\r\n\r\n<p>= [(900 - 200 - 350 - 250 - 100) - 500 - 150] - 6</p>\r\n\r\n<p>= -650 - 6</p>\r\n\r\n<p>= -656</p>\r\n</span><span class=\"hqt\"><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">--><!--<div contenteditable=\"true\" style=\"position: relative;\">-->\r\n<p>सही उत्तर <strong>विकल्प 1</strong> अर्थात <strong>-656</strong> है।&nbsp;</p>\r\n\r\n<p>917 - 512 - 219 - 153 - 111 - 343 - 235</p>\r\n\r\n<p>= (900 + 17) - (500 + 12) - (200 + 19) - (150 + 3) - (100 + 11) - (350 - 7) - (250 - 15)</p>\r\n\r\n<p>= (900 - 500 - 200 - 150 - 100 - 350 - 250) - (-17 + 12 + 19 + 3 + 11 - 7 - 15)</p>\r\n\r\n<p>= [(900 - 200 - 350 - 250 - 100) - 500 - 150] - 6</p>\r\n\r\n<p>= -650 - 6</p>\r\n\r\n<p>= -656</p>\r\n<!--<div contenteditable=\"true\" style=\"position: relative;\">--></span>",
+    "marks": 2,
+    "section": "Quantitative Aptitude",
+    "series_name": "Triple Digit Subtraction"
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 3;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>

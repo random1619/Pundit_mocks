@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polity & Governance Mock 4 (Hindi)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/modern-theme.css">
+    
+
+    
+  
+  
+
+
+<!-- PUNDITS-MOBILE-FIX-v2 -->
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <!-- PUNDITS-E2E-STYLE-PATCH -->
+    
+    
+
+    
+    
+<link rel="stylesheet" href="../../assets/exam-platform.css">
+</head>
+<body>
+    <!-- Welcome Start page -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1><i class="fas fa-graduation-cap"></i> CBT Portal</h1>
+                <p>Computer Based Test Environment</p>
+            </div>
+            
+            <div class="test-details">
+                <div class="detail-item">
+                    <div class="detail-label">Total Questions</div>
+                    <div class="detail-value" id="welcomeTotalQs">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Marks</div>
+                    <div class="detail-value" id="welcomeTotalMarks">0</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value" id="welcomeDuration">0 mins</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Marking Scheme</div>
+                    <div class="detail-value" id="welcomeMarksScheme">+0.0 / -0.0</div>
+                </div>
+            </div>
+            
+            <div class="section-info" id="welcomeSectionsBlock" style="display:none;">
+                <h3><i class="fas fa-layer-group"></i> Section Details</h3>
+                <table class="section-table">
+                    <thead>
+                        <tr>
+                            <th>Section Name</th>
+                            <th>Questions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="welcomeSectionsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="welcome-actions">
+                <button class="start-btn" id="startBtn">
+                    <i class="fas fa-play"></i> Start Test
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Active Exam Interface -->
+    <div class="exam-container" id="examContainer">
+        <div class="exam-header">
+            <div class="exam-title">Mocks Wallah</div>
+            <div class="exam-timer">
+                <div class="timer-box" id="mainTimer">00:00</div>
+                <button class="theme-toggle" id="pauseBtn" title="Pause Test" style="margin-right:8px;">⏸</button>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                <button class="nav-btn btn-submit mobile-only" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        
+        <div class="candidate-bar">
+            <div class="candidate-info">
+                <div class="candidate-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="candidate-details">
+                    <div class="candidate-name">Candidate</div>
+                    <div class="candidate-id">ID: User</div>
+                </div>
+            </div>
+            <div class="section-badge" id="sectionBadge" style="display:none;">
+                <span id="sectionName"></span><span id="sectionTimer"></span>
+            </div>
+        </div>
+
+        <!-- Section tabs for Soft Switching (Tier I) -->
+        <div class="section-tabs" id="sectionTabs" style="display:none;"></div>
+        
+        <div class="exam-main">
+            <div class="question-area">
+                <div class="question-scroll">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <div>
+                                <div class="question-number" id="questionNum">Question 1</div>
+                                <div class="question-marks" id="questionMarks">Marks: 3.0</div>
+                            </div>
+                            <div class="lang-toggle">
+                                <button class="lang-btn active" id="engBtn">English</button>
+                                <button class="lang-btn" id="hinBtn">हिंदी</button>
+                            </div>
+                        </div>
+                        
+                        <div class="comprehension" id="comprehension" style="display:none;">
+                            <h4><i class="fas fa-book-open"></i> Comprehension</h4>
+                            <div id="comprehensionText"></div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-list" id="optionsList"></div>
+                        
+                        <div class="solution-box" id="solutionBox">
+                            <div class="solution-header">
+                                <i class="fas fa-lightbulb"></i> Solution
+                            </div>
+                            <div class="solution-stats" id="solutionStats"></div>
+                            <div id="solutionText"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-bar">
+                    <button class="nav-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+                    <div class="progress-info">
+                        <div id="progressText">Question 1</div>
+                        <div style="font-size:11px;margin-top:4px">
+                            Answered: <span id="answeredCount">0</span>
+                        </div>
+                    </div>
+                    <button class="nav-btn btn-review" id="reviewBtn"><i class="fas fa-flag"></i> Mark for Review</button>
+                    <button class="nav-btn mobile-only" id="navigatorBtn"><i class="fas fa-th"></i> Grid</button>
+                    <button class="nav-btn btn-submit desktop-only" id="submitBtnDesktop">Submit</button>
+                    <button id="nextBtn" class="nav-btn btn-next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="navigator-sidebar desktop-only">
+                <div class="navigator-header">Question Navigator</div>
+                <div class="navigator-grid" id="desktopNav"></div>
+                <div class="navigator-legend">
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--success)"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--warning)"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--danger)"></div>
+                        <span>Incorrect</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                        <span>Unattempted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile drawer panel -->
+    <div class="mobile-navigator" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Question Navigator</h3>
+            <button class="close-nav" id="closeNav">&times;</button>
+        </div>
+        <div class="navigator-grid" id="mobileNavGrid"></div>
+        <div class="navigator-legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--success)"></div>
+                <span>Answered</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--warning)"></div>
+                <span>Marked for Review</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--danger)"></div>
+                <span>Incorrect</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background:var(--card);border:2px solid var(--border)"></div>
+                <span>Unattempted</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Overlay -->
+    
+    <!-- Pause Overlay -->
+    <div class="result-modal" id="pauseModal" style="display:none;z-index:10001;">
+        <div class="result-container" style="text-align:center;">
+            <div class="result-header">
+                <h2>⏸ Test Paused</h2>
+                <p style="margin-top:10px;color:var(--text-light);">Your progress has been frozen. Timer is stopped.</p>
+            </div>
+            <div class="result-actions" style="justify-content:center;margin-top:24px;">
+                <button class="result-btn btn-close" id="resumeBtn" style="background:var(--primary);color:white;">
+                    ▶ Resume Test
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="result-modal" id="resultModal">
+        <div class="result-container">
+            <div class="result-header">
+                <h2>Test Completed!</h2>
+                <div class="result-score" id="resultScore">0.00</div>
+            </div>
+            
+            <div class="result-grid">
+                <div class="result-stat correct">
+                    <div class="result-stat-value" id="correctCount">0</div>
+                    <div class="result-stat-label">Correct</div>
+                </div>
+                <div class="result-stat incorrect">
+                    <div class="result-stat-value" id="incorrectCount">0</div>
+                    <div class="result-stat-label">Incorrect</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="unattemptedCount">0</div>
+                    <div class="result-stat-label">Unattempted</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="timeTaken">0</div>
+                    <div class="result-stat-label">Minutes</div>
+                </div>
+            </div>
+            
+            <div class="section-results" id="sectionResults" style="display:none;">
+                <h3>Section-wise Performance</h3>
+                <table class="section-results-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Attempted</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sectionResultsBody"></tbody>
+                </table>
+            </div>
+            
+            <div class="result-actions">
+                <button class="result-btn btn-close" id="closeResult">Close</button>
+                <button class="result-btn btn-review-ans" id="reviewAnswers">Review Answers</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/cbt-engine.js"></script>
+    <script>
+        const questions = [
+  {
+    "question": "<p>Who among the following is NOT a union executive?</p>",
+    "options": [
+      "President",
+      "Vice President",
+      "Prime Minister",
+      "Chief Justice of India",
+      "Attorney General of India"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Union executive consists of the President, the Vice-President, the Prime Minister, the council of ministers and the attorney general of India.</p>",
+    "question_index": 0
+  },
+  {
+    "question": "<p>Panchayat Raj was first introduced in which state?</p>",
+    "options": [
+      "Uttar Pradesh",
+      "Madhya Pradesh",
+      "Rajasthan",
+      "Bihar",
+      "Maharashtra"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Rajasthan was the first state to establish Panchayati Raj. The scheme was inaugurated by the prime minister on October 2, 1959, in Nagaur district. Rajasthan was followed by Andhra Pradesh, which also adopted the system in 1959.</p>",
+    "question_index": 1
+  },
+  {
+    "question": "<p>Who held the portfolio of Labour in the Interim Government of 1946?</p>",
+    "options": [
+      "Abdur Rab Nishtar",
+      "C. Rajagopalachari",
+      "Dr. John Mathao",
+      "Liaquat Ali Khan",
+      "Jagjivan Ram"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Jagjivan Ram became the youngest minister in Jawaharlal Nehru's interim government, the first cabinet of India as a Labour Minister and also a member of Constituent Assembly of India.</p>",
+    "question_index": 2
+  },
+  {
+    "question": "<p>Which among the following is NOT a language included in Eighth Schedule of Constitution?</p>",
+    "options": [
+      "Urdu",
+      "Maithili",
+      "Bodo",
+      "Bhojpuri",
+      "Dogri"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Eighth Schedule to the Constitution consists of the following 22 languages:</p><p>4. Which among the following is NOT a language included in Eighth Schedule of Constitution?</p><p>(1) Assamese, (2) Bengali, (3) Gujarati, (4) Hindi, (5) Kannada, (6) Kashmiri, (7) Konkani, (8) Malayalam, (9) Manipuri, (10) Marathi, (11) Nepali, (12) Oriya, (13) Punjabi, (14) Sanskrit, (15) Sindhi, (16) Tamil, (17) Telugu, (18) Urdu (19) Bodo, (20) Santhali, (21) Maithili and (22) Dogri.</p>",
+    "question_index": 3
+  },
+  {
+    "question": "<p>Concept of \"Rule of Law\" was propounded by who among the following?</p>",
+    "options": [
+      "Dr. B.R. Ambedkar",
+      "A.V. Dicey",
+      "Lalit Bhasin",
+      "Joseph Kroncke",
+      "T.H. Green"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>A.V Dicey stated three principles to the term 'Rule of Law'.</p><p>1. Supremacy of Law 2. Equality before Law 3. Predominance of Legal spirit.</p><p>The first and the second elements are applicable to the Indian System. The Supreme Court held that the 'Rule of Law' as embodied in Article 14 is a 'basic feature' of the constitution.</p>",
+    "question_index": 4
+  },
+  {
+    "question": "<p>Directive principles of state policy was first amended by which of the following constitutional amendment act?</p>",
+    "options": [
+      "24<sup>th</sup>",
+      "36<sup>th</sup>",
+      "42<sup>nd</sup>",
+      "51<sup>st</sup>",
+      "58<sup>th</sup>"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Directive Principles are referred to as Instrument of Instructions. It denotes the ideals that the State should keep in mind while formulating policies and enacting laws. These are the constitutional instructions or recommendations to the State in legislative, executive and administrative matters. The 42nd Amendment Act of 1976 added four new Directive Principles to the original list. And again through 44<sup>th</sup>, 86<sup>th</sup> and 97<sup>th</sup> amendment acts.</p>",
+    "question_index": 5
+  },
+  {
+    "question": "<p>Apart from India, which is the only democratic country to contain provisions for fundamental duties in their constitution?</p>",
+    "options": [
+      "Britain",
+      "USA",
+      "Germany",
+      "Japan",
+      "France"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>Japanese Constitution is, perhaps, the only democratic Constitution in world which contains a list of duties of citizens. The Fundamental Duties in the Indian Constitution are inspired by the Constitution of erstwhile USSR.</p>",
+    "question_index": 6
+  },
+  {
+    "question": "<p>Which among the following article is related to amendment procedure to the constitution?</p>",
+    "options": [
+      "Article 368",
+      "Article 340",
+      "Article 386",
+      "Article 324",
+      "Article 391"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Article 368 in Part XX of the Constitution deals with the powers of Parliament to amend the Constitution and its procedure. It states that the Parliament may, in exercise of its constituent power, amend by way of addition, variation or repeal any provision of the Constitution in accordance with the procedure laid down for the purpose.</p>",
+    "question_index": 7
+  },
+  {
+    "question": "<p>Who among the following Chief Justice of India has acted as President of India?</p>",
+    "options": [
+      "Koka Subba Rao",
+      "Mohammad Hidayatullah",
+      "Yeshwant Vishnu Chandrachud",
+      "Sabyasachi Mukharji",
+      "Ranganath Misra"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Mohammad Hidayatullah was the 11th Chief Justice of India. when President Dr Zakir Hussain died in May, 1969, the then Vice-President, VV Giri was acting as the President. Soon after VV Giri resigned to contest the election of the President. Then the Chief Justice of India, M Hidayatullah worked as the officiating President from 20 July, 1969 to 24 August, 1969. He was also the sixth Vice President of India.</p>",
+    "question_index": 8
+  },
+  {
+    "question": "<p>To be elected to the office of Vice-President, he/ she should be eligible to become a member of which of the following?</p>",
+    "options": [
+      "Member of Lok Sabha",
+      "Member of Rajya Sabha",
+      "Member of Legislative Assembly",
+      "Member of Legislative Council",
+      "Both 1 &amp; 2"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>To be eligible for election as Vice-President, a person should fulfil the following qualifications:</p><p>1. He should be a citizen of India.</p><p>2. He should have completed 35 years of age.</p><p>3. He should be qualified for election as a member of the Rajya Sabha.</p><p>4. He should not hold any office of profit under the Union government or any state government or any local authority or any other public authority.</p>",
+    "question_index": 9
+  },
+  {
+    "question": "<p>A person who is not a member of parliament can hold a Ministry for how long?</p>",
+    "options": [
+      "1 year",
+      "1 month",
+      "2 months",
+      "6 months",
+      "1 year and 6 months"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>A minister who is not a member of the Parliament (either house) for any period of six consecutive months shall cease to be a minister. So, it is imperative to get elected to any house of the parliament to hold the office for remaining period of the government rule.</p>",
+    "question_index": 10
+  },
+  {
+    "question": "<p>Members from which of the following community is nominated by President to Lok Sabha?</p>",
+    "options": [
+      "Scheduled Community",
+      "Linguistic Minority community",
+      "Anglo-Indian Community",
+      "Art &amp; Scientific Community",
+      "Religious Minority Community"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The maximum strength of the Lok Sabha is fixed at 552. Out of this, 2 members are to be nominated by the president from the Anglo-Indian community. An Anglo-Indian is a person whose father or any of whose other male progenitors in the male line is or was of European descent but who is domiciled within the territory of India and is or was born within such territory of parents habitually resident therein and not merely established there for temporary purposes.</p>",
+    "question_index": 11
+  },
+  {
+    "question": "<p>At present, allocation of seats of Lok Sabha is frozen based on the census of which year?</p>",
+    "options": [
+      "1961",
+      "1971",
+      "1981",
+      "1991",
+      "2001"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>In order to restrict population expansion and to discourage high population states from enjoying more seats in Lok Sabha, the readjustment on allocation of seats of Lok Sabha is frozen till 2026, based on the census of 1971. After the removal of the restriction on readjustment, it will be based on 2031 census.</p>",
+    "question_index": 12
+  },
+  {
+    "question": "<p>Which among the following schedule is related with disqualification of member of parliament?</p>",
+    "options": [
+      "Second",
+      "Seventh",
+      "Ninth",
+      "Tenth",
+      "Fourth"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The Constitution also lays down that a person shall be disqualified from being a member of Parliament if he is so disqualified on the ground of defection under the provisions of the Tenth Schedule. The question of disqualification under the Tenth Schedule is decided by the Chairman in the case of Rajya Sabha and Speaker in the case of Lok Sabha.</p>",
+    "question_index": 13
+  },
+  {
+    "question": "<p>In relation to parliamentary matters, March Rush is related to which of the following?</p>",
+    "options": [
+      "Introduction of new bills",
+      "Rise in expenditure",
+      "Bye-Election to parliamentary seats",
+      "Allocation of portfolios to new ministers",
+      "Address of President in parliament"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>The budget is based on the principle of annuality, that is, the Parliament grants money to the government for one financial year. If the granted money is not spent by the end of the financial year, then the balance expires and returns to the Consolidated Fund of India. This practice is known as the 'rule of lapse'. It facilitates effective financial control by the Parliament as no reserve funds can be built without its authorisation. However, the observance of this rule leads to heavy rush of expenditure towards the close of the financial year. This is popularly called as 'March Rush'.</p>",
+    "question_index": 14
+  },
+  {
+    "question": "<p>Which among the following provision cannot be amended by simple majority?</p>",
+    "options": [
+      "Directive Principles of State Policy",
+      "Use of official language",
+      "Fifth Schedule",
+      "Formation of new states",
+      "Elections to Parliament"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The majority of the provisions in the Constitution need to be amended by a special majority of the Parliament, that is, a majority (that is, more than 50 per cent) of the total membership of each House and a majority of two-thirds of the members of each House present and voting. Fundamental Rights, Directive Principles of State Policy are some provisions which can be amended only by this special majority.</p>",
+    "question_index": 15
+  },
+  {
+    "question": "<p>Who among the following has not held the office of Vice-President and President of India?</p>",
+    "options": [
+      "V.V. Giri",
+      "R. Venkatraman",
+      "Dr. Rajendra Prasad",
+      "Dr. S. Radha Krishnan",
+      "Dr. Zakir Hussain"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Dr. Rajendra Prasad was the first President of India and the only President to have held the post for two continuous terms. Except him, all the above-mentioned personalities have been Vice-Presidents of India before getting elected to the office of President.</p>",
+    "question_index": 16
+  },
+  {
+    "question": "<p>Which among the following was originally granted as a fundamental right was later made a legal right?</p>",
+    "options": [
+      "Right to form association",
+      "Freedom of movement",
+      "Right to Property",
+      "Prohibition of discrimination",
+      "Protection of culture of minorities"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>Right to property was deleted from the list of Fundamental Rights by the 44th Amendment Act, 1978. It is made a legal right under Article 300-A in Part XII of the Constitution.</p>",
+    "question_index": 17
+  },
+  {
+    "question": "<p>Who among the following presides over Joint sitting of parliament?</p>",
+    "options": [
+      "Speaker of Lok Sabha",
+      "Chairman of Rajya Sabha",
+      "President",
+      "Prime Minister",
+      "MP nominated by President"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>Speaker of Lok Sabha presides over the joint sitting of parliament. In case of deadlock in matters of legislation, president convenes a joint sitting of the house to resolve the issue. The matter will be resolved the majority voting. In case of absence of speaker, deputy speaker will preside. In his/her absence, deputy chairman of Rajya Sabha presides over the sitting.</p>",
+    "question_index": 18
+  },
+  {
+    "question": "<p>With the preponement of Budget session to 1<sup>st</sup> of February, which of the following parliamentary devices has become redundant?</p>",
+    "options": [
+      "Vote of Credit",
+      "Cut Motion",
+      "Vote on account",
+      "Vote on Demand for grants",
+      "Zero Hour"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>As the appropriation bill takes time to be passed, which only can authorize government to take money out of Consolidated fund of India, Vote on account provision was included. It is passed (or granted) after the general discussion on budget is over. It is generally granted for two months for an amount equivalent to one-sixth of the total estimation.</p>",
+    "question_index": 19
+  },
+  {
+    "question": "<p>Which among the following authority holds the Contingency Fund of India on behalf of President of India?</p>",
+    "options": [
+      "Finance Minister",
+      "Prime Minster",
+      "Vice-President",
+      "Finance Secretary",
+      "Council of Ministers"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The fund is held by the Finance Secretary (Department of Economic Affairs) on behalf of the President of India and it can be operated by executive action. The Contingency Fund of India exists for disasters and related unforeseen expenditures.</p>",
+    "question_index": 20
+  },
+  {
+    "question": "<p>Who among the following can remove a Judge of a Supreme Court from his/her office?</p>",
+    "options": [
+      "President",
+      "Chief Justice of India",
+      "Prime Minister",
+      "Parliament",
+      "None of the Above"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>A judge of the Supreme Court can be removed from his Office by an order of the president. The President can issue the removal order only after an address by Parliament has been presented to him. The address must be supported by a special majority of each House of Parliament.</p>",
+    "question_index": 21
+  },
+  {
+    "question": "<p>What is the total number of High Courts present in India?</p>",
+    "options": [
+      "18",
+      "29",
+      "24",
+      "21",
+      "26"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>At present, there are 24 high courts in the country. Out of them, three are common high courts. The institution of high court originated in India in 1862 when the high courts were set up at Calcutta, Bombay and Madras. In 1866, a fourth high court was established at Allahabad. Delhi is the only union territory that has a high court of its own (since 1966). The other union territories fall under the jurisdiction of different state high courts.</p>",
+    "question_index": 22
+  },
+  {
+    "question": "<p>What is the minimum age required to be elected as a member of panchayat?</p>",
+    "options": [
+      "25",
+      "18",
+      "21",
+      "24",
+      "30"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>A person to be elected as a member of Panchayat, he/ she must fulfill the qualification requirements needed to be elected as member of state legislature. But minimum age limit has been set as 21 years. Similarly, a person shall be disqualified for being chosen as or for being a member of panchayat if he is so disqualified, (a) under any law for the time being in force for the purpose of elections to the legislature of the state concerned, or (b) under any law made by the state legislature.</p>",
+    "question_index": 23
+  },
+  {
+    "question": "<p>What is the term of office of Election Commissioner?</p>",
+    "options": [
+      "2 years",
+      "5 years",
+      "3 years",
+      "7 years",
+      "6 years"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>Election Commission has been functioning as a multi-member body consisting of three election commissioners. They hold office for a term of six years or until they attain the age of 65 years, whichever is earlier. They can resign at any time or can also be removed before the expiry of their term.</p>",
+    "question_index": 24
+  },
+  {
+    "question": "<p>Which among the following religious communities does NOT enjoy minority status in India?</p>",
+    "options": [
+      "Sikhs",
+      "Jains",
+      "Zoroastrians",
+      "Buddhists",
+      "Lingayats"
+    ],
+    "correct_option_id": 4,
+    "solution": "<p>The Ministry of Minority Affairs, is a ministry of the Government of India established in 2006. It is the apex body for the central government's regulatory and developmental programmes for the minority religious communities in India, which include Muslims, Sikhs, Christians, Buddhists, Zoroastrians (Parsis) and Jains notified as minority communities.</p>",
+    "question_index": 25
+  },
+  {
+    "question": "<p>Right under which article cannot be abridged even during period of emergency?</p>",
+    "options": [
+      "Article 19",
+      "Article 14",
+      "Article 20",
+      "Article 26",
+      "Article 29"
+    ],
+    "correct_option_id": 2,
+    "solution": "<p>The right to protection in respect of conviction for offences (Article 20) and the right to life and personal liberty (Article 21) remain enforceable even during emergency. when a proclamation of national emergency is made, the six Fundamental Rights under Article 19 are automatically suspended. Remaining rights can be suspended by an order of President except Article 20 and 21.</p>",
+    "question_index": 26
+  },
+  {
+    "question": "<p>Which among the following British India act opened the posts under Civil Services to Indians?</p>",
+    "options": [
+      "Regulation Act of 1776",
+      "Government of India Act 1858",
+      "Indian Councils Act 1861",
+      "Charter Act 1853",
+      "Pitts India Act 1784"
+    ],
+    "correct_option_id": 3,
+    "solution": "<p>The charter act of 1853 introduced an open competition system of selection and recruitment of civil servants. The covenanted civil service was thus thrown open to the Indians also. Accordingly, the Macaulay Committee (the Committee on the Indian Civil Service) was appointed in 1854. It also introduced, for the first time, local representation in the Indian (Central) Legislative Council. Of the six new legislative members of the governor-general's council, four members were appointed by the local (provincial) governments of Madras, Bombay, Bengal and Agra.</p>",
+    "question_index": 27
+  },
+  {
+    "question": "<p>In which year was the system of Budget was first introduced in British India?</p>",
+    "options": [
+      "1860",
+      "1885",
+      "1915",
+      "1905",
+      "1935"
+    ],
+    "correct_option_id": 0,
+    "solution": "<p>The system of Budget was introduced in British India in 1860. The Budget was first introduced in India on 7th April, 1860 from East-India Company to British Crown. The first Indian Budget was presented by James Wilson on February 18, 1869. Mr Wilson was the Finance Member of the India Council that advised the Indian Viceroy.</p>",
+    "question_index": 28
+  },
+  {
+    "question": "<p>Which among the following term was not originally present in Preamble of the constitution?</p>",
+    "options": [
+      "Democratic",
+      "Secular",
+      "Sovereign",
+      "Justice",
+      "Fraternity"
+    ],
+    "correct_option_id": 1,
+    "solution": "<p>Sovereign, Socialist, Secular, Democratic, Republic, Justice, Liberty, Equality and Fraternity are the key words present in Preamble. But of this, Socialist and secular were added by 42<sup>nd</sup> amendment to the constitution. Along with this integrity of the nation was also added under fraternity.</p>",
+    "question_index": 29
+  }
+];
+        const sectionsData = null;
+        const marksPerQ = 3.0;
+        const negMarks = 1.0;
+        const totalDuration = 60;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new CBTExamEngine({
+                questions: questions,
+                sections: sectionsData,
+                marksPerQ: marksPerQ,
+                negMarks: negMarks,
+                totalDuration: totalDuration
+            });
+        });
+    </script>
+
+    
+    
+
+    
+    
+
+    
+    
+</body>
+</html>
