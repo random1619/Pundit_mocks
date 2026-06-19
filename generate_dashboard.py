@@ -1,11 +1,20 @@
 import os
 import json
+import urllib.parse
+import html
+import re
+
+def natural_sort_key(s):
+    """Key for natural sorting (e.g., 'Mock 2' comes before 'Mock 10')"""
+    return [int(text) if text.isdigit() else text.lower() for text in re.split('([0-9]+)', s)]
 
 def generate_dashboard():
-    root_dir = os.getcwd()
+    # Use the script's directory as the root directory to be more robust
+    root_dir = os.path.dirname(os.path.abspath(__file__))
     dashboard_file = os.path.join(root_dir, 'index.html')
     
-    exclude_dirs = {'.git', '.vscode', 'node_modules', '.trae', 'venv', '__pycache__'}
+    exclude_dirs = {'.git', '.vscode', 'node_modules', '.trae', 'venv', '__pycache__', 'css', 'js', 'scss', 'assets'}
+    exclude_files = {'index.html', 'package.json', 'package-lock.json', 'generate_dashboard.py', '.gitignore', 'README.md'}
     
     html_template = """<!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
@@ -13,6 +22,9 @@ def generate_dashboard():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pundits | Mocks Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -46,7 +58,8 @@ def generate_dashboard():
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--glass-border);
-            sticky: top;
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
@@ -108,6 +121,7 @@ def generate_dashboard():
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
+            user-select: none;
         }
 
         .mock-list {
@@ -159,6 +173,12 @@ def generate_dashboard():
             border-radius: 12px;
             border: 1px solid var(--glass-border);
             background: var(--glass-bg);
+            transition: all 0.2s;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(99, 102, 241, 0.1);
         }
 
         ::-webkit-scrollbar {
@@ -180,10 +200,19 @@ def generate_dashboard():
             padding: 40px;
             display: none;
         }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar sticky-top">
+    <nav class="navbar">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="#">
                 <div class="bg-primary rounded-3 p-1">
@@ -192,7 +221,7 @@ def generate_dashboard():
                 <span class="fw-bold tracking-tight">PUNDITS</span>
             </a>
             <div class="d-flex align-items-center gap-3">
-                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
                     <i data-lucide="sun" id="themeIcon"></i>
                 </button>
             </div>
@@ -209,7 +238,7 @@ def generate_dashboard():
     <div class="container mb-5">
         <div class="search-container mb-5">
             <i data-lucide="search" class="search-icon"></i>
-            <input type="text" id="searchInput" class="form-control search-input" placeholder="Search by mock name or category...">
+            <input type="text" id="searchInput" class="form-control search-input" placeholder="Search by mock name or category..." aria-label="Search mocks">
         </div>
 
         <div class="row g-4" id="dashboardContent">
@@ -294,7 +323,8 @@ def generate_dashboard():
         // Toggle category lists
         function toggleCategory(id) {
             const list = document.getElementById(id);
-            const icon = list.previousElementSibling.querySelector('.chevron-icon');
+            const header = list.previousElementSibling;
+            const icon = header.querySelector('.chevron-icon');
             if (list.classList.contains('d-none')) {
                 list.classList.remove('d-none');
                 icon.style.transform = 'rotate(180deg)';
@@ -311,62 +341,77 @@ def generate_dashboard():
     categories_html = ""
     categories = []
     
-    for item in sorted(os.listdir(root_dir)):
-        item_path = os.path.join(root_dir, item)
-        if os.path.isdir(item_path) and item not in exclude_dirs:
-            categories.append(item)
+    try:
+        for item in sorted(os.listdir(root_dir)):
+            item_path = os.path.join(root_dir, item)
+            if os.path.isdir(item_path) and item not in exclude_dirs:
+                categories.append(item)
 
-    for idx, category in enumerate(categories):
-        cat_path = os.path.join(root_dir, category)
-        mocks = []
-        
-        for root, dirs, files in os.walk(cat_path):
-            for file in files:
-                if file.endswith('.html') and file != 'index.html':
-                    rel_path = os.path.relpath(os.path.join(root, file), root_dir).replace('\\', '/')
-                    mocks.append({'name': file.replace('.html', ''), 'path': rel_path})
-        
-        if mocks:
-            mocks.sort(key=lambda x: x['name'])
-            cat_id = f"cat_{idx}"
+        for idx, category in enumerate(categories):
+            cat_path = os.path.join(root_dir, category)
+            mocks = []
             
-            categories_html += f"""
-            <div class="col-md-6 col-lg-4 category-section">
-                <div class="category-card">
-                    <div class="category-header" onclick="toggleCategory('{cat_id}')">
-                        <div class="d-flex align-items-center gap-2">
-                            <i data-lucide="folder" style="width: 20px; height: 20px; color: #6366f1;"></i>
-                            <span class="fw-semibold category-title">{category}</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="badge-count">{len(mocks)}</span>
-                            <i data-lucide="chevron-down" class="chevron-icon" style="width: 18px; height: 18px; transition: transform 0.3s;"></i>
-                        </div>
-                    </div>
-                    <ul class="mock-list" id="{cat_id}">
-            """
+            for root, dirs, files in os.walk(cat_path):
+                # Filter out excluded directories in the walk
+                dirs[:] = [d for d in dirs if d not in exclude_dirs]
+                
+                for file in files:
+                    if file.endswith('.html') and file not in exclude_files:
+                        rel_path = os.path.relpath(os.path.join(root, file), root_dir).replace('\\', '/')
+                        # URL encode the path but keep forward slashes
+                        safe_path = urllib.parse.quote(rel_path).replace('%2B', '+') # Keep '+' signs as they are common in filenames
+                        mocks.append({
+                            'name': file.replace('.html', ''), 
+                            'path': safe_path
+                        })
             
-            for mock in mocks:
+            if mocks:
+                # Use natural sorting for mock names
+                mocks.sort(key=lambda x: natural_sort_key(x['name']))
+                cat_id = f"cat_{idx}"
+                safe_category = html.escape(category)
+                
                 categories_html += f"""
-                        <li class="mock-item">
-                            <a href="{mock['path']}" class="mock-link" target="_blank">
-                                <i data-lucide="file-text" style="width: 16px; height: 16px; opacity: 0.6;"></i>
-                                <span class="text-truncate">{mock['name']}</span>
-                            </a>
-                        </li>
+                <div class="col-md-6 col-lg-4 category-section fade-in">
+                    <div class="category-card">
+                        <div class="category-header" onclick="toggleCategory('{cat_id}')" role="button" aria-expanded="true" aria-controls="{cat_id}">
+                            <div class="d-flex align-items-center gap-2">
+                                <i data-lucide="folder" style="width: 20px; height: 20px; color: #6366f1;"></i>
+                                <span class="fw-semibold category-title">{safe_category}</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="badge-count">{len(mocks)}</span>
+                                <i data-lucide="chevron-down" class="chevron-icon" style="width: 18px; height: 18px; transition: transform 0.3s; transform: rotate(0deg);"></i>
+                            </div>
+                        </div>
+                        <ul class="mock-list" id="{cat_id}">
                 """
-            
-            categories_html += """
-                    </ul>
+                
+                for mock in mocks:
+                    safe_mock_name = html.escape(mock['name'])
+                    categories_html += f"""
+                            <li class="mock-item">
+                                <a href="{mock['path']}" class="mock-link" target="_blank">
+                                    <i data-lucide="file-text" style="width: 16px; height: 16px; opacity: 0.6;"></i>
+                                    <span class="text-truncate" title="{safe_mock_name}">{safe_mock_name}</span>
+                                </a>
+                            </li>
+                    """
+                
+                categories_html += """
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            """
+                """
 
-    final_html = html_template.replace("{{CONTENT}}", categories_html)
-    
-    with open(dashboard_file, 'w', encoding='utf-8') as f:
-        f.write(final_html)
-    print(f"Modern dashboard generated successfully at {dashboard_file}")
+        final_html = html_template.replace("{{CONTENT}}", categories_html)
+        
+        with open(dashboard_file, 'w', encoding='utf-8') as f:
+            f.write(final_html)
+        print(f"Modern dashboard generated successfully at {dashboard_file}")
+
+    except Exception as e:
+        print(f"An error occurred while generating the dashboard: {e}")
 
 if __name__ == "__main__":
     generate_dashboard()
